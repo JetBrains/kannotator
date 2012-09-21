@@ -12,6 +12,8 @@ import edu.uci.ics.jung.algorithms.layout.CircleLayout
 import java.awt.Dimension
 import edu.uci.ics.jung.visualization.BasicVisualizationServer
 import javax.swing.JFrame
+import edu.uci.ics.jung.visualization.decorators.ToStringLabeller
+import org.apache.commons.collections15.Transformer
 
 
 fun main(args: Array<String>) {
@@ -37,6 +39,9 @@ fun main(args: Array<String>) {
     // The BasicVisualizationServer<V,E> is parameterized by the edge types
     val vv = BasicVisualizationServer(layout);
     vv.setPreferredSize(Dimension(350,350)); //Sets the viewing area size
+    vv.getRenderContext()!!.setVertexLabelTransformer(object : Transformer<Instruction, String> {
+        public override fun transform(instruction: Instruction): String = instruction.metadata.toString()
+    })
 
     val frame = JFrame("Simple Graph View");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,4 +50,6 @@ fun main(args: Array<String>) {
     frame.setVisible(true);
 }
 
-private data class StringInstructionMetadata(val data: String): InstructionMetadata {}
+private class StringInstructionMetadata(val data: String): InstructionMetadata {
+    public fun toString(): String = data
+}
