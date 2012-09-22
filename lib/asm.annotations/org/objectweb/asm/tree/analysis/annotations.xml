@@ -1,0 +1,171 @@
+<root>
+    <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt;[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt;[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt;[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun analyze(owner : String, m : MethodNode) : Array&lt;Frame&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends org.objectweb.asm.tree.analysis.BasicValue&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun naryOperation(insn : AbstractInsnNode, values : List&lt;out BasicValue&gt;) : BasicValue&quot;"/>
+        </annotation>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V newValue(org.objectweb.asm.Type) 0'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V newOperation(org.objectweb.asm.tree.AbstractInsnNode) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V newOperation(org.objectweb.asm.tree.AbstractInsnNode)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun newOperation(insn : AbstractInsnNode) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V copyOperation(org.objectweb.asm.tree.AbstractInsnNode, V) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V copyOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun copyOperation(insn : AbstractInsnNode, value : V) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unaryOperation(insn : AbstractInsnNode, value : V) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun binaryOperation(insn : AbstractInsnNode, value1 : V, value2 : V) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V, V) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun ternaryOperation(insn : AbstractInsnNode, value1 : V, value2 : V, value3 : V) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun naryOperation(insn : AbstractInsnNode, values : List&lt;out V&gt;) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;fun returnOperation(insn : AbstractInsnNode, value : V, expected : V) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V merge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun merge(v : V, w : V) : V&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue newValue(org.objectweb.asm.Type) 0'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue newOperation(org.objectweb.asm.tree.AbstractInsnNode) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue newOperation(org.objectweb.asm.tree.AbstractInsnNode)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue copyOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue copyOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue copyOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 3'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends org.objectweb.asm.tree.analysis.BasicValue&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends org.objectweb.asm.tree.analysis.BasicValue&gt;) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue merge(org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue merge(org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue merge(org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Analyzer boolean newControlFlowExceptionEdge(int, org.objectweb.asm.tree.TryCatchBlockNode) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>
