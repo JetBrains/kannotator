@@ -26,25 +26,19 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V newOperation(org.objectweb.asm.tree.AbstractInsnNode)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun newOperation(insn : AbstractInsnNode) : V&quot;"/>
-        </annotation>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V copyOperation(org.objectweb.asm.tree.AbstractInsnNode, V) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter V copyOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun copyOperation(insn : AbstractInsnNode, value : V) : V&quot;"/>
-        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun unaryOperation(insn : AbstractInsnNode, value : V) : V&quot;"/>
+            <val name="value" val="&quot;fun unaryOperation(insn : AbstractInsnNode, value : V) : V?&quot;"/>
         </annotation>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -52,8 +46,9 @@
     <item name='org.objectweb.asm.tree.analysis.Interpreter V binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value"
-                 val="&quot;fun binaryOperation(insn : AbstractInsnNode, value1 : V, value2 : V) : V&quot;"/>
+                 val="&quot;fun binaryOperation(insn : AbstractInsnNode, value1 : V, value2 : V) : V?&quot;"/>
         </annotation>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V, V) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -61,8 +56,9 @@
     <item name='org.objectweb.asm.tree.analysis.Interpreter V ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value"
-                 val="&quot;fun ternaryOperation(insn : AbstractInsnNode, value1 : V, value2 : V, value3 : V) : V&quot;"/>
+                 val="&quot;fun ternaryOperation(insn : AbstractInsnNode, value1 : V, value2 : V, value3 : V) : V?&quot;"/>
         </annotation>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends V&gt;) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -70,8 +66,9 @@
     <item name='org.objectweb.asm.tree.analysis.Interpreter V naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value"
-                 val="&quot;fun naryOperation(insn : AbstractInsnNode, values : List&lt;out V&gt;) : V&quot;"/>
+                 val="&quot;fun naryOperation(insn : AbstractInsnNode, values : List&lt;out V&gt;) : V?&quot;"/>
         </annotation>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -167,5 +164,17 @@
     </item>
     <item name='org.objectweb.asm.tree.analysis.Analyzer boolean newControlFlowExceptionEdge(int, org.objectweb.asm.tree.TryCatchBlockNode) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V newValue(org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun newValue(_type : Type?) : V?&quot;"/>
+        </annotation>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V copyOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun copyOperation(insn : AbstractInsnNode, value : V) : V?&quot;"/>
+        </annotation>
     </item>
 </root>
