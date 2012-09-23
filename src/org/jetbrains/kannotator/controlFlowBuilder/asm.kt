@@ -27,13 +27,13 @@ import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.FrameNode
 
-fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
-    val classVisitor = MyClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
+public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
+    val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
     classReader.accept(classVisitor, 0)
     return classVisitor.graph
 }
 
-class MyClassVisitor(val className: String, val methodName: String, val methodDesc: String) : ClassVisitor(ASM4) {
+private class GraphBuilderClassVisitor(val className: String, val methodName: String, val methodDesc: String) : ClassVisitor(ASM4) {
 
     private val graphBuilder = ControlFlowGraphBuilder<Label>()
 
@@ -47,11 +47,11 @@ class MyClassVisitor(val className: String, val methodName: String, val methodDe
             return mv
         }
         val methodNode = MethodNode(access, name, desc, signature, exceptions)
-        return MyMethodVisitor(className, graphBuilder, methodNode)
+        return GraphBuilderMethodVisitor(className, graphBuilder, methodNode)
     }
 }
 
-class MyMethodVisitor(
+private class GraphBuilderMethodVisitor(
         val owner: String,
         val graphBuilder: ControlFlowGraphBuilder<Label>,
         val methodNode: MethodNode
@@ -59,7 +59,7 @@ class MyMethodVisitor(
 
     public override fun visitEnd() {
         super.visitEnd()
-        val analyzer = MyAnalyzer(graphBuilder, methodNode)
+        val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
         analyzer.analyze(owner, methodNode)
         val frames = analyzer.getFrames()
         val instructions = methodNode.instructions
@@ -75,7 +75,7 @@ class MyMethodVisitor(
 }
 
 
-class MyAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<BasicValue>(MyInterpreter()) {
+private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<BasicValue>(GraphBuilderInterpreter()) {
     private val instructions = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList()
 
     fun AbstractInsnNode.toInstruction(): Instruction {
@@ -123,6 +123,6 @@ class MyAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: Meth
 
 }
 
-class MyInterpreter: BasicInterpreter() {
+private class GraphBuilderInterpreter: BasicInterpreter() {
 
 }
