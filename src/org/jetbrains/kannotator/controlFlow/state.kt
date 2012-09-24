@@ -7,10 +7,12 @@ public trait State<VI> {
 }
 
 public trait Stack {
+    val size: Int
     fun get(indexFromTop: Int): Set<Value>
 }
 
 public trait LocalVariableTable {
+    val size: Int
     fun get(variableIndex: Int): Set<Value>
 }
 
