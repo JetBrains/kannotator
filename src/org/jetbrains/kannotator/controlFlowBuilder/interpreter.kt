@@ -41,11 +41,12 @@ import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.InsnList
 import org.jetbrains.kannotator.controlFlow.Value
 
-private class TypedValue(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value {
+private class TypedValue(val _type: Type?, val interesting: Boolean, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = _type?.getSize() ?: 1
 
     public fun toString(): String {
-        return "[type=$_type; createdAt ${createdAtInsn?.toOpcodeString()}; id=${System.identityHashCode(this)}}]"
+        val typeAndId = "$_type@${Integer.toHexString(System.identityHashCode(this))}"
+        return (if (interesting) "!" else "") + typeAndId
     }
 }
 
@@ -84,13 +85,13 @@ private class GraphBuilderInterpreter: Interpreter<PossibleTypedValues>(ASM4) {
         if (_type?.getSort() == Type.VOID)
             return null
         if (_type == null) return AsmPossibleValues()
-        return AsmPossibleValues(TypedValue(_type))
+        return AsmPossibleValues(TypedValue(_type, false))
     }
 
     private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): PossibleTypedValues? {
         if (_type.getSort() == Type.VOID)
             return null
-        return AsmPossibleValues(TypedValue(_type, insn))
+        return AsmPossibleValues(TypedValue(_type, false, insn))
     }
 
     public override fun newOperation(insn: AbstractInsnNode): PossibleTypedValues? {
