@@ -27,7 +27,6 @@ import java.util.ArrayList
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.FrameNode
-import org.jetbrains.kannotator.controlFlow.PossibleValues
 import org.objectweb.asm.tree.analysis.Value
 import org.objectweb.asm.tree.LdcInsnNode
 import org.objectweb.asm.Handle
@@ -139,7 +138,7 @@ private enum class Size(val size: Int) {
     TWO : Size(2)
 }
 
-private class AsmPossibleValues(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value, PossibleValues {
+private class AsmPossibleValues(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public override fun getSize(): Int = _type?.getSize() ?: 1
 }
 
