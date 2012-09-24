@@ -31,7 +31,7 @@ public class ControlFlowGraphBuilder<L: Any> {
     public fun getLabelInstruction(label: L): Instruction {
         checkFinished()
         return labelInstructions.getOrPut(label) {
-            newInstruction(LabelMetadata(label)) as InstructionImpl
+            newInstruction(LabelMetadata(labelInstructions.size(), label)) as InstructionImpl
         }
     }
 
@@ -80,7 +80,7 @@ private class ControlFlowEdgeImpl(
     public fun toString(): String = "${from.metadata} -> ${to.metadata}"
 }
 
-private class LabelMetadata<L: Any>(val label: L): InstructionMetadata {
-    public fun toString(): String = label.toString()
+public class LabelMetadata<L: Any>(val id: Int, val label: L): InstructionMetadata {
+    public fun toString(): String = "L$id"
 }
 
