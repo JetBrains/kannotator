@@ -36,6 +36,7 @@ import org.objectweb.asm.tree.IntInsnNode
 import org.objectweb.asm.tree.MultiANewArrayInsnNode
 import org.objectweb.asm.tree.InvokeDynamicInsnNode
 import org.objectweb.asm.tree.MethodInsnNode
+import org.jetbrains.kannotator.asm.util.toOpcodeString
 
 public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
     val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
@@ -74,19 +75,38 @@ private class GraphBuilderMethodVisitor(
         val frames = analyzer.getFrames()
         val instructions = methodNode.instructions
         for ((i, frame) in frames.indexed) {
+            val insn = instructions[i]
             if (frame == null) {
-                println("Unreachable: ${instructions[i]}")
+                println("Unreachable: ${insn}")
             }
             else {
-                println(instructions[i])
+                println("Frame")
+                val localCount = frame.getLocals()
+                println("  Locals: ${localCount}")
+                for (local in 0..frame.getLocals() - 1) {
+                    val value = frame.getLocal(local)
+                    println("    locals[$local] = $value")
+                }
+                val stackSize = frame.getStackSize()
+                println("  Stack: ${stackSize}")
+                for (indexFromTop in 0..stackSize - 1) {
+                    val value = frame.getStack(indexFromTop)
+                    println("    stack[$indexFromTop] = $value")
+                }
+                println("Offset $i: ${insn.toOpcodeString()}")
             }
         }
     }
+
 }
 
 
 private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<AsmPossibleValues>(GraphBuilderInterpreter()) {
-    private val instructions = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList()
+    private val instructions = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
+
+    {
+        graph.setEntryPoint(instructions[0])
+    }
 
     fun AbstractInsnNode.toInstruction(): Instruction {
         if (this is LabelNode) {
@@ -94,12 +114,6 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
         }
         return graph.newInstruction(Metadata(this))
     }
-
-
-    {
-        graph.setEntryPoint(instructions[0])
-    }
-
 
     private class Metadata(val asmInstruction: AbstractInsnNode) : InstructionMetadata {
         public fun toString(): String {
@@ -133,26 +147,56 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
 
 }
 
-private enum class Size(val size: Int) {
-    ONE : Size(1)
-    TWO : Size(2)
+private class AsmValue(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value {
+    public override fun getSize(): Int = _type?.getSize() ?: 1
+
+    public override fun toString(): String {
+        return "[type=$_type; createdAt ${createdAtInsn?.toOpcodeString()}; id=${System.identityHashCode(this)}}]"
+    }
 }
 
-private class AsmPossibleValues(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value {
-    public override fun getSize(): Int = _type?.getSize() ?: 1
+fun AsmPossibleValues(value: AsmValue) = AsmPossibleValues(value.getSize(), hashSet(value))
+
+fun AsmPossibleValues(vararg values: AsmValue): AsmPossibleValues{
+    if (values.isEmpty()) {
+        return AsmPossibleValues(1, hashSet())
+    }
+    val size = values[0].getSize()
+    for (value in values) {
+        if (value.getSize() != size) throw IllegalStateException("Inconsistent sizes: ${values.toList()}")
+    }
+    return AsmPossibleValues(size, values.toSet())
+}
+
+private class AsmPossibleValues(val _size: Int, val values: Set<AsmValue>) : Value {
+    public override fun getSize(): Int = _size
+
+    public override fun toString(): String {
+        return values.toString()
+    }
+}
+
+fun AsmPossibleValues.merge(other: AsmPossibleValues): AsmPossibleValues {
+    assert(getSize() == other.getSize()) {"Sizes don't match"}
+
+    if (values.isEmpty()) return other
+    if (other.values.isEmpty()) return this
+
+    return AsmPossibleValues(getSize(), (values + other.values).toSet())
 }
 
 private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
     public override fun newValue(_type: Type?): AsmPossibleValues? {
         if (_type?.getSort() == Type.VOID)
             return null
-        return AsmPossibleValues(_type)
+        if (_type == null) return AsmPossibleValues()
+        return AsmPossibleValues(AsmValue(_type))
     }
 
     private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): AsmPossibleValues? {
         if (_type.getSort() == Type.VOID)
             return null
-        return AsmPossibleValues(_type, insn)
+        return AsmPossibleValues(AsmValue(_type, insn))
     }
 
     public override fun newOperation(insn: AbstractInsnNode): AsmPossibleValues? {
@@ -277,7 +321,10 @@ private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
 
     public override fun merge(v: AsmPossibleValues, w: AsmPossibleValues): AsmPossibleValues {
         if (v != w) {
-             newValue(null)
+            println("Merge: $v and $w")
+            val result = v merge w
+            println("result: $result")
+            return result
         }
         return v
     }
