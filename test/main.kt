@@ -90,31 +90,9 @@ fun displayJungGraph(graph: DirectedGraph<Instruction, ControlFlowEdge>) {
     frame.setVisible(true);
 }
 
-class TestSubject {
-    fun foo() {
-        var i: Any? = "a"
-        if (i == null) {
-            i = "b"
-        }
-        else {
-            i = null
-        }
-        //        while (i != null) {
-        //             i = 2
-        //             if (i == null) {
-        //                 i = 3
-        //             }
-        //             else {
-        //                 i = null
-        //             }
-        //        }
-        println(i)
-    }
-}
-
 fun main(args: Array<String>) {
 
-    val graph = buildControlFlowGraph(ClassReader(javaClass<TestSubject>().getCanonicalName()), "foo", "()V")
+    val graph = buildControlFlowGraph(ClassReader(javaClass<TestSubject>().getCanonicalName()), "foo", "(Ljava/lang/String;)V")
     displayJungGraph(graph.toJungGraph())
 
     //    val builder = ControlFlowGraphBuilder<String>()
