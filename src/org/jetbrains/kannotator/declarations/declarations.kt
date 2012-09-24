@@ -1,12 +1,13 @@
 package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Type
+import org.objectweb.asm.commons.Method as AsmMethod
 
-public data class Method(
+public class Method(
     public val declaringClass: Type,
-    public val method: org.objectweb.asm.commons.Method
+    public val asmMethod: AsmMethod
 ) {
     public fun toString(): String {
-        return declaringClass.getClassName() + ":" + method;
+        return declaringClass.getClassName() + ":" + asmMethod;
     }
 }
