@@ -42,11 +42,11 @@ fun FunDependencyGraph.toJungGraph(): DirectedSparseMultigraph<FunctionNode, Fun
 
 fun main(args: Array<String>) {
     val graph = buildFunctionDependencyGraph(ClassReader(javaClass<TestSubject>().getCanonicalName()))
-    displayJungGraph(
+    displayJungGraph<FunctionNode, FunDependencyEdge>(
             graph.toJungGraph(),
             object : Transformer<FunctionNode, String> {
                 public override fun transform(functionNode: FunctionNode): String = functionNode.name
             },
-            null as Transformer<FunDependencyEdge, String>
+            null
     )
 }
