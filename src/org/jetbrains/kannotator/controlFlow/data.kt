@@ -2,7 +2,7 @@ package org.jetbrains.kannotator.controlFlow
 
 import java.util.HashMap
 
-public trait DataKey<in H, out V: Any>
+public class DataKey<in H, out V: Any>
 
 public trait DataHolder<T : DataHolder<T>> {
     fun get<V : Any>(key: DataKey<T, V>): V?
