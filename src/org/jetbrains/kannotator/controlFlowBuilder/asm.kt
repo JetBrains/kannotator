@@ -39,6 +39,7 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.asm.util.toOpcodeString
 import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.InsnList
+import java.util.HashSet
 
 public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
     val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
@@ -74,6 +75,8 @@ private class GraphBuilderMethodVisitor(
         super.visitEnd()
         val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
         analyzer.analyze(owner, methodNode)
+
+        val graph = graphBuilder.build()
 
         printFrames(analyzer.getFrames(), methodNode.instructions)
     }
@@ -111,6 +114,8 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
         graph.setEntryPoint(instructions[0])
     }
 
+    private val edges: MutableSet<Pair<Instruction, Instruction>> = HashSet()
+
     fun AbstractInsnNode.toInstruction(): Instruction {
         if (this is LabelNode) {
             return graph.getLabelInstruction(this.getLabel())
@@ -145,7 +150,9 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
     }
 
     private fun createEdge(from: Int, to: Int) {
-        graph.addEdge(instructions[from], instructions[to])
+        if (edges.add(Pair(instructions[from], instructions[to]))) {
+            graph.addEdge(instructions[from], instructions[to])
+        }
     }
 
 }
