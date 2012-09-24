@@ -91,8 +91,17 @@ private class GraphBuilderMethodVisitor(
     }
 }
 
+class AsmInstructionMetadata(val asmInstruction: AbstractInsnNode) : InstructionMetadata {
+    public fun toString(): String {
+        val opcode = asmInstruction.getOpcode()
+        if (opcode == -1) {
+            return when (asmInstruction) {
+                is LineNumberNode -> "Line num: ${asmInstruction.line}"
+                is FrameNode -> "frame node"
+                else -> asmInstruction.toString()!!
             }
         }
+        return Printer.OPCODES[opcode]!!
     }
 }
 
@@ -111,19 +120,6 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
         }
         return graph.newInstruction(Metadata(this))
     }
-
-    private class Metadata(val asmInstruction: AbstractInsnNode) : InstructionMetadata {
-        public fun toString(): String {
-            val opcode = asmInstruction.getOpcode()
-            if (opcode == -1) {
-                return when (asmInstruction) {
-                    is LineNumberNode -> "Line num: ${asmInstruction.line}"
-                    is FrameNode -> "frame node"
-                    else -> asmInstruction.toString()!!
-                }
-            }
-            return Printer.OPCODES[opcode]!!
-        }
 
     }
 
