@@ -40,35 +40,13 @@ fun FunDependencyGraph.toJungGraph(): DirectedSparseMultigraph<FunctionNode, Fun
     return jungGraph
 }
 
-fun displayJungGraph(graph: DirectedGraph<FunctionNode, FunDependencyEdge>) {
-    val layout = KKLayout(graph);
-    layout.setSize(Dimension(800, 800));
-    // The BasicVisualizationServer<V,E> is parameterized by the edge types
-    val prim = MinimumSpanningForestMaker.minimumSpanningForest(graph)
-    val tree = prim.getForest();
-    val treeLayout = TreeLayout(tree)
-    val graphAsTree = StaticLayout(graph, treeLayout as Transformer<FunctionNode, Point2D?>)
-
-    val vv = VisualizationViewer(graphAsTree);
-
-    vv.setPreferredSize(Dimension(850, 850)); //Sets the viewing area size
-    vv.getRenderContext()!!.setVertexLabelTransformer(object : Transformer<FunctionNode, String> {
-        public override fun transform(functionNode: FunctionNode): String = functionNode.name
-    })
-
-    val gm = DefaultModalGraphMouse<FunctionNode, FunDependencyEdge>()
-    vv.setGraphMouse(gm)
-
-    val frame = JFrame("Simple Graph View");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.getContentPane()!!.add(vv, BorderLayout.CENTER);
-    frame.getContentPane()!!.add(gm.getModeComboBox(), BorderLayout.NORTH);
-
-    frame.pack();
-    frame.setVisible(true);
-}
-
 fun main(args: Array<String>) {
     val graph = buildFunctionDependencyGraph(ClassReader(javaClass<TestSubject>().getCanonicalName()))
-    displayJungGraph(graph.toJungGraph())
+    displayJungGraph(
+            graph.toJungGraph(),
+            object : Transformer<FunctionNode, String> {
+                public override fun transform(functionNode: FunctionNode): String = functionNode.name
+            },
+            null as Transformer<FunDependencyEdge, String>
+    )
 }

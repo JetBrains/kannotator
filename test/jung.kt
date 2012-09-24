@@ -1,40 +1,19 @@
-import edu.uci.ics.jung.graph.Graph
-import edu.uci.ics.jung.graph.SparseMultigraph
-import edu.uci.ics.jung.graph.util.EdgeType
-import edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph
-import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
-import edu.uci.ics.jung.graph.DirectedSparseMultigraph
-import edu.uci.ics.jung.algorithms.layout.CircleLayout
-import java.awt.Dimension
-import edu.uci.ics.jung.visualization.BasicVisualizationServer
-import javax.swing.JFrame
-import edu.uci.ics.jung.visualization.decorators.ToStringLabeller
-import org.apache.commons.collections15.Transformer
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import edu.uci.ics.jung.graph.DirectedGraph
-import edu.uci.ics.jung.algorithms.layout.SpringLayout
-import edu.uci.ics.jung.algorithms.layout.SpringLayout2
-import edu.uci.ics.jung.algorithms.layout.FRLayout
 import edu.uci.ics.jung.algorithms.layout.KKLayout
-import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse
-import edu.uci.ics.jung.visualization.VisualizationViewer
-import java.awt.BorderLayout
-import edu.uci.ics.jung.visualization.transform.shape.ViewLensSupport
-import edu.uci.ics.jung.visualization.Layer
-import edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer
-import edu.uci.ics.jung.visualization.control.ModalLensGraphMouse
-import edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin
-import edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2
-import edu.uci.ics.jung.graph.DelegateForest
-import edu.uci.ics.jung.graph.DelegateTree
-import org.apache.commons.collections15.functors.ConstantTransformer
-import edu.uci.ics.jung.algorithms.layout.TreeLayout
 import edu.uci.ics.jung.algorithms.layout.StaticLayout
+import edu.uci.ics.jung.algorithms.layout.TreeLayout
+import edu.uci.ics.jung.graph.DirectedGraph
+import edu.uci.ics.jung.graph.DirectedSparseMultigraph
+import edu.uci.ics.jung.graph.util.EdgeType
+import edu.uci.ics.jung.visualization.VisualizationViewer
+import edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse
+import java.awt.BorderLayout
+import java.awt.Dimension
 import java.awt.geom.Point2D
-import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
-import kotlinlib.buildString
-import java.util.HashSet
+import javax.swing.JFrame
+import org.apache.commons.collections15.Transformer
+import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.controlFlow.Instruction
 
 fun ControlFlowGraph.toJungGraph(): DirectedSparseMultigraph<Instruction, ControlFlowEdge> {
     val jungGraph = DirectedSparseMultigraph<Instruction, ControlFlowEdge>()
@@ -46,47 +25,33 @@ fun ControlFlowGraph.toJungGraph(): DirectedSparseMultigraph<Instruction, Contro
     return jungGraph
 }
 
-fun displayJungGraph(graph: DirectedGraph<Instruction, ControlFlowEdge>) {
+fun displayJungGraph<V, E>(
+        graph: DirectedGraph<V, E>,
+        vertexLabelTransformer: Transformer<V, String>?,
+        edgeLabelTransformer: Transformer<E, String>?
+) {
     val layout = KKLayout(graph);
     layout.setSize(Dimension(800, 800)); // sets the initial size of the space
     // The BasicVisualizationServer<V,E> is parameterized by the edge types
     val prim = MinimumSpanningForestMaker.minimumSpanningForest(graph)
     val tree = prim.getForest();
     val treeLayout = TreeLayout(tree)
-    val graphAsTree = StaticLayout(graph, treeLayout as Transformer<Instruction, Point2D?>)
+    val graphAsTree = StaticLayout(graph, treeLayout as Transformer<V, Point2D?>)
     //    treeLayout.setSize(Dimension(800, 800))
 
     val vv = VisualizationViewer(graphAsTree);
     //    val vv = VisualizationViewer(layout);
     vv.setPreferredSize(Dimension(850, 850)); //Sets the viewing area size
-    vv.getRenderContext().setVertexLabelTransformer(object : Transformer<Instruction, String> {
-        public override fun transform(instruction: Instruction): String = instruction.metadata.toString()
-    })
 
-    vv.getRenderContext().setEdgeLabelTransformer(object : Transformer<ControlFlowEdge, String> {
-        public override fun transform(edge: ControlFlowEdge): String {
-            val from = edge.from[STATE_BEFORE]
-            val to = edge.to[STATE_BEFORE]
-            if (to != null) {
-                return buildString {
-                    sb ->
-                    // Difference between two states
-                    for (i in 0..to.localVariables.size - 1) {
-                        val values = HashSet(to.localVariables[i])
-                        if (from != null) {
-                            values.removeAll(from.localVariables[i])
-                        }
-                        if (!values.isEmpty()) {
-                            sb.append("l[$i] <= $values\n")
-                        }
-                    }
-                }
-            }
-            return ""
-        }
-    })
+    if (vertexLabelTransformer != null) {
+        vv.getRenderContext().setVertexLabelTransformer(vertexLabelTransformer)
+    }
 
-    val gm = DefaultModalGraphMouse<Instruction, ControlFlowEdge>()
+    if (edgeLabelTransformer != null) {
+        vv.getRenderContext().setEdgeLabelTransformer(edgeLabelTransformer)
+    }
+
+    val gm = DefaultModalGraphMouse<V, E>()
     vv.setGraphMouse(gm)
 
     //    MinimumSpanningForest2<Instruction, ControlFlowEdge>(
