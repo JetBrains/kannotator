@@ -43,11 +43,36 @@ import org.jetbrains.kannotator.controlFlow.DataKey
 import org.jetbrains.kannotator.controlFlow.State
 import org.jetbrains.kannotator.controlFlow.Value
 import org.objectweb.asm.Opcodes
+import org.objectweb.asm.commons.Method as AsmMethod
+import org.jetbrains.kannotator.declarations.Method
 
 public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
     val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
     classReader.accept(classVisitor, 0)
     return classVisitor.graph
+}
+
+public data class MethodAndGraph(val method: Method, val graph: ControlFlowGraphBuilder<*>)
+
+public fun buildGraphsForAllMethods(classType: Type, classReader: ClassReader): List<MethodAndGraph> {
+    val result = ArrayList<MethodAndGraph>()
+    classReader.accept(object : ClassVisitor(ASM4) {
+
+        public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+            val builder = ControlFlowGraphBuilder<Label>()
+            result.add(MethodAndGraph(Method(classType, AsmMethod(name, desc)), builder))
+
+            val methodNode = MethodNode(access, name, desc, signature, exceptions)
+            return GraphBuilderMethodVisitor(
+                    classType.getInternalName(),
+                    methodKind(access),
+                    desc,
+                    builder,
+                    methodNode
+            )
+        }
+    }, 0)
+    return result
 }
 
 private class GraphBuilderClassVisitor(val className: String, val methodName: String, val methodDesc: String) : ClassVisitor(ASM4) {
