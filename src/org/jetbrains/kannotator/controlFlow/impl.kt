@@ -6,14 +6,14 @@ import java.util.HashMap
 
 public class ControlFlowGraphBuilder<L: Any> {
 
-    private var finished: Boolean = false
+    private var result: ControlFlowGraph? = null
 
     private var entryPoint: Instruction? = null
     private val instructions: MutableCollection<InstructionImpl> = LinkedHashSet()
     private val labelInstructions: MutableMap<L, InstructionImpl> = HashMap()
 
     private fun checkFinished() {
-        if (finished) throw IllegalStateException("This builder has already finished")
+        if (result != null) throw IllegalStateException("This builder has already finished")
     }
 
     public fun setEntryPoint(entryPoint: Instruction) {
@@ -47,14 +47,15 @@ public class ControlFlowGraphBuilder<L: Any> {
     }
 
     public fun build(): ControlFlowGraph {
-        checkFinished()
-        finished = true
-        return object : ControlFlowGraph {
+        if (result != null) return result!!
+
+        result = object : ControlFlowGraph {
             override val instructions: Collection<Instruction> = this@ControlFlowGraphBuilder.instructions
             override val entryPoint: Instruction = this@ControlFlowGraphBuilder.entryPoint!!
 
             public fun toString(): String = "entryPoint=${entryPoint.metadata}, instructions=$instructions"
         }
+        return result!!
     }
 }
 
