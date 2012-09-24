@@ -6,6 +6,7 @@ import jet.runtime.typeinfo.KotlinSignature;
 import org.apache.commons.collections15.functors.ConstantTransformer;
 
 public class MinimumSpanningForestMaker {
+    @SuppressWarnings("unchecked")
     @KotlinSignature("fun minimumSpanningForest<V, E>(graph: Graph<V, E>): MinimumSpanningForest2<V, E>")
     public static <V, E> MinimumSpanningForest2<V, E> minimumSpanningForest(Graph<V, E> graph) {
         return new MinimumSpanningForest2<V, E>(

@@ -129,7 +129,7 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
                 return when (asmInstruction) {
                     is LineNumberNode -> "Line num: ${asmInstruction.line}"
                     is FrameNode -> "frame node"
-                    else -> asmInstruction.toString()
+                    else -> asmInstruction.toString()!!
                 }
             }
             return Printer.OPCODES[opcode]!!

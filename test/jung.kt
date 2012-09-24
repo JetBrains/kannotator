@@ -57,7 +57,7 @@ fun displayJungGraph(graph: DirectedGraph<Instruction, ControlFlowEdge>) {
     val vv = VisualizationViewer(graphAsTree);
     //    val vv = VisualizationViewer(layout);
     vv.setPreferredSize(Dimension(850, 850)); //Sets the viewing area size
-    vv.getRenderContext()!!.setVertexLabelTransformer(object : Transformer<Instruction, String> {
+    vv.getRenderContext().setVertexLabelTransformer(object : Transformer<Instruction, String> {
         public override fun transform(instruction: Instruction): String = instruction.metadata.toString()
     })
     val gm = DefaultModalGraphMouse<Instruction, ControlFlowEdge>()
@@ -78,8 +78,8 @@ fun displayJungGraph(graph: DirectedGraph<Instruction, ControlFlowEdge>) {
 
     val frame = JFrame("Simple Graph View");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.getContentPane().add(vv, BorderLayout.CENTER);
-    frame.getContentPane().add(gm.getModeComboBox(), BorderLayout.NORTH);
+    frame.getContentPane()!!.add(vv, BorderLayout.CENTER);
+    frame.getContentPane()!!.add(gm.getModeComboBox(), BorderLayout.NORTH);
 
     frame.pack();
     frame.setVisible(true);
