@@ -213,13 +213,7 @@ private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
     }
 
     public override fun merge(v: AsmPossibleValues, w: AsmPossibleValues): AsmPossibleValues {
-        if (v != w) {
-            println("Merge: $v and $w")
-            val result = v merge w
-            println("result: $result")
-            return result
-        }
-        return v
+        return v merge w
     }
 
 }
