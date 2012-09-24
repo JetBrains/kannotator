@@ -150,7 +150,7 @@ private class GraphBuilderInterpreter: Interpreter<PossibleTypedValues>(ASM4) {
             ANEWARRAY -> newValueAtInstruction(Type.getType("[" + Type.getObjectType((insn as TypeInsnNode).desc)), insn)
             ARRAYLENGTH -> newValueAtInstruction(INT_TYPE, insn)
             ATHROW -> null
-            CHECKCAST -> newValueAtInstruction(Type.getObjectType((insn as TypeInsnNode).desc), insn)
+            CHECKCAST -> value
             INSTANCEOF -> newValueAtInstruction(INT_TYPE, insn)
             MONITORENTER, MONITOREXIT, IFNULL, IFNONNULL -> null
             else -> throw unsupportedInstruction(insn)
