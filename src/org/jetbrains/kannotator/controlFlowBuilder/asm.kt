@@ -39,6 +39,9 @@ import org.jetbrains.kannotator.asm.util.toOpcodeString
 import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.InsnList
 import java.util.HashSet
+import org.jetbrains.kannotator.controlFlow.DataKey
+import org.jetbrains.kannotator.controlFlow.State
+import org.jetbrains.kannotator.controlFlow.Value
 
 public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
     val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
@@ -64,6 +67,8 @@ private class GraphBuilderClassVisitor(val className: String, val methodName: St
     }
 }
 
+public val STATE_BEFORE: DataKey<Instruction, State<Unit>> = DataKey()
+
 private class GraphBuilderMethodVisitor(
         val owner: String,
         val graphBuilder: ControlFlowGraphBuilder<Label>,
@@ -75,7 +80,14 @@ private class GraphBuilderMethodVisitor(
         val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
         analyzer.analyze(owner, methodNode)
 
-        val graph = graphBuilder.build()
+        for ((index, inst) in analyzer.instructions.indexed) {
+            val frame = analyzer.getFrames()[index]
+            if (frame != null) {
+                inst[STATE_BEFORE] = object : FrameState<Unit>(frame!!) {
+                    override fun valueInfo(value: Value) {}
+                }
+            }
+        }
 
         printFrames(analyzer.getFrames(), methodNode.instructions)
     }
@@ -107,7 +119,7 @@ fun printFrames(frames: Array<Frame<PossibleTypedValues>?>, instructions: InsnLi
 }
 
 private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter()) {
-    private val instructions = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
+    public val instructions: List<Instruction> = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
 
     {
         graph.setEntryPoint(instructions[0])
@@ -141,7 +153,6 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
         createEdge(insn, successor)
         return super<Analyzer>.newControlFlowExceptionEdge(insn, successor)
     }
-
 
     protected override fun newControlFlowEdge(insn: Int, successor: Int) {
         createEdge(insn, successor)

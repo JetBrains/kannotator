@@ -32,7 +32,9 @@ import org.apache.commons.collections15.functors.ConstantTransformer
 import edu.uci.ics.jung.algorithms.layout.TreeLayout
 import edu.uci.ics.jung.algorithms.layout.StaticLayout
 import java.awt.geom.Point2D
-
+import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
+import kotlinlib.buildString
+import java.util.HashSet
 
 fun ControlFlowGraph.toJungGraph(): DirectedSparseMultigraph<Instruction, ControlFlowEdge> {
     val jungGraph = DirectedSparseMultigraph<Instruction, ControlFlowEdge>()
@@ -60,6 +62,30 @@ fun displayJungGraph(graph: DirectedGraph<Instruction, ControlFlowEdge>) {
     vv.getRenderContext().setVertexLabelTransformer(object : Transformer<Instruction, String> {
         public override fun transform(instruction: Instruction): String = instruction.metadata.toString()
     })
+
+    vv.getRenderContext().setEdgeLabelTransformer(object : Transformer<ControlFlowEdge, String> {
+        public override fun transform(edge: ControlFlowEdge): String {
+            val from = edge.from[STATE_BEFORE]
+            val to = edge.to[STATE_BEFORE]
+            if (to != null) {
+                return buildString {
+                    sb ->
+                    // Difference between two states
+                    for (i in 0..to.localVariables.size - 1) {
+                        val values = HashSet(to.localVariables[i])
+                        if (from != null) {
+                            values.removeAll(from.localVariables[i])
+                        }
+                        if (!values.isEmpty()) {
+                            sb.append("l[$i] <= $values\n")
+                        }
+                    }
+                }
+            }
+            return ""
+        }
+    })
+
     val gm = DefaultModalGraphMouse<Instruction, ControlFlowEdge>()
     vv.setGraphMouse(gm)
 

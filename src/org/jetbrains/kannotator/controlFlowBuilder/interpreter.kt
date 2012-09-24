@@ -39,8 +39,9 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.asm.util.toOpcodeString
 import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.InsnList
+import org.jetbrains.kannotator.controlFlow.Value
 
-private class TypedValue(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) {
+private class TypedValue(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = _type?.getSize() ?: 1
 
     public fun toString(): String {
