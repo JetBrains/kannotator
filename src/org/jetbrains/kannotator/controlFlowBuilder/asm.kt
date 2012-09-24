@@ -82,7 +82,6 @@ private class GraphBuilderMethodVisitor(
 }
 
 fun printFrames(frames: Array<Frame<PossibleTypedValues>?>, instructions: InsnList) {
-fun printFrames(frames: Array<Frame<AsmPossibleValues>?>, instructions: InsnList) {
     for ((i, frame) in frames.indexed) {
         val insn = instructions[i]
         if (frame == null) {
