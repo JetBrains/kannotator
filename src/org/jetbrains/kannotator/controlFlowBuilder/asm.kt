@@ -42,6 +42,7 @@ import java.util.HashSet
 import org.jetbrains.kannotator.controlFlow.DataKey
 import org.jetbrains.kannotator.controlFlow.State
 import org.jetbrains.kannotator.controlFlow.Value
+import org.objectweb.asm.Opcodes
 
 public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
     val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
@@ -63,22 +64,28 @@ private class GraphBuilderClassVisitor(val className: String, val methodName: St
             return mv
         }
         val methodNode = MethodNode(access, name, desc, signature, exceptions)
-        return GraphBuilderMethodVisitor(className, graphBuilder, methodNode)
+        return GraphBuilderMethodVisitor(className, methodKind(access), desc, graphBuilder, methodNode)
     }
+}
+
+fun methodKind(access: Int): MethodKind {
+    return if (Opcodes.ACC_STATIC and access == 0) MethodKind.INSTANCE else MethodKind.STATIC
 }
 
 public val STATE_BEFORE: DataKey<Instruction, State<Unit>> = DataKey()
 
-private class GraphBuilderMethodVisitor(
-        val owner: String,
+class GraphBuilderMethodVisitor(
+        val ownerInternalName: String,
+        val methodKind: MethodKind,
+        val desc: String,
         val graphBuilder: ControlFlowGraphBuilder<Label>,
         val methodNode: MethodNode
 ) : MethodVisitor(ASM4, methodNode) {
 
     public override fun visitEnd() {
         super.visitEnd()
-        val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
-        analyzer.analyze(owner, methodNode)
+        val analyzer = GraphBuilderAnalyzer(methodKind, desc, graphBuilder, methodNode)
+        analyzer.analyze(ownerInternalName, methodNode)
 
         for ((index, inst) in analyzer.instructions.indexed) {
             val frame = analyzer.getFrames()[index]
@@ -105,7 +112,13 @@ class AsmInstructionMetadata(val asmInstruction: AbstractInsnNode) : Instruction
     }
 }
 
-private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter()) {
+private class GraphBuilderAnalyzer(
+        val methodKind: MethodKind,
+        val desc: String,
+        val graph: ControlFlowGraphBuilder<Label>,
+        val methodNode: MethodNode
+) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter(methodKind, desc)) {
+
     public val instructions: List<Instruction> = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
 
     {
@@ -118,9 +131,7 @@ private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, va
         if (this is LabelNode) {
             return graph.getLabelInstruction(this.getLabel())
         }
-        return graph.newInstruction(Metadata(this))
-    }
-
+        return graph.newInstruction(AsmInstructionMetadata(this))
     }
 
     protected override fun newControlFlowExceptionEdge(insn: Int, successor: Int): Boolean {

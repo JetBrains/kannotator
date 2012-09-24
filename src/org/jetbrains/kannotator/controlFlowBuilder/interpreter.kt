@@ -40,12 +40,15 @@ import org.jetbrains.kannotator.asm.util.toOpcodeString
 import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.InsnList
 import org.jetbrains.kannotator.controlFlow.Value
+import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
+import com.gs.collections.api.block.HashingStrategy
+import kotlin.nullable.hashCodeOrDefault
 
-private class TypedValue(val _type: Type?, val interesting: Boolean, val createdAtInsn: AbstractInsnNode? = null) : Value {
+private class TypedValue(val id: Int, val _type: Type?, val interesting: Boolean, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = _type?.getSize() ?: 1
 
     public fun toString(): String {
-        val typeAndId = "$_type@${Integer.toHexString(System.identityHashCode(this))}"
+        val typeAndId = "$_type@$id"
         return (if (interesting) "!" else "") + typeAndId
     }
 }
@@ -77,21 +80,64 @@ fun PossibleTypedValues.merge(other: PossibleTypedValues): PossibleTypedValues {
     if (values.isEmpty()) return other
     if (other.values.isEmpty()) return this
 
-    return PossibleTypedValues(getSize(), (values + other.values).toSet())
+    val mergedSet = UnifiedSetWithHashingStrategy(object : HashingStrategy<TypedValue> {
+        public override fun equals(object1: TypedValue?, object2: TypedValue?): Boolean {
+            if (object1 identityEquals object2) return true
+            if (object1 == null || object2 == null) return false
+
+            // Interesting values don't merge
+            if (object1.interesting || object2.interesting) return false
+
+            return object1._type == object2._type
+        }
+
+        public override fun computeHashCode(_object: TypedValue?): Int {
+            if (_object == null) return 0
+            val r1 = if (_object.interesting) 13 else 17
+            val r2 = _object._type.hashCodeOrDefault(0)
+            return r1 * r2
+        }
+    })
+
+    mergedSet.addAll(values)
+    mergedSet.addAll(other.values)
+
+    if (mergedSet == values) return this
+
+    return PossibleTypedValues(getSize(), mergedSet)
 }
 
-private class GraphBuilderInterpreter: Interpreter<PossibleTypedValues>(ASM4) {
+enum class MethodKind {
+    INSTANCE
+    STATIC
+}
+
+fun MethodKind.hasThis() = this == MethodKind.INSTANCE
+
+private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: String): Interpreter<PossibleTypedValues>(ASM4) {
+    private var valueSetsCreated: Int = 0
+    private var valuesCreated: Int = 0
+
+    private fun createValue(_type: Type, interesting: Boolean, insn: AbstractInsnNode?): TypedValue {
+        return TypedValue(valuesCreated++, _type, interesting, insn)
+    }
+
     public override fun newValue(_type: Type?): PossibleTypedValues? {
         if (_type?.getSort() == Type.VOID)
             return null
+
+        val skip = (if (methodKind.hasThis()) 1 else 0) + (if (Type.getReturnType(desc) == VOID_TYPE) 0 else 1)
+        val interesting = valueSetsCreated in skip..Type.getArgumentTypes(desc).size + skip // 0 is for return type
+        valueSetsCreated++
+
         if (_type == null) return AsmPossibleValues()
-        return AsmPossibleValues(TypedValue(_type, false))
+        return AsmPossibleValues(createValue(_type, interesting, null))
     }
 
     private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): PossibleTypedValues? {
         if (_type.getSort() == Type.VOID)
             return null
-        return AsmPossibleValues(TypedValue(_type, false, insn))
+        return AsmPossibleValues(createValue(_type, false, insn))
     }
 
     public override fun newOperation(insn: AbstractInsnNode): PossibleTypedValues? {
