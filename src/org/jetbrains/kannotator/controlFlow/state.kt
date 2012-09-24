@@ -1,5 +1,8 @@
 package org.jetbrains.kannotator.controlFlow
 
+import kotlinlib.IndexedElement
+import kotlinlib.indexedIterator
+
 public trait State<VI> {
     val stack: Stack
     val localVariables: LocalVariableTable
@@ -19,3 +22,11 @@ public trait LocalVariableTable {
 public trait Value {
 
 }
+
+
+
+public val LocalVariableTable.indexed: Iterator<IndexedElement<Set<Value>>>
+        get() = indexedIterator(this, size) { c, i -> c.get(i) }
+
+public val Stack.indexed: Iterator<IndexedElement<Set<Value>>>
+        get() = indexedIterator(this, size) { c, i -> c.get(i) }
