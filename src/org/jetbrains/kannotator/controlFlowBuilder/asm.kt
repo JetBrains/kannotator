@@ -88,32 +88,10 @@ private class GraphBuilderMethodVisitor(
                 }
             }
         }
-
-        printFrames(analyzer.getFrames(), methodNode.instructions)
     }
 }
 
-fun printFrames(frames: Array<Frame<PossibleTypedValues>?>, instructions: InsnList) {
-    for ((i, frame) in frames.indexed) {
-        val insn = instructions[i]
-        if (frame == null) {
-            println("Unreachable: ${insn}")
-        }
-        else {
-            println("Frame")
-            val localCount = frame.getLocals()
-            println("  Locals: ${localCount}")
-            for (local in 0..frame.getLocals() - 1) {
-                val value = frame.getLocal(local)
-                println("    locals[$local] = $value")
             }
-            val stackSize = frame.getStackSize()
-            println("  Stack: ${stackSize}")
-            for (indexFromTop in 0..stackSize - 1) {
-                val value = frame.getStack(indexFromTop)
-                println("    stack[$indexFromTop] = $value")
-            }
-            println("Offset $i: ${insn.toOpcodeString()}")
         }
     }
 }
