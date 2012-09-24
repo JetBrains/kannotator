@@ -23,3 +23,23 @@ public inline val <T> Array<T>.indexed: Iterator<IndexedElement<T>>
             }
         }
 
+public inline val <T> Iterator<T>.indexed: Iterator<IndexedElement<T>>
+    get() {
+        val iterator = this
+        return object : Iterator<IndexedElement<T>> {
+            var index = 0
+
+            override fun next(): IndexedElement<T> {
+                val r = IndexedElement(index, iterator.next())
+                index++
+                return r
+            }
+
+            override fun hasNext(): Boolean {
+                return iterator.hasNext()
+            }
+        }
+    }
+
+public inline val <T> List<T>.indexed: Iterator<IndexedElement<T>>
+    get() = iterator().indexed
