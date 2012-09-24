@@ -66,7 +66,7 @@ private class ControlFlowGraphImpl(
 
 private class InstructionImpl(
         override val metadata: InstructionMetadata
-) : Instruction {
+) : DataHolderImpl<Instruction>(), Instruction {
     override val incomingEdges: MutableCollection<ControlFlowEdge> = ArrayList()
     override val outgoingEdges: MutableCollection<ControlFlowEdge> = ArrayList()
 

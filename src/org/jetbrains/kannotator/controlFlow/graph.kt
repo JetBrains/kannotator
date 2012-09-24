@@ -10,7 +10,7 @@ public trait ControlFlowEdge {
     val to: Instruction
 }
 
-public trait Instruction {
+public trait Instruction : DataHolder<Instruction> {
     val incomingEdges: Collection<ControlFlowEdge>
     val outgoingEdges: Collection<ControlFlowEdge>
     val metadata: InstructionMetadata
