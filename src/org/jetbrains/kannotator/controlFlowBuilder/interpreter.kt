@@ -27,7 +27,7 @@ import java.util.ArrayList
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.FrameNode
-import org.objectweb.asm.tree.analysis.Value
+import org.objectweb.asm.tree.analysis.Value as AsmValue
 import org.objectweb.asm.tree.LdcInsnNode
 import org.objectweb.asm.Handle
 import org.objectweb.asm.tree.FieldInsnNode
@@ -40,28 +40,28 @@ import org.jetbrains.kannotator.asm.util.toOpcodeString
 import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.InsnList
 
-private class AsmValue(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) : Value {
-    public override fun getSize(): Int = _type?.getSize() ?: 1
+private class TypedValue(val _type: Type?, val createdAtInsn: AbstractInsnNode? = null) {
+    public fun getSize(): Int = _type?.getSize() ?: 1
 
-    public override fun toString(): String {
+    public fun toString(): String {
         return "[type=$_type; createdAt ${createdAtInsn?.toOpcodeString()}; id=${System.identityHashCode(this)}}]"
     }
 }
 
-fun AsmPossibleValues(value: AsmValue) = AsmPossibleValues(value.getSize(), hashSet(value))
+fun AsmPossibleValues(value: TypedValue) = PossibleTypedValues(value.getSize(), hashSet(value))
 
-fun AsmPossibleValues(vararg values: AsmValue): AsmPossibleValues{
+fun AsmPossibleValues(vararg values: TypedValue): PossibleTypedValues {
     if (values.isEmpty()) {
-        return AsmPossibleValues(1, hashSet())
+        return PossibleTypedValues(1, hashSet())
     }
     val size = values[0].getSize()
     for (value in values) {
         if (value.getSize() != size) throw IllegalStateException("Inconsistent sizes: ${values.toList()}")
     }
-    return AsmPossibleValues(size, values.toSet())
+    return PossibleTypedValues(size, values.toSet())
 }
 
-private class AsmPossibleValues(val _size: Int, val values: Set<AsmValue>) : Value {
+private class PossibleTypedValues(val _size: Int, val values: Set<TypedValue>) : AsmValue {
     public override fun getSize(): Int = _size
 
     public override fun toString(): String {
@@ -69,30 +69,30 @@ private class AsmPossibleValues(val _size: Int, val values: Set<AsmValue>) : Val
     }
 }
 
-fun AsmPossibleValues.merge(other: AsmPossibleValues): AsmPossibleValues {
+fun PossibleTypedValues.merge(other: PossibleTypedValues): PossibleTypedValues {
     assert(getSize() == other.getSize()) {"Sizes don't match"}
 
     if (values.isEmpty()) return other
     if (other.values.isEmpty()) return this
 
-    return AsmPossibleValues(getSize(), (values + other.values).toSet())
+    return PossibleTypedValues(getSize(), (values + other.values).toSet())
 }
 
-private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
-    public override fun newValue(_type: Type?): AsmPossibleValues? {
+private class GraphBuilderInterpreter: Interpreter<PossibleTypedValues>(ASM4) {
+    public override fun newValue(_type: Type?): PossibleTypedValues? {
         if (_type?.getSort() == Type.VOID)
             return null
         if (_type == null) return AsmPossibleValues()
-        return AsmPossibleValues(AsmValue(_type))
+        return AsmPossibleValues(TypedValue(_type))
     }
 
-    private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): AsmPossibleValues? {
+    private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): PossibleTypedValues? {
         if (_type.getSort() == Type.VOID)
             return null
-        return AsmPossibleValues(AsmValue(_type, insn))
+        return AsmPossibleValues(TypedValue(_type, insn))
     }
 
-    public override fun newOperation(insn: AbstractInsnNode): AsmPossibleValues? {
+    public override fun newOperation(insn: AbstractInsnNode): PossibleTypedValues? {
         return when (insn.getOpcode()) {
             ACONST_NULL -> newValueAtInstruction(Type.getType("null"), insn)
             ICONST_M1, ICONST_0, ICONST_1, ICONST_2, ICONST_3, ICONST_4, ICONST_5 -> newValueAtInstruction(INT_TYPE, insn)
@@ -131,11 +131,11 @@ private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
         }
     }
 
-    public override fun copyOperation(insn: AbstractInsnNode, value: AsmPossibleValues): AsmPossibleValues? {
+    public override fun copyOperation(insn: AbstractInsnNode, value: PossibleTypedValues): PossibleTypedValues? {
         return value
     }
 
-    public override fun unaryOperation(insn: AbstractInsnNode, value: AsmPossibleValues): AsmPossibleValues? {
+    public override fun unaryOperation(insn: AbstractInsnNode, value: PossibleTypedValues): PossibleTypedValues? {
         return when (insn.getOpcode()) {
             INEG, IINC, L2I, F2I, D2I, I2B, I2C, I2S -> newValueAtInstruction(INT_TYPE, insn)
             FNEG, I2F, L2F, D2F -> newValueAtInstruction(FLOAT_TYPE, insn)
@@ -175,9 +175,9 @@ private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
 
     public override fun binaryOperation(
             insn: AbstractInsnNode,
-            value1: AsmPossibleValues,
-            value2: AsmPossibleValues
-    ): AsmPossibleValues? {
+            value1: PossibleTypedValues,
+            value2: PossibleTypedValues
+    ): PossibleTypedValues? {
         return when (insn.getOpcode()) {
             IALOAD, BALOAD, CALOAD, SALOAD, IADD, ISUB, IMUL,
             IDIV, IREM, ISHL, ISHR, IUSHR, IAND, IOR, IXOR -> newValueAtInstruction(INT_TYPE, insn)
@@ -193,14 +193,14 @@ private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
 
     public override fun ternaryOperation(
             insn: AbstractInsnNode,
-            value1: AsmPossibleValues,
-            value2: AsmPossibleValues,
-            value3: AsmPossibleValues
-    ): AsmPossibleValues? {
+            value1: PossibleTypedValues,
+            value2: PossibleTypedValues,
+            value3: PossibleTypedValues
+    ): PossibleTypedValues? {
         return null
     }
 
-    public override fun naryOperation(insn: AbstractInsnNode, values: List<out AsmPossibleValues>): AsmPossibleValues? {
+    public override fun naryOperation(insn: AbstractInsnNode, values: List<out PossibleTypedValues>): PossibleTypedValues? {
         return when (insn) {
             is MultiANewArrayInsnNode -> newValueAtInstruction(Type.getType(insn.desc), insn)
             is InvokeDynamicInsnNode -> newValueAtInstruction(Type.getReturnType(insn.desc), insn)
@@ -209,10 +209,10 @@ private class GraphBuilderInterpreter: Interpreter<AsmPossibleValues>(ASM4) {
         }
     }
 
-    public override fun returnOperation(insn: AbstractInsnNode, value: AsmPossibleValues, expected: AsmPossibleValues) {
+    public override fun returnOperation(insn: AbstractInsnNode, value: PossibleTypedValues, expected: PossibleTypedValues) {
     }
 
-    public override fun merge(v: AsmPossibleValues, w: AsmPossibleValues): AsmPossibleValues {
+    public override fun merge(v: PossibleTypedValues, w: PossibleTypedValues): PossibleTypedValues {
         return v merge w
     }
 

@@ -27,7 +27,6 @@ import java.util.ArrayList
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.FrameNode
-import org.objectweb.asm.tree.analysis.Value
 import org.objectweb.asm.tree.LdcInsnNode
 import org.objectweb.asm.Handle
 import org.objectweb.asm.tree.FieldInsnNode
@@ -82,6 +81,7 @@ private class GraphBuilderMethodVisitor(
     }
 }
 
+fun printFrames(frames: Array<Frame<PossibleTypedValues>?>, instructions: InsnList) {
 fun printFrames(frames: Array<Frame<AsmPossibleValues>?>, instructions: InsnList) {
     for ((i, frame) in frames.indexed) {
         val insn = instructions[i]
@@ -107,7 +107,7 @@ fun printFrames(frames: Array<Frame<AsmPossibleValues>?>, instructions: InsnList
     }
 }
 
-private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<AsmPossibleValues>(GraphBuilderInterpreter()) {
+private class GraphBuilderAnalyzer(val graph: ControlFlowGraphBuilder<Label>, val methodNode: MethodNode) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter()) {
     private val instructions = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
 
     {
