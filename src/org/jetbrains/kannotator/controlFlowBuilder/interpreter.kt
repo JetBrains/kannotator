@@ -88,13 +88,13 @@ fun PossibleTypedValues.merge(other: PossibleTypedValues): PossibleTypedValues {
             // Interesting values don't merge
             if (object1.interesting || object2.interesting) return false
 
-            return object1._type == object2._type
+            return object1.createdAtInsn identityEquals object2.createdAtInsn
         }
 
         public override fun computeHashCode(_object: TypedValue?): Int {
             if (_object == null) return 0
             val r1 = if (_object.interesting) 13 else 17
-            val r2 = _object._type.hashCodeOrDefault(0)
+            val r2 = _object.createdAtInsn.hashCodeOrDefault(0)
             return r1 * r2
         }
     })
