@@ -13,21 +13,24 @@ fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classR
         if (file.isFile() && file.getName().endsWith(".jar")) {
             println("Processing: $file")
 
-            val jar = JarFile(file)
-
-            for (entry in jar.entries()) {
-                val name = entry!!.getName()!!
-                if (!name.endsWith(".class")) continue
-
-                val internalName = name.removeSuffix(".class")
-                val classType = Type.getType("L$internalName;")
-
-                val inputStream = jar.getInputStream(entry)
-                val classReader = ClassReader(inputStream)
-
-                block(file, classType, classReader)
-            }
+            processJar(file, block)
         }
+    }
+}
+
+fun processJar(file: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
+    val jar = JarFile(file)
+    for (entry in jar.entries()) {
+        val name = entry!!.getName()!!
+        if (!name.endsWith(".class")) continue
+
+        val internalName = name.removeSuffix(".class")
+        val classType = Type.getType("L$internalName;")
+
+        val inputStream = jar.getInputStream(entry)
+        val classReader = ClassReader(inputStream)
+
+        block(file, classType, classReader)
     }
 }
 

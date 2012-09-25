@@ -9,17 +9,17 @@ import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.Type
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.objectweb.asm.tree.MethodNode
+import java.io.InputStream
 import org.jetbrains.kannotator.declarations.ClassName
+import java.util.Collections
 
-fun buildFunctionDependencyGraph(classes: Array<String>): FunDependencyGraph {
+fun buildFunctionDependencyGraph(classReaders: List<ClassReader>): FunDependencyGraph {
     val dependencyGraph = FunDependencyGraphImpl()
 
-    for (klass in classes) {
-        val classReader = ClassReader(klass)
-        val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, dependencyGraph)
+    for (classReader in classReaders) {
+        val classVisitor = GraphBuilderClassVisitor(classReader.getClassName(), dependencyGraph)
         classReader.accept(classVisitor, 0)
     }
-
     return dependencyGraph
 }
 

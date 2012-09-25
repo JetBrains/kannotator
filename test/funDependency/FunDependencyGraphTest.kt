@@ -39,7 +39,7 @@ class FunDependencyGraphTest {
     }
 
     fun doTest(expectedResultPath: String, vararg listOfFiles: String) {
-        val graph = buildFunctionDependencyGraph(listOfFiles)
+        val graph = buildFunctionDependencyGraph(listOfFiles.map { ClassReader(it) })
 
         val functionNodeComparator = object : Comparator<FunctionNode> {
             public override fun compare(o1: FunctionNode?, o2: FunctionNode?): Int {
