@@ -1,20 +1,24 @@
 package interpreter
 
 import java.io.File
+import java.io.PrintStream
 import junit.framework.Assert.*
 import kotlinlib.*
 import org.jetbrains.kannotator.asm.util.AsmInstructionRenderer
 import org.jetbrains.kannotator.controlFlow.*
 import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
+import org.jetbrains.kannotator.controlFlowBuilder.GraphBuilderCallbacks
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.jetbrains.kannotator.controlFlowBuilder.buildGraphsForAllMethods
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.objectweb.asm.tree.AbstractInsnNode
-import org.jetbrains.kannotator.controlFlowBuilder.GraphBuilderCallbacks
+import org.jetbrains.kannotator.controlFlowBuilder.MethodAndGraph
+import java.io.FileInputStream
+import java.io.Reader
 
-fun StringBuilder.appendStates(instructions: Collection<Instruction>) {
+fun PrintStream.appendStates(instructions: Collection<Instruction>) {
     val renderer = AsmInstructionRenderer()
     for ((i, instruction) in instructions.iterator().indexed) {
         val metadata = instruction.metadata
@@ -44,11 +48,34 @@ fun StringBuilder.appendStates(instructions: Collection<Instruction>) {
     }
 }
 
+fun writeGraphsToFile(file: File, classType: Type, methodsAndGraphs: Collection<MethodAndGraph>) {
+    val actualStream = PrintStream(file)
+    try {
+        actualStream.println(classType.getInternalName())
+        for ((method, graph) in methodsAndGraphs) {
+            actualStream.println("")
+            actualStream.println(method)
+            actualStream.appendStates(graph.build().instructions)
+            actualStream.println("==========================================================================================")
+            actualStream.println("")
+            actualStream.println("")
+        }
+    }
+    finally {
+        actualStream.close()
+    }
+}
+
 fun doTest(theClass: Class<out Any>) {
     val classType = Type.getType(theClass)
     val classReader = ClassReader(theClass.getCanonicalName())
     doTest(File("testData/"), classType, classReader)
 }
+
+val KB = 1024
+val MB = KB * KB
+
+private val buffer = CharArray(1 * MB)
 
 fun doTest(
         baseDir: File,
@@ -71,31 +98,50 @@ fun doTest(
         }
     })
 
-    val actual = buildString {
-        sb ->
-        sb.println(classType.getInternalName())
-
-        for ((method, graph) in methodsAndGraphs) {
-            sb.println("")
-            sb.println(method)
-            sb.appendStates(graph.build().instructions)
-            sb.println("==========================================================================================")
-            sb.println("")
-            sb.println("")
-        }
-    }
-
     val expectedFile = File(baseDir, classType.getInternalName() + ".txt")
+    expectedFile.getParentFile()!!.mkdirs()
+
+    val actualFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
+    writeGraphsToFile(actualFile, classType, methodsAndGraphs)
+
     if (!expectedFile.exists()) {
         expectedFile.getParentFile()!!.mkdirs()
-        expectedFile.writeText(actual)
+        actualFile.copyTo(expectedFile)
+        val message = "Expected data file file does not exist: ${expectedFile}. It is created from actual data"
         if (failOnNoData) {
-            fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
+            fail(message)
+        }
+        else {
+            System.err.println(message)
         }
     }
-    val expected = expectedFile.readText()
 
-    assertEquals(expected, actual)
+    // Some of these files are very big and do not fit into memory,
+    // so we break them into chunks and compare chunk-by-chunk
+    val actualReader = FileInputStream(actualFile).reader()
+    val expectedReader = FileInputStream(expectedFile).reader()
+
+    try {
+        while (true)  {
+            val chunkActual = actualReader.readWithBuffer(buffer)
+            val chunkExpected = expectedReader.readWithBuffer(buffer)
+
+            assertEquals(chunkExpected, chunkActual)
+            if (chunkActual == null || chunkExpected == null) break;
+        }
+    }
+    finally {
+        actualReader.close()
+        expectedReader.close()
+    }
+
+    actualFile.delete()
+}
+
+fun Reader.readWithBuffer(buffer: CharArray): String? {
+    val charsRead = read(buffer)
+    if (charsRead == -1) return null
+    return StringBuilder().append(buffer, 0, charsRead).toString()
 }
 
 fun Set<Value>.sorted() = map {v -> v.toString()}.toSortedList()
