@@ -13,6 +13,8 @@ import javax.jnlp.SingleInstanceService
 import org.objectweb.asm.tree.*
 import java.util.LinkedHashMap
 import org.jetbrains.kannotator.controlFlowBuilder.TypedValue
+import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
+import kotlin.test.assertNull
 
 fun inferAnnotations(graph: ControlFlowGraph) : List<NullabilityValueInfo> {
     val parametersValueInfo = hashMap<Value, NullabilityValueInfo>()
@@ -33,12 +35,15 @@ fun analyzeInstruction(
     val state = instruction[STATE_BEFORE]
     if (state == null) return
 
+    val nullabilityInfosForInstruction = computeNullabilityInfosForInstruction(instruction)
+
     val instructionMetadata = instruction.metadata
     if (instructionMetadata is AsmInstructionMetadata) {
         when (instructionMetadata.asmInstruction.getOpcode()) {
             ARETURN -> {
                 val valueSet = state.stack[0]
-                val nullabilityValueInfo = valueSet.map { it -> getNullabilityInfo(instruction, it) }.merge()
+                val nullabilityValueInfo = valueSet
+                        .map { it -> getNullabilityInfo(nullabilityInfosForInstruction, it) }.merge()
                 returnValueInfo.add(nullabilityValueInfo)
             }
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC -> {
@@ -54,23 +59,20 @@ fun analyzeInstruction(
     }
 }
 
-val nullabilityInfosForInstruction : MutableMap<Instruction, Map<Value, NullabilityValueInfo>> = hashMap()
+val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, Map<Value, NullabilityValueInfo>> = hashMap()
 
-fun getNullabilityInfo(instruction: Instruction, value: Value) : NullabilityValueInfo {
+fun getNullabilityInfo(nullabilityInfos: Map<Value, NullabilityValueInfo>, value: Value) : NullabilityValueInfo {
     val initialInfo = getInitialNullabilityInfo(value)
-    val currentInfo = getNullabilityInfos(instruction)[value]
+    val currentInfo = nullabilityInfos[value]
     return if (currentInfo == null) initialInfo else initialInfo merge currentInfo
 }
 
-fun getNullabilityInfos(instruction: Instruction) : Map<Value, NullabilityValueInfo> {
-    val cached = nullabilityInfosForInstruction[instruction]
-    if (cached != null) return cached
-
+fun computeNullabilityInfosForInstruction(instruction: Instruction) : Map<Value, NullabilityValueInfo> {
     val result = hashMap<Value, NullabilityValueInfo>()
 
-    val incomingEdges = instruction.incomingEdges
-    for (edge in incomingEdges) {
-        val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForInstruction[edge.from]
+    // merge from incoming edges
+    for (incomingEdge in instruction.incomingEdges) {
+        val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForEdges[incomingEdge.from]
         if (incomingEdgeMap == null) continue
         for ((value, info) in incomingEdgeMap) {
             val currentInfo = result[value]
@@ -78,7 +80,13 @@ fun getNullabilityInfos(instruction: Instruction) : Map<Value, NullabilityValueI
         }
 
     }
-    nullabilityInfosForInstruction[instruction] = result
+
+    // propagate to outgoing edges
+    for (outgoingEdge in instruction.outgoingEdges) {
+        assertNull(nullabilityInfosForEdges[outgoingEdge])
+        nullabilityInfosForEdges[outgoingEdge] = result
+    }
+
     return result
 }
 
