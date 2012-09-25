@@ -12,27 +12,23 @@ import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.declarations.ClassName
 
 fun buildFunctionDependencyGraph(classes: Array<String>): FunDependencyGraph {
-    val functions = hashMap<Method, FunctionNodeImpl>()
+    val dependencyGraph = FunDependencyGraphImpl()
+
     for (klass in classes) {
         val classReader = ClassReader(klass)
-        val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, functions)
+        val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, dependencyGraph)
         classReader.accept(classVisitor, 0)
     }
 
-    val list = ArrayList<FunctionNode>()
-    list.addAll(functions.values())
-    return object : FunDependencyGraph {
-        override val functions: List<FunctionNode> = list
-    }
+    return dependencyGraph
 }
 
-private class GraphBuilderClassVisitor(val className: String, val functions: MutableMap<Method, FunctionNodeImpl>): ClassVisitor(ASM4) {
+private class GraphBuilderClassVisitor(val className: String, val graph: FunDependencyGraphImpl): ClassVisitor(ASM4) {
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
         val method = Method.create(ClassName.fromCanonicalName(className), name, desc)
         if (method.isNeedAnnotating()) {
-            val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
-            return GraphBuilderMethodVisitor(functionNode, functions)
+            return GraphBuilderMethodVisitor(graph.getOrCreateNode(method), graph)
         }
 
         return null
@@ -41,13 +37,12 @@ private class GraphBuilderClassVisitor(val className: String, val functions: Mut
 
 private class GraphBuilderMethodVisitor(
         val ownerMethod: FunctionNodeImpl,
-        val functions: MutableMap<Method, FunctionNodeImpl>
+        val graph: FunDependencyGraphImpl
 ): MethodVisitor(ASM4) {
     public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
         val method = Method.create(ClassName.fromCanonicalName(owner), name, desc)
         if (method.isNeedAnnotating()) {
-            val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
-            addEdge(ownerMethod, functionNode)
+            graph.createEdge(ownerMethod, graph.getOrCreateNode(method))
         }
     }
 }

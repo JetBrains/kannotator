@@ -1,2 +1,5 @@
+== All Nodes == 
 funDependency.recursiveFun.First:foo()Ljava/lang/Object; in[funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;, funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;] out[funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:bar()Ljava/lang/Object;, funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;]
 funDependency.recursiveFun.Second:bar()Ljava/lang/Object; in[funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:bar()Ljava/lang/Object;] out[funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;]
+
+== No Outgoing Nodes ==

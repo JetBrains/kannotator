@@ -1,2 +1,6 @@
+== All Nodes == 
 funDependency.simple.Simple:bar()Ljava/lang/Object; in[funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;] out[]
 funDependency.simple.Simple:foo()Ljava/lang/Object; in[] out[funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;]
+
+== No Outgoing Nodes == 
+funDependency.simple.Simple:bar()Ljava/lang/Object; in[funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;] out[]

@@ -5,6 +5,7 @@ import org.jetbrains.kannotator.declarations.Method
 
 public trait FunDependencyGraph {
     val functions: List<FunctionNode>
+    val noOutgoingNodes: List<FunctionNode>
 }
 
 public trait FunDependencyEdge {
@@ -26,11 +27,31 @@ public trait FunctionNode {
     }
 }
 
-fun addEdge(from: FunctionNodeImpl, to: FunctionNodeImpl) {
-    val edge = FunDependencyEdgeImpl(from, to)
+class FunDependencyGraphImpl : FunDependencyGraph {
+    override val noOutgoingNodes: List<FunctionNode> get() = noOutgoingNodesSet.toList()
+    override val functions: List<FunctionNode> get() = nodes.values().toList()
 
-    from.outgoingEdges.add(edge)
-    to.incomingEdges.add(edge)
+    private val noOutgoingNodesSet = hashSet<FunctionNode>()
+    private val nodes = hashMap<Method, FunctionNodeImpl>()
+
+    fun getOrCreateNode(method : Method) : FunctionNodeImpl {
+        return nodes.getOrPut(method, {
+            val funNode = FunctionNodeImpl(method)
+            noOutgoingNodesSet.add(funNode)
+            funNode
+        })
+    }
+
+    fun createEdge(from: FunctionNodeImpl, to: FunctionNodeImpl) : FunDependencyEdgeImpl {
+        val edge = FunDependencyEdgeImpl(from, to)
+
+        from.outgoingEdges.add(edge)
+        to.incomingEdges.add(edge)
+
+        noOutgoingNodesSet.remove(from)
+
+        return edge
+    }
 }
 
 class FunDependencyEdgeImpl(override val from: FunctionNode,

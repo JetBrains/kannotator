@@ -2,6 +2,10 @@ package kotlinlib
 
 val LINE_SEPARATOR: String = System.getProperty("line.separator")!!
 
+public inline fun StringBuilder.println(): StringBuilder {
+    return append(LINE_SEPARATOR)
+}
+
 public inline fun StringBuilder.println(a: Any?): StringBuilder {
     return append(a).append(LINE_SEPARATOR)
 }
