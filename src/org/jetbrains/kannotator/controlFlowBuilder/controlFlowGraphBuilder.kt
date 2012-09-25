@@ -59,7 +59,9 @@ public data class MethodAndGraph(val method: Method, val graph: ControlFlowGraph
 public open class GraphBuilderCallbacks {
     open fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean = true
     open fun exitMethod(internalClassName: String, methodName: String, methodDesc: String) {}
-    open fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {}
+    open fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {
+        throw e
+    }
 }
 
 public fun buildGraphsForAllMethods(
