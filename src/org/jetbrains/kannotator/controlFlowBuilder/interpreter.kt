@@ -45,7 +45,7 @@ import com.gs.collections.api.block.HashingStrategy
 import kotlin.nullable.hashCodeOrDefault
 import java.util.Collections
 
-private class TypedValue(val id: Int, val _type: Type?, val interesting: Boolean, val createdAtInsn: AbstractInsnNode? = null) : Value {
+private class TypedValue(val id: Int, val _type: Type?, val parameterIndex: Int? = null, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = when (_type) {
         null -> 1
         PRIMITIVE_TYPE_SIZE_2 -> 2
@@ -54,19 +54,22 @@ private class TypedValue(val id: Int, val _type: Type?, val interesting: Boolean
 
     public fun toString(): String {
         val typeAndId = "$_type#$id"
-        return (if (interesting) "!" else "") + typeAndId
+        return (if (interesting) "$parameterIndex!" else "") + typeAndId
     }
 }
 
+val TypedValue.interesting: Boolean
+        get() = parameterIndex != null
+
 val PRIMITIVE_TYPE_SIZE_1 = Type.getType("P1")
 val PRIMITIVE_TYPE_SIZE_2 = Type.getType("P2")
-val PRIMITIVE_VALUE_SIZE_1 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_1, false, null)
-val PRIMITIVE_VALUE_SIZE_2 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_2, false, null)
+val PRIMITIVE_VALUE_SIZE_1 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_1, null, null)
+val PRIMITIVE_VALUE_SIZE_2 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_2, null, null)
 
 val NULL_TYPE = Type.getType("null")
-val NULL_VALUE = TypedValue(-1, NULL_TYPE, false, null)
+val NULL_VALUE = TypedValue(-1, NULL_TYPE, null, null)
 
-val RETURNADDRESS_VALUE = TypedValue(-1, Type.VOID_TYPE, false, null)
+val RETURNADDRESS_VALUE = TypedValue(-1, Type.VOID_TYPE, null, null)
 
 val PRIMITIVE_1_AS_SET = AsmPossibleValues(PRIMITIVE_VALUE_SIZE_1)
 val PRIMITIVE_2_AS_SET = AsmPossibleValues(PRIMITIVE_VALUE_SIZE_2)
@@ -140,8 +143,8 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
     private var valueSetsCreated: Int = 0
     private var valuesCreated: Int = 0
 
-    private fun createValue(_type: Type, interesting: Boolean, insn: AbstractInsnNode?): TypedValue {
-        return TypedValue(valuesCreated++, _type, interesting, insn)
+    private fun createValue(_type: Type, parameterIndex: Int?, insn: AbstractInsnNode?): TypedValue {
+        return TypedValue(valuesCreated++, _type, parameterIndex, insn)
     }
 
     private fun specialValue(_type: Type): PossibleTypedValues? {
@@ -164,11 +167,17 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
 
         if (specialValue(_type) != null) return specialValue(_type)
 
-        val skip = (if (methodKind.hasThis()) 1 else 0) + (if (Type.getReturnType(desc) == VOID_TYPE) 0 else 1)
-        val interesting = valueSetsCreated in skip..Type.getArgumentTypes(desc).size + skip // 0 is for return type
+        val returnValueSlots = if (Type.getReturnType(desc) == VOID_TYPE) 0 else 1
+        val thisSlots = if (methodKind.hasThis()) 1 else 0
+
+        val skip = thisSlots + returnValueSlots
+        val interesting = valueSetsCreated in skip..Type.getArgumentTypes(desc).size + skip
+
+        val parameterIndex = if (interesting) valueSetsCreated - returnValueSlots else null
+
         valueSetsCreated++
 
-        return AsmPossibleValues(createValue(_type, interesting, null))
+        return AsmPossibleValues(createValue(_type, parameterIndex, null))
     }
 
     private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): PossibleTypedValues? {
@@ -178,7 +187,7 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
         if (specialValue(_type) != null) return specialValue(_type)
 
         return valuesByInstructionCache.getOrPut(insn) {
-            AsmPossibleValues(createValue(_type, false, insn))
+            AsmPossibleValues(createValue(_type, null, insn))
         }
     }
 
