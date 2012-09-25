@@ -62,5 +62,9 @@ public class ClassName private (public val canonical: String) {
         public fun fromClass(clazz: Class<*>): ClassName {
             return ClassName(clazz.getCanonicalName()!!)
         }
+
+        public fun fromType(_type: Type): ClassName {
+            return ClassName.fromInternalName(_type.getInternalName())
+        }
     }
 }
