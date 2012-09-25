@@ -26,7 +26,7 @@ fun buildFunctionDependencyGraph(classReaders: List<ClassReader>): FunDependency
 private class GraphBuilderClassVisitor(val className: String, val graph: FunDependencyGraphImpl): ClassVisitor(ASM4) {
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        val method = Method.create(ClassName.fromCanonicalName(className), name, desc)
+        val method = Method.create(ClassName.fromInternalName(className), name, desc)
         if (method.isNeedAnnotating()) {
             return GraphBuilderMethodVisitor(graph.getOrCreateNode(method), graph)
         }
@@ -40,7 +40,7 @@ private class GraphBuilderMethodVisitor(
         val graph: FunDependencyGraphImpl
 ): MethodVisitor(ASM4) {
     public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
-        val method = Method.create(ClassName.fromCanonicalName(owner), name, desc)
+        val method = Method.create(ClassName.fromInternalName(owner), name, desc)
         if (method.isNeedAnnotating()) {
             graph.createEdge(ownerMethod, graph.getOrCreateNode(method))
         }

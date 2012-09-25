@@ -37,30 +37,26 @@ public class Method(
     }
 }
 
-public class ClassName private (public val canonical: String) {
-    public val internal: String
-        get() = canonical.replaceAll("\\.", "/")
+public class ClassName private (public val internal: String) {
+    public val canonical: String
+        get() = internal.replaceAll("/", "\\.")
 
     public val typeDescriptor: String
         get() = "L$internal;"
 
-    public fun toString(): String = canonical
+    public fun toString(): String = internal
 
-    public fun equals(other: Any?): Boolean = other is ClassName && canonical == other.canonical
+    public fun equals(other: Any?): Boolean = other is ClassName && internal == other.internal
 
-    public fun hashCode(): Int = canonical.hashCode()
+    public fun hashCode(): Int = internal.hashCode()
 
     class object {
-        public fun fromCanonicalName(name: String): ClassName {
+        public fun fromInternalName(name: String): ClassName {
             return ClassName(name)
         }
 
-        public fun fromInternalName(name: String): ClassName {
-            return ClassName(name.replaceAll("/", "."))
-        }
-
         public fun fromClass(clazz: Class<*>): ClassName {
-            return ClassName(clazz.getCanonicalName()!!)
+            return ClassName(clazz.getName()!!)
         }
 
         public fun fromType(_type: Type): ClassName {
