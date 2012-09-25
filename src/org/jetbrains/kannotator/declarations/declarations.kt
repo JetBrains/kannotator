@@ -10,4 +10,15 @@ public class Method(
     public fun toString(): String {
         return declaringClass.getClassName() + ":" + asmMethod;
     }
+
+    public fun equals(obj: Any?): Boolean {
+        if (obj is Method) {
+            return declaringClass.equals(obj.declaringClass) && asmMethod.equals(obj.asmMethod)
+        }
+        return false
+    }
+
+    public fun hashCode(): Int {
+        return declaringClass.hashCode() * 31 + asmMethod.hashCode()
+    }
 }
