@@ -62,12 +62,16 @@ val PRIMITIVE_TYPE_SIZE_1 = Type.getType("P1")
 val PRIMITIVE_TYPE_SIZE_2 = Type.getType("P2")
 val PRIMITIVE_VALUE_SIZE_1 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_1, false, null)
 val PRIMITIVE_VALUE_SIZE_2 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_2, false, null)
+
 val NULL_TYPE = Type.getType("null")
 val NULL_VALUE = TypedValue(-1, NULL_TYPE, false, null)
+
+val RETURNADDRESS_VALUE = TypedValue(-1, Type.VOID_TYPE, false, null)
 
 val PRIMITIVE_1_AS_SET = AsmPossibleValues(PRIMITIVE_VALUE_SIZE_1)
 val PRIMITIVE_2_AS_SET = AsmPossibleValues(PRIMITIVE_VALUE_SIZE_2)
 val NULL_AS_SET = AsmPossibleValues(NULL_VALUE)
+val RETURNADDRESS_VALUE_AS_SET = AsmPossibleValues(RETURNADDRESS_VALUE)
 val EMPTY_VALUES = AsmPossibleValues()
 
 fun AsmPossibleValues(value: TypedValue) = PossibleTypedValues(value.getSize(), hashSet(value))
@@ -210,7 +214,7 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
                 }
 
             }
-            JSR -> newValueAtInstruction(VOID_TYPE, insn);
+            JSR -> RETURNADDRESS_VALUE_AS_SET;
             GETSTATIC -> newValueAtInstruction(Type.getType((insn as FieldInsnNode).desc), insn)
             NEW -> newValueAtInstruction(Type.getObjectType((insn as TypeInsnNode).desc), insn)
             else -> throw unsupportedInstruction(insn)

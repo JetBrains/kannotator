@@ -1,0 +1,246 @@
+EDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop
+
+null:<init>(LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;)V
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+  Stack
+Offset 0: ALOAD 0
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+Offset 1: INVOKESPECIAL java/lang/Object.<init> ()V
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+  Stack
+Offset 2: ALOAD 0
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+Offset 3: ALOAD 1
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    stack[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+Offset 4: PUTFIELD EDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop.this$0 : LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [!LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#1]
+  Stack
+Offset 5: RETURN
+==========================================================================================
+
+
+
+null:run()V
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = []
+    locals[2] = []
+    locals[3] = []
+  Stack
+Offset 1: GOTO L0
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+Offset 3: ALOAD 0
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+Offset 4: GETFIELD EDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop.this$0 : LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#6]
+Offset 5: INVOKEVIRTUAL EDU/oswego/cs/dl/util/concurrent/ClockDaemon.nextTask ()LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+Offset 6: ASTORE 1
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+Offset 7: ALOAD 1
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+Offset 8: IFNULL L1
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+Offset 9: ALOAD 1
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+Offset 10: GETFIELD EDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode.command : Ljava/lang/Runnable;
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+    stack[0] = [Ljava/lang/Runnable;#17]
+Offset 11: INVOKEINTERFACE java/lang/Runnable.run ()V
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+Offset 12: GOTO L0
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = []
+  Stack
+Offset 14: JSR L2
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = [V#-1]
+  Stack
+Offset 15: GOTO L3
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = [V#-1]
+  Stack
+    stack[0] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+Offset 17: ASTORE 2
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+Offset 18: JSR L2
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+Offset 19: ALOAD 2
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+    stack[0] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+Offset 20: ATHROW
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+    stack[0] = [V#-1]
+Offset 22: ASTORE 3
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+Offset 23: ALOAD 0
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+Offset 24: GETFIELD EDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop.this$0 : LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+    stack[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon;#2]
+Offset 25: INVOKEVIRTUAL EDU/oswego/cs/dl/util/concurrent/ClockDaemon.clearThread ()V
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = [!Ljava/lang/Throwable;#1, Ljava/lang/Throwable;#3]
+    locals[3] = [V#-1]
+  Stack
+Offset 26: RET 3
+Frame
+  Locals
+    locals[0] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$RunLoop;#0]
+    locals[1] = [LEDU/oswego/cs/dl/util/concurrent/ClockDaemon$TaskNode;#8]
+    locals[2] = []
+    locals[3] = [V#-1]
+  Stack
+Offset 28: RETURN
+==========================================================================================
+
+

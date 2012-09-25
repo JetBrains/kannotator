@@ -27,4 +27,9 @@ class InterpreterTest : TestCase() {
     fun testLongSyntheticAccessor() {
         doTest(javaClass<interpreter._long.Test.Listener>())
     }
+
+    fun testJSR_RET() {
+        val name = "EDU/oswego/cs/dl/util/concurrent/ClockDaemon\$RunLoop"
+        doTest(File("testData/interpreter"), Type.getType(name), ClassReader(name))
+    }
 }
