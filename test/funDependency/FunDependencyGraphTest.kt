@@ -22,16 +22,20 @@ private val PATH = "testData/funDependency/"
 
 class FunDependencyGraphTest {
 
-    test fun simpleTest() {
-        doTest("simple/simple.txt", "fundependency.simple.Simple")
-    }
-
     test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
     }
 
+    test fun noAnnotatedMethods() {
+        doTest("noAnnotatedMethods/noAnnotatedMethods.txt", "fundependency.noAnnotatedMethods.First")
+    }
+
     test fun recursiveFunTest() {
         doTest("recursiveFun/recursiveFun.txt", "fundependency.recursiveFun.First", "fundependency.recursiveFun.Second")
+    }
+
+    test fun simpleTest() {
+        doTest("simple/simple.txt", "fundependency.simple.Simple")
     }
 
     fun doTest(expectedResultPath: String, vararg listOfFiles: String) {

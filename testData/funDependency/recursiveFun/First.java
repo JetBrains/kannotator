@@ -1,8 +1,8 @@
 package funDependency.recursiveFun;
 
 public class First {
-    public void foo() {
+    public Object foo() {
        new Second().bar();
-       foo();
+       return foo();
     }
 }

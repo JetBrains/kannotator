@@ -1,12 +1,13 @@
 package funDependency.simple;
 
 public class Simple {
-    public void foo() {
-        bar();
+    public Object foo() {
+        return bar();
     }
 
-    public void bar() {
+    public Object bar() {
         System.out.println();
+        return null;
     }
 }
 

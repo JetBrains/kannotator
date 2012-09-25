@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Type
 import org.objectweb.asm.commons.Method as AsmMethod
+import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 
 public class Method(
     public val declaringClass: Type,
@@ -20,6 +21,11 @@ public class Method(
 
     public fun hashCode(): Int {
         return declaringClass.hashCode() * 31 + asmMethod.hashCode()
+    }
+
+    fun isNeedAnnotating() : Boolean {
+        return !asmMethod.getReturnType().isPrimitiveOrVoidType() ||
+                !asmMethod.getArgumentTypes().all { it!!.isPrimitiveOrVoidType() }
     }
 
     public class object {

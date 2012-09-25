@@ -29,24 +29,25 @@ fun buildFunctionDependencyGraph(classes: Array<String>): FunDependencyGraph {
 private class GraphBuilderClassVisitor(val className: String, val functions: MutableMap<Method, FunctionNodeImpl>): ClassVisitor(ASM4) {
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        super.visitMethod(access, name, desc, signature, exceptions)
-        val methodNode = MethodNode(access, name, desc, signature, exceptions)
-
         val method = Method.create(ClassName.fromCanonicalName(className), name, desc)
-        val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
-        return GraphBuilderMethodVisitor(functionNode, functions, methodNode)
+        if (method.isNeedAnnotating()) {
+            val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
+            return GraphBuilderMethodVisitor(functionNode, functions)
+        }
+
+        return null
     }
 }
 
 private class GraphBuilderMethodVisitor(
         val ownerMethod: FunctionNodeImpl,
-        val functions: MutableMap<Method, FunctionNodeImpl>,
-        val methodNode: MethodNode
-): MethodVisitor(ASM4, methodNode) {
+        val functions: MutableMap<Method, FunctionNodeImpl>
+): MethodVisitor(ASM4) {
     public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
-        super<MethodVisitor>.visitMethodInsn(opcode, owner, name, desc)
         val method = Method.create(ClassName.fromCanonicalName(owner), name, desc)
-        val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
-        addEdge(ownerMethod, functionNode)
+        if (method.isNeedAnnotating()) {
+            val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
+            addEdge(ownerMethod, functionNode)
+        }
     }
 }

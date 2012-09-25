@@ -1,5 +1,2 @@
-funDependency.funInDifferentClasses.First:<init>()V in[] out[funDependency.funInDifferentClasses.First:<init>()V -> java.lang.Object:<init>()V, funDependency.funInDifferentClasses.First:<init>()V -> funDependency.funInDifferentClasses.Second:<init>()V]
-funDependency.funInDifferentClasses.First:test()V in[] out[funDependency.funInDifferentClasses.First:test()V -> funDependency.funInDifferentClasses.Second:foo()V]
-funDependency.funInDifferentClasses.Second:<init>()V in[funDependency.funInDifferentClasses.First:<init>()V -> funDependency.funInDifferentClasses.Second:<init>()V] out[funDependency.funInDifferentClasses.Second:<init>()V -> java.lang.Object:<init>()V]
-funDependency.funInDifferentClasses.Second:foo()V in[funDependency.funInDifferentClasses.First:test()V -> funDependency.funInDifferentClasses.Second:foo()V] out[]
-java.lang.Object:<init>()V in[funDependency.funInDifferentClasses.First:<init>()V -> java.lang.Object:<init>()V, funDependency.funInDifferentClasses.Second:<init>()V -> java.lang.Object:<init>()V] out[]
+funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; in[] out[funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;]
+funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object; in[funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;] out[]

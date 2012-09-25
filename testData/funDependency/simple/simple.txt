@@ -1,5 +1,2 @@
-funDependency.simple.Simple:<init>()V in[] out[funDependency.simple.Simple:<init>()V -> java.lang.Object:<init>()V]
-funDependency.simple.Simple:bar()V in[funDependency.simple.Simple:foo()V -> funDependency.simple.Simple:bar()V] out[funDependency.simple.Simple:bar()V -> java.io.PrintStream:println()V]
-funDependency.simple.Simple:foo()V in[] out[funDependency.simple.Simple:foo()V -> funDependency.simple.Simple:bar()V]
-java.io.PrintStream:println()V in[funDependency.simple.Simple:bar()V -> java.io.PrintStream:println()V] out[]
-java.lang.Object:<init>()V in[funDependency.simple.Simple:<init>()V -> java.lang.Object:<init>()V] out[]
+funDependency.simple.Simple:bar()Ljava/lang/Object; in[funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;] out[]
+funDependency.simple.Simple:foo()Ljava/lang/Object; in[] out[funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;]
