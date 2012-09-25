@@ -46,7 +46,11 @@ import kotlin.nullable.hashCodeOrDefault
 import java.util.Collections
 
 private class TypedValue(val id: Int, val _type: Type?, val interesting: Boolean, val createdAtInsn: AbstractInsnNode? = null) : Value {
-    public fun getSize(): Int = _type?.getSize() ?: 1
+    public fun getSize(): Int = when (_type) {
+        null -> 1
+        PRIMITIVE_TYPE_SIZE_2 -> 2
+        else -> _type.getSize()
+    }
 
     public fun toString(): String {
         val typeAndId = "$_type#$id"
@@ -54,8 +58,10 @@ private class TypedValue(val id: Int, val _type: Type?, val interesting: Boolean
     }
 }
 
-val PRIMITIVE_VALUE_SIZE_1 = TypedValue(-1, Type.getType("P1"), false, null)
-val PRIMITIVE_VALUE_SIZE_2 = TypedValue(-1, Type.getType("P2"), false, null)
+val PRIMITIVE_TYPE_SIZE_1 = Type.getType("P1")
+val PRIMITIVE_TYPE_SIZE_2 = Type.getType("P2")
+val PRIMITIVE_VALUE_SIZE_1 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_1, false, null)
+val PRIMITIVE_VALUE_SIZE_2 = TypedValue(-1, PRIMITIVE_TYPE_SIZE_2, false, null)
 val NULL_TYPE = Type.getType("null")
 val NULL_VALUE = TypedValue(-1, NULL_TYPE, false, null)
 

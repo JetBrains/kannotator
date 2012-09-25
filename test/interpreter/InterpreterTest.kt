@@ -2,6 +2,9 @@ package interpreter
 
 import junit.framework.TestCase
 import org.objectweb.asm.commons.Method as AsmMethod
+import java.io.File
+import org.objectweb.asm.Type
+import org.objectweb.asm.ClassReader
 
 class InterpreterTest : TestCase() {
 
@@ -19,5 +22,9 @@ class InterpreterTest : TestCase() {
 
     fun testLoops() {
         doTest(javaClass<interpreter.loops.Test>())
+    }
+
+    fun testLongSyntheticAccessor() {
+        doTest(javaClass<interpreter._long.Test.Listener>())
     }
 }
