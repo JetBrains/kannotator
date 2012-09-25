@@ -126,6 +126,7 @@ enum class MethodKind {
 fun MethodKind.hasThis() = this == MethodKind.INSTANCE
 
 private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: String): Interpreter<PossibleTypedValues>(ASM4) {
+    private val valuesByInstructionCache: MutableMap<AbstractInsnNode, PossibleTypedValues> = HashMap()
     private var valueSetsCreated: Int = 0
     private var valuesCreated: Int = 0
 
@@ -166,7 +167,9 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
 
         if (specialValue(_type) != null) return specialValue(_type)
 
-        return AsmPossibleValues(createValue(_type, false, insn))
+        return valuesByInstructionCache.getOrPut(insn) {
+            AsmPossibleValues(createValue(_type, false, insn))
+        }
     }
 
     public override fun newOperation(insn: AbstractInsnNode): PossibleTypedValues? {
