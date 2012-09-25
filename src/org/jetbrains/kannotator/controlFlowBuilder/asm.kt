@@ -54,9 +54,16 @@ public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, m
 
 public data class MethodAndGraph(val method: Method, val graph: ControlFlowGraphBuilder<*>)
 
+public open class GraphBuilderCallbacks {
+    open fun enterMethod(internalClassName: String, methodName: String, methodDesc: String) {}
+    open fun exitMethod(internalClassName: String, methodName: String, methodDesc: String) {}
+    open fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {}
+}
+
 public fun buildGraphsForAllMethods(
         classType: Type,
-        classReader: ClassReader
+        classReader: ClassReader,
+        callbacks: GraphBuilderCallbacks = GraphBuilderCallbacks()
 ): List<MethodAndGraph> {
     val result = ArrayList<MethodAndGraph>()
     classReader.accept(object : ClassVisitor(ASM4) {
@@ -69,7 +76,8 @@ public fun buildGraphsForAllMethods(
             return GraphBuilderMethodVisitor(
                     classType.getInternalName(),
                     builder,
-                    methodNode
+                    methodNode,
+                    callbacks
             )
         }
     }, 0)
@@ -90,7 +98,7 @@ private class GraphBuilderClassVisitor(val className: String, val methodName: St
             return mv
         }
         val methodNode = MethodNode(access, name, desc, signature, exceptions)
-        return GraphBuilderMethodVisitor(className, graphBuilder, methodNode)
+        return GraphBuilderMethodVisitor(className, graphBuilder, methodNode, GraphBuilderCallbacks())
     }
 }
 
@@ -103,22 +111,33 @@ public val STATE_BEFORE: DataKey<Instruction, State<Unit>> = DataKey()
 class GraphBuilderMethodVisitor(
         val ownerInternalName: String,
         val graphBuilder: ControlFlowGraphBuilder<Label>,
-        val methodNode: MethodNode
+        val methodNode: MethodNode,
+        val callbacks: GraphBuilderCallbacks
 ) : MethodVisitor(ASM4, methodNode) {
 
-    public override fun visitEnd() {
-        super.visitEnd()
-        val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
-        analyzer.analyze(ownerInternalName, methodNode)
+    {
+        callbacks.enterMethod(ownerInternalName, methodNode.name, methodNode.desc)
+    }
 
-        for ((index, inst) in analyzer.instructions.indexed) {
-            val frame = analyzer.getFrames()[index]
-            if (frame != null) {
-                inst[STATE_BEFORE] = object : FrameState<Unit>(frame!!) {
-                    override fun valueInfo(value: Value) {}
+    public override fun visitEnd() {
+        try {
+            super.visitEnd()
+            val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
+            analyzer.analyze(ownerInternalName, methodNode)
+
+            for ((index, inst) in analyzer.instructions.indexed) {
+                val frame = analyzer.getFrames()[index]
+                if (frame != null) {
+                    inst[STATE_BEFORE] = object : FrameState<Unit>(frame!!) {
+                        override fun valueInfo(value: Value) {}
+                    }
                 }
             }
         }
+        catch (e: Throwable) {
+            callbacks.error(ownerInternalName, methodNode.name, methodNode.desc, e)
+        }
+        callbacks.exitMethod(ownerInternalName, methodNode.name, methodNode.desc)
     }
 }
 

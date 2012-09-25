@@ -12,6 +12,7 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.objectweb.asm.tree.AbstractInsnNode
+import org.jetbrains.kannotator.controlFlowBuilder.GraphBuilderCallbacks
 
 fun StringBuilder.appendStates(instructions: Collection<Instruction>) {
     val renderer = AsmInstructionRenderer()
@@ -49,8 +50,25 @@ fun doTest(theClass: Class<out Any>) {
     doTest(File("testData/"), classType, classReader)
 }
 
-fun doTest(baseDir: File, classType: Type, classReader: ClassReader, failOnNoData: Boolean = true) {
-    val methodsAndGraphs = buildGraphsForAllMethods(classType, classReader)
+fun doTest(
+        baseDir: File,
+        classType: Type,
+        classReader: ClassReader,
+        failOnNoData: Boolean = true,
+        dumpMethodNames: Boolean = false
+) {
+    val methodsAndGraphs = buildGraphsForAllMethods(classType, classReader, object : GraphBuilderCallbacks() {
+
+        override fun enterMethod(internalClassName: String, methodName: String, methodDesc: String) {
+            if (dumpMethodNames) println("    " + methodName + methodDesc)
+        }
+
+        override fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {
+            System.err.println("===========================================================")
+            System.err.println("$internalClassName :: $methodName$methodDesc")
+            e.printStackTrace()
+        }
+    })
 
     val actual = buildString {
         sb ->
