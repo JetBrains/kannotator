@@ -21,4 +21,40 @@ public class Method(
     public fun hashCode(): Int {
         return declaringClass.hashCode() * 31 + asmMethod.hashCode()
     }
+
+    public class object {
+        public fun create(owner: ClassName, name: String, desc: String): Method {
+            val declaringClass = Type.getType(owner.typeDescriptor)
+            val asmMethod = AsmMethod(name, desc)
+            return Method(declaringClass, asmMethod)
+        }
+    }
+}
+
+public class ClassName private (public val canonical: String) {
+    public val internal: String
+        get() = canonical.replaceAll("\\.", "/")
+
+    public val typeDescriptor: String
+        get() = "L$internal;"
+
+    public fun toString(): String = canonical
+
+    public fun equals(other: Any?): Boolean = other is ClassName && canonical == other.canonical
+
+    public fun hashCode(): Int = canonical.hashCode()
+
+    class object {
+        public fun fromCanonicalName(name: String): ClassName {
+            return ClassName(name)
+        }
+
+        public fun fromInternalName(name: String): ClassName {
+            return ClassName(name.replaceAll("/", "."))
+        }
+
+        public fun fromClass(clazz: Class<*>): ClassName {
+            return ClassName(clazz.getCanonicalName()!!)
+        }
+    }
 }
