@@ -45,7 +45,12 @@ fun StringBuilder.appendStates(instructions: Collection<Instruction>) {
 
 fun doTest(theClass: Class<out Any>) {
     val classType = Type.getType(theClass)
-    val methodsAndGraphs = buildGraphsForAllMethods(classType, ClassReader(theClass.getCanonicalName()))
+    val classReader = ClassReader(theClass.getCanonicalName())
+    doTest(File("testData/"), classType, classReader)
+}
+
+fun doTest(baseDir: File, classType: Type, classReader: ClassReader, failOnNoData: Boolean = true) {
+    val methodsAndGraphs = buildGraphsForAllMethods(classType, classReader)
 
     val actual = buildString {
         sb ->
@@ -61,10 +66,13 @@ fun doTest(theClass: Class<out Any>) {
         }
     }
 
-    val expectedFile = File("testData/" + classType.getInternalName() + ".txt")
+    val expectedFile = File(baseDir, classType.getInternalName() + ".txt")
     if (!expectedFile.exists()) {
+        expectedFile.getParentFile()!!.mkdirs()
         expectedFile.writeText(actual)
-        fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
+        if (failOnNoData) {
+            fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
+        }
     }
     val expected = expectedFile.readText()
 
