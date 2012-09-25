@@ -22,18 +22,7 @@ class ClassHierarchyTest : TestCase() {
     }
 
     fun doTest(prefix: String, filename: String) {
-        val builder = ClassHierarchyGraphBuilder()
-        for (clazz in getAllClassesWithPrefix(prefix)) {
-            builder.addClass(clazz)
-        }
-
-        val graph = builder.buildGraph()
-
-        val classes = graph.classes.filter {
-            it.name.internal.startsWith(prefix)
-        }.sortBy {
-            it.name.toString()
-        }
+        val classes = getClassesHierarchy(prefix)
 
         val result = buildString {
             sb ->
@@ -51,16 +40,6 @@ class ClassHierarchyTest : TestCase() {
             }
         }
 
-        val expectedFile = File(BASE_DIR + filename)
-
-        if (!expectedFile.exists()) {
-            expectedFile.getParentFile()!!.mkdirs()
-            expectedFile.writeText(result)
-            fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
-        }
-
-        val expected = expectedFile.readText()
-
-        assertEquals(expected, result)
+        assertEqualsOrCreate(File(BASE_DIR + filename), result)
     }
 }
