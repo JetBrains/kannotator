@@ -7,7 +7,7 @@ import org.jetbrains.kannotator.declarations.ClassName
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 
-fun recurseIntoJars(libDir: File, block: (classType: Type, classReader: ClassReader) -> Unit) {
+fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
         file ->
         if (file.isFile() && file.getName().endsWith(".jar")) {
@@ -25,7 +25,7 @@ fun recurseIntoJars(libDir: File, block: (classType: Type, classReader: ClassRea
                 val inputStream = jar.getInputStream(entry)
                 val classReader = ClassReader(inputStream)
 
-                block(classType, classReader)
+                block(file, classType, classReader)
             }
         }
     }
@@ -37,7 +37,7 @@ fun getAllClassesWithPrefix(prefix: String): List<ClassName> {
 
     for (jar in classPath.split(File.pathSeparatorChar)) {
         recurseIntoJars(File(jar)) {
-            classType, classReader ->
+            f, classType, classReader ->
             val name = ClassName.fromType(classType)
             if (name.internal.startsWith(prefix)) {
                 result.add(name)
