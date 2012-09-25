@@ -26,11 +26,11 @@ fun StringBuilder.appendStates(instructions: Collection<Instruction>) {
             this.println("Frame")
             this.println("  Locals")
             for ((i, value) in state.localVariables.indexed) {
-                this.println("    locals[$i] = $value")
+                this.println("    locals[$i] = ${value.sorted()}")
             }
             this.println("  Stack")
             for ((i, value) in state.stack.indexed) {
-                this.println("    stack[$i] = $value")
+                this.println("    stack[$i] = ${value.sorted()}")
             }
             when (metadata) {
                 is AsmInstructionMetadata -> {
@@ -70,3 +70,5 @@ fun doTest(theClass: Class<out Any>) {
 
     assertEquals(expected, actual)
 }
+
+fun Set<Value>.sorted() = map {v -> v.toString()}.toSortedList()
