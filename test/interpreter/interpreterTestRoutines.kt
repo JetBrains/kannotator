@@ -70,7 +70,7 @@ fun writeGraphsToFile(file: File, classType: Type, methodsAndGraphs: Collection<
 
 fun doTest(theClass: Class<out Any>) {
     val classType = Type.getType(theClass)
-    val classReader = ClassReader(theClass.getCanonicalName())
+    val classReader = ClassReader(theClass.getName())
     doTest(File("testData/"), classType, classReader)
 }
 
