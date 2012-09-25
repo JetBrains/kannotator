@@ -20,10 +20,11 @@ public trait LocalVariableTable {
 }
 
 public trait Value {
+    val parameterIndex: Int?
 
+    final val interesting : Boolean
+        get() = parameterIndex != null
 }
-
-
 
 public val LocalVariableTable.indexed: Iterator<IndexedElement<Set<Value>>>
         get() = indexedIterator(this, size) { c, i -> c.get(i) }

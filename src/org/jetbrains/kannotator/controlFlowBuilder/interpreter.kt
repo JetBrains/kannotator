@@ -45,7 +45,7 @@ import com.gs.collections.api.block.HashingStrategy
 import kotlin.nullable.hashCodeOrDefault
 import java.util.Collections
 
-private class TypedValue(val id: Int, val _type: Type?, val parameterIndex: Int? = null, val createdAtInsn: AbstractInsnNode? = null) : Value {
+public class TypedValue(val id: Int, val _type: Type?, override val parameterIndex: Int? = null, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = when (_type) {
         null -> 1
         PRIMITIVE_TYPE_SIZE_2 -> 2
@@ -57,9 +57,6 @@ private class TypedValue(val id: Int, val _type: Type?, val parameterIndex: Int?
         return (if (interesting) "$parameterIndex!" else "") + typeAndId
     }
 }
-
-val TypedValue.interesting: Boolean
-        get() = parameterIndex != null
 
 val PRIMITIVE_TYPE_SIZE_1 = Type.getType("P1")
 val PRIMITIVE_TYPE_SIZE_2 = Type.getType("P2")
