@@ -46,16 +46,18 @@ import org.objectweb.asm.Opcodes
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.declarations.Method
 
-public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, methodDesc: String): ControlFlowGraph {
-    val classVisitor = GraphBuilderClassVisitor(classReader.getClassName()!!, methodName, methodDesc)
-    classReader.accept(classVisitor, 0)
-    return classVisitor.graph
+public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
+    return buildGraphsForAllMethods(Type.getType(classReader.getClassName()), classReader, object : GraphBuilderCallbacks() {
+        override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {
+            return methodName == _methodName && methodDesc == _methodDesc
+        }
+    }).first!!.graph.build()
 }
 
 public data class MethodAndGraph(val method: Method, val graph: ControlFlowGraphBuilder<*>)
 
 public open class GraphBuilderCallbacks {
-    open fun enterMethod(internalClassName: String, methodName: String, methodDesc: String) {}
+    open fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean = true
     open fun exitMethod(internalClassName: String, methodName: String, methodDesc: String) {}
     open fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {}
 }
@@ -69,6 +71,9 @@ public fun buildGraphsForAllMethods(
     classReader.accept(object : ClassVisitor(ASM4) {
 
         public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+            val proceed = callbacks.beforeMethod(classType.getInternalName(), name, desc)
+            if (!proceed) return null
+
             val builder = ControlFlowGraphBuilder<Label>()
             result.add(MethodAndGraph(Method(classType, AsmMethod(name, desc)), builder))
 
@@ -84,24 +89,6 @@ public fun buildGraphsForAllMethods(
     return result
 }
 
-private class GraphBuilderClassVisitor(val className: String, val methodName: String, val methodDesc: String) : ClassVisitor(ASM4) {
-
-    private val graphBuilder = ControlFlowGraphBuilder<Label>()
-
-    val graph: ControlFlowGraph
-        get() = graphBuilder.build()
-
-    public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        val mv = super.visitMethod(access, name, desc, signature, exceptions)
-        println(name + desc)
-        if (name != methodName || desc != methodDesc) {
-            return mv
-        }
-        val methodNode = MethodNode(access, name, desc, signature, exceptions)
-        return GraphBuilderMethodVisitor(className, graphBuilder, methodNode, GraphBuilderCallbacks())
-    }
-}
-
 fun methodKind(access: Int): MethodKind {
     return if (Opcodes.ACC_STATIC and access == 0) MethodKind.INSTANCE else MethodKind.STATIC
 }
@@ -114,10 +101,6 @@ class GraphBuilderMethodVisitor(
         val methodNode: MethodNode,
         val callbacks: GraphBuilderCallbacks
 ) : MethodVisitor(ASM4, methodNode) {
-
-    {
-        callbacks.enterMethod(ownerInternalName, methodNode.name, methodNode.desc)
-    }
 
     public override fun visitEnd() {
         try {

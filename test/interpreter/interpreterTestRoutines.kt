@@ -59,8 +59,9 @@ fun doTest(
 ) {
     val methodsAndGraphs = buildGraphsForAllMethods(classType, classReader, object : GraphBuilderCallbacks() {
 
-        override fun enterMethod(internalClassName: String, methodName: String, methodDesc: String) {
+        override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {
             if (dumpMethodNames) println("    " + methodName + methodDesc)
+            return true
         }
 
         override fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {
