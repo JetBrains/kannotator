@@ -17,6 +17,8 @@ import org.objectweb.asm.tree.AbstractInsnNode
 import org.jetbrains.kannotator.controlFlowBuilder.MethodAndGraph
 import java.io.FileInputStream
 import java.io.Reader
+import java.io.FileWriter
+import java.io.PrintWriter
 
 fun PrintStream.appendStates(instructions: Collection<Instruction>) {
     val renderer = AsmInstructionRenderer()
@@ -84,6 +86,12 @@ fun doTest(
         failOnNoData: Boolean = true,
         dumpMethodNames: Boolean = false
 ) {
+    val expectedFile = File(baseDir, classType.getInternalName() + ".txt")
+    expectedFile.getParentFile()!!.mkdirs()
+
+    val errorFile = File(expectedFile.getPath().removeSuffix(".txt") + ".errors.txt")
+    errorFile.delete()
+
     val methodsAndGraphs = buildGraphsForAllMethods(classType, classReader, object : GraphBuilderCallbacks() {
 
         override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {
@@ -92,14 +100,17 @@ fun doTest(
         }
 
         override fun error(internalClassName: String, methodName: String, methodDesc: String, e: Throwable) {
+            FileWriter(errorFile, true).use {
+                w ->
+                w.append("===========================================================\n")
+                w.append("$internalClassName :: $methodName$methodDesc\n")
+                e.printStackTrace(PrintWriter(w))
+            }
             System.err.println("===========================================================")
             System.err.println("$internalClassName :: $methodName$methodDesc")
             e.printStackTrace()
         }
     })
-
-    val expectedFile = File(baseDir, classType.getInternalName() + ".txt")
-    expectedFile.getParentFile()!!.mkdirs()
 
     val actualFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
     writeGraphsToFile(actualFile, classType, methodsAndGraphs)
