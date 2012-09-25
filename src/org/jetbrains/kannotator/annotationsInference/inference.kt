@@ -94,6 +94,7 @@ fun getInitialNullabilityInfo(value: Value): NullabilityValueInfo {
     val typedValue = value as TypedValue
     val createdAtInsn = typedValue.createdAtInsn
 
+    // TODO this is a hack, must create value info depending on current command type
     if (value == org.jetbrains.kannotator.controlFlowBuilder.NULL_VALUE) {
         return NULL
     }
