@@ -54,7 +54,10 @@ public fun buildControlFlowGraph(classReader: ClassReader, methodName: String, m
 
 public data class MethodAndGraph(val method: Method, val graph: ControlFlowGraphBuilder<*>)
 
-public fun buildGraphsForAllMethods(classType: Type, classReader: ClassReader): List<MethodAndGraph> {
+public fun buildGraphsForAllMethods(
+        classType: Type,
+        classReader: ClassReader
+): List<MethodAndGraph> {
     val result = ArrayList<MethodAndGraph>()
     classReader.accept(object : ClassVisitor(ASM4) {
 
@@ -65,8 +68,6 @@ public fun buildGraphsForAllMethods(classType: Type, classReader: ClassReader): 
             val methodNode = MethodNode(access, name, desc, signature, exceptions)
             return GraphBuilderMethodVisitor(
                     classType.getInternalName(),
-                    methodKind(access),
-                    desc,
                     builder,
                     methodNode
             )
@@ -89,7 +90,7 @@ private class GraphBuilderClassVisitor(val className: String, val methodName: St
             return mv
         }
         val methodNode = MethodNode(access, name, desc, signature, exceptions)
-        return GraphBuilderMethodVisitor(className, methodKind(access), desc, graphBuilder, methodNode)
+        return GraphBuilderMethodVisitor(className, graphBuilder, methodNode)
     }
 }
 
@@ -101,15 +102,13 @@ public val STATE_BEFORE: DataKey<Instruction, State<Unit>> = DataKey()
 
 class GraphBuilderMethodVisitor(
         val ownerInternalName: String,
-        val methodKind: MethodKind,
-        val desc: String,
         val graphBuilder: ControlFlowGraphBuilder<Label>,
         val methodNode: MethodNode
 ) : MethodVisitor(ASM4, methodNode) {
 
     public override fun visitEnd() {
         super.visitEnd()
-        val analyzer = GraphBuilderAnalyzer(methodKind, desc, graphBuilder, methodNode)
+        val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
         analyzer.analyze(ownerInternalName, methodNode)
 
         for ((index, inst) in analyzer.instructions.indexed) {
@@ -138,11 +137,9 @@ class AsmInstructionMetadata(val asmInstruction: AbstractInsnNode) : Instruction
 }
 
 private class GraphBuilderAnalyzer(
-        val methodKind: MethodKind,
-        val desc: String,
         val graph: ControlFlowGraphBuilder<Label>,
         val methodNode: MethodNode
-) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter(methodKind, desc)) {
+) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter(methodKind(methodNode.access), methodNode.desc)) {
 
     public val instructions: List<Instruction> = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
 
