@@ -147,7 +147,14 @@ private class GraphBuilderAnalyzer(
     public val instructions: List<Instruction> = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
 
     {
-        graph.setEntryPoint(instructions[0])
+        if (instructions.size > 0) {
+            graph.setEntryPoint(instructions[0])
+        }
+        else {
+            graph.setEntryPoint(graph.newInstruction(object : InstructionMetadata {
+                fun toString() = "Entry point of an empty method"
+            }))
+        }
     }
 
     private val edges: MutableSet<Pair<Instruction, Instruction>> = HashSet()
