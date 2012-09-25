@@ -43,15 +43,26 @@ import org.jetbrains.kannotator.controlFlow.Value
 import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
 import com.gs.collections.api.block.HashingStrategy
 import kotlin.nullable.hashCodeOrDefault
+import java.util.Collections
 
 private class TypedValue(val id: Int, val _type: Type?, val interesting: Boolean, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = _type?.getSize() ?: 1
 
     public fun toString(): String {
-        val typeAndId = "$_type@$id"
+        val typeAndId = "$_type#$id"
         return (if (interesting) "!" else "") + typeAndId
     }
 }
+
+val PRIMITIVE_VALUE_SIZE_1 = TypedValue(-1, Type.getType("P1"), false, null)
+val PRIMITIVE_VALUE_SIZE_2 = TypedValue(-1, Type.getType("P2"), false, null)
+val NULL_TYPE = Type.getType("null")
+val NULL_VALUE = TypedValue(-1, NULL_TYPE, false, null)
+
+val PRIMITIVE_1_AS_SET = AsmPossibleValues(PRIMITIVE_VALUE_SIZE_1)
+val PRIMITIVE_2_AS_SET = AsmPossibleValues(PRIMITIVE_VALUE_SIZE_2)
+val NULL_AS_SET = AsmPossibleValues(NULL_VALUE)
+val EMPTY_VALUES = AsmPossibleValues()
 
 fun AsmPossibleValues(value: TypedValue) = PossibleTypedValues(value.getSize(), hashSet(value))
 
@@ -122,27 +133,45 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
         return TypedValue(valuesCreated++, _type, interesting, insn)
     }
 
+    private fun specialValue(_type: Type): PossibleTypedValues? {
+        return when (_type) {
+            NULL_TYPE -> NULL_AS_SET
+            BYTE_TYPE, SHORT_TYPE, INT_TYPE,
+            FLOAT_TYPE,
+            CHAR_TYPE,
+            BOOLEAN_TYPE -> PRIMITIVE_1_AS_SET
+            LONG_TYPE, DOUBLE_TYPE -> PRIMITIVE_2_AS_SET
+            else -> null
+        }
+    }
+
     public override fun newValue(_type: Type?): PossibleTypedValues? {
         if (_type?.getSort() == Type.VOID)
             return null
+
+        if (_type == null) return EMPTY_VALUES
+
+        if (specialValue(_type) != null) return specialValue(_type)
 
         val skip = (if (methodKind.hasThis()) 1 else 0) + (if (Type.getReturnType(desc) == VOID_TYPE) 0 else 1)
         val interesting = valueSetsCreated in skip..Type.getArgumentTypes(desc).size + skip // 0 is for return type
         valueSetsCreated++
 
-        if (_type == null) return AsmPossibleValues()
         return AsmPossibleValues(createValue(_type, interesting, null))
     }
 
     private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): PossibleTypedValues? {
         if (_type.getSort() == Type.VOID)
             return null
+
+        if (specialValue(_type) != null) return specialValue(_type)
+
         return AsmPossibleValues(createValue(_type, false, insn))
     }
 
     public override fun newOperation(insn: AbstractInsnNode): PossibleTypedValues? {
         return when (insn.getOpcode()) {
-            ACONST_NULL -> newValueAtInstruction(Type.getType("null"), insn)
+            ACONST_NULL -> newValueAtInstruction(NULL_TYPE, insn)
             ICONST_M1, ICONST_0, ICONST_1, ICONST_2, ICONST_3, ICONST_4, ICONST_5 -> newValueAtInstruction(INT_TYPE, insn)
             LCONST_0, LCONST_1 -> newValueAtInstruction(LONG_TYPE, insn)
             FCONST_0, FCONST_1, FCONST_2 -> newValueAtInstruction(FLOAT_TYPE, insn)

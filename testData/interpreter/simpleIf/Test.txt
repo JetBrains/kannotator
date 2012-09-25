@@ -3,126 +3,126 @@ interpreter/simpleIf/Test
 interpreter.simpleIf.Test:foo()I
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 1: LINENUMBER 6 L0
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 2: ICONST_1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-    stack[0] = [I@2]
+    stack[0] = [P1#-1]
 Offset 3: ICONST_2
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-    stack[0] = [I@2]
-    stack[1] = [I@3]
+    stack[0] = [P1#-1]
+    stack[1] = [P1#-1]
 Offset 4: IF_ICMPLE L1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 6: LINENUMBER 7 L2
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 7: ICONST_1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-    stack[0] = [I@6]
+    stack[0] = [P1#-1]
 Offset 8: ISTORE 1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@6]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
 Offset 9: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@6]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;@7]
+    stack[0] = [Ljet/Tuple0;#2]
 Offset 10: GOTO L3
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 12: LINENUMBER 10 L1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 13: FRAME SAME
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
 Offset 14: ICONST_2
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-    stack[0] = [I@4]
+    stack[0] = [P1#-1]
 Offset 15: ISTORE 1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@4]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
 Offset 16: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@4]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;@5]
+    stack[0] = [Ljet/Tuple0;#1, Ljet/Tuple0;#2]
 Offset 18: FRAME FULL [interpreter/simpleIf/Test I] [jet/Tuple0]
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@4]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;@5]
+    stack[0] = [Ljet/Tuple0;#1, Ljet/Tuple0;#2]
 Offset 19: POP
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@4]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
 Offset 21: LINENUMBER 12 L4
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@4]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
 Offset 22: ILOAD 1
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@1]
-    locals[1] = [I@4]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
+    locals[1] = [P1#-1]
   Stack
-    stack[0] = [I@4]
+    stack[0] = [P1#-1]
 Offset 23: IRETURN
 ==========================================================================================
 
@@ -131,18 +131,18 @@ Offset 23: IRETURN
 interpreter.simpleIf.Test:<init>()V
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@0]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
   Stack
 Offset 0: ALOAD 0
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@0]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
   Stack
-    stack[0] = [Linterpreter/simpleIf/Test;@0]
+    stack[0] = [Linterpreter/simpleIf/Test;#0]
 Offset 1: INVOKESPECIAL java/lang/Object.<init> ()V
 Frame
   Locals
-    locals[0] = [Linterpreter/simpleIf/Test;@0]
+    locals[0] = [Linterpreter/simpleIf/Test;#0]
   Stack
 Offset 2: RETURN
 ==========================================================================================

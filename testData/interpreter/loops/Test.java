@@ -33,4 +33,12 @@ public class Test {
         }
         consume(x);
     }
+
+    void test5() {
+        byte[] hashBytes = {};
+        long svuid = 0;
+        for (int i = Math.min(hashBytes.length, 8) - 1; i >= 0; i--) {
+            svuid = (svuid << 8) | (hashBytes[i] & 0xFF);
+        }
+    }
 }
