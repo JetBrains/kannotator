@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
     displayJungGraph<FunctionNode, FunDependencyEdge>(
             graph.toJungGraph(),
             object : Transformer<FunctionNode, String> {
-                public override fun transform(functionNode: FunctionNode): String = functionNode.method.asmMethod.toString()!!
+                public override fun transform(functionNode: FunctionNode): String = functionNode.method.toString()
             },
             null
     )

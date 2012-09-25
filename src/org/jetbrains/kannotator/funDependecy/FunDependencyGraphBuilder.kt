@@ -9,6 +9,7 @@ import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.Type
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.objectweb.asm.tree.MethodNode
+import org.jetbrains.kannotator.declarations.ClassName
 
 fun buildFunctionDependencyGraph(classes: Array<String>): FunDependencyGraph {
     val functions = hashMap<Method, FunctionNodeImpl>()
@@ -31,7 +32,7 @@ private class GraphBuilderClassVisitor(val className: String, val functions: Mut
         super.visitMethod(access, name, desc, signature, exceptions)
         val methodNode = MethodNode(access, name, desc, signature, exceptions)
 
-        val method = getMethod(className, name, desc)
+        val method = Method.create(ClassName.fromCanonicalName(className), name, desc)
         val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
         return GraphBuilderMethodVisitor(functionNode, functions, methodNode)
     }
@@ -42,22 +43,10 @@ private class GraphBuilderMethodVisitor(
         val functions: MutableMap<Method, FunctionNodeImpl>,
         val methodNode: MethodNode
 ): MethodVisitor(ASM4, methodNode) {
-
     public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
         super<MethodVisitor>.visitMethodInsn(opcode, owner, name, desc)
-        val method = getMethod(owner, name, desc)
+        val method = Method.create(ClassName.fromCanonicalName(owner), name, desc)
         val functionNode = functions.getOrPut(method, { FunctionNodeImpl(method) })
         addEdge(ownerMethod, functionNode)
     }
-}
-
-private fun getMethodSignature(owner: String, name: String, desc: String): String {
-    return "$owner.$name $desc"
-}
-
-private fun getMethod(className: String, name: String, desc: String): Method {
-    val methodSignature = getMethodSignature(className, name, desc)
-    val asmMethod = AsmMethod.getMethod(methodSignature)
-    assert(asmMethod != null, "Cannot find method with sinature: $methodSignature")
-    return Method(Type.getType(className), asmMethod!!)
 }

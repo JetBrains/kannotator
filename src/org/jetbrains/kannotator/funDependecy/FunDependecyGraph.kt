@@ -12,7 +12,7 @@ public trait FunDependencyEdge {
     val to: FunctionNode
 
     fun toString(): String {
-        return "${from.method.asmMethod} -> ${to.method.asmMethod}"
+        return "${from.method} -> ${to.method}"
     }
 }
 
@@ -22,7 +22,7 @@ public trait FunctionNode {
     val method: Method
 
     fun toString(): String {
-        return "${method.asmMethod} in$incomingEdges out$outgoingEdges"
+        return "${method} in$incomingEdges out$outgoingEdges"
     }
 }
 
