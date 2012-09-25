@@ -46,6 +46,9 @@ public class ClassName private (public val internal: String) {
 
     public fun toString(): String = internal
 
+    public val simple: String
+        get() = internal.substring(internal.lastIndexOf("/") + 1)
+
     public fun equals(other: Any?): Boolean = other is ClassName && internal == other.internal
 
     public fun hashCode(): Int = internal.hashCode()
@@ -53,10 +56,6 @@ public class ClassName private (public val internal: String) {
     class object {
         public fun fromInternalName(name: String): ClassName {
             return ClassName(name)
-        }
-
-        public fun fromClass(clazz: Class<*>): ClassName {
-            return ClassName(clazz.getName()!!)
         }
 
         public fun fromType(_type: Type): ClassName {
