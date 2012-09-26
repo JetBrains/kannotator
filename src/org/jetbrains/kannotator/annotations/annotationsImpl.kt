@@ -7,26 +7,23 @@ import kotlinlib.union
 import java.util.Collections
 
 class AnnotationsImpl<A>(val delegate: Annotations<A>? = null) : MutableAnnotations<A> {
-    private val data = HashMap<TypePosition, MutableSet<A>>()
+    private val data = HashMap<TypePosition, A>()
 
-    override fun get(typePosition: TypePosition): Collection<A> {
-        val my = data.getOrElse(typePosition) { HashSet(0) }!!
-        val theirs = delegate?.get(typePosition) ?: Collections.emptySet<A>()
+    override fun get(typePosition: TypePosition): A? {
+        val my = data[typePosition]
+        val theirs = delegate?.get(typePosition)
 
-        return my union theirs
+        return if (my != null) my else theirs
     }
 
     override fun forEach(body: (TypePosition, A) -> Unit) {
         delegate?.forEach(body)
-        for ((position, annotationSet) in data) {
-            for (annotation in annotationSet) {
-                body(position, annotation)
-            }
+        for ((position, annotation) in data) {
+            body(position, annotation)
         }
     }
 
-    override fun add(typePosition: TypePosition, annotation: A) {
-        data.getOrPut(typePosition, { HashSet(1) }).add(annotation)
+    override fun set(typePosition: TypePosition, annotation: A) {
+        data[typePosition] = annotation
     }
-
 }
