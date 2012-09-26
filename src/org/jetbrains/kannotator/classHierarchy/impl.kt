@@ -85,7 +85,7 @@ private class ClassHierarchyClassVisitor: ClassVisitor(Opcodes.ASM4) {
     }
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        val method = Method(thisClassName!!, MethodId(name, desc))
+        val method = Method(thisClassName!!, access, name, desc)
         methods.add(method)
         return super.visitMethod(access, name, desc, signature, exceptions)
     }

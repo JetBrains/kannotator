@@ -1,49 +1,29 @@
 package org.jetbrains.kannotator.controlFlowBuilder
 
-import org.objectweb.asm.ClassVisitor
-import org.objectweb.asm.ClassReader
+import com.gs.collections.api.block.HashingStrategy
+import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
+import java.util.HashMap
+import kotlin.nullable.hashCodeOrDefault
+import org.jetbrains.kannotator.controlFlow.Value
+import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.getArgumentTypes
+import org.jetbrains.kannotator.declarations.getReturnType
+import org.jetbrains.kannotator.declarations.isStatic
+import org.objectweb.asm.Handle
 import org.objectweb.asm.Opcodes.*
-import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.Label
-import org.objectweb.asm.util.Printer
-import org.objectweb.asm.tree.analysis.BasicInterpreter
-import org.objectweb.asm.tree.analysis.Analyzer
-import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.Type
 import org.objectweb.asm.Type.*
-import org.objectweb.asm.tree.ClassNode
-
-import kotlinlib.*
 import org.objectweb.asm.tree.AbstractInsnNode
-import org.objectweb.asm.tree.analysis.BasicValue
-import org.objectweb.asm.tree.analysis.Interpreter
-import org.objectweb.asm.tree.TryCatchBlockNode
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraphBuilder
-import org.jetbrains.kannotator.controlFlow.InstructionMetadata
-import java.util.HashMap
-import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import java.util.ArrayList
-import org.objectweb.asm.tree.LabelNode
-import org.objectweb.asm.tree.LineNumberNode
-import org.objectweb.asm.tree.FrameNode
-import org.objectweb.asm.tree.analysis.Value as AsmValue
-import org.objectweb.asm.tree.LdcInsnNode
-import org.objectweb.asm.Handle
 import org.objectweb.asm.tree.FieldInsnNode
-import org.objectweb.asm.tree.TypeInsnNode
 import org.objectweb.asm.tree.IntInsnNode
-import org.objectweb.asm.tree.MultiANewArrayInsnNode
 import org.objectweb.asm.tree.InvokeDynamicInsnNode
+import org.objectweb.asm.tree.LdcInsnNode
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.asm.util.toOpcodeString
-import org.objectweb.asm.tree.analysis.Frame
-import org.objectweb.asm.tree.InsnList
-import org.jetbrains.kannotator.controlFlow.Value
-import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
-import com.gs.collections.api.block.HashingStrategy
-import kotlin.nullable.hashCodeOrDefault
-import java.util.Collections
+import org.objectweb.asm.tree.MultiANewArrayInsnNode
+import org.objectweb.asm.tree.TypeInsnNode
+import org.objectweb.asm.tree.analysis.Interpreter
+import org.objectweb.asm.tree.analysis.Value as AsmValue
+import org.objectweb.asm.util.Printer
 
 public class TypedValue(val id: Int, val _type: Type?, override val parameterIndex: Int? = null, val createdAtInsn: AbstractInsnNode? = null) : Value {
     public fun getSize(): Int = when (_type) {
@@ -128,14 +108,7 @@ fun PossibleTypedValues.merge(other: PossibleTypedValues): PossibleTypedValues {
     return PossibleTypedValues(getSize(), mergedSet)
 }
 
-enum class MethodKind {
-    INSTANCE
-    STATIC
-}
-
-fun MethodKind.hasThis() = this == MethodKind.INSTANCE
-
-private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: String): Interpreter<PossibleTypedValues>(ASM4) {
+private class GraphBuilderInterpreter(val method: Method): Interpreter<PossibleTypedValues>(ASM4) {
     private val valuesByInstructionCache: MutableMap<AbstractInsnNode, PossibleTypedValues> = HashMap()
     private var valueSetsCreated: Int = 0
     private var valuesCreated: Int = 0
@@ -164,11 +137,11 @@ private class GraphBuilderInterpreter(val methodKind: MethodKind, val desc: Stri
 
         if (specialValue(_type) != null) return specialValue(_type)
 
-        val returnValueSlots = if (Type.getReturnType(desc) == VOID_TYPE) 0 else 1
-        val thisSlots = if (methodKind.hasThis()) 1 else 0
+        val returnValueSlots = if (method.getReturnType() == VOID_TYPE) 0 else 1
+        val thisSlots = if (method.isStatic()) 0 else 1
 
         val skip = thisSlots + returnValueSlots
-        val interesting = valueSetsCreated in skip..Type.getArgumentTypes(desc).size + skip
+        val interesting = valueSetsCreated in skip..method.getArgumentTypes().size + skip
 
         val parameterIndex = if (interesting) valueSetsCreated - returnValueSlots else null
 

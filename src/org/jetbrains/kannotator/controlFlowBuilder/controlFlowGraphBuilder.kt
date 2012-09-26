@@ -1,52 +1,31 @@
 package org.jetbrains.kannotator.controlFlowBuilder
 
-import org.objectweb.asm.ClassVisitor
-import org.objectweb.asm.ClassReader
-import org.objectweb.asm.Opcodes.*
-import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.Label
-import org.objectweb.asm.util.Printer
-import org.objectweb.asm.tree.analysis.BasicInterpreter
-import org.objectweb.asm.tree.analysis.Analyzer
-import org.objectweb.asm.tree.MethodNode
-import org.objectweb.asm.Type
-import org.objectweb.asm.Type.*
-import org.objectweb.asm.tree.ClassNode
-
-import kotlinlib.*
-import org.objectweb.asm.tree.AbstractInsnNode
-import org.objectweb.asm.tree.analysis.BasicValue
-import org.objectweb.asm.tree.analysis.Interpreter
-import org.objectweb.asm.tree.TryCatchBlockNode
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraphBuilder
-import org.jetbrains.kannotator.controlFlow.InstructionMetadata
-import java.util.HashMap
-import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import java.util.ArrayList
-import org.objectweb.asm.tree.LabelNode
-import org.objectweb.asm.tree.LineNumberNode
-import org.objectweb.asm.tree.FrameNode
-import org.objectweb.asm.tree.LdcInsnNode
-import org.objectweb.asm.Handle
-import org.objectweb.asm.tree.FieldInsnNode
-import org.objectweb.asm.tree.TypeInsnNode
-import org.objectweb.asm.tree.IntInsnNode
-import org.objectweb.asm.tree.MultiANewArrayInsnNode
-import org.objectweb.asm.tree.InvokeDynamicInsnNode
-import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.asm.util.toOpcodeString
-import org.objectweb.asm.tree.analysis.Frame
-import org.objectweb.asm.tree.InsnList
 import java.util.HashSet
+import kotlinlib.*
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraphBuilder
 import org.jetbrains.kannotator.controlFlow.DataKey
+import org.jetbrains.kannotator.controlFlow.Instruction
+import org.jetbrains.kannotator.controlFlow.InstructionMetadata
 import org.jetbrains.kannotator.controlFlow.State
 import org.jetbrains.kannotator.controlFlow.Value
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.commons.Method as AsmMethod
-import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.MethodId
+import org.jetbrains.kannotator.declarations.Method
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.Label
+import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.Opcodes.*
+import org.objectweb.asm.commons.Method as AsmMethod
+import org.objectweb.asm.tree.AbstractInsnNode
+import org.objectweb.asm.tree.FrameNode
+import org.objectweb.asm.tree.LabelNode
+import org.objectweb.asm.tree.LineNumberNode
+import org.objectweb.asm.tree.MethodNode
+import org.objectweb.asm.tree.analysis.Analyzer
+import org.objectweb.asm.util.Printer
+import org.jetbrains.kannotator.declarations.MethodKind
 
 public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
     return buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {
@@ -79,11 +58,12 @@ public fun buildGraphsForAllMethods(
             if (!proceed) return null
 
             val builder = ControlFlowGraphBuilder<Label>()
-            result.add(MethodAndGraph(Method(ClassName.fromInternalName(owner), MethodId(name, desc)), builder))
+            val ownerClassName = ClassName.fromInternalName(owner)
+            result.add(MethodAndGraph(Method(ownerClassName, access, name, desc), builder))
 
             val methodNode = MethodNode(access, name, desc, signature, exceptions)
             return GraphBuilderMethodVisitor(
-                    owner,
+                    ownerClassName,
                     builder,
                     methodNode,
                     callbacks
@@ -93,14 +73,10 @@ public fun buildGraphsForAllMethods(
     return result
 }
 
-fun methodKind(access: Int): MethodKind {
-    return if (Opcodes.ACC_STATIC and access == 0) MethodKind.INSTANCE else MethodKind.STATIC
-}
-
 public val STATE_BEFORE: DataKey<Instruction, State<Unit>> = DataKey()
 
 class GraphBuilderMethodVisitor(
-        val ownerInternalName: String,
+        val owner: ClassName,
         val graphBuilder: ControlFlowGraphBuilder<Label>,
         val methodNode: MethodNode,
         val callbacks: GraphBuilderCallbacks
@@ -109,8 +85,8 @@ class GraphBuilderMethodVisitor(
     public override fun visitEnd() {
         try {
             super.visitEnd()
-            val analyzer = GraphBuilderAnalyzer(graphBuilder, methodNode)
-            analyzer.analyze(ownerInternalName, methodNode)
+            val analyzer = GraphBuilderAnalyzer(graphBuilder, owner, methodNode)
+            analyzer.analyze(owner.internal, methodNode)
 
             for ((index, inst) in analyzer.instructions.indexed) {
                 val frame = analyzer.getFrames()[index]
@@ -122,9 +98,9 @@ class GraphBuilderMethodVisitor(
             }
         }
         catch (e: Throwable) {
-            callbacks.error(ownerInternalName, methodNode.name, methodNode.desc, e)
+            callbacks.error(owner.internal, methodNode.name, methodNode.desc, e)
         }
-        callbacks.exitMethod(ownerInternalName, methodNode.name, methodNode.desc)
+        callbacks.exitMethod(owner.internal, methodNode.name, methodNode.desc)
     }
 }
 
@@ -142,10 +118,14 @@ class AsmInstructionMetadata(val asmInstruction: AbstractInsnNode) : Instruction
     }
 }
 
+fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
+        className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
+
 private class GraphBuilderAnalyzer(
         val graph: ControlFlowGraphBuilder<Label>,
+        val owner: ClassName,
         val methodNode: MethodNode
-) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter(methodKind(methodNode.access), methodNode.desc)) {
+) : Analyzer<PossibleTypedValues>(GraphBuilderInterpreter(Method(owner, methodNode))) {
 
     public val instructions: List<Instruction> = methodNode.instructions.iterator().map { it -> it.toInstruction() }.toArrayList();
 

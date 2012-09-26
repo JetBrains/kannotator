@@ -16,6 +16,8 @@ import org.jetbrains.kannotator.declarations.MethodId
 import org.jetbrains.kannotator.declarations.getReturnType
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
+import org.objectweb.asm.Opcodes
+import org.jetbrains.kannotator.declarations.MethodKind
 
 fun buildFunctionDependencyGraph(classReaders: List<ClassReader>): FunDependencyGraph {
     val dependencyGraph = FunDependencyGraphImpl()
@@ -30,7 +32,7 @@ fun buildFunctionDependencyGraph(classReaders: List<ClassReader>): FunDependency
 private class GraphBuilderClassVisitor(val className: String, val graph: FunDependencyGraphImpl): ClassVisitor(ASM4) {
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        val method = Method(ClassName.fromInternalName(className), MethodId(name, desc))
+        val method = Method(ClassName.fromInternalName(className), access, name, desc)
         if (method.canBeAnnotated()) {
             return GraphBuilderMethodVisitor(graph.getOrCreateNode(method), graph)
         }
@@ -44,13 +46,13 @@ private class GraphBuilderMethodVisitor(
         val graph: FunDependencyGraphImpl
 ): MethodVisitor(ASM4) {
     public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
-        val method = Method(ClassName.fromInternalName(owner), MethodId(name, desc))
+        val access = if (opcode == Opcodes.INVOKESTATIC) Opcodes.ACC_STATIC else 0
+        val method = Method(ClassName.fromInternalName(owner), access, name, desc)
         if (method.canBeAnnotated()) {
             graph.createEdge(ownerMethod, graph.getOrCreateNode(method))
         }
     }
 }
-
 
 fun Method.canBeAnnotated() : Boolean {
     return !id.getReturnType().isPrimitiveOrVoidType() ||

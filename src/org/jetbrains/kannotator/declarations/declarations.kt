@@ -1,6 +1,7 @@
 package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Type
+import org.objectweb.asm.Opcodes
 
 data class MethodId(
         val methodName: String,
@@ -12,8 +13,29 @@ data class MethodId(
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
 fun MethodId.getArgumentTypes(): Array<out Type> = Type.getArgumentTypes(methodDesc) as Array<out Type>
 
+enum class MethodKind {
+    INSTANCE
+    STATIC
+}
+
+fun MethodKind(access: Int): MethodKind {
+    return if (Opcodes.ACC_STATIC and access == 0) MethodKind.INSTANCE else MethodKind.STATIC
+}
+
+fun MethodKind.isStatic(): Boolean = this != MethodKind.INSTANCE
+
+
+fun Method(
+        declaringClass: ClassName,
+        access: Int,
+        name: String,
+        desc: String,
+        signature: String? = null
+): Method = Method(declaringClass, MethodKind(access), MethodId(name, desc), signature)
+
 class Method(
         val declaringClass: ClassName,
+        val kind: MethodKind,
         val id: MethodId,
         val genericSignature: String? = null
 ) {
@@ -32,6 +54,10 @@ class Method(
         return declaringClass.hashCode() * 31 + id.hashCode()
     }
 }
+
+fun Method.getReturnType(): Type = id.getReturnType()
+fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
+fun Method.isStatic(): Boolean = kind.isStatic()
 
 public class ClassName private (public val internal: String) {
     public val canonical: String
