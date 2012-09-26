@@ -19,27 +19,49 @@ import kotlin.test.assertNull
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import java.util.HashMap
+import java.util.Collections
 
-fun inferAnnotations(graph: ControlFlowGraph) : List<NullabilityValueInfo> {
+class NullabilityAssert(val shouldBeNotNullValue: Value)
+
+class NullabilityAnnotation {
     val parametersValueInfo = hashMap<Value, NullabilityValueInfo>()
     val returnValueInfo = arrayList<NullabilityValueInfo>()
-    for (instruction in graph.instructions) {
-        analyzeInstruction(instruction, parametersValueInfo, returnValueInfo)
+
+    fun addParameterValueInfo(value: Value, valueInfo: NullabilityValueInfo) {
+        parametersValueInfo[value] = valueInfo
     }
-    val result = arrayList<NullabilityValueInfo>(returnValueInfo.merge())
-    result.addAll(parametersValueInfo.values())
+
+    fun addReturnValueInfo(valueInfo: NullabilityValueInfo) {
+        returnValueInfo.add(valueInfo)
+    }
+}
+
+fun NullabilityAnnotation.addAssert(assert: NullabilityAssert) {
+    addParameterValueInfo(assert.shouldBeNotNullValue, NOT_NULL)
+}
+
+fun inferAnnotations(graph: ControlFlowGraph) : List<NullabilityValueInfo> {
+    val annotation = NullabilityAnnotation()
+    for (instruction in graph.instructions) {
+        analyzeInstruction(instruction, annotation)
+    }
+    val result = arrayList<NullabilityValueInfo>(annotation.returnValueInfo.merge())
+    result.addAll(annotation.parametersValueInfo.values())
     return result
 }
 
-fun analyzeInstruction(
-        instruction: Instruction,
-        parametersValueInfo: MutableMap<Value, NullabilityValueInfo>,
-        returnValueInfo: MutableList<NullabilityValueInfo>)
-{
+fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotation) {
     val state = instruction[STATE_BEFORE]
     if (state == null) return
 
     val nullabilityInfosForInstruction = computeNullabilityInfosForInstruction(instruction, state)
+
+    val asserts = generateAsserts(instruction)
+    for (assert in asserts) {
+        if (!checkAssertionIsSatisfied(assert, {value -> getNullabilityInfo(nullabilityInfosForInstruction, value)})) {
+            annotation.addAssert(assert)
+        }
+    }
 
     val instructionMetadata = instruction.metadata
     if (instructionMetadata is AsmInstructionMetadata) {
@@ -48,25 +70,38 @@ fun analyzeInstruction(
                 val valueSet = state.stack[0]
                 val nullabilityValueInfo = valueSet
                         .map { it -> getNullabilityInfo(nullabilityInfosForInstruction, it) }.merge()
-                returnValueInfo.add(nullabilityValueInfo)
+                annotation.addReturnValueInfo(nullabilityValueInfo)
             }
+            else -> Unit.VALUE
+        }
+    }
+}
+
+fun generateAsserts(instruction: Instruction) : Set<NullabilityAssert> {
+    val state = instruction[STATE_BEFORE]
+    if (state == null) return Collections.emptySet()
+
+    val result = hashSet<NullabilityAssert>()
+    val instructionMetadata = instruction.metadata
+    if (instructionMetadata is AsmInstructionMetadata) {
+        when (instructionMetadata.asmInstruction.getOpcode()) {
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC -> {
                 val valueSet = state.stack[0]
                 for (value in valueSet) {
-                    if (value.interesting) {
-                        val info = getNullabilityInfo(nullabilityInfosForInstruction, value)
-                        if (info == CONFLICT || info == NULL) {
-                            parametersValueInfo[value] = CONFLICT
-                        }
-                        else if (info != NOT_NULL) { // TODO consider other cases
-                            parametersValueInfo[value] = NOT_NULL
-                        }
-                    }
+                    result.add(NullabilityAssert(value))
                 }
             }
             else -> Unit.VALUE
         }
     }
+    return result
+}
+
+fun checkAssertionIsSatisfied(assert: NullabilityAssert, nullabilityValueInfoMapping: (Value) -> NullabilityValueInfo) : Boolean {
+    if (!assert.shouldBeNotNullValue.interesting) return true
+
+    val valueInfo = nullabilityValueInfoMapping(assert.shouldBeNotNullValue)
+    return valueInfo == NOT_NULL || valueInfo == CONFLICT
 }
 
 val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, Map<Value, NullabilityValueInfo>> = hashMap()
