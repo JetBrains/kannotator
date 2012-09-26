@@ -20,10 +20,17 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import java.util.HashMap
 import java.util.Collections
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.nullability.toAnnotation
 
 class NullabilityAssert(val shouldBeNotNullValue: Value)
 
-class NullabilityAnnotation {
+class NullabilityAnnotationsManager {
     val parametersValueInfo = hashMap<Value, NullabilityValueInfo>()
     val returnValueInfo = arrayList<NullabilityValueInfo>()
 
@@ -36,21 +43,35 @@ class NullabilityAnnotation {
     }
 }
 
-fun NullabilityAnnotation.addAssert(assert: NullabilityAssert) {
+fun NullabilityAnnotationsManager.addAssert(assert: NullabilityAssert) {
     addParameterValueInfo(assert.shouldBeNotNullValue, NOT_NULL)
 }
 
-fun inferAnnotations(graph: ControlFlowGraph) : List<NullabilityValueInfo> {
-    val annotation = NullabilityAnnotation()
-    for (instruction in graph.instructions) {
-        analyzeInstruction(instruction, annotation)
+fun NullabilityAnnotationsManager.toAnnotations(positions: Positions) : Annotations<NullabilityAnnotation> {
+    val annotations = AnnotationsImpl<NullabilityAnnotation>()
+    fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
+        if (annotation != null) {
+            annotations.set(position, annotation)
+        }
     }
-    val result = arrayList<NullabilityValueInfo>(annotation.returnValueInfo.merge())
-    result.addAll(annotation.parametersValueInfo.values())
-    return result
+    setAnnotation(positions.forReturnType().position, returnValueInfo.merge().toAnnotation())
+    for ((value, valueInfo) in parametersValueInfo) {
+        setAnnotation(positions.forParameter(value.parameterIndex!!).position, valueInfo.toAnnotation())
+    }
+    return annotations
 }
 
-fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotation) {
+fun inferAnnotations(graph: ControlFlowGraph, positions: Positions) : Annotations<NullabilityAnnotation> {
+    val annotationsManager = NullabilityAnnotationsManager()
+    for (instruction in graph.instructions) {
+        analyzeInstruction(instruction, annotationsManager)
+    }
+    val result = arrayList<NullabilityValueInfo>(annotationsManager.returnValueInfo.merge())
+    result.addAll(annotationsManager.parametersValueInfo.values())
+    return annotationsManager.toAnnotations(positions)
+}
+
+fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotationsManager) {
     val state = instruction[STATE_BEFORE]
     if (state == null) return
 
@@ -66,7 +87,7 @@ fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotati
     checkReturnInstruction(instruction, annotation, nullabilityInfosForInstruction)
 }
 
-fun checkReturnInstruction(instruction: Instruction, annotation: NullabilityAnnotation, nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>) {
+fun checkReturnInstruction(instruction: Instruction, annotation: NullabilityAnnotationsManager, nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>) {
     fun checkAllValuesOnReturn() {
         for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
             if (value.interesting && nullabilityValueInfo == NULL) {
