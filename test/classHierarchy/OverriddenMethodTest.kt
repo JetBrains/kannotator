@@ -5,7 +5,10 @@ import junit.framework.TestCase
 import kotlinlib.buildString
 import kotlinlib.println
 import kotlinlib.sortByToString
+import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraphBuilder
+import org.jetbrains.kannotator.classHierarchy.ClassNode
 import org.jetbrains.kannotator.classHierarchy.getOverriddenMethods
+import org.jetbrains.kannotator.declarations.ClassName
 
 class OverriddenMethodTest : TestCase() {
     val BASE_DIR = "testData/classHierarchy/overriddenMethods/"
@@ -15,21 +18,28 @@ class OverriddenMethodTest : TestCase() {
 //    }
 
     fun testJava() {
-        doTest("java/", "java.txt")
+        doTest(getClassesHierarchy("java/"), "java.txt")
     }
 
     fun testJung() {
-        doTest("edu/uci/ics/jung/", "jung.txt")
+        doTest(getClassesHierarchy("edu/uci/ics/jung/"), "jung.txt")
+    }
+
+    fun testOverridesVisibility() {
+        val builder = ClassHierarchyGraphBuilder()
+        arrayList("Base", "Derived", "subpackage/DerivedInSubpackage").forEach {
+            builder.addClass(ClassName.fromInternalName("classHierarchy/overriddenMethods/overridesVisibility/$it"))
+        }
+
+        doTest(builder.buildGraph().classes.sortByToString(), "overridesVisibility/result.txt")
     }
 
 
-    fun doTest(prefix: String, filename: String) {
-        val classes = getClassesHierarchy(prefix)
-
+    fun doTest(classes: Collection<ClassNode>, filename: String) {
         val result = buildString {
             sb ->
             for (node in classes) {
-                val methods = node.methods.sortBy { it -> it.id.toString() }
+                val methods = node.methods.sortBy { it.id.toString() }
                 for (method in methods) {
                     sb.println(method)
                     val overridden = node.getOverriddenMethods(method).sortByToString()
