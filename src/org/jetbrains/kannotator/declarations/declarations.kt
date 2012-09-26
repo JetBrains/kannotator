@@ -60,9 +60,6 @@ fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
 fun Method.isStatic(): Boolean = kind.isStatic()
 
 public class ClassName private (public val internal: String) {
-    public val canonical: String
-        get() = internal.replaceAll("/", "\\.").replaceAll("\$", "\\.")
-
     public val typeDescriptor: String
         get() = "L$internal;"
 

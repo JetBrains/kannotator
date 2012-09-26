@@ -19,7 +19,7 @@ private class ClassNodeImpl(override val name: ClassName): ClassNode {
 
     override val methods: MutableSet<Method> = HashSet()
 
-    public fun toString(): String = name.canonical
+    public fun toString(): String = name.internal
 }
 
 public class ClassHierarchyGraphBuilder {
