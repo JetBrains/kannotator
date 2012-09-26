@@ -30,6 +30,6 @@ class InterpreterTest : TestCase() {
 
     fun testJSR_RET() {
         val name = "EDU/oswego/cs/dl/util/concurrent/ClockDaemon\$RunLoop"
-        doTest(File("testData/interpreter"), Type.getType(name), ClassReader(name))
+        doTest(File("testData/interpreter"), ClassReader(name))
     }
 }

@@ -4,6 +4,7 @@ import java.io.File
 import junit.framework.TestCase
 import util.recurseIntoJars
 import java.util.HashSet
+import java.util.ArrayList
 
 class WholeLibInterpreterTest : TestCase() {
 
@@ -31,6 +32,6 @@ fun doTestJars(libDir: File, dataDir: File) {
 
         val dir = File(dataDir, jarFile.getName())
         dir.mkdir()
-        doTest(dir, classType, classReader, false)
+        doTest(dir, classReader, false)
     }
 }

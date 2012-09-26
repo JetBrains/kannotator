@@ -47,7 +47,7 @@ import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.declarations.Method
 
 public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
-    return buildGraphsForAllMethods(Type.getType(classReader.getClassName()), classReader, object : GraphBuilderCallbacks() {
+    return buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {
         override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {
             return methodName == _methodName && methodDesc == _methodDesc
         }
@@ -65,7 +65,6 @@ public open class GraphBuilderCallbacks {
 }
 
 public fun buildGraphsForAllMethods(
-        classType: Type,
         classReader: ClassReader,
         callbacks: GraphBuilderCallbacks = GraphBuilderCallbacks()
 ): List<MethodAndGraph> {
@@ -73,7 +72,8 @@ public fun buildGraphsForAllMethods(
     classReader.accept(object : ClassVisitor(ASM4) {
 
         public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-            val proceed = callbacks.beforeMethod(classType.getInternalName(), name, desc)
+            val owner = classReader.getClassName()
+            val proceed = callbacks.beforeMethod(owner, name, desc)
             if (!proceed) return null
 
             val builder = ControlFlowGraphBuilder<Label>()
@@ -81,7 +81,7 @@ public fun buildGraphsForAllMethods(
 
             val methodNode = MethodNode(access, name, desc, signature, exceptions)
             return GraphBuilderMethodVisitor(
-                    classType.getInternalName(),
+                    owner,
                     builder,
                     methodNode,
                     callbacks

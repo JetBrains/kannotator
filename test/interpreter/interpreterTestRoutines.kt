@@ -19,6 +19,7 @@ import java.io.FileInputStream
 import java.io.Reader
 import java.io.FileWriter
 import java.io.PrintWriter
+import org.jetbrains.kannotator.declarations.ClassName
 
 fun PrintStream.appendStates(instructions: Collection<Instruction>) {
     val renderer = AsmInstructionRenderer()
@@ -50,10 +51,10 @@ fun PrintStream.appendStates(instructions: Collection<Instruction>) {
     }
 }
 
-fun writeGraphsToFile(file: File, classType: Type, methodsAndGraphs: Collection<MethodAndGraph>) {
+fun writeGraphsToFile(file: File, className: ClassName, methodsAndGraphs: Collection<MethodAndGraph>) {
     val actualStream = PrintStream(file)
     try {
-        actualStream.println(classType.getInternalName())
+        actualStream.println(className)
         for ((method, graph) in methodsAndGraphs) {
             actualStream.println("")
             actualStream.println(method)
@@ -69,9 +70,8 @@ fun writeGraphsToFile(file: File, classType: Type, methodsAndGraphs: Collection<
 }
 
 fun doTest(theClass: Class<out Any>) {
-    val classType = Type.getType(theClass)
     val classReader = ClassReader(theClass.getName())
-    doTest(File("testData/"), classType, classReader)
+    doTest(File("testData/"), classReader)
 }
 
 val KB = 1024
@@ -81,18 +81,17 @@ private val buffer = CharArray(1 * MB)
 
 fun doTest(
         baseDir: File,
-        classType: Type,
         classReader: ClassReader,
         failOnNoData: Boolean = true,
         dumpMethodNames: Boolean = false
 ) {
-    val expectedFile = File(baseDir, classType.getInternalName() + ".txt")
+    val expectedFile = File(baseDir, classReader.getClassName() + ".txt")
     expectedFile.getParentFile()!!.mkdirs()
 
     val errorFile = File(expectedFile.getPath().removeSuffix(".txt") + ".errors.txt")
     errorFile.delete()
 
-    val methodsAndGraphs = buildGraphsForAllMethods(classType, classReader, object : GraphBuilderCallbacks() {
+    val methodsAndGraphs = buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {
 
         override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {
             if (dumpMethodNames) println("    " + methodName + methodDesc)
@@ -113,7 +112,7 @@ fun doTest(
     })
 
     val actualFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
-    writeGraphsToFile(actualFile, classType, methodsAndGraphs)
+    writeGraphsToFile(actualFile, ClassName.fromInternalName(classReader.getClassName()), methodsAndGraphs)
 
     if (!expectedFile.exists()) {
         expectedFile.getParentFile()!!.mkdirs()
