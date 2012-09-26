@@ -31,8 +31,6 @@ import org.jetbrains.kannotator.nullability.toAnnotation
 class AnnotationsInference {
     private val framesManager = FramesNullabilityManager()
 
-    class NullabilityAssert(val shouldBeNotNullValue: Value)
-
     class NullabilityAnnotationsManager {
         val parametersValueInfo = hashMap<Value, NullabilityValueInfo>()
         val returnValueInfo = arrayList<NullabilityValueInfo>()
@@ -120,31 +118,10 @@ class AnnotationsInference {
         }
     }
 
-    fun generateAsserts(instruction: Instruction) : Set<NullabilityAssert> {
-        val state = instruction[STATE_BEFORE]
-        if (state == null) return Collections.emptySet()
-
-        val result = hashSet<NullabilityAssert>()
-        val instructionMetadata = instruction.metadata
-        if (instructionMetadata is AsmInstructionMetadata) {
-            when (instructionMetadata.asmInstruction.getOpcode()) {
-                INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC -> {
-                    val valueSet = state.stack[0]
-                    for (value in valueSet) {
-                        result.add(NullabilityAssert(value))
-                    }
-                }
-                else -> Unit.VALUE
-            }
-        }
-        return result
-    }
-
     fun checkAssertionIsSatisfied(assert: NullabilityAssert, nullabilityValueInfoMapping: (Value) -> NullabilityValueInfo) : Boolean {
         if (!assert.shouldBeNotNullValue.interesting) return true
 
         val valueInfo = nullabilityValueInfoMapping(assert.shouldBeNotNullValue)
         return valueInfo == NOT_NULL || valueInfo == CONFLICT
     }
-
 }
