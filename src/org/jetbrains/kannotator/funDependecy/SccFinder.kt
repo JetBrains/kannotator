@@ -62,6 +62,15 @@ public class SCCFinder<Graph, Node>(
         return nodeToComponent[node] ?: throw IllegalStateException("Can't find component for node ${node}")
     }
 
+    public fun getAllComponents(): List<Set<Node>> {
+        for (node in graphNodes(graph)) {
+            if (!nodeIndex.containsKey(node)) {
+                findComponent(node)
+            }
+        }
+        return components
+    }
+
     private fun execute(node: Node) {
         val stack = IdentityHashStack<Node>();
         val minUnvisitedReachable = IdentityHashMap<Node, Int>()
