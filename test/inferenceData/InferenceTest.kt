@@ -2,7 +2,6 @@ package inference
 
 import junit.framework.TestCase
 import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.annotationsInference.inferAnnotations
 import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
 import org.jetbrains.kannotator.nullability.NullabilityValueInfo
 import kotlin.test.assertEquals
@@ -14,6 +13,7 @@ import org.jetbrains.kannotator.declarations.Positions
 import java.util.Collections
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation.*
+import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
 
 class InferenceTest: TestCase() {
     fun doTest(theClass: Class<out Any>, methodName: String, methodDescriptor: String,
@@ -26,7 +26,7 @@ class InferenceTest: TestCase() {
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val result = inferAnnotations(graph, positions)
+        val result = AnnotationsInference().inferAnnotations(graph, positions)
         assertEquals(parametersMap, expectedReturnInfo, result, pairs.size, positions)
     }
 
