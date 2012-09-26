@@ -28,4 +28,10 @@ class InferenceTest: TestCase() {
     fun testIncompatibleChecks() = doTest(javaClass<inferenceData.Test>(), "testIncompatibleChecks", "(Ljava/lang/String;)V", arrayList(UNKNOWN));
 
     fun testInvocationOnNullParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnNullParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN, NOT_NULL));
+
+    fun testNullableParameter() = doTest(javaClass<inferenceData.Test>(), "testNullableParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN, NULLABLE))
+
+//    fun testSenselessNotNullCheck() = doTest(javaClass<inferenceData.Test>(), "testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(UNKNOWN, NOT_NULL))
+
+    fun testInvocationAfterReturn() = doTest(javaClass<inferenceData.Test>(), "testInvocationAfterReturn", "(Ljava/lang/String;)V", arrayList(UNKNOWN, NULLABLE))
 }

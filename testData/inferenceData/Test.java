@@ -21,7 +21,7 @@ public class Test {
             a.getBytes();
         }
     }
-
+    
     public void testIncompatibleChecks(String a) {
         if (a != null && a == null) {
             a.getBytes();
@@ -32,5 +32,20 @@ public class Test {
         if (a == null) {
             a.getBytes();
         }
+    }
+
+    public void testNullableParameter(String a) {
+        if (a == null) return;
+        System.out.println(a);
+    }
+
+    public void testSenselessNotNullCheck(String a) {
+        a.getBytes();
+        if (a == null) return;
+    }
+
+    public void testInvocationAfterReturn(String a) {
+        if (a == null) return;
+        a.getBytes();
     }
 }

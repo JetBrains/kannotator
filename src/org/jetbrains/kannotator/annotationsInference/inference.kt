@@ -71,8 +71,20 @@ fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotati
                 val nullabilityValueInfo = valueSet
                         .map { it -> getNullabilityInfo(nullabilityInfosForInstruction, it) }.merge()
                 annotation.addReturnValueInfo(nullabilityValueInfo)
+                checkAllValuesOnReturn(nullabilityInfosForInstruction, annotation)
+            }
+            RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
+                checkAllValuesOnReturn(nullabilityInfosForInstruction, annotation)
             }
             else -> Unit.VALUE
+        }
+    }
+}
+
+fun checkAllValuesOnReturn(nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>, annotation: NullabilityAnnotation) {
+    for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
+        if (value.interesting && nullabilityValueInfo == NULL) {
+            annotation.addParameterValueInfo(value, NULLABLE)
         }
     }
 }
