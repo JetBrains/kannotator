@@ -62,6 +62,8 @@ fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotati
             annotation.addAssert(assert)
         }
     }
+
+    checkReturnInstruction(instruction, annotation, nullabilityInfosForInstruction)
 }
 
 fun checkReturnInstruction(instruction: Instruction, annotation: NullabilityAnnotation, nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>) {
