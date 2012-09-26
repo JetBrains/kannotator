@@ -23,4 +23,8 @@ class InferenceTest: TestCase() {
     fun testNotNullParameter() = doTest(javaClass<inferenceData.Test>(), "testNotNullParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN, NOT_NULL));
 
     fun testInvocationOnCheckedParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnCheckedParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN));
+
+    fun testIncompatibleChecks() = doTest(javaClass<inferenceData.Test>(), "testIncompatibleChecks", "(Ljava/lang/String;)V", arrayList(UNKNOWN, CONFLICT));
+
+    fun testInvocationOnNullParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnNullParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN, CONFLICT));
 }

@@ -53,9 +53,14 @@ fun analyzeInstruction(
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC -> {
                 val valueSet = state.stack[0]
                 for (value in valueSet) {
-                    if (value.interesting && getNullabilityInfo(nullabilityInfosForInstruction, value) != NOT_NULL) {
-                        // TODO consider other possible nullability info
-                        parametersValueInfo[value] = NOT_NULL
+                    if (value.interesting) {
+                        val info = getNullabilityInfo(nullabilityInfosForInstruction, value)
+                        if (info == CONFLICT || info == NULL) {
+                            parametersValueInfo[value] = CONFLICT
+                        }
+                        else if (info != NOT_NULL) { // TODO consider other cases
+                            parametersValueInfo[value] = NOT_NULL
+                        }
                     }
                 }
             }
@@ -103,14 +108,16 @@ fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State
 
                 val nullMap = HashMap(result)
                 for (value in state.stack[0]) {
-                    nullMap[value] = NULL // TODO merge with existing
+                    val wasInfo = result[value]
+                    nullMap[value] = if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL
                 }
                 assertNull(nullabilityInfosForEdges[nullEdge])
                 nullabilityInfosForEdges[nullEdge] = nullMap
 
                 val notNullMap = HashMap(result)
                 for (value in state.stack[0]) {
-                    notNullMap[value] = NOT_NULL // TODO merge with existing
+                    val wasInfo = result[value]
+                    notNullMap[value] = if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL
                 }
                 assertNull(nullabilityInfosForEdges[notNullEdge])
                 nullabilityInfosForEdges[notNullEdge] = notNullMap
