@@ -77,20 +77,36 @@ fun getNullabilityInfo(nullabilityInfos: Map<Value, NullabilityValueInfo>, value
     return if (currentInfo == null) initialInfo else currentInfo
 }
 
+fun setValueInfosForEdge(edge: ControlFlowEdge, infos: Map<Value, NullabilityValueInfo>) {
+    assertNull(nullabilityInfosForEdges[edge])
+    nullabilityInfosForEdges[edge] = infos
+}
+
 fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State<Unit>) : Map<Value, NullabilityValueInfo> {
-    val result = hashMap<Value, NullabilityValueInfo>()
+    val infosForInstruction = hashMap<Value, NullabilityValueInfo>()
 
     // merge from incoming edges
     for (incomingEdge in instruction.incomingEdges) {
         val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForEdges[incomingEdge]
         if (incomingEdgeMap == null) continue
         for ((value, info) in incomingEdgeMap) {
-            val currentInfo = result[value]
-            result[value] = if (currentInfo == null) info else info merge currentInfo
+            val currentInfo = infosForInstruction[value]
+            infosForInstruction[value] = if (currentInfo == null) info else info merge currentInfo
         }
-
     }
 
+    fun propagateTransformedValueInfos(
+            outgoingEdge: ControlFlowEdge,
+            transformStackValueInfo: (NullabilityValueInfo?) -> NullabilityValueInfo // TODO remove '?'
+    ) {
+        val infosForEdge = HashMap(infosForInstruction)
+        for (value in state.stack[0]) {
+            infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
+        }
+        setValueInfosForEdge(outgoingEdge, infosForEdge)
+    }
+
+    var propagateAsIs = false
     val instructionMetadata = instruction.metadata
     if (instructionMetadata is AsmInstructionMetadata) {
         val opcode: Int = instructionMetadata.asmInstruction.getOpcode()
@@ -106,40 +122,27 @@ fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State
                                               Pair(trueEdge, falseEdge)
                                               else Pair(falseEdge, trueEdge)
 
-                val nullMap = HashMap(result)
-                for (value in state.stack[0]) {
-                    val wasInfo = result[value]
-                    nullMap[value] = if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL
-                }
-                assertNull(nullabilityInfosForEdges[nullEdge])
-                nullabilityInfosForEdges[nullEdge] = nullMap
+                propagateTransformedValueInfos(nullEdge) { wasInfo ->
+                    if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
 
-                val notNullMap = HashMap(result)
-                for (value in state.stack[0]) {
-                    val wasInfo = result[value]
-                    notNullMap[value] = if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL
-                }
-                assertNull(nullabilityInfosForEdges[notNullEdge])
-                nullabilityInfosForEdges[notNullEdge] = notNullMap
+                propagateTransformedValueInfos(notNullEdge) { wasInfo ->
+                    if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
             }
             else -> {
-                // propagate to outgoing edges as is
-                for (outgoingEdge in instruction.outgoingEdges) {
-                    assertNull(nullabilityInfosForEdges[outgoingEdge])
-                    nullabilityInfosForEdges[outgoingEdge] = result
-                }
+                propagateAsIs = true
             }
         }
     }
     else {
-        // propagate to outgoing edges as is
-        for (outgoingEdge in instruction.outgoingEdges) {
-            assertNull(nullabilityInfosForEdges[outgoingEdge])
-            nullabilityInfosForEdges[outgoingEdge] = result
-        }
+        propagateAsIs = true
     }
 
-    return result
+    // propagate to outgoing edges as is
+    if (propagateAsIs) {
+        instruction.outgoingEdges.forEach { edge -> setValueInfosForEdge(edge, infosForInstruction) }
+    }
+
+    return infosForInstruction
 }
 
 fun getInitialNullabilityInfo(value: Value): NullabilityValueInfo {
