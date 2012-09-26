@@ -14,14 +14,14 @@ class Positions(val method: Method) {
         return AnnotatedTypeImpl(
                 TypePositionImpl(method, parameterIndex, 0),
                 "param$parameterIndex",
-                ArrayList()
+                ArrayList(0)
         )
     }
 
     public fun forReturnType() : AnnotatedType = AnnotatedTypeImpl(
             TypePositionImpl(method, -1, 0),
             "return",
-            ArrayList()
+            ArrayList(0)
     )
 
 }
