@@ -9,6 +9,7 @@ import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import org.jetbrains.kannotator.declarations.MethodId
 
 private class ClassHierarchyEdgeImpl(override val base: ClassNode, override val derived: ClassNode): ClassHierarchyEdge
 
@@ -84,7 +85,7 @@ private class ClassHierarchyClassVisitor: ClassVisitor(Opcodes.ASM4) {
     }
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        val method = Method.create(thisClassName!!, name, desc)
+        val method = Method(thisClassName!!, MethodId(name, desc))
         methods.add(method)
         return super.visitMethod(access, name, desc, signature, exceptions)
     }

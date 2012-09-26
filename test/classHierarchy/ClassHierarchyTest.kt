@@ -35,7 +35,7 @@ class ClassHierarchyTest : TestCase() {
                 val superClasses = node.superClasses.map { it.base }.sortByToString()
                 superClasses.forEach { sb.println("    $it") }
                 sb.println("  Methods")
-                val methods = node.methods.map { it.asmMethod }.sortByToString()
+                val methods = node.methods.map { it.id }.sortByToString()
                 methods.forEach { sb.println("    $it") }
             }
         }

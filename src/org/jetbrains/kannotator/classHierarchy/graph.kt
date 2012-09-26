@@ -23,7 +23,7 @@ public trait ClassNode {
 
 
 
-public fun ClassNode.find(method: Method): Method? = methods.find { it.asmMethod == method.asmMethod }
+public fun ClassNode.find(method: Method): Method? = methods.find { it.id == method.id }
 
 public fun ClassNode.getOverriddenMethods(method: Method): Set<Method> {
     val my = find(method)
@@ -31,7 +31,7 @@ public fun ClassNode.getOverriddenMethods(method: Method): Set<Method> {
 
     val result = hashSet<Method>(my)
 
-    if (method.asmMethod.getName() in hashSet("<init>", "<clinit>")) return result
+    if (method.id.methodName in hashSet("<init>", "<clinit>")) return result
 
     for (subClass in subClasses) {
         result.addAll(subClass.derived.getOverriddenMethods(method))

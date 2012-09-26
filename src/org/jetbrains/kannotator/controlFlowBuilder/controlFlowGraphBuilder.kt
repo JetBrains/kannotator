@@ -45,6 +45,8 @@ import org.jetbrains.kannotator.controlFlow.Value
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.declarations.MethodId
 
 public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
     return buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {
@@ -77,7 +79,7 @@ public fun buildGraphsForAllMethods(
             if (!proceed) return null
 
             val builder = ControlFlowGraphBuilder<Label>()
-            result.add(MethodAndGraph(Method(classType, AsmMethod(name, desc)), builder))
+            result.add(MethodAndGraph(Method(ClassName.fromInternalName(owner), MethodId(name, desc)), builder))
 
             val methodNode = MethodNode(access, name, desc, signature, exceptions)
             return GraphBuilderMethodVisitor(

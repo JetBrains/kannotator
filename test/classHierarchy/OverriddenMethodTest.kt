@@ -29,7 +29,7 @@ class OverriddenMethodTest : TestCase() {
         val result = buildString {
             sb ->
             for (node in classes) {
-                val methods = node.methods.sortBy { it -> it.asmMethod.toString()!! }
+                val methods = node.methods.sortBy { it -> it.id.toString() }
                 for (method in methods) {
                     sb.println(method)
                     val overridden = node.getOverriddenMethods(method).sortByToString()

@@ -1,45 +1,47 @@
 package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Type
-import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 
-public class Method(
-    public val declaringClass: Type,
-    public val asmMethod: AsmMethod
+data class MethodId(
+        val methodName: String,
+        val methodDesc: String
+) {
+    public fun toString(): String = methodName + methodDesc
+}
+
+fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
+fun MethodId.getArgumentTypes(): Array<out Type> = Type.getArgumentTypes(methodDesc) as Array<out Type>
+
+class Method(
+        val declaringClass: ClassName,
+        val id: MethodId,
+        val genericSignature: String? = null
 ) {
     public fun toString(): String {
-        return declaringClass.getClassName() + ":" + asmMethod;
+        return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
 
     public fun equals(obj: Any?): Boolean {
         if (obj is Method) {
-            return declaringClass.equals(obj.declaringClass) && asmMethod.equals(obj.asmMethod)
+            return declaringClass == obj.declaringClass && id == obj.id
         }
         return false
     }
 
     public fun hashCode(): Int {
-        return declaringClass.hashCode() * 31 + asmMethod.hashCode()
+        return declaringClass.hashCode() * 31 + id.hashCode()
     }
 
     fun isNeedAnnotating() : Boolean {
-        return !asmMethod.getReturnType().isPrimitiveOrVoidType() ||
-                !asmMethod.getArgumentTypes().all { it!!.isPrimitiveOrVoidType() }
-    }
-
-    public class object {
-        public fun create(owner: ClassName, name: String, desc: String): Method {
-            val declaringClass = Type.getType(owner.typeDescriptor)
-            val asmMethod = AsmMethod(name, desc)
-            return Method(declaringClass, asmMethod)
-        }
+        return !id.getReturnType().isPrimitiveOrVoidType() ||
+               !id.getArgumentTypes().all { it.isPrimitiveOrVoidType() }
     }
 }
 
 public class ClassName private (public val internal: String) {
     public val canonical: String
-        get() = internal.replaceAll("/", "\\.")
+        get() = internal.replaceAll("/", "\\.").replaceAll("\$", "\\.")
 
     public val typeDescriptor: String
         get() = "L$internal;"
@@ -62,4 +64,8 @@ public class ClassName private (public val internal: String) {
             return ClassName.fromInternalName(_type.getInternalName())
         }
     }
+}
+
+fun ClassName.toType(): Type {
+    return Type.getType(typeDescriptor)
 }
