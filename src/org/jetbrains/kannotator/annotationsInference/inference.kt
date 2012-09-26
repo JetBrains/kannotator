@@ -62,6 +62,19 @@ fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotati
             annotation.addAssert(assert)
         }
     }
+}
+
+fun checkReturnInstruction(instruction: Instruction, annotation: NullabilityAnnotation, nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>) {
+    fun checkAllValuesOnReturn() {
+        for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
+            if (value.interesting && nullabilityValueInfo == NULL) {
+                annotation.addParameterValueInfo(value, NULLABLE)
+            }
+        }
+    }
+
+    val state = instruction[STATE_BEFORE]
+    if (state == null) return
 
     val instructionMetadata = instruction.metadata
     if (instructionMetadata is AsmInstructionMetadata) {
@@ -71,20 +84,12 @@ fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotati
                 val nullabilityValueInfo = valueSet
                         .map { it -> getNullabilityInfo(nullabilityInfosForInstruction, it) }.merge()
                 annotation.addReturnValueInfo(nullabilityValueInfo)
-                checkAllValuesOnReturn(nullabilityInfosForInstruction, annotation)
+                checkAllValuesOnReturn()
             }
             RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
-                checkAllValuesOnReturn(nullabilityInfosForInstruction, annotation)
+                checkAllValuesOnReturn()
             }
             else -> Unit.VALUE
-        }
-    }
-}
-
-fun checkAllValuesOnReturn(nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>, annotation: NullabilityAnnotation) {
-    for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
-        if (value.interesting && nullabilityValueInfo == NULL) {
-            annotation.addParameterValueInfo(value, NULLABLE)
         }
     }
 }
