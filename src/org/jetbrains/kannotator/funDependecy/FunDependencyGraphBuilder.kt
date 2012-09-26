@@ -13,6 +13,9 @@ import java.io.InputStream
 import org.jetbrains.kannotator.declarations.ClassName
 import java.util.Collections
 import org.jetbrains.kannotator.declarations.MethodId
+import org.jetbrains.kannotator.declarations.getReturnType
+import org.jetbrains.kannotator.declarations.getArgumentTypes
+import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 
 fun buildFunctionDependencyGraph(classReaders: List<ClassReader>): FunDependencyGraph {
     val dependencyGraph = FunDependencyGraphImpl()
@@ -28,7 +31,7 @@ private class GraphBuilderClassVisitor(val className: String, val graph: FunDepe
 
     public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
         val method = Method(ClassName.fromInternalName(className), MethodId(name, desc))
-        if (method.isNeedAnnotating()) {
+        if (method.canBeAnnotated()) {
             return GraphBuilderMethodVisitor(graph.getOrCreateNode(method), graph)
         }
 
@@ -42,8 +45,14 @@ private class GraphBuilderMethodVisitor(
 ): MethodVisitor(ASM4) {
     public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
         val method = Method(ClassName.fromInternalName(owner), MethodId(name, desc))
-        if (method.isNeedAnnotating()) {
+        if (method.canBeAnnotated()) {
             graph.createEdge(ownerMethod, graph.getOrCreateNode(method))
         }
     }
+}
+
+
+fun Method.canBeAnnotated() : Boolean {
+    return !id.getReturnType().isPrimitiveOrVoidType() ||
+    !id.getArgumentTypes().all { it.isPrimitiveOrVoidType() }
 }

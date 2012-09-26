@@ -1,7 +1,6 @@
 package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Type
-import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 
 data class MethodId(
         val methodName: String,
@@ -31,11 +30,6 @@ class Method(
 
     public fun hashCode(): Int {
         return declaringClass.hashCode() * 31 + id.hashCode()
-    }
-
-    fun isNeedAnnotating() : Boolean {
-        return !id.getReturnType().isPrimitiveOrVoidType() ||
-               !id.getArgumentTypes().all { it.isPrimitiveOrVoidType() }
     }
 }
 
