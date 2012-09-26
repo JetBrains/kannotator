@@ -52,11 +52,22 @@ class FunDependencyEdgeImpl(override val from: FunctionNode,
     fun toString(): String {
         return "${from.method} -> ${to.method}"
     }
+
+    fun hashCode(): Int {
+        return from.hashCode() * 31 + to.hashCode()
+    }
+
+    public fun equals(obj: Any?): Boolean {
+        if (obj is FunDependencyEdge) {
+            return from == obj.from && to == obj.to
+        }
+        return false
+    }
 }
 
 class FunctionNodeImpl(override val method: Method): FunctionNode {
-    override val outgoingEdges: MutableCollection<FunDependencyEdge> = ArrayList()
-    override val incomingEdges: MutableCollection<FunDependencyEdge> = ArrayList()
+    override val outgoingEdges: MutableCollection<FunDependencyEdge> = hashSet()
+    override val incomingEdges: MutableCollection<FunDependencyEdge> = hashSet()
 
     fun toString(): String {
         return "${method} in$incomingEdges out$outgoingEdges"
