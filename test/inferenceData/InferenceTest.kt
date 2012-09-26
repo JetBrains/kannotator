@@ -22,5 +22,5 @@ class InferenceTest: TestCase() {
 
     fun testNotNullParameter() = doTest(javaClass<inferenceData.Test>(), "testNotNullParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN, NOT_NULL));
 
-//    fun testInvocationOnCheckedParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnCheckedParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN, UNKNOWN));
+    fun testInvocationOnCheckedParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnCheckedParameter", "(Ljava/lang/String;)V", arrayList(UNKNOWN));
 }
