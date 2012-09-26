@@ -17,7 +17,6 @@ import org.jetbrains.kannotator.declarations.getReturnType
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Opcodes
-import org.jetbrains.kannotator.declarations.MethodKind
 
 fun buildFunctionDependencyGraph(classReaders: List<ClassReader>): FunDependencyGraph {
     val dependencyGraph = FunDependencyGraphImpl()

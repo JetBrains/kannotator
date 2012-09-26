@@ -1,18 +1,17 @@
 package org.jetbrains.kannotator.classHierarchy
 
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.*
 
-public trait ClassHierarchyGraph {
+trait ClassHierarchyGraph {
     val classes: Collection<ClassNode>
 }
 
-public trait ClassHierarchyEdge {
+trait ClassHierarchyEdge {
     val base: ClassNode
     val derived: ClassNode
 }
 
-public trait ClassNode {
+trait ClassNode {
     val subClasses: Collection<ClassHierarchyEdge>
     val superClasses: Collection<ClassHierarchyEdge>
 
@@ -23,15 +22,23 @@ public trait ClassNode {
 
 
 
-public fun ClassNode.find(method: Method): Method? = methods.find { it.id == method.id }
+private val Method.isInheritable: Boolean
+    get() =
+        !isFinal() &&
+        !isStatic() &&
+        visibility != Visibility.PRIVATE &&
+        id.methodName != "<init>" &&
+        id.methodName != "<clinit>"
 
-public fun ClassNode.getOverriddenMethods(method: Method): Set<Method> {
+fun ClassNode.find(method: Method): Method? = methods.find { it.id == method.id }
+
+fun ClassNode.getOverriddenMethods(method: Method): Set<Method> {
     val my = find(method)
     if (my == null) return hashSet()
 
     val result = hashSet<Method>(my)
 
-    if (method.id.methodName in hashSet("<init>", "<clinit>")) return result
+    if (!my.isInheritable) return result
 
     for (subClass in subClasses) {
         result.addAll(subClass.derived.getOverriddenMethods(method))

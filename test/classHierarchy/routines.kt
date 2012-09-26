@@ -1,7 +1,7 @@
 package classHierarchy
 
 import java.io.File
-import kotlin.test.assertEquals
+import junit.framework.Assert
 import kotlin.test.fail
 import kotlinlib.sortByToString
 import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraphBuilder
@@ -30,5 +30,5 @@ fun assertEqualsOrCreate(expectedFile: File, actual: String) {
 
     val expected = expectedFile.readText()
 
-    assertEquals(expected, actual)
+    Assert.assertEquals(expected, actual)
 }

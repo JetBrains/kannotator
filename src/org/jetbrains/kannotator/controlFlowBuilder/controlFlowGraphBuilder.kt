@@ -25,7 +25,6 @@ import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.tree.analysis.Analyzer
 import org.objectweb.asm.util.Printer
-import org.jetbrains.kannotator.declarations.MethodKind
 
 public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
     return buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {

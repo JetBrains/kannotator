@@ -1384,7 +1384,6 @@ edu.uci.ics.jung.graph.DirectedSparseMultigraph:getEdgeCount()I
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getEdges()Ljava/util/Collection;
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getInEdges(Ljava/lang/Object;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
   edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
@@ -1781,7 +1780,6 @@ edu.uci.ics.jung.graph.OrderedSparseMultigraph:<init>()V
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
   edu.uci.ics.jung.graph.SortedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  edu.uci.ics.jung.graph.SortedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:getNeighbors(Ljava/lang/Object;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:getPredecessors(Ljava/lang/Object;)Ljava/util/Collection;
@@ -1884,8 +1882,6 @@ edu.uci.ics.jung.graph.SparseMultigraph:getEdges()Ljava/util/Collection;
 edu.uci.ics.jung.graph.SparseMultigraph:getEdges(Ledu/uci/ics/jung/graph/util/EdgeType;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.SparseMultigraph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
 edu.uci.ics.jung.graph.SparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  edu.uci.ics.jung.graph.OrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  edu.uci.ics.jung.graph.SortedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 edu.uci.ics.jung.graph.SparseMultigraph:getInEdges(Ljava/lang/Object;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.SparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
   edu.uci.ics.jung.graph.OrderedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
@@ -1971,7 +1967,6 @@ edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getEdgeCount()I
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getEdges()Ljava/util/Collection;
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getInEdges(Ljava/lang/Object;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getIncident_internal(Ljava/lang/Object;)Ljava/util/Collection;

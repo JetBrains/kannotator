@@ -1,7 +1,7 @@
 package org.jetbrains.kannotator.declarations
 
-import org.objectweb.asm.Type
 import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 
 data class MethodId(
         val methodName: String,
@@ -13,17 +13,17 @@ data class MethodId(
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
 fun MethodId.getArgumentTypes(): Array<out Type> = Type.getArgumentTypes(methodDesc) as Array<out Type>
 
-enum class MethodKind {
-    INSTANCE
-    STATIC
+
+enum class Visibility {
+    PUBLIC
+    PROTECTED
+    PACKAGE
+    PRIVATE
 }
 
-fun MethodKind(access: Int): MethodKind {
-    return if (Opcodes.ACC_STATIC and access == 0) MethodKind.INSTANCE else MethodKind.STATIC
+data class Access(private val access: Int) {
+    fun has(val flag: Int) = access and flag != 0
 }
-
-fun MethodKind.isStatic(): Boolean = this != MethodKind.INSTANCE
-
 
 fun Method(
         declaringClass: ClassName,
@@ -31,53 +31,49 @@ fun Method(
         name: String,
         desc: String,
         signature: String? = null
-): Method = Method(declaringClass, MethodKind(access), MethodId(name, desc), signature)
+): Method = Method(declaringClass, Access(access), MethodId(name, desc), signature)
 
-class Method(
+data class Method(
         val declaringClass: ClassName,
-        val kind: MethodKind,
+        val access: Access,
         val id: MethodId,
         val genericSignature: String? = null
 ) {
     public fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
-
-    public fun equals(obj: Any?): Boolean {
-        if (obj is Method) {
-            return declaringClass == obj.declaringClass && id == obj.id
-        }
-        return false
-    }
-
-    public fun hashCode(): Int {
-        return declaringClass.hashCode() * 31 + id.hashCode()
-    }
 }
 
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
-fun Method.isStatic(): Boolean = kind.isStatic()
 
-public class ClassName private (public val internal: String) {
-    public val typeDescriptor: String
+fun Method.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
+
+fun Method.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
+
+val Method.visibility: Visibility get() = when {
+    access.has(Opcodes.ACC_PUBLIC) -> Visibility.PUBLIC
+    access.has(Opcodes.ACC_PROTECTED) -> Visibility.PROTECTED
+    access.has(Opcodes.ACC_PRIVATE) -> Visibility.PRIVATE
+    else -> Visibility.PACKAGE
+}
+
+
+data class ClassName private (val internal: String) {
+    val typeDescriptor: String
         get() = "L$internal;"
 
     public fun toString(): String = internal
 
-    public val simple: String
+    val simple: String
         get() = internal.substring(internal.lastIndexOf("/") + 1)
 
-    public fun equals(other: Any?): Boolean = other is ClassName && internal == other.internal
-
-    public fun hashCode(): Int = internal.hashCode()
-
     class object {
-        public fun fromInternalName(name: String): ClassName {
+        fun fromInternalName(name: String): ClassName {
             return ClassName(name)
         }
 
-        public fun fromType(_type: Type): ClassName {
+        fun fromType(_type: Type): ClassName {
             return ClassName.fromInternalName(_type.getInternalName())
         }
     }

@@ -9,7 +9,6 @@ import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
-import org.jetbrains.kannotator.declarations.MethodId
 
 private class ClassHierarchyEdgeImpl(override val base: ClassNode, override val derived: ClassNode): ClassHierarchyEdge
 
@@ -22,7 +21,7 @@ private class ClassNodeImpl(override val name: ClassName): ClassNode {
     public fun toString(): String = name.internal
 }
 
-public class ClassHierarchyGraphBuilder {
+class ClassHierarchyGraphBuilder {
     private val classes: MutableCollection<ClassName> = hashSet()
     private val nodesByName: MutableMap<ClassName, ClassNodeImpl> = hashMap()
 
@@ -35,11 +34,11 @@ public class ClassHierarchyGraphBuilder {
     }
 
 
-    public fun addClass(name: ClassName) {
+    fun addClass(name: ClassName) {
         classes.add(name)
     }
 
-    public fun buildGraph(): ClassHierarchyGraph {
+    fun buildGraph(): ClassHierarchyGraph {
         for (name in classes) {
             val node = getNodeByName(name)
             val (methods, superClasses) = ClassHierarchyClassVisitor.process(name)

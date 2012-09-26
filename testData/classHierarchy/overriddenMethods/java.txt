@@ -94,7 +94,6 @@ java.awt.AWTEvent:paramString()Ljava/lang/String;
   java.awt.event.TextEvent:paramString()Ljava/lang/String;
   java.awt.event.WindowEvent:paramString()Ljava/lang/String;
 java.awt.AWTEvent:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.event.InputMethodEvent:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.AWTEvent:setSource(Ljava/lang/Object;)V
 java.awt.AWTEvent:toString()Ljava/lang/String;
 java.awt.AWTEvent$1:<init>()V
@@ -124,7 +123,6 @@ java.awt.AWTEventMulticaster:add(Ljava/awt/event/WindowFocusListener;Ljava/awt/e
 java.awt.AWTEventMulticaster:add(Ljava/awt/event/WindowListener;Ljava/awt/event/WindowListener;)Ljava/awt/event/WindowListener;
 java.awt.AWTEventMulticaster:add(Ljava/awt/event/WindowStateListener;Ljava/awt/event/WindowStateListener;)Ljava/awt/event/WindowStateListener;
 java.awt.AWTEventMulticaster:addInternal(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;
-  java.awt.dnd.DnDEventMulticaster:addInternal(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;
 java.awt.AWTEventMulticaster:adjustmentValueChanged(Ljava/awt/event/AdjustmentEvent;)V
 java.awt.AWTEventMulticaster:ancestorMoved(Ljava/awt/event/HierarchyEvent;)V
 java.awt.AWTEventMulticaster:ancestorResized(Ljava/awt/event/HierarchyEvent;)V
@@ -175,9 +173,7 @@ java.awt.AWTEventMulticaster:remove(Ljava/util/EventListener;)Ljava/util/EventLi
   java.awt.Toolkit$ToolkitEventMulticaster:remove(Ljava/util/EventListener;)Ljava/util/EventListener;
   java.awt.dnd.DnDEventMulticaster:remove(Ljava/util/EventListener;)Ljava/util/EventListener;
 java.awt.AWTEventMulticaster:removeInternal(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;
-  java.awt.dnd.DnDEventMulticaster:removeInternal(Ljava/util/EventListener;Ljava/util/EventListener;)Ljava/util/EventListener;
 java.awt.AWTEventMulticaster:save(Ljava/io/ObjectOutputStream;Ljava/lang/String;Ljava/util/EventListener;)V
-  java.awt.dnd.DnDEventMulticaster:save(Ljava/io/ObjectOutputStream;Ljava/lang/String;Ljava/util/EventListener;)V
 java.awt.AWTEventMulticaster:saveInternal(Ljava/io/ObjectOutputStream;Ljava/lang/String;)V
 java.awt.AWTEventMulticaster:textValueChanged(Ljava/awt/event/TextEvent;)V
 java.awt.AWTEventMulticaster:windowActivated(Ljava/awt/event/WindowEvent;)V
@@ -866,16 +862,6 @@ java.awt.Component:hasFocus()Z
 java.awt.Component:hide()V
 java.awt.Component:imageUpdate(Ljava/awt/Image;IIIII)Z
 java.awt.Component:initIDs()V
-  java.awt.Button:initIDs()V
-  java.awt.Checkbox:initIDs()V
-  java.awt.Container:initIDs()V
-  java.awt.Dialog:initIDs()V
-  java.awt.FileDialog:initIDs()V
-  java.awt.Frame:initIDs()V
-  java.awt.Label:initIDs()V
-  java.awt.ScrollPane:initIDs()V
-  java.awt.Scrollbar:initIDs()V
-  java.awt.Window:initIDs()V
 java.awt.Component:initializeFocusTraversalKeys()V
   java.awt.Container:initializeFocusTraversalKeys()V
 java.awt.Component:inside(II)Z
@@ -1016,21 +1002,6 @@ java.awt.Component:processMouseEvent(Ljava/awt/event/MouseEvent;)V
 java.awt.Component:processMouseMotionEvent(Ljava/awt/event/MouseEvent;)V
 java.awt.Component:processMouseWheelEvent(Ljava/awt/event/MouseWheelEvent;)V
 java.awt.Component:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Button:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Checkbox:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Choice:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Container:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Dialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.FileDialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Frame:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Label:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.List:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.ScrollPane:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Scrollbar:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.TextArea:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.TextComponent:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.TextField:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Window:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.Component:remove(Ljava/awt/MenuComponent;)V
 java.awt.Component:removeComponentListener(Ljava/awt/event/ComponentListener;)V
 java.awt.Component:removeFocusListener(Ljava/awt/event/FocusListener;)V
@@ -1116,17 +1087,6 @@ java.awt.Component:updateCursorImmediately()V
 java.awt.Component:validate()V
   java.awt.Container:validate()V
 java.awt.Component:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Button:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Checkbox:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Choice:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Container:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Frame:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.List:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.ScrollPane:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Scrollbar:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.TextComponent:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.TextField:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Window:writeObject(Ljava/io/ObjectOutputStream;)V
 java.awt.Component$1:<init>()V
 java.awt.Component$1:getAccessControlContext(Ljava/awt/Component;)Ljava/security/AccessControlContext;
 java.awt.Component$1:getAppContext(Ljava/awt/Component;)Lsun/awt/AppContext;
@@ -1423,11 +1383,6 @@ java.awt.Container:hasHeavyweightDescendants()Z
 java.awt.Container:hasLightweightDescendants()Z
 java.awt.Container:increaseComponentCount(Ljava/awt/Component;)V
 java.awt.Container:initIDs()V
-  java.awt.Dialog:initIDs()V
-  java.awt.FileDialog:initIDs()V
-  java.awt.Frame:initIDs()V
-  java.awt.ScrollPane:initIDs()V
-  java.awt.Window:initIDs()V
 java.awt.Container:initializeFocusTraversalKeys()V
 java.awt.Container:insets()Ljava/awt/Insets;
 java.awt.Container:invalidate()V
@@ -1478,11 +1433,6 @@ java.awt.Container:processEvent(Ljava/awt/AWTEvent;)V
   java.awt.Window:processEvent(Ljava/awt/AWTEvent;)V
 java.awt.Container:proxyEnableEvents(J)V
 java.awt.Container:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Dialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.FileDialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Frame:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.ScrollPane:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Window:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.Container:recursiveApplyCurrentShape()V
 java.awt.Container:recursiveApplyCurrentShape(I)V
 java.awt.Container:recursiveApplyCurrentShape(II)V
@@ -1516,9 +1466,6 @@ java.awt.Container:update(Ljava/awt/Graphics;)V
 java.awt.Container:validate()V
 java.awt.Container:validateTree()V
 java.awt.Container:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Frame:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.ScrollPane:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Window:writeObject(Ljava/io/ObjectOutputStream;)V
 java.awt.Container$1:<init>(Ljava/awt/Container;)V
 java.awt.Container$1:run()Ljava/lang/Object;
 java.awt.Container$2:<init>(Ljava/awt/Container;Ljava/awt/Container;)V
@@ -1672,7 +1619,6 @@ java.awt.Dialog:hide()V
 java.awt.Dialog:hideAndDisposeHandler()V
 java.awt.Dialog:hideAndDisposePreHandler()V
 java.awt.Dialog:initIDs()V
-  java.awt.FileDialog:initIDs()V
 java.awt.Dialog:interruptBlocking()V
 java.awt.Dialog:isModal()Z
 java.awt.Dialog:isModal_NoClientCode()Z
@@ -1685,7 +1631,6 @@ java.awt.Dialog:modalityPushed()V
 java.awt.Dialog:paramString()Ljava/lang/String;
   java.awt.FileDialog:paramString()Ljava/lang/String;
 java.awt.Dialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.FileDialog:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.Dialog:setModal(Z)V
 java.awt.Dialog:setModalityType(Ljava/awt/Dialog$ModalityType;)V
 java.awt.Dialog:setResizable(Z)V
@@ -2904,10 +2849,6 @@ java.awt.MenuComponent:getParent_NoClientCode()Ljava/awt/MenuContainer;
 java.awt.MenuComponent:getPeer()Ljava/awt/peer/MenuComponentPeer;
 java.awt.MenuComponent:getTreeLock()Ljava/lang/Object;
 java.awt.MenuComponent:initIDs()V
-  java.awt.CheckboxMenuItem:initIDs()V
-  java.awt.Menu:initIDs()V
-  java.awt.MenuBar:initIDs()V
-  java.awt.MenuItem:initIDs()V
 java.awt.MenuComponent:paramString()Ljava/lang/String;
   java.awt.CheckboxMenuItem:paramString()Ljava/lang/String;
   java.awt.Menu:paramString()Ljava/lang/String;
@@ -2917,10 +2858,6 @@ java.awt.MenuComponent:processEvent(Ljava/awt/AWTEvent;)V
   java.awt.CheckboxMenuItem:processEvent(Ljava/awt/AWTEvent;)V
   java.awt.MenuItem:processEvent(Ljava/awt/AWTEvent;)V
 java.awt.MenuComponent:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.CheckboxMenuItem:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Menu:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.MenuBar:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.MenuItem:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.MenuComponent:removeNotify()V
   java.awt.MenuBar:removeNotify()V
 java.awt.MenuComponent:setFont(Ljava/awt/Font;)V
@@ -3032,8 +2969,6 @@ java.awt.MenuItem:getShortcutMenuItem(Ljava/awt/MenuShortcut;)Ljava/awt/MenuItem
 java.awt.MenuItem:handleShortcut(Ljava/awt/event/KeyEvent;)Z
   java.awt.Menu:handleShortcut(Ljava/awt/event/KeyEvent;)Z
 java.awt.MenuItem:initIDs()V
-  java.awt.CheckboxMenuItem:initIDs()V
-  java.awt.Menu:initIDs()V
 java.awt.MenuItem:isEnabled()Z
 java.awt.MenuItem:isItemEnabled()Z
 java.awt.MenuItem:paramString()Ljava/lang/String;
@@ -3043,16 +2978,12 @@ java.awt.MenuItem:processActionEvent(Ljava/awt/event/ActionEvent;)V
 java.awt.MenuItem:processEvent(Ljava/awt/AWTEvent;)V
   java.awt.CheckboxMenuItem:processEvent(Ljava/awt/AWTEvent;)V
 java.awt.MenuItem:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.CheckboxMenuItem:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Menu:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.MenuItem:removeActionListener(Ljava/awt/event/ActionListener;)V
 java.awt.MenuItem:setActionCommand(Ljava/lang/String;)V
 java.awt.MenuItem:setEnabled(Z)V
 java.awt.MenuItem:setLabel(Ljava/lang/String;)V
 java.awt.MenuItem:setShortcut(Ljava/awt/MenuShortcut;)V
 java.awt.MenuItem:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.CheckboxMenuItem:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Menu:writeObject(Ljava/io/ObjectOutputStream;)V
 java.awt.MenuItem$AccessibleAWTMenuItem:<init>(Ljava/awt/MenuItem;)V
 java.awt.MenuItem$AccessibleAWTMenuItem:doAccessibleAction(I)Z
   java.awt.CheckboxMenuItem$AccessibleAWTCheckboxMenuItem:doAccessibleAction(I)Z
@@ -3720,8 +3651,6 @@ java.awt.TextComponent:processEvent(Ljava/awt/AWTEvent;)V
   java.awt.TextField:processEvent(Ljava/awt/AWTEvent;)V
 java.awt.TextComponent:processTextEvent(Ljava/awt/event/TextEvent;)V
 java.awt.TextComponent:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.TextArea:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.TextField:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.TextComponent:removeNotify()V
 java.awt.TextComponent:removeTextListener(Ljava/awt/event/TextListener;)V
 java.awt.TextComponent:select(II)V
@@ -3734,7 +3663,6 @@ java.awt.TextComponent:setSelectionStart(I)V
 java.awt.TextComponent:setText(Ljava/lang/String;)V
   java.awt.TextField:setText(Ljava/lang/String;)V
 java.awt.TextComponent:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.TextField:writeObject(Ljava/io/ObjectOutputStream;)V
 java.awt.TextComponent$AccessibleAWTTextComponent:<init>(Ljava/awt/TextComponent;)V
 java.awt.TextComponent$AccessibleAWTTextComponent:findWordLimit(ILjava/text/BreakIterator;ZLjava/lang/String;)I
 java.awt.TextComponent$AccessibleAWTTextComponent:getAccessibleRole()Ljavax/accessibility/AccessibleRole;
@@ -4120,9 +4048,6 @@ java.awt.Window:hide()V
 java.awt.Window:init(Ljava/awt/GraphicsConfiguration;)V
 java.awt.Window:initDeserializedWindow()V
 java.awt.Window:initIDs()V
-  java.awt.Dialog:initIDs()V
-  java.awt.FileDialog:initIDs()V
-  java.awt.Frame:initIDs()V
 java.awt.Window:isActive()Z
 java.awt.Window:isAlwaysOnTop()Z
 java.awt.Window:isAlwaysOnTopSupported()Z
@@ -4149,9 +4074,6 @@ java.awt.Window:processWindowEvent(Ljava/awt/event/WindowEvent;)V
 java.awt.Window:processWindowFocusEvent(Ljava/awt/event/WindowEvent;)V
 java.awt.Window:processWindowStateEvent(Ljava/awt/event/WindowEvent;)V
 java.awt.Window:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Dialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.FileDialog:readObject(Ljava/io/ObjectInputStream;)V
-  java.awt.Frame:readObject(Ljava/io/ObjectInputStream;)V
 java.awt.Window:removeFromWindowList()V
 java.awt.Window:removeFromWindowList(Lsun/awt/AppContext;Ljava/lang/ref/WeakReference;)V
 java.awt.Window:removeNotify()V
@@ -4195,7 +4117,6 @@ java.awt.Window:updateChildFocusableWindowState(Ljava/awt/Window;)V
 java.awt.Window:updateChildrenBlocking()V
 java.awt.Window:updateWindow()V
 java.awt.Window:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.awt.Frame:writeObject(Ljava/io/ObjectOutputStream;)V
 java.awt.Window$1:<init>()V
 java.awt.Window$1:calculateSecurityWarningPosition(Ljava/awt/Window;DDDD)Ljava/awt/geom/Point2D;
 java.awt.Window$1:getOpacity(Ljava/awt/Window;)F
@@ -4916,8 +4837,6 @@ java.awt.event.InputEvent:getModifiersEx()I
 java.awt.event.InputEvent:getModifiersExText(I)Ljava/lang/String;
 java.awt.event.InputEvent:getWhen()J
 java.awt.event.InputEvent:initIDs()V
-  java.awt.event.KeyEvent:initIDs()V
-  java.awt.event.MouseEvent:initIDs()V
 java.awt.event.InputEvent:isAltDown()Z
 java.awt.event.InputEvent:isAltGraphDown()Z
 java.awt.event.InputEvent:isConsumed()Z
@@ -6781,7 +6700,6 @@ java.awt.image.ColorModel:getsRGB8ToLinearRGB8LUT()[B
 java.awt.image.ColorModel:hasAlpha()Z
 java.awt.image.ColorModel:hashCode()I
 java.awt.image.ColorModel:initIDs()V
-  java.awt.image.IndexColorModel:initIDs()V
 java.awt.image.ColorModel:isAlphaPremultiplied()Z
 java.awt.image.ColorModel:isCompatibleRaster(Ljava/awt/image/Raster;)Z
   java.awt.image.ComponentColorModel:isCompatibleRaster(Ljava/awt/image/Raster;)Z
@@ -7557,8 +7475,6 @@ java.awt.image.SampleModel:getTransferType()I
   java.awt.image.MultiPixelPackedSampleModel:getTransferType()I
 java.awt.image.SampleModel:getWidth()I
 java.awt.image.SampleModel:initIDs()V
-  java.awt.image.ComponentSampleModel:initIDs()V
-  java.awt.image.SinglePixelPackedSampleModel:initIDs()V
 java.awt.image.SampleModel:setDataElements(IIIILjava/lang/Object;Ljava/awt/image/DataBuffer;)V
 java.awt.image.SampleModel:setDataElements(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V
   java.awt.image.BandedSampleModel:setDataElements(IILjava/lang/Object;Ljava/awt/image/DataBuffer;)V
@@ -8700,8 +8616,6 @@ java.beans.beancontext.BeanContextChildSupport:getBeanContextChildPeer()Ljava/be
 java.beans.beancontext.BeanContextChildSupport:initializeBeanContextResources()V
 java.beans.beancontext.BeanContextChildSupport:isDelegated()Z
 java.beans.beancontext.BeanContextChildSupport:readObject(Ljava/io/ObjectInputStream;)V
-  java.beans.beancontext.BeanContextServicesSupport:readObject(Ljava/io/ObjectInputStream;)V
-  java.beans.beancontext.BeanContextSupport:readObject(Ljava/io/ObjectInputStream;)V
 java.beans.beancontext.BeanContextChildSupport:releaseBeanContextResources()V
 java.beans.beancontext.BeanContextChildSupport:removePropertyChangeListener(Ljava/lang/String;Ljava/beans/PropertyChangeListener;)V
 java.beans.beancontext.BeanContextChildSupport:removeVetoableChangeListener(Ljava/lang/String;Ljava/beans/VetoableChangeListener;)V
@@ -8710,8 +8624,6 @@ java.beans.beancontext.BeanContextChildSupport:serviceRevoked(Ljava/beans/beanco
 java.beans.beancontext.BeanContextChildSupport:setBeanContext(Ljava/beans/beancontext/BeanContext;)V
 java.beans.beancontext.BeanContextChildSupport:validatePendingSetBeanContext(Ljava/beans/beancontext/BeanContext;)Z
 java.beans.beancontext.BeanContextChildSupport:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.beans.beancontext.BeanContextServicesSupport:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.beans.beancontext.BeanContextSupport:writeObject(Ljava/io/ObjectOutputStream;)V
 java.beans.beancontext.BeanContextContainerProxy:getContainer()Ljava/awt/Container;
 java.beans.beancontext.BeanContextEvent:<init>(Ljava/beans/beancontext/BeanContext;)V
 java.beans.beancontext.BeanContextEvent:getBeanContext()Ljava/beans/beancontext/BeanContext;
@@ -8885,7 +8797,6 @@ java.beans.beancontext.BeanContextSupport:okToUseGui()V
 java.beans.beancontext.BeanContextSupport:propertyChange(Ljava/beans/PropertyChangeEvent;)V
 java.beans.beancontext.BeanContextSupport:readChildren(Ljava/io/ObjectInputStream;)V
 java.beans.beancontext.BeanContextSupport:readObject(Ljava/io/ObjectInputStream;)V
-  java.beans.beancontext.BeanContextServicesSupport:readObject(Ljava/io/ObjectInputStream;)V
 java.beans.beancontext.BeanContextSupport:remove(Ljava/lang/Object;)Z
 java.beans.beancontext.BeanContextSupport:remove(Ljava/lang/Object;Z)Z
 java.beans.beancontext.BeanContextSupport:removeAll(Ljava/util/Collection;)Z
@@ -8902,7 +8813,6 @@ java.beans.beancontext.BeanContextSupport:validatePendingRemove(Ljava/lang/Objec
 java.beans.beancontext.BeanContextSupport:vetoableChange(Ljava/beans/PropertyChangeEvent;)V
 java.beans.beancontext.BeanContextSupport:writeChildren(Ljava/io/ObjectOutputStream;)V
 java.beans.beancontext.BeanContextSupport:writeObject(Ljava/io/ObjectOutputStream;)V
-  java.beans.beancontext.BeanContextServicesSupport:writeObject(Ljava/io/ObjectOutputStream;)V
 java.beans.beancontext.BeanContextSupport$1:<init>(Ljava/beans/beancontext/BeanContextSupport;)V
 java.beans.beancontext.BeanContextSupport$1:propertyChange(Ljava/beans/PropertyChangeEvent;)V
 java.beans.beancontext.BeanContextSupport$2:<init>(Ljava/beans/beancontext/BeanContextSupport;)V
@@ -11021,11 +10931,9 @@ java.io.Win32FileSystem:getSeparator()C
 java.io.Win32FileSystem:getSpace(Ljava/io/File;I)J
   java.io.WinNTFileSystem:getSpace(Ljava/io/File;I)J
 java.io.Win32FileSystem:getSpace0(Ljava/io/File;I)J
-  java.io.WinNTFileSystem:getSpace0(Ljava/io/File;I)J
 java.io.Win32FileSystem:getUserPath()Ljava/lang/String;
 java.io.Win32FileSystem:hashCode(Ljava/io/File;)I
 java.io.Win32FileSystem:initIDs()V
-  java.io.WinNTFileSystem:initIDs()V
 java.io.Win32FileSystem:isAbsolute(Ljava/io/File;)Z
 java.io.Win32FileSystem:isLetter(C)Z
 java.io.Win32FileSystem:isSlash(C)Z
@@ -12809,11 +12717,6 @@ java.lang.Object:hashCode()I
 java.lang.Object:notify()V
 java.lang.Object:notifyAll()V
 java.lang.Object:registerNatives()V
-  java.lang.Class:registerNatives()V
-  java.lang.ClassLoader:registerNatives()V
-  java.lang.Compiler:registerNatives()V
-  java.lang.System:registerNatives()V
-  java.lang.Thread:registerNatives()V
 java.lang.Object:toString()Ljava/lang/String;
   java.awt.AWTEvent:toString()Ljava/lang/String;
   java.awt.AWTKeyStroke:toString()Ljava/lang/String;
@@ -15206,8 +15109,6 @@ java.net.InetAddress:hashCode()I
   java.net.Inet4Address:hashCode()I
   java.net.Inet6Address:hashCode()I
 java.net.InetAddress:init()V
-  java.net.Inet4Address:init()V
-  java.net.Inet6Address:init()V
 java.net.InetAddress:isAnyLocalAddress()Z
   java.net.Inet4Address:isAnyLocalAddress()Z
   java.net.Inet6Address:isAnyLocalAddress()Z
@@ -15242,7 +15143,6 @@ java.net.InetAddress:isSiteLocalAddress()Z
   java.net.Inet6Address:isSiteLocalAddress()Z
 java.net.InetAddress:loadImpl(Ljava/lang/String;)Ljava/lang/Object;
 java.net.InetAddress:readObject(Ljava/io/ObjectInputStream;)V
-  java.net.Inet6Address:readObject(Ljava/io/ObjectInputStream;)V
 java.net.InetAddress:readObjectNoData(Ljava/io/ObjectInputStream;)V
 java.net.InetAddress:readResolve()Ljava/lang/Object;
 java.net.InetAddress:toString()Ljava/lang/String;
@@ -17147,35 +17047,29 @@ java.nio.DirectByteBuffer:putChar(C)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putChar(IC)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putChar(IC)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putChar(JC)Ljava/nio/ByteBuffer;
-  java.nio.DirectByteBufferR:putChar(JC)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putDouble(D)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putDouble(D)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putDouble(ID)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putDouble(ID)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putDouble(JD)Ljava/nio/ByteBuffer;
-  java.nio.DirectByteBufferR:putDouble(JD)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putFloat(F)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putFloat(F)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putFloat(IF)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putFloat(IF)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putFloat(JF)Ljava/nio/ByteBuffer;
-  java.nio.DirectByteBufferR:putFloat(JF)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putInt(I)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putInt(I)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putInt(II)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putInt(II)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putInt(JI)Ljava/nio/ByteBuffer;
-  java.nio.DirectByteBufferR:putInt(JI)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putLong(IJ)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putLong(IJ)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putLong(J)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putLong(J)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putLong(JJ)Ljava/nio/ByteBuffer;
-  java.nio.DirectByteBufferR:putLong(JJ)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putShort(IS)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putShort(IS)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putShort(JS)Ljava/nio/ByteBuffer;
-  java.nio.DirectByteBufferR:putShort(JS)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:putShort(S)Ljava/nio/ByteBuffer;
   java.nio.DirectByteBufferR:putShort(S)Ljava/nio/ByteBuffer;
 java.nio.DirectByteBuffer:slice()Ljava/nio/ByteBuffer;
@@ -19657,7 +19551,6 @@ java.security.BasicPermission:init(Ljava/lang/String;)V
 java.security.BasicPermission:newPermissionCollection()Ljava/security/PermissionCollection;
   java.util.PropertyPermission:newPermissionCollection()Ljava/security/PermissionCollection;
 java.security.BasicPermission:readObject(Ljava/io/ObjectInputStream;)V
-  java.util.PropertyPermission:readObject(Ljava/io/ObjectInputStream;)V
 java.security.BasicPermissionCollection:<clinit>()V
 java.security.BasicPermissionCollection:<init>()V
 java.security.BasicPermissionCollection:add(Ljava/security/Permission;)V
@@ -19727,8 +19620,6 @@ java.security.Identity:<init>(Ljava/lang/String;Ljava/security/IdentityScope;)V
 java.security.Identity:addCertificate(Ljava/security/Certificate;)V
 java.security.Identity:certificates()[Ljava/security/Certificate;
 java.security.Identity:check(Ljava/lang/String;)V
-  java.security.IdentityScope:check(Ljava/lang/String;)V
-  java.security.Signer:check(Ljava/lang/String;)V
 java.security.Identity:equals(Ljava/lang/Object;)Z
 java.security.Identity:fullName()Ljava/lang/String;
 java.security.Identity:getInfo()Ljava/lang/String;
@@ -22917,8 +22808,6 @@ java.text.NumberFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/l
   java.text.DecimalFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Number;
 java.text.NumberFormat:parseObject(Ljava/lang/String;Ljava/text/ParsePosition;)Ljava/lang/Object;
 java.text.NumberFormat:readObject(Ljava/io/ObjectInputStream;)V
-  java.text.ChoiceFormat:readObject(Ljava/io/ObjectInputStream;)V
-  java.text.DecimalFormat:readObject(Ljava/io/ObjectInputStream;)V
 java.text.NumberFormat:setCurrency(Ljava/util/Currency;)V
   java.text.DecimalFormat:setCurrency(Ljava/util/Currency;)V
 java.text.NumberFormat:setGroupingUsed(Z)V
@@ -23423,7 +23312,6 @@ java.util.AbstractMap:entrySet()Ljava/util/Set;
   java.util.concurrent.ConcurrentSkipListMap$SubMap:entrySet()Ljava/util/Set;
   java.util.concurrent.ConcurrentSkipListMap:entrySet()Ljava/util/Set;
 java.util.AbstractMap:eq(Ljava/lang/Object;Ljava/lang/Object;)Z
-  java.util.WeakHashMap:eq(Ljava/lang/Object;Ljava/lang/Object;)Z
 java.util.AbstractMap:equals(Ljava/lang/Object;)Z
   java.util.Collections$EmptyMap:equals(Ljava/lang/Object;)Z
   java.util.EnumMap:equals(Ljava/lang/Object;)Z
@@ -23939,7 +23827,6 @@ java.util.Calendar:getDisplayName(IILjava/util/Locale;)Ljava/lang/String;
 java.util.Calendar:getDisplayNames(IILjava/util/Locale;)Ljava/util/Map;
   java.util.JapaneseImperialCalendar:getDisplayNames(IILjava/util/Locale;)Ljava/util/Map;
 java.util.Calendar:getDisplayNamesImpl(IILjava/util/Locale;)Ljava/util/Map;
-  java.util.JapaneseImperialCalendar:getDisplayNamesImpl(IILjava/util/Locale;)Ljava/util/Map;
 java.util.Calendar:getFieldName(I)Ljava/lang/String;
 java.util.Calendar:getFieldStrings(IILjava/text/DateFormatSymbols;)[Ljava/lang/String;
 java.util.Calendar:getFirstDayOfWeek()I
@@ -23981,8 +23868,6 @@ java.util.Calendar:isLenient()Z
 java.util.Calendar:isPartiallyNormalized()Z
 java.util.Calendar:isSet(I)Z
 java.util.Calendar:readObject(Ljava/io/ObjectInputStream;)V
-  java.util.GregorianCalendar:readObject(Ljava/io/ObjectInputStream;)V
-  java.util.JapaneseImperialCalendar:readObject(Ljava/io/ObjectInputStream;)V
 java.util.Calendar:roll(II)V
   java.util.GregorianCalendar:roll(II)V
   java.util.JapaneseImperialCalendar:roll(II)V
@@ -30711,9 +30596,6 @@ java.util.logging.StreamHandler:close()V
   java.util.logging.FileHandler:close()V
   java.util.logging.SocketHandler:close()V
 java.util.logging.StreamHandler:configure()V
-  java.util.logging.ConsoleHandler:configure()V
-  java.util.logging.FileHandler:configure()V
-  java.util.logging.SocketHandler:configure()V
 java.util.logging.StreamHandler:flush()V
 java.util.logging.StreamHandler:flushAndClose()V
 java.util.logging.StreamHandler:isLoggable(Ljava/util/logging/LogRecord;)Z
@@ -31634,8 +31516,6 @@ java.util.zip.InflaterInputStream:close()V
   java.util.zip.ZipFile$1:close()V
   java.util.zip.ZipInputStream:close()V
 java.util.zip.InflaterInputStream:ensureOpen()V
-  java.util.zip.GZIPInputStream:ensureOpen()V
-  java.util.zip.ZipInputStream:ensureOpen()V
 java.util.zip.InflaterInputStream:fill()V
   java.util.zip.ZipFile$1:fill()V
 java.util.zip.InflaterInputStream:mark(I)V
