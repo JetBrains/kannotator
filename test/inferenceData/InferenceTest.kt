@@ -26,7 +26,9 @@ class InferenceTest: TestCase() {
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val result = AnnotationsInference().inferAnnotations(graph, positions)
+        val annotationsInference = AnnotationsInference(graph)
+        annotationsInference.process()
+        val result = annotationsInference.getResultAnnotations(positions)
         assertEquals(parametersMap, expectedReturnInfo, result, pairs.size, positions)
     }
 
