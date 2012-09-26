@@ -7,7 +7,6 @@ import kotlinlib.union
 import java.util.Collections
 
 class AnnotationsImpl<A>(val delegate: Annotations<A>? = null) : MutableAnnotations<A> {
-
     private val data = HashMap<TypePosition, MutableSet<A>>()
 
     override fun get(typePosition: TypePosition): Collection<A> {
@@ -15,6 +14,15 @@ class AnnotationsImpl<A>(val delegate: Annotations<A>? = null) : MutableAnnotati
         val theirs = delegate?.get(typePosition) ?: Collections.emptySet<A>()
 
         return my union theirs
+    }
+
+    override fun forEach(body: (TypePosition, A) -> Unit) {
+        delegate?.forEach(body)
+        for ((position, annotationSet) in data) {
+            for (annotation in annotationSet) {
+                body(position, annotation)
+            }
+        }
     }
 
     override fun add(typePosition: TypePosition, annotation: A) {
