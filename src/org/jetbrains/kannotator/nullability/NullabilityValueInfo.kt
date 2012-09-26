@@ -2,7 +2,7 @@ package org.jetbrains.kannotator.nullability
 
 import kotlin.nullable.fold
 
-public enum class NullabilityValueInfo() {
+public enum class NullabilityValueInfo {
     NOT_NULL
     NULL
     NULLABLE
