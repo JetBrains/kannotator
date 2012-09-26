@@ -11,20 +11,12 @@ public trait FunDependencyGraph {
 public trait FunDependencyEdge {
     val from: FunctionNode
     val to: FunctionNode
-
-    fun toString(): String {
-        return "${from.method} -> ${to.method}"
-    }
 }
 
 public trait FunctionNode {
     val incomingEdges: Collection<FunDependencyEdge>
     val outgoingEdges: Collection<FunDependencyEdge>
     val method: Method
-
-    fun toString(): String {
-        return "${method} in$incomingEdges out$outgoingEdges"
-    }
 }
 
 class FunDependencyGraphImpl : FunDependencyGraph {
@@ -56,9 +48,17 @@ class FunDependencyGraphImpl : FunDependencyGraph {
 
 class FunDependencyEdgeImpl(override val from: FunctionNode,
                             override val to: FunctionNode): FunDependencyEdge {
+
+    fun toString(): String {
+        return "${from.method} -> ${to.method}"
+    }
 }
 
 class FunctionNodeImpl(override val method: Method): FunctionNode {
     override val outgoingEdges: MutableCollection<FunDependencyEdge> = ArrayList()
     override val incomingEdges: MutableCollection<FunDependencyEdge> = ArrayList()
+
+    fun toString(): String {
+        return "${method} in$incomingEdges out$outgoingEdges"
+    }
 }
