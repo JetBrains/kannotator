@@ -1,6 +1,6 @@
 package kotlinlib
 
-public fun Iterator<String?>.join(separator: String = ""): String {
+public fun Iterator<Any?>.join(separator: String = ""): String {
     return buildString {
         while (hasNext()) {
             it.append(next())
@@ -11,9 +11,9 @@ public fun Iterator<String?>.join(separator: String = ""): String {
     }
 }
 
-public fun Iterable<String?>.join(separator: String = ""): String = iterator().join(separator)
+public fun Iterable<Any?>.join(separator: String = ""): String = iterator().join(separator)
 
-public fun Array<out String?>.join(separator: String = ""): String {
+public fun Array<out Any?>.join(separator: String = ""): String {
     return buildString {
         for (i in this.indices) {
             it.append(this[i])
