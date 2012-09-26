@@ -1,6 +1,12 @@
 == All Nodes == 
-funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; in[] out[funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;]
-funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object; in[funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;] out[]
+funDependency.funInDifferentClasses.First:test()Ljava/lang/Object;
+    outgoing edges:
+        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+    incoming edges:
+        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
 
 == No Outgoing Nodes == 
-funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object; in[funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;] out[]
+funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+    incoming edges:
+        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;

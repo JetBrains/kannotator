@@ -1,22 +1,14 @@
 package funDependency
 
-/**
- * User: Natalia.Ukhorskaya
- */
-
-import org.junit.Test as test
-import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
-import org.jetbrains.kannotator.funDependecy.FunctionNode
-import java.util.ArrayList
-import java.util.Collections
-import java.util.Comparator
 import java.io.File
-import kotlinlib.buildString
-import kotlin.template.append
-import org.junit.Assert
+import java.util.Comparator
 import kotlin.test.fail
 import kotlinlib.*
+import org.jetbrains.kannotator.funDependecy.FunctionNode
+import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
+import org.junit.Assert
+import org.junit.Test as test
+import org.objectweb.asm.ClassReader
 
 private val PATH = "testData/funDependency/"
 
@@ -24,6 +16,10 @@ class FunDependencyGraphTest {
 
     test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
+    }
+
+    test fun multiplyInvokeOfMethod() {
+        doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.txt", "fundependency.multiplyInvokeOfMethod.First", "fundependency.multiplyInvokeOfMethod.Second")
     }
 
     test fun noAnnotatedMethods() {
@@ -43,25 +39,25 @@ class FunDependencyGraphTest {
 
         val functionNodeComparator = object : Comparator<FunctionNode> {
             public override fun compare(o1: FunctionNode?, o2: FunctionNode?): Int {
-                return o1?.toString()?.compareTo(o2?.toString() ?: "") ?: -1
+                return o1?.method.toString().compareTo(o2?.method.toString())
             }
 
             public override fun equals(obj: Any?): Boolean {
-                return this.toString().equals(obj.toString())
+                throw IllegalStateException()
             }
         }
 
         val actual = buildString { sb ->
             sb.println("== All Nodes == ")
             for (node in graph.functions.sort(functionNodeComparator)) {
-                sb.println(node)
+                printFunctionNode(sb, node)
             }
 
             sb.println()
             sb.println("== No Outgoing Nodes == ")
 
             for (node in graph.noOutgoingNodes.sort(functionNodeComparator)) {
-                sb.println(node)
+                printFunctionNode(sb, node)
             }
         }.trim()
 
@@ -72,8 +68,22 @@ class FunDependencyGraphTest {
         }
         val expected = expectedFile.readText().trim()
         println(actual)
+        println()
 
         Assert.assertEquals(expected, actual)
+    }
+
+    fun printFunctionNode(sb: StringBuilder, node: FunctionNode) {
+        sb.println(node.method)
+        if (node.outgoingEdges.size() > 0) sb.println("    outgoing edges:")
+        for (edge in node.outgoingEdges.sortByToString()) {
+            sb.println("        $edge")
+        }
+
+        if (node.incomingEdges.size() > 0) sb.println("    incoming edges:")
+        for (edge in node.incomingEdges.sortByToString()) {
+            sb.println("        $edge")
+        }
     }
 }
 

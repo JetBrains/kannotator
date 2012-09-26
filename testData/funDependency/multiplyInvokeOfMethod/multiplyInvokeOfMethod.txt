@@ -1,0 +1,12 @@
+== All Nodes == 
+funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object;
+    outgoing edges:
+        funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+    incoming edges:
+        funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+
+== No Outgoing Nodes == 
+funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+    incoming edges:
+        funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
