@@ -27,18 +27,23 @@ public class FramesNullabilityManager {
         nullabilityInfosForEdges[edge] = infos
     }
 
-    fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State<Unit>) : Map<Value, NullabilityValueInfo> {
-        val infosForInstruction = hashMap<Value, NullabilityValueInfo>()
+    fun mergeInfosFromIncomingEdges(instruction: Instruction) : Map<Value, NullabilityValueInfo> {
+        val result = hashMap<Value, NullabilityValueInfo>()
 
-        // merge from incoming edges
         for (incomingEdge in instruction.incomingEdges) {
             val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForEdges[incomingEdge]
             if (incomingEdgeMap == null) continue
             for ((value, info) in incomingEdgeMap) {
-                val currentInfo = infosForInstruction[value]
-                infosForInstruction[value] = if (currentInfo == null) info else info merge currentInfo
+                val currentInfo = result[value]
+                result[value] = if (currentInfo == null) info else info merge currentInfo
             }
         }
+
+        return result
+    }
+
+    fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State<Unit>) : Map<Value, NullabilityValueInfo> {
+        val infosForInstruction = mergeInfosFromIncomingEdges(instruction)
 
         fun propagateTransformedValueInfos(
                 outgoingEdge: ControlFlowEdge,
