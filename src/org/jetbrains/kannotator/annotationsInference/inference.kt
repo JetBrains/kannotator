@@ -47,7 +47,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
 
     fun checkAssertionIsSatisfied(
             assert: NullabilityAssert,
-            nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>
+            nullabilityInfosForInstruction: ValueNullabilityMap
     ) : Boolean {
         if (!assert.shouldBeNotNullValue.interesting) return true
 
@@ -58,7 +58,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
     fun checkReturnInstruction(
             instruction: Instruction,
             annotationManager: NullabilityAnnotationsManager,
-            nullabilityInfosForInstruction: Map<Value, NullabilityValueInfo>
+            nullabilityInfosForInstruction: ValueNullabilityMap
     ) {
         fun checkAllValuesOnReturn() {
             for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
@@ -76,8 +76,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
             when (instructionMetadata.asmInstruction.getOpcode()) {
             ARETURN -> {
                     val valueSet = state.stack[0]
-                    val nullabilityValueInfo = valueSet
-                    .map { it -> framesManager.getNullabilityInfo(nullabilityInfosForInstruction, it) }.merge()
+                    val nullabilityValueInfo = valueSet.map { it -> nullabilityInfosForInstruction[it] }.merge()
                     annotationManager.addReturnValueInfo(nullabilityValueInfo)
                     checkAllValuesOnReturn()
                 }

@@ -12,14 +12,15 @@ import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
 import kotlin.test.assertFalse
 import org.jetbrains.kannotator.controlFlowBuilder.TypedValue
 import java.util.HashMap
+import kotlin.test.assertEquals
+
+import org.jetbrains.kannotator.controlFlowBuilder
 
 public class FramesNullabilityManager {
     private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, Map<Value, NullabilityValueInfo>> = hashMap()
 
-    fun getNullabilityInfo(nullabilityInfos: Map<Value, NullabilityValueInfo>, value: Value) : NullabilityValueInfo {
-        val initialInfo = getInitialNullabilityInfo(value)
-        val currentInfo = nullabilityInfos[value]
-        return if (currentInfo == null) initialInfo else currentInfo
+    fun getNullabilityInfo(nullabilityInfos: ValueNullabilityMap, value: Value) : NullabilityValueInfo {
+        return nullabilityInfos[value]
     }
 
     fun setValueInfosForEdge(edge: ControlFlowEdge, infos: Map<Value, NullabilityValueInfo>) {
@@ -27,27 +28,26 @@ public class FramesNullabilityManager {
         nullabilityInfosForEdges[edge] = infos
     }
 
-    fun mergeInfosFromIncomingEdges(instruction: Instruction) : Map<Value, NullabilityValueInfo> {
-        val result = hashMap<Value, NullabilityValueInfo>()
+    fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
+        val result = ValueNullabilityMap()
 
         for (incomingEdge in instruction.incomingEdges) {
             val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForEdges[incomingEdge]
             if (incomingEdgeMap == null) continue
             for ((value, info) in incomingEdgeMap) {
-                val currentInfo = result[value]
-                result[value] = if (currentInfo == null) info else info merge currentInfo
+                result[value] = info merge result[value]
             }
         }
 
         return result
     }
 
-    fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State<Unit>) : Map<Value, NullabilityValueInfo> {
+    fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State<Unit>) : ValueNullabilityMap {
         val infosForInstruction = mergeInfosFromIncomingEdges(instruction)
 
         fun propagateTransformedValueInfos(
                 outgoingEdge: ControlFlowEdge,
-                transformStackValueInfo: (NullabilityValueInfo?) -> NullabilityValueInfo // TODO remove '?'
+                transformStackValueInfo: (NullabilityValueInfo) -> NullabilityValueInfo
         ) {
             val infosForEdge = HashMap(infosForInstruction)
             for (value in state.stack[0]) {
@@ -94,20 +94,32 @@ public class FramesNullabilityManager {
 
         return infosForInstruction
     }
+}
 
-    fun getInitialNullabilityInfo(value: Value): NullabilityValueInfo {
-        val typedValue = value as TypedValue
-        val createdAtInsn = typedValue.createdAtInsn
+public class ValueNullabilityMap: HashMap<Value, NullabilityValueInfo>() {
+    override fun get(key: Any?): NullabilityValueInfo {
+        val fromSuper = super.get(key)
+        if (fromSuper != null) return fromSuper
 
-        // TODO this is a hack, must create value info depending on current command type
-        if (value == org.jetbrains.kannotator.controlFlowBuilder.NULL_VALUE) {
-            return NULL
+        if (key !is TypedValue) throw IllegalStateException("Trying to get with key which is not TypedValue")
+
+        val createdAtInsn = key.createdAtInsn
+
+        if (createdAtInsn != null) {
+            return when (createdAtInsn.getOpcode()) {
+                NEW -> NOT_NULL
+                ACONST_NULL -> NULL
+                else -> UNKNOWN
+            }
         }
-        if (createdAtInsn == null) return UNKNOWN // todo parameter
-        return when (createdAtInsn.getOpcode()) {
-            NEW -> NOT_NULL
-            ACONST_NULL -> NULL
-            else -> UNKNOWN
+        else if (key.interesting) {
+            return UNKNOWN // todo read from parameter annotation
+        }
+        else return when (key) {
+            controlFlowBuilder.NULL_VALUE -> NULL
+            controlFlowBuilder.PRIMITIVE_VALUE_SIZE_1, controlFlowBuilder.PRIMITIVE_VALUE_SIZE_2 ->
+                throw IllegalStateException("trying to get nullabilty info for primitive")
+            else -> NOT_NULL // this is either "this" or caught exception
         }
     }
 }
