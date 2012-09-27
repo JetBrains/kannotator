@@ -82,4 +82,6 @@ class InferenceTest: TestCase() {
     fun testReturnField() = doTest(null)
 
     fun testReturnStaticField() = doTest(null)
+
+    fun testReturnStringConstant() = doTest(NOT_NULL)
 }

@@ -110,6 +110,7 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
             return when (createdAtInsn.getOpcode()) {
                 NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
                 ACONST_NULL -> NULL
+                LDC, 19 /* LDC_W */ -> NOT_NULL
                 INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
                     UNKNOWN // TODO load from annotations
                 GETFIELD, GETSTATIC -> UNKNOWN // TODO load from annotations

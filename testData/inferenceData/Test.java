@@ -54,6 +54,10 @@ public class Test {
         return staticField;
     }
 
+    public String testReturnStringConstant() {
+        return "foo";
+    }
+
     public void testNotNullParameter(String a) {
         a.getBytes();
     }
