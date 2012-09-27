@@ -50,6 +50,11 @@ class PositionSerializerTest : TestCase() {
                 "A", "foo", "(I)V", ParameterPosition(1), null, false)
     }
 
+    fun testNonStaticTwoParams() {
+        doTest("A void foo(int, int) 0",
+                "A", "foo", "(II)V", ParameterPosition(1), null, false)
+    }
+
     fun testGenericSignatureNoParams() {
         doTest("A java.util.List<java.lang.String> foo()",
                 "A", "foo", "()Ljava/util/List;", RETURN_TYPE, "()Ljava/util/List<Ljava/lang/String;>;")

@@ -66,7 +66,7 @@ private fun correctIfNotStatic(method: Method, parameterIndex: Int): Int {
 
 private fun Method.parameterTypesString(): String {
     if (genericSignature == null) {
-        return (id.getArgumentTypes() map {it -> canonicalName(it) }).join(",", "(", ")")
+        return (id.getArgumentTypes() map {it -> canonicalName(it) }).join(", ", "(", ")")
     }
     else {
         return parseGenericSignature(genericSignature).getDeclaration().toCanonical()
