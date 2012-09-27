@@ -78,4 +78,8 @@ class InferenceTest: TestCase() {
     fun testReturnNewObjectArray() = doTest(NOT_NULL)
 
     fun testReturnNewMultiArray() = doTest(NOT_NULL)
+
+    fun testReturnField() = doTest(null)
+
+    fun testReturnStaticField() = doTest(null)
 }

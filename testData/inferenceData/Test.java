@@ -46,6 +46,14 @@ public class Test {
         return new int[1][1];
     }
 
+    public Object testReturnField() {
+        return field;
+    }
+
+    public Object testReturnStaticField() {
+        return staticField;
+    }
+
     public void testNotNullParameter(String a) {
         a.getBytes();
     }
@@ -88,7 +96,8 @@ public class Test {
 
 
 
-
+    private Object field;
+    private static Object staticField;
 
     private Object privateMethod() {
         return null;

@@ -112,6 +112,7 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
                 ACONST_NULL -> NULL
                 INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
                     UNKNOWN // TODO load from annotations
+                GETFIELD, GETSTATIC -> UNKNOWN // TODO load from annotations
                 AALOAD -> UNKNOWN
                 else -> throw UnsupportedOperationException("Unsupported opcode=${createdAtInsn.getOpcode()}")
             }
