@@ -67,8 +67,10 @@ class PositionSerializerTest : TestCase() {
                 "Ljava/util/Map\$Entry<Ljava/lang/Integer;Ljava/util/Map\$Entry<Ljava/lang/Integer;Ljava/lang/String;>;>;")
     }
 
-    fun foo(i: List<List<String>>, x: List<Map.Entry<Int, String>>): Map.Entry<Int, Map.Entry<Int, String>> {
-        throw Exception()
+    fun testGenericInnerInGenericOuter() {
+        doTest("A t.Test<java.lang.String> test(t.Test<java.lang.String>.Inner<java.lang.Integer>)",
+                "A", "test", "(Lt/Test\$Inner;)Lt/Test;", RETURN_TYPE,
+                "(Lt/Test<Ljava/lang/String;>.Inner<Ljava/lang/Integer;>;)Lt/Test<Ljava/lang/String;>;")
     }
 
 }
