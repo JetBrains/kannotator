@@ -14,7 +14,7 @@ trait AnnotationData {
 
 fun parseAnnotations(xml: Reader, handler: (String, Collection<AnnotationData>) -> Unit, errorHandler: (String) -> Unit) {
     val text = escapeAttributes(xml.readText())
-    val parser = SAXParserFactory.newInstance().newSAXParser();
+    val parser = SAXParserFactory.newInstance()!!.newSAXParser()!!
     parser.parse(text.getBytes().inputStream, object: HandlerBase(){
 
         private var currentItemElement: ItemElement? = null
