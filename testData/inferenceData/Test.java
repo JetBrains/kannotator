@@ -34,6 +34,18 @@ public class Test {
         return arr[0];
     }
 
+    public int[] testReturnNewIntArray() {
+        return new int[1];
+    }
+
+    public Object[] testReturnNewObjectArray() {
+        return new Object[1];
+    }
+
+    public int[][] testReturnNewMultiArray() {
+        return new int[1][1];
+    }
+
     public void testNotNullParameter(String a) {
         a.getBytes();
     }

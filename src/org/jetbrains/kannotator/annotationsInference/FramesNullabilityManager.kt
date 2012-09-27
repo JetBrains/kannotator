@@ -108,7 +108,7 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
 
         if (createdAtInsn != null) {
             return when (createdAtInsn.getOpcode()) {
-                NEW -> NOT_NULL
+                NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
                 ACONST_NULL -> NULL
                 INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
                     UNKNOWN // TODO load from annotations

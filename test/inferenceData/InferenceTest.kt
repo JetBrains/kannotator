@@ -72,4 +72,10 @@ class InferenceTest: TestCase() {
     fun testInvokeInterface() = doTest(null, 1 to NOT_NULL)
 
     fun testReturnArrayLoad() = doTest(null, 1 to NOT_NULL)
+
+    fun testReturnNewIntArray() = doTest(NOT_NULL)
+
+    fun testReturnNewObjectArray() = doTest(NOT_NULL)
+
+    fun testReturnNewMultiArray() = doTest(NOT_NULL)
 }
