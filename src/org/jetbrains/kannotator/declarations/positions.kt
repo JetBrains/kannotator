@@ -12,14 +12,14 @@ class Positions(val method: Method) {
     public fun forParameter(parameterIndex: Int): AnnotatedType{
         assert(parameterIndex >= 0) {"For return type use forReturnType() method"}
         return AnnotatedTypeImpl(
-                TypePositionImpl(method, parameterIndex, 0),
+                TypePositionImpl(method, ParameterPosition(parameterIndex), 0),
                 "param$parameterIndex",
                 ArrayList(0)
         )
     }
 
     public fun forReturnType() : AnnotatedType = AnnotatedTypeImpl(
-            TypePositionImpl(method, -1, 0),
+            TypePositionImpl(method, RETURN_TYPE, 0),
             "return",
             ArrayList(0)
     )
@@ -27,8 +27,8 @@ class Positions(val method: Method) {
 }
 
 private data class TypePositionImpl(
-        val method: Method,
-        val parameterIndex: Int, // -1 for return type, 0 for 'this' if present
+        override val method: Method,
+        override val positionWithinMethod: PositionWithinMethod,
         val position: Int // position from left to right inside the type signature
 ) : TypePosition
 
