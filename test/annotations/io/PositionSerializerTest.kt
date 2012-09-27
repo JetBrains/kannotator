@@ -35,6 +35,11 @@ class PositionSerializerTest : TestCase() {
                 "a/b/C", "foo", "()La/b/C\$D;", RETURN_TYPE)
     }
 
+    fun testConstructor() {
+        doTest("a.b.C C()",
+                "a/b/C", "<init>", "()V", RETURN_TYPE, null, true)
+    }
+
     fun testStaticFirstParam() {
         doTest("A void foo(int) 0",
                 "A", "foo", "(I)V", ParameterPosition(0), null, true)

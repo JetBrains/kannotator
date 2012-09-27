@@ -23,8 +23,8 @@ fun TypePosition.toAnnotationKey(): String {
 
 private fun Method.toAnnotationKeyPrefix(): String {
     return declaringClass.canonicalName + " " +
-           this.getAnnotationKeyReturnTypeString() +
-           id.methodName + parameterTypesString()
+           getAnnotationKeyReturnTypeString() +
+           getMethodNameAccountingForConstructor() + parameterTypesString()
 }
 
 private fun Method.getAnnotationKeyReturnTypeString(): String
@@ -44,6 +44,11 @@ private fun String.toCanonical(): String = replace('$', '.')
 
 private fun canonicalName(_type: Type): String {
     return _type.getClassName()?.toCanonical() ?: "!null"
+}
+
+private fun Method.getMethodNameAccountingForConstructor(): String {
+    if (id.methodName == "<init>") return declaringClass.simple
+    return id.methodName
 }
 
 private fun PositionWithinMethod.toAnnotationKeySuffix(method: Method): String {
