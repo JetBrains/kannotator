@@ -1,25 +1,28 @@
 package inference
 
 import junit.framework.TestCase
-import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
-import org.jetbrains.kannotator.nullability.NullabilityValueInfo
 import kotlin.test.assertEquals
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.ClassName
-import org.objectweb.asm.Opcodes
+import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
+import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.Positions
-import java.util.Collections
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation.*
-import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 
 class InferenceTest: TestCase() {
-    fun doTest(theClass: Class<out Any>, methodName: String, methodDescriptor: String,
-               expectedReturnInfo: NullabilityAnnotation?, vararg pairs: Pair<Int, NullabilityAnnotation>) {
-        val parametersMap = hashMap(*pairs)
+    fun doTest(expectedReturnInfo: NullabilityAnnotation?, vararg pairs: Pair<Int, NullabilityAnnotation>) {
+        val theClass = javaClass<inferenceData.Test>()
         val className = theClass.getName()
+        val methodName = getName()!!
+        val reflectMethod = theClass.getMethods().find { m -> m.getName() == methodName }!!
+        val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
+
+        val parametersMap = hashMap(*pairs)
         val classReader = ClassReader(className)
 
         val graph = buildControlFlowGraph(classReader, methodName, methodDescriptor)
@@ -40,22 +43,22 @@ class InferenceTest: TestCase() {
         }
     }
 
-    fun testNull() = doTest(javaClass<inferenceData.Test>(), "testNull", "()Ljava/lang/Object;", NULLABLE)
+    fun testNull() = doTest(NULLABLE)
 
-    fun testNullOrObject() = doTest(javaClass<inferenceData.Test>(), "testNullOrObject", "()Ljava/lang/Object;", NULLABLE)
+    fun testNullOrObject() = doTest(NULLABLE)
 
-    fun testNotNullParameter() = doTest(javaClass<inferenceData.Test>(), "testNotNullParameter", "(Ljava/lang/String;)V", null, 1 to NOT_NULL);
+    fun testNotNullParameter() = doTest(null, 1 to NOT_NULL);
 
-    fun testInvocationOnCheckedParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnCheckedParameter", "(Ljava/lang/String;)V", null);
+    fun testInvocationOnCheckedParameter() = doTest(null);
 
     //todo test CONFLICT
-    fun testIncompatibleChecks() = doTest(javaClass<inferenceData.Test>(), "testIncompatibleChecks", "(Ljava/lang/String;)V", null);
+    fun testIncompatibleChecks() = doTest(null);
 
-    fun testInvocationOnNullParameter() = doTest(javaClass<inferenceData.Test>(), "testInvocationOnNullParameter", "(Ljava/lang/String;)V", null, 1 to NOT_NULL);
+    fun testInvocationOnNullParameter() = doTest(null, 1 to NOT_NULL);
 
-    fun testNullableParameter() = doTest(javaClass<inferenceData.Test>(), "testNullableParameter", "(Ljava/lang/String;)V", null, 1 to NULLABLE)
+    fun testNullableParameter() = doTest(null, 1 to NULLABLE)
 
-//    fun testSenselessNotNullCheck() = doTest(javaClass<inferenceData.Test>(), "testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(null, NOT_NULL))
+//    fun testSenselessNotNullCheck() = doTest("testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(null, NOT_NULL))
 
-    fun testInvocationAfterReturn() = doTest(javaClass<inferenceData.Test>(), "testInvocationAfterReturn", "(Ljava/lang/String;)V", null, 1 to NULLABLE)
+    fun testInvocationAfterReturn() = doTest(null, 1 to NULLABLE)
 }
