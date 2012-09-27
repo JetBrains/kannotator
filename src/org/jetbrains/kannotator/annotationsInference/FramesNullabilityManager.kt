@@ -15,15 +15,16 @@ import java.util.HashMap
 import kotlin.test.assertEquals
 
 import org.jetbrains.kannotator.controlFlowBuilder
+import java.util.Collections
 
 public class FramesNullabilityManager {
-    private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, Map<Value, NullabilityValueInfo>> = hashMap()
+    private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, ValueNullabilityMap> = hashMap()
 
     fun getNullabilityInfo(nullabilityInfos: ValueNullabilityMap, value: Value) : NullabilityValueInfo {
         return nullabilityInfos[value]
     }
 
-    fun setValueInfosForEdge(edge: ControlFlowEdge, infos: Map<Value, NullabilityValueInfo>) {
+    fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
         assertNull(nullabilityInfosForEdges[edge])
         nullabilityInfosForEdges[edge] = infos
     }
@@ -35,7 +36,7 @@ public class FramesNullabilityManager {
             val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForEdges[incomingEdge]
             if (incomingEdgeMap == null) continue
             for ((value, info) in incomingEdgeMap) {
-                result[value] = info merge result[value]
+                result[value] = if (result.containsKey(value)) info merge result[value] else info
             }
         }
 
@@ -49,7 +50,7 @@ public class FramesNullabilityManager {
                 outgoingEdge: ControlFlowEdge,
                 transformStackValueInfo: (NullabilityValueInfo) -> NullabilityValueInfo
         ) {
-            val infosForEdge = HashMap(infosForInstruction)
+            val infosForEdge = ValueNullabilityMap(infosForInstruction)
             for (value in state.stack[0]) {
                 infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
             }
@@ -96,7 +97,7 @@ public class FramesNullabilityManager {
     }
 }
 
-public class ValueNullabilityMap: HashMap<Value, NullabilityValueInfo>() {
+public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
     override fun get(key: Any?): NullabilityValueInfo {
         val fromSuper = super.get(key)
         if (fromSuper != null) return fromSuper
