@@ -30,6 +30,10 @@ public class Test {
         return collection.iterator();
     }
 
+    public Object testReturnArrayLoad(Object[] arr) {
+        return arr[0];
+    }
+
     public void testNotNullParameter(String a) {
         a.getBytes();
     }

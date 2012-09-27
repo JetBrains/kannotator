@@ -17,7 +17,8 @@ fun generateAsserts(instruction: Instruction) : Set<NullabilityAssert> {
     val instructionMetadata = instruction.metadata
     if (instructionMetadata is AsmInstructionMetadata) {
         when (instructionMetadata.asmInstruction.getOpcode()) {
-            INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC -> {
+            INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC,
+            AALOAD, AASTORE -> {
                 val valueSet = state.stack[0]
                 for (value in valueSet) {
                     result.add(NullabilityAssert(value))

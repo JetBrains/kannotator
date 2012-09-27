@@ -111,6 +111,7 @@ public class ValueNullabilityMap: HashMap<Value, NullabilityValueInfo>() {
                 ACONST_NULL -> NULL
                 INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
                     UNKNOWN // TODO load from annotations
+                AALOAD -> UNKNOWN
                 else -> throw UnsupportedOperationException("Unsupported opcode=${createdAtInsn.getOpcode()}")
             }
         }
