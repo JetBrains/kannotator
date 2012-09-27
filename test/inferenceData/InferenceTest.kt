@@ -38,8 +38,9 @@ class InferenceTest: TestCase() {
     fun assertEquals(expectedParametersInfo: Map<Int, NullabilityAnnotation>, expectedReturnInfo: NullabilityAnnotation?,
                      actual: Annotations<NullabilityAnnotation>, parametersNumber: Int, positions: Positions) {
         assertEquals(expectedReturnInfo, actual.get(positions.forReturnType().position))
-        for (index in parametersNumber.indices) {
-            assertEquals(expectedParametersInfo.get(index), actual.get(positions.forReturnType().position))
+
+        for (index in 1..parametersNumber) {
+            assertEquals(expectedParametersInfo.get(index), actual.get(positions.forParameter(index).position))
         }
     }
 
