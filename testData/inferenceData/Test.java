@@ -1,5 +1,7 @@
 package inferenceData;
 
+import java.util.Collection;
+
 public class Test {
     public Object testNull() {
         return null;
@@ -10,6 +12,22 @@ public class Test {
             return new Object();
         else
             return null;
+    }
+
+    public Object testReturnInvokeSpecial() {
+        return privateMethod();
+    }
+
+    public Object testReturnInvokeVirtual() {
+        return publicMethod();
+    }
+
+    public Object testReturnInvokeStatic() {
+        return staticMethod();
+    }
+
+    public Object testInvokeInterface(Collection<Object> collection) {
+        return collection.iterator();
     }
 
     public void testNotNullParameter(String a) {
@@ -47,5 +65,24 @@ public class Test {
     public void testInvocationAfterReturn(String a) {
         if (a == null) return;
         a.getBytes();
+    }
+
+
+
+
+
+
+
+
+    private Object privateMethod() {
+        return null;
+    }
+
+    public Object publicMethod() {
+        return null;
+    }
+
+    static Object staticMethod() {
+        return null;
     }
 }

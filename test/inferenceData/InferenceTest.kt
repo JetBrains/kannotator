@@ -61,4 +61,12 @@ class InferenceTest: TestCase() {
 //    fun testSenselessNotNullCheck() = doTest("testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(null, NOT_NULL))
 
     fun testInvocationAfterReturn() = doTest(null, 1 to NULLABLE)
+
+    fun testReturnInvokeSpecial() = doTest(null)
+
+    fun testReturnInvokeVirtual() = doTest(null)
+
+    fun testReturnInvokeStatic() = doTest(null)
+
+    fun testInvokeInterface() = doTest(null, 1 to NOT_NULL)
 }

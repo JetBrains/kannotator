@@ -109,6 +109,8 @@ public class ValueNullabilityMap: HashMap<Value, NullabilityValueInfo>() {
             return when (createdAtInsn.getOpcode()) {
                 NEW -> NOT_NULL
                 ACONST_NULL -> NULL
+                INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
+                    UNKNOWN // TODO load from annotations
                 else -> UNKNOWN
             }
         }
