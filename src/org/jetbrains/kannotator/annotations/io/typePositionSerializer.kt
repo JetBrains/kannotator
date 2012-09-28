@@ -73,8 +73,8 @@ private fun Method.parameterTypesString(): String {
     }
 }
 
-private fun parseGenericSignature(signature: String): TraceSignatureVisitor {
-    val traceVisitor = TraceSignatureVisitor(0)
+private fun parseGenericSignature(signature: String): NoSpacesInTypeArgumentsTraceSignatureVisitor {
+    val traceVisitor = NoSpacesInTypeArgumentsTraceSignatureVisitor(0)
     SignatureReader(signature).accept(traceVisitor)
     return traceVisitor
 }

@@ -55,22 +55,27 @@ class PositionSerializerTest : TestCase() {
                 "A", "foo", "(II)V", ParameterPosition(1), null, false)
     }
 
+    fun testSpacesInTypeArguments() {
+        doTest("A void foo(java.util.Map<java.lang.String,java.lang.String>)",
+                "A", "foo", "(Ljava/util/Map;)V", RETURN_TYPE, "(Ljava/util/Map<Ljava/lang/String;Ljava/lang/String;>;)V", false)
+    }
+
     fun testGenericSignatureNoParams() {
         doTest("A java.util.List<java.lang.String> foo()",
                 "A", "foo", "()Ljava/util/List;", RETURN_TYPE, "()Ljava/util/List<Ljava/lang/String;>;")
     }
 
     fun testGenericSignatureNonGenericParams() {
-        doTest("A java.util.Map.Entry<java.lang.Integer, java.lang.String> foo(int, a.b.C)",
+        doTest("A java.util.Map.Entry<java.lang.Integer,java.lang.String> foo(int, a.b.C)",
                 "A", "foo", "(ILa/b/C;)Ljava/util/Map\$Entry;", RETURN_TYPE,
                 "(ILa/b/C;)Ljava/util/Map\$Entry<Ljava/lang/Integer;Ljava/lang/String;>;")
     }
 
     fun testGenericSignatureGenericParams() {
-        doTest("A java.util.Map.Entry<java.lang.Integer, java.util.Map.Entry<java.lang.Integer, java.lang.String>> " +
+        doTest("A java.util.Map.Entry<java.lang.Integer,java.util.Map.Entry<java.lang.Integer,java.lang.String>> " +
                 "foo(" +
                 "java.util.List<java.util.List<java.lang.String>>, " +
-                "java.util.List<java.util.Map.Entry<java.lang.Integer, java.lang.String>>)",
+                "java.util.List<java.util.Map.Entry<java.lang.Integer,java.lang.String>>)",
                 "A", "foo", "(Ljava/util/List;Ljava/util/List;)Ljava/util/Map\$Entry;", RETURN_TYPE,
                 "(Ljava/util/List<Ljava/util/List<Ljava/lang/String;>;>;" +
                 "Ljava/util/List<Ljava/util/Map\$Entry<Ljava/lang/Integer;Ljava/lang/String;>;>;)" +
