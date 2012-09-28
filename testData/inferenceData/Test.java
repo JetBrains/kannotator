@@ -1,12 +1,17 @@
 package inferenceData;
 
+import inferenceData.annotations.ExpectNotNull;
+import inferenceData.annotations.ExpectNullable;
+
 import java.util.Collection;
 
 public class Test {
+    @ExpectNullable
     public Object testNull() {
         return null;
     }
 
+    @ExpectNullable
     public Object testNullOrObject() {
         if ("abc".getBytes().length == 0)
             return new Object();
@@ -26,22 +31,25 @@ public class Test {
         return staticMethod();
     }
 
-    public Object testInvokeInterface(Collection<Object> collection) {
+    public Object testInvokeInterface(@ExpectNotNull Collection<Object> collection) {
         return collection.iterator();
     }
 
-    public Object testReturnArrayLoad(Object[] arr) {
+    public Object testReturnArrayLoad(@ExpectNotNull Object[] arr) {
         return arr[0];
     }
 
+    @ExpectNotNull
     public int[] testReturnNewIntArray() {
         return new int[1];
     }
 
+    @ExpectNotNull
     public Object[] testReturnNewObjectArray() {
         return new Object[1];
     }
 
+    @ExpectNotNull
     public int[][] testReturnNewMultiArray() {
         return new int[1][1];
     }
@@ -54,11 +62,12 @@ public class Test {
         return staticField;
     }
 
+    @ExpectNotNull
     public String testReturnStringConstant() {
         return "foo";
     }
 
-    public void testNotNullParameter(String a) {
+    public void testNotNullParameter(@ExpectNotNull String a) {
         a.getBytes();
     }
 
@@ -74,31 +83,34 @@ public class Test {
         }
     }
 
-    public void testInvocationOnNullParameter(String a) {
+    // TODO bad logic, should expect no annotations
+    public void testInvocationOnNullParameter(@ExpectNotNull String a) {
         if (a == null) {
             a.getBytes();
         }
     }
 
-    public void testNullableParameter(String a) {
+    public void testNullableParameter(@ExpectNullable String a) {
         if (a == null) return;
         System.out.println(a);
     }
 
-    public void testSenselessNotNullCheck(String a) {
-        a.getBytes();
+//    public void testSenselessNotNullCheck(String a) {
+//        a.getBytes();
+//        if (a == null) return;
+//    }
+//
+    public void testInvocationAfterReturn(@ExpectNullable String a) {
         if (a == null) return;
+        a.getBytes();
     }
 
-    public void testInvocationAfterReturn(String a) {
-        if (a == null) return;
-        a.getBytes();
-    }
-
+    @ExpectNotNull
     public Object testReturnThis() {
         return this;
     }
 
+    @ExpectNotNull
     public Object testReturnCaughtException() {
         try {
             return new Object();
@@ -107,6 +119,7 @@ public class Test {
         }
     }
 
+    @ExpectNotNull
     public String testInstanceofAndReturn(Object a) {
         if (a instanceof String) {
             return (String) a;
