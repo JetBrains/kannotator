@@ -34,6 +34,12 @@ fun Positions.forEachValidPosition(body: (TypePosition) -> Unit) {
     body(forReturnType().position)
 }
 
+fun Positions.getValidPositions(): Collection<TypePosition> {
+    val result = ArrayList<TypePosition>()
+    forEachValidPosition {result.add(it)}
+    return result
+}
+
 private data class TypePositionImpl(
         override val method: Method,
         override val positionWithinMethod: PositionWithinMethod,

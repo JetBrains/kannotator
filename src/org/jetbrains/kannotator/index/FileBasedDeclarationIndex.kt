@@ -26,12 +26,13 @@ import kotlinlib.removeSuffix
 import org.jetbrains.kannotator.declarations.toFullString
 import org.jetbrains.kannotator.asm.util.forEachMethod
 import org.jetbrains.kannotator.annotations.io.parseAnnotationKey
+import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 
-class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex {
+class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
             val className: ClassName,
             val methodsById: Map<MethodId, Method>,
@@ -49,16 +50,16 @@ class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex {
             val className = ClassName.fromInternalName(reader.getClassName())
 
             val methodsById = HashMap<MethodId, Method>()
-            val methodsByName = HashMap<String, MutableList<Method>>()
+            val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
             assert (classes[className] == null) { "Class already visited: $className" }
             reader.forEachMethod {
                 owner, access, name, desc, signature ->
                 val method = Method(className, access, name, desc, signature)
                 methodsById[method.id] = method
-                methodsByName.getOrPut(name, {ArrayList()}).add(method)
+                methodsByNameForAnnotationKey.getOrPut(method.getMethodNameAccountingForConstructor(), {ArrayList()}).add(method)
             }
 
-            val classData = ClassData(className, methodsById, methodsByName)
+            val classData = ClassData(className, methodsById, methodsByNameForAnnotationKey)
             classes[className] = classData
             classesByCanonicalName.getOrPut(className.canonicalName, {HashSet()}).add(classData)
         }
@@ -66,6 +67,25 @@ class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex {
 
     override fun findMethod(owner: ClassName, name: String, desc: String): Method? {
         return classes[owner]?.methodsById?.get(MethodId(name, desc))
+    }
+
+    override fun findPositionByAnnotationKeyString(annotationKey: String): TypePosition? {
+        val (canonicalClassName, _, methodName) = parseAnnotationKey(annotationKey)
+        val classes = classesByCanonicalName[canonicalClassName]
+        if (classes == null) return null
+
+        for (classData in classes) {
+            val methods = classData.methodsByName[methodName]
+            if (methods == null) continue
+            for (method in methods) {
+                for (pos in Positions(method).getValidPositions()) {
+                    if (annotationKey == pos.toAnnotationKey()) {
+                        return pos
+                    }
+                }
+            }
+        }
+        return null
     }
 }
 

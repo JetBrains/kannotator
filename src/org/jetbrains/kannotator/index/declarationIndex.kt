@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.index
 
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.TypePosition
 
 trait DeclarationIndex {
     fun findMethod(owner: ClassName, name: String, desc: String) : Method?
@@ -9,5 +10,9 @@ trait DeclarationIndex {
 
 //    fun findOverridingMethods(method: Method): Collection<Method>
 //    fun findMethodsOverriddenBy(method: Method): Collection<Method>
+}
+
+trait AnnotationKeyIndex {
+    fun findPositionByAnnotationKeyString(annotationKey: String): TypePosition?
 }
 
