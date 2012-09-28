@@ -41,7 +41,7 @@ private fun canonicalName(_type: Type): String {
     return _type.getClassName()?.toCanonical() ?: "!null"
 }
 
-private fun Method.getMethodNameAccountingForConstructor(): String {
+fun Method.getMethodNameAccountingForConstructor(): String {
     if (id.methodName == "<init>") return declaringClass.simple
     return id.methodName
 }
