@@ -80,23 +80,19 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
             }
         }
 
-        val state = instruction[STATE_BEFORE]
-        if (state == null) return
+        val state = instruction[STATE_BEFORE]!!
 
-        val instructionMetadata = instruction.metadata
-        if (instructionMetadata is AsmInstructionMetadata) {
-            when (instructionMetadata.asmInstruction.getOpcode()) {
-                ARETURN -> {
-                    val valueSet = state.stack[0]
-                    val nullabilityValueInfo = valueSet.map { it -> nullabilityInfosForInstruction[it] }.merge()
-                    annotationManager.addReturnValueInfo(nullabilityValueInfo)
-                    checkAllValuesOnReturn()
-                }
-                RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
-                    checkAllValuesOnReturn()
-                }
-                else -> Unit.VALUE
+        when (instruction.getOpcode()) {
+            ARETURN -> {
+                val valueSet = state.stack[0]
+                val nullabilityValueInfo = valueSet.map { it -> nullabilityInfosForInstruction[it] }.merge()
+                annotationManager.addReturnValueInfo(nullabilityValueInfo)
+                checkAllValuesOnReturn()
             }
+            RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
+                checkAllValuesOnReturn()
+            }
+            else -> Unit.VALUE
         }
     }
 }
@@ -132,3 +128,7 @@ private fun NullabilityAnnotationsManager.toAnnotations(positions: Positions): A
     }
     return annotations
 }
+
+private fun Instruction.getOpcode(): Int?
+        = (this.metadata as? AsmInstructionMetadata)?.asmInstruction?.getOpcode()
+

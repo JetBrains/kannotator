@@ -9,7 +9,6 @@ import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import kotlin.test.assertNull
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.State
-import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
 import kotlin.test.assertFalse
 import org.jetbrains.kannotator.controlFlowBuilder.TypedValue
 import java.util.HashMap
@@ -71,46 +70,41 @@ class FramesNullabilityManager {
             setValueInfosForEdge(outgoingEdge, infosForEdge)
         }
 
-        val instructionMetadata = instruction.metadata
-        if (instructionMetadata is AsmInstructionMetadata) {
-            val opcode: Int = instructionMetadata.asmInstruction.getOpcode()
-            when (opcode) {
-                IFNULL, IFNONNULL -> {
-                    val (falseEdge, trueEdge) = getFalseTrueEdges()
+        val opcode = instruction.getOpcode()
+        when (opcode) {
+            IFNULL, IFNONNULL -> {
+                val (falseEdge, trueEdge) = getFalseTrueEdges()
 
-                    val (nullEdge, notNullEdge) =
-                        if (opcode == IFNULL) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
+                val (nullEdge, notNullEdge) =
+                    if (opcode == IFNULL) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                    propagateTransformedValueInfos(nullEdge, state) { wasInfo ->
-                        if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
+                propagateTransformedValueInfos(nullEdge, state) { wasInfo ->
+                    if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
 
-                    propagateTransformedValueInfos(notNullEdge, state) { wasInfo ->
-                        if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+                propagateTransformedValueInfos(notNullEdge, state) { wasInfo ->
+                    if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
 
-                    return infosForInstruction
-                }
-                IFEQ, IFNE -> {
-                    if (instruction.incomingEdges.size == 1) {
-                        val previousInstruction = instruction.incomingEdges.first().from
-                        val previousMetadata = previousInstruction.metadata
-                        if (previousMetadata is AsmInstructionMetadata
-                                && previousMetadata.asmInstruction.getOpcode() == INSTANCEOF) {
-                            val (falseEdge, trueEdge) = getFalseTrueEdges()
+                return infosForInstruction
+            }
+            IFEQ, IFNE -> {
+                if (instruction.incomingEdges.size == 1) {
+                    val previousInstruction = instruction.incomingEdges.first().from
+                    if (previousInstruction.getOpcode() == INSTANCEOF) {
+                        val (falseEdge, trueEdge) = getFalseTrueEdges()
 
-                            val (instanceOfEdge, notInstanceOfEdge) =
-                                if (opcode == IFNE) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
+                        val (instanceOfEdge, notInstanceOfEdge) =
+                            if (opcode == IFNE) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                            propagateTransformedValueInfos(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
-                                { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+                        propagateTransformedValueInfos(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
+                            { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
 
-                            propagateTransformedValueInfos(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
+                        propagateTransformedValueInfos(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
 
-                            return infosForInstruction
-                        }
+                        return infosForInstruction
                     }
                 }
-                else -> {}
             }
+            else -> {}
         }
 
         // propagate to outgoing edges as is
