@@ -13,13 +13,14 @@ fun renderMethodParameters(genericSignature: String): String {
 }
 
 fun renderReturnType(genericSignature: String): String {
-    return parseGenericSignature(genericSignature).getReturnType()!!.toCanonical()
-}
+    val sb = StringBuilder()
+    SignatureReader(genericSignature).accept(object : SignatureVisitor(Opcodes.ASM4) {
 
-private fun parseGenericSignature(signature: String): NoSpacesInTypeArgumentsTraceSignatureVisitor {
-    val traceVisitor = NoSpacesInTypeArgumentsTraceSignatureVisitor(0)
-    SignatureReader(signature).accept(traceVisitor)
-    return traceVisitor
+        public override fun visitReturnType(): SignatureVisitor {
+            return GenericTypeRenderer(sb)
+        }
+    })
+    return sb.toString()
 }
 
 private class GenericMethodParametersRenderer: SignatureVisitor(Opcodes.ASM4) {
