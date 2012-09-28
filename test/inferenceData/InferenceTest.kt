@@ -13,7 +13,9 @@ import org.jetbrains.kannotator.nullability.NullabilityAnnotation.*
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
-import org.jetbrains.kannotator.annotationsInference.toAnnotations
+import org.jetbrains.kannotator.annotationsInference.buildAnnotations
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.funDependecy.GlobalMethodSearcher
 
 class InferenceTest: TestCase() {
     fun doTest(expectedReturnInfo: NullabilityAnnotation?, vararg pairs: Pair<Int, NullabilityAnnotation>) {
@@ -30,9 +32,7 @@ class InferenceTest: TestCase() {
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val annotationsInference = AnnotationsInference(graph)
-        annotationsInference.process()
-        val result = annotationsInference.getResult().toAnnotations(positions)
+        val result = buildAnnotations(graph, positions, GlobalMethodSearcher(), AnnotationsImpl())
         assertEquals(parametersMap, expectedReturnInfo, result, pairs.size, positions)
     }
 

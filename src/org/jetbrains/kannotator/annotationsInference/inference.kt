@@ -16,6 +16,19 @@ import org.jetbrains.kannotator.nullability.NullabilityValueInfo.*
 import org.jetbrains.kannotator.nullability.merge
 import org.jetbrains.kannotator.nullability.toAnnotation
 import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.funDependecy.GlobalMethodSearcher
+
+fun buildAnnotations(
+        graph: ControlFlowGraph,
+        positions: Positions,
+        methodSearcher: GlobalMethodSearcher,
+        annotations: Annotations<NullabilityAnnotation>
+) : Annotations<NullabilityAnnotation> {
+
+    val annotationsInference = AnnotationsInference(graph)
+    annotationsInference.process()
+    return annotationsInference.getResult().toAnnotations(positions)
+}
 
 class AnnotationsInference(private val graph: ControlFlowGraph) {
     private val framesManager = FramesNullabilityManager()
@@ -105,7 +118,7 @@ private fun NullabilityAnnotationsManager.addAssert(assert: NullabilityAssert) {
     addParameterValueInfo(assert.shouldBeNotNullValue, NOT_NULL)
 }
 
-fun NullabilityAnnotationsManager.toAnnotations(positions: Positions): Annotations<NullabilityAnnotation> {
+private fun NullabilityAnnotationsManager.toAnnotations(positions: Positions): Annotations<NullabilityAnnotation> {
     val annotations = AnnotationsImpl<NullabilityAnnotation>()
     fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
         if (annotation != null) {
