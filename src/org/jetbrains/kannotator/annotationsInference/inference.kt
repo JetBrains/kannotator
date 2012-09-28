@@ -49,7 +49,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
 
         val asserts = generateAsserts(instruction)
         for (assert in asserts) {
-            if (!checkAssertionIsSatisfied(assert, nullabilityInfosForInstruction)) {
+            if (isAnnotationNecessary(assert, nullabilityInfosForInstruction)) {
                 annotation.addAssert(assert)
             }
         }
@@ -57,14 +57,14 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
         checkReturnInstruction(instruction, annotation, nullabilityInfosForInstruction)
     }
 
-    private fun checkAssertionIsSatisfied(
+    private fun isAnnotationNecessary(
             assert: NullabilityAssert,
-            nullabilityInfosForInstruction: ValueNullabilityMap
+            nullabilityInfos: ValueNullabilityMap
     ): Boolean {
-        if (!assert.shouldBeNotNullValue.interesting) return true
+        if (!assert.shouldBeNotNullValue.interesting) return false
 
-        val valueInfo = nullabilityInfosForInstruction[assert.shouldBeNotNullValue]
-        return valueInfo == NOT_NULL || valueInfo == CONFLICT
+        val valueInfo = nullabilityInfos[assert.shouldBeNotNullValue]
+        return valueInfo == NULLABLE || valueInfo == UNKNOWN
     }
 
     private fun checkReturnInstruction(

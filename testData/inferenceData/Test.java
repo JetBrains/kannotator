@@ -83,8 +83,7 @@ public class Test {
         }
     }
 
-    // TODO bad logic, should expect no annotations
-    public void testInvocationOnNullParameter(@ExpectNotNull String a) {
+    public void testInvocationOnNullParameter(String a) {
         if (a == null) {
             a.getBytes();
         }
