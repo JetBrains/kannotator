@@ -4,6 +4,7 @@ import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
+import kotlinlib.buildString
 
 data class MethodId(
         val methodName: String,
@@ -25,6 +26,7 @@ enum class Visibility {
 
 data class Access(private val access: Int) {
     fun has(val flag: Int) = access and flag != 0
+    fun toString(): String = "" + Integer.toHexString(access)
 }
 
 fun Method(
@@ -62,6 +64,22 @@ val Method.visibility: Visibility get() = when {
     else -> Visibility.PACKAGE
 }
 
+fun Method.toFullString(): String {
+    return buildString {
+        it.append(visibility.toString().toLowerCase() + " ")
+        it.append(if (isStatic()) "static " else "")
+        it.append(if (isFinal()) "final " else "")
+        it.append("flags[$access] ")
+        it.append(declaringClass.internal)
+        it.append("::")
+        it.append(id.methodName)
+        it.append(id.methodDesc)
+        if (genericSignature != null) {
+            it.append(" :: ")
+            it.append(genericSignature)
+        }
+    }
+}
 
 data class ClassName private (val internal: String) {
     val typeDescriptor: String
