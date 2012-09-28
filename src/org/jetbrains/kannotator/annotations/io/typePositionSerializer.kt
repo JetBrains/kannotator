@@ -32,7 +32,7 @@ private fun Method.getAnnotationKeyReturnTypeString(): String
         = if (id.methodName == "<init>")
             ""
           else if (genericSignature != null) {
-                parseGenericSignature(genericSignature).getReturnType()!!.toCanonical() + " "
+                renderReturnType(genericSignature) + " "
           }
           else canonicalName(getReturnType()) + " "
 
@@ -70,16 +70,10 @@ private fun Method.parameterTypesString(): String {
         (id.getArgumentTypes() map {it -> canonicalName(it) }).join(", ", "(", ")")
     }
     else {
-        parseGenericSignature(genericSignature).getDeclaration().toCanonical()
+        renderMethodParameters(genericSignature)
     }
     if (this.isVarargs()) {
         return result.replaceAll("""\[\]\)""", "...)")
     }
     return result
-}
-
-private fun parseGenericSignature(signature: String): NoSpacesInTypeArgumentsTraceSignatureVisitor {
-    val traceVisitor = NoSpacesInTypeArgumentsTraceSignatureVisitor(0)
-    SignatureReader(signature).accept(traceVisitor)
-    return traceVisitor
 }

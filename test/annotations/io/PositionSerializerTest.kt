@@ -118,6 +118,12 @@ class PositionSerializerTest : TestCase() {
                 "A", "foo", "(Ljava/lang/Class;[I)Ljava/lang/Object;", RETURN_TYPE,
                 "(Ljava/lang/Class<*>;[I)Ljava/lang/Object;", false, true)
     }
+
+    fun testBoundTypeParameters() {
+        doTest("A A foo(java.lang.Class<A>)",
+                "A", "foo", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", RETURN_TYPE,
+                "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", false, true)
+    }
 }
 
 data class MockTypePosition(
