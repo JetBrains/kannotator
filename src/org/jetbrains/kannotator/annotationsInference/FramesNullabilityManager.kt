@@ -75,7 +75,6 @@ public class FramesNullabilityManager {
             setValueInfosForEdge(outgoingEdge, infosForEdge)
         }
 
-        var propagateAsIs = false
         val instructionMetadata = instruction.metadata
         if (instructionMetadata is AsmInstructionMetadata) {
             val opcode: Int = instructionMetadata.asmInstruction.getOpcode()
@@ -91,6 +90,8 @@ public class FramesNullabilityManager {
 
                     propagateTransformedValueInfos(notNullEdge, state) { wasInfo ->
                         if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+
+                    return infosForInstruction
                 }
                 IFEQ, IFNE -> {
                     if (instruction.incomingEdges.size == 1) {
@@ -107,28 +108,17 @@ public class FramesNullabilityManager {
                                 { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
 
                             propagateTransformedValueInfos(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
-                        }
-                        else {
-                            propagateAsIs = true
+
+                            return infosForInstruction
                         }
                     }
-                    else {
-                        propagateAsIs = true
-                    }
                 }
-                else -> {
-                    propagateAsIs = true
-                }
+                else -> Unit.VALUE
             }
-        }
-        else {
-            propagateAsIs = true
         }
 
         // propagate to outgoing edges as is
-        if (propagateAsIs) {
-            instruction.outgoingEdges.forEach { edge -> setValueInfosForEdge(edge, infosForInstruction) }
-        }
+        instruction.outgoingEdges.forEach { edge -> setValueInfosForEdge(edge, infosForInstruction) }
 
         return infosForInstruction
     }
