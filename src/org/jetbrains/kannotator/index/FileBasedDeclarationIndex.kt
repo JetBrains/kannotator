@@ -23,75 +23,51 @@ import kotlinlib.recurseFiltered
 import java.util.jar.JarFile
 import java.util.jar.JarEntry
 import kotlinlib.removeSuffix
+import org.jetbrains.kannotator.declarations.toFullString
 
-class DeclarationIndexImpl(private val classSource: (ClassName) -> ClassReader?): DeclarationIndex {
-    private val methodsByClass = HashMap<ClassName, Map<MethodId, Method>>()
+trait ClassSource {
+    fun forEach(body: (ClassReader) -> Unit)
+}
 
-    private fun getIdToMethod(className: ClassName): Map<MethodId, Method>? {
-        val cached = methodsByClass[className]
-        if (cached != null) return cached
+class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex {
+    private val methodsByClass = HashMap<ClassName, MutableMap<MethodId, Method>>();
 
-        val reader = classSource(className)
-        if (reader == null) return null
+    { init(classSource) }
 
-        val idToMethod = HashMap<MethodId, Method>()
-        assert (methodsByClass[className] == null) { "Class already visited: $className" }
-        reader.accept(object : ClassVisitor(Opcodes.ASM4) {
-            override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                val method = Method(className, access, name, desc, signature)
-                idToMethod[method.id] = method
-                return null
-            }
-        }, 0)
-        return idToMethod
+    private fun init(classSource: ClassSource) {
+        classSource forEach {
+            reader ->
+            val className = ClassName.fromInternalName(reader.getClassName())
+            val idToMethod = HashMap<MethodId, Method>()
+            assert (methodsByClass[className] == null) { "Class already visited: $className" }
+            methodsByClass[className] = idToMethod
+            reader.accept(object : ClassVisitor(Opcodes.ASM4) {
+                override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+                    val method = Method(className, access, name, desc, signature)
+                    idToMethod[method.id] = method
+                    return null
+                }
+            }, 0)
+        }
     }
 
     override fun findMethod(owner: ClassName, name: String, desc: String): Method? {
-        return getIdToMethod(owner)?.get(MethodId(name, desc))
+        return methodsByClass[owner]?.get(MethodId(name, desc))
     }
 }
 
-class FileBasedClassSource(val files: Collection<File>) {
-    private data class EntryInJar(val jar: JarFile, val entry: JarEntry)
-
-    private fun EntryInJar.getClassReader() = ClassReader(jar.getInputStream(entry))
-
-    private val fileIterator = files.iterator()
-    private val entryCache = HashMap<ClassName, EntryInJar>()
-
-    private fun index(file: File) {
-        if (file.isFile()) {
-            if (file.getName().endsWith(".jar")) {
-                val jarFile = JarFile(file)
-                for (entry in jarFile.entries()) {
-                    val className = entry!!.getName().removeSuffix(".class")
-                    entryCache[ClassName.fromInternalName(className)] = EntryInJar(jarFile, entry!!)
+class FileBasedClassSource(val files: Collection<File>) : ClassSource {
+    override fun forEach(body: (ClassReader) -> Unit) {
+        for (file in files) {
+            if (file.isFile()) {
+                if (file.getName().endsWith(".jar")) {
+                    processJar(file, {f, o, reader -> body(reader)})
+                }
+                else if (file.getName().endsWith(".class")) {
+                    FileInputStream(file) use {body(ClassReader(it))}
                 }
             }
-            else {
-                throw IllegalArgumentException("Unsupported file extension: ${file.extension}")
-            }
         }
-    }
-
-    private fun lookUp(className: ClassName): EntryInJar? {
-        for (file in fileIterator) {
-            index(file)
-            val cached = entryCache[className]
-            if (cached != null) {
-                return cached
-            }
-        }
-        return null
-    }
-
-    public fun get(className: ClassName): ClassReader? {
-        val cached = entryCache[className]
-        if (cached != null) {
-            return cached.getClassReader()
-        }
-
-        return lookUp(className)?.getClassReader()
     }
 
 }
