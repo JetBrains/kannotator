@@ -117,7 +117,7 @@ class AsmInstructionMetadata(val asmInstruction: AbstractInsnNode) : Instruction
     }
 }
 
-fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
+private fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
         className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
 
 private class GraphBuilderAnalyzer(
