@@ -88,7 +88,7 @@ import org.objectweb.asm.signature.SignatureVisitor;
 
     @Override
     public void visitFormalTypeParameter(final String name) {
-        declaration.append(seenFormalParameter ? ", " : "<").append(name);
+//        declaration.append(seenFormalParameter ? ", " : "<").append(name);
         seenFormalParameter = true;
         seenInterfaceBound = false;
     }
@@ -298,7 +298,7 @@ import org.objectweb.asm.signature.SignatureVisitor;
 
     private void endFormals() {
         if (seenFormalParameter) {
-            declaration.append('>');
+//            declaration.append('>');
             seenFormalParameter = false;
         }
     }

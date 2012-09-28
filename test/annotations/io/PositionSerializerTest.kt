@@ -88,6 +88,10 @@ class PositionSerializerTest : TestCase() {
                 "(Lt/Test<Ljava/lang/String;>.Inner<Ljava/lang/Integer;>;)Lt/Test<Ljava/lang/String;>;")
     }
 
+    fun testGenericMethod() {
+        doTest("A void foo(java.util.Map<A,B>)",
+                "A", "foo", "(Ljava/util/Map;)V", RETURN_TYPE, "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(Ljava/util/Map<TA;TB;>;)V")
+    }
 }
 
 data class MockTypePosition(
