@@ -52,8 +52,8 @@ class AnnotationKeyStringMatchingTest : TestCase() {
     }
 
     fun testJdk() {
-//        doTest(arrayList(File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar")),
-//                arrayList(File("/Volumes/WD600/work/kotlin/jdk-annotations")))
+        doTest(arrayList(File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar")),
+                arrayList(File("/Volumes/WD600/work/kotlin/jdk-annotations")))
     }
 
 }
@@ -68,12 +68,9 @@ fun visitAllInJar(jarFile: File, handler: (String) -> Unit) {
         reader.forEachMethod {
             owner, access, name, desc, signature ->
             val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
-            val positions = Positions(method)
-            val skip = if (method.isStatic()) 0 else 1
-            for (i in skip..method.getArgumentTypes().size) {
-                handler(positions.forParameter(i).position.toAnnotationKey())
+            Positions(method).forEachValidPosition {
+                handler(it.toAnnotationKey())
             }
-            handler(positions.forReturnType().position.toAnnotationKey())
         }
     }
     println()

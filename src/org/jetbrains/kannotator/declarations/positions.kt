@@ -26,6 +26,14 @@ class Positions(val method: Method) {
 
 }
 
+fun Positions.forEachValidPosition(body: (TypePosition) -> Unit) {
+    val skip = if (method.isStatic()) 0 else 1
+    for (i in skip..method.getArgumentTypes().size) {
+        body(forParameter(i).position)
+    }
+    body(forReturnType().position)
+}
+
 private data class TypePositionImpl(
         override val method: Method,
         override val positionWithinMethod: PositionWithinMethod,
