@@ -18,19 +18,19 @@ import kotlin.test.assertEquals
 import org.jetbrains.kannotator.controlFlowBuilder
 import java.util.Collections
 
-public class FramesNullabilityManager {
+class FramesNullabilityManager {
     private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, ValueNullabilityMap> = hashMap()
 
     fun getNullabilityInfo(nullabilityInfos: ValueNullabilityMap, value: Value) : NullabilityValueInfo {
         return nullabilityInfos[value]
     }
 
-    fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
+    private fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
         assertNull(nullabilityInfosForEdges[edge])
         nullabilityInfosForEdges[edge] = infos
     }
 
-    fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
+    private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
         val result = ValueNullabilityMap()
 
         for (incomingEdge in instruction.incomingEdges) {

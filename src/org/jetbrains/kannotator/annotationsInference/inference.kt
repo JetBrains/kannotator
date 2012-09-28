@@ -29,7 +29,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
 
     fun getResult(): NullabilityAnnotationsManager = annotationsManager
 
-    fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotationsManager) {
+    private fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotationsManager) {
         if (instruction[STATE_BEFORE] == null) return
 
         val nullabilityInfosForInstruction = framesManager.computeNullabilityInfosForInstruction(instruction)
@@ -44,7 +44,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
         checkReturnInstruction(instruction, annotation, nullabilityInfosForInstruction)
     }
 
-    fun checkAssertionIsSatisfied(
+    private fun checkAssertionIsSatisfied(
             assert: NullabilityAssert,
             nullabilityInfosForInstruction: ValueNullabilityMap
     ): Boolean {
@@ -54,7 +54,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
         return valueInfo == NOT_NULL || valueInfo == CONFLICT
     }
 
-    fun checkReturnInstruction(
+    private fun checkReturnInstruction(
             instruction: Instruction,
             annotationManager: NullabilityAnnotationsManager,
             nullabilityInfosForInstruction: ValueNullabilityMap
@@ -88,7 +88,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
     }
 }
 
-class NullabilityAnnotationsManager {
+private class NullabilityAnnotationsManager {
     val parametersValueInfo = hashMap<Value, NullabilityValueInfo>()
     val returnValueInfo = arrayList<NullabilityValueInfo>()
 
@@ -101,7 +101,7 @@ class NullabilityAnnotationsManager {
     }
 }
 
-fun NullabilityAnnotationsManager.addAssert(assert: NullabilityAssert) {
+private fun NullabilityAnnotationsManager.addAssert(assert: NullabilityAssert) {
     addParameterValueInfo(assert.shouldBeNotNullValue, NOT_NULL)
 }
 
