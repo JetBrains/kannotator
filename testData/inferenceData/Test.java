@@ -95,7 +95,17 @@ public class Test {
         a.getBytes();
     }
 
+    public Object testReturnThis() {
+        return this;
+    }
 
+    public Object testReturnCaughtException() {
+        try {
+            return new Object();
+        } catch (Throwable e) {
+            return e;
+        }
+    }
 
 
 
