@@ -122,7 +122,13 @@ class PositionSerializerTest : TestCase() {
     fun testBoundTypeParameters() {
         doTest("A A foo(java.lang.Class<A>)",
                 "A", "foo", "(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;", RETURN_TYPE,
-                "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", false, true)
+                "<A::Ljava/lang/annotation/Annotation;>(Ljava/lang/Class<TA;>;)TA;", false)
+    }
+
+    fun testInnerClassConstructor() {
+        doTest("java.util.zip.ZipOutputStream.XEntry XEntry(java.util.zip.ZipEntry, long) 0",
+                "java/util/zip/ZipOutputStream\$XEntry", "<init>", "(Ljava/util/zip/ZipEntry;J)V", ParameterPosition(1),
+                null, false)
     }
 }
 

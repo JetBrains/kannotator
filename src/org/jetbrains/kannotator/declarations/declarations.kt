@@ -2,6 +2,8 @@ package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
+import kotlinlib.suffixAfter
+import kotlinlib.suffixAfterLast
 
 data class MethodId(
         val methodName: String,
@@ -68,7 +70,7 @@ data class ClassName private (val internal: String) {
     public fun toString(): String = internal
 
     val simple: String
-        get() = internal.substring(internal.lastIndexOf("/") + 1)
+        get() = canonicalName.suffixAfterLast(".")
 
     class object {
         fun fromInternalName(name: String): ClassName {
@@ -80,6 +82,13 @@ data class ClassName private (val internal: String) {
         }
     }
 }
+
+val ClassName.canonicalName: String
+    get() = internal.internalNameToCanonical()
+
+fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
+
+fun String.toCanonical(): String = replace('$', '.')
 
 fun ClassName.toType(): Type {
     return Type.getType(typeDescriptor)

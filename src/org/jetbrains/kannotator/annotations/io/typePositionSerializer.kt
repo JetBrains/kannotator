@@ -1,7 +1,7 @@
 package org.jetbrains.kannotator.annotations.io
 
 import kotlinlib.join
-import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.jetbrains.kannotator.declarations.PositionWithinMethod
@@ -14,6 +14,7 @@ import org.objectweb.asm.Type
 import org.objectweb.asm.signature.SignatureReader
 import org.objectweb.asm.util.TraceSignatureVisitor
 import org.jetbrains.kannotator.declarations.isVarargs
+import org.jetbrains.kannotator.declarations.toCanonical
 
 // ownerFQN returnType? name(paramType{", "}?) position?
 // Example:
@@ -35,13 +36,6 @@ private fun Method.getAnnotationKeyReturnTypeString(): String
                 renderReturnType(genericSignature) + " "
           }
           else canonicalName(getReturnType()) + " "
-
-private fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
-
-private val ClassName.canonicalName: String
-    get() = internal.internalNameToCanonical()
-
-private fun String.toCanonical(): String = replace('$', '.')
 
 private fun canonicalName(_type: Type): String {
     return _type.getClassName()?.toCanonical() ?: "!null"

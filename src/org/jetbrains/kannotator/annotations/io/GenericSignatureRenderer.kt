@@ -3,6 +3,8 @@ package org.jetbrains.kannotator.annotations.io
 import org.objectweb.asm.signature.SignatureVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.signature.SignatureReader
+import org.jetbrains.kannotator.declarations.toCanonical
+import org.jetbrains.kannotator.declarations.internalNameToCanonical
 
 fun renderMethodParameters(genericSignature: String): String {
     val renderer = GenericMethodParametersRenderer()
