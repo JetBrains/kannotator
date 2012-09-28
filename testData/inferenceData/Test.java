@@ -128,6 +128,10 @@ public class Test {
         }
     }
 
+    @ExpectNotNull
+    public Class<?> testClassLiteral() {
+        return Integer.class;
+    }
 
 
     private Object field;
