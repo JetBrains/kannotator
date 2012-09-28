@@ -133,6 +133,9 @@ public class Test {
         return Integer.class;
     }
 
+    public void testInvocationAfterException(@ExpectNotNull String a) {
+        if (a == null) throw new NullPointerException();
+    }
 
     private Object field;
     private static Object staticField;

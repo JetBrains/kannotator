@@ -113,4 +113,7 @@ class InferenceTest: TestCase() {
     fun testInstanceofAndReturn() = doTest()
 
     fun testClassLiteral() = doTest()
+
+    //todo
+//    fun testInvocationAfterException() = doTest()
 }
