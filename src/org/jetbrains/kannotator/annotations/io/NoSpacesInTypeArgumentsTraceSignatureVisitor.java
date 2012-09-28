@@ -75,15 +75,19 @@ import org.objectweb.asm.signature.SignatureVisitor;
 
     private String separator = "";
 
+    private final boolean mustHaveObject;
+
     public NoSpacesInTypeArgumentsTraceSignatureVisitor(final int access) {
         super(Opcodes.ASM4);
         isInterface = (access & Opcodes.ACC_INTERFACE) != 0;
         this.declaration = new StringBuffer();
+        this.mustHaveObject = false;
     }
 
     private NoSpacesInTypeArgumentsTraceSignatureVisitor(final StringBuffer buf) {
         super(Opcodes.ASM4);
         this.declaration = buf;
+        this.mustHaveObject = true;
     }
 
     @Override
@@ -219,7 +223,9 @@ import org.objectweb.asm.signature.SignatureVisitor;
             // abstract public V get(Object key); (seen in Dictionary.class)
             // should have Object
             // but java.lang.String extends java.lang.Object is unnecessary
-            boolean needObjectClass = argumentStack % 2 != 0 || seenParameter;
+            // abreslav: also java.lang.Object newInstance(java.lang.Class<?>) must have Object
+            // (see java.lang.reflect.Array)
+            boolean needObjectClass = argumentStack % 2 != 0 || seenParameter || mustHaveObject;
             if (needObjectClass) {
                 declaration.append(separator).append(name.replace('/', '.'));
             }

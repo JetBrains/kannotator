@@ -11,6 +11,8 @@ import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import junit.framework.Assert.*
 import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.declarations.ParameterPosition
+import org.objectweb.asm.signature.SignatureReader
+import org.objectweb.asm.util.TraceSignatureVisitor
 
 class PositionSerializerTest : TestCase() {
     fun doTest(
@@ -111,6 +113,11 @@ class PositionSerializerTest : TestCase() {
                 false, true)
     }
 
+    fun testGenericReturningObject() {
+        doTest("A java.lang.Object foo(java.lang.Class<?>, int...)",
+                "A", "foo", "(Ljava/lang/Class;[I)Ljava/lang/Object;", RETURN_TYPE,
+                "(Ljava/lang/Class<*>;[I)Ljava/lang/Object;", false, true)
+    }
 }
 
 data class MockTypePosition(
