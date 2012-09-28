@@ -88,4 +88,6 @@ class InferenceTest: TestCase() {
     fun testReturnThis() = doTest(NOT_NULL)
 
     fun testReturnCaughtException() = doTest(NOT_NULL)
+
+    fun testInstanceofAndReturn() = doTest(NOT_NULL)
 }

@@ -1,5 +1,6 @@
 package org.jetbrains.kannotator.annotationsInference
 
+import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.objectweb.asm.Opcodes.*
 import org.jetbrains.kannotator.nullability.NullabilityValueInfo
 import org.jetbrains.kannotator.nullability.NullabilityValueInfo.*
@@ -43,13 +44,30 @@ public class FramesNullabilityManager {
         return result
     }
 
-    fun computeNullabilityInfosForInstruction(instruction: Instruction, state: State<Unit>) : ValueNullabilityMap {
+    fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
+        val state = instruction[STATE_BEFORE]!!
+
         val infosForInstruction = mergeInfosFromIncomingEdges(instruction)
+
+        fun getFalseTrueEdges(): Pair<ControlFlowEdge, ControlFlowEdge> {
+            // first outgoing edge is 'false', second is 'true'
+            // this order is is provided by code in ASM's Analyzer
+            val it = instruction.outgoingEdges.iterator()
+            val result = Pair(it.next(), it.next())
+            assertFalse(it.hasNext()) // should be exactly two edges!
+            return result
+        }
 
         fun propagateTransformedValueInfos(
                 outgoingEdge: ControlFlowEdge,
-                transformStackValueInfo: (NullabilityValueInfo) -> NullabilityValueInfo
+                state: State<Unit>,
+                transformStackValueInfo: ((NullabilityValueInfo) -> NullabilityValueInfo)?
         ) {
+            if (transformStackValueInfo == null) {
+                setValueInfosForEdge(outgoingEdge, infosForInstruction)
+                return
+            }
+
             val infosForEdge = ValueNullabilityMap(infosForInstruction)
             for (value in state.stack[0]) {
                 infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
@@ -63,21 +81,40 @@ public class FramesNullabilityManager {
             val opcode: Int = instructionMetadata.asmInstruction.getOpcode()
             when (opcode) {
                 IFNULL, IFNONNULL -> {
-                    // first outgoing edge is 'false', second is 'true'
-                    // this order is is provided by code in ASM's Analyzer
-                    val it = instruction.outgoingEdges.iterator()
-                    val (falseEdge, trueEdge) = Pair(it.next(), it.next())
-                    assertFalse(it.hasNext()) // should be exactly two edges!
+                    val (falseEdge, trueEdge) = getFalseTrueEdges()
 
-                    val (nullEdge, notNullEdge) = if (opcode == IFNULL)
-                        Pair(trueEdge, falseEdge)
-                    else Pair(falseEdge, trueEdge)
+                    val (nullEdge, notNullEdge) =
+                        if (opcode == IFNULL) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                    propagateTransformedValueInfos(nullEdge) { wasInfo ->
+                    propagateTransformedValueInfos(nullEdge, state) { wasInfo ->
                         if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
 
-                    propagateTransformedValueInfos(notNullEdge) { wasInfo ->
+                    propagateTransformedValueInfos(notNullEdge, state) { wasInfo ->
                         if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+                }
+                IFEQ, IFNE -> {
+                    if (instruction.incomingEdges.size == 1) {
+                        val previousInstruction = instruction.incomingEdges.first().from
+                        val previousMetadata = previousInstruction.metadata
+                        if (previousMetadata is AsmInstructionMetadata
+                                && previousMetadata.asmInstruction.getOpcode() == INSTANCEOF) {
+                            val (falseEdge, trueEdge) = getFalseTrueEdges()
+
+                            val (instanceOfEdge, notInstanceOfEdge) =
+                                if (opcode == IFNE) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
+
+                            propagateTransformedValueInfos(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
+                                { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+
+                            propagateTransformedValueInfos(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
+                        }
+                        else {
+                            propagateAsIs = true
+                        }
+                    }
+                    else {
+                        propagateAsIs = true
+                    }
                 }
                 else -> {
                     propagateAsIs = true

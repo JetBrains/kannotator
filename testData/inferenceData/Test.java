@@ -107,6 +107,14 @@ public class Test {
         }
     }
 
+    public String testInstanceofAndReturn(Object a) {
+        if (a instanceof String) {
+            return (String) a;
+        }
+        else {
+            return "";
+        }
+    }
 
 
 
