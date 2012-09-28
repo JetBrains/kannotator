@@ -73,6 +73,8 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
             nullabilityInfosForInstruction: ValueNullabilityMap
     ) {
         fun checkAllValuesOnReturn() {
+            // this function is invoked for each *RETURN instruction:
+            // if parameter becomes NULL here, then it should be annotated as nullable
             for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
                 if (value.interesting && nullabilityValueInfo == NULL) {
                     annotationManager.addParameterAnnotation(value, NullabilityAnnotation.NULLABLE)

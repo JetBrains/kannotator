@@ -6,6 +6,7 @@ import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.objectweb.asm.Opcodes.*
 
+// TODO make it generic
 class NullabilityAssert(val shouldBeNotNullValue: Value)
 
 fun generateAsserts(instruction: Instruction) : Set<NullabilityAssert> {
