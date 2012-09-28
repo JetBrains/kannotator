@@ -20,7 +20,7 @@ import java.util.HashMap
 import kotlinlib.*
 
 class InferenceTest: TestCase() {
-    private fun Array<Annotation?>.toNullabilityAnnotation(): NullabilityAnnotation? {
+    private fun Array<out Annotation?>.toNullabilityAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
             if (ann!!.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
             if (ann!!.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
