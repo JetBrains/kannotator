@@ -12,6 +12,7 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import kotlin.test.fail
+import org.jetbrains.kannotator.asm.util.forEachMethod
 
 class MethodIndexTest : TestCase() {
 
@@ -23,13 +24,11 @@ class MethodIndexTest : TestCase() {
                 processJar(jar) {
                     file, owner, reader ->
                     val className = ClassName.fromInternalName(reader.getClassName())
-                    reader.accept(object : ClassVisitor(Opcodes.ASM4) {
-                        override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                            val method = Method(className, access, name, desc, signature)
-                            methods.add(method)
-                            return null
-                        }
-                    }, 0)
+                    reader.forEachMethod {
+                        owner, access, name, desc, signature ->
+                        val method = Method(className, access, name, desc, signature)
+                        methods.add(method)
+                    }
                 }
             }
         }

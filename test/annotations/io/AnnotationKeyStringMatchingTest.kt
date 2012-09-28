@@ -18,6 +18,7 @@ import kotlinlib.*
 import java.util.regex.Pattern
 import junit.framework.Assert.*
 import org.jetbrains.kannotator.util.processJar
+import org.jetbrains.kannotator.asm.util.forEachMethod
 
 class AnnotationKeyStringMatchingTest : TestCase() {
 
@@ -64,18 +65,16 @@ fun visitAllInJar(jarFile: File, handler: (String) -> Unit) {
         print("*")
         count++
         if (count % 130 == 0) println()
-        reader.accept(object : ClassVisitor(Opcodes.ASM4) {
-            override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
-                val positions = Positions(method)
-                val skip = if (method.isStatic()) 0 else 1
-                for (i in skip..method.getArgumentTypes().size) {
-                    handler(positions.forParameter(i).position.toAnnotationKey())
-                }
-                handler(positions.forReturnType().position.toAnnotationKey())
-                return null
+        reader.forEachMethod {
+            owner, access, name, desc, signature ->
+            val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
+            val positions = Positions(method)
+            val skip = if (method.isStatic()) 0 else 1
+            for (i in skip..method.getArgumentTypes().size) {
+                handler(positions.forParameter(i).position.toAnnotationKey())
             }
-        }, 0)
+            handler(positions.forReturnType().position.toAnnotationKey())
+        }
     }
     println()
 }

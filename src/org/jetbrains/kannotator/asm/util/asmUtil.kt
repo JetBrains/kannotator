@@ -5,6 +5,10 @@ import org.objectweb.asm.util.Printer
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.Type
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.MethodVisitor
 
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {
@@ -27,4 +31,14 @@ public fun Type.isPrimitiveOrVoidType() : Boolean {
     return sort == Type.VOID || sort == Type.BOOLEAN || sort == Type.CHAR || sort == Type.BYTE ||
             sort == Type.SHORT || sort == Type.INT || sort == Type.FLOAT || sort == Type.LONG ||
             sort == Type.DOUBLE;
+}
+
+public fun ClassReader.forEachMethod(body: (className: String, access: Int, name: String, desc: String, signature: String?) -> Unit) {
+    accept(object : ClassVisitor(Opcodes.ASM4) {
+        override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+            body(getClassName(), access, name, desc, signature)
+            return null
+        }
+    }, 0)
+
 }

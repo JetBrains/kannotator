@@ -24,6 +24,7 @@ import java.util.jar.JarFile
 import java.util.jar.JarEntry
 import kotlinlib.removeSuffix
 import org.jetbrains.kannotator.declarations.toFullString
+import org.jetbrains.kannotator.asm.util.forEachMethod
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
@@ -41,13 +42,11 @@ class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex {
             val idToMethod = HashMap<MethodId, Method>()
             assert (methodsByClass[className] == null) { "Class already visited: $className" }
             methodsByClass[className] = idToMethod
-            reader.accept(object : ClassVisitor(Opcodes.ASM4) {
-                override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                    val method = Method(className, access, name, desc, signature)
-                    idToMethod[method.id] = method
-                    return null
-                }
-            }, 0)
+            reader.forEachMethod {
+                owner, access, name, desc, signature ->
+                val method = Method(className, access, name, desc, signature)
+                idToMethod[method.id] = method
+            }
         }
     }
 
@@ -56,9 +55,9 @@ class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex {
     }
 }
 
-class FileBasedClassSource(val files: Collection<File>) : ClassSource {
+class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : ClassSource {
     override fun forEach(body: (ClassReader) -> Unit) {
-        for (file in files) {
+        for (file in jarOrClassFiles) {
             if (file.isFile()) {
                 if (file.getName().endsWith(".jar")) {
                     processJar(file, {f, o, reader -> body(reader)})
