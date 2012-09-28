@@ -13,6 +13,7 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import kotlin.test.fail
 import org.jetbrains.kannotator.asm.util.forEachMethod
+import util.findJarFiles
 
 class MethodIndexTest : TestCase() {
 
@@ -61,12 +62,7 @@ class MethodIndexTest : TestCase() {
                 java.io.File("lib")
         )
 
-        val jars = ArrayList<File>()
-        for (dir in dirs) {
-            dir.recurseFiltered({it.extension == "jar"}) {
-                jars.add(it)
-            }
-        }
+        val jars = findJarFiles(dirs)
 
         for (jar in jars) {
             println(jar)

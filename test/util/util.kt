@@ -5,6 +5,8 @@ import org.jetbrains.kannotator.declarations.ClassName
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 import org.jetbrains.kannotator.util.processJar
+import java.util.ArrayList
+import kotlinlib.recurseFiltered
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
@@ -32,4 +34,14 @@ fun getAllClassesWithPrefix(prefix: String): List<ClassName> {
     }
 
     return result
+}
+
+fun findJarFiles(dirs: Collection<File>): Collection<File> {
+    val jars = ArrayList<File>()
+    for (dir in dirs) {
+        dir.recurseFiltered({it.extension == "jar"}) {
+            jars.add(it)
+        }
+    }
+    return jars
 }
