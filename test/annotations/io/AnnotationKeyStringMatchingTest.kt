@@ -11,13 +11,13 @@ import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
-import util.processJar
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import java.io.FileReader
 import kotlinlib.*
 import java.util.regex.Pattern
 import junit.framework.Assert.*
+import org.jetbrains.kannotator.util.processJar
 
 class AnnotationKeyStringMatchingTest : TestCase() {
 

@@ -10,7 +10,7 @@ import org.jetbrains.kannotator.funDependecy.FunDependencyGraph
 import org.jetbrains.kannotator.funDependecy.FunctionNode
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.objectweb.asm.ClassReader
-import util.processJar
+import org.jetbrains.kannotator.util.processJar
 
 fun FunDependencyGraph.toJungGraph(): DirectedSparseMultigraph<FunctionNode, FunDependencyEdge> {
     val jungGraph = DirectedSparseMultigraph<FunctionNode, FunDependencyEdge>()

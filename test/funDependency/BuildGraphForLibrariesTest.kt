@@ -6,7 +6,7 @@ import java.util.jar.JarFile
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.junit.Test as test
 import org.objectweb.asm.ClassReader
-import util.processJar
+import org.jetbrains.kannotator.util.processJar
 
 class BuildGraphForLibrariesTest() {
     test fun allLibsTest() {
