@@ -24,7 +24,8 @@ fun generateAsserts(instruction: Instruction) : Set<NullabilityAssert> {
                     result.add(NullabilityAssert(value))
                 }
             }
-            else -> Unit.VALUE
+            // TODO other interesting instructions
+            else -> {}
         }
     }
     return result

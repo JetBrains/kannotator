@@ -109,7 +109,7 @@ class FramesNullabilityManager {
                         }
                     }
                 }
-                else -> Unit.VALUE
+                else -> {}
             }
         }
 
@@ -133,7 +133,7 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
             return when (createdAtInsn.getOpcode()) {
                 NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
                 ACONST_NULL -> NULL
-                LDC, 19 /* LDC_W */ -> NOT_NULL
+                LDC -> NOT_NULL
                 INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
                     UNKNOWN // TODO load from annotations
                 GETFIELD, GETSTATIC -> UNKNOWN // TODO load from annotations
@@ -141,10 +141,10 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
                 else -> throw UnsupportedOperationException("Unsupported opcode=${createdAtInsn.getOpcode()}")
             }
         }
-        else if (key.interesting) {
+        if (key.interesting) {
             return UNKNOWN // todo read from parameter annotation
         }
-        else return when (key) {
+        return when (key) {
             controlFlowBuilder.NULL_VALUE -> NULL
             controlFlowBuilder.PRIMITIVE_VALUE_SIZE_1, controlFlowBuilder.PRIMITIVE_VALUE_SIZE_2 ->
                 throw IllegalStateException("trying to get nullabilty info for primitive")

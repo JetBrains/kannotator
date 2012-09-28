@@ -43,7 +43,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
     fun getResult(): NullabilityAnnotationsManager = annotationsManager
 
     private fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotationsManager) {
-        if (instruction[STATE_BEFORE] == null) return
+        if (instruction[STATE_BEFORE] == null) return // dead instructions
 
         val nullabilityInfosForInstruction = framesManager.computeNullabilityInfosForInstruction(instruction)
 
