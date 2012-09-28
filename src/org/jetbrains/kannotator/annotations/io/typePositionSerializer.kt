@@ -13,6 +13,7 @@ import org.jetbrains.kannotator.declarations.isStatic
 import org.objectweb.asm.Type
 import org.objectweb.asm.signature.SignatureReader
 import org.objectweb.asm.util.TraceSignatureVisitor
+import org.jetbrains.kannotator.declarations.isVarargs
 
 // ownerFQN returnType? name(paramType{", "}?) position?
 // Example:
@@ -65,12 +66,16 @@ private fun correctIfNotStatic(method: Method, parameterIndex: Int): Int {
 }
 
 private fun Method.parameterTypesString(): String {
-    if (genericSignature == null) {
-        return (id.getArgumentTypes() map {it -> canonicalName(it) }).join(", ", "(", ")")
+    val result = if (genericSignature == null) {
+        (id.getArgumentTypes() map {it -> canonicalName(it) }).join(", ", "(", ")")
     }
     else {
-        return parseGenericSignature(genericSignature).getDeclaration().toCanonical()
+        parseGenericSignature(genericSignature).getDeclaration().toCanonical()
     }
+    if (this.isVarargs()) {
+        return result.replaceAll("""\[\]\)""", "...)")
+    }
+    return result
 }
 
 private fun parseGenericSignature(signature: String): NoSpacesInTypeArgumentsTraceSignatureVisitor {

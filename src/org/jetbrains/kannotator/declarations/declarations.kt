@@ -51,6 +51,8 @@ fun Method.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
 
 fun Method.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
 
+fun Method.isVarargs(): Boolean = access.has(Opcodes.ACC_VARARGS)
+
 val Method.visibility: Visibility get() = when {
     access.has(Opcodes.ACC_PUBLIC) -> Visibility.PUBLIC
     access.has(Opcodes.ACC_PROTECTED) -> Visibility.PROTECTED

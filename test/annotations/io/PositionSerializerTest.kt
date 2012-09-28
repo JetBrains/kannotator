@@ -13,9 +13,15 @@ import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.declarations.ParameterPosition
 
 class PositionSerializerTest : TestCase() {
-    fun doTest(expected: String, owner: String, methodName: String, desc: String, position: PositionWithinMethod, signature: String? = null, static: Boolean = false) {
-        val access = if (static) Opcodes.ACC_STATIC else 0
-        val method = Method(ClassName.fromInternalName(owner), access, methodName, desc, signature)
+    fun doTest(
+            expected: String,
+            owner: String, methodName: String, desc: String,
+            position: PositionWithinMethod,
+            signature: String? = null,
+            static: Boolean = false, varargs: Boolean = false) {
+        val staticFlag = if (static) Opcodes.ACC_STATIC else 0
+        val varargsFlag = if (varargs) Opcodes.ACC_VARARGS else 0
+        val method = Method(ClassName.fromInternalName(owner), staticFlag or varargsFlag, methodName, desc, signature)
         val pos = MockTypePosition(method, position)
         assertEquals(expected, pos.toAnnotationKey())
     }
@@ -92,6 +98,19 @@ class PositionSerializerTest : TestCase() {
         doTest("A void foo(java.util.Map<A,B>)",
                 "A", "foo", "(Ljava/util/Map;)V", RETURN_TYPE, "<A:Ljava/lang/Object;B:Ljava/lang/Object;>(Ljava/util/Map<TA;TB;>;)V")
     }
+
+    fun testVarargsNonGeneric() {
+        doTest("A java.lang.String[] foo(java.lang.String[], int, java.lang.String...)",
+                "A", "foo", "([Ljava/lang/String;I[Ljava/lang/String;)[Ljava/lang/String;", RETURN_TYPE, null, false, true)
+    }
+
+    fun testVarargsGeneric() {
+        doTest("A java.lang.String[] foo(java.util.List<java.lang.String>[], int, java.util.List<java.lang.String>...)",
+                "A", "foo", "([Ljava/util/List;I[Ljava/util/List;)[Ljava/lang/String;", RETURN_TYPE,
+                "([Ljava/util/List<Ljava/lang/String;>;I[Ljava/util/List<Ljava/lang/String;>;)[Ljava/lang/String;",
+                false, true)
+    }
+
 }
 
 data class MockTypePosition(
