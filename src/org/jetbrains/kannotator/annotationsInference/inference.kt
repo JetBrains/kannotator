@@ -75,7 +75,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
         fun checkAllValuesOnReturn() {
             for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
                 if (value.interesting && nullabilityValueInfo == NULL) {
-                    annotationManager.addParameterValueInfo(value, NULLABLE)
+                    annotationManager.addParameterAnnotation(value, NullabilityAnnotation.NULLABLE)
                 }
             }
         }
@@ -102,20 +102,21 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
 }
 
 private class NullabilityAnnotationsManager {
-    val parametersValueInfo = hashMap<Value, NullabilityValueInfo>()
-    val returnValueInfo = arrayList<NullabilityValueInfo>()
+    val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()
+    var returnValueInfo : NullabilityValueInfo? = null
 
-    fun addParameterValueInfo(value: Value, valueInfo: NullabilityValueInfo) {
-        parametersValueInfo[value] = valueInfo
+    fun addParameterAnnotation(value: Value, annotation: NullabilityAnnotation) {
+        parameterAnnotations[value] = annotation
     }
 
     fun addReturnValueInfo(valueInfo: NullabilityValueInfo) {
-        returnValueInfo.add(valueInfo)
+        val current = returnValueInfo
+        returnValueInfo = if (current == null) valueInfo else current.merge(valueInfo)
     }
 }
 
 private fun NullabilityAnnotationsManager.addAssert(assert: NullabilityAssert) {
-    addParameterValueInfo(assert.shouldBeNotNullValue, NOT_NULL)
+    addParameterAnnotation(assert.shouldBeNotNullValue, NullabilityAnnotation.NOT_NULL)
 }
 
 private fun NullabilityAnnotationsManager.toAnnotations(positions: Positions): Annotations<NullabilityAnnotation> {
@@ -125,9 +126,9 @@ private fun NullabilityAnnotationsManager.toAnnotations(positions: Positions): A
             annotations.set(position, annotation)
         }
     }
-    setAnnotation(positions.forReturnType().position, returnValueInfo.merge().toAnnotation())
-    for ((value, valueInfo) in parametersValueInfo) {
-        setAnnotation(positions.forParameter(value.parameterIndex!!).position, valueInfo.toAnnotation())
+    setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
+    for ((value, annotation) in parameterAnnotations) {
+        setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
     }
     return annotations
 }
