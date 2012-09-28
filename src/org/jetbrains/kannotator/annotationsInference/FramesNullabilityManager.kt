@@ -21,10 +21,6 @@ import java.util.Collections
 class FramesNullabilityManager {
     private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, ValueNullabilityMap> = hashMap()
 
-    fun getNullabilityInfo(nullabilityInfos: ValueNullabilityMap, value: Value) : NullabilityValueInfo {
-        return nullabilityInfos[value]
-    }
-
     private fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
         assertNull(nullabilityInfosForEdges[edge])
         nullabilityInfosForEdges[edge] = infos

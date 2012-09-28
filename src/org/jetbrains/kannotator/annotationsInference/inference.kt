@@ -50,7 +50,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
     ): Boolean {
         if (!assert.shouldBeNotNullValue.interesting) return true
 
-        val valueInfo = framesManager.getNullabilityInfo(nullabilityInfosForInstruction, assert.shouldBeNotNullValue)
+        val valueInfo = nullabilityInfosForInstruction[assert.shouldBeNotNullValue]
         return valueInfo == NOT_NULL || valueInfo == CONFLICT
     }
 
