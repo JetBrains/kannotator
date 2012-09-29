@@ -7,6 +7,11 @@ import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.junit.Test as test
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.util.processJar
+import sun.tools.jar.resources.jar
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import util.ClassPathDeclarationIndex
 
 class BuildGraphForLibrariesTest() {
     test fun allLibsTest() {
@@ -24,13 +29,9 @@ class BuildGraphForLibrariesTest() {
 
     fun doTest(file: File) {
         println("Processing: $file")
-        val classReaders = ArrayList<ClassReader>()
-        processJar(file, {
-            jarFile, classType, classReader ->
-            classReaders.add(classReader)
-        })
 
-        val graph = buildFunctionDependencyGraph(classReaders)
+        val classSource = FileBasedClassSource(arrayList(file))
+        val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
         val finder = SCCFinder(graph, { graph.functions }, { it.outgoingEdges.map { edge -> edge.to } })
         val allComponents = finder.getAllComponents()
         println("Graph size: " + graph.functions.size() + " " + graph.noOutgoingNodes.size())

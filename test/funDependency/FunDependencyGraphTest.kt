@@ -9,6 +9,10 @@ import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.junit.Assert
 import org.junit.Test as test
 import org.objectweb.asm.ClassReader
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import util.ClassPathDeclarationIndex
+import org.jetbrains.kannotator.index.ClassSource
 
 private val PATH = "testData/funDependency/"
 
@@ -34,8 +38,15 @@ class FunDependencyGraphTest {
         doTest("simple/simple.txt", "fundependency.simple.Simple")
     }
 
-    fun doTest(expectedResultPath: String, vararg listOfFiles: String) {
-        val graph = buildFunctionDependencyGraph(listOfFiles.map { ClassReader(it) })
+    fun doTest(expectedResultPath: String, vararg canonicalNames: String) {
+        val classSource = object : ClassSource {
+            override fun forEach(body: (ClassReader) -> Unit) {
+                for (canonical in canonicalNames) {
+                    body(ClassReader(canonical))
+                }
+            }
+        }
+        val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
 
         val functionNodeComparator = object : Comparator<FunctionNode> {
             public override fun compare(o1: FunctionNode?, o2: FunctionNode?): Int {

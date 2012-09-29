@@ -1,19 +1,19 @@
-package org.jetbrains.kannotator.funDependecy
+package util
 
 import java.util.HashMap
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.funDependecy.GlobalMethodSearcher.SearchQuery
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.tree.ClassNode
+import org.jetbrains.kannotator.index.DeclarationIndex
 
-class GlobalMethodSearcher {
-    data class SearchQuery(val owner : String, val name: String, val desc: String)
+object ClassPathDeclarationIndex : DeclarationIndex {
+    data class SearchQuery(val owner : ClassName, val name: String, val desc: String)
 
     private val cache = HashMap<SearchQuery, Method>()
 
-    fun find(owner: String, name: String, desc: String) : Method? {
+    override fun findMethod(owner: ClassName, name: String, desc: String) : Method? {
         val query = SearchQuery(owner, name, desc)
         if (!cache.containsKey(query)) {
             search(query)
@@ -23,7 +23,7 @@ class GlobalMethodSearcher {
     }
 
     private fun search(query : SearchQuery) {
-        val stream = ClassLoader.getSystemResourceAsStream(query.owner + ".class")
+        val stream = ClassLoader.getSystemResourceAsStream(query.owner.internal + ".class")
         if (stream == null) {
             return
         }
@@ -34,8 +34,9 @@ class GlobalMethodSearcher {
 
         val foundPairs = node.methods.map {
             val methodNode = it!!
-            val methodQuery = SearchQuery(node.name, methodNode.name, methodNode.desc)
-            val method = Method(ClassName.fromInternalName(node.name), methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
+            val className = ClassName.fromInternalName(node.name)
+            val methodQuery = SearchQuery(className, methodNode.name, methodNode.desc)
+            val method = Method(className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
 
             Pair(methodQuery, method)
         }

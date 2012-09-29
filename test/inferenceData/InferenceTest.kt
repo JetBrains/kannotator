@@ -15,9 +15,9 @@ import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
 import org.jetbrains.kannotator.annotationsInference.buildAnnotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.funDependecy.GlobalMethodSearcher
 import java.util.HashMap
 import kotlinlib.*
+import util.ClassPathDeclarationIndex
 
 class InferenceTest: TestCase() {
     private fun Array<out Annotation?>.toNullabilityAnnotation(): NullabilityAnnotation? {
@@ -41,7 +41,7 @@ class InferenceTest: TestCase() {
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val result = buildAnnotations(graph, positions, GlobalMethodSearcher(), AnnotationsImpl())
+        val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, AnnotationsImpl())
 
         val expectedReturnInfo = reflectMethod.getAnnotations().toNullabilityAnnotation()
 

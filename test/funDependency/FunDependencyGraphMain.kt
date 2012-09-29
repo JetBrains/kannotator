@@ -11,6 +11,9 @@ import org.jetbrains.kannotator.funDependecy.FunctionNode
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.util.processJar
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import util.ClassPathDeclarationIndex
 
 fun FunDependencyGraph.toJungGraph(): DirectedSparseMultigraph<FunctionNode, FunDependencyEdge> {
     val jungGraph = DirectedSparseMultigraph<FunctionNode, FunDependencyEdge>()
@@ -24,13 +27,9 @@ fun FunDependencyGraph.toJungGraph(): DirectedSparseMultigraph<FunctionNode, Fun
 
 fun main(args: Array<String>) {
     val file = File("lib/kotlin-runtime.jar")
-    val classReaders = ArrayList<ClassReader>()
-    processJar(file,  {
-        jarFile, classType, classReader ->
-        classReaders.add(classReader)
-    })
 
-    val graph = buildFunctionDependencyGraph(classReaders)
+    val classSource = FileBasedClassSource(arrayList(file))
+    val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
     displayJungGraph<FunctionNode, FunDependencyEdge>(
             graph.toJungGraph(),
             object : Transformer<FunctionNode, String> {
