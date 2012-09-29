@@ -12,17 +12,30 @@ import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 
 class AnnotationIndexTest : TestCase() {
     fun test() {
-        val keys = HashSet<String>()
-        val dir = File("lib")
-        addFromAnnotationDir(dir, keys)
+        val jarDirs = arrayList(
+//                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes"),
+//                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib"),
+                File("lib")
+        )
 
-        val jars = findJarFiles(arrayList(dir))
+        val annotationDirs = arrayList(
+                java.io.File("/Users/abreslav/work/kotlin/jdk-annotations"),
+                File("lib")
+        )
+
+        val keys = HashSet<String>()
+        for (dir in annotationDirs) {
+            addFromAnnotationDir(dir, keys)
+        }
+
+        val jars = findJarFiles(jarDirs)
 
         val source = FileBasedClassSource(jars)
         val index = DeclarationIndexImpl(source)
 
         for (key in keys) {
             if ("(" !in key) continue // no fields
+            if ("@" in key) continue // bug in IDEA
             val position = index.findPositionByAnnotationKeyString(key)
             if (position == null) {
                 fail("Position not forund for $key")
