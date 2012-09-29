@@ -11,20 +11,24 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.ClassSource
 
-public fun buildFunctionDependencyGraph(classReaders: List<ClassReader>) : FunDependencyGraph =
-        FunDependencyGraphBuilder().build(classReaders)
+public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : FunDependencyGraph =
+        FunDependencyGraphBuilder(declarationIndex, classSource).build()
 
 fun Method.canBeAnnotated() : Boolean {
     return !id.getReturnType().isPrimitiveOrVoidType() || !id.getArgumentTypes().all { it.isPrimitiveOrVoidType() }
 }
 
-private class FunDependencyGraphBuilder() {
+private class FunDependencyGraphBuilder(
+        private val declarationIndex: DeclarationIndex,
+        private val classSource: ClassSource
+) {
     private var currentFromNode : FunctionNodeImpl? = null
     private var currentClassName : ClassName? = null
 
     private val dependencyGraph = FunDependencyGraphImpl()
-    private val methodSearcher = GlobalMethodSearcher()
 
     private val classVisitor = object : ClassVisitor(ASM4) {
         public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
@@ -44,16 +48,17 @@ private class FunDependencyGraphBuilder() {
 
     private val methodVisitor = object : MethodVisitor(ASM4) {
         public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
-            val method = methodSearcher.find(owner, name, desc)
+            val method = declarationIndex.findMethod(ClassName.fromInternalName(owner), name, desc)
             if (method != null && method.canBeAnnotated()) {
                 dependencyGraph.createEdge(currentFromNode!!, dependencyGraph.getOrCreateNode(method))
             }
         }
     }
 
-    public fun build(val classReaders: List<ClassReader>) : FunDependencyGraph {
-        for (classReader in classReaders) {
-            classReader.accept(classVisitor, SKIP_DEBUG or SKIP_FRAMES)
+    public fun build(): FunDependencyGraph {
+        classSource.forEach {
+            reader ->
+            reader.accept(classVisitor, SKIP_DEBUG or SKIP_FRAMES)
         }
 
         return dependencyGraph

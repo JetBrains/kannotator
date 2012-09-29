@@ -16,12 +16,12 @@ import org.jetbrains.kannotator.nullability.NullabilityValueInfo.*
 import org.jetbrains.kannotator.nullability.merge
 import org.jetbrains.kannotator.nullability.toAnnotation
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.funDependecy.GlobalMethodSearcher
+import org.jetbrains.kannotator.index.DeclarationIndex
 
 fun buildAnnotations(
         graph: ControlFlowGraph,
         positions: Positions,
-        methodSearcher: GlobalMethodSearcher,
+        declarationIndex: DeclarationIndex,
         annotations: Annotations<NullabilityAnnotation>
 ) : Annotations<NullabilityAnnotation> {
 
