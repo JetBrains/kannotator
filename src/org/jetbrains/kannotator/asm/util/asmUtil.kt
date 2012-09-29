@@ -33,11 +33,11 @@ public fun Type.isPrimitiveOrVoidType() : Boolean {
             sort == Type.DOUBLE;
 }
 
-public fun ClassReader.forEachMethod(body: (className: String, access: Int, name: String, desc: String, signature: String?) -> Unit) {
-    accept(object : ClassVisitor(Opcodes.ASM4) {
+public fun ClassReader.forEachMethod(delegateClassVisitor: ClassVisitor? = null, body: (className: String, access: Int, name: String, desc: String, signature: String?) -> Unit) {
+    accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
         override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
             body(getClassName(), access, name, desc, signature)
-            return null
+            return super.visitMethod(access, name, desc, signature, exceptions)
         }
     }, 0)
 

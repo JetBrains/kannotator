@@ -32,7 +32,7 @@ trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 
-class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex, AnnotationKeyIndex {
+class DeclarationIndexImpl(classSource: ClassSource, delegateClassVisitor: ClassVisitor? = null): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
             val className: ClassName,
             val methodsById: Map<MethodId, Method>,
@@ -42,9 +42,9 @@ class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex, Annotati
     private val classes = HashMap<ClassName, ClassData>()
     private val classesByCanonicalName = HashMap<String, MutableCollection<ClassData>>();
 
-    { init(classSource) }
+    { init(classSource, delegateClassVisitor) }
 
-    private fun init(classSource: ClassSource) {
+    private fun init(classSource: ClassSource, delegateClassVisitor: ClassVisitor?) {
         classSource forEach {
             reader ->
             val className = ClassName.fromInternalName(reader.getClassName())
@@ -52,7 +52,7 @@ class DeclarationIndexImpl(classSource: ClassSource): DeclarationIndex, Annotati
             val methodsById = HashMap<MethodId, Method>()
             val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
             assert (classes[className] == null) { "Class already visited: $className" }
-            reader.forEachMethod {
+            reader.forEachMethod(delegateClassVisitor) {
                 owner, access, name, desc, signature ->
                 val method = Method(className, access, name, desc, signature)
                 methodsById[method.id] = method
