@@ -64,9 +64,7 @@ public class SCCFinder<Graph, Node>(
 
     public fun getAllComponents(): List<Set<Node>> {
         for (node in graphNodes(graph)) {
-            if (!nodeIndex.containsKey(node)) {
-                findComponent(node)
-            }
+            findComponent(node)
         }
         return components
     }
