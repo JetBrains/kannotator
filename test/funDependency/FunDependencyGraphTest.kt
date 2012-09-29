@@ -13,6 +13,7 @@ import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.index.ClassSource
+import util.ClassesFromClassPath
 
 private val PATH = "testData/funDependency/"
 
@@ -39,13 +40,7 @@ class FunDependencyGraphTest {
     }
 
     fun doTest(expectedResultPath: String, vararg canonicalNames: String) {
-        val classSource = object : ClassSource {
-            override fun forEach(body: (ClassReader) -> Unit) {
-                for (canonical in canonicalNames) {
-                    body(ClassReader(canonical))
-                }
-            }
-        }
+        val classSource = ClassesFromClassPath(*canonicalNames)
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
 
         val functionNodeComparator = object : Comparator<FunctionNode> {
