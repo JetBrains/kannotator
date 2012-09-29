@@ -12,7 +12,7 @@ trait AnnotationData {
     val attributes: Map<String, String>
 }
 
-fun parseAnnotations(xml: Reader, handler: (String, Collection<AnnotationData>) -> Unit, errorHandler: (String) -> Unit) {
+fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<AnnotationData>) -> Unit, errorHandler: (String) -> Unit) {
     val text = escapeAttributes(xml.readText())
     val parser = SAXParserFactory.newInstance()!!.newSAXParser()!!
     parser.parse(text.getBytes().inputStream, object: HandlerBase(){
