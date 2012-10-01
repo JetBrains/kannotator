@@ -8,8 +8,6 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.Positions
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation.*
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -17,22 +15,22 @@ import org.jetbrains.kannotator.annotationsInference.buildAnnotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import java.util.HashMap
 import kotlinlib.*
+import org.jetbrains.kannotator.annotationsInference.DerivedAnnotation
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.index.DeclarationIndex
 import util.ClassPathDeclarationIndex
 
-class InferenceTest: TestCase() {
-    private fun Array<out Annotation?>.toNullabilityAnnotation(): NullabilityAnnotation? {
-        for (ann in this) {
-            if (ann!!.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
-            if (ann!!.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
-        }
-        return null
-    }
+abstract class InferenceTest<A: DerivedAnnotation>(
+        val testClass: Class<*>,
+        val buildAnnotationsMethod: (ControlFlowGraph, Positions, DeclarationIndex, Annotations<A>) -> Annotations<A>)
+: TestCase() {
 
-    private fun doTest() {
-        val theClass = javaClass<inferenceData.Test>()
-        val className = theClass.getName()
+    protected abstract fun Array<Annotation>.toAnnotation(): A?
+
+    protected fun doTest() {
+        val className = testClass.getName()
         val methodName = getName()!!
-        val reflectMethod = theClass.getMethods().find { m -> m.getName() == methodName }!!
+        val reflectMethod = testClass.getMethods().find { m -> m.getName() == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
         val classReader = ClassReader(className)
@@ -41,13 +39,13 @@ class InferenceTest: TestCase() {
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, AnnotationsImpl())
+        val result = buildAnnotationsMethod(graph, positions, ClassPathDeclarationIndex, AnnotationsImpl())
 
-        val expectedReturnInfo = reflectMethod.getAnnotations().toNullabilityAnnotation()
+        val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 
-        val parametersMap = HashMap<Int, NullabilityAnnotation>()
+        val parametersMap = HashMap<Int, DerivedAnnotation>()
         for ((paramIndex, paramAnnotations) in reflectMethod.getParameterAnnotations().indexed) {
-            val annotation = paramAnnotations!!.toNullabilityAnnotation()
+            val annotation = paramAnnotations.toAnnotation()
             if (annotation != null) {
                 parametersMap[paramIndex + 1] = annotation!! // Kotlin compiler bug
             }
@@ -56,64 +54,12 @@ class InferenceTest: TestCase() {
         assertEquals(parametersMap, expectedReturnInfo, result, reflectMethod.getParameterTypes()!!.size, positions)
     }
 
-    fun assertEquals(expectedParametersAnnotations: Map<Int, NullabilityAnnotation>, expectedReturnAnnotation: NullabilityAnnotation?,
-                     actual: Annotations<NullabilityAnnotation>, parametersNumber: Int, positions: Positions) {
+    fun assertEquals(expectedParametersAnnotations: Map<Int, DerivedAnnotation>, expectedReturnAnnotation: DerivedAnnotation?,
+                     actual: Annotations<DerivedAnnotation>, parametersNumber: Int, positions: Positions) {
         assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position))
 
         for (index in 1..parametersNumber) {
             assertEquals(expectedParametersAnnotations.get(index), actual.get(positions.forParameter(index).position))
         }
     }
-
-    fun testNull() = doTest()
-
-    fun testNullOrObject() = doTest()
-
-    fun testNotNullParameter() = doTest()
-
-    fun testInvocationOnCheckedParameter() = doTest()
-
-    //todo test CONFLICT
-    fun testIncompatibleChecks() = doTest()
-
-    fun testInvocationOnNullParameter() = doTest()
-
-    fun testNullableParameter() = doTest()
-
-//    fun testSenselessNotNullCheck() = doTest("testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(null, NOT_NULL))
-
-    fun testInvocationAfterReturn() = doTest()
-
-    fun testReturnInvokeSpecial() = doTest()
-
-    fun testReturnInvokeVirtual() = doTest()
-
-    fun testReturnInvokeStatic() = doTest()
-
-    fun testInvokeInterface() = doTest()
-
-    fun testReturnArrayLoad() = doTest()
-
-    fun testReturnNewIntArray() = doTest()
-
-    fun testReturnNewObjectArray() = doTest()
-
-    fun testReturnNewMultiArray() = doTest()
-
-    fun testReturnField() = doTest()
-
-    fun testReturnStaticField() = doTest()
-
-    fun testReturnStringConstant() = doTest()
-
-    fun testReturnThis() = doTest()
-
-    fun testReturnCaughtException() = doTest()
-
-    fun testInstanceofAndReturn() = doTest()
-
-    fun testClassLiteral() = doTest()
-
-    //todo
-//    fun testInvocationAfterException() = doTest()
 }

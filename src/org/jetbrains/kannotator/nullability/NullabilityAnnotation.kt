@@ -1,8 +1,9 @@
 package org.jetbrains.kannotator.nullability
 
 import org.jetbrains.kannotator.nullability.NullabilityValueInfo.*
+import org.jetbrains.kannotator.annotationsInference.DerivedAnnotation
 
-enum class NullabilityAnnotation {
+enum class NullabilityAnnotation : DerivedAnnotation {
     NOT_NULL NULLABLE
 }
 

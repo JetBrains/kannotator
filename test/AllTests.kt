@@ -10,7 +10,8 @@ import classHierarchy.OverriddenMethodTest
 import funDependency.BuildGraphForLibrariesTest
 import funDependency.FunDependencyGraphTest
 import funDependency.SCCFinderTest
-import inference.InferenceTest
+import inference.NullabilityInferenceTest
+import inference.MutabilityInferenceTest
 import interpreter.InterpreterTest
 
 [RunWith(javaClass<Suite>())]
@@ -22,7 +23,8 @@ import interpreter.InterpreterTest
         javaClass<BuildGraphForLibrariesTest>(),
         javaClass<FunDependencyGraphTest>(),
         javaClass<SCCFinderTest>(),
-        javaClass<InferenceTest>(),
+        javaClass<NullabilityInferenceTest>(),
+        javaClass<MutabilityInferenceTest>(),
         javaClass<InterpreterTest>()
         )]
 class AllTests {

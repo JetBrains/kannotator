@@ -30,6 +30,8 @@ fun buildAnnotations(
     return annotationsInference.getResult().toAnnotations(positions)
 }
 
+trait DerivedAnnotation
+
 class AnnotationsInference(private val graph: ControlFlowGraph) {
     private val framesManager = FramesNullabilityManager()
     private val annotationsManager = NullabilityAnnotationsManager()

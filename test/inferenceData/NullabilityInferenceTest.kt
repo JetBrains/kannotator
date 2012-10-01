@@ -1,0 +1,78 @@
+package inference
+
+import inference.InferenceTest
+import org.jetbrains.kannotator.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.DerivedAnnotation
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.annotationsInference.buildAnnotations
+import org.jetbrains.kannotator.index.DeclarationIndex
+
+class NullabilityInferenceTest : InferenceTest<NullabilityAnnotation>(
+        javaClass<inferenceData.Test>(),
+        {(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
+          annotations: Annotations<NullabilityAnnotation>) : Annotations<NullabilityAnnotation> ->
+            buildAnnotations(graph, positions, declarationIndex, annotations)}) {
+
+    protected override fun Array<Annotation>.toAnnotation(): NullabilityAnnotation? {
+        for (ann in this) {
+            if (ann.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
+            if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
+        }
+        return null
+    }
+
+
+    fun testNull() = doTest()
+
+    fun testNullOrObject() = doTest()
+
+    fun testNotNullParameter() = doTest()
+
+    fun testInvocationOnCheckedParameter() = doTest()
+
+    //todo test CONFLICT
+    fun testIncompatibleChecks() = doTest()
+
+    fun testInvocationOnNullParameter() = doTest()
+
+    fun testNullableParameter() = doTest()
+
+    //    fun testSenselessNotNullCheck() = doTest("testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(null, NOT_NULL))
+
+    fun testInvocationAfterReturn() = doTest()
+
+    fun testReturnInvokeSpecial() = doTest()
+
+    fun testReturnInvokeVirtual() = doTest()
+
+    fun testReturnInvokeStatic() = doTest()
+
+    fun testInvokeInterface() = doTest()
+
+    fun testReturnArrayLoad() = doTest()
+
+    fun testReturnNewIntArray() = doTest()
+
+    fun testReturnNewObjectArray() = doTest()
+
+    fun testReturnNewMultiArray() = doTest()
+
+    fun testReturnField() = doTest()
+
+    fun testReturnStaticField() = doTest()
+
+    fun testReturnStringConstant() = doTest()
+
+    fun testReturnThis() = doTest()
+
+    fun testReturnCaughtException() = doTest()
+
+    fun testInstanceofAndReturn() = doTest()
+
+    fun testClassLiteral() = doTest()
+
+    //todo
+    //    fun testInvocationAfterException() = doTest()
+}
