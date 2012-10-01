@@ -17,8 +17,8 @@ class OverriddenMethodTest : TestCase() {
 //        doTest("", "all.txt")
 //    }
 
-    fun testJava() {
-        doTest(getClassesHierarchy("java/"), "java.txt")
+    fun testGsCollections() {
+        doTest(getClassesHierarchy("com/gs/collections/"), "gs-collections.txt")
     }
 
     fun testJung() {

@@ -13,8 +13,8 @@ class ClassHierarchyTest : TestCase() {
 //        doTest("", "all.txt")
 //    }
 
-    fun testJava() {
-        doTest("java/", "java.txt")
+    fun testGsCollections() {
+        doTest("com/gs/collections/", "gs-collections.txt")
     }
 
     fun testJung() {
