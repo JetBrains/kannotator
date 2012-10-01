@@ -9,6 +9,8 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.MethodVisitor
+import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
+import org.jetbrains.kannotator.controlFlow.Instruction
 
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {
@@ -42,3 +44,6 @@ public fun ClassReader.forEachMethod(delegateClassVisitor: ClassVisitor? = null,
     }, 0)
 
 }
+
+public fun Instruction.getOpcode(): Int?
+        = (this.metadata as? AsmInstructionMetadata)?.asmInstruction?.getOpcode()

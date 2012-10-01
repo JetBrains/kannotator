@@ -1,21 +1,19 @@
 package inference
 
-import inference.InferenceTest
+import inference.AbstractInferenceTest
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.DerivedAnnotation
+import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Positions
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.annotationsInference.buildAnnotations
 import org.jetbrains.kannotator.index.DeclarationIndex
+import interpreter.doTest
+import org.jetbrains.kannotator.nullability.Nullability
+import org.jetbrains.kannotator.annotationsInference.NullabilityAnnotationsInference
 
-class NullabilityInferenceTest : InferenceTest<NullabilityAnnotation>(
-        javaClass<inferenceData.Test>(),
-        {(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
-          annotations: Annotations<NullabilityAnnotation>) : Annotations<NullabilityAnnotation> ->
-            buildAnnotations(graph, positions, declarationIndex, annotations)}) {
+class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<inferenceData.Test>()) {
 
-    protected override fun Array<Annotation>.toAnnotation(): NullabilityAnnotation? {
+    protected override fun Array<jet.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
             if (ann.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
@@ -23,6 +21,10 @@ class NullabilityInferenceTest : InferenceTest<NullabilityAnnotation>(
         return null
     }
 
+    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
+                                            annotations: Annotations<Annotation<Nullability>>) : Annotations<Annotation<Nullability>> {
+        return NullabilityAnnotationsInference(graph).buildAnnotations(positions, declarationIndex, annotations)
+    }
 
     fun testNull() = doTest()
 

@@ -16,6 +16,7 @@ import kotlin.test.assertEquals
 
 import org.jetbrains.kannotator.controlFlowBuilder
 import java.util.Collections
+import org.jetbrains.kannotator.asm.util.getOpcode
 
 class FramesNullabilityManager {
     private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, ValueNullabilityMap> = hashMap()

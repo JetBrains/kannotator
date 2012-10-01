@@ -11,21 +11,21 @@ import org.jetbrains.kannotator.declarations.Positions
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
-import org.jetbrains.kannotator.annotationsInference.buildAnnotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import java.util.HashMap
 import kotlinlib.*
-import org.jetbrains.kannotator.annotationsInference.DerivedAnnotation
+import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.DeclarationIndex
 import util.ClassPathDeclarationIndex
+import org.jetbrains.kannotator.annotationsInference.AnnotationKind
 
-abstract class InferenceTest<A: DerivedAnnotation>(
-        val testClass: Class<*>,
-        val buildAnnotationsMethod: (ControlFlowGraph, Positions, DeclarationIndex, Annotations<A>) -> Annotations<A>)
-: TestCase() {
+abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>) : TestCase() {
 
-    protected abstract fun Array<Annotation>.toAnnotation(): A?
+    protected abstract fun Array<jet.Annotation>.toAnnotation(): Annotation<T>?
+
+    protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
+                                            annotations: Annotations<Annotation<T>>) : Annotations<Annotation<T>>
 
     protected fun doTest() {
         val className = testClass.getName()
@@ -39,11 +39,11 @@ abstract class InferenceTest<A: DerivedAnnotation>(
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val result = buildAnnotationsMethod(graph, positions, ClassPathDeclarationIndex, AnnotationsImpl())
+        val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, AnnotationsImpl())
 
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 
-        val parametersMap = HashMap<Int, DerivedAnnotation>()
+        val parametersMap = HashMap<Int, Annotation<T>>()
         for ((paramIndex, paramAnnotations) in reflectMethod.getParameterAnnotations().indexed) {
             val annotation = paramAnnotations.toAnnotation()
             if (annotation != null) {
@@ -54,8 +54,8 @@ abstract class InferenceTest<A: DerivedAnnotation>(
         assertEquals(parametersMap, expectedReturnInfo, result, reflectMethod.getParameterTypes()!!.size, positions)
     }
 
-    fun assertEquals(expectedParametersAnnotations: Map<Int, DerivedAnnotation>, expectedReturnAnnotation: DerivedAnnotation?,
-                     actual: Annotations<DerivedAnnotation>, parametersNumber: Int, positions: Positions) {
+    fun assertEquals(expectedParametersAnnotations: Map<Int, Annotation<T>>, expectedReturnAnnotation: Annotation<T>?,
+                     actual: Annotations<Annotation<T>>, parametersNumber: Int, positions: Positions) {
         assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position))
 
         for (index in 1..parametersNumber) {
