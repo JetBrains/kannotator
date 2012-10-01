@@ -17,61 +17,38 @@ import org.jetbrains.kannotator.nullability.merge
 import org.jetbrains.kannotator.nullability.toAnnotation
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.nullability.Nullability
+import org.jetbrains.kannotator.asm.util.getOpcode
 
-fun buildAnnotations(
-        graph: ControlFlowGraph,
-        positions: Positions,
-        declarationIndex: DeclarationIndex,
-        annotations: Annotations<NullabilityAnnotation>
-) : Annotations<NullabilityAnnotation> {
+class NullabilityAnnotationsInference(
+        graph: ControlFlowGraph
+) : AnnotationsInference<Nullability>(graph, NullabilityAnnotationsManager()) {
 
-    val annotationsInference = AnnotationsInference(graph)
-    annotationsInference.process()
-    return annotationsInference.getResult().toAnnotations(positions)
-}
-
-trait DerivedAnnotation
-
-class AnnotationsInference(private val graph: ControlFlowGraph) {
     private val framesManager = FramesNullabilityManager()
-    private val annotationsManager = NullabilityAnnotationsManager()
+    //todo make property without backing field (compiler's bug)
+    private val nullabilityAnnotationManager : NullabilityAnnotationsManager = annotationsManager as NullabilityAnnotationsManager
 
-    fun process() {
-        for (instruction in graph.instructions) {
-            analyzeInstruction(instruction, annotationsManager)
-        }
-    }
+    override fun computeValueInfos(instruction: Instruction) : ValueNullabilityMap =
+            framesManager.computeNullabilityInfosForInstruction(instruction)
 
-    fun getResult(): NullabilityAnnotationsManager = annotationsManager
+    override fun postProcess(instruction: Instruction, valueInfos: Map<Value, ValueInfo<Nullability>>) =
+        checkReturnInstruction(instruction, valueInfos as ValueNullabilityMap)
 
-    private fun analyzeInstruction(instruction: Instruction, annotation: NullabilityAnnotationsManager) {
-        if (instruction[STATE_BEFORE] == null) return // dead instructions
-
-        val nullabilityInfosForInstruction = framesManager.computeNullabilityInfosForInstruction(instruction)
-
-        val asserts = generateAsserts(instruction)
-        for (assert in asserts) {
-            if (isAnnotationNecessary(assert, nullabilityInfosForInstruction)) {
-                annotation.addAssert(assert)
-            }
-        }
-
-        checkReturnInstruction(instruction, annotation, nullabilityInfosForInstruction)
-    }
-
-    private fun isAnnotationNecessary(
-            assert: NullabilityAssert,
-            nullabilityInfos: ValueNullabilityMap
+    override fun isAnnotationNecessary(
+            assert: Assert<Nullability>,
+            valueInfos: Map<Value, ValueInfo<Nullability>>
     ): Boolean {
-        if (!assert.shouldBeNotNullValue.interesting) return false
+        if (!assert.value.interesting) return false
 
-        val valueInfo = nullabilityInfos[assert.shouldBeNotNullValue]
+        val valueInfo = valueInfos[assert.value]
         return valueInfo == NULLABLE || valueInfo == UNKNOWN
     }
 
+    protected override fun generateAsserts(instruction: Instruction): Collection<Assert<Nullability>> =
+        generateNullabilityAsserts(instruction)
+
     private fun checkReturnInstruction(
             instruction: Instruction,
-            annotationManager: NullabilityAnnotationsManager,
             nullabilityInfosForInstruction: ValueNullabilityMap
     ) {
         fun checkAllValuesOnReturn() {
@@ -79,7 +56,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
             // if parameter becomes NULL here, then it should be annotated as nullable
             for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
                 if (value.interesting && nullabilityValueInfo == NULL) {
-                    annotationManager.addParameterAnnotation(value, NullabilityAnnotation.NULLABLE)
+                    nullabilityAnnotationManager.addParameterAnnotation(value, NullabilityAnnotation.NULLABLE)
                 }
             }
         }
@@ -90,7 +67,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
             ARETURN -> {
                 val valueSet = state.stack[0]
                 val nullabilityValueInfo = valueSet.map { it -> nullabilityInfosForInstruction[it] }.merge()
-                annotationManager.addReturnValueInfo(nullabilityValueInfo)
+                nullabilityAnnotationManager.addReturnValueInfo(nullabilityValueInfo)
                 checkAllValuesOnReturn()
             }
             RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
@@ -101,7 +78,7 @@ class AnnotationsInference(private val graph: ControlFlowGraph) {
     }
 }
 
-private class NullabilityAnnotationsManager {
+private class NullabilityAnnotationsManager : AnnotationsManager<Nullability>() {
     val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()
     var returnValueInfo : NullabilityValueInfo? = null
 
@@ -113,26 +90,22 @@ private class NullabilityAnnotationsManager {
         val current = returnValueInfo
         returnValueInfo = if (current == null) valueInfo else current.merge(valueInfo)
     }
-}
 
-private fun NullabilityAnnotationsManager.addAssert(assert: NullabilityAssert) {
-    addParameterAnnotation(assert.shouldBeNotNullValue, NullabilityAnnotation.NOT_NULL)
-}
+    override fun addAssert(assert: Assert<Nullability>) {
+        addParameterAnnotation(assert.value, NullabilityAnnotation.NOT_NULL)
+    }
 
-private fun NullabilityAnnotationsManager.toAnnotations(positions: Positions): Annotations<NullabilityAnnotation> {
-    val annotations = AnnotationsImpl<NullabilityAnnotation>()
-    fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
-        if (annotation != null) {
-            annotations.set(position, annotation)
+    override fun toAnnotations(positions: Positions): Annotations<Annotation<Nullability>> {
+        val annotations = AnnotationsImpl<NullabilityAnnotation>()
+        fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
+            if (annotation != null) {
+                annotations.set(position, annotation)
+            }
         }
+        setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
+        for ((value, annotation) in parameterAnnotations) {
+            setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
+        }
+        return annotations
     }
-    setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
-    for ((value, annotation) in parameterAnnotations) {
-        setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
-    }
-    return annotations
 }
-
-private fun Instruction.getOpcode(): Int?
-        = (this.metadata as? AsmInstructionMetadata)?.asmInstruction?.getOpcode()
-

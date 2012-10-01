@@ -5,20 +5,22 @@ import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.objectweb.asm.Opcodes.*
+import org.jetbrains.kannotator.nullability.Nullability
+import org.jetbrains.kannotator.asm.util.getOpcode
 
 // TODO make it generic
 class NullabilityAssert(val shouldBeNotNullValue: Value)
 
-fun generateAsserts(instruction: Instruction) : Set<NullabilityAssert> {
+fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullability>> {
     val state = instruction[STATE_BEFORE]!!
 
-    val result = hashSet<NullabilityAssert>()
+    val result = hashSet<Assert<Nullability>>()
     when (instruction.getOpcode()) {
         INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC,
         AALOAD, AASTORE -> {
             val valueSet = state.stack[0]
             for (value in valueSet) {
-                result.add(NullabilityAssert(value))
+                result.add(Assert(value))
             }
         }
         // TODO other interesting instructions

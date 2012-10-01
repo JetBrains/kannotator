@@ -1,8 +1,9 @@
 package org.jetbrains.kannotator.nullability
 
 import kotlin.nullable.fold
+import org.jetbrains.kannotator.annotationsInference.ValueInfo
 
-public enum class NullabilityValueInfo {
+public enum class NullabilityValueInfo : ValueInfo<Nullability> {
     NOT_NULL
     NULL
     NULLABLE

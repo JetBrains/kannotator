@@ -9,7 +9,6 @@ import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.TypePosition
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.controlFlow.Value
-import org.jetbrains.kannotator.mutability.MutabilityAssert
 import java.util.Collections
 import org.objectweb.asm.Opcodes.*
 import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
@@ -20,55 +19,27 @@ import org.jetbrains.kannotator.mutability.mutableInterfaces
 import org.jetbrains.kannotator.mutability.propagatingMutability
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.mutability.Mutability
+import org.jetbrains.kannotator.asm.util.getOpcode
 
-fun buildMutabilityAnnotations(
-        graph: ControlFlowGraph,
-        positions: Positions,
-        declarationIndex: DeclarationIndex,
-        annotations: Annotations<MutabilityAnnotation>
-) : Annotations<MutabilityAnnotation> {
+class MutabilityAnnotationsInference(val graph: ControlFlowGraph)
+                    : AnnotationsInference<Mutability>(graph, MutabilityAnnotationsManager()) {
+    private val asm2GraphInstructionMap = createInstructionMap()
 
-    val annotationsInference = MutabilityAnnotationsInference(graph)
-    annotationsInference.process()
-    return annotationsInference.getResult().toAnnotations(positions)
-}
-
-class MutabilityAnnotationsInference(private val graph: ControlFlowGraph) {
-    private val annotationsManager = MutabilityAnnotationsManager()
-
-    val instructionCache = hashMap<AbstractInsnNode, Instruction>()
-    fun createInstructionCache(graph: ControlFlowGraph) {
+    private fun createInstructionMap() : Map<AbstractInsnNode, Instruction> {
+        val map = hashMap<AbstractInsnNode, Instruction>()
         for (instruction in graph.instructions) {
             val metadata = instruction.metadata
             if (metadata is AsmInstructionMetadata) {
-                instructionCache[metadata.asmInstruction] = instruction
+                map[metadata.asmInstruction] = instruction
             }
         }
+        return map
     }
 
-    fun process() {
-        createInstructionCache(graph)
-        for (instruction in graph.instructions) {
-            analyzeInstruction(instruction, annotationsManager)
-        }
-    }
-
-    fun getResult(): MutabilityAnnotationsManager = annotationsManager
-
-    private fun analyzeInstruction(instruction: Instruction, annotation: MutabilityAnnotationsManager) {
-        if (instruction[STATE_BEFORE] == null) return // dead instructions
-
-        val asserts = generateAsserts(instruction)
-        for (assert in asserts) {
-            if (isAnnotationNecessary(assert)) {
-                annotation.addAssert(assert)
-            }
-        }
-    }
-
-    private fun generateAsserts(instruction: Instruction) : Collection<MutabilityAssert> {
+    override fun generateAsserts(instruction: Instruction) : Collection<Assert<Mutability>> {
         val state = instruction[STATE_BEFORE]!!
-        val result = hashSet<MutabilityAssert>()
+        val result = hashSet<Assert<Mutability>>()
         val asmInstruction = (instruction.metadata as? AsmInstructionMetadata)?.asmInstruction
         if (!(asmInstruction is MethodInsnNode)) return Collections.emptyList()
         when (instruction.getOpcode()) {
@@ -78,67 +49,75 @@ class MutabilityAnnotationsInference(private val graph: ControlFlowGraph) {
                 for (value in valueSet) {
                     if (!(value is TypedValue) || value._type == null) continue;
                     if (isInvocationRequiredMutability(value._type.getClassName()!!, methodName)) {
-                        result.add(MutabilityAssert(value))
+                        result.add(Assert<Mutability>(value))
                         if (value.createdAtInsn is MethodInsnNode) {
                             result.addAll(generatePropagatingMutabilityAsserts(value.createdAtInsn))
                         }
                     }
                 }
             }
+            //todo check function arguments mutability annotations
+            //foo(collection) if 'foo' expects @Mutable
             else -> {}
         }
 
         return result
     }
 
-    private fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) : Collection<MutabilityAssert> {
-        val result = hashSet<MutabilityAssert>()
-        if (isPropagatingMutability(createdAtInsn.owner!!.replace("/", "."),createdAtInsn.name!!)) {
-            val insn = instructionCache[createdAtInsn]
-            val valueSet = insn?.get(STATE_BEFORE)?.stack?.get(0)
-            if (valueSet != null) {
-                for (value in valueSet) {
-                    result.add(MutabilityAssert(value))
-                }
+    private fun isInvocationRequiredMutability(className: String, methodName: String) : Boolean =
+            mutableInterfaces[className]?.contains(methodName) ?: false
+
+    private fun isPropagatingMutability(className: String, methodName: String) : Boolean =
+            propagatingMutability[className]?.contains(methodName) ?: false
+
+
+    private fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) : Collection<Assert<Mutability>> {
+        val result = hashSet<Assert<Mutability>>()
+        val methodClass = createdAtInsn.owner!!
+        val methodName = createdAtInsn.name!!
+        if (isPropagatingMutability(methodClass.replace("/", "."), methodName)) {
+            val instruction = asm2GraphInstructionMap[createdAtInsn]!!
+            val valueSet = instruction[STATE_BEFORE]!!.stack[0]
+            for (value in valueSet) {
+                result.add(Assert(value))
             }
         }
         return result
     }
 
-    private fun isAnnotationNecessary(assert: MutabilityAssert): Boolean {
+    override fun isAnnotationNecessary(assert: Assert<Mutability>, valueInfos: Map<Value, ValueInfo<Mutability>>): Boolean {
         return true
     }
 
-    private fun isInvocationRequiredMutability(className: String, methodName: String) : Boolean =
-        mutableInterfaces[className]?.contains(methodName) ?: false
+    protected override fun computeValueInfos(instruction: Instruction): Map<Value, ValueInfo<Mutability>> = Collections.emptyMap()
 
-    private fun isPropagatingMutability(className: String, methodName: String) : Boolean =
-        propagatingMutability[className]?.contains(methodName) ?: false
+    protected override fun postProcess(instruction: Instruction, valueInfos: Map<Value, ValueInfo<Mutability>>) {}
+
 }
 
-private class MutabilityAnnotationsManager {
+private class MutabilityAnnotationsManager : AnnotationsManager<Mutability>() {
     val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
 
-    fun addParameterAnnotation(value: Value, annotation: MutabilityAnnotation) {
+    private fun addParameterAnnotation(value: Value, annotation: MutabilityAnnotation) {
         parameterAnnotations[value] = annotation
     }
-}
 
-private fun MutabilityAnnotationsManager.addAssert(assert: MutabilityAssert) {
-    addParameterAnnotation(assert.shouldBeMutable, MutabilityAnnotation.MUTABLE)
-}
+    override fun addAssert(assert: Assert<Mutability>) {
+        addParameterAnnotation(assert.value, MutabilityAnnotation.MUTABLE)
+    }
 
-private fun MutabilityAnnotationsManager.toAnnotations(positions: Positions): Annotations<MutabilityAnnotation> {
-    val annotations = AnnotationsImpl<MutabilityAnnotation>()
-    fun setAnnotation(position: TypePosition, annotation: MutabilityAnnotation?) {
-        if (annotation != null) {
-            annotations.set(position, annotation)
+    override fun toAnnotations(positions: Positions): Annotations<Annotation<Mutability>> {
+        val annotations = AnnotationsImpl<MutabilityAnnotation>()
+        fun setAnnotation(position: TypePosition, annotation: MutabilityAnnotation?) {
+            if (annotation != null) {
+                annotations.set(position, annotation)
+            }
         }
-    }
-    for ((value, annotation) in parameterAnnotations) {
-        if (value.interesting) {
-            setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
+        for ((value, annotation) in parameterAnnotations) {
+            if (value.interesting) {
+                setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
+            }
         }
+        return annotations
     }
-    return annotations
 }
