@@ -14,7 +14,7 @@ data class MethodId(
 }
 
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
-fun MethodId.getArgumentTypes(): Array<out Type> = Type.getArgumentTypes(methodDesc) as Array<out Type>
+fun MethodId.getArgumentTypes(): Array<Type> = Type.getArgumentTypes(methodDesc) //after KT-2872 should return Array<out Type>
 
 
 enum class Visibility {

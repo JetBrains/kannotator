@@ -30,6 +30,6 @@ public class AsmInstructionRenderer {
         }
         val textifier = Textifier()
         insn.accept(TraceMethodVisitor(textifier))
-        return textifier.getText().map {x -> x.toString().trim()}.join(" ")
+        return textifier.getText()!!.map {x -> x.toString().trim()}.join(" ")
     }
 }
