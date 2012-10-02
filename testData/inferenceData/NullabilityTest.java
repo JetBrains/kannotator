@@ -5,7 +5,7 @@ import inferenceData.annotations.ExpectNullable;
 
 import java.util.Collection;
 
-public class Test {
+public class NullabilityTest {
     @ExpectNullable
     public Object testNull() {
         return null;

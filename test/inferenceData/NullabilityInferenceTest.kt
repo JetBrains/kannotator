@@ -11,7 +11,7 @@ import interpreter.doTest
 import org.jetbrains.kannotator.nullability.Nullability
 import org.jetbrains.kannotator.annotationsInference.NullabilityAnnotationsInference
 
-class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<inferenceData.Test>()) {
+class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<inferenceData.NullabilityTest>()) {
 
     protected override fun Array<jet.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
