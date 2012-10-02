@@ -25,7 +25,7 @@ class NullabilityAnnotationsInference(
 ) : AnnotationsInference<Nullability>(graph, NullabilityAnnotationsManager()) {
 
     private val framesManager = FramesNullabilityManager()
-    //todo make property without backing field (compiler's bug)
+    //todo make property without backing field (after KT-2892)
     private val nullabilityAnnotationManager : NullabilityAnnotationsManager = annotationsManager as NullabilityAnnotationsManager
 
     override fun computeValueInfos(instruction: Instruction) : ValueNullabilityMap =
