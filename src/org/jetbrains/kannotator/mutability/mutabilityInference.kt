@@ -44,11 +44,10 @@ class MutabilityAnnotationsInference(val graph: ControlFlowGraph)
         if (!(asmInstruction is MethodInsnNode)) return Collections.emptyList()
         when (instruction.getOpcode()) {
             INVOKEINTERFACE -> {
-                val methodName = asmInstruction.name!!
                 val valueSet = state.stack[0]
                 for (value in valueSet) {
                     if (!(value is TypedValue) || value._type == null) continue;
-                    if (isInvocationRequiredMutability(value._type.getClassName()!!, methodName)) {
+                    if (isInvocationRequiredMutability(asmInstruction)) {
                         result.add(Assert<Mutability>(value))
                         if (value.createdAtInsn is MethodInsnNode) {
                             result.addAll(generatePropagatingMutabilityAsserts(value.createdAtInsn))
@@ -64,18 +63,21 @@ class MutabilityAnnotationsInference(val graph: ControlFlowGraph)
         return result
     }
 
-    private fun isInvocationRequiredMutability(className: String, methodName: String) : Boolean =
-            mutableInterfaces[className]?.contains(methodName) ?: false
+    private fun isInvocationRequiredMutability(instruction: MethodInsnNode) : Boolean =
+            mutableInterfaces.containsInvocation(instruction)
 
-    private fun isPropagatingMutability(className: String, methodName: String) : Boolean =
-            propagatingMutability[className]?.contains(methodName) ?: false
+    private fun isPropagatingMutability(instruction: MethodInsnNode) : Boolean =
+            propagatingMutability.containsInvocation(instruction)
 
+    private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsnNode) : Boolean {
+        val className = instruction.owner!!.replace("/", ".")
+        val methodName = instruction.name!!
+        return this[className]?.contains(methodName) ?: false
+    }
 
     private fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) : Collection<Assert<Mutability>> {
         val result = hashSet<Assert<Mutability>>()
-        val methodClass = createdAtInsn.owner!!
-        val methodName = createdAtInsn.name!!
-        if (isPropagatingMutability(methodClass.replace("/", "."), methodName)) {
+        if (isPropagatingMutability(createdAtInsn)) {
             val instruction = asm2GraphInstructionMap[createdAtInsn]!!
             val valueSet = instruction[STATE_BEFORE]!!.stack[0]
             for (value in valueSet) {
