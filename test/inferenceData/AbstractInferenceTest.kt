@@ -51,15 +51,17 @@ abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>)
             }
         }
 
-        assertEquals(parametersMap, expectedReturnInfo, result, reflectMethod.getParameterTypes()!!.size, positions)
+        checkInferredAnnotations(parametersMap, expectedReturnInfo, result, reflectMethod.getParameterTypes()!!.size, positions)
     }
 
-    fun assertEquals(expectedParametersAnnotations: Map<Int, Annotation<T>>, expectedReturnAnnotation: Annotation<T>?,
+    fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, Annotation<T>>, expectedReturnAnnotation: Annotation<T>?,
                      actual: Annotations<Annotation<T>>, parametersNumber: Int, positions: Positions) {
-        assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position))
+        assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position),
+                "Return annotations error")
 
         for (index in 1..parametersNumber) {
-            assertEquals(expectedParametersAnnotations.get(index), actual.get(positions.forParameter(index).position))
+            assertEquals(expectedParametersAnnotations.get(index), actual.get(positions.forParameter(index).position),
+                    "Annotations for parameters ($index) error")
         }
     }
 }
