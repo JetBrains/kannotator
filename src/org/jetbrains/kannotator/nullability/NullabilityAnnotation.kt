@@ -16,3 +16,8 @@ fun NullabilityValueInfo.toAnnotation() : NullabilityAnnotation? = when (this) {
     CONFLICT, UNKNOWN -> null
 }
 
+fun NullabilityAnnotation?.toValueInfo() : NullabilityValueInfo = when (this) {
+    NullabilityAnnotation.NOT_NULL -> NOT_NULL
+    NullabilityAnnotation.NULLABLE -> NULLABLE
+    null -> UNKNOWN
+}
