@@ -34,7 +34,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<Annotation<Mutability>>) : Annotations<Annotation<Mutability>> {
-        return MutabilityAnnotationsInference(graph).buildAnnotations(positions, declarationIndex, annotations)
+        return MutabilityAnnotationsInference(graph, annotations as Annotations<MutabilityAnnotation>, positions, declarationIndex).buildAnnotations()
     }
 
     fun testMutableCollection() = doTest()

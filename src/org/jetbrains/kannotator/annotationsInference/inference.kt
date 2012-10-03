@@ -15,15 +15,14 @@ data class Assert<T: AnnotationKind>(val value: Value)
 
 abstract class AnnotationsInference<T: AnnotationKind>(
         private val graph: ControlFlowGraph,
+        annotations: Annotations<Annotation<T>>,
+        positions: Positions,
+        declarationIndex: DeclarationIndex,
         protected val annotationsManager: AnnotationsManager<T>) {
 
-    fun buildAnnotations(
-            positions: Positions,
-            declarationIndex: DeclarationIndex,
-            annotations: Annotations<Annotation<T>>
-    ) : Annotations<Annotation<T>> {
+    fun buildAnnotations() : Annotations<Annotation<T>> {
         process()
-        return getResult().toAnnotations(positions)
+        return getResult().toAnnotations()
     }
 
     private fun process() {
@@ -56,11 +55,9 @@ abstract class AnnotationsInference<T: AnnotationKind>(
     ): Boolean
 
     protected abstract fun generateAsserts(instruction: Instruction) : Collection<Assert<T>>
-
-    protected abstract fun postProcess(instruction: Instruction, valueInfos: Map<Value, ValueInfo<T>>)
 }
 
 abstract class AnnotationsManager<T: AnnotationKind> {
     abstract fun addAssert(assert: Assert<T>)
-    abstract fun toAnnotations(positions: Positions): Annotations<Annotation<T>>
+    abstract fun toAnnotations(): Annotations<Annotation<T>>
 }

@@ -22,8 +22,12 @@ import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.mergeWithNullable
 
 class NullabilityAnnotationsInference(
-        graph: ControlFlowGraph
-) : AnnotationsInference<Nullability>(graph, NullabilityAnnotationsManager()) {
+        graph: ControlFlowGraph,
+        annotations: Annotations<NullabilityAnnotation>,
+        positions: Positions,
+        declarationIndex: DeclarationIndex
+) : AnnotationsInference<Nullability>(graph, annotations, positions, declarationIndex,
+        NullabilityAnnotationsManager(annotations, positions)) {
 
     private val framesManager = FramesNullabilityManager()
     //todo make property without backing field (after KT-2892)
@@ -70,7 +74,11 @@ class NullabilityAnnotationsInference(
     }
 }
 
-private class NullabilityAnnotationsManager : AnnotationsManager<Nullability>() {
+private class NullabilityAnnotationsManager(
+        val annotations: Annotations<NullabilityAnnotation>,
+        val positions: Positions
+) : AnnotationsManager<Nullability>() {
+
     val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()
     val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
     var returnValueInfo : NullabilityValueInfo? = null
@@ -92,7 +100,7 @@ private class NullabilityAnnotationsManager : AnnotationsManager<Nullability>() 
         addParameterAnnotation(assert.value, NullabilityAnnotation.NOT_NULL)
     }
 
-    override fun toAnnotations(positions: Positions): Annotations<Annotation<Nullability>> {
+    override fun toAnnotations(): Annotations<Annotation<Nullability>> {
         val annotations = AnnotationsImpl<NullabilityAnnotation>()
         fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
             if (annotation != null) {

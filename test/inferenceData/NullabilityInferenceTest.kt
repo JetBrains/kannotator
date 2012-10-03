@@ -23,7 +23,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<Annotation<Nullability>>) : Annotations<Annotation<Nullability>> {
-        return NullabilityAnnotationsInference(graph).buildAnnotations(positions, declarationIndex, annotations)
+        return NullabilityAnnotationsInference(graph, annotations as Annotations<NullabilityAnnotation>, positions, declarationIndex).buildAnnotations()
     }
 
     fun testNull() = doTest()

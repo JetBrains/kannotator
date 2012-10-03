@@ -14,7 +14,7 @@ fun buildNullabilityAnnotations(
         declarationIndex: DeclarationIndex,
         annotations: Annotations<NullabilityAnnotation>
 ) : Annotations<NullabilityAnnotation> {
-    val result = NullabilityAnnotationsInference(graph).buildAnnotations(positions, declarationIndex, annotations)
+    val result = NullabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
     return result as Annotations<NullabilityAnnotation>
 }
 
@@ -24,7 +24,7 @@ fun buildMutabilityAnnotations(
         declarationIndex: DeclarationIndex,
         annotations: Annotations<MutabilityAnnotation>
 ) : Annotations<MutabilityAnnotation> {
-    val result = MutabilityAnnotationsInference(graph).buildAnnotations(positions, declarationIndex, annotations)
+    val result = MutabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
     return result as Annotations<MutabilityAnnotation>
 }
 

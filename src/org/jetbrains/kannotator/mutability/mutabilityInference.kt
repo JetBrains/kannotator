@@ -22,8 +22,11 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.mutability.Mutability
 import org.jetbrains.kannotator.asm.util.getOpcode
 
-class MutabilityAnnotationsInference(val graph: ControlFlowGraph)
-                    : AnnotationsInference<Mutability>(graph, MutabilityAnnotationsManager()) {
+class MutabilityAnnotationsInference(graph: ControlFlowGraph,
+                                     annotations: Annotations<MutabilityAnnotation>,
+                                     positions: Positions,
+                                     declarationIndex: DeclarationIndex
+): AnnotationsInference<Mutability>(graph, annotations, positions, declarationIndex, MutabilityAnnotationsManager(positions)) {
     private val asm2GraphInstructionMap = createInstructionMap()
 
     private fun createInstructionMap() : Map<AbstractInsnNode, Instruction> {
@@ -92,12 +95,9 @@ class MutabilityAnnotationsInference(val graph: ControlFlowGraph)
     }
 
     protected override fun computeValueInfos(instruction: Instruction): Map<Value, ValueInfo<Mutability>> = Collections.emptyMap()
-
-    protected override fun postProcess(instruction: Instruction, valueInfos: Map<Value, ValueInfo<Mutability>>) {}
-
 }
 
-private class MutabilityAnnotationsManager : AnnotationsManager<Mutability>() {
+private class MutabilityAnnotationsManager(val positions: Positions) : AnnotationsManager<Mutability>() {
     val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
 
     private fun addParameterAnnotation(value: Value, annotation: MutabilityAnnotation) {
@@ -108,7 +108,7 @@ private class MutabilityAnnotationsManager : AnnotationsManager<Mutability>() {
         addParameterAnnotation(assert.value, MutabilityAnnotation.MUTABLE)
     }
 
-    override fun toAnnotations(positions: Positions): Annotations<Annotation<Mutability>> {
+    override fun toAnnotations(): Annotations<Annotation<Mutability>> {
         val annotations = AnnotationsImpl<MutabilityAnnotation>()
         fun setAnnotation(position: TypePosition, annotation: MutabilityAnnotation?) {
             if (annotation != null) {
