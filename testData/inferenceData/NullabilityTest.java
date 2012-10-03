@@ -137,6 +137,13 @@ public class NullabilityTest {
         if (a == null) throw new NullPointerException();
     }
 
+    @ExpectNotNull
+    public String testAssertAfterReturn(@ExpectNotNull String a, boolean condition) {
+        if (condition) return a;
+        a.getBytes();
+        return "";
+    }
+
     private Object field;
     private static Object staticField;
 

@@ -31,7 +31,7 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
 
     private fun createInstructionMap() : Map<AbstractInsnNode, Instruction> {
         val map = hashMap<AbstractInsnNode, Instruction>()
-        for (instruction in graph.instructions) {
+        traverseInstructions { instruction ->
             val metadata = instruction.metadata
             if (metadata is AsmInstructionMetadata) {
                 map[metadata.asmInstruction] = instruction

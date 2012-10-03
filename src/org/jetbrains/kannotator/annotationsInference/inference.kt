@@ -7,6 +7,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.Positions
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.controlFlow.Value
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
 
 trait AnnotationKind
 trait Annotation<T: AnnotationKind>
@@ -22,20 +23,24 @@ abstract class AnnotationsInference<T: AnnotationKind>(
 
     fun buildAnnotations() : Annotations<Annotation<T>> {
         process()
+        postProcess()
         return getResult().toAnnotations()
     }
 
-    private fun process() {
+    private fun process() = traverseInstructions { insn -> analyzeInstruction(insn )}
+
+    protected fun traverseInstructions(f: (Instruction) -> Unit) {
         for (instruction in graph.instructions) {
-            analyzeInstruction(instruction)
+            if (instruction[STATE_BEFORE] == null) continue // dead instructions
+            f(instruction)
         }
     }
+
+    protected open fun postProcess() {}
 
     private fun getResult(): AnnotationsManager<T> = annotationsManager
 
     private fun analyzeInstruction(instruction: Instruction) {
-        if (instruction[STATE_BEFORE] == null) return // dead instructions
-
         val valueInfos = computeValueInfos(instruction)
 
         val asserts = generateAsserts(instruction)
@@ -44,7 +49,6 @@ abstract class AnnotationsInference<T: AnnotationKind>(
                 annotationsManager.addAssert(assert)
             }
         }
-        postProcess(instruction, valueInfos)
     }
 
     protected abstract fun computeValueInfos(instruction: Instruction) : Map<Value, ValueInfo<T>>

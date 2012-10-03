@@ -76,4 +76,6 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
     fun testClassLiteral() = doTest()
 
     fun testNotNullIfNullCheckThrowsException() = doTest()
+
+    fun testAssertAfterReturn() = doTest()
 }

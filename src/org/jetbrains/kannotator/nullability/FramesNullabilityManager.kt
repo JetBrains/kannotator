@@ -17,8 +17,9 @@ import kotlin.test.assertEquals
 import org.jetbrains.kannotator.controlFlowBuilder
 import java.util.Collections
 import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.nullability.toValueInfo
 
-class FramesNullabilityManager {
+class FramesNullabilityManager(val annotationsManager: NullabilityAnnotationsManager) {
     private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, ValueNullabilityMap> = hashMap()
 
     private fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
@@ -26,9 +27,13 @@ class FramesNullabilityManager {
         nullabilityInfosForEdges[edge] = infos
     }
 
+    fun clear() {
+        nullabilityInfosForEdges.clear()
+    }
+
     private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
         val incomingEdgesMaps = instruction.incomingEdges.map { e -> nullabilityInfosForEdges[e] }.filterNotNull()
-        return mergeValueNullabilityMaps(incomingEdgesMaps)
+        return mergeValueNullabilityMaps(annotationsManager, incomingEdgesMaps)
     }
 
     fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
@@ -55,7 +60,7 @@ class FramesNullabilityManager {
                 return
             }
 
-            val infosForEdge = ValueNullabilityMap(infosForInstruction)
+            val infosForEdge = ValueNullabilityMap(annotationsManager, infosForInstruction)
             for (value in state.stack[0]) {
                 infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
             }
@@ -106,7 +111,7 @@ class FramesNullabilityManager {
     }
 }
 
-public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
+public class ValueNullabilityMap(val annotationsManager: NullabilityAnnotationsManager, m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
     override fun get(key: Any?): NullabilityValueInfo {
         val fromSuper = super.get(key)
         if (fromSuper != null) return fromSuper
@@ -128,7 +133,7 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
             }
         }
         if (key.interesting) {
-            return UNKNOWN // todo read from parameter annotation
+            return annotationsManager.getParameterAnnotation(key).toValueInfo()
         }
         return when (key) {
             controlFlowBuilder.NULL_VALUE -> NULL
@@ -139,8 +144,8 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
     }
 }
 
-fun mergeValueNullabilityMaps(maps: Collection<ValueNullabilityMap>) : ValueNullabilityMap {
-    val result = ValueNullabilityMap()
+fun mergeValueNullabilityMaps(annotationManager: NullabilityAnnotationsManager, maps: Collection<ValueNullabilityMap>) : ValueNullabilityMap {
+    val result = ValueNullabilityMap(annotationManager)
     val affectedValues = maps.flatMap { m -> m.keySet() }.toSet()
 
     for (m in maps) {
