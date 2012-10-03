@@ -19,6 +19,7 @@ import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.nullability.Nullability
 import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.nullability.mergeWithNullable
 
 class NullabilityAnnotationsInference(
         graph: ControlFlowGraph
@@ -49,29 +50,20 @@ class NullabilityAnnotationsInference(
 
     private fun checkReturnInstruction(
             instruction: Instruction,
-            nullabilityInfosForInstruction: ValueNullabilityMap
+            nullabilityInfos: ValueNullabilityMap
     ) {
-        fun checkAllValuesOnReturn() {
-            // this function is invoked for each *RETURN instruction:
-            // if parameter becomes NULL here, then it should be annotated as nullable
-            for ((value, nullabilityValueInfo) in nullabilityInfosForInstruction) {
-                if (value.interesting && nullabilityValueInfo == NULL) {
-                    nullabilityAnnotationManager.addParameterAnnotation(value, NullabilityAnnotation.NULLABLE)
-                }
-            }
-        }
-
         val state = instruction[STATE_BEFORE]!!
 
         when (instruction.getOpcode()) {
             ARETURN -> {
                 val valueSet = state.stack[0]
-                val nullabilityValueInfo = valueSet.map { it -> nullabilityInfosForInstruction[it] }.merge()
+                val nullabilityValueInfo = valueSet.map { it -> nullabilityInfos[it] }.merge()
                 nullabilityAnnotationManager.addReturnValueInfo(nullabilityValueInfo)
-                checkAllValuesOnReturn()
+
+                nullabilityAnnotationManager.addValueNullabilityMapOnReturn(nullabilityInfos)
             }
             RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
-                checkAllValuesOnReturn()
+                nullabilityAnnotationManager.addValueNullabilityMapOnReturn(nullabilityInfos)
             }
             else -> Unit.VALUE
         }
@@ -80,15 +72,20 @@ class NullabilityAnnotationsInference(
 
 private class NullabilityAnnotationsManager : AnnotationsManager<Nullability>() {
     val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()
+    val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
     var returnValueInfo : NullabilityValueInfo? = null
 
     fun addParameterAnnotation(value: Value, annotation: NullabilityAnnotation) {
         parameterAnnotations[value] = annotation
     }
 
+    fun addValueNullabilityMapOnReturn(map: ValueNullabilityMap) {
+        valueNullabilityMapsOnReturn.add(map)
+    }
+
     fun addReturnValueInfo(valueInfo: NullabilityValueInfo) {
         val current = returnValueInfo
-        returnValueInfo = if (current == null) valueInfo else current.merge(valueInfo)
+        returnValueInfo = valueInfo.mergeWithNullable(current)
     }
 
     override fun addAssert(assert: Assert<Nullability>) {
@@ -99,12 +96,21 @@ private class NullabilityAnnotationsManager : AnnotationsManager<Nullability>() 
         val annotations = AnnotationsImpl<NullabilityAnnotation>()
         fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
             if (annotation != null) {
-                annotations.set(position, annotation)
+                annotations[position] = annotation
             }
         }
+        fun Value.getParameterPosition() = positions.forParameter(this.parameterIndex!!).position
+
         setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
+
+        val mapOnReturn = mergeValueNullabilityMaps(valueNullabilityMapsOnReturn)
+        for ((value, valueInfo) in mapOnReturn) {
+            if (value.interesting) {
+                setAnnotation(value.getParameterPosition(), valueInfo.toAnnotation())
+            }
+        }
         for ((value, annotation) in parameterAnnotations) {
-            setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
+            setAnnotation(value.getParameterPosition(), annotation)
         }
         return annotations
     }
