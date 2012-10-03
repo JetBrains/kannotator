@@ -42,4 +42,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
     fun testIterateOverMutableCollection() = doTest()
 
     fun testImmutableCollection() = doTest()
+
+    fun testMapEntry() = doTest()
+
+    fun testChangeKeySetInMap() = doTest()
 }

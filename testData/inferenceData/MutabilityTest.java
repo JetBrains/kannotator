@@ -23,5 +23,12 @@ public class MutabilityTest {
         }
     }
 
+    public void testMapEntry(@ExpectMutable Map.Entry<Integer, String> entry) {
+        entry.setValue("");
+    }
 
+    public void testChangeKeySetInMap(@ExpectMutable Map<Integer, String> map) {
+        Set<Integer> set = map.keySet();
+        set.remove(42);
+    }
 }
