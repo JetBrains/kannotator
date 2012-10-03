@@ -71,19 +71,19 @@ public class NullabilityTest {
         a.getBytes();
     }
 
-    public void testInvocationOnCheckedParameter(String a) {
+    public void testInvocationOnCheckedParameter(@ExpectNullable String a) {
         if (a != null) {
             a.getBytes();
         }
     }
     
-    public void testIncompatibleChecks(String a) {
+    public void testIncompatibleChecks(@ExpectNullable String a) {
         if (a != null && a == null) {
             a.getBytes();
         }
     }
 
-    public void testInvocationOnNullParameter(String a) {
+    public void testInvocationOnNullParameter(@ExpectNullable String a) {
         if (a == null) {
             a.getBytes();
         }
@@ -94,11 +94,11 @@ public class NullabilityTest {
         System.out.println(a);
     }
 
-//    public void testSenselessNotNullCheck(String a) {
-//        a.getBytes();
-//        if (a == null) return;
-//    }
-//
+    public void testSenselessIsNullCheck(@ExpectNotNull String a) {
+        a.getBytes();
+        if (a == null) return;
+    }
+
     public void testInvocationAfterReturn(@ExpectNullable String a) {
         if (a == null) return;
         a.getBytes();
@@ -133,7 +133,7 @@ public class NullabilityTest {
         return Integer.class;
     }
 
-    public void testInvocationAfterException(@ExpectNotNull String a) {
+    public void testNotNullIfNullCheckThrowsException(@ExpectNotNull String a) {
         if (a == null) throw new NullPointerException();
     }
 

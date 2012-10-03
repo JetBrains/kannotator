@@ -41,7 +41,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
 
     fun testNullableParameter() = doTest()
 
-    //    fun testSenselessNotNullCheck() = doTest("testSenselessNotNullCheck", "(Ljava/lang/String;)V", arrayList(null, NOT_NULL))
+    fun testSenselessIsNullCheck() = doTest()
 
     fun testInvocationAfterReturn() = doTest()
 
@@ -75,6 +75,5 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
 
     fun testClassLiteral() = doTest()
 
-    //todo
-    //    fun testInvocationAfterException() = doTest()
+    fun testNotNullIfNullCheckThrowsException() = doTest()
 }
