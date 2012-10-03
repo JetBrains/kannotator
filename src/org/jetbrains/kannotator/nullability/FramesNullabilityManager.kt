@@ -27,17 +27,8 @@ class FramesNullabilityManager {
     }
 
     private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
-        val result = ValueNullabilityMap()
-
-        for (incomingEdge in instruction.incomingEdges) {
-            val incomingEdgeMap: Map<Value, NullabilityValueInfo>? = nullabilityInfosForEdges[incomingEdge]
-            if (incomingEdgeMap == null) continue
-            for ((value, info) in incomingEdgeMap) {
-                result[value] = if (result.containsKey(value)) info merge result[value] else info
-            }
-        }
-
-        return result
+        val incomingEdgesMaps = instruction.incomingEdges.map { e -> nullabilityInfosForEdges[e] }.filterNotNull()
+        return mergeValueNullabilityMaps(incomingEdgesMaps)
     }
 
     fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
@@ -146,4 +137,16 @@ public class ValueNullabilityMap(m: Map<Value, NullabilityValueInfo> = Collectio
             else -> NOT_NULL // this is either "this" or caught exception
         }
     }
+}
+
+fun mergeValueNullabilityMaps(maps: Collection<ValueNullabilityMap>) : ValueNullabilityMap {
+    val result = ValueNullabilityMap()
+    val affectedValues = maps.flatMap { m -> m.keySet() }.toSet()
+
+    for (m in maps) {
+        for (value in affectedValues) {
+            result[value] =  if (result.containsKey(value)) m[value] merge result[value] else m[value]
+        }
+    }
+    return result
 }
