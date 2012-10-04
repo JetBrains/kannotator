@@ -47,7 +47,7 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
         if (!(asmInstruction is MethodInsnNode)) return Collections.emptyList()
         when (instruction.getOpcode()) {
             INVOKEINTERFACE -> {
-                val valueSet = state.stack[0]
+                val valueSet = state.stack[0] // TODO take value from stack with correct index
                 for (value in valueSet) {
                     if (!(value is TypedValue) || value._type == null) continue;
                     if (isInvocationRequiredMutability(asmInstruction)) {
