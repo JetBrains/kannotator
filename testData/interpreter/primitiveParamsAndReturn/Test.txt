@@ -1,0 +1,151 @@
+interpreter/primitiveParamsAndReturn/Test
+
+interpreter.primitiveParamsAndReturn.Test:<init>()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+  Stack
+Offset 1: LINENUMBER 3 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+  Stack
+Offset 2: ALOAD 0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+  Stack
+    stack[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+Offset 3: INVOKESPECIAL java/lang/Object.<init> ()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+  Stack
+Offset 4: RETURN
+==========================================================================================
+
+
+
+interpreter.primitiveParamsAndReturn.Test:intReturn(Ljava/lang/Object;Ljava/lang/Object;)I
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [2!Ljava/lang/Object;#2]
+  Stack
+Offset 1: LINENUMBER 5 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [2!Ljava/lang/Object;#2]
+  Stack
+Offset 2: ICONST_0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [2!Ljava/lang/Object;#2]
+  Stack
+    stack[0] = [P1#-1]
+Offset 3: IRETURN
+==========================================================================================
+
+
+
+interpreter.primitiveParamsAndReturn.Test:voidReturn(Ljava/lang/Object;Ljava/lang/Object;)V
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [2!Ljava/lang/Object;#2]
+  Stack
+Offset 1: LINENUMBER 9 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [2!Ljava/lang/Object;#2]
+  Stack
+Offset 2: RETURN
+==========================================================================================
+
+
+
+interpreter.primitiveParamsAndReturn.Test:objectReturn(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#1]
+    locals[1] = [1!Ljava/lang/Object;#2]
+    locals[2] = [2!Ljava/lang/Object;#3]
+  Stack
+Offset 1: LINENUMBER 12 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#1]
+    locals[1] = [1!Ljava/lang/Object;#2]
+    locals[2] = [2!Ljava/lang/Object;#3]
+  Stack
+Offset 2: ACONST_NULL
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#1]
+    locals[1] = [1!Ljava/lang/Object;#2]
+    locals[2] = [2!Ljava/lang/Object;#3]
+  Stack
+    stack[0] = [null#-1]
+Offset 3: ARETURN
+==========================================================================================
+
+
+
+interpreter.primitiveParamsAndReturn.Test:intParam(Ljava/lang/Object;ILjava/lang/Object;)V
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P1#-1]
+    locals[3] = [3!Ljava/lang/Object;#2]
+  Stack
+Offset 1: LINENUMBER 16 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P1#-1]
+    locals[3] = [3!Ljava/lang/Object;#2]
+  Stack
+Offset 2: RETURN
+==========================================================================================
+
+
+
+interpreter.primitiveParamsAndReturn.Test:intParamAndReturn(Ljava/lang/Object;ILjava/lang/Object;)I
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P1#-1]
+    locals[3] = [3!Ljava/lang/Object;#2]
+  Stack
+Offset 1: LINENUMBER 19 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P1#-1]
+    locals[3] = [3!Ljava/lang/Object;#2]
+  Stack
+Offset 2: ICONST_0
+Frame
+  Locals
+    locals[0] = [Linterpreter/primitiveParamsAndReturn/Test;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P1#-1]
+    locals[3] = [3!Ljava/lang/Object;#2]
+  Stack
+    stack[0] = [P1#-1]
+Offset 3: IRETURN
+==========================================================================================
+
+

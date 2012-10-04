@@ -135,8 +135,6 @@ private class GraphBuilderInterpreter(val method: Method): Interpreter<PossibleT
 
         if (_type == null) return EMPTY_VALUES
 
-        if (specialValue(_type) != null) return specialValue(_type)
-
         val returnValueSlots = if (method.getReturnType() == VOID_TYPE) 0 else 1
         val thisSlots = if (method.isStatic()) 0 else 1
 
@@ -147,7 +145,9 @@ private class GraphBuilderInterpreter(val method: Method): Interpreter<PossibleT
 
         valueSetsCreated++
 
-        return AsmPossibleValues(createValue(_type, parameterIndex, null))
+        return if (specialValue(_type) != null)
+                   specialValue(_type)
+               else AsmPossibleValues(createValue(_type, parameterIndex, null))
     }
 
     private fun newValueAtInstruction(_type: Type, insn: AbstractInsnNode): PossibleTypedValues? {

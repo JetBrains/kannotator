@@ -32,4 +32,8 @@ class InterpreterTest : TestCase() {
         val name = "EDU/oswego/cs/dl/util/concurrent/ClockDaemon\$RunLoop"
         doTest(File("testData/interpreter"), ClassReader(name))
     }
+
+    fun testPrimitiveParamsAndReturn() {
+        doTest(javaClass<interpreter.primitiveParamsAndReturn.Test>())
+    }
 }
