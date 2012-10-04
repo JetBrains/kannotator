@@ -9,6 +9,7 @@ import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
 
 fun inferNullabilityAnnotations(jarOrClassFiles: Collection<File>, existingAnnotationFiles: Collection<File>) {
     val source = FileBasedClassSource(jarOrClassFiles)
@@ -26,10 +27,6 @@ fun loadNullabilityAnnotations(
         keyIndex: AnnotationKeyIndex): Annotations<NullabilityAnnotation>
 {
     val nullabilityAnnotations = AnnotationsImpl<NullabilityAnnotation>()
-    val nullabilityAnnotationsMap = hashMap(
-            "org.jetbrains.annotations.NotNull" to NullabilityAnnotation.NOT_NULL,
-            "org.jetbrains.annotations.Nullable" to NullabilityAnnotation.NULLABLE
-    )
 
     for (annotationFile in annotationFiles) {
         FileReader(annotationFile) use {
@@ -41,7 +38,7 @@ fun loadNullabilityAnnotations(
                 }
                 else {
                     for (data in annotations) {
-                        val annotation = nullabilityAnnotationsMap[data.annotationClassFqn]
+                        val annotation = classNameToNullabilityAnnotation(data.annotationClassFqn)
                         if (annotation != null) {
                             nullabilityAnnotations[position] = annotation
                         }

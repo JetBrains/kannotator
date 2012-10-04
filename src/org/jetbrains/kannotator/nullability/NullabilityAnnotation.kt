@@ -21,3 +21,11 @@ fun NullabilityAnnotation?.toValueInfo() : NullabilityValueInfo = when (this) {
     NullabilityAnnotation.NULLABLE -> NULLABLE
     null -> UNKNOWN
 }
+
+private val NULLABILITY_ANNOTATION_CLASSES = hashMap(
+        "org.jetbrains.annotations.NotNull" to NullabilityAnnotation.NOT_NULL,
+        "org.jetbrains.annotations.Nullable" to NullabilityAnnotation.NULLABLE
+)
+
+fun classNameToNullabilityAnnotation(className: String) : NullabilityAnnotation? =
+        NULLABILITY_ANNOTATION_CLASSES[className]
