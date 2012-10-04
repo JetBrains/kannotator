@@ -21,6 +21,7 @@ import org.objectweb.asm.tree.AbstractInsnNode
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.mutability.Mutability
 import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.declarations.getArgumentCount
 
 class MutabilityAnnotationsInference(graph: ControlFlowGraph,
                                      annotations: Annotations<MutabilityAnnotation>,
@@ -47,7 +48,8 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
         if (!(asmInstruction is MethodInsnNode)) return Collections.emptyList()
         when (instruction.getOpcode()) {
             INVOKEINTERFACE -> {
-                val valueSet = state.stack[0] // TODO take value from stack with correct index
+                val methodId = getMethodIdByInstruction(instruction)
+                val valueSet = state.stack[methodId!!.getArgumentCount()]
                 for (value in valueSet) {
                     if (!(value is TypedValue) || value._type == null) continue;
                     if (isInvocationRequiredMutability(asmInstruction)) {
