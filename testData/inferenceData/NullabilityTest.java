@@ -160,6 +160,12 @@ public class NullabilityTest {
         throw e;
     }
 
+    public void testMonitor(@ExpectNotNull Object o) {
+        synchronized (o) {
+            System.out.println();
+        }
+    }
+
     private Object field;
     private static Object staticField;
 
