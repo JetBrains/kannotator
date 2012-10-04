@@ -16,9 +16,9 @@ data class Assert<T: AnnotationKind>(val value: Value)
 
 abstract class AnnotationsInference<T: AnnotationKind>(
         private val graph: ControlFlowGraph,
-        annotations: Annotations<Annotation<T>>,
+        protected open val annotations: Annotations<Annotation<T>>,
         positions: Positions,
-        declarationIndex: DeclarationIndex,
+        protected val declarationIndex: DeclarationIndex,
         protected val annotationsManager: AnnotationsManager<T>) {
 
     fun buildAnnotations() : Annotations<Annotation<T>> {

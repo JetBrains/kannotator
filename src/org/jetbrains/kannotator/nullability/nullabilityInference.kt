@@ -24,7 +24,7 @@ import kotlin.test.assertTrue
 
 class NullabilityAnnotationsInference(
         graph: ControlFlowGraph,
-        annotations: Annotations<NullabilityAnnotation>,
+        override protected val annotations: Annotations<NullabilityAnnotation>,
         positions: Positions,
         declarationIndex: DeclarationIndex
 ) : AnnotationsInference<Nullability>(graph, annotations, positions, declarationIndex,
@@ -48,7 +48,7 @@ class NullabilityAnnotationsInference(
     }
 
     protected override fun generateAsserts(instruction: Instruction): Collection<Assert<Nullability>> =
-        generateNullabilityAsserts(instruction)
+        generateNullabilityAsserts(instruction, annotations, declarationIndex)
 
     override fun postProcess() {
         framesManager.clear()
