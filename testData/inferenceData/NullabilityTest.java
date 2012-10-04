@@ -206,6 +206,10 @@ public class NullabilityTest {
         charArray[0] = 0;
     }
 
+    public int testUnboxingToPrimitive(@ExpectNotNull Integer i) {
+        return i;
+    }
+
     private Object field;
     private static Object staticField;
 
