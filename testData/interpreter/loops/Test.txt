@@ -411,8 +411,8 @@ Frame
     locals[1] = [1!Ljava/lang/Integer;#1]
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
-    stack[0] = [1!Ljava/lang/Integer;#1, null#-1]
-    stack[1] = [1!Ljava/lang/Integer;#1]
+    stack[0] = [1!Ljava/lang/Integer;#1]
+    stack[1] = [1!Ljava/lang/Integer;#1, null#-1]
 Offset 13: IF_ACMPNE L4
 Frame
   Locals
@@ -737,8 +737,8 @@ Frame
     locals[3] = []
     locals[4] = [P1#-1]
   Stack
-    stack[0] = [P2#-1]
-    stack[1] = [P1#-1]
+    stack[0] = [P1#-1]
+    stack[1] = [P2#-1]
 Offset 26: LSHL
 Frame
   Locals
@@ -758,8 +758,8 @@ Frame
     locals[3] = []
     locals[4] = [P1#-1]
   Stack
-    stack[0] = [P2#-1]
-    stack[1] = [[B#1]
+    stack[0] = [[B#1]
+    stack[1] = [P2#-1]
 Offset 28: ILOAD 4
 Frame
   Locals
@@ -769,9 +769,9 @@ Frame
     locals[3] = []
     locals[4] = [P1#-1]
   Stack
-    stack[0] = [P2#-1]
+    stack[0] = [P1#-1]
     stack[1] = [[B#1]
-    stack[2] = [P1#-1]
+    stack[2] = [P2#-1]
 Offset 29: BALOAD
 Frame
   Locals
@@ -781,8 +781,8 @@ Frame
     locals[3] = []
     locals[4] = [P1#-1]
   Stack
-    stack[0] = [P2#-1]
-    stack[1] = [P1#-1]
+    stack[0] = [P1#-1]
+    stack[1] = [P2#-1]
 Offset 30: SIPUSH 255
 Frame
   Locals
@@ -792,9 +792,9 @@ Frame
     locals[3] = []
     locals[4] = [P1#-1]
   Stack
-    stack[0] = [P2#-1]
+    stack[0] = [P1#-1]
     stack[1] = [P1#-1]
-    stack[2] = [P1#-1]
+    stack[2] = [P2#-1]
 Offset 31: IAND
 Frame
   Locals
@@ -804,8 +804,8 @@ Frame
     locals[3] = []
     locals[4] = [P1#-1]
   Stack
-    stack[0] = [P2#-1]
-    stack[1] = [P1#-1]
+    stack[0] = [P1#-1]
+    stack[1] = [P2#-1]
 Offset 32: I2L
 Frame
   Locals

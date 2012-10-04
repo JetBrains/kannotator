@@ -13,7 +13,7 @@ public abstract class FrameState<VI>(private val frame: Frame<PossibleTypedValue
     }
 
     override val stack: Stack = object : Stack {
-        override fun get(indexFromTop: Int): Set<Value> = frame.getStack(indexFromTop)?.values ?: hashSet()
+        override fun get(indexFromTop: Int): Set<Value> = frame.getStack(frame.getStackSize() - indexFromTop - 1)?.values ?: hashSet()
         override val size = frame.getStackSize()
     }
 }
