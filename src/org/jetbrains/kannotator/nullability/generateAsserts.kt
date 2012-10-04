@@ -10,16 +10,28 @@ import org.jetbrains.kannotator.asm.util.getOpcode
 
 fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullability>> {
     val state = instruction[STATE_BEFORE]!!
-
     val result = hashSet<Assert<Nullability>>()
+
+    fun addAssertForStackValue(indexFromTop: Int) {
+        val valueSet = state.stack[indexFromTop]
+        for (value in valueSet) {
+            result.add(Assert(value))
+        }
+    }
+
     when (instruction.getOpcode()) {
-        INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC,
-        GETFIELD, PUTFIELD,
-        AALOAD, AASTORE -> {
-            val valueSet = state.stack[0]
-            for (value in valueSet) {
-                result.add(Assert(value))
-            }
+        INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC -> {
+            // TODO depending on number of parameters
+            addAssertForStackValue(0)
+        }
+        GETFIELD -> {
+            addAssertForStackValue(0)
+        }
+        AALOAD, PUTFIELD -> {
+            addAssertForStackValue(1)
+        }
+        AASTORE -> {
+            addAssertForStackValue(2)
         }
         // TODO other interesting instructions
         else -> {}
