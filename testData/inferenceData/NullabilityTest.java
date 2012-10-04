@@ -152,6 +152,10 @@ public class NullabilityTest {
         p.field = null;
     }
 
+    public void testArrayLength(@ExpectNotNull int[] o1, @ExpectNotNull Object[] o2) {
+        System.out.println(o1.length + o2.length);
+    }
+
     private Object field;
     private static Object staticField;
 
