@@ -35,7 +35,6 @@ fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullabilit
         AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
             addAssertForStackValue(2)
         }
-        // TODO other interesting instructions
         else -> {}
     }
     return result
