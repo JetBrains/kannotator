@@ -165,6 +165,46 @@ public class NullabilityTest {
             System.out.println();
         }
     }
+    
+    public void testArrayLoad(@ExpectNotNull Object[] objectArray,
+                              @ExpectNotNull byte[] byteArray,
+                              @ExpectNotNull boolean[] booleanArray,
+                              @ExpectNotNull int[] intArray,
+                              @ExpectNotNull float[] floatArray,
+                              @ExpectNotNull double[] doubleArray,
+                              @ExpectNotNull short[] shortArray,
+                              @ExpectNotNull long[] longArray,
+                              @ExpectNotNull char[] charArray) {
+        System.out.println(objectArray[0]);
+        System.out.println(byteArray[0]);
+        System.out.println(booleanArray[0]);
+        System.out.println(intArray[0]);
+        System.out.println(floatArray[0]);
+        System.out.println(doubleArray[0]);
+        System.out.println(shortArray[0]);
+        System.out.println(longArray[0]);
+        System.out.println(charArray[0]);
+    }
+    
+    public void testArrayStore(@ExpectNotNull Object[] objectArray,
+                               @ExpectNotNull byte[] byteArray,
+                               @ExpectNotNull boolean[] booleanArray,
+                               @ExpectNotNull int[] intArray,
+                               @ExpectNotNull float[] floatArray,
+                               @ExpectNotNull double[] doubleArray,
+                               @ExpectNotNull short[] shortArray,
+                               @ExpectNotNull long[] longArray,
+                               @ExpectNotNull char[] charArray) {
+        objectArray[0] = null;
+        byteArray[0] = 0;
+        booleanArray[0] = false;
+        intArray[0] = 0;
+        floatArray[0] = 0;
+        doubleArray[0] = 0;
+        shortArray[0] = 0;
+        longArray[0] = 0;
+        charArray[0] = 0;
+    }
 
     private Object field;
     private static Object staticField;

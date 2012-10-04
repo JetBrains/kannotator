@@ -28,10 +28,11 @@ fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullabilit
         MONITORENTER, MONITOREXIT -> {
             addAssertForStackValue(0)
         }
-        AALOAD, PUTFIELD -> {
+        AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD,
+        PUTFIELD -> {
             addAssertForStackValue(1)
         }
-        AASTORE -> {
+        AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
             addAssertForStackValue(2)
         }
         // TODO other interesting instructions

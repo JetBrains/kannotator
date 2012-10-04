@@ -88,4 +88,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
     fun testThrowParameter() = doTest()
 
     fun testMonitor() = doTest()
+
+    fun testArrayLoad() = doTest()
+
+    fun testArrayStore() = doTest()
 }
