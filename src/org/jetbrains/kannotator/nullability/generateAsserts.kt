@@ -8,9 +8,6 @@ import org.objectweb.asm.Opcodes.*
 import org.jetbrains.kannotator.nullability.Nullability
 import org.jetbrains.kannotator.asm.util.getOpcode
 
-// TODO make it generic
-class NullabilityAssert(val shouldBeNotNullValue: Value)
-
 fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullability>> {
     val state = instruction[STATE_BEFORE]!!
 
