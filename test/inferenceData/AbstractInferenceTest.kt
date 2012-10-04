@@ -27,6 +27,8 @@ abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>)
     protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<Annotation<T>>) : Annotations<Annotation<T>>
 
+    protected open fun getInitialAnnotations(): Annotations<Annotation<T>> = AnnotationsImpl()
+
     protected fun doTest() {
         val className = testClass.getName()
         val methodName = getName()!!
@@ -39,7 +41,7 @@ abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>)
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
         val positions = Positions(method)
-        val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, AnnotationsImpl())
+        val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, getInitialAnnotations())
 
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 

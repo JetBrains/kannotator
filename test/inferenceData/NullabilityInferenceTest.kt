@@ -10,6 +10,11 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import interpreter.doTest
 import org.jetbrains.kannotator.nullability.Nullability
 import org.jetbrains.kannotator.annotationsInference.NullabilityAnnotationsInference
+import org.jetbrains.kannotator.main.loadNullabilityAnnotations
+import java.io.File
+import util.ClassPathDeclarationIndex
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import org.jetbrains.kannotator.index.FileBasedClassSource
 
 class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<inferenceData.NullabilityTest>()) {
 
@@ -19,6 +24,13 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
+    }
+
+    protected override fun getInitialAnnotations(): Annotations<Annotation<Nullability>> {
+        val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayList(File("testData/inferenceData/NullabilityTestUtil.class"))))
+        val existingNullabilityAnnotations = loadNullabilityAnnotations(
+                arrayList(File("testData/inferenceData/annotations.xml")), declarationIndex)
+        return existingNullabilityAnnotations
     }
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
@@ -94,4 +106,13 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
     fun testArrayStore() = doTest()
 
     fun testUnboxingToPrimitive() = doTest()
+
+    fun testInvokeStaticAssertNotNull() = doTest()
+
+    fun testInvokeAssertNotNull() = doTest()
+
+    fun testInvokeAssertSecondNotNull() = doTest()
+
+    fun testInvokeNullableParameter() = doTest()
+
 }

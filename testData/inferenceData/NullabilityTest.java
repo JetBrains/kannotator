@@ -210,6 +210,22 @@ public class NullabilityTest {
         return i;
     }
 
+    public void testInvokeStaticAssertNotNull(@ExpectNotNull Object o) {
+        NullabilityTestUtil.staticAssertNotNull(o);
+    }
+
+    public void testInvokeAssertNotNull(@ExpectNotNull Object o) {
+        new NullabilityTestUtil().assertNotNull(o);
+    }
+
+    public void testInvokeAssertSecondNotNull(Object o1, @ExpectNotNull Object o2) {
+        new NullabilityTestUtil().assertSecondNotNull(o1, o2);
+    }
+
+    public void testInvokeNullableParameter(Object o) {
+        new NullabilityTestUtil().nullableParameter(o);
+    }
+
     private Object field;
     private static Object staticField;
 
