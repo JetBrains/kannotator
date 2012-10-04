@@ -24,7 +24,7 @@ fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullabilit
             // TODO depending on number of parameters
             addAssertForStackValue(0)
         }
-        GETFIELD, ARRAYLENGTH -> {
+        GETFIELD, ARRAYLENGTH, ATHROW -> {
             addAssertForStackValue(0)
         }
         AALOAD, PUTFIELD -> {

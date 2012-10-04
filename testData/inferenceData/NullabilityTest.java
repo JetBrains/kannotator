@@ -156,6 +156,10 @@ public class NullabilityTest {
         System.out.println(o1.length + o2.length);
     }
 
+    public void testThrowParameter(@ExpectNotNull AssertionError e) {
+        throw e;
+    }
+
     private Object field;
     private static Object staticField;
 
