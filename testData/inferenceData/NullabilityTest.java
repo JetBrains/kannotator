@@ -144,6 +144,14 @@ public class NullabilityTest {
         return "";
     }
 
+    public void testGetField(@ExpectNotNull NullabilityTest p) {
+        Object o = p.field;
+    }
+
+    public void testPutField(@ExpectNotNull NullabilityTest p) {
+        p.field = null;
+    }
+
     private Object field;
     private static Object staticField;
 

@@ -14,6 +14,7 @@ fun generateNullabilityAsserts(instruction: Instruction) : Set<Assert<Nullabilit
     val result = hashSet<Assert<Nullability>>()
     when (instruction.getOpcode()) {
         INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC,
+        GETFIELD, PUTFIELD,
         AALOAD, AASTORE -> {
             val valueSet = state.stack[0]
             for (value in valueSet) {
