@@ -4,10 +4,10 @@
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
     <option name="ALTERNATIVE_JRE_PATH" value="" />
     <option name="PACKAGE_NAME" value="" />
-    <option name="MAIN_CLASS_NAME" value="cards.tests.AllTests" />
+    <option name="MAIN_CLASS_NAME" value="kannotator.tests.AllTests" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="class" />
-    <option name="VM_PARAMETERS" value="-ea" />
+    <option name="VM_PARAMETERS" value="-ea -Xmx512M" />
     <option name="PARAMETERS" value="" />
     <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     <option name="ENV_VARIABLES" />
@@ -21,6 +21,9 @@
       <option name="DEBUG_PORT" value="" />
       <option name="TRANSPORT" value="0" />
       <option name="LOCAL" value="true" />
+    </RunnerSettings>
+    <RunnerSettings RunnerId="Profile ">
+      <option name="myExternalizedOptions" value="&#10;additional-options2=onexit\=snapshot&#10;" />
     </RunnerSettings>
     <RunnerSettings RunnerId="Run" />
     <ConfigurationWrapper RunnerId="Debug" />

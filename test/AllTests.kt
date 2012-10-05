@@ -1,4 +1,4 @@
-package cards.tests
+package kannotator.tests
 
 import org.junit.runner.RunWith
 import org.junit.runners.Suite
@@ -13,6 +13,12 @@ import funDependency.SCCFinderTest
 import inference.NullabilityInferenceTest
 import inference.MutabilityInferenceTest
 import interpreter.InterpreterTest
+import annotations.io.AnnotationKeyParserTest
+import annotations.io.AnnotationKeyStringMatchingTest
+import funDependency.TopologicalSortTest
+import index.AnnotationIndexTest
+import index.MethodIndexTest
+import inference.IntegratedInferenceTest
 
 [RunWith(javaClass<Suite>())]
 [SuiteClasses(
@@ -25,7 +31,13 @@ import interpreter.InterpreterTest
         javaClass<SCCFinderTest>(),
         javaClass<NullabilityInferenceTest>(),
         javaClass<MutabilityInferenceTest>(),
-        javaClass<InterpreterTest>()
+        javaClass<InterpreterTest>(),
+        javaClass<TopologicalSortTest>(),
+        javaClass<IntegratedInferenceTest>(),
+        javaClass<AnnotationIndexTest>(),
+        javaClass<MethodIndexTest>(),
+        javaClass<AnnotationKeyStringMatchingTest>(),
+        javaClass<AnnotationKeyParserTest>()        
         )]
 class AllTests {
 }
