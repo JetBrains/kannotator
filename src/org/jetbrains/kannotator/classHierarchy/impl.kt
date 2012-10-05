@@ -21,8 +21,7 @@ private class ClassNodeImpl(override val name: ClassName): ClassNode {
     public fun toString(): String = name.internal
 }
 
-class ClassHierarchyGraphBuilder {
-    private val classes: MutableCollection<ClassName> = hashSet()
+class ClassHierarchyGraphBuilder(private val classes: Collection<ClassName>) {
     private val nodesByName: MutableMap<ClassName, ClassNodeImpl> = hashMap()
 
     private fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
@@ -31,11 +30,6 @@ class ClassHierarchyGraphBuilder {
         val edge = ClassHierarchyEdgeImpl(base, derived)
         base.subClasses.add(edge)
         derived.superClasses.add(edge)
-    }
-
-
-    fun addClass(name: ClassName) {
-        classes.add(name)
     }
 
     fun buildGraph(): ClassHierarchyGraph {

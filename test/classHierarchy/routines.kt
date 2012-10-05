@@ -9,10 +9,7 @@ import org.jetbrains.kannotator.classHierarchy.ClassNode
 import util.getAllClassesWithPrefix
 
 fun getClassesHierarchy(prefix: String): Collection<ClassNode> {
-    val builder = ClassHierarchyGraphBuilder()
-    for (clazz in getAllClassesWithPrefix(prefix)) {
-        builder.addClass(clazz)
-    }
+    val builder = ClassHierarchyGraphBuilder(getAllClassesWithPrefix(prefix))
 
     val graph = builder.buildGraph()
 

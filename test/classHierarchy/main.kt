@@ -20,10 +20,7 @@ fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, Class
 }
 
 fun main(args: Array<String>) {
-    val builder = ClassHierarchyGraphBuilder()
-    for (clazz in getAllClassesWithPrefix("java/lang/")) {
-        builder.addClass(clazz)
-    }
+    val builder = ClassHierarchyGraphBuilder(getAllClassesWithPrefix("java/lang/"))
 
     val graph = builder.buildGraph()
 

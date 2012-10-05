@@ -26,10 +26,11 @@ class OverriddenMethodTest : TestCase() {
     }
 
     fun testOverridesVisibility() {
-        val builder = ClassHierarchyGraphBuilder()
-        arrayList("Base", "Derived", "subpackage/DerivedInSubpackage").forEach {
-            builder.addClass(ClassName.fromInternalName("classHierarchy/overriddenMethods/overridesVisibility/$it"))
-        }
+        val builder = ClassHierarchyGraphBuilder(
+            arrayList("Base", "Derived", "subpackage/DerivedInSubpackage").map {
+                ClassName.fromInternalName("classHierarchy/overriddenMethods/overridesVisibility/$it")
+            }
+        )
 
         doTest(builder.buildGraph().classes.sortByToString(), "overridesVisibility/result.txt")
     }
