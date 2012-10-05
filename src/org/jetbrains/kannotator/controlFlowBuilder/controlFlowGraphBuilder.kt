@@ -36,9 +36,7 @@ public fun MethodNode.buildControlFlowGraph(
     for ((index, inst) in analyzer.instructions.indexed) {
         val frame = analyzer.getFrames()[index]
         if (frame != null) {
-            inst[STATE_BEFORE] = object : FrameState<Unit>(frame!!) {
-                override fun valueInfo(value: Value) {}
-            }
+            inst[STATE_BEFORE] = FrameState(frame)
         }
     }
     return graphBuilder.build()
@@ -90,7 +88,7 @@ public fun buildGraphsForAllMethods(
     return result
 }
 
-public val STATE_BEFORE: DataKey<Instruction, State<Unit>> = DataKey()
+public val STATE_BEFORE: DataKey<Instruction, State> = DataKey()
 
 class GraphBuilderMethodVisitor(
         val owner: ClassName,

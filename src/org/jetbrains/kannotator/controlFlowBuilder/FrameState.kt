@@ -6,7 +6,7 @@ import org.jetbrains.kannotator.controlFlow.LocalVariableTable
 import org.objectweb.asm.tree.analysis.Frame
 import org.jetbrains.kannotator.controlFlow.Stack
 
-public abstract class FrameState<VI>(private val frame: Frame<PossibleTypedValues>): State<VI> {
+public class FrameState(private val frame: Frame<PossibleTypedValues>): State {
     override val localVariables: LocalVariableTable = object : LocalVariableTable {
         override fun get(variableIndex: Int): Set<Value>  = frame.getLocal(variableIndex)?.values ?: hashSet()
         override val size = frame.getLocals()

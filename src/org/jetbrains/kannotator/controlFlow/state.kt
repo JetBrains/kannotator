@@ -3,10 +3,9 @@ package org.jetbrains.kannotator.controlFlow
 import kotlinlib.IndexedElement
 import kotlinlib.indexedIterator
 
-public trait State<VI> {
+public trait State {
     val stack: Stack
     val localVariables: LocalVariableTable
-    fun valueInfo(value: Value): VI
 }
 
 public trait Stack {
