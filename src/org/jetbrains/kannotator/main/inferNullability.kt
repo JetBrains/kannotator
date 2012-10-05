@@ -24,9 +24,18 @@ import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
 import org.objectweb.asm.tree.MethodNode
 
+open class ProgressMonitor {
+    open fun totalMethods(methodCount: Int) {}
+    open fun processingStarted(methods: Collection<Method>) {}
+    open fun processingStepStarted(method: Method) {}
+    open fun processingStepFinished(method: Method) {}
+    open fun processingFinished(methods: Collection<Method>) {}
+}
+
 fun inferNullabilityAnnotations(
         jarOrClassFiles: Collection<File>,
-        existingAnnotationFiles: Collection<File>
+        existingAnnotationFiles: Collection<File>,
+        progressMonitor: ProgressMonitor = ProgressMonitor()
 ): Annotations<NullabilityAnnotation> {
     val classSource = FileBasedClassSource(jarOrClassFiles)
 
@@ -37,6 +46,8 @@ fun inferNullabilityAnnotations(
         methodNodes[method] = methodNode
         methodNode
     }
+
+    progressMonitor.totalMethods(methodNodes.size)
 
     // TODO Load annotations from .class files too, see MethodNode.visibleParameterAnnotations and MethodNode.invisibleParameterAnnotations
     val existingNullabilityAnnotations = loadNullabilityAnnotations(existingAnnotationFiles, declarationIndex)
@@ -49,19 +60,23 @@ fun inferNullabilityAnnotations(
 
     for (component in components) {
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
+        progressMonitor.processingStarted(methods.keySet())
+
         val methodToGraph = buildControlFlowGraphs(
                 methods.keySet(),
                 {m -> methodNodes.getOrThrow(m) }
         )
-
 
         inferAnnotationsOnMutuallyRecursiveMethods(
                 declarationIndex,
                 resultingAnnotations,
                 methods.keySet(),
                 { m -> methods.getOrThrow(m).map {e -> e.to.method} },
-                { m -> methodToGraph.getOrThrow(m) }
+                { m -> methodToGraph.getOrThrow(m) },
+                progressMonitor
         )
+
+        progressMonitor.processingFinished(methods.keySet())
 
         // We don't need to occupy that memory any more
         for (functionNode in component) {
@@ -71,12 +86,13 @@ fun inferNullabilityAnnotations(
     return resultingAnnotations
 }
 
-fun inferAnnotationsOnMutuallyRecursiveMethods(
+private fun inferAnnotationsOnMutuallyRecursiveMethods(
         declarationIndex: DeclarationIndex,
         annotations: MutableAnnotations<NullabilityAnnotation>,
         methods: Collection<Method>,
         dependentMethods: (Method) -> Collection<Method>,
-        cfGraph: (Method) -> ControlFlowGraph
+        cfGraph: (Method) -> ControlFlowGraph,
+        progressMonitor: ProgressMonitor
 
 ) {
     assert (!methods.isEmpty()) {"Empty SSC"}
@@ -84,7 +100,9 @@ fun inferAnnotationsOnMutuallyRecursiveMethods(
     val queue = linkedList(methods.first())
     while (!queue.isEmpty()) {
         val method = queue.pop()
+        progressMonitor.processingStepStarted(method)
         val inferredAnnotations = buildNullabilityAnnotations(cfGraph(method), Positions(method), declarationIndex, annotations)
+        progressMonitor.processingStepFinished(method)
         var changed = false
         inferredAnnotations forEach {
             pos, ann ->
