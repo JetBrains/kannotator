@@ -5,7 +5,7 @@ import inferenceData.annotations.ExpectNullable;
 
 import java.util.Collection;
 
-public class NullabilityTest {
+public class NullabilityInferenceTestClass {
     @ExpectNullable
     public Object testNull() {
         return null;
@@ -144,11 +144,11 @@ public class NullabilityTest {
         return "";
     }
 
-    public void testGetField(@ExpectNotNull NullabilityTest p) {
+    public void testGetField(@ExpectNotNull NullabilityInferenceTestClass p) {
         Object o = p.field;
     }
 
-    public void testPutField(@ExpectNotNull NullabilityTest p) {
+    public void testPutField(@ExpectNotNull NullabilityInferenceTestClass p) {
         p.field = null;
     }
 
@@ -211,33 +211,33 @@ public class NullabilityTest {
     }
 
     public void testInvokeStaticAssertNotNull(@ExpectNotNull Object o) {
-        NullabilityTestUtil.staticAssertNotNull(o);
+        NullabilityInferenceTestLib.staticAssertNotNull(o);
     }
 
     public void testInvokeAssertNotNull(@ExpectNotNull Object o) {
-        new NullabilityTestUtil().assertNotNull(o);
+        new NullabilityInferenceTestLib().assertNotNull(o);
     }
 
     public void testInvokeAssertSecondNotNull(Object o1, @ExpectNotNull Object o2) {
-        new NullabilityTestUtil().assertSecondNotNull(o1, o2);
+        new NullabilityInferenceTestLib().assertSecondNotNull(o1, o2);
     }
 
     public void testInvokeStaticAssertSecondNotNull(Object o1, @ExpectNotNull Object o2) {
-        NullabilityTestUtil.staticAssertSecondNotNull(o1, o2);
+        NullabilityInferenceTestLib.staticAssertSecondNotNull(o1, o2);
     }
 
     public void testInvokeNullableParameter(Object o) {
-        new NullabilityTestUtil().nullableParameter(o);
+        new NullabilityInferenceTestLib().nullableParameter(o);
     }
 
     @ExpectNotNull
     public Object testInvokeReturnNotNull() {
-        return NullabilityTestUtil.returnNotNull();
+        return NullabilityInferenceTestLib.returnNotNull();
     }
 
     @ExpectNullable
     public Object testInvokeReturnNullable() {
-        return NullabilityTestUtil.returnNullable();
+        return NullabilityInferenceTestLib.returnNullable();
     }
 
     private Object field;

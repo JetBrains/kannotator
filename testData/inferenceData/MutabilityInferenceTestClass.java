@@ -4,7 +4,7 @@ import inferenceData.annotations.ExpectMutable;
 
 import java.util.*;
 
-public class MutabilityTest {
+public class MutabilityInferenceTestClass {
 
     public void testMutableCollection(@ExpectMutable Collection<Integer> collection) {
         collection.add(2);
@@ -33,10 +33,10 @@ public class MutabilityTest {
     }
 
     public void testInvokeProcessMutable(@ExpectMutable List<String> list) {
-        new MutabilityTestUtil().processMutable(list);
+        new MutabilityInferenceTestLib().processMutable(list);
     }
 
     public void testInvokeProcessReadableAndMutable(@ExpectMutable Collection<String> collection, List<String> list) {
-        MutabilityTestUtil.processReadableAndMutable(list, collection);
+        MutabilityInferenceTestLib.processReadableAndMutable(list, collection);
     }
 }

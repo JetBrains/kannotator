@@ -3,7 +3,7 @@ package inferenceData;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class NullabilityTestUtil {
+public class NullabilityInferenceTestLib {
     public void assertNotNull(@NotNull Object o) {
     }
 

@@ -26,7 +26,7 @@ import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
 
 class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
-        javaClass<inferenceData.MutabilityTest>()) {
+        javaClass<inferenceData.MutabilityInferenceTestClass>()) {
 
     override fun Array<jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
@@ -37,7 +37,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
     }
 
     protected override fun getInitialAnnotations(): Annotations<Annotation<Mutability>> {
-        val utilClass = "out/production/kannotator/inferenceData/MutabilityTestUtil.class"
+        val utilClass = "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationName -> if (annotationName == "inferenceData.annotations.Mutable")

@@ -18,7 +18,7 @@ import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
 
-class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<inferenceData.NullabilityTest>()) {
+class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
 
     protected override fun Array<jet.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
@@ -29,7 +29,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
     }
 
     protected override fun getInitialAnnotations(): Annotations<Annotation<Nullability>> {
-        val utilClass = "out/production/kannotator/inferenceData/NullabilityTestUtil.class"
+        val utilClass = "out/production/kannotator/inferenceData/NullabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationName -> classNameToNullabilityAnnotation(annotationName)

@@ -5,7 +5,7 @@ import inferenceData.annotations.Mutable;
 import java.util.Collection;
 import java.util.List;
 
-public class MutabilityTestUtil {
+public class MutabilityInferenceTestLib {
     public void processMutable(@Mutable List<String> list) {
     }
 
