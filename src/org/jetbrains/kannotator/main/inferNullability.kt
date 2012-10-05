@@ -1,25 +1,103 @@
 package org.jetbrains.kannotator.main
 
 import java.io.File
-import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import java.io.FileReader
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.index.AnnotationKeyIndex
+import java.util.HashMap
+import kotlinlib.*
+import org.jetbrains.kannotator.annotations.io.parseAnnotations
+import org.jetbrains.kannotator.annotationsInference.buildNullabilityAnnotations
+import org.jetbrains.kannotator.asm.util.createMethodNode
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.MutableAnnotations
+import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
+import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
+import org.jetbrains.kannotator.index.AnnotationKeyIndex
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
+import org.objectweb.asm.tree.MethodNode
 
-fun inferNullabilityAnnotations(jarOrClassFiles: Collection<File>, existingAnnotationFiles: Collection<File>) {
-    val source = FileBasedClassSource(jarOrClassFiles)
-    val declarationIndex = DeclarationIndexImpl(source)
+fun inferNullabilityAnnotations(
+        jarOrClassFiles: Collection<File>,
+        existingAnnotationFiles: Collection<File>
+): Annotations<NullabilityAnnotation> {
+    val classSource = FileBasedClassSource(jarOrClassFiles)
 
+    val methodNodes = HashMap<Method, MethodNode>()
+    val declarationIndex = DeclarationIndexImpl(classSource) {
+        method ->
+        val methodNode = method.createMethodNode()
+        methodNodes[method] = methodNode
+        methodNode
+    }
+
+    // TODO Load annotations from .class files too, see MethodNode.visibleParameterAnnotations and MethodNode.invisibleParameterAnnotations
     val existingNullabilityAnnotations = loadNullabilityAnnotations(existingAnnotationFiles, declarationIndex)
 
-    // build method graph
+    val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
 
-    // build hierarchy
+    val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
+
+    val resultingAnnotations = AnnotationsImpl(existingNullabilityAnnotations)
+
+    for (component in components) {
+        val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
+        val methodToGraph = buildControlFlowGraphs(
+                methods.keySet(),
+                {m -> methodNodes.getOrThrow(m) }
+        )
+
+
+        inferAnnotationsOnMutuallyRecursiveMethods(
+                declarationIndex,
+                resultingAnnotations,
+                methods.keySet(),
+                { m -> methods.getOrThrow(m).map {e -> e.to.method} },
+                { m -> methodToGraph.getOrThrow(m) }
+        )
+
+        // We don't need to occupy that memory any more
+        for (functionNode in component) {
+             methodNodes.remove(functionNode.method)
+        }
+    }
+    return resultingAnnotations
+}
+
+fun inferAnnotationsOnMutuallyRecursiveMethods(
+        declarationIndex: DeclarationIndex,
+        annotations: MutableAnnotations<NullabilityAnnotation>,
+        methods: Collection<Method>,
+        dependentMethods: (Method) -> Collection<Method>,
+        cfGraph: (Method) -> ControlFlowGraph
+
+) {
+    assert (!methods.isEmpty()) {"Empty SSC"}
+
+    val queue = linkedList(methods.first())
+    while (!queue.isEmpty()) {
+        val method = queue.pop()
+        val inferredAnnotations = buildNullabilityAnnotations(cfGraph(method), Positions(method), declarationIndex, annotations)
+        var changed = false
+        inferredAnnotations forEach {
+            pos, ann ->
+            val present = annotations[pos]
+            if (present != ann) {
+                annotations[pos] = ann
+                changed = true
+            }
+        }
+        if (changed) {
+            queue.addAll(dependentMethods(method))
+        }
+    }
 }
 
 fun loadNullabilityAnnotations(
@@ -49,6 +127,10 @@ fun loadNullabilityAnnotations(
     }
 
     return nullabilityAnnotations
+}
+
+fun buildControlFlowGraphs(methods: Collection<Method>, node: (Method) -> MethodNode): Map<Method, ControlFlowGraph> {
+    return methods.map {m -> Pair(m, node(m).buildControlFlowGraph(m.declaringClass))}.toMap()
 }
 
 fun error(message: String) {
