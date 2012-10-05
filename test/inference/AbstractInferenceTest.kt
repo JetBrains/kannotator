@@ -3,7 +3,6 @@ package inference
 import junit.framework.TestCase
 import kotlin.test.assertEquals
 import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
-import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
@@ -19,6 +18,7 @@ import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.DeclarationIndex
 import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.annotationsInference.AnnotationKind
+import util.controlFlow.buildControlFlowGraph
 
 abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>) : TestCase() {
 

@@ -7,14 +7,14 @@ import kotlinlib.*
 import org.jetbrains.kannotator.asm.util.AsmInstructionRenderer
 import org.jetbrains.kannotator.controlFlow.*
 import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
-import org.jetbrains.kannotator.controlFlowBuilder.GraphBuilderCallbacks
+import util.controlFlow.GraphBuilderCallbacks
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
-import org.jetbrains.kannotator.controlFlowBuilder.buildGraphsForAllMethods
+import util.controlFlow.buildGraphsForAllMethods
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.objectweb.asm.tree.AbstractInsnNode
-import org.jetbrains.kannotator.controlFlowBuilder.MethodAndGraph
+import util.controlFlow.MethodAndGraph
 import java.io.FileInputStream
 import java.io.Reader
 import java.io.FileWriter

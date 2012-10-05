@@ -4,8 +4,8 @@ import org.apache.commons.collections15.Transformer
 import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
-import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
 import org.objectweb.asm.ClassReader
+import util.controlFlow.buildControlFlowGraph
 
 object InstructionTransformer : Transformer<Instruction, String> {
     public override fun transform(instruction: Instruction): String = instruction.metadata.toString()
