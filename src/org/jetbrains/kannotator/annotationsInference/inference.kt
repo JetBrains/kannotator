@@ -72,19 +72,24 @@ abstract class AnnotationsInference<T: AnnotationKind>(
     ) {
         val methodId = getMethodIdByInstruction(instruction)
         val hasThis = instruction.getOpcode() != INVOKESTATIC
-        val nonThisParametersCount = methodId!!.getArgumentCount() // excluding this
+        val thisSlots = if (hasThis) 1 else 0
+        val parametersCount = methodId!!.getArgumentCount() + thisSlots
+
+        fun addAssertForArgumentOnStack(index: Int) {
+            addAssertForStackValue(parametersCount - index - 1)
+        }
+
         if (hasThis && needGenerateAssertForThis) {
-            addAssertForStackValue(nonThisParametersCount)
+            addAssertForArgumentOnStack(0)
         }
         if (instruction.getOpcode() != INVOKEDYNAMIC) {
             val method = declarationIndex.findMethodByInstruction(instruction)
             if (method != null) {
                 val positions = Positions(method)
-                val parameterIndices = if (hasThis) 1..nonThisParametersCount else 0..nonThisParametersCount - 1
-                for (paramIndex in parameterIndices) {
+                for (paramIndex in thisSlots..parametersCount - 1) {
                     val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
                     if (needGenerateAssertForArgument(paramAnnotation)) {
-                        addAssertForStackValue(nonThisParametersCount - paramIndex)
+                        addAssertForArgumentOnStack(paramIndex)
                     }
                 }
             }

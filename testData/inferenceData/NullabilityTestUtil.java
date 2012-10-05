@@ -16,6 +16,9 @@ public class NullabilityTestUtil {
     public static void staticAssertNotNull(@NotNull Object o) {
     }
 
+    public static void staticAssertSecondNotNull(Object o1, @NotNull Object o2) {
+    }
+
     @NotNull
     public static Object returnNotNull() {
         return new Object();

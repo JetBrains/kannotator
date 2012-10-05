@@ -222,6 +222,10 @@ public class NullabilityTest {
         new NullabilityTestUtil().assertSecondNotNull(o1, o2);
     }
 
+    public void testInvokeStaticAssertSecondNotNull(Object o1, @ExpectNotNull Object o2) {
+        NullabilityTestUtil.staticAssertSecondNotNull(o1, o2);
+    }
+
     public void testInvokeNullableParameter(Object o) {
         new NullabilityTestUtil().nullableParameter(o);
     }

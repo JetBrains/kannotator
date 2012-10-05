@@ -117,6 +117,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
 
     fun testInvokeAssertSecondNotNull() = doTest()
 
+    fun testInvokeStaticAssertSecondNotNull() = doTest()
+
     fun testInvokeNullableParameter() = doTest()
 
     fun testInvokeReturnNotNull() = doTest()
