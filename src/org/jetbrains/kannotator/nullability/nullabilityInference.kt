@@ -21,6 +21,7 @@ import org.jetbrains.kannotator.nullability.Nullability
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.mergeWithNullable
 import kotlin.test.assertTrue
+import org.jetbrains.kannotator.declarations.getArgumentCount
 
 class NullabilityAnnotationsInference(
         graph: ControlFlowGraph,
@@ -55,6 +56,59 @@ class NullabilityAnnotationsInference(
         traverseInstructions { instruction ->
             checkReturnInstruction(instruction, computeValueInfos(instruction))
         }
+    }
+
+    private fun generateNullabilityAsserts(
+            instruction: Instruction,
+            annotations: Annotations<NullabilityAnnotation>,
+            declarationIndex: DeclarationIndex
+    ) : Set<Assert<Nullability>> {
+        val state = instruction[STATE_BEFORE]!!
+        val result = hashSet<Assert<Nullability>>()
+
+        fun addAssertForStackValue(indexFromTop: Int) {
+            val valueSet = state.stack[indexFromTop]
+            for (value in valueSet) {
+                result.add(Assert(value))
+            }
+        }
+
+        when (instruction.getOpcode()) {
+            INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC -> {
+                val methodId = getMethodIdByInstruction(instruction)
+                val hasThis = instruction.getOpcode() != INVOKESTATIC
+                val nonThisParametersCount = methodId!!.getArgumentCount() // excluding this
+                if (hasThis) {
+                    addAssertForStackValue(nonThisParametersCount)
+                }
+                if (instruction.getOpcode() != INVOKEDYNAMIC) {
+                    val method = declarationIndex.findMethodByInstruction(instruction)
+                    if (method != null) {
+                        val positions = Positions(method)
+                        val parameterIndices = if (hasThis) 1..nonThisParametersCount else 0..nonThisParametersCount - 1
+                        for (paramIndex in parameterIndices) {
+                            val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
+                            if (paramAnnotation == NullabilityAnnotation.NOT_NULL) {
+                                addAssertForStackValue(nonThisParametersCount - paramIndex)
+                            }
+                        }
+                    }
+                }
+            }
+            GETFIELD, ARRAYLENGTH, ATHROW,
+            MONITORENTER, MONITOREXIT -> {
+                addAssertForStackValue(0)
+            }
+            AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD,
+            PUTFIELD -> {
+                addAssertForStackValue(1)
+            }
+            AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
+                addAssertForStackValue(2)
+            }
+            else -> {}
+        }
+        return result
     }
 
     private fun checkReturnInstruction(
