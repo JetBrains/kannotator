@@ -26,6 +26,24 @@ import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.tree.analysis.Analyzer
 import org.objectweb.asm.util.Printer
 
+public fun MethodNode.buildControlFlowGraph(
+        owner: ClassName,
+        graphBuilder: ControlFlowGraphBuilder<Label> = ControlFlowGraphBuilder()
+): ControlFlowGraph {
+    val analyzer = GraphBuilderAnalyzer(graphBuilder, owner, this)
+    analyzer.analyze(owner.internal, this)
+
+    for ((index, inst) in analyzer.instructions.indexed) {
+        val frame = analyzer.getFrames()[index]
+        if (frame != null) {
+            inst[STATE_BEFORE] = object : FrameState<Unit>(frame!!) {
+                override fun valueInfo(value: Value) {}
+            }
+        }
+    }
+    return graphBuilder.build()
+}
+
 public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
     return buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {
         override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {
@@ -56,8 +74,8 @@ public fun buildGraphsForAllMethods(
             val proceed = callbacks.beforeMethod(owner, name, desc)
             if (!proceed) return null
 
-            val builder = ControlFlowGraphBuilder<Label>()
             val ownerClassName = ClassName.fromInternalName(owner)
+            val builder = ControlFlowGraphBuilder<Label>()
             result.add(MethodAndGraph(Method(ownerClassName, access, name, desc), builder))
 
             val methodNode = MethodNode(access, name, desc, signature, exceptions)
@@ -84,17 +102,7 @@ class GraphBuilderMethodVisitor(
     public override fun visitEnd() {
         try {
             super.visitEnd()
-            val analyzer = GraphBuilderAnalyzer(graphBuilder, owner, methodNode)
-            analyzer.analyze(owner.internal, methodNode)
-
-            for ((index, inst) in analyzer.instructions.indexed) {
-                val frame = analyzer.getFrames()[index]
-                if (frame != null) {
-                    inst[STATE_BEFORE] = object : FrameState<Unit>(frame!!) {
-                        override fun valueInfo(value: Value) {}
-                    }
-                }
-            }
+            methodNode.buildControlFlowGraph(owner, graphBuilder)
         }
         catch (e: Throwable) {
             callbacks.error(owner.internal, methodNode.name, methodNode.desc, e)
