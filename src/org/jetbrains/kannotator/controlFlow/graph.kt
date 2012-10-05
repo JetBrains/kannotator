@@ -1,5 +1,7 @@
 package org.jetbrains.kannotator.controlFlow
 
+import org.jetbrains.kannotator.util.DataHolder
+
 public trait ControlFlowGraph {
     val instructions: Collection<Instruction>
     val entryPoint: Instruction

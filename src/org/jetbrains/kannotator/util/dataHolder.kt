@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.controlFlow
+package org.jetbrains.kannotator.util
 
 import java.util.HashMap
 

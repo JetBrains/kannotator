@@ -3,6 +3,7 @@ package org.jetbrains.kannotator.controlFlow
 import java.util.ArrayList
 import java.util.LinkedHashSet
 import java.util.HashMap
+import org.jetbrains.kannotator.util.DataHolderImpl
 
 public class ControlFlowGraphBuilder<L: Any> {
 

@@ -4,7 +4,7 @@ import java.util.HashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraphBuilder
-import org.jetbrains.kannotator.controlFlow.DataKey
+import org.jetbrains.kannotator.util.DataKey
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.InstructionMetadata
 import org.jetbrains.kannotator.controlFlow.State
