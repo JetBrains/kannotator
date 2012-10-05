@@ -119,4 +119,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<Nullability>(javaClass<in
 
     fun testInvokeNullableParameter() = doTest()
 
+    fun testInvokeReturnNotNull() = doTest()
+
+    fun testInvokeReturnNullable() = doTest()
 }

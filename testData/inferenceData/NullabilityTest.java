@@ -226,6 +226,16 @@ public class NullabilityTest {
         new NullabilityTestUtil().nullableParameter(o);
     }
 
+    @ExpectNotNull
+    public Object testInvokeReturnNotNull() {
+        return NullabilityTestUtil.returnNotNull();
+    }
+
+    @ExpectNullable
+    public Object testInvokeReturnNullable() {
+        return NullabilityTestUtil.returnNullable();
+    }
+
     private Object field;
     private static Object staticField;
 
