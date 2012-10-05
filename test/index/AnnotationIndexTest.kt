@@ -19,7 +19,7 @@ class AnnotationIndexTest : TestCase() {
         )
 
         val annotationDirs = arrayList(
-                java.io.File("/Users/abreslav/work/kotlin/jdk-annotations"),
+//                java.io.File("/Users/abreslav/work/kotlin/jdk-annotations"),
                 File("lib")
         )
 
