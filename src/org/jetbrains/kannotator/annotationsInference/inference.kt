@@ -1,5 +1,6 @@
 package org.jetbrains.kannotator.annotationsInference
 
+import org.objectweb.asm.Opcodes.*
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
@@ -8,6 +9,9 @@ import org.jetbrains.kannotator.declarations.Positions
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.declarations.getArgumentCount
 
 trait AnnotationKind
 trait Annotation<T: AnnotationKind>
@@ -59,6 +63,33 @@ abstract class AnnotationsInference<T: AnnotationKind>(
     ): Boolean
 
     protected abstract fun generateAsserts(instruction: Instruction) : Collection<Assert<T>>
+
+    protected fun generateAssertsForCallArguments(
+            instruction: Instruction,
+            addAssertForStackValue: (Int) -> Unit,
+            needGenerateAssertForThis: Boolean,
+            needGenerateAssertForArgument: (Annotation<T>?) -> Boolean
+    ) {
+        val methodId = getMethodIdByInstruction(instruction)
+        val hasThis = instruction.getOpcode() != INVOKESTATIC
+        val nonThisParametersCount = methodId!!.getArgumentCount() // excluding this
+        if (hasThis && needGenerateAssertForThis) {
+            addAssertForStackValue(nonThisParametersCount)
+        }
+        if (instruction.getOpcode() != INVOKEDYNAMIC) {
+            val method = declarationIndex.findMethodByInstruction(instruction)
+            if (method != null) {
+                val positions = Positions(method)
+                val parameterIndices = if (hasThis) 1..nonThisParametersCount else 0..nonThisParametersCount - 1
+                for (paramIndex in parameterIndices) {
+                    val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
+                    if (needGenerateAssertForArgument(paramAnnotation)) {
+                        addAssertForStackValue(nonThisParametersCount - paramIndex)
+                    }
+                }
+            }
+        }
+    }
 }
 
 abstract class AnnotationsManager<T: AnnotationKind> {

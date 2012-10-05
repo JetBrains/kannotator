@@ -75,25 +75,8 @@ class NullabilityAnnotationsInference(
 
         when (instruction.getOpcode()) {
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC -> {
-                val methodId = getMethodIdByInstruction(instruction)
-                val hasThis = instruction.getOpcode() != INVOKESTATIC
-                val nonThisParametersCount = methodId!!.getArgumentCount() // excluding this
-                if (hasThis) {
-                    addAssertForStackValue(nonThisParametersCount)
-                }
-                if (instruction.getOpcode() != INVOKEDYNAMIC) {
-                    val method = declarationIndex.findMethodByInstruction(instruction)
-                    if (method != null) {
-                        val positions = Positions(method)
-                        val parameterIndices = if (hasThis) 1..nonThisParametersCount else 0..nonThisParametersCount - 1
-                        for (paramIndex in parameterIndices) {
-                            val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
-                            if (paramAnnotation == NullabilityAnnotation.NOT_NULL) {
-                                addAssertForStackValue(nonThisParametersCount - paramIndex)
-                            }
-                        }
-                    }
-                }
+                generateAssertsForCallArguments(instruction, { indexFromTop -> addAssertForStackValue(indexFromTop) },
+                        true, { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL })
             }
             GETFIELD, ARRAYLENGTH, ATHROW,
             MONITORENTER, MONITOREXIT -> {
