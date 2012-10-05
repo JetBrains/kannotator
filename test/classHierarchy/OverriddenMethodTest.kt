@@ -5,10 +5,10 @@ import junit.framework.TestCase
 import kotlinlib.buildString
 import kotlinlib.println
 import kotlinlib.sortByToString
-import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraphBuilder
 import org.jetbrains.kannotator.classHierarchy.ClassNode
 import org.jetbrains.kannotator.classHierarchy.getOverriddenMethods
 import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 
 class OverriddenMethodTest : TestCase() {
     val BASE_DIR = "testData/classHierarchy/overriddenMethods/"
@@ -26,13 +26,13 @@ class OverriddenMethodTest : TestCase() {
     }
 
     fun testOverridesVisibility() {
-        val builder = ClassHierarchyGraphBuilder(
+        val graph = buildClassHierarchyGraph(
             arrayList("Base", "Derived", "subpackage/DerivedInSubpackage").map {
                 ClassName.fromInternalName("classHierarchy/overriddenMethods/overridesVisibility/$it")
             }
         )
 
-        doTest(builder.buildGraph().classes.sortByToString(), "overridesVisibility/result.txt")
+        doTest(graph.classes.sortByToString(), "overridesVisibility/result.txt")
     }
 
 

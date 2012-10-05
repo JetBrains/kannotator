@@ -4,14 +4,12 @@ import java.io.File
 import junit.framework.Assert
 import kotlin.test.fail
 import kotlinlib.sortByToString
-import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraphBuilder
 import org.jetbrains.kannotator.classHierarchy.ClassNode
 import util.getAllClassesWithPrefix
+import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 
 fun getClassesHierarchy(prefix: String): Collection<ClassNode> {
-    val builder = ClassHierarchyGraphBuilder(getAllClassesWithPrefix(prefix))
-
-    val graph = builder.buildGraph()
+    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix(prefix))
 
     return graph.classes.filter {
         it.name.internal.startsWith(prefix)

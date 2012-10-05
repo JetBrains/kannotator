@@ -21,33 +21,31 @@ private class ClassNodeImpl(override val name: ClassName): ClassNode {
     public fun toString(): String = name.internal
 }
 
-class ClassHierarchyGraphBuilder(private val classes: Collection<ClassName>) {
-    private val nodesByName: MutableMap<ClassName, ClassNodeImpl> = hashMap()
+fun buildClassHierarchyGraph(classes: Collection<ClassName>): ClassHierarchyGraph {
+    val nodesByName: MutableMap<ClassName, ClassNodeImpl> = hashMap()
 
-    private fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
+    fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
 
-    private fun addEdge(base: ClassNodeImpl, derived: ClassNodeImpl) {
+    fun addEdge(base: ClassNodeImpl, derived: ClassNodeImpl) {
         val edge = ClassHierarchyEdgeImpl(base, derived)
         base.subClasses.add(edge)
         derived.superClasses.add(edge)
     }
 
-    fun buildGraph(): ClassHierarchyGraph {
-        for (name in classes) {
-            val node = getNodeByName(name)
-            val (methods, superClasses) = ClassHierarchyClassVisitor.process(name)
-            for (superClass in superClasses) {
-                val superClassNode = getNodeByName(superClass)
-                addEdge(base = superClassNode, derived = node)
-            }
-            for (methodName in methods) {
-                node.methods.add(methodName)
-            }
+    for (name in classes) {
+        val node = getNodeByName(name)
+        val (methods, superClasses) = ClassHierarchyClassVisitor.process(name)
+        for (superClass in superClasses) {
+            val superClassNode = getNodeByName(superClass)
+            addEdge(base = superClassNode, derived = node)
         }
+        for (methodName in methods) {
+            node.methods.add(methodName)
+        }
+    }
 
-        return object : ClassHierarchyGraph {
-            override val classes: Collection<ClassNode> = nodesByName.values()
-        }
+    return object : ClassHierarchyGraph {
+        override val classes: Collection<ClassNode> = nodesByName.values()
     }
 }
 

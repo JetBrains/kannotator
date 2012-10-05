@@ -5,9 +5,9 @@ import edu.uci.ics.jung.graph.util.EdgeType
 import org.apache.commons.collections15.Transformer
 import org.jetbrains.kannotator.classHierarchy.ClassHierarchyEdge
 import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraph
-import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraphBuilder
 import org.jetbrains.kannotator.classHierarchy.ClassNode
 import util.getAllClassesWithPrefix
+import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 
 fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, ClassHierarchyEdge> {
     val jungGraph = DirectedSparseMultigraph<ClassNode, ClassHierarchyEdge>()
@@ -20,9 +20,7 @@ fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, Class
 }
 
 fun main(args: Array<String>) {
-    val builder = ClassHierarchyGraphBuilder(getAllClassesWithPrefix("java/lang/"))
-
-    val graph = builder.buildGraph()
+    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix("java/lang/"))
 
     displayJungGraph<ClassNode, ClassHierarchyEdge>(
             graph.toJungGraph(),
