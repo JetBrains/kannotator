@@ -27,12 +27,13 @@ import org.jetbrains.kannotator.declarations.toFullString
 import org.jetbrains.kannotator.asm.util.forEachMethod
 import org.jetbrains.kannotator.annotations.io.parseAnnotationKey
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
+import org.jetbrains.kannotator.asm.util.forEachMethodWithMethodVisitor
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 
-class DeclarationIndexImpl(classSource: ClassSource, delegateClassVisitor: ClassVisitor? = null): DeclarationIndex, AnnotationKeyIndex {
+class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
             val className: ClassName,
             val methodsById: Map<MethodId, Method>,
@@ -42,9 +43,9 @@ class DeclarationIndexImpl(classSource: ClassSource, delegateClassVisitor: Class
     private val classes = HashMap<ClassName, ClassData>()
     private val classesByCanonicalName = HashMap<String, MutableCollection<ClassData>>();
 
-    { init(classSource, delegateClassVisitor) }
+    { init(classSource, processMethodBody) }
 
-    private fun init(classSource: ClassSource, delegateClassVisitor: ClassVisitor?) {
+    private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?) {
         classSource forEach {
             reader ->
             val className = ClassName.fromInternalName(reader.getClassName())
@@ -52,11 +53,12 @@ class DeclarationIndexImpl(classSource: ClassSource, delegateClassVisitor: Class
             val methodsById = HashMap<MethodId, Method>()
             val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
             assert (classes[className] == null) { "Class already visited: $className" }
-            reader.forEachMethod(delegateClassVisitor) {
+            reader.forEachMethodWithMethodVisitor {
                 owner, access, name, desc, signature ->
                 val method = Method(className, access, name, desc, signature)
                 methodsById[method.id] = method
                 methodsByNameForAnnotationKey.getOrPut(method.getMethodNameAccountingForConstructor(), {ArrayList()}).add(method)
+                processMethodBody(method)
             }
 
             val classData = ClassData(className, methodsById, methodsByNameForAnnotationKey)
