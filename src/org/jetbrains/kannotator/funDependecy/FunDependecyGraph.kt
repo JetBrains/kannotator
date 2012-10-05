@@ -2,6 +2,8 @@ package org.jetbrains.kannotator.funDependecy
 
 import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.Method
+import java.util.LinkedHashSet
+import java.util.LinkedHashMap
 
 public trait FunDependencyGraph {
     val functions: List<FunctionNode>
@@ -23,8 +25,8 @@ class FunDependencyGraphImpl : FunDependencyGraph {
     override val noOutgoingNodes: List<FunctionNode> get() = noOutgoingNodesSet.toList()
     override val functions: List<FunctionNode> get() = nodes.values().toList()
 
-    private val noOutgoingNodesSet = hashSet<FunctionNode>()
-    private val nodes = hashMap<Method, FunctionNodeImpl>()
+    private val noOutgoingNodesSet = LinkedHashSet<FunctionNode>()
+    private val nodes = LinkedHashMap<Method, FunctionNodeImpl>()
 
     fun getOrCreateNode(method : Method) : FunctionNodeImpl {
         return nodes.getOrPut(method, {
@@ -66,8 +68,8 @@ class FunDependencyEdgeImpl(override val from: FunctionNode,
 }
 
 class FunctionNodeImpl(override val method: Method): FunctionNode {
-    override val outgoingEdges: MutableCollection<FunDependencyEdge> = hashSet()
-    override val incomingEdges: MutableCollection<FunDependencyEdge> = hashSet()
+    override val outgoingEdges: MutableCollection<FunDependencyEdge> = LinkedHashSet()
+    override val incomingEdges: MutableCollection<FunDependencyEdge> = LinkedHashSet()
 
     fun toString(): String {
         return "${method} in$incomingEdges out$outgoingEdges"
