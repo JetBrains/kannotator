@@ -70,6 +70,9 @@ fun generateNullabilityAsserts(
 
 fun DeclarationIndex.findMethodByInstruction(instruction: Instruction): Method? {
     val methodInsnNode = (instruction.metadata as? AsmInstructionMetadata)?.asmInstruction as? MethodInsnNode
-    if (methodInsnNode == null) return null
+    return if (methodInsnNode == null) null else this.findMethodByMethodInsnNode(methodInsnNode)
+}
+
+fun DeclarationIndex.findMethodByMethodInsnNode(methodInsnNode: MethodInsnNode): Method? {
     return this.findMethod(ClassName.fromInternalName(methodInsnNode.owner!!), methodInsnNode.name!!, methodInsnNode.desc)
 }

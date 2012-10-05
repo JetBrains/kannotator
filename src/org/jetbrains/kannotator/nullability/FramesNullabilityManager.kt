@@ -18,8 +18,17 @@ import org.jetbrains.kannotator.controlFlowBuilder
 import java.util.Collections
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.toValueInfo
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.objectweb.asm.tree.MethodInsnNode
+import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.declarations.Annotations
 
-class FramesNullabilityManager(val annotationsManager: NullabilityAnnotationsManager) {
+class FramesNullabilityManager(
+        val annotationsManager: NullabilityAnnotationsManager,
+        val annotations: Annotations<NullabilityAnnotation>,
+        val declarationIndex: DeclarationIndex
+) {
     private val nullabilityInfosForEdges : MutableMap<ControlFlowEdge, ValueNullabilityMap> = hashMap()
 
     private fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
@@ -33,7 +42,7 @@ class FramesNullabilityManager(val annotationsManager: NullabilityAnnotationsMan
 
     private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
         val incomingEdgesMaps = instruction.incomingEdges.map { e -> nullabilityInfosForEdges[e] }.filterNotNull()
-        return mergeValueNullabilityMaps(annotationsManager, incomingEdgesMaps)
+        return mergeValueNullabilityMaps(annotationsManager, annotations, declarationIndex, incomingEdgesMaps)
     }
 
     fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
@@ -60,7 +69,7 @@ class FramesNullabilityManager(val annotationsManager: NullabilityAnnotationsMan
                 return
             }
 
-            val infosForEdge = ValueNullabilityMap(annotationsManager, infosForInstruction)
+            val infosForEdge = ValueNullabilityMap(annotationsManager, annotations, declarationIndex, infosForInstruction)
             for (value in state.stack[0]) {
                 infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
             }
@@ -111,7 +120,12 @@ class FramesNullabilityManager(val annotationsManager: NullabilityAnnotationsMan
     }
 }
 
-public class ValueNullabilityMap(val annotationsManager: NullabilityAnnotationsManager, m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
+public class ValueNullabilityMap(
+        val annotationsManager: NullabilityAnnotationsManager,
+        val annotations: Annotations<NullabilityAnnotation>,
+        val declarationIndex: DeclarationIndex,
+        m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()
+): HashMap<Value, NullabilityValueInfo>(m) {
     override fun get(key: Any?): NullabilityValueInfo {
         val fromSuper = super.get(key)
         if (fromSuper != null) return fromSuper
@@ -125,8 +139,21 @@ public class ValueNullabilityMap(val annotationsManager: NullabilityAnnotationsM
                 NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
                 ACONST_NULL -> NULL
                 LDC -> NOT_NULL
-                INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL ->
-                    UNKNOWN // TODO load from annotations
+                INVOKEDYNAMIC, INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL -> {
+                    if (createdAtInsn.getOpcode() == INVOKEDYNAMIC)
+                        UNKNOWN
+                    else {
+                        val method = declarationIndex.findMethodByMethodInsnNode(createdAtInsn as MethodInsnNode)
+                        if (method != null) {
+                            val positions = Positions(method)
+                            val paramAnnotation = annotations[positions.forReturnType().position]
+                            paramAnnotation.toValueInfo()
+                        }
+                        else {
+                            UNKNOWN
+                        }
+                    }
+                }
                 GETFIELD, GETSTATIC -> UNKNOWN // TODO load from annotations
                 AALOAD -> UNKNOWN
                 else -> throw UnsupportedOperationException("Unsupported opcode=${createdAtInsn.getOpcode()}")
@@ -144,8 +171,13 @@ public class ValueNullabilityMap(val annotationsManager: NullabilityAnnotationsM
     }
 }
 
-fun mergeValueNullabilityMaps(annotationManager: NullabilityAnnotationsManager, maps: Collection<ValueNullabilityMap>) : ValueNullabilityMap {
-    val result = ValueNullabilityMap(annotationManager)
+fun mergeValueNullabilityMaps(
+        annotationManager: NullabilityAnnotationsManager,
+        annotations: Annotations<NullabilityAnnotation>,
+        declarationIndex: DeclarationIndex,
+        maps: Collection<ValueNullabilityMap>
+): ValueNullabilityMap {
+    val result = ValueNullabilityMap(annotationManager, annotations, declarationIndex)
     val affectedValues = maps.flatMap { m -> m.keySet() }.toSet()
 
     for (m in maps) {

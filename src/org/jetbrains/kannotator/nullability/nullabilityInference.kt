@@ -28,11 +28,11 @@ class NullabilityAnnotationsInference(
         positions: Positions,
         declarationIndex: DeclarationIndex
 ) : AnnotationsInference<Nullability>(graph, annotations, positions, declarationIndex,
-        NullabilityAnnotationsManager(annotations, positions)) {
+        NullabilityAnnotationsManager(annotations, declarationIndex, positions)) {
 
     //todo make property without backing field (after KT-2892)
     private val nullabilityAnnotationManager : NullabilityAnnotationsManager = annotationsManager as NullabilityAnnotationsManager
-    private val framesManager = FramesNullabilityManager(nullabilityAnnotationManager)
+    private val framesManager = FramesNullabilityManager(nullabilityAnnotationManager, annotations, declarationIndex)
 
     override fun computeValueInfos(instruction: Instruction) : ValueNullabilityMap =
             framesManager.computeNullabilityInfosForInstruction(instruction)
@@ -81,6 +81,7 @@ class NullabilityAnnotationsInference(
 
 private class NullabilityAnnotationsManager(
         val annotations: Annotations<NullabilityAnnotation>,
+        val declarationIndex: DeclarationIndex,
         val positions: Positions
 ) : AnnotationsManager<Nullability>() {
 
@@ -123,7 +124,7 @@ private class NullabilityAnnotationsManager(
         }
         setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
 
-        val mapOnReturn = mergeValueNullabilityMaps(this, valueNullabilityMapsOnReturn)
+        val mapOnReturn = mergeValueNullabilityMaps(this, annotations, declarationIndex, valueNullabilityMapsOnReturn)
         for ((value, valueInfo) in mapOnReturn) {
             if (value.interesting) {
                 setAnnotation(value.getParameterPosition(), valueInfo.toAnnotation())
