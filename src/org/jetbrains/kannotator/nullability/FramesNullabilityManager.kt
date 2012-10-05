@@ -16,6 +16,7 @@ import kotlin.test.assertEquals
 
 import org.jetbrains.kannotator.controlFlowBuilder
 import java.util.Collections
+import kotlin.test.assertTrue
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.toValueInfo
 import org.jetbrains.kannotator.index.DeclarationIndex
@@ -54,8 +55,9 @@ class FramesNullabilityManager(
             // first outgoing edge is 'false', second is 'true'
             // this order is is provided by code in ASM's Analyzer
             val it = instruction.outgoingEdges.iterator()
+            assertTrue(instruction.outgoingEdges.size() >= 2,  "Too few outgoing edges: $instruction")
             val result = Pair(it.next(), it.next())
-            assertFalse(it.hasNext()) // should be exactly two edges!
+            assertFalse(it.hasNext(), "Too many outgoing edges: $instruction") // should be exactly two edges!
             return result
         }
 
