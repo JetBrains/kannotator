@@ -1,7 +1,7 @@
 package funDependency
 
 import org.junit.Assert.*
-import org.junit.Test as test
+import org.junit.Test
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import util.ClassesFromClassPath
 import util.ClassPathDeclarationIndex
@@ -23,27 +23,27 @@ class TopologicalSortTest {
         assertEquals(expected, actual)
     }
 
-    test fun funInDifferentClassesTest() {
+    Test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.sorted.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
     }
 
-    test fun multiplyInvokeOfMethod() {
+    Test fun multiplyInvokeOfMethod() {
         doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.sorted.txt", "fundependency.multiplyInvokeOfMethod.First", "fundependency.multiplyInvokeOfMethod.Second")
     }
 
-    test fun noAnnotatedMethods() {
+    Test fun noAnnotatedMethods() {
         doTest("noAnnotatedMethods/noAnnotatedMethods.sorted.txt", "fundependency.noAnnotatedMethods.First")
     }
 
-    test fun recursiveFunTest() {
+    Test fun recursiveFunTest() {
         doTest("recursiveFun/recursiveFun.sorted.txt", "fundependency.recursiveFun.First", "fundependency.recursiveFun.Second")
     }
 
-    test fun simpleTest() {
+    Test fun simpleTest() {
         doTest("simple/simple.sorted.txt", "fundependency.simple.Simple")
     }
 
-    test fun multipleComponents() {
+    Test fun multipleComponents() {
         doTest("multipleComponents/multipleComponents.sorted.txt", "funDependency.multipleComponents.First")
     }
 

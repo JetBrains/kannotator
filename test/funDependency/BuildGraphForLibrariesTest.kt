@@ -4,7 +4,7 @@ import java.io.File
 import java.util.ArrayList
 import java.util.jar.JarFile
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
-import org.junit.Test as test
+import org.junit.Test
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.util.processJar
 import sun.tools.jar.resources.jar
@@ -14,7 +14,7 @@ import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
 
 class BuildGraphForLibrariesTest() {
-    test fun allLibsTest() {
+    Test fun allLibsTest() {
         File("lib").recurse {
             file ->
             if (file.isFile() && file.getName().endsWith(".jar")) {

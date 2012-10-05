@@ -7,7 +7,7 @@ import kotlinlib.*
 import org.jetbrains.kannotator.funDependecy.FunctionNode
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.junit.Assert
-import org.junit.Test as test
+import org.junit.Test
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
@@ -19,23 +19,23 @@ private val PATH = "testData/funDependency/"
 
 class FunDependencyGraphTest {
 
-    test fun funInDifferentClassesTest() {
+    Test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
     }
 
-    test fun multiplyInvokeOfMethod() {
+    Test fun multiplyInvokeOfMethod() {
         doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.txt", "fundependency.multiplyInvokeOfMethod.First", "fundependency.multiplyInvokeOfMethod.Second")
     }
 
-    test fun noAnnotatedMethods() {
+    Test fun noAnnotatedMethods() {
         doTest("noAnnotatedMethods/noAnnotatedMethods.txt", "fundependency.noAnnotatedMethods.First")
     }
 
-    test fun recursiveFunTest() {
+    Test fun recursiveFunTest() {
         doTest("recursiveFun/recursiveFun.txt", "fundependency.recursiveFun.First", "fundependency.recursiveFun.Second")
     }
 
-    test fun simpleTest() {
+    Test fun simpleTest() {
         doTest("simple/simple.txt", "fundependency.simple.Simple")
     }
 
