@@ -46,24 +46,24 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
         val result = hashSet<Assert<Mutability>>()
         val asmInstruction = (instruction.metadata as? AsmInstructionMetadata)?.asmInstruction
         if (!(asmInstruction is MethodInsnNode)) return Collections.emptyList()
-        when (instruction.getOpcode()) {
-            INVOKEINTERFACE -> {
-                val methodId = getMethodIdByInstruction(instruction)
-                val valueSet = state.stack[methodId!!.getArgumentCount()]
-                for (value in valueSet) {
-                    if (!(value is TypedValue) || value._type == null) continue;
-                    if (isInvocationRequiredMutability(asmInstruction)) {
-                        result.add(Assert<Mutability>(value))
-                        if (value.createdAtInsn is MethodInsnNode) {
-                            result.addAll(generatePropagatingMutabilityAsserts(value.createdAtInsn))
-                        }
+        if (instruction.getOpcode() == INVOKEINTERFACE) {
+            val methodId = getMethodIdByInstruction(instruction)
+            val valueSet = state.stack[methodId!!.getArgumentCount()]
+            for (value in valueSet) {
+                if (!(value is TypedValue) || value._type == null) continue;
+                if (isInvocationRequiredMutability(asmInstruction)) {
+                    result.add(Assert<Mutability>(value))
+                    if (value.createdAtInsn is MethodInsnNode) {
+                        result.addAll(generatePropagatingMutabilityAsserts(value.createdAtInsn))
                     }
                 }
             }
-            //todo check function arguments mutability annotations
-            //foo(collection) if 'foo' expects @Mutable
-            else -> {}
         }
+        generateAssertsForCallArguments(instruction,
+                { indexFromTop ->
+                    state.stack[indexFromTop].forEach { value -> result.add(Assert<Mutability>(value)) }
+                },
+                false,  { paramAnnotation -> paramAnnotation == MutabilityAnnotation.MUTABLE } )
 
         return result
     }

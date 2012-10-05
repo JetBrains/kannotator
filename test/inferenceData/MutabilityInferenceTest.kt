@@ -20,6 +20,10 @@ import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.mutability.Mutability
 import org.jetbrains.kannotator.annotationsInference.MutabilityAnnotationsInference
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import java.io.File
+import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
+import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
 
 class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
         javaClass<inferenceData.MutabilityTest>()) {
@@ -30,6 +34,17 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return MutabilityAnnotation.IMMUTABLE
         }
         return null
+    }
+
+    protected override fun getInitialAnnotations(): Annotations<Annotation<Mutability>> {
+        val utilClass = "out/production/kannotator/inferenceData/MutabilityTestUtil.class"
+        val classSource = FileBasedClassSource(arrayList(File(utilClass)))
+        val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
+            annotationName -> if (annotationName == "inferenceData.annotations.Mutable")
+                                   MutabilityAnnotation.MUTABLE
+                              else MutabilityAnnotation.IMMUTABLE
+        }
+        return existingNullabilityAnnotations
     }
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
@@ -46,4 +61,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
     fun testMapEntry() = doTest()
 
     fun testChangeKeySetInMap() = doTest()
+
+    fun testInvokeProcessMutable() = doTest()
+
+    fun testInvokeProcessReadableAndMutable() = doTest()
 }

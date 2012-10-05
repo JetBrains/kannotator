@@ -31,4 +31,12 @@ public class MutabilityTest {
         Set<Integer> set = map.keySet();
         set.remove(42);
     }
+
+    public void testInvokeProcessMutable(@ExpectMutable List<String> list) {
+        new MutabilityTestUtil().processMutable(list);
+    }
+
+    public void testInvokeProcessReadableAndMutable(@ExpectMutable Collection<String> collection, List<String> list) {
+        MutabilityTestUtil.processReadableAndMutable(list, collection);
+    }
 }
