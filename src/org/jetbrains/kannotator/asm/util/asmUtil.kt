@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.asm.util
 
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
+import org.jetbrains.kannotator.declarations.Method
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
@@ -10,6 +11,7 @@ import org.objectweb.asm.Type
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
+import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.util.Printer
 
 public fun AbstractInsnNode.toOpcodeString(): String {
@@ -54,4 +56,7 @@ public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, 
             return body(getClassName(), access, name, desc, signature)
         }
     }, 0)
+
 }
+
+public fun Method.createMethodNode(): MethodNode = MethodNode(access.flags, id.methodName, id.methodDesc, genericSignature, null)

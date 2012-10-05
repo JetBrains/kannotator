@@ -25,9 +25,9 @@ enum class Visibility {
     PRIVATE
 }
 
-data class Access(private val access: Int) {
-    fun has(val flag: Int) = access and flag != 0
-    fun toString(): String = "" + Integer.toHexString(access)
+data class Access(val flags: Int) {
+    fun has(val flag: Int) = flags and flag != 0
+    fun toString(): String = "" + Integer.toHexString(flags)
 }
 
 fun Method(
