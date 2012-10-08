@@ -6,7 +6,7 @@ import java.util.HashSet
 import kotlinlib.union
 import java.util.Collections
 
-class AnnotationsImpl<A>(val delegate: Annotations<A>? = null) : MutableAnnotations<A> {
+class AnnotationsImpl<A: Any>(val delegate: Annotations<A>? = null) : MutableAnnotations<A> {
     private val data = HashMap<TypePosition, A>()
 
     override fun get(typePosition: TypePosition): A? {
