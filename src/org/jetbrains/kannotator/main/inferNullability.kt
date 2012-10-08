@@ -3,6 +3,7 @@ package org.jetbrains.kannotator.main
 import java.io.File
 import java.io.FileReader
 import java.util.HashMap
+import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotationsInference.buildNullabilityAnnotations
@@ -97,12 +98,14 @@ private fun inferAnnotationsOnMutuallyRecursiveMethods(
 ) {
     assert (!methods.isEmpty()) {"Empty SSC"}
 
-    val queue = linkedList(methods.first())
+    val queue = LinkedHashSet(methods)
     while (!queue.isEmpty()) {
-        val method = queue.pop()
+        val method = queue.removeFirst()
+
         progressMonitor.processingStepStarted(method)
         val inferredAnnotations = buildNullabilityAnnotations(cfGraph(method), PositionsWithinMember(method), declarationIndex, annotations)
         progressMonitor.processingStepFinished(method)
+
         var changed = false
         inferredAnnotations forEach {
             pos, ann ->
@@ -112,6 +115,7 @@ private fun inferAnnotationsOnMutuallyRecursiveMethods(
                 changed = true
             }
         }
+
         if (changed) {
             queue.addAll(dependentMethods(method))
         }
