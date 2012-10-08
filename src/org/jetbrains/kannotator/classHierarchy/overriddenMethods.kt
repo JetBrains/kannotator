@@ -1,6 +1,7 @@
 package org.jetbrains.kannotator.classHierarchy
 
 import org.jetbrains.kannotator.declarations.*
+import kotlinlib.prefixUpTo
 
 private val Method.isInheritable: Boolean
     get() =
@@ -13,7 +14,7 @@ private val Method.isInheritable: Boolean
 fun ClassNode.find(method: Method): Method? = methods.find { it.id == method.id }
 
 fun samePackage(c1: ClassNode, c2: ClassNode): Boolean {
-    fun ClassNode._package(): String = name.internal.substring(0, name.internal.lastIndexOf('/'))
+    fun ClassNode._package(): String = name.internal.prefixUpTo('/')!!
     return c1._package() == c2._package()
 }
 
