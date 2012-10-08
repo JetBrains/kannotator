@@ -13,6 +13,7 @@ import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.ClassSource
+import kotlinlib.flags
 
 public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : FunDependencyGraph =
         FunDependencyGraphBuilder(declarationIndex, classSource).build()
@@ -58,7 +59,7 @@ private class FunDependencyGraphBuilder(
     public fun build(): FunDependencyGraph {
         classSource.forEach {
             reader ->
-            reader.accept(classVisitor, SKIP_DEBUG or SKIP_FRAMES)
+            reader.accept(classVisitor, flags(SKIP_DEBUG, SKIP_FRAMES))
         }
 
         return dependencyGraph

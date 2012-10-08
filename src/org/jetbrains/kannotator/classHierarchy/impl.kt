@@ -9,6 +9,7 @@ import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import kotlinlib.flags
 
 private class ClassHierarchyEdgeImpl(override val base: ClassNode, override val derived: ClassNode): ClassHierarchyEdge
 
@@ -85,7 +86,7 @@ private fun processClass(name: ClassName): MethodsAndSuperClasses {
                     return null
                 }
             },
-            SKIP_CODE or SKIP_DEBUG or SKIP_FRAMES)
+            flags(SKIP_CODE, SKIP_DEBUG, SKIP_FRAMES))
 
     return MethodsAndSuperClasses(methods, superClasses)
 }
