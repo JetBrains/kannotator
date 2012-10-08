@@ -8,7 +8,7 @@ import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.TypePosition
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.nullability.NullabilityValueInfo
@@ -25,7 +25,7 @@ import org.jetbrains.kannotator.declarations.getArgumentCount
 class NullabilityAnnotationsInference(
         graph: ControlFlowGraph,
         override protected val annotations: Annotations<NullabilityAnnotation>,
-        positions: Positions,
+        positions: PositionsWithinMember,
         declarationIndex: DeclarationIndex
 ) : AnnotationsInference<NullabilityAnnotation, NullabilityValueInfo>(graph, annotations, positions, declarationIndex,
         NullabilityAnnotationsManager(annotations, declarationIndex, positions)) {
@@ -118,7 +118,7 @@ class NullabilityAnnotationsInference(
 private class NullabilityAnnotationsManager(
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
-        val positions: Positions
+        val positions: PositionsWithinMember
 ) : AnnotationsManager<NullabilityAnnotation>() {
 
     val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()

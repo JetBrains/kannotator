@@ -5,7 +5,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.canonicalName
 import org.jetbrains.kannotator.declarations.isStatic
 import org.jetbrains.kannotator.index.ClassSource
@@ -26,7 +26,7 @@ public fun <A> getAnnotationsFromClassFiles(classSource: ClassSource, annotation
                 override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                     val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
                     return object : MethodVisitor(Opcodes.ASM4) {
-                        private val positions = Positions(method)
+                        private val positions = PositionsWithinMember(method)
 
                         private fun setAnnotation(annotatedType: AnnotatedType, desc: String) {
                             val annotationClassSimpleName = ClassName.fromType(Type.getType(desc)).canonicalName

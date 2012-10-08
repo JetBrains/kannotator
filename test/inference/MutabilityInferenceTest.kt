@@ -7,7 +7,7 @@ import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -46,7 +46,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         return existingNullabilityAnnotations
     }
 
-    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
+    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<MutabilityAnnotation>) : Annotations<MutabilityAnnotation> {
         return MutabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
     }

@@ -1,7 +1,7 @@
 package org.jetbrains.kannotator.annotationsInference
 
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.Instruction
@@ -24,7 +24,7 @@ import org.jetbrains.kannotator.declarations.getArgumentCount
 
 class MutabilityAnnotationsInference(graph: ControlFlowGraph,
                                      annotations: Annotations<MutabilityAnnotation>,
-                                     positions: Positions,
+                                     positions: PositionsWithinMember,
                                      declarationIndex: DeclarationIndex
 ): AnnotationsInference<MutabilityAnnotation, ValueInfo>(graph, annotations, positions, declarationIndex, MutabilityAnnotationsManager(positions)) {
     private val asm2GraphInstructionMap = createInstructionMap()
@@ -98,7 +98,7 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
     protected override fun computeValueInfos(instruction: Instruction): Map<Value, ValueInfo> = Collections.emptyMap()
 }
 
-private class MutabilityAnnotationsManager(val positions: Positions) : AnnotationsManager<MutabilityAnnotation>() {
+private class MutabilityAnnotationsManager(val positions: PositionsWithinMember) : AnnotationsManager<MutabilityAnnotation>() {
     val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
 
     private fun addParameterAnnotation(value: Value, annotation: MutabilityAnnotation) {

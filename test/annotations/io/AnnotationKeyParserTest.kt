@@ -19,7 +19,7 @@ class AnnotationKeyParserTest : TestCase() {
     }
 
     fun doTest(method: Method) {
-        val pos = Positions(method).forReturnType()
+        val pos = PositionsWithinMember(method).forReturnType()
 
         val key = pos.position.toAnnotationKey()
         try {

@@ -5,7 +5,7 @@ import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
@@ -20,7 +20,7 @@ data class Assert(val value: Value)
 abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
         private val graph: ControlFlowGraph,
         protected open val annotations: Annotations<A>,
-        positions: Positions,
+        positions: PositionsWithinMember,
         protected val declarationIndex: DeclarationIndex,
         protected val annotationsManager: AnnotationsManager<A>) {
 
@@ -84,7 +84,7 @@ abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
         if (instruction.getOpcode() != INVOKEDYNAMIC) {
             val method = declarationIndex.findMethodByInstruction(instruction)
             if (method != null) {
-                val positions = Positions(method)
+                val positions = PositionsWithinMember(method)
                 for (paramIndex in thisSlots..parametersCount - 1) {
                     val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
                     if (needGenerateAssertForArgument(paramAnnotation)) {

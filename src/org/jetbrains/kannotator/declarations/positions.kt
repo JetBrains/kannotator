@@ -7,7 +7,7 @@ import org.objectweb.asm.Opcodes.*
 import kotlinlib.join
 import java.util.Collections
 
-class Positions(val method: Method) {
+class PositionsWithinMember(val method: Method) {
     // If present, 'this' has index 0
     public fun forParameter(parameterIndex: Int): AnnotatedType{
         assert(parameterIndex >= 0) {"For return type use forReturnType() method"}
@@ -26,7 +26,7 @@ class Positions(val method: Method) {
 
 }
 
-fun Positions.forEachValidPosition(body: (TypePosition) -> Unit) {
+fun PositionsWithinMember.forEachValidPosition(body: (TypePosition) -> Unit) {
     val skip = if (method.isStatic()) 0 else 1
     for (i in skip..method.getArgumentTypes().size) {
         body(forParameter(i).position)
@@ -34,7 +34,7 @@ fun Positions.forEachValidPosition(body: (TypePosition) -> Unit) {
     body(forReturnType().position)
 }
 
-fun Positions.getValidPositions(): Collection<TypePosition> {
+fun PositionsWithinMember.getValidPositions(): Collection<TypePosition> {
     val result = ArrayList<TypePosition>()
     forEachValidPosition {result.add(it)}
     return result

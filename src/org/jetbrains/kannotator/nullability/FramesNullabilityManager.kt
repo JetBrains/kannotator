@@ -21,7 +21,7 @@ import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.toValueInfo
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
 
@@ -147,7 +147,7 @@ public class ValueNullabilityMap(
                     else {
                         val method = declarationIndex.findMethodByMethodInsnNode(createdAtInsn as MethodInsnNode)
                         if (method != null) {
-                            val positions = Positions(method)
+                            val positions = PositionsWithinMember(method)
                             val paramAnnotation = annotations[positions.forReturnType().position]
                             paramAnnotation.toValueInfo()
                         }

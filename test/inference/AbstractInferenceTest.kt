@@ -6,7 +6,7 @@ import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -23,7 +23,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
 
     protected abstract fun Array<jet.Annotation>.toAnnotation(): A?
 
-    protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
+    protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<A>) : Annotations<A>
 
     protected open fun getInitialAnnotations(): Annotations<A> = AnnotationsImpl()
@@ -39,7 +39,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         val graph = buildControlFlowGraph(classReader, methodName, methodDescriptor)
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
-        val positions = Positions(method)
+        val positions = PositionsWithinMember(method)
         val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, getInitialAnnotations())
 
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
@@ -56,7 +56,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
     }
 
     fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,
-                     actual: Annotations<A>, parametersNumber: Int, positions: Positions) {
+                     actual: Annotations<A>, parametersNumber: Int, positions: PositionsWithinMember) {
         assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position),
                 "Return annotations error")
 

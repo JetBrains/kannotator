@@ -14,7 +14,7 @@ import org.jetbrains.kannotator.annotations.io.writeAnnotations
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.Positions
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.TypePosition
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.declarations.internalNameToCanonical
@@ -95,7 +95,7 @@ public class WriteAnnotationTest {
         reader.accept(object : ClassVisitor(Opcodes.ASM4) {
             override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                 val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
-                val positions = Positions(method)
+                val positions = PositionsWithinMember(method)
                 val skip = if (method.isStatic()) 0 else 1
                 for (i in skip..method.getArgumentTypes().size) {
                     handler(positions.forParameter(i).position)
