@@ -17,7 +17,6 @@ import org.jetbrains.kannotator.nullability.merge
 import org.jetbrains.kannotator.nullability.toAnnotation
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.nullability.Nullability
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.mergeWithNullable
 import kotlin.test.assertTrue
@@ -28,7 +27,7 @@ class NullabilityAnnotationsInference(
         override protected val annotations: Annotations<NullabilityAnnotation>,
         positions: Positions,
         declarationIndex: DeclarationIndex
-) : AnnotationsInference<Nullability>(graph, annotations, positions, declarationIndex,
+) : AnnotationsInference<NullabilityAnnotation, NullabilityValueInfo>(graph, annotations, positions, declarationIndex,
         NullabilityAnnotationsManager(annotations, declarationIndex, positions)) {
 
     //todo make property without backing field (after KT-2892)
@@ -39,8 +38,8 @@ class NullabilityAnnotationsInference(
             framesManager.computeNullabilityInfosForInstruction(instruction)
 
     override fun isAnnotationNecessary(
-            assert: Assert<Nullability>,
-            valueInfos: Map<Value, ValueInfo<Nullability>>
+            assert: Assert,
+            valueInfos: Map<Value, NullabilityValueInfo>
     ): Boolean {
         if (!assert.value.interesting) return false
 
@@ -48,7 +47,7 @@ class NullabilityAnnotationsInference(
         return valueInfo == NULLABLE || valueInfo == UNKNOWN
     }
 
-    protected override fun generateAsserts(instruction: Instruction): Collection<Assert<Nullability>> =
+    protected override fun generateAsserts(instruction: Instruction): Collection<Assert> =
         generateNullabilityAsserts(instruction, annotations, declarationIndex)
 
     override fun postProcess() {
@@ -62,9 +61,9 @@ class NullabilityAnnotationsInference(
             instruction: Instruction,
             annotations: Annotations<NullabilityAnnotation>,
             declarationIndex: DeclarationIndex
-    ) : Set<Assert<Nullability>> {
+    ) : Set<Assert> {
         val state = instruction[STATE_BEFORE]!!
-        val result = hashSet<Assert<Nullability>>()
+        val result = hashSet<Assert>()
 
         fun addAssertForStackValue(indexFromTop: Int) {
             val valueSet = state.stack[indexFromTop]
@@ -120,7 +119,7 @@ private class NullabilityAnnotationsManager(
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
         val positions: Positions
-) : AnnotationsManager<Nullability>() {
+) : AnnotationsManager<NullabilityAnnotation>() {
 
     val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()
     val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
@@ -139,7 +138,7 @@ private class NullabilityAnnotationsManager(
         returnValueInfo = valueInfo.mergeWithNullable(current)
     }
 
-    override fun addAssert(assert: Assert<Nullability>) {
+    override fun addAssert(assert: Assert) {
         addParameterAnnotation(assert.value, NullabilityAnnotation.NOT_NULL)
     }
 
@@ -152,7 +151,7 @@ private class NullabilityAnnotationsManager(
 
     private fun Value.getParameterPosition() = positions.forParameter(this.parameterIndex!!).position
 
-    override fun toAnnotations(): Annotations<Annotation<Nullability>> {
+    override fun toAnnotations(): Annotations<NullabilityAnnotation> {
         val annotations = AnnotationsImpl<NullabilityAnnotation>()
         fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
             if (annotation != null) {

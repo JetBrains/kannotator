@@ -17,17 +17,16 @@ import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.DeclarationIndex
 import util.ClassPathDeclarationIndex
-import org.jetbrains.kannotator.annotationsInference.AnnotationKind
 import util.controlFlow.buildControlFlowGraph
 
-abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>) : TestCase() {
+abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
-    protected abstract fun Array<jet.Annotation>.toAnnotation(): Annotation<T>?
+    protected abstract fun Array<jet.Annotation>.toAnnotation(): A?
 
     protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
-                                            annotations: Annotations<Annotation<T>>) : Annotations<Annotation<T>>
+                                            annotations: Annotations<A>) : Annotations<A>
 
-    protected open fun getInitialAnnotations(): Annotations<Annotation<T>> = AnnotationsImpl()
+    protected open fun getInitialAnnotations(): Annotations<A> = AnnotationsImpl()
 
     protected fun doTest() {
         val className = testClass.getName()
@@ -45,7 +44,7 @@ abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>)
 
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 
-        val parametersMap = HashMap<Int, Annotation<T>>()
+        val parametersMap = HashMap<Int, A>()
         for ((paramIndex, paramAnnotations) in reflectMethod.getParameterAnnotations().indexed) {
             val annotation = paramAnnotations.toAnnotation()
             if (annotation != null) {
@@ -56,8 +55,8 @@ abstract class AbstractInferenceTest<T: AnnotationKind>(val testClass: Class<*>)
         checkInferredAnnotations(parametersMap, expectedReturnInfo, result, reflectMethod.getParameterTypes()!!.size, positions)
     }
 
-    fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, Annotation<T>>, expectedReturnAnnotation: Annotation<T>?,
-                     actual: Annotations<Annotation<T>>, parametersNumber: Int, positions: Positions) {
+    fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,
+                     actual: Annotations<A>, parametersNumber: Int, positions: Positions) {
         assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position),
                 "Return annotations error")
 

@@ -18,14 +18,13 @@ import org.jetbrains.kannotator.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.mutability.Mutability
 import org.jetbrains.kannotator.annotationsInference.MutabilityAnnotationsInference
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import java.io.File
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
 
-class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
+class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {
 
     override fun Array<jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
@@ -36,7 +35,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
         return null
     }
 
-    protected override fun getInitialAnnotations(): Annotations<Annotation<Mutability>> {
+    protected override fun getInitialAnnotations(): Annotations<MutabilityAnnotation> {
         val utilClass = "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
@@ -48,8 +47,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<Mutability>(
     }
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: Positions, declarationIndex: DeclarationIndex,
-                                            annotations: Annotations<Annotation<Mutability>>) : Annotations<Annotation<Mutability>> {
-        return MutabilityAnnotationsInference(graph, annotations as Annotations<MutabilityAnnotation>, positions, declarationIndex).buildAnnotations()
+                                            annotations: Annotations<MutabilityAnnotation>) : Annotations<MutabilityAnnotation> {
+        return MutabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
     }
 
     fun testMutableCollection() = doTest()

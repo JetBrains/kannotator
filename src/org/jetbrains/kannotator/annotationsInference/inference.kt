@@ -13,19 +13,18 @@ import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.getArgumentCount
 
-trait AnnotationKind
-trait Annotation<T: AnnotationKind>
-trait ValueInfo<T: AnnotationKind>
-data class Assert<T: AnnotationKind>(val value: Value)
+trait Annotation
+trait ValueInfo
+data class Assert(val value: Value)
 
-abstract class AnnotationsInference<T: AnnotationKind>(
+abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
         private val graph: ControlFlowGraph,
-        protected open val annotations: Annotations<Annotation<T>>,
+        protected open val annotations: Annotations<A>,
         positions: Positions,
         protected val declarationIndex: DeclarationIndex,
-        protected val annotationsManager: AnnotationsManager<T>) {
+        protected val annotationsManager: AnnotationsManager<A>) {
 
-    fun buildAnnotations() : Annotations<Annotation<T>> {
+    fun buildAnnotations() : Annotations<A> {
         process()
         postProcess()
         return getResult().toAnnotations()
@@ -42,7 +41,7 @@ abstract class AnnotationsInference<T: AnnotationKind>(
 
     protected open fun postProcess() {}
 
-    private fun getResult(): AnnotationsManager<T> = annotationsManager
+    private fun getResult(): AnnotationsManager<A> = annotationsManager
 
     private fun analyzeInstruction(instruction: Instruction) {
         val valueInfos = computeValueInfos(instruction)
@@ -55,20 +54,20 @@ abstract class AnnotationsInference<T: AnnotationKind>(
         }
     }
 
-    protected abstract fun computeValueInfos(instruction: Instruction) : Map<Value, ValueInfo<T>>
+    protected abstract fun computeValueInfos(instruction: Instruction) : Map<Value, I>
 
     protected abstract fun isAnnotationNecessary(
-            assert: Assert<T>,
-            valueInfos: Map<Value, ValueInfo<T>>
+            assert: Assert,
+            valueInfos: Map<Value, I>
     ): Boolean
 
-    protected abstract fun generateAsserts(instruction: Instruction) : Collection<Assert<T>>
+    protected abstract fun generateAsserts(instruction: Instruction) : Collection<Assert>
 
     protected fun generateAssertsForCallArguments(
             instruction: Instruction,
             addAssertForStackValue: (Int) -> Unit,
             needGenerateAssertForThis: Boolean,
-            needGenerateAssertForArgument: (Annotation<T>?) -> Boolean
+            needGenerateAssertForArgument: (A?) -> Boolean
     ) {
         val methodId = getMethodIdByInstruction(instruction)
         val hasThis = instruction.getOpcode() != INVOKESTATIC
@@ -97,7 +96,7 @@ abstract class AnnotationsInference<T: AnnotationKind>(
     }
 }
 
-abstract class AnnotationsManager<T: AnnotationKind> {
-    abstract fun addAssert(assert: Assert<T>)
-    abstract fun toAnnotations(): Annotations<Annotation<T>>
+abstract class AnnotationsManager<A: Annotation> {
+    abstract fun addAssert(assert: Assert)
+    abstract fun toAnnotations(): Annotations<A>
 }
