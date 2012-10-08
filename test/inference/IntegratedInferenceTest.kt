@@ -25,7 +25,7 @@ class IntegratedInferenceTest : TestCase() {
             println("start: $jar")
             var currentMethod: Method? = null
             try {
-                val outFile = File("testData/inferenceData/integrated/" + jar.getName() + ".annotations.txt")
+                val outFile = File("testData/inferenceData/integrated/${jar.getName()}.annotations.txt")
                 outFile.getParentFile()!!.mkdirs()
 
                 val inferred = inferNullabilityAnnotations(arrayList(jar), Collections.emptyList(),
@@ -40,7 +40,7 @@ class IntegratedInferenceTest : TestCase() {
                     inferred forEach {
                         pos, ann ->
                         p.println(pos.toAnnotationKey())
-                        p.println("  " + ann)
+                        p.println("$ann")
                     }
                 }
                 println("success")
