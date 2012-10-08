@@ -21,6 +21,7 @@ import org.objectweb.asm.tree.AbstractInsnNode
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.declarations.getArgumentCount
+import kotlinlib.emptyList
 
 class MutabilityAnnotationsInference(graph: ControlFlowGraph,
                                      annotations: Annotations<MutabilityAnnotation>,
@@ -44,7 +45,7 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
         val state = instruction[STATE_BEFORE]!!
         val result = hashSet<Assert>()
         val asmInstruction = (instruction.metadata as? AsmInstructionMetadata)?.asmInstruction
-        if (!(asmInstruction is MethodInsnNode)) return Collections.emptyList()
+        if (!(asmInstruction is MethodInsnNode)) return emptyList()
         if (instruction.getOpcode() == INVOKEINTERFACE) {
             val methodId = getMethodIdByInstruction(instruction)
             val valueSet = state.stack[methodId!!.getArgumentCount()]
