@@ -5,6 +5,7 @@ import junit.framework.TestCase
 import kotlinlib.buildString
 import kotlinlib.println
 import kotlinlib.sortByToString
+import org.jetbrains.kannotator.classHierarchy.*
 
 class ClassHierarchyTest : TestCase() {
     val BASE_DIR = "testData/classHierarchy/"
@@ -29,10 +30,10 @@ class ClassHierarchyTest : TestCase() {
             for (node in classes) {
                 sb.println(node)
                 sb.println("  SubClasses")
-                val subClasses = node.subClasses.map { it.derived }.sortByToString()
+                val subClasses = node.children.map { it.child }.sortByToString()
                 subClasses.forEach { sb.println("    $it") }
                 sb.println("  SuperClasses")
-                val superClasses = node.superClasses.map { it.base }.sortByToString()
+                val superClasses = node.parents.map { it.parent }.sortByToString()
                 superClasses.forEach { sb.println("    $it") }
                 sb.println("  Methods")
                 val methods = node.methods.map { it.id }.sortByToString()

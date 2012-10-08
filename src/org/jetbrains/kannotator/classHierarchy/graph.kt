@@ -3,20 +3,19 @@ package org.jetbrains.kannotator.classHierarchy
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 
-trait ClassHierarchyGraph {
-    val classes: Collection<ClassNode>
+trait HierarchyGraph<D> {
+    val nodes: Collection<HierarchyNode<D>>
 }
 
-trait ClassHierarchyEdge {
-    val base: ClassNode
-    val derived: ClassNode
+trait HierarchyEdge<D> {
+    val parent: HierarchyNode<D>
+    val child: HierarchyNode<D>
 }
 
-trait ClassNode {
-    val subClasses: Collection<ClassHierarchyEdge>
-    val superClasses: Collection<ClassHierarchyEdge>
+trait HierarchyNode<D> {
+    val children: Collection<HierarchyEdge<D>>
+    val parents: Collection<HierarchyEdge<D>>
 
-    val name: ClassName
-
-    val methods: Set<Method>
+    // TODO This is a workaround for KT-2920 No bridge generated for a property returning a generic type
+    fun data(): D
 }

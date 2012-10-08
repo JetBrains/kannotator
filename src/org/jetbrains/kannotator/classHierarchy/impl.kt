@@ -13,26 +13,38 @@ import java.util.HashMap
 import org.jetbrains.kannotator.index.ClassSource
 import kotlinlib.flags
 
-private class ClassHierarchyEdgeImpl(override val base: ClassNode, override val derived: ClassNode): ClassHierarchyEdge
+data class ClassData(val name: ClassName, val methods: Collection<Method>)
 
-private class ClassNodeImpl(override val name: ClassName): ClassNode {
-    override val subClasses: MutableCollection<ClassHierarchyEdge> = ArrayList()
-    override val superClasses: MutableCollection<ClassHierarchyEdge> = ArrayList()
+private class ClassHierarchyEdgeImpl(
+        override val parent: HierarchyNode<ClassData>,
+        override val child: HierarchyNode<ClassData>): HierarchyEdge<ClassData>
 
-    override val methods: MutableSet<Method> = HashSet()
+private class ClassNodeImpl(val name: ClassName): HierarchyNode<ClassData> {
+    override val children: MutableCollection<HierarchyEdge<ClassData>> = ArrayList()
+    override val parents: MutableCollection<HierarchyEdge<ClassData>> = ArrayList()
+
+    val methods: MutableSet<Method> = HashSet()
+
+    override fun data(): ClassData = ClassData(name, methods)
 
     public fun toString(): String = name.internal
 }
 
-fun buildClassHierarchyGraph(classSource: ClassSource): ClassHierarchyGraph {
+val HierarchyNode<ClassData>.methods: Collection<Method>
+    get() = data().methods
+
+val HierarchyNode<ClassData>.name: ClassName
+    get() = data().name
+
+fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> {
     val nodesByName = HashMap<ClassName, ClassNodeImpl>()
 
     fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
 
     fun addEdge(base: ClassNodeImpl, derived: ClassNodeImpl) {
         val edge = ClassHierarchyEdgeImpl(base, derived)
-        base.subClasses.add(edge)
-        derived.superClasses.add(edge)
+        base.children.add(edge)
+        derived.parents.add(edge)
     }
 
     classSource forEach {
@@ -49,8 +61,8 @@ fun buildClassHierarchyGraph(classSource: ClassSource): ClassHierarchyGraph {
         }
     }
 
-    return object : ClassHierarchyGraph {
-        override val classes: Collection<ClassNode> = nodesByName.values()
+    return object : HierarchyGraph<ClassData> {
+        override val nodes: Collection<HierarchyNode<ClassData>> = nodesByName.values()
     }
 }
 

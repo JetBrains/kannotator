@@ -3,18 +3,19 @@ package classHierarchy
 import edu.uci.ics.jung.graph.DirectedSparseMultigraph
 import edu.uci.ics.jung.graph.util.EdgeType
 import org.apache.commons.collections15.Transformer
-import org.jetbrains.kannotator.classHierarchy.ClassHierarchyEdge
-import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraph
-import org.jetbrains.kannotator.classHierarchy.ClassNode
+import org.jetbrains.kannotator.classHierarchy.HierarchyEdge
+import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
+import org.jetbrains.kannotator.classHierarchy.HierarchyNode
 import util.getAllClassesWithPrefix
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import util.ClassesFromClassPath
+import org.jetbrains.kannotator.classHierarchy.*
 
-fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, ClassHierarchyEdge> {
-    val jungGraph = DirectedSparseMultigraph<ClassNode, ClassHierarchyEdge>()
-    for (i in this.classes) {
-        for (e in i.subClasses) {
-            jungGraph.addEdge(e, e.base, e.derived, EdgeType.DIRECTED)
+fun HierarchyGraph<ClassData>.toJungGraph(): DirectedSparseMultigraph<HierarchyNode<ClassData>, HierarchyEdge<ClassData>> {
+    val jungGraph = DirectedSparseMultigraph<HierarchyNode<ClassData>, HierarchyEdge<ClassData>>()
+    for (i in this.nodes) {
+        for (e in i.children) {
+            jungGraph.addEdge(e, e.parent, e.child, EdgeType.DIRECTED)
         }
     }
     return jungGraph
@@ -23,10 +24,10 @@ fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, Class
 fun main(args: Array<String>) {
     val graph = buildClassHierarchyGraph(ClassesFromClassPath(getAllClassesWithPrefix("java/lang/")))
 
-    displayJungGraph<ClassNode, ClassHierarchyEdge>(
+    displayJungGraph<HierarchyNode<ClassData>, HierarchyEdge<ClassData>>(
             graph.toJungGraph(),
-            object : Transformer<ClassNode, String> {
-                public override fun transform(classNode: ClassNode): String = classNode.name.simple
+            object : Transformer<HierarchyNode<ClassData>, String> {
+                public override fun transform(classNode: HierarchyNode<ClassData>): String = classNode.name.simple
             },
             null
     )
