@@ -19,7 +19,7 @@ class TopologicalSortTest {
             expectedFile.writeText(actual)
             fail("Expected file not found: $expectedFile")
         }
-        val expected = expectedFile.readText()
+        val expected = expectedFile.readText().toUnixSeparators()
         assertEquals(expected, actual)
     }
 
