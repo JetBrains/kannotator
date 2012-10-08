@@ -6,7 +6,7 @@ import kotlinlib.buildString
 import kotlinlib.println
 import kotlinlib.sortByToString
 import org.jetbrains.kannotator.classHierarchy.ClassNode
-import org.jetbrains.kannotator.classHierarchy.getOverriddenMethods
+import org.jetbrains.kannotator.classHierarchy.getOverridingMethods
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import util.ClassesFromClassPath
@@ -44,7 +44,7 @@ class OverriddenMethodTest : TestCase() {
                 val methods = node.methods.sortBy { it.id.toString() }
                 for (method in methods) {
                     sb.println(method)
-                    val overridden = node.getOverriddenMethods(method).sortByToString()
+                    val overridden = node.getOverridingMethods(method).sortByToString()
                     overridden.forEach {
                         // Do not output method itself to results
                         if (it != method) {

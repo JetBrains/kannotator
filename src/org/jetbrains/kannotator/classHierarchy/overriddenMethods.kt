@@ -18,7 +18,7 @@ fun samePackage(c1: ClassNode, c2: ClassNode): Boolean {
     return c1._package() == c2._package()
 }
 
-fun ClassNode.getOverriddenMethods(method: Method): Set<Method> {
+fun ClassNode.getOverridingMethods(method: Method): Set<Method> {
     val my = find(method)
     if (my == null) return hashSet()
 
@@ -31,7 +31,7 @@ fun ClassNode.getOverriddenMethods(method: Method): Set<Method> {
         if (my.visibility == Visibility.PACKAGE && !samePackage(this, subClass)) {
             continue
         }
-        result.addAll(subClass.getOverriddenMethods(method))
+        result.addAll(subClass.getOverridingMethods(method))
     }
 
     return result
