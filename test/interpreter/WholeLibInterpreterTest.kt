@@ -9,14 +9,14 @@ import java.util.ArrayList
 class WholeLibInterpreterTest : TestCase() {
 
     fun testKAnnotatorLibs() {
-        doTestJars(File("lib"), File("lib.testData"))
+//        doTestJars(File("lib"), File("lib.testData"))
     }
 
-    fun testJDK() {
-        val libDir = File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents")
-        val dataDir = File("jdk.testData")
-        doTestJars(libDir, dataDir)
-    }
+//    fun testJDK() {
+//        val libDir = File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents")
+//        val dataDir = File("jdk.testData")
+//        doTestJars(libDir, dataDir)
+//    }
 }
 
 fun doTestJars(libDir: File, dataDir: File) {
