@@ -1,11 +1,13 @@
 package org.jetbrains.kannotator.annotationsInference
 
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotationsInference
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.mutability.MutabilityAnnotation
 
 fun buildNullabilityAnnotations(
         graph: ControlFlowGraph,

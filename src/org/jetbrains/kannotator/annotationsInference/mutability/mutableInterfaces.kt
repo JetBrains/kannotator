@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.mutability
+package org.jetbrains.kannotator.annotationsInference.mutability
 
 
 val mutableInterfaces: Map<String, List<String>> = hashMap(

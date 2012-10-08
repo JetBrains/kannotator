@@ -1,21 +1,15 @@
 package inference
 
-import inference.AbstractInferenceTest
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.Annotation
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.index.DeclarationIndex
-import interpreter.doTest
-import org.jetbrains.kannotator.annotationsInference.NullabilityAnnotationsInference
-import org.jetbrains.kannotator.main.loadNullabilityAnnotations
 import java.io.File
-import util.ClassPathDeclarationIndex
-import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
-import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.nullability.classNameToNullabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.FileBasedClassSource
 
 class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
 

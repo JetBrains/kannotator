@@ -1,9 +1,8 @@
-package org.jetbrains.kannotator.mutability
+package org.jetbrains.kannotator.annotationsInference.mutability
 
-import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.annotationsInference.Annotation
-import org.jetbrains.kannotator.annotationsInference.Assert
 
 enum class MutabilityAnnotation : Annotation {
-    MUTABLE IMMUTABLE
+    MUTABLE
+    IMMUTABLE
 }

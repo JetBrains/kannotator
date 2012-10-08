@@ -1,28 +1,14 @@
 package inference
 
-import junit.framework.TestCase
-import kotlin.test.assertEquals
-import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
-import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.objectweb.asm.ClassReader
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.Type
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import java.util.HashMap
-import kotlinlib.*
-import org.jetbrains.kannotator.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.Annotation
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.annotationsInference.MutabilityAnnotationsInference
-import org.jetbrains.kannotator.index.FileBasedClassSource
 import java.io.File
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
-import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotationsInference
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.FileBasedClassSource
 
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {

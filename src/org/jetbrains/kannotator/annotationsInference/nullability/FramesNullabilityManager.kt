@@ -1,29 +1,25 @@
-package org.jetbrains.kannotator.annotationsInference
+package org.jetbrains.kannotator.annotationsInference.nullability
 
-import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.objectweb.asm.Opcodes.*
-import org.jetbrains.kannotator.nullability.NullabilityValueInfo
-import org.jetbrains.kannotator.nullability.NullabilityValueInfo.*
-import org.jetbrains.kannotator.controlFlow.Value
-import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
+import java.util.Collections
+import java.util.HashMap
+import kotlin.test.assertFalse
 import kotlin.test.assertNull
+import kotlin.test.assertTrue
+import org.jetbrains.kannotator.annotationsInference.findMethodByMethodInsnNode
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
+import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.State
-import kotlin.test.assertFalse
-import org.jetbrains.kannotator.controlFlowBuilder.TypedValue
-import java.util.HashMap
-import kotlin.test.assertEquals
-
+import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlowBuilder
-import java.util.Collections
-import kotlin.test.assertTrue
-import org.jetbrains.kannotator.asm.util.getOpcode
-import org.jetbrains.kannotator.nullability.toValueInfo
+import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
+import org.jetbrains.kannotator.controlFlowBuilder.TypedValue
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.declarations.Annotations
 
 class FramesNullabilityManager(
         val annotationsManager: NullabilityAnnotationsManager,

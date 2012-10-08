@@ -4,7 +4,7 @@ import java.io.Writer
 import org.jetbrains.kannotator.declarations.Annotations
 import kotlinlib.println
 import java.io.File
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.TypePosition

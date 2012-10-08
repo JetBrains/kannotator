@@ -1,26 +1,21 @@
-package org.jetbrains.kannotator.annotationsInference
+package org.jetbrains.kannotator.annotationsInference.nullability
 
 import org.objectweb.asm.Opcodes.*
+import kotlin.test.assertTrue
+import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.AnnotationsManager
+import org.jetbrains.kannotator.annotationsInference.Assert
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
+import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.Value
-import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.TypePosition
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.nullability.NullabilityValueInfo
-import org.jetbrains.kannotator.nullability.NullabilityValueInfo.*
-import org.jetbrains.kannotator.nullability.merge
-import org.jetbrains.kannotator.nullability.toAnnotation
-import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.asm.util.getOpcode
-import org.jetbrains.kannotator.nullability.mergeWithNullable
-import kotlin.test.assertTrue
-import org.jetbrains.kannotator.declarations.getArgumentCount
 
 class NullabilityAnnotationsInference(
         graph: ControlFlowGraph,

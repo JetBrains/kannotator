@@ -1,6 +1,5 @@
-package org.jetbrains.kannotator.nullability
+package org.jetbrains.kannotator.annotationsInference.nullability
 
-import kotlin.nullable.fold
 import org.jetbrains.kannotator.annotationsInference.ValueInfo
 
 public enum class NullabilityValueInfo : ValueInfo {

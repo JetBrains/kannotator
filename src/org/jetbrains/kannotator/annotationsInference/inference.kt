@@ -1,17 +1,15 @@
 package org.jetbrains.kannotator.annotationsInference
 
 import org.objectweb.asm.Opcodes.*
+import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
+import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.controlFlow.Value
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.asm.util.getOpcode
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.getArgumentCount
+import org.jetbrains.kannotator.index.DeclarationIndex
 
 trait Annotation
 trait ValueInfo

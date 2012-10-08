@@ -21,8 +21,8 @@ import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.nullability.classNameToNullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.classNameToNullabilityAnnotation
 import org.objectweb.asm.tree.MethodNode
 
 open class ProgressMonitor {
