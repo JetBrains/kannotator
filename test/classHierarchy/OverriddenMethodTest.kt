@@ -9,6 +9,7 @@ import org.jetbrains.kannotator.classHierarchy.ClassNode
 import org.jetbrains.kannotator.classHierarchy.getOverriddenMethods
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
+import util.ClassesFromClassPath
 
 class OverriddenMethodTest : TestCase() {
     val BASE_DIR = "testData/classHierarchy/overriddenMethods/"
@@ -26,11 +27,11 @@ class OverriddenMethodTest : TestCase() {
     }
 
     fun testOverridesVisibility() {
-        val graph = buildClassHierarchyGraph(
-            arrayList("Base", "Derived", "subpackage/DerivedInSubpackage").map {
-                ClassName.fromInternalName("classHierarchy/overriddenMethods/overridesVisibility/$it")
-            }
-        )
+        val graph = buildClassHierarchyGraph(ClassesFromClassPath(
+                arrayList("Base", "Derived", "subpackage/DerivedInSubpackage").map {
+                    ClassName.fromInternalName("classHierarchy/overriddenMethods/overridesVisibility/$it")
+                }
+        ))
 
         doTest(graph.classes.sortByToString(), "overridesVisibility/result.txt")
     }

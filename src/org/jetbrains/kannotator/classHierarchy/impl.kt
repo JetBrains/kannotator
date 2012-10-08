@@ -10,6 +10,7 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import java.util.HashMap
+import org.jetbrains.kannotator.index.ClassSource
 import kotlinlib.flags
 
 private class ClassHierarchyEdgeImpl(override val base: ClassNode, override val derived: ClassNode): ClassHierarchyEdge
@@ -23,7 +24,7 @@ private class ClassNodeImpl(override val name: ClassName): ClassNode {
     public fun toString(): String = name.internal
 }
 
-fun buildClassHierarchyGraph(classes: Collection<ClassName>): ClassHierarchyGraph {
+fun buildClassHierarchyGraph(classSource: ClassSource): ClassHierarchyGraph {
     val nodesByName = HashMap<ClassName, ClassNodeImpl>()
 
     fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
@@ -34,9 +35,11 @@ fun buildClassHierarchyGraph(classes: Collection<ClassName>): ClassHierarchyGrap
         derived.superClasses.add(edge)
     }
 
-    for (name in classes) {
-        val node = getNodeByName(name)
-        val (methods, superClasses) = processClass(name)
+    classSource forEach {
+        reader ->
+        val className = ClassName.fromInternalName(reader.getClassName())
+        val node = getNodeByName(className)
+        val (methods, superClasses) = processClass(reader)
         for (superClass in superClasses) {
             val superClassNode = getNodeByName(superClass)
             addEdge(base = superClassNode, derived = node)
@@ -56,16 +59,9 @@ private data class MethodsAndSuperClasses(
         val superClasses: List<ClassName>
 )
 
-private fun processClass(name: ClassName): MethodsAndSuperClasses {
+private fun processClass(reader: ClassReader): MethodsAndSuperClasses {
     val methods = arrayList<Method>()
     val superClasses = arrayList<ClassName>()
-
-    val stream = ClassLoader.getSystemResourceAsStream(name.internal + ".class")
-    if (stream == null) {
-        return MethodsAndSuperClasses(methods, superClasses)
-    }
-
-    val reader = ClassReader(stream)
     val thisClassName = ClassName.fromInternalName(reader.getClassName())
 
     reader.accept(object : ClassVisitor(Opcodes.ASM4) {

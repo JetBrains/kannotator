@@ -7,9 +7,10 @@ import kotlinlib.sortByToString
 import org.jetbrains.kannotator.classHierarchy.ClassNode
 import util.getAllClassesWithPrefix
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
+import util.ClassesFromClassPath
 
 fun getClassesHierarchy(prefix: String): Collection<ClassNode> {
-    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix(prefix))
+    val graph = buildClassHierarchyGraph(ClassesFromClassPath(getAllClassesWithPrefix(prefix)))
 
     return graph.classes.filter {
         it.name.internal.startsWith(prefix)

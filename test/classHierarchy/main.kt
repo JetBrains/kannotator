@@ -8,6 +8,7 @@ import org.jetbrains.kannotator.classHierarchy.ClassHierarchyGraph
 import org.jetbrains.kannotator.classHierarchy.ClassNode
 import util.getAllClassesWithPrefix
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
+import util.ClassesFromClassPath
 
 fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, ClassHierarchyEdge> {
     val jungGraph = DirectedSparseMultigraph<ClassNode, ClassHierarchyEdge>()
@@ -20,7 +21,7 @@ fun ClassHierarchyGraph.toJungGraph(): DirectedSparseMultigraph<ClassNode, Class
 }
 
 fun main(args: Array<String>) {
-    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix("java/lang/"))
+    val graph = buildClassHierarchyGraph(ClassesFromClassPath(getAllClassesWithPrefix("java/lang/")))
 
     displayJungGraph<ClassNode, ClassHierarchyEdge>(
             graph.toJungGraph(),
