@@ -12,7 +12,7 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.objectweb.asm.tree.MethodNode
-import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
+import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 
 public open class GraphBuilderCallbacks {
     open fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean = true

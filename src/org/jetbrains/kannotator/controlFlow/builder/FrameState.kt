@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.controlFlowBuilder
+package org.jetbrains.kannotator.controlFlow.builder
 
 import org.jetbrains.kannotator.controlFlow.State
 import org.jetbrains.kannotator.controlFlow.Value

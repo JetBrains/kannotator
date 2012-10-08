@@ -6,9 +6,9 @@ import junit.framework.Assert.*
 import kotlinlib.*
 import org.jetbrains.kannotator.asm.util.AsmInstructionRenderer
 import org.jetbrains.kannotator.controlFlow.*
-import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
+import org.jetbrains.kannotator.controlFlow.builder.AsmInstructionMetadata
 import util.controlFlow.GraphBuilderCallbacks
-import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
+import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import util.controlFlow.buildGraphsForAllMethods
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type

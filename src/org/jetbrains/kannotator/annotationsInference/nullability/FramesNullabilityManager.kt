@@ -13,9 +13,9 @@ import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.State
 import org.jetbrains.kannotator.controlFlow.Value
-import org.jetbrains.kannotator.controlFlowBuilder
-import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
-import org.jetbrains.kannotator.controlFlowBuilder.TypedValue
+import org.jetbrains.kannotator.controlFlow.builder
+import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
+import org.jetbrains.kannotator.controlFlow.builder.TypedValue
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.index.DeclarationIndex
@@ -161,8 +161,8 @@ public class ValueNullabilityMap(
             return annotationsManager.getParameterAnnotation(key).toValueInfo()
         }
         return when (key) {
-            controlFlowBuilder.NULL_VALUE -> NULL
-            controlFlowBuilder.PRIMITIVE_VALUE_SIZE_1, controlFlowBuilder.PRIMITIVE_VALUE_SIZE_2 ->
+            builder.NULL_VALUE -> NULL
+            builder.PRIMITIVE_VALUE_SIZE_1, builder.PRIMITIVE_VALUE_SIZE_2 ->
                 throw IllegalStateException("trying to get nullabilty info for primitive")
             else -> NOT_NULL // this is either "this" or caught exception
         }

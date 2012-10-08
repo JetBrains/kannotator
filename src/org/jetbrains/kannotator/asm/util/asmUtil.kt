@@ -1,7 +1,7 @@
 package org.jetbrains.kannotator.asm.util
 
 import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlowBuilder.AsmInstructionMetadata
+import org.jetbrains.kannotator.controlFlow.builder.AsmInstructionMetadata
 import org.jetbrains.kannotator.declarations.Method
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor

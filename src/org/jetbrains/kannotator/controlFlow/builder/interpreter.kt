@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.controlFlowBuilder
+package org.jetbrains.kannotator.controlFlow.builder
 
 import com.gs.collections.api.block.HashingStrategy
 import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy

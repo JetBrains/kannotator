@@ -9,7 +9,7 @@ import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotationsInference.buildNullabilityAnnotations
 import org.jetbrains.kannotator.asm.util.createMethodNode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.controlFlowBuilder.buildControlFlowGraph
+import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method

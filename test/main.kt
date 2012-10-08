@@ -3,7 +3,7 @@ import kotlinlib.buildString
 import org.apache.commons.collections15.Transformer
 import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlowBuilder.STATE_BEFORE
+import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.objectweb.asm.ClassReader
 import util.controlFlow.buildControlFlowGraph
 
