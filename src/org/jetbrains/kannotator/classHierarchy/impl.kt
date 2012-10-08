@@ -34,7 +34,7 @@ fun buildClassHierarchyGraph(classes: Collection<ClassName>): ClassHierarchyGrap
 
     for (name in classes) {
         val node = getNodeByName(name)
-        val (methods, superClasses) = ClassHierarchyClassVisitor.process(name)
+        val (methods, superClasses) = processClass(name)
         for (superClass in superClasses) {
             val superClassNode = getNodeByName(superClass)
             addEdge(base = superClassNode, derived = node)
@@ -54,46 +54,38 @@ private data class MethodsAndSuperClasses(
         val superClasses: List<ClassName>
 )
 
-private class ClassHierarchyClassVisitor: ClassVisitor(Opcodes.ASM4) {
+private fun processClass(name: ClassName): MethodsAndSuperClasses {
     val methods = arrayList<Method>()
     val superClasses = arrayList<ClassName>()
 
-    var thisClassName: ClassName? = null
-
-    val result: MethodsAndSuperClasses
-        get() = MethodsAndSuperClasses(methods, superClasses)
-
-    public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
-        if (interfaces != null) {
-            for (interface in interfaces) {
-                superClasses.add(ClassName.fromInternalName(interface))
-            }
-        }
-        if (superName != null) {
-            superClasses.add(ClassName.fromInternalName(superName))
-        }
-        thisClassName = ClassName.fromInternalName(name)
+    val stream = ClassLoader.getSystemResourceAsStream(name.internal + ".class")
+    if (stream == null) {
+        return MethodsAndSuperClasses(methods, superClasses)
     }
 
-    public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-        val method = Method(thisClassName!!, access, name, desc)
-        methods.add(method)
-        return super.visitMethod(access, name, desc, signature, exceptions)
-    }
+    val reader = ClassReader(stream)
+    val thisClassName = ClassName.fromInternalName(reader.getClassName())
 
-    class object {
-        fun process(val name: ClassName): MethodsAndSuperClasses {
-            val visitor = ClassHierarchyClassVisitor()
+    reader.accept(object : ClassVisitor(Opcodes.ASM4) {
 
-            val stream = ClassLoader.getSystemResourceAsStream(name.internal + ".class")
-            if (stream == null) {
-                return visitor.result
-            }
+                public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
+                    if (interfaces != null) {
+                        for (interface in interfaces) {
+                            superClasses.add(ClassName.fromInternalName(interface))
+                        }
+                    }
+                    if (superName != null) {
+                        superClasses.add(ClassName.fromInternalName(superName))
+                    }
+                }
 
-            val reader = ClassReader(stream)
-            reader.accept(visitor, SKIP_CODE or SKIP_DEBUG or SKIP_FRAMES)
+                public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+                    val method = Method(thisClassName, access, name, desc)
+                    methods.add(method)
+                    return null
+                }
+            },
+            SKIP_CODE or SKIP_DEBUG or SKIP_FRAMES)
 
-            return visitor.result
-        }
-    }
+    return MethodsAndSuperClasses(methods, superClasses)
 }
