@@ -63,7 +63,7 @@ class FramesNullabilityManager(
 
         fun propagateTransformedValueInfos(
                 outgoingEdge: ControlFlowEdge,
-                state: State<Unit>,
+                state: State,
                 transformStackValueInfo: ((NullabilityValueInfo) -> NullabilityValueInfo)?
         ) {
             if (transformStackValueInfo == null) {
