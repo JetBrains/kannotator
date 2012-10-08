@@ -9,6 +9,7 @@ import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import java.util.HashMap
 import kotlinlib.flags
 
 private class ClassHierarchyEdgeImpl(override val base: ClassNode, override val derived: ClassNode): ClassHierarchyEdge
@@ -23,7 +24,7 @@ private class ClassNodeImpl(override val name: ClassName): ClassNode {
 }
 
 fun buildClassHierarchyGraph(classes: Collection<ClassName>): ClassHierarchyGraph {
-    val nodesByName: MutableMap<ClassName, ClassNodeImpl> = hashMap()
+    val nodesByName = HashMap<ClassName, ClassNodeImpl>()
 
     fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
 
