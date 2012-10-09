@@ -11,6 +11,7 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import java.util.HashSet
+import java.util.ArrayList
 
 data class ClassData(val name: ClassName, val methods: Collection<Method>)
 
@@ -49,8 +50,8 @@ fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData
             val superClassNode = getNodeByName(superClass)
             addEdge(base = superClassNode, derived = node)
         }
-        for (methodName in methods) {
-            node.methods.add(methodName)
+        for (method in methods) {
+            node.methods.add(method)
         }
     }
 
@@ -65,30 +66,33 @@ private data class MethodsAndSuperClasses(
 )
 
 private fun processClass(reader: ClassReader): MethodsAndSuperClasses {
-    val methods = arrayList<Method>()
-    val superClasses = arrayList<ClassName>()
     val thisClassName = ClassName.fromInternalName(reader.getClassName())
 
-    reader.accept(object : ClassVisitor(Opcodes.ASM4) {
+    val methods = ArrayList<Method>()
+    val superClasses = ArrayList<ClassName>()
 
-        public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
-            if (interfaces != null) {
-                for (interface in interfaces) {
-                    superClasses.add(ClassName.fromInternalName(interface))
+    reader.accept(
+            object : ClassVisitor(Opcodes.ASM4) {
+
+                public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
+                    if (interfaces != null) {
+                        for (interface in interfaces) {
+                            superClasses.add(ClassName.fromInternalName(interface))
+                        }
+                    }
+                    if (superName != null) {
+                        superClasses.add(ClassName.fromInternalName(superName))
+                    }
                 }
-            }
-            if (superName != null) {
-                superClasses.add(ClassName.fromInternalName(superName))
-            }
-        }
 
-        public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-            val method = Method(thisClassName, access, name, desc)
-            methods.add(method)
-            return null
-        }
-    },
-            flags(SKIP_CODE, SKIP_DEBUG, SKIP_FRAMES))
+                public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+                    val method = Method(thisClassName, access, name, desc)
+                    methods.add(method)
+                    return null
+                }
+            },
+            flags(SKIP_CODE, SKIP_DEBUG, SKIP_FRAMES)
+    )
 
     return MethodsAndSuperClasses(methods, superClasses)
 }
