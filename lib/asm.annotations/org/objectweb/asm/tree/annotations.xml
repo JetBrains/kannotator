@@ -277,5 +277,14 @@
     </item>
     <item name='org.objectweb.asm.tree.ClassNode methods'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var methods : List&lt;MethodNode&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.ClassNode fields'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var fields : List&lt;FieldNode&gt;&quot;"/>
+        </annotation>
     </item>
 </root>

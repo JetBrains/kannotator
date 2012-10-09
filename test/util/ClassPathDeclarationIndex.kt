@@ -33,7 +33,7 @@ object ClassPathDeclarationIndex : DeclarationIndex {
         reader.accept(node, SKIP_CODE or SKIP_DEBUG or SKIP_FRAMES)
 
         val foundPairs = node.methods.map {
-            val methodNode = it!!
+            val methodNode = it
             val className = ClassName.fromInternalName(node.name)
             val methodQuery = SearchQuery(className, methodNode.name, methodNode.desc)
             val method = Method(className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
