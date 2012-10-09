@@ -137,8 +137,7 @@ public class NullabilityInferenceTestClass {
         if (a == null) throw new NullPointerException();
     }
 
-    @ExpectNotNull
-    public String testAssertAfterReturn(@ExpectNotNull String a, boolean condition) {
+   public String testAssertAfterReturn(String a, boolean condition) {
         if (condition) return a;
         a.getBytes();
         return "";
@@ -238,6 +237,24 @@ public class NullabilityInferenceTestClass {
     @ExpectNullable
     public Object testInvokeReturnNullable() {
         return NullabilityInferenceTestLib.returnNullable();
+    }
+
+    @ExpectNotNull
+    public Object testReturnAfterInvocation() {
+        Object o = getUnannotatedObject();
+        o.toString();
+        return o;
+    }
+
+    @ExpectNotNull
+    public Object testReturnAfterPassingAsNotNullArgument() {
+        Object o = getUnannotatedObject();
+        new NullabilityInferenceTestLib().assertNotNull(o);
+        return o;
+    }
+
+    public Object getUnannotatedObject() {
+        return null;
     }
 
     private Object field;

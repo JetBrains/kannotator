@@ -20,6 +20,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
+import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 
 class FramesNullabilityManager(
         val annotationsManager: NullabilityAnnotationManager,
@@ -74,6 +75,8 @@ class FramesNullabilityManager(
             setValueInfosForEdge(outgoingEdge, infosForEdge)
         }
 
+        addInfoFromInstruction(instruction, infosForInstruction)
+
         val opcode = instruction.getOpcode()
         when (opcode) {
             IFNULL, IFNONNULL -> {
@@ -115,6 +118,38 @@ class FramesNullabilityManager(
         instruction.outgoingEdges.forEach { edge -> setValueInfosForEdge(edge, infosForInstruction) }
 
         return infosForInstruction
+    }
+
+    private fun addInfoFromInstruction(instruction: Instruction, infosForInstruction: ValueNullabilityMap) {
+        val state = instruction[STATE_BEFORE]!!
+
+        fun addAssertForStackValue(indexFromTop: Int) {
+            val valueSet = state.stack[indexFromTop]
+            for (value in valueSet) {
+                val wasInfo = infosForInstruction[value]
+                infosForInstruction[value] = if (wasInfo == CONFLICT || wasInfo == NULL) wasInfo else NOT_NULL
+            }
+        }
+
+        when (instruction.getOpcode()) {
+            INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC -> {
+                generateAssertsForCallArguments(instruction, declarationIndex, annotations,
+                        { indexFromTop -> addAssertForStackValue(indexFromTop) },
+                        true, { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL })
+            }
+            GETFIELD, ARRAYLENGTH, ATHROW,
+            MONITORENTER, MONITOREXIT -> {
+                addAssertForStackValue(0)
+            }
+            AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD,
+            PUTFIELD -> {
+                addAssertForStackValue(1)
+            }
+            AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
+                addAssertForStackValue(2)
+            }
+            else -> {}
+        }
     }
 }
 

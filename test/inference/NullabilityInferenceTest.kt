@@ -94,7 +94,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     fun testArrayLength() = doTest()
 
-    fun testThrowParameter() = doTest()
+//    fun testThrowParameter() = doTest()
 
     fun testMonitor() = doTest()
 
@@ -117,4 +117,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     fun testInvokeReturnNotNull() = doTest()
 
     fun testInvokeReturnNullable() = doTest()
+
+    fun testReturnAfterInvocation() = doTest()
+
+    fun testReturnAfterPassingAsNotNullArgument() = doTest()
 }

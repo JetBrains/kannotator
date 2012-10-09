@@ -17,6 +17,7 @@ import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.TypePosition
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
+import kotlinlib.emptyList
 
 class NullabilityAnnotationInferrer(
         graph: ControlFlowGraph,
@@ -52,36 +53,7 @@ class NullabilityAnnotationInferrer(
     }
 
     protected override fun generateAsserts(instruction: Instruction): Collection<Assert> {
-        val state = instruction[STATE_BEFORE]!!
-        val result = hashSet<Assert>()
-
-        fun addAssertForStackValue(indexFromTop: Int) {
-            val valueSet = state.stack[indexFromTop]
-            for (value in valueSet) {
-                result.add(Assert(value))
-            }
-        }
-
-        when (instruction.getOpcode()) {
-            INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC -> {
-                generateAssertsForCallArguments(instruction, declarationIndex, annotations,
-                        { indexFromTop -> addAssertForStackValue(indexFromTop) },
-                        true, { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL })
-            }
-            GETFIELD, ARRAYLENGTH, ATHROW,
-            MONITORENTER, MONITOREXIT -> {
-                addAssertForStackValue(0)
-            }
-            AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD,
-            PUTFIELD -> {
-                addAssertForStackValue(1)
-            }
-            AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
-                addAssertForStackValue(2)
-            }
-            else -> {}
-        }
-        return result
+        return emptyList()
     }
 
     private fun checkReturnInstruction(
@@ -112,13 +84,8 @@ private class NullabilityAnnotationManager(
         val positions: PositionsWithinMember
 ) : AnnotationManager<NullabilityAnnotation>() {
 
-    val parameterAnnotations = hashMap<Value, NullabilityAnnotation>()
     val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
     var returnValueInfo : NullabilityValueInfo? = null
-
-    fun addParameterAnnotation(value: Value, annotation: NullabilityAnnotation) {
-        parameterAnnotations[value] = annotation
-    }
 
     fun addValueNullabilityMapOnReturn(map: ValueNullabilityMap) {
         valueNullabilityMapsOnReturn.add(map)
@@ -130,14 +97,11 @@ private class NullabilityAnnotationManager(
     }
 
     override fun addAssert(assert: Assert) {
-        addParameterAnnotation(assert.value, NullabilityAnnotation.NOT_NULL)
     }
 
     fun getParameterAnnotation(value: Value) : NullabilityAnnotation? {
         assertTrue(value.interesting)
-        val inferredNow = parameterAnnotations[value]
-        val alreadyKnown = annotations[value.getParameterPosition()]
-        return if (inferredNow != null) inferredNow else alreadyKnown
+        return annotations[value.getParameterPosition()]
     }
 
     private fun Value.getParameterPosition() = positions.forParameter(this.parameterIndex!!).position
@@ -156,9 +120,6 @@ private class NullabilityAnnotationManager(
             if (value.interesting) {
                 setAnnotation(value.getParameterPosition(), valueInfo.toAnnotation())
             }
-        }
-        for ((value, annotation) in parameterAnnotations) {
-            setAnnotation(value.getParameterPosition(), annotation)
         }
         return annotations
     }
