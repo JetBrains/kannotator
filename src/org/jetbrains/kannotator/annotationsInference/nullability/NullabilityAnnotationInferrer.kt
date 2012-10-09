@@ -23,9 +23,8 @@ class NullabilityAnnotationInferrer(
         positions: PositionsWithinMember,
         declarationIndex: DeclarationIndex
 ) {
-
     private val nullabilityAnnotationManager : NullabilityAnnotationManager = NullabilityAnnotationManager(annotations, declarationIndex, positions)
-    private val framesManager = FramesNullabilityManager(nullabilityAnnotationManager, annotations, declarationIndex)
+    private val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
 
     fun buildAnnotations() : Annotations<NullabilityAnnotation> {
         graph.traverseInstructions { instruction ->
@@ -79,11 +78,6 @@ private class NullabilityAnnotationManager(
         returnValueInfo = valueInfo.mergeWithNullable(current)
     }
 
-    fun getParameterAnnotation(value: Value) : NullabilityAnnotation? {
-        assertTrue(value.interesting)
-        return annotations[value.getParameterPosition()]
-    }
-
     private fun Value.getParameterPosition() = positions.forParameter(this.parameterIndex!!).position
 
     fun toAnnotations(): Annotations<NullabilityAnnotation> {
@@ -95,7 +89,7 @@ private class NullabilityAnnotationManager(
         }
         setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
 
-        val mapOnReturn = mergeValueNullabilityMaps(this, annotations, declarationIndex, valueNullabilityMapsOnReturn)
+        val mapOnReturn = mergeValueNullabilityMaps(positions, annotations, declarationIndex, valueNullabilityMapsOnReturn)
         for ((value, valueInfo) in mapOnReturn) {
             if (value.interesting) {
                 setAnnotation(value.getParameterPosition(), valueInfo.toAnnotation())

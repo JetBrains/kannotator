@@ -21,9 +21,10 @@ import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
+import org.jetbrains.kannotator.annotationsInference.forInterestingValue
 
 class FramesNullabilityManager(
-        val annotationsManager: NullabilityAnnotationManager,
+        val positions: PositionsWithinMember,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex
 ) {
@@ -40,7 +41,7 @@ class FramesNullabilityManager(
 
     private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
         val incomingEdgesMaps = instruction.incomingEdges.map { e -> nullabilityInfosForEdges[e] }.filterNotNull()
-        return mergeValueNullabilityMaps(annotationsManager, annotations, declarationIndex, incomingEdgesMaps)
+        return mergeValueNullabilityMaps(positions, annotations, declarationIndex, incomingEdgesMaps)
     }
 
     fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
@@ -68,7 +69,7 @@ class FramesNullabilityManager(
                 return
             }
 
-            val infosForEdge = ValueNullabilityMap(annotationsManager, annotations, declarationIndex, infosForInstruction)
+            val infosForEdge = ValueNullabilityMap(positions, annotations, declarationIndex, infosForInstruction)
             for (value in state.stack[0]) {
                 infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
             }
@@ -154,7 +155,7 @@ class FramesNullabilityManager(
 }
 
 public class ValueNullabilityMap(
-        val annotationsManager: NullabilityAnnotationManager,
+        val positions: PositionsWithinMember,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
         m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()
@@ -193,7 +194,7 @@ public class ValueNullabilityMap(
             }
         }
         if (key.interesting) {
-            return annotationsManager.getParameterAnnotation(key).toValueInfo()
+            return annotations[positions.forInterestingValue(key)].toValueInfo()
         }
         return when (key) {
             builder.NULL_VALUE -> NULL
@@ -205,12 +206,12 @@ public class ValueNullabilityMap(
 }
 
 fun mergeValueNullabilityMaps(
-        annotationManager: NullabilityAnnotationManager,
+        positions: PositionsWithinMember,
         annotations: Annotations<NullabilityAnnotation>,
         declarationIndex: DeclarationIndex,
         maps: Collection<ValueNullabilityMap>
 ): ValueNullabilityMap {
-    val result = ValueNullabilityMap(annotationManager, annotations, declarationIndex)
+    val result = ValueNullabilityMap(positions, annotations, declarationIndex)
     val affectedValues = maps.flatMap { m -> m.keySet() }.toSet()
 
     for (m in maps) {

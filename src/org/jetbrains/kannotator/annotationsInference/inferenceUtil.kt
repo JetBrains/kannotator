@@ -14,6 +14,7 @@ import org.jetbrains.kannotator.declarations.getArgumentCount
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode
+import org.jetbrains.kannotator.controlFlow.Value
 
 trait Annotation
 
@@ -71,3 +72,5 @@ fun getMethodIdByInstruction(instruction: Instruction): MethodId {
     val methodInsnNode = (instruction.metadata as AsmInstructionMetadata).asmInstruction as MethodInsnNode
     return MethodId(methodInsnNode.name!!, methodInsnNode.desc)
 }
+
+fun PositionsWithinMember.forInterestingValue(value: Value) = forParameter(value.parameterIndex!!).position
