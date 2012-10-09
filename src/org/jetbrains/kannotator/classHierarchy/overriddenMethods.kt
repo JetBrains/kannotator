@@ -17,7 +17,7 @@ fun samePackage(c1: ClassData, c2: ClassData): Boolean {
 }
 
 fun HierarchyNode<ClassData>.getOverridingMethods(method: Method): Set<Method> {
-    val my = data().methodsById[method.id]
+    val my = data.methodsById[method.id]
     if (my == null) return hashSet()
 
     val result = hashSet<Method>(my)
@@ -26,7 +26,7 @@ fun HierarchyNode<ClassData>.getOverridingMethods(method: Method): Set<Method> {
 
     for (subClassEdge in children) {
         val subClass = subClassEdge.child
-        if (my.visibility == Visibility.PACKAGE && !samePackage(this.data(), subClass.data())) {
+        if (my.visibility == Visibility.PACKAGE && !samePackage(this.data, subClass.data)) {
             continue
         }
         result.addAll(subClass.getOverridingMethods(method))

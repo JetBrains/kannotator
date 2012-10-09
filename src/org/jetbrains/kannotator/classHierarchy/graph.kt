@@ -16,8 +16,7 @@ trait HierarchyNode<D> {
     val children: Collection<HierarchyEdge<D>>
     val parents: Collection<HierarchyEdge<D>>
 
-    // TODO This is a workaround for KT-2920 No bridge generated for a property returning a generic type
-    fun data(): D
+    val data: D
 }
 
 public fun <D> HierarchyNode<D>.parentNodes(): Collection<HierarchyNode<D>> = parents.map { e -> e.parent }

@@ -21,16 +21,16 @@ class ClassData(val name: ClassName, methods: Collection<Method>) {
 private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
     val methods: MutableSet<Method> = HashSet()
 
-    override fun data(): ClassData = ClassData(name, methods)
+    override val data: ClassData = ClassData(name, methods)
 
     public fun toString(): String = name.internal
 }
 
 val HierarchyNode<ClassData>.methods: Collection<Method>
-    get() = data().methodsById.values()
+    get() = data.methodsById.values()
 
 val HierarchyNode<ClassData>.name: ClassName
-    get() = data().name
+    get() = data.name
 
 
 fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> {
