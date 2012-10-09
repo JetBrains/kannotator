@@ -22,16 +22,14 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import org.jetbrains.kannotator.annotationsInference.traverseInstructions
 
-class MutabilityAnnotationInferrer(
-        val graph: ControlFlowGraph,
-        val annotations: Annotations<MutabilityAnnotation>,
-        val positions: PositionsWithinMember,
-        val declarationIndex: DeclarationIndex
-) {
-    private val asm2GraphInstructionMap = createInstructionMap()
-    private val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
+fun buildMutabilityAnnotations(
+        graph: ControlFlowGraph,
+        positions: PositionsWithinMember,
+        declarationIndex: DeclarationIndex,
+        annotations: Annotations<MutabilityAnnotation>
+) : Annotations<MutabilityAnnotation> {
 
-    private fun createInstructionMap() : Map<AbstractInsnNode, Instruction> {
+    val asm2GraphInstructionMap = run {
         val map = hashMap<AbstractInsnNode, Instruction>()
         graph.traverseInstructions { instruction ->
             val metadata = instruction.metadata
@@ -39,12 +37,22 @@ class MutabilityAnnotationInferrer(
                 map[metadata.asmInstruction] = instruction
             }
         }
-        return map
+        map
     }
 
-    fun buildAnnotations() : Annotations<MutabilityAnnotation> {
-        graph.traverseInstructions { insn -> generateAsserts(insn) }
-        return toAnnotations()
+    val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
+
+    fun generateAssert(value: Value) {
+        parameterAnnotations[value] = MutabilityAnnotation.MUTABLE
+    }
+
+    fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) {
+        if (!createdAtInsn.isPropagatingMutability()) return
+        val instruction = asm2GraphInstructionMap[createdAtInsn]!!
+        val valueSet = instruction[STATE_BEFORE]!!.stack[0]
+        for (value in valueSet) {
+            generateAssert(value)
+        }
     }
 
     fun generateAsserts(instruction: Instruction) {
@@ -71,31 +79,14 @@ class MutabilityAnnotationInferrer(
                 false,  { paramAnnotation -> paramAnnotation == MutabilityAnnotation.MUTABLE } )
     }
 
-    private fun generateAssert(value: Value) {
-        parameterAnnotations[value] = MutabilityAnnotation.MUTABLE
-    }
-
-    private fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) {
-        if (!createdAtInsn.isPropagatingMutability()) return
-        val instruction = asm2GraphInstructionMap[createdAtInsn]!!
-        val valueSet = instruction[STATE_BEFORE]!!.stack[0]
-        for (value in valueSet) {
-            generateAssert(value)
-        }
-    }
-
-    private fun toAnnotations(): Annotations<MutabilityAnnotation> {
-        val annotations = AnnotationsImpl<MutabilityAnnotation>()
-        fun setAnnotation(position: TypePosition, annotation: MutabilityAnnotation?) {
-            if (annotation != null) {
-                annotations.set(position, annotation)
-            }
-        }
+    graph.traverseInstructions { insn -> generateAsserts(insn) }
+    return run {
+        val result = AnnotationsImpl<MutabilityAnnotation>()
         for ((value, annotation) in parameterAnnotations) {
             if (value.interesting) {
-                setAnnotation(positions.forParameter(value.parameterIndex!!).position, annotation)
+                result[positions.forParameter(value.parameterIndex!!).position] = annotation
             }
         }
-        return annotations
+        result
     }
 }
