@@ -1,9 +1,9 @@
 package org.jetbrains.kannotator.annotationsInference
 
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotationInferrer
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotationInferrer
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
@@ -15,7 +15,7 @@ fun buildNullabilityAnnotations(
         declarationIndex: DeclarationIndex,
         annotations: Annotations<NullabilityAnnotation>
 ) : Annotations<NullabilityAnnotation> {
-    return NullabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
+    return NullabilityAnnotationInferrer(graph, annotations, positions, declarationIndex).buildAnnotations()
 }
 
 fun buildMutabilityAnnotations(
@@ -24,6 +24,6 @@ fun buildMutabilityAnnotations(
         declarationIndex: DeclarationIndex,
         annotations: Annotations<MutabilityAnnotation>
 ) : Annotations<MutabilityAnnotation> {
-    return MutabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
+    return MutabilityAnnotationInferrer(graph, annotations, positions, declarationIndex).buildAnnotations()
 }
 

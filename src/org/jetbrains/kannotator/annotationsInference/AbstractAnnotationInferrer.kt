@@ -15,20 +15,20 @@ trait Annotation
 trait ValueInfo
 data class Assert(val value: Value)
 
-abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
+abstract class AbstractAnnotationInferrer<A: Annotation, I: ValueInfo>(
         private val graph: ControlFlowGraph,
-        protected open val annotations: Annotations<A>,
+        protected val annotations: Annotations<A>,
         positions: PositionsWithinMember,
         protected val declarationIndex: DeclarationIndex,
-        protected val annotationsManager: AnnotationsManager<A>) {
+        protected val annotationManager: AnnotationManager<A>) {
 
     fun buildAnnotations() : Annotations<A> {
         process()
         postProcess()
-        return getResult().toAnnotations()
+        return annotationManager.toAnnotations()
     }
 
-    private fun process() = traverseInstructions { insn -> analyzeInstruction(insn )}
+    private fun process() = traverseInstructions { insn -> analyzeInstruction(insn) }
 
     protected fun traverseInstructions(f: (Instruction) -> Unit) {
         for (instruction in graph.instructions) {
@@ -39,15 +39,13 @@ abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
 
     protected open fun postProcess() {}
 
-    private fun getResult(): AnnotationsManager<A> = annotationsManager
-
     private fun analyzeInstruction(instruction: Instruction) {
         val valueInfos = computeValueInfos(instruction)
 
         val asserts = generateAsserts(instruction)
         for (assert in asserts) {
             if (isAnnotationNecessary(assert, valueInfos)) {
-                annotationsManager.addAssert(assert)
+                annotationManager.addAssert(assert)
             }
         }
     }
@@ -65,12 +63,12 @@ abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
             instruction: Instruction,
             addAssertForStackValue: (Int) -> Unit,
             needGenerateAssertForThis: Boolean,
-            needGenerateAssertForArgument: (A?) -> Boolean
+            needGenerateAssertForArgument: (A) -> Boolean
     ) {
         val methodId = getMethodIdByInstruction(instruction)
         val hasThis = instruction.getOpcode() != INVOKESTATIC
         val thisSlots = if (hasThis) 1 else 0
-        val parametersCount = methodId!!.getArgumentCount() + thisSlots
+        val parametersCount = methodId.getArgumentCount() + thisSlots
 
         fun addAssertForArgumentOnStack(index: Int) {
             addAssertForStackValue(parametersCount - index - 1)
@@ -85,7 +83,7 @@ abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
                 val positions = PositionsWithinMember(method)
                 for (paramIndex in thisSlots..parametersCount - 1) {
                     val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
-                    if (needGenerateAssertForArgument(paramAnnotation)) {
+                    if (paramAnnotation != null && needGenerateAssertForArgument(paramAnnotation)) {
                         addAssertForArgumentOnStack(paramIndex)
                     }
                 }
@@ -94,7 +92,7 @@ abstract class AnnotationsInference<A: Annotation, I: ValueInfo>(
     }
 }
 
-abstract class AnnotationsManager<A: Annotation> {
+abstract class AnnotationManager<A: Annotation> {
     abstract fun addAssert(assert: Assert)
     abstract fun toAnnotations(): Annotations<A>
 }

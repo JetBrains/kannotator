@@ -2,8 +2,8 @@ package org.jetbrains.kannotator.annotationsInference.mutability
 
 import java.util.Collections
 import kotlinlib.emptyList
-import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
-import org.jetbrains.kannotator.annotationsInference.AnnotationsManager
+import org.jetbrains.kannotator.annotationsInference.AbstractAnnotationInferrer
+import org.jetbrains.kannotator.annotationsInference.AnnotationManager
 import org.jetbrains.kannotator.annotationsInference.Assert
 import org.jetbrains.kannotator.annotationsInference.ValueInfo
 import org.jetbrains.kannotator.annotationsInference.getMethodIdByInstruction
@@ -24,11 +24,11 @@ import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.MethodInsnNode
 
-class MutabilityAnnotationsInference(graph: ControlFlowGraph,
+class MutabilityAnnotationInferrer(graph: ControlFlowGraph,
                                      annotations: Annotations<MutabilityAnnotation>,
                                      positions: PositionsWithinMember,
                                      declarationIndex: DeclarationIndex
-): AnnotationsInference<MutabilityAnnotation, ValueInfo>(graph, annotations, positions, declarationIndex, MutabilityAnnotationsManager(positions)) {
+): AbstractAnnotationInferrer<MutabilityAnnotation, ValueInfo>(graph, annotations, positions, declarationIndex, MutabilityAnnotationManager(positions)) {
     private val asm2GraphInstructionMap = createInstructionMap()
 
     private fun createInstructionMap() : Map<AbstractInsnNode, Instruction> {
@@ -49,7 +49,7 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
         if (!(asmInstruction is MethodInsnNode)) return emptyList()
         if (instruction.getOpcode() == INVOKEINTERFACE) {
             val methodId = getMethodIdByInstruction(instruction)
-            val valueSet = state.stack[methodId!!.getArgumentCount()]
+            val valueSet = state.stack[methodId.getArgumentCount()]
             for (value in valueSet) {
                 if (!(value is TypedValue) || value._type == null) continue;
                 if (isInvocationRequiredMutability(asmInstruction)) {
@@ -100,7 +100,7 @@ class MutabilityAnnotationsInference(graph: ControlFlowGraph,
     protected override fun computeValueInfos(instruction: Instruction): Map<Value, ValueInfo> = Collections.emptyMap()
 }
 
-private class MutabilityAnnotationsManager(val positions: PositionsWithinMember) : AnnotationsManager<MutabilityAnnotation>() {
+private class MutabilityAnnotationManager(val positions: PositionsWithinMember) : AnnotationManager<MutabilityAnnotation>() {
     val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
 
     private fun addParameterAnnotation(value: Value, annotation: MutabilityAnnotation) {

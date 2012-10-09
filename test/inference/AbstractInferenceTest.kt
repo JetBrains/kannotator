@@ -2,7 +2,7 @@ package inference
 
 import junit.framework.TestCase
 import kotlin.test.assertEquals
-import org.jetbrains.kannotator.annotationsInference.AnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.AbstractAnnotationInferrer
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method

@@ -18,7 +18,7 @@ fun DeclarationIndex.findMethodByMethodInsnNode(methodInsnNode: MethodInsnNode):
     return this.findMethod(ClassName.fromInternalName(methodInsnNode.owner!!), methodInsnNode.name!!, methodInsnNode.desc)
 }
 
-fun getMethodIdByInstruction(instruction: Instruction): MethodId? {
-    val methodInsnNode = (instruction.metadata as? AsmInstructionMetadata)?.asmInstruction as? MethodInsnNode
-    return if (methodInsnNode == null) null else MethodId(methodInsnNode.name!!, methodInsnNode.desc)
+fun getMethodIdByInstruction(instruction: Instruction): MethodId {
+    val methodInsnNode = (instruction.metadata as AsmInstructionMetadata).asmInstruction as MethodInsnNode
+    return MethodId(methodInsnNode.name!!, methodInsnNode.desc)
 }

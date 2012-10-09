@@ -3,7 +3,7 @@ package inference
 import java.io.File
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotationInferrer
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
@@ -34,7 +34,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<MutabilityAnnotation>) : Annotations<MutabilityAnnotation> {
-        return MutabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
+        return MutabilityAnnotationInferrer(graph, annotations, positions, declarationIndex).buildAnnotations()
     }
 
     fun testMutableCollection() = doTest()

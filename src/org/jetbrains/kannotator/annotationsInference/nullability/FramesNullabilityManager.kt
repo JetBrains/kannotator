@@ -22,7 +22,7 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
 
 class FramesNullabilityManager(
-        val annotationsManager: NullabilityAnnotationsManager,
+        val annotationsManager: NullabilityAnnotationManager,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex
 ) {
@@ -119,7 +119,7 @@ class FramesNullabilityManager(
 }
 
 public class ValueNullabilityMap(
-        val annotationsManager: NullabilityAnnotationsManager,
+        val annotationsManager: NullabilityAnnotationManager,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
         m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()
@@ -170,7 +170,7 @@ public class ValueNullabilityMap(
 }
 
 fun mergeValueNullabilityMaps(
-        annotationManager: NullabilityAnnotationsManager,
+        annotationManager: NullabilityAnnotationManager,
         annotations: Annotations<NullabilityAnnotation>,
         declarationIndex: DeclarationIndex,
         maps: Collection<ValueNullabilityMap>

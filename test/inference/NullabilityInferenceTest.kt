@@ -3,7 +3,7 @@ package inference
 import java.io.File
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotationsInference
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotationInferrer
 import org.jetbrains.kannotator.annotationsInference.nullability.classNameToNullabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
@@ -32,7 +32,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<NullabilityAnnotation>) : Annotations<NullabilityAnnotation> {
-        return NullabilityAnnotationsInference(graph, annotations, positions, declarationIndex).buildAnnotations()
+        return NullabilityAnnotationInferrer(graph, annotations, positions, declarationIndex).buildAnnotations()
     }
 
     fun testNull() = doTest()
