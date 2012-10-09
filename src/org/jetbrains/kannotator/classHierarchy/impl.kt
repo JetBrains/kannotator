@@ -5,6 +5,10 @@ import java.util.HashSet
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 
+class HierarchyGraphImpl<D>(
+        override val nodes: Collection<HierarchyNode<D>>
+): HierarchyGraph<D>
+
 abstract class HierarchyNodeImpl<D> : HierarchyNode<D> {
     private val _children: MutableCollection<HierarchyEdge<D>> = ArrayList()
     private val _parents: MutableCollection<HierarchyEdge<D>> = ArrayList()

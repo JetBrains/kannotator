@@ -58,9 +58,7 @@ fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData
         }
     }
 
-    return object : HierarchyGraph<ClassData> {
-        override val nodes: Collection<HierarchyNode<ClassData>> = nodesByName.values()
-    }
+    return HierarchyGraphImpl(nodesByName.values())
 }
 
 private data class MethodsAndSuperClasses(
