@@ -22,7 +22,7 @@ fun HierarchyGraph<ClassData>.toJungGraph(): DirectedSparseMultigraph<HierarchyN
 }
 
 fun main(args: Array<String>) {
-    val graph = buildClassHierarchyGraph(ClassesFromClassPath(getAllClassesWithPrefix("java/lang/")))
+    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix("java/lang/"))
 
     displayJungGraph<HierarchyNode<ClassData>, HierarchyEdge<ClassData>>(
             graph.toJungGraph(),

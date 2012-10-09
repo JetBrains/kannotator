@@ -7,6 +7,7 @@ import org.objectweb.asm.Type
 import org.jetbrains.kannotator.util.processJar
 import java.util.ArrayList
 import kotlinlib.recurseFiltered
+import org.jetbrains.kannotator.index.ClassSource
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
@@ -19,7 +20,7 @@ fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classR
     }
 }
 
-fun getAllClassesWithPrefix(prefix: String): List<ClassName> {
+fun getAllClassesWithPrefix(prefix: String): ClassSource {
     val classPath = System.getProperty("java.class.path")!!
     val result = arrayList<ClassName>()
 
@@ -33,7 +34,7 @@ fun getAllClassesWithPrefix(prefix: String): List<ClassName> {
         }
     }
 
-    return result
+    return ClassesFromClassPath(result)
 }
 
 fun findJarFiles(dirs: Collection<File>): Collection<File> {

@@ -11,7 +11,7 @@ import util.ClassesFromClassPath
 import org.jetbrains.kannotator.classHierarchy.*
 
 fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
-    val graph = buildClassHierarchyGraph(ClassesFromClassPath(getAllClassesWithPrefix(prefix)))
+    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix(prefix))
 
     return graph.nodes.filter {
         it.name.internal.startsWith(prefix)
