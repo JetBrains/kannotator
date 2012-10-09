@@ -62,7 +62,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
 
         for (index in 1..parametersNumber) {
             assertEquals(expectedParametersAnnotations.get(index), actual.get(positions.forParameter(index).position),
-                    "Annotations for parameters ($index) error")
+                    "Annotations for parameter $index error")
         }
     }
 }
