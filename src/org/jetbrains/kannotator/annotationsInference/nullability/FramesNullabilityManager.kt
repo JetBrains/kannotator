@@ -35,10 +35,6 @@ class FramesNullabilityManager(
         nullabilityInfosForEdges[edge] = infos
     }
 
-    fun clear() {
-        nullabilityInfosForEdges.clear()
-    }
-
     private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
         val incomingEdgesMaps = instruction.incomingEdges.map { e -> nullabilityInfosForEdges[e] }.filterNotNull()
         return mergeValueNullabilityMaps(positions, annotations, declarationIndex, incomingEdgesMaps)
@@ -59,24 +55,25 @@ class FramesNullabilityManager(
             return result
         }
 
-        fun propagateTransformedValueInfos(
+        fun propagateConditionInfo(
                 outgoingEdge: ControlFlowEdge,
                 state: State,
-                transformStackValueInfo: ((NullabilityValueInfo) -> NullabilityValueInfo)?
+                transform: ((NullabilityValueInfo) -> NullabilityValueInfo)?
         ) {
-            if (transformStackValueInfo == null) {
+            if (transform == null) {
                 setValueInfosForEdge(outgoingEdge, infosForInstruction)
                 return
             }
 
             val infosForEdge = ValueNullabilityMap(positions, annotations, declarationIndex, infosForInstruction)
-            for (value in state.stack[0]) {
-                infosForEdge[value] = transformStackValueInfo(infosForInstruction[value])
+            val conditionSubjects = state.stack[0]
+            for (value in conditionSubjects) {
+                infosForEdge[value] = transform(infosForInstruction[value])
             }
             setValueInfosForEdge(outgoingEdge, infosForEdge)
         }
 
-        addInfoFromInstruction(instruction, infosForInstruction)
+        addInfoForDereferencingInstruction(instruction, infosForInstruction)
 
         val opcode = instruction.getOpcode()
         when (opcode) {
@@ -86,10 +83,10 @@ class FramesNullabilityManager(
                 val (nullEdge, notNullEdge) =
                     if (opcode == IFNULL) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                propagateTransformedValueInfos(nullEdge, state) { wasInfo ->
+                propagateConditionInfo(nullEdge, state) { wasInfo ->
                     if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
 
-                propagateTransformedValueInfos(notNullEdge, state) { wasInfo ->
+                propagateConditionInfo(notNullEdge, state) { wasInfo ->
                     if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
 
                 return infosForInstruction
@@ -103,10 +100,10 @@ class FramesNullabilityManager(
                         val (instanceOfEdge, notInstanceOfEdge) =
                             if (opcode == IFNE) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                        propagateTransformedValueInfos(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
+                        propagateConditionInfo(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
                             { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
 
-                        propagateTransformedValueInfos(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
+                        propagateConditionInfo(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
 
                         return infosForInstruction
                     }
@@ -121,10 +118,10 @@ class FramesNullabilityManager(
         return infosForInstruction
     }
 
-    private fun addInfoFromInstruction(instruction: Instruction, infosForInstruction: ValueNullabilityMap) {
+    private fun addInfoForDereferencingInstruction(instruction: Instruction, infosForInstruction: ValueNullabilityMap) {
         val state = instruction[STATE_BEFORE]!!
 
-        fun addAssertForStackValue(indexFromTop: Int) {
+        fun markStackValueAsNotNull(indexFromTop: Int) {
             val valueSet = state.stack[indexFromTop]
             for (value in valueSet) {
                 val wasInfo = infosForInstruction[value]
@@ -135,19 +132,20 @@ class FramesNullabilityManager(
         when (instruction.getOpcode()) {
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC -> {
                 generateAssertsForCallArguments(instruction, declarationIndex, annotations,
-                        { indexFromTop -> addAssertForStackValue(indexFromTop) },
-                        true, { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL })
+                        { indexFromTop -> markStackValueAsNotNull(indexFromTop) },
+                        true,
+                        { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL })
             }
             GETFIELD, ARRAYLENGTH, ATHROW,
             MONITORENTER, MONITOREXIT -> {
-                addAssertForStackValue(0)
+                markStackValueAsNotNull(0)
             }
             AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD,
             PUTFIELD -> {
-                addAssertForStackValue(1)
+                markStackValueAsNotNull(1)
             }
             AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
-                addAssertForStackValue(2)
+                markStackValueAsNotNull(2)
             }
             else -> {}
         }

@@ -17,63 +17,57 @@ import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArgum
 import kotlinlib.emptyList
 import org.jetbrains.kannotator.annotationsInference.traverseInstructions
 import org.jetbrains.kannotator.annotationsInference.forInterestingValue
+import org.jetbrains.kannotator.declarations.MutableAnnotations
+import org.jetbrains.kannotator.declarations.setIfNotNull
 
 fun buildNullabilityAnnotations(
         graph: ControlFlowGraph,
         positions: PositionsWithinMember,
         declarationIndex: DeclarationIndex,
         annotations: Annotations<NullabilityAnnotation>
-) : Annotations<NullabilityAnnotation> {
+): Annotations<NullabilityAnnotation> {
 
     val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
     val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
     var returnValueInfo : NullabilityValueInfo? = null
 
-    fun checkReturnInstruction(
+    fun collectValueInfoForReturnInstruction(
             instruction: Instruction,
             nullabilityInfos: ValueNullabilityMap
     ) {
-        val state = instruction[STATE_BEFORE]!!
-
-        when (instruction.getOpcode()) {
-            ARETURN -> {
-                val valueSet = state.stack[0]
-                val nullabilityValueInfo = valueSet.map { it -> nullabilityInfos[it] }.merge()
-                returnValueInfo = nullabilityValueInfo.mergeWithNullable(returnValueInfo)
-                valueNullabilityMapsOnReturn.add(nullabilityInfos)
-            }
-            RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
-                valueNullabilityMapsOnReturn.add(nullabilityInfos)
-            }
-            else -> {}
+        if (instruction.getOpcode() == ARETURN) {
+            val state = instruction[STATE_BEFORE]!!
+            val returnValues = state.stack[0]
+            val nullabilityValueInfo = returnValues.map { it -> nullabilityInfos[it] }.merge()
+            returnValueInfo = nullabilityValueInfo.mergeWithNullable(returnValueInfo)
         }
+        valueNullabilityMapsOnReturn.add(nullabilityInfos)
     }
 
-    graph.traverseInstructions { instruction ->
-        framesManager.computeNullabilityInfosForInstruction(instruction)
-    }
-
-    framesManager.clear()
-
-    graph.traverseInstructions { instruction ->
-        checkReturnInstruction(instruction, framesManager.computeNullabilityInfosForInstruction(instruction))
-    }
-
-    return run {
+    fun createAnnotations(): Annotations<NullabilityAnnotation> {
         val result = AnnotationsImpl<NullabilityAnnotation>()
-        fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
-            if (annotation != null) {
-                result[position] = annotation
-            }
-        }
-        setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
+        result.setIfNotNull(positions.forReturnType().position, returnValueInfo?.toAnnotation())
 
         val mapOnReturn = mergeValueNullabilityMaps(positions, result, declarationIndex, valueNullabilityMapsOnReturn)
         for ((value, valueInfo) in mapOnReturn) {
             if (value.interesting) {
-                setAnnotation(positions.forInterestingValue(value), valueInfo.toAnnotation())
+                result.setIfNotNull(positions.forInterestingValue(value), valueInfo.toAnnotation())
             }
         }
-        result
+        return result
     }
+
+
+    graph.traverseInstructions {
+        instruction ->
+        val valueNullabilityMap = framesManager.computeNullabilityInfosForInstruction(instruction)
+        if (instruction.getOpcode() in RETURN_OPCODES) {
+            collectValueInfoForReturnInstruction(instruction, valueNullabilityMap)
+        }
+    }
+
+    return createAnnotations()
 }
+
+private val RETURN_OPCODES = hashSet(ARETURN, RETURN, IRETURN, LRETURN, DRETURN, FRETURN)
+
