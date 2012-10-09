@@ -1,8 +1,6 @@
 package org.jetbrains.kannotator.annotationsInference.nullability
 
-import org.jetbrains.kannotator.annotationsInference.ValueInfo
-
-public enum class NullabilityValueInfo : ValueInfo {
+public enum class NullabilityValueInfo {
     NOT_NULL
     NULL
     NULLABLE
