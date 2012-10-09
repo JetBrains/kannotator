@@ -5,25 +5,24 @@ import java.util.HashSet
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 
-data class ClassData(val name: ClassName, val methods: Collection<Method>)
+abstract class HierarchyNodeImpl<D> : HierarchyNode<D> {
+    private val _children: MutableCollection<HierarchyEdge<D>> = ArrayList()
+    private val _parents: MutableCollection<HierarchyEdge<D>> = ArrayList()
 
-private class ClassHierarchyEdgeImpl(
-        override val parent: HierarchyNode<ClassData>,
-        override val child: HierarchyNode<ClassData>): HierarchyEdge<ClassData>
+    override val children: Collection<HierarchyEdge<D>>
+        get() = _children
+    override val parents: Collection<HierarchyEdge<D>>
+        get() = _parents
 
-private class ClassNodeImpl(val name: ClassName): HierarchyNode<ClassData> {
-    override val children: MutableCollection<HierarchyEdge<ClassData>> = ArrayList()
-    override val parents: MutableCollection<HierarchyEdge<ClassData>> = ArrayList()
+    fun addParent(edge: HierarchyEdge<D>) {
+        _parents.add(edge)
+    }
 
-    val methods: MutableSet<Method> = HashSet()
-
-    override fun data(): ClassData = ClassData(name, methods)
-
-    public fun toString(): String = name.internal
+    fun addChild(edge: HierarchyEdge<D>) {
+        _children.add(edge)
+    }
 }
 
-val HierarchyNode<ClassData>.methods: Collection<Method>
-    get() = data().methods
-
-val HierarchyNode<ClassData>.name: ClassName
-    get() = data().name
+class HierarchyEdgeImpl<D>(
+        override val parent: HierarchyNode<D>,
+        override val child: HierarchyNode<D>) : HierarchyEdge<D>

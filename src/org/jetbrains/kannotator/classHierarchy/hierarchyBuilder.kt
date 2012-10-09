@@ -10,6 +10,24 @@ import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import java.util.HashSet
+
+data class ClassData(val name: ClassName, val methods: Collection<Method>)
+
+private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
+    val methods: MutableSet<Method> = HashSet()
+
+    override fun data(): ClassData = ClassData(name, methods)
+
+    public fun toString(): String = name.internal
+}
+
+val HierarchyNode<ClassData>.methods: Collection<Method>
+    get() = data().methods
+
+val HierarchyNode<ClassData>.name: ClassName
+    get() = data().name
+
 
 fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> {
     val nodesByName = HashMap<ClassName, ClassNodeImpl>()
@@ -17,9 +35,9 @@ fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData
     fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
 
     fun addEdge(base: ClassNodeImpl, derived: ClassNodeImpl) {
-        val edge = ClassHierarchyEdgeImpl(base, derived)
-        base.children.add(edge)
-        derived.parents.add(edge)
+        val edge = HierarchyEdgeImpl(base, derived)
+        base.addChild(edge)
+        derived.addParent(edge)
     }
 
     classSource forEach {
