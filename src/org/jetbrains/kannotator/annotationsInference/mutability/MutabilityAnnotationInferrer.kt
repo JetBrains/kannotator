@@ -23,6 +23,7 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.MethodInsnNode
+import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 
 class MutabilityAnnotationInferrer(graph: ControlFlowGraph,
                                      annotations: Annotations<MutabilityAnnotation>,
@@ -60,7 +61,7 @@ class MutabilityAnnotationInferrer(graph: ControlFlowGraph,
                 }
             }
         }
-        generateAssertsForCallArguments(instruction,
+        generateAssertsForCallArguments(instruction, declarationIndex, annotations,
                 { indexFromTop ->
                     state.stack[indexFromTop].forEach { value -> result.add(Assert(value)) }
                 },

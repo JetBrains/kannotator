@@ -16,6 +16,7 @@ import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
 import org.jetbrains.kannotator.declarations.TypePosition
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 
 class NullabilityAnnotationInferrer(
         graph: ControlFlowGraph,
@@ -63,7 +64,8 @@ class NullabilityAnnotationInferrer(
 
         when (instruction.getOpcode()) {
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC -> {
-                generateAssertsForCallArguments(instruction, { indexFromTop -> addAssertForStackValue(indexFromTop) },
+                generateAssertsForCallArguments(instruction, declarationIndex, annotations,
+                        { indexFromTop -> addAssertForStackValue(indexFromTop) },
                         true, { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL })
             }
             GETFIELD, ARRAYLENGTH, ATHROW,

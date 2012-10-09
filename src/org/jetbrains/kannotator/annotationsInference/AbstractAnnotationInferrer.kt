@@ -58,34 +58,36 @@ abstract class AbstractAnnotationInferrer<A: Annotation, I: ValueInfo>(
     ): Boolean
 
     protected abstract fun generateAsserts(instruction: Instruction) : Collection<Assert>
+}
 
-    protected fun generateAssertsForCallArguments(
-            instruction: Instruction,
-            addAssertForStackValue: (Int) -> Unit,
-            needGenerateAssertForThis: Boolean,
-            needGenerateAssertForArgument: (A) -> Boolean
-    ) {
-        val methodId = getMethodIdByInstruction(instruction)
-        val hasThis = instruction.getOpcode() != INVOKESTATIC
-        val thisSlots = if (hasThis) 1 else 0
-        val parametersCount = methodId.getArgumentCount() + thisSlots
+public fun <A: Annotation> generateAssertsForCallArguments(
+        instruction: Instruction,
+        declarationIndex: DeclarationIndex,
+        annotations: Annotations<A>,
+        addAssertForStackValue: (Int) -> Unit,
+        needGenerateAssertForThis: Boolean,
+        needGenerateAssertForArgument: (A) -> Boolean
+) {
+    val methodId = getMethodIdByInstruction(instruction)
+    val hasThis = instruction.getOpcode() != INVOKESTATIC
+    val thisSlots = if (hasThis) 1 else 0
+    val parametersCount = methodId.getArgumentCount() + thisSlots
 
-        fun addAssertForArgumentOnStack(index: Int) {
-            addAssertForStackValue(parametersCount - index - 1)
-        }
+    fun addAssertForArgumentOnStack(index: Int) {
+        addAssertForStackValue(parametersCount - index - 1)
+    }
 
-        if (hasThis && needGenerateAssertForThis) {
-            addAssertForArgumentOnStack(0)
-        }
-        if (instruction.getOpcode() != INVOKEDYNAMIC) {
-            val method = declarationIndex.findMethodByInstruction(instruction)
-            if (method != null) {
-                val positions = PositionsWithinMember(method)
-                for (paramIndex in thisSlots..parametersCount - 1) {
-                    val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
-                    if (paramAnnotation != null && needGenerateAssertForArgument(paramAnnotation)) {
-                        addAssertForArgumentOnStack(paramIndex)
-                    }
+    if (hasThis && needGenerateAssertForThis) {
+        addAssertForArgumentOnStack(0)
+    }
+    if (instruction.getOpcode() != INVOKEDYNAMIC) {
+        val method = declarationIndex.findMethodByInstruction(instruction)
+        if (method != null) {
+            val positions = PositionsWithinMember(method)
+            for (paramIndex in thisSlots..parametersCount - 1) {
+                val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
+                if (paramAnnotation != null && needGenerateAssertForArgument(paramAnnotation)) {
+                    addAssertForArgumentOnStack(paramIndex)
                 }
             }
         }
