@@ -19,3 +19,6 @@ trait HierarchyNode<D> {
     // TODO This is a workaround for KT-2920 No bridge generated for a property returning a generic type
     fun data(): D
 }
+
+public fun <D> HierarchyNode<D>.parentNodes(): Collection<HierarchyNode<D>> = parents.map { e -> e.parent }
+public fun <D> HierarchyNode<D>.childNodes(): Collection<HierarchyNode<D>> = children.map { e -> e.parent }
