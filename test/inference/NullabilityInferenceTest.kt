@@ -94,6 +94,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     fun testArrayLength() = doTest()
 
+//todo support merge termination with exceptions only
 //    fun testThrowParameter() = doTest()
 
     fun testMonitor() = doTest()
