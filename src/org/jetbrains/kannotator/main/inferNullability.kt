@@ -6,7 +6,7 @@ import java.util.HashMap
 import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
-import org.jetbrains.kannotator.annotationsInference.buildNullabilityAnnotations
+import org.jetbrains.kannotator.annotationsInference.nullability.buildNullabilityAnnotations
 import org.jetbrains.kannotator.asm.util.createMethodNode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph

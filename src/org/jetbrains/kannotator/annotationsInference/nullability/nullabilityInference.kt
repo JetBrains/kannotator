@@ -16,30 +16,20 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import kotlinlib.emptyList
 import org.jetbrains.kannotator.annotationsInference.traverseInstructions
+import org.jetbrains.kannotator.annotationsInference.forInterestingValue
 
-class NullabilityAnnotationInferrer(
-        private val graph: ControlFlowGraph,
-        annotations: Annotations<NullabilityAnnotation>,
-        val positions: PositionsWithinMember,
-        val declarationIndex: DeclarationIndex
-) {
-    private val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
+fun buildNullabilityAnnotations(
+        graph: ControlFlowGraph,
+        positions: PositionsWithinMember,
+        declarationIndex: DeclarationIndex,
+        annotations: Annotations<NullabilityAnnotation>
+) : Annotations<NullabilityAnnotation> {
+
+    val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
     val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
     var returnValueInfo : NullabilityValueInfo? = null
 
-    fun buildAnnotations() : Annotations<NullabilityAnnotation> {
-        graph.traverseInstructions { instruction ->
-            framesManager.computeNullabilityInfosForInstruction(instruction) }
-
-        framesManager.clear()
-
-        graph.traverseInstructions { instruction ->
-            checkReturnInstruction(instruction, framesManager.computeNullabilityInfosForInstruction(instruction))
-        }
-        return toAnnotations()
-    }
-
-    private fun checkReturnInstruction(
+    fun checkReturnInstruction(
             instruction: Instruction,
             nullabilityInfos: ValueNullabilityMap
     ) {
@@ -49,43 +39,41 @@ class NullabilityAnnotationInferrer(
             ARETURN -> {
                 val valueSet = state.stack[0]
                 val nullabilityValueInfo = valueSet.map { it -> nullabilityInfos[it] }.merge()
-                addReturnValueInfo(nullabilityValueInfo)
-
-                addValueNullabilityMapOnReturn(nullabilityInfos)
+                returnValueInfo = nullabilityValueInfo.mergeWithNullable(returnValueInfo)
+                valueNullabilityMapsOnReturn.add(nullabilityInfos)
             }
             RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
-                addValueNullabilityMapOnReturn(nullabilityInfos)
+                valueNullabilityMapsOnReturn.add(nullabilityInfos)
             }
-            else -> Unit.VALUE
+            else -> {}
         }
     }
 
-    fun addValueNullabilityMapOnReturn(map: ValueNullabilityMap) {
-        valueNullabilityMapsOnReturn.add(map)
+    graph.traverseInstructions { instruction ->
+        framesManager.computeNullabilityInfosForInstruction(instruction)
     }
 
-    fun addReturnValueInfo(valueInfo: NullabilityValueInfo) {
-        val current = returnValueInfo
-        returnValueInfo = valueInfo.mergeWithNullable(current)
+    framesManager.clear()
+
+    graph.traverseInstructions { instruction ->
+        checkReturnInstruction(instruction, framesManager.computeNullabilityInfosForInstruction(instruction))
     }
 
-    private fun Value.getParameterPosition() = positions.forParameter(this.parameterIndex!!).position
-
-    fun toAnnotations(): Annotations<NullabilityAnnotation> {
-        val annotations = AnnotationsImpl<NullabilityAnnotation>()
+    return run {
+        val result = AnnotationsImpl<NullabilityAnnotation>()
         fun setAnnotation(position: TypePosition, annotation: NullabilityAnnotation?) {
             if (annotation != null) {
-                annotations[position] = annotation
+                result[position] = annotation
             }
         }
         setAnnotation(positions.forReturnType().position, returnValueInfo?.toAnnotation())
 
-        val mapOnReturn = mergeValueNullabilityMaps(positions, annotations, declarationIndex, valueNullabilityMapsOnReturn)
+        val mapOnReturn = mergeValueNullabilityMaps(positions, result, declarationIndex, valueNullabilityMapsOnReturn)
         for ((value, valueInfo) in mapOnReturn) {
             if (value.interesting) {
-                setAnnotation(value.getParameterPosition(), valueInfo.toAnnotation())
+                setAnnotation(positions.forInterestingValue(value), valueInfo.toAnnotation())
             }
         }
-        return annotations
+        result
     }
 }
