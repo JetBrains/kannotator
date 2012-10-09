@@ -11,15 +11,13 @@ private val Method.isInheritable: Boolean
         id.methodName != "<init>" &&
         id.methodName != "<clinit>"
 
-fun ClassData.find(method: Method): Method? = methods.find { it.id == method.id }
-
 fun samePackage(c1: ClassData, c2: ClassData): Boolean {
     fun ClassData._package(): String = name.internal.prefixUpTo('/')!!
     return c1._package() == c2._package()
 }
 
 fun HierarchyNode<ClassData>.getOverridingMethods(method: Method): Set<Method> {
-    val my = data().find(method)
+    val my = data().methodsById[method.id]
     if (my == null) return hashSet()
 
     val result = hashSet<Method>(my)

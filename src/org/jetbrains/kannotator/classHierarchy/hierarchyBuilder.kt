@@ -1,7 +1,7 @@
 package org.jetbrains.kannotator.classHierarchy
 
 import java.util.HashMap
-import kotlinlib.flags
+import kotlinlib.*
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.ClassSource
@@ -12,8 +12,11 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import java.util.HashSet
 import java.util.ArrayList
+import org.jetbrains.kannotator.declarations.MethodId
 
-data class ClassData(val name: ClassName, val methods: Collection<Method>)
+class ClassData(val name: ClassName, methods: Collection<Method>) {
+    val methodsById: Map<MethodId, Method> = methods.map {m -> Pair(m.id, m)}.toMap()
+}
 
 private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
     val methods: MutableSet<Method> = HashSet()
@@ -24,7 +27,7 @@ private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>()
 }
 
 val HierarchyNode<ClassData>.methods: Collection<Method>
-    get() = data().methods
+    get() = data().methodsById.values()
 
 val HierarchyNode<ClassData>.name: ClassName
     get() = data().name
@@ -75,10 +78,8 @@ private fun processClass(reader: ClassReader): MethodsAndSuperClasses {
             object : ClassVisitor(Opcodes.ASM4) {
 
                 public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
-                    if (interfaces != null) {
-                        for (interface in interfaces) {
-                            superClasses.add(ClassName.fromInternalName(interface))
-                        }
+                    for (interface in interfaces.orEmptyArray()) {
+                        superClasses.add(ClassName.fromInternalName(interface))
                     }
                     if (superName != null) {
                         superClasses.add(ClassName.fromInternalName(superName))
