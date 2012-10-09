@@ -8,22 +8,21 @@ import kotlinlib.join
 import java.util.Collections
 
 class PositionsWithinMember(val method: Method) {
-    // If present, 'this' has index 0
-    public fun forParameter(parameterIndex: Int): AnnotatedType{
-        assert(parameterIndex >= 0) {"For return type use forReturnType() method"}
+    public fun get(positionWithinMethod: PositionWithinMethod): AnnotatedType {
         return AnnotatedTypeImpl(
-                TypePositionImpl(method, ParameterPosition(parameterIndex), 0),
-                "param$parameterIndex",
+                TypePositionImpl(method, positionWithinMethod, 0),
+                positionWithinMethod.toString(),
                 ArrayList(0)
         )
     }
 
-    public fun forReturnType() : AnnotatedType = AnnotatedTypeImpl(
-            TypePositionImpl(method, RETURN_TYPE, 0),
-            "return",
-            ArrayList(0)
-    )
+    // If present, 'this' has index 0
+    public fun forParameter(parameterIndex: Int): AnnotatedType{
+        assert(parameterIndex >= 0) {"For return type use forReturnType() method"}
+        return get(ParameterPosition(parameterIndex))
+    }
 
+    public fun forReturnType(): AnnotatedType = get(RETURN_TYPE)
 }
 
 fun PositionsWithinMember.forEachValidPosition(body: (TypePosition) -> Unit) {

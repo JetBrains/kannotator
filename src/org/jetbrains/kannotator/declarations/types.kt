@@ -4,7 +4,10 @@ import kotlinlib.join
 
 trait PositionWithinMethod
 
-object RETURN_TYPE : PositionWithinMethod
+object RETURN_TYPE : PositionWithinMethod {
+    fun toString(): String = "RETURN_TYPE"
+}
+
 data class ParameterPosition(val index: Int) : PositionWithinMethod
 
 trait TypePosition {
