@@ -20,11 +20,12 @@ import org.jetbrains.kannotator.annotationsInference.traverseInstructions
 class NullabilityAnnotationInferrer(
         private val graph: ControlFlowGraph,
         annotations: Annotations<NullabilityAnnotation>,
-        positions: PositionsWithinMember,
-        declarationIndex: DeclarationIndex
+        val positions: PositionsWithinMember,
+        val declarationIndex: DeclarationIndex
 ) {
-    private val nullabilityAnnotationManager : NullabilityAnnotationManager = NullabilityAnnotationManager(annotations, declarationIndex, positions)
     private val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
+    val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
+    var returnValueInfo : NullabilityValueInfo? = null
 
     fun buildAnnotations() : Annotations<NullabilityAnnotation> {
         graph.traverseInstructions { instruction ->
@@ -35,7 +36,7 @@ class NullabilityAnnotationInferrer(
         graph.traverseInstructions { instruction ->
             checkReturnInstruction(instruction, framesManager.computeNullabilityInfosForInstruction(instruction))
         }
-        return nullabilityAnnotationManager.toAnnotations()
+        return toAnnotations()
     }
 
     private fun checkReturnInstruction(
@@ -48,26 +49,16 @@ class NullabilityAnnotationInferrer(
             ARETURN -> {
                 val valueSet = state.stack[0]
                 val nullabilityValueInfo = valueSet.map { it -> nullabilityInfos[it] }.merge()
-                nullabilityAnnotationManager.addReturnValueInfo(nullabilityValueInfo)
+                addReturnValueInfo(nullabilityValueInfo)
 
-                nullabilityAnnotationManager.addValueNullabilityMapOnReturn(nullabilityInfos)
+                addValueNullabilityMapOnReturn(nullabilityInfos)
             }
             RETURN, IRETURN, LRETURN, DRETURN, FRETURN -> {
-                nullabilityAnnotationManager.addValueNullabilityMapOnReturn(nullabilityInfos)
+                addValueNullabilityMapOnReturn(nullabilityInfos)
             }
             else -> Unit.VALUE
         }
     }
-}
-
-private class NullabilityAnnotationManager(
-        val annotations: Annotations<NullabilityAnnotation>,
-        val declarationIndex: DeclarationIndex,
-        val positions: PositionsWithinMember
-) {
-
-    val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
-    var returnValueInfo : NullabilityValueInfo? = null
 
     fun addValueNullabilityMapOnReturn(map: ValueNullabilityMap) {
         valueNullabilityMapsOnReturn.add(map)
