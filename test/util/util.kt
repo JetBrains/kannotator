@@ -8,6 +8,7 @@ import org.jetbrains.kannotator.util.processJar
 import java.util.ArrayList
 import kotlinlib.recurseFiltered
 import org.jetbrains.kannotator.index.ClassSource
+import junit.framework.Assert
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
@@ -45,4 +46,20 @@ fun findJarFiles(dirs: Collection<File>): Collection<File> {
         }
     }
     return jars
+}
+
+fun assertEqualsOrCreate(expectedFile: File, actual: String, failOnNoData: Boolean = true): Boolean {
+    if (!expectedFile.exists()) {
+        expectedFile.getParentFile()!!.mkdirs()
+        expectedFile.writeText(actual)
+        if (failOnNoData) {
+            Assert.fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
+        }
+        return false
+    }
+
+    val expected = expectedFile.readText()
+
+    Assert.assertEquals(expected, actual)
+    return true
 }

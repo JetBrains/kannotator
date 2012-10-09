@@ -8,6 +8,7 @@ import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
 import java.io.File
 import kotlinlib.*
+import util.assertEqualsOrCreate
 
 class TopologicalSortTest {
     fun doTest(expectedFileName: String, vararg canonicalNames: String) {
@@ -15,12 +16,8 @@ class TopologicalSortTest {
         val components = methodGraph.getTopologicallySortedStronglyConnectedComponents()
         val actual = components.map { it.map {n -> n.method.toString()}.toSortedList().join("\n", "", "\n===========\n") }.join("\n")
         val expectedFile = File("testData/funDependency/" + expectedFileName)
-        if (!expectedFile.exists()) {
-            expectedFile.writeText(actual)
-            fail("Expected file not found: $expectedFile")
-        }
-        val expected = expectedFile.readText().toUnixSeparators()
-        assertEquals(expected, actual)
+
+        assertEqualsOrCreate(expectedFile, actual)
     }
 
     Test fun funInDifferentClassesTest() {

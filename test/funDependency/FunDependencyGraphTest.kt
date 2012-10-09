@@ -14,6 +14,7 @@ import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.index.ClassSource
 import util.ClassesFromClassPath
+import util.assertEqualsOrCreate
 
 private val PATH = "testData/funDependency/"
 
@@ -68,15 +69,7 @@ class FunDependencyGraphTest {
         }.trim()
 
         val expectedFile = File(PATH + expectedResultPath)
-        if (!expectedFile.exists()) {
-            expectedFile.writeText(actual)
-            fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
-        }
-        val expected = expectedFile.readText().trim()
-        println(actual)
-        println()
-
-        Assert.assertEquals(expected, actual)
+        assertEqualsOrCreate(expectedFile, actual)
     }
 
     fun printFunctionNode(sb: StringBuilder, node: FunctionNode) {

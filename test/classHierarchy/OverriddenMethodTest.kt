@@ -11,6 +11,7 @@ import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import util.ClassesFromClassPath
 import org.jetbrains.kannotator.classHierarchy.*
+import util.assertEqualsOrCreate
 
 class OverriddenMethodTest : TestCase() {
     val BASE_DIR = "testData/classHierarchy/overriddenMethods/"

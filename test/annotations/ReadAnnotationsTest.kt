@@ -6,6 +6,7 @@ import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.junit.Test
 import org.junit.Assert.fail
 import org.junit.Assert.assertEquals
+import util.assertEqualsOrCreate
 
 class ReadAnnotationsTest {
 
@@ -26,16 +27,13 @@ class ReadAnnotationsTest {
             actualSB.println()
         })
 
-        val expectedFile = File(file.getAbsolutePath().replaceAll(".xml", ".txt"))
         println(actualSB)
-        if (!expectedFile.exists()) {
-            expectedFile.getParentFile()!!.mkdirs()
-            expectedFile.createNewFile()
-            expectedFile.writeText(actualSB.toString())
+        val expectedFile = File(file.getAbsolutePath().replaceAll(".xml", ".txt"))
+
+        val success = assertEqualsOrCreate(expectedFile, actualSB.toString(), false)
+        if (!success) {
             println("Expected data file does not exist: ${expectedFile}. It is created from actual data")
             testResult = false
-        } else {
-            assertEquals(expectedFile.readText(), actualSB.toString())
         }
     }
 

@@ -6,6 +6,7 @@ import kotlinlib.buildString
 import kotlinlib.println
 import kotlinlib.sortByToString
 import org.jetbrains.kannotator.classHierarchy.*
+import util.assertEqualsOrCreate
 
 class ClassHierarchyTest : TestCase() {
     val BASE_DIR = "testData/classHierarchy/"

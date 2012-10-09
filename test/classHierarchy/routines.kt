@@ -17,15 +17,3 @@ fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
         it.name.internal.startsWith(prefix)
     }.sortByToString()
 }
-
-fun assertEqualsOrCreate(expectedFile: File, actual: String) {
-    if (!expectedFile.exists()) {
-        expectedFile.getParentFile()!!.mkdirs()
-        expectedFile.writeText(actual)
-        fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
-    }
-
-    val expected = expectedFile.readText()
-
-    Assert.assertEquals(expected, actual)
-}
