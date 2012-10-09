@@ -27,6 +27,18 @@ abstract class HierarchyNodeImpl<D> : HierarchyNode<D> {
     }
 }
 
+fun <D> HierarchyNodeImpl<D>.addParentNode(parent: HierarchyNodeImpl<D>) {
+    val edge = HierarchyEdgeImpl(parent, this)
+    this.addParent(edge)
+    parent.addChild(edge)
+}
+
+fun <D> HierarchyNodeImpl<D>.addChildNode(child: HierarchyNodeImpl<D>) {
+    val edge = HierarchyEdgeImpl(this, child)
+    child.addParent(edge)
+    this.addChild(edge)
+}
+
 class HierarchyEdgeImpl<D>(
         override val parent: HierarchyNode<D>,
         override val child: HierarchyNode<D>) : HierarchyEdge<D>
