@@ -21,6 +21,7 @@ import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import org.jetbrains.kannotator.annotationsInference.traverseInstructions
+import java.util.HashMap
 
 fun buildMutabilityAnnotations(
         graph: ControlFlowGraph,
@@ -29,8 +30,8 @@ fun buildMutabilityAnnotations(
         annotations: Annotations<MutabilityAnnotation>
 ) : Annotations<MutabilityAnnotation> {
 
-    val asm2GraphInstructionMap = run {
-        val map = hashMap<AbstractInsnNode, Instruction>()
+    val asm2GraphInstruction = run {
+        val map = HashMap<AbstractInsnNode, Instruction>()
         graph.traverseInstructions { instruction ->
             val metadata = instruction.metadata
             if (metadata is AsmInstructionMetadata) {
@@ -40,53 +41,57 @@ fun buildMutabilityAnnotations(
         map
     }
 
-    val parameterAnnotations = hashMap<Value, MutabilityAnnotation>()
+    val valueAnnotations = HashMap<Value, MutabilityAnnotation>()
 
-    fun generateAssert(value: Value) {
-        parameterAnnotations[value] = MutabilityAnnotation.MUTABLE
+    fun markMutable(value: Value) {
+        valueAnnotations[value] = MutabilityAnnotation.MUTABLE
+        //todo propagate mutability
     }
 
-    fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) {
-        if (!createdAtInsn.isPropagatingMutability()) return
-        val instruction = asm2GraphInstructionMap[createdAtInsn]!!
-        val valueSet = instruction[STATE_BEFORE]!!.stack[0]
-        for (value in valueSet) {
-            generateAssert(value)
+    fun propagateMutability(createdAtInsn: MethodInsnNode) {
+        if (!createdAtInsn.isMutabilityPropagatingInvocation()) return
+        val instruction = asm2GraphInstruction[createdAtInsn]!!
+        //todo bug
+        val receiverValues = instruction[STATE_BEFORE]!!.stack[0]
+        for (receiverValue in receiverValues) {
+            markMutable(receiverValue)
         }
     }
 
-    fun generateAsserts(instruction: Instruction) {
+    fun computeMutabilityForInstruction(instruction: Instruction) {
         val state = instruction[STATE_BEFORE]!!
         val asmInstruction = (instruction.metadata as? AsmInstructionMetadata)?.asmInstruction
         if (!(asmInstruction is MethodInsnNode)) return
         if (instruction.getOpcode() == INVOKEINTERFACE) {
             val methodId = getMethodIdByInstruction(instruction)
-            val valueSet = state.stack[methodId.getArgumentCount()]
-            for (value in valueSet) {
-                if (!(value is TypedValue) || value._type == null) continue;
-                if (asmInstruction.isInvocationRequiredMutability()) {
-                    generateAssert(value)
-                    if (value.createdAtInsn is MethodInsnNode) {
-                        generatePropagatingMutabilityAsserts(value.createdAtInsn)
+            val receiverValues = state.stack[methodId.getArgumentCount()]
+            for (receiverValue in receiverValues) {
+                if (receiverValue !is TypedValue || receiverValue._type == null) continue
+                if (asmInstruction.isMutatingInvocation()) {
+                    markMutable(receiverValue)
+                    if (receiverValue.createdAtInsn is MethodInsnNode) {
+                        propagateMutability(receiverValue.createdAtInsn)
                     }
                 }
             }
         }
         generateAssertsForCallArguments(instruction, declarationIndex, annotations,
-                { indexFromTop ->
-                    state.stack[indexFromTop].forEach { value -> generateAssert(value) }
-                },
-                false,  { paramAnnotation -> paramAnnotation == MutabilityAnnotation.MUTABLE } )
+                { indexFromTop -> state.stack[indexFromTop].forEach { value -> markMutable(value) }},
+                false,
+                { paramAnnotation -> paramAnnotation == MutabilityAnnotation.MUTABLE })
     }
 
-    graph.traverseInstructions { insn -> generateAsserts(insn) }
-    return run {
+    fun createAnnotations(): Annotations<MutabilityAnnotation> {
         val result = AnnotationsImpl<MutabilityAnnotation>()
-        for ((value, annotation) in parameterAnnotations) {
+        for ((value, annotation) in valueAnnotations) {
             if (value.interesting) {
                 result[positions.forParameter(value.parameterIndex!!).position] = annotation
             }
         }
-        result
+        return result
     }
+
+
+    graph.traverseInstructions { instruction -> computeMutabilityForInstruction(instruction) }
+    return createAnnotations()
 }
