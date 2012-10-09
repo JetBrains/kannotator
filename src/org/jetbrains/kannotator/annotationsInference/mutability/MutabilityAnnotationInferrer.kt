@@ -75,18 +75,6 @@ class MutabilityAnnotationInferrer(
         parameterAnnotations[value] = MutabilityAnnotation.MUTABLE
     }
 
-    private fun isInvocationRequiredMutability(instruction: MethodInsnNode) : Boolean =
-            mutableInterfaces.containsInvocation(instruction)
-
-    private fun isPropagatingMutability(instruction: MethodInsnNode) : Boolean =
-            propagatingMutability.containsInvocation(instruction)
-
-    private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsnNode) : Boolean {
-        val className = instruction.owner!!.replace("/", ".")
-        val methodName = instruction.name!!
-        return this[className]?.contains(methodName) ?: false
-    }
-
     private fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) {
         if (!isPropagatingMutability(createdAtInsn)) return
         val instruction = asm2GraphInstructionMap[createdAtInsn]!!

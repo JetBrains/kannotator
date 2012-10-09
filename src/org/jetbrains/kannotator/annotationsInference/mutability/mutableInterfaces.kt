@@ -1,5 +1,6 @@
 package org.jetbrains.kannotator.annotationsInference.mutability
 
+import org.objectweb.asm.tree.MethodInsnNode
 
 val mutableInterfaces: Map<String, List<String>> = hashMap(
         "java.util.Collection" to arrayList("add", "remove", "addAll", "removeAll", "retainAll", "clear"),
@@ -16,3 +17,15 @@ val propagatingMutability: Map<String, List<String>> = hashMap(
         "java.util.Set" to arrayList("iterator"),
         "java.util.Map" to arrayList("keySet", "values", "entrySet")
 )
+
+fun isInvocationRequiredMutability(instruction: MethodInsnNode) : Boolean =
+        mutableInterfaces.containsInvocation(instruction)
+
+fun isPropagatingMutability(instruction: MethodInsnNode) : Boolean =
+        propagatingMutability.containsInvocation(instruction)
+
+private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsnNode) : Boolean {
+    val className = instruction.owner!!.replace("/", ".")
+    val methodName = instruction.name!!
+    return this[className]?.contains(methodName) ?: false
+}
