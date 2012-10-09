@@ -14,7 +14,7 @@ import java.util.HashSet
 import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.MethodId
 
-class ClassData(val name: ClassName, methods: Collection<Method>) {
+data class ClassData(val name: ClassName, methods: Collection<Method>) {
     val methodsById: Map<MethodId, Method> = methods.map {m -> Pair(m.id, m)}.toMap()
 }
 
