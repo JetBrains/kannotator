@@ -56,7 +56,7 @@ class MutabilityAnnotationInferrer(
             val valueSet = state.stack[methodId.getArgumentCount()]
             for (value in valueSet) {
                 if (!(value is TypedValue) || value._type == null) continue;
-                if (isInvocationRequiredMutability(asmInstruction)) {
+                if (asmInstruction.isInvocationRequiredMutability()) {
                     generateAssert(value)
                     if (value.createdAtInsn is MethodInsnNode) {
                         generatePropagatingMutabilityAsserts(value.createdAtInsn)
@@ -76,7 +76,7 @@ class MutabilityAnnotationInferrer(
     }
 
     private fun generatePropagatingMutabilityAsserts(createdAtInsn: MethodInsnNode) {
-        if (!isPropagatingMutability(createdAtInsn)) return
+        if (!createdAtInsn.isPropagatingMutability()) return
         val instruction = asm2GraphInstructionMap[createdAtInsn]!!
         val valueSet = instruction[STATE_BEFORE]!!.stack[0]
         for (value in valueSet) {

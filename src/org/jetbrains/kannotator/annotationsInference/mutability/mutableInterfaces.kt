@@ -18,11 +18,11 @@ val propagatingMutability: Map<String, List<String>> = hashMap(
         "java/util/Map" to arrayList("keySet", "values", "entrySet")
 )
 
-fun isInvocationRequiredMutability(instruction: MethodInsnNode) : Boolean =
-        mutableInterfaces.containsInvocation(instruction)
+fun MethodInsnNode.isInvocationRequiredMutability() : Boolean =
+        mutableInterfaces.containsInvocation(this)
 
-fun isPropagatingMutability(instruction: MethodInsnNode) : Boolean =
-        propagatingMutability.containsInvocation(instruction)
+fun MethodInsnNode.isPropagatingMutability() : Boolean =
+        propagatingMutability.containsInvocation(this)
 
 private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsnNode) : Boolean {
     val className = instruction.owner!!
