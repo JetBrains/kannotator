@@ -1,27 +1,39 @@
 package org.jetbrains.kannotator.classHierarchy
 
+import java.util.ArrayList
 import java.util.HashMap
+import java.util.HashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.MethodId
 import org.jetbrains.kannotator.index.ClassSource
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
-import java.util.HashSet
-import java.util.ArrayList
-import org.jetbrains.kannotator.declarations.MethodId
 
-data class ClassData(val name: ClassName, methods: Collection<Method>) {
-    val methodsById: Map<MethodId, Method> = methods.map {m -> Pair(m.id, m)}.toMap()
+data class ClassData(val name: ClassName, methodsById: Map<MethodId, Method>) {
+    val methodsById = methodsById
 }
 
 private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
-    val methods: MutableSet<Method> = HashSet()
+    private val methods = HashSet<Method>()
 
-    override val data: ClassData = ClassData(name, methods)
+    private var _data: ClassData? = null
+    override val data: ClassData
+            get() {
+                if (_data == null) {
+                    _data = ClassData(name, methods.map { m -> m.id to m }.toMap())
+                }
+                return _data!!
+            }
+
+    fun addMethod(method: Method) {
+        assert(_data == null) {"Trying to add method after initialization is finished"}
+        methods.add(method)
+    }
 
     public fun toString(): String = name.internal
 }
@@ -54,7 +66,7 @@ fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData
             addEdge(base = superClassNode, derived = node)
         }
         for (method in methods) {
-            node.methods.add(method)
+            node.addMethod(method)
         }
     }
 
