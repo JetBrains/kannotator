@@ -32,6 +32,17 @@ public class MutabilityInferenceTestClass {
         set.remove(42);
     }
 
+    public void testEntrySetInMap(@ExpectMutable Map<Integer, String> map) {
+        Iterator<Map.Entry<Integer, String>> iterator = map.entrySet().iterator();
+        iterator.remove();
+    }
+
+    public void testEntrySetInMap2(@ExpectMutable Map<Integer, String> map) {
+        Set<Map.Entry<Integer, String>> entrySet = map.entrySet();
+        Iterator<Map.Entry<Integer, String>> iterator = entrySet.iterator();
+        iterator.remove();
+    }
+
     public void testInvokeProcessMutable(@ExpectMutable List<String> list) {
         new MutabilityInferenceTestLib().processMutable(list);
     }

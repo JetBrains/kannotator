@@ -47,6 +47,10 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
 
     fun testChangeKeySetInMap() = doTest()
 
+    fun testEntrySetInMap() = doTest()
+
+    fun testEntrySetInMap2() = doTest()
+
     fun testInvokeProcessMutable() = doTest()
 
     fun testInvokeProcessReadableAndMutable() = doTest()

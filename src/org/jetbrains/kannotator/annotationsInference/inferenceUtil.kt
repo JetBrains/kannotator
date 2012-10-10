@@ -1,20 +1,21 @@
 package org.jetbrains.kannotator.annotationsInference
 
+import kotlinlib.emptySet
+import org.jetbrains.kannotator.asm.util.getArgumentCount
+import org.jetbrains.kannotator.asm.util.getAsmInstructionNode
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
+import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlow.builder.AsmInstructionMetadata
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.MethodId
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.declarations.getArgumentCount
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.controlFlow.Value
 
 trait Annotation
 
@@ -33,10 +34,11 @@ public fun <A: Annotation> generateAssertsForCallArguments(
         needGenerateAssertForThis: Boolean,
         needGenerateAssertForArgument: (A) -> Boolean
 ) {
-    val methodId = getMethodIdByInstruction(instruction)
+    val instructionNode = instruction.getAsmInstructionNode()
+    if (instructionNode !is MethodInsnNode) return
     val hasThis = instruction.getOpcode() != INVOKESTATIC
     val thisSlots = if (hasThis) 1 else 0
-    val parametersCount = methodId.getArgumentCount() + thisSlots
+    val parametersCount = instructionNode.getArgumentCount() + thisSlots
 
     fun addAssertForArgumentOnStack(index: Int) {
         addAssertForStackValue(parametersCount - index - 1)
@@ -68,9 +70,11 @@ fun DeclarationIndex.findMethodByMethodInsnNode(methodInsnNode: MethodInsnNode):
     return this.findMethod(ClassName.fromInternalName(methodInsnNode.owner!!), methodInsnNode.name!!, methodInsnNode.desc)
 }
 
-fun getMethodIdByInstruction(instruction: Instruction): MethodId {
-    val methodInsnNode = (instruction.metadata as AsmInstructionMetadata).asmInstruction as MethodInsnNode
-    return MethodId(methodInsnNode.name!!, methodInsnNode.desc)
+fun Instruction.getReceiverValues(): Set<Value> {
+    val state = this[STATE_BEFORE]!!
+    val asmInstruction = (metadata as? AsmInstructionMetadata)?.asmInstruction
+    if (!(asmInstruction is MethodInsnNode)) return emptySet()
+    return state.stack[asmInstruction.getArgumentCount()]
 }
 
 fun PositionsWithinMember.forInterestingValue(value: Value) = forParameter(value.parameterIndex!!).position
