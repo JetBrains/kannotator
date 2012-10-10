@@ -20,4 +20,4 @@ trait HierarchyNode<D> {
 }
 
 public fun <D> HierarchyNode<D>.parentNodes(): Collection<HierarchyNode<D>> = parents.map { e -> e.parent }
-public fun <D> HierarchyNode<D>.childNodes(): Collection<HierarchyNode<D>> = children.map { e -> e.parent }
+public fun <D> HierarchyNode<D>.childNodes(): Collection<HierarchyNode<D>> = children.map { e -> e.child }
