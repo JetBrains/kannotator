@@ -35,7 +35,7 @@ public fun <A: Annotation> generateAssertsForCallArguments(
         needGenerateAssertForArgument: (A) -> Boolean
 ) {
     val instructionNode = instruction.getAsmInstructionNode()
-    if (instructionNode !is MethodInsnNode) return
+    if (instructionNode !is MethodInsnNode) throw IllegalArgumentException("Not a method instruction: $instruction")
     val hasThis = instruction.getOpcode() != INVOKESTATIC
     val thisSlots = if (hasThis) 1 else 0
     val parametersCount = instructionNode.getArgumentCount() + thisSlots
@@ -73,7 +73,7 @@ fun DeclarationIndex.findMethodByMethodInsnNode(methodInsnNode: MethodInsnNode):
 fun Instruction.getReceiverValues(): Set<Value> {
     val state = this[STATE_BEFORE]!!
     val asmInstruction = (metadata as? AsmInstructionMetadata)?.asmInstruction
-    if (!(asmInstruction is MethodInsnNode)) return emptySet()
+    if (asmInstruction !is MethodInsnNode) throw IllegalArgumentException("Not a method instruction: $asmInstruction")
     return state.stack[asmInstruction.getArgumentCount()]
 }
 
