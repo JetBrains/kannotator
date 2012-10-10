@@ -1,20 +1,10 @@
 package org.jetbrains.kannotator.annotations.io
 
 import java.io.Writer
-import org.jetbrains.kannotator.declarations.Annotations
-import kotlinlib.println
-import java.io.File
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import java.util.ArrayList
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.TypePosition
-import java.util.HashMap
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.ClassName
-import annotations.io.MockTypePosition
 import java.util.LinkedHashMap
 import kotlinlib.buildString
-
+import kotlinlib.println
+import org.jetbrains.kannotator.declarations.Annotations
 
 fun writeAnnotations<A>(writer: Writer, annotations: Collection<Annotations<A>>, renderer: (A) -> AnnotationData) {
     val sb = StringBuilder()
