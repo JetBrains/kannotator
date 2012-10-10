@@ -13,6 +13,9 @@ import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.util.Printer
+import org.objectweb.asm.tree.MethodInsnNode
+import org.jetbrains.kannotator.declarations.MethodId
+import org.jetbrains.kannotator.declarations.getArgumentTypes
 
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {
@@ -47,8 +50,10 @@ public fun ClassReader.forEachMethod(delegateClassVisitor: ClassVisitor? = null,
 
 }
 
-public fun Instruction.getOpcode(): Int?
-        = (this.metadata as? AsmInstructionMetadata)?.asmInstruction?.getOpcode()
+public fun Instruction.getAsmInstructionNode(): AbstractInsnNode? =
+        (this.metadata as? AsmInstructionMetadata)?.asmInstruction
+
+public fun Instruction.getOpcode(): Int? = getAsmInstructionNode()?.getOpcode()
 
 public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, access: Int, name: String, desc: String, signature: String?) -> MethodVisitor?) {
     accept(object : ClassVisitor(Opcodes.ASM4) {
@@ -60,3 +65,5 @@ public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, 
 }
 
 public fun Method.createMethodNode(): MethodNode = MethodNode(access.flags, id.methodName, id.methodDesc, genericSignature, null)
+
+public fun MethodInsnNode.getArgumentCount(): Int = Type.getArgumentTypes(desc).size
