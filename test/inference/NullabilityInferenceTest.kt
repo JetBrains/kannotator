@@ -122,4 +122,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     fun testReturnAfterInvocation() = doTest()
 
     fun testReturnAfterPassingAsNotNullArgument() = doTest()
+
+    fun testConflict() = doTest()
+
+    fun testConflict2() = doTest()
 }
