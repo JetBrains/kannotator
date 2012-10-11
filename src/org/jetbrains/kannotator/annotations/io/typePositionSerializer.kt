@@ -20,11 +20,15 @@ import org.jetbrains.kannotator.declarations.toCanonical
 // Example:
 // org.objectweb.asm.ClassVisitor org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)
 fun AnnotationPosition.toAnnotationKey(): String {
-    if (this is MethodTypePosition) {
-        return method.toAnnotationKeyPrefix() + positionWithinMethod.toAnnotationKeySuffix(method)
+    return when(this) {
+        is MethodTypePosition -> method.toAnnotationKeyPrefix() + positionWithinMethod.toAnnotationKeySuffix(method)
+        is FieldTypePosition -> field.toFieldAnnotationKey()
+        else -> throw UnsupportedOperationException()
     }
+}
 
-    throw UnsupportedOperationException()
+private fun Field.toFieldAnnotationKey() : String {
+    return "${declaringClass.canonicalName} ${id.fieldName}"
 }
 
 private fun Method.toAnnotationKeyPrefix(): String {
