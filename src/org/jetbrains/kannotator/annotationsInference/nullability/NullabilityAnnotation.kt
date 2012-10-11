@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.annotationsInference.nullability
 
 import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
+import org.jetbrains.kannotator.declarations.ClassName
 
 enum class NullabilityAnnotation : Annotation {
     NOT_NULL
@@ -20,10 +21,16 @@ fun NullabilityAnnotation?.toValueInfo() : NullabilityValueInfo = when (this) {
     null -> UNKNOWN
 }
 
-private val NULLABILITY_ANNOTATION_CLASSES = hashMap(
-        "org.jetbrains.annotations.NotNull" to NullabilityAnnotation.NOT_NULL,
-        "org.jetbrains.annotations.Nullable" to NullabilityAnnotation.NULLABLE
-)
+private val JB_NOT_NULL = "org.jetbrains.annotations.NotNull"
+private val JB_NULLABLE = "org.jetbrains.annotations.Nullable"
 
-fun classNameToNullabilityAnnotation(className: String) : NullabilityAnnotation? =
-        NULLABILITY_ANNOTATION_CLASSES[className]
+fun classNamesToNullabilityAnnotation(canonicalClassNames: Set<String>) : NullabilityAnnotation? {
+    val containsNotNull = canonicalClassNames.contains(JB_NOT_NULL)
+    val containsNullable = canonicalClassNames.contains(JB_NULLABLE)
+
+    if (containsNotNull == containsNullable) return null
+    return if (containsNotNull)
+               NullabilityAnnotation.NOT_NULL
+           else
+               NullabilityAnnotation.NULLABLE
+}

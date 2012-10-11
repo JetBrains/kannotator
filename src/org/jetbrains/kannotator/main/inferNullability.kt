@@ -6,7 +6,9 @@ import java.util.HashMap
 import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.nullability.buildNullabilityAnnotations
+import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
 import org.jetbrains.kannotator.asm.util.createMethodNode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
@@ -21,8 +23,6 @@ import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.classNameToNullabilityAnnotation
 import org.objectweb.asm.tree.MethodNode
 
 open class ProgressMonitor {
@@ -138,7 +138,7 @@ fun loadNullabilityAnnotations(
                 }
                 else {
                     for (data in annotations) {
-                        val annotation = classNameToNullabilityAnnotation(data.annotationClassFqn)
+                        val annotation = classNamesToNullabilityAnnotation(hashSet(data.annotationClassFqn))
                         if (annotation != null) {
                             nullabilityAnnotations[position] = annotation
                         }

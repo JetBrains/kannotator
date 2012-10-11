@@ -3,7 +3,7 @@ package inference
 import java.io.File
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.classNameToNullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
@@ -25,7 +25,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
         val utilClass = "out/production/kannotator/inferenceData/NullabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
-            annotationName -> classNameToNullabilityAnnotation(annotationName)
+            annotationNames -> classNamesToNullabilityAnnotation(annotationNames)
         }
         return existingNullabilityAnnotations
     }

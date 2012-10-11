@@ -25,7 +25,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         val utilClass = "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
-            annotationName -> if (annotationName == "inferenceData.annotations.Mutable")
+            annotationNames -> if ("inferenceData.annotations.Mutable" in annotationNames)
                                    MutabilityAnnotation.MUTABLE
                               else MutabilityAnnotation.IMMUTABLE
         }
