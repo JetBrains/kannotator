@@ -16,19 +16,18 @@ public fun String.convertLineSeparators(newSeparator: String): String {
     return buildString {
         sb ->
             var i = 0
-            do {
-                val c = this.charAt(i)
+            while (i < this.size) {
+                val c = this[i]
                 when {
                     c == '\n' ->  sb.append(newSeparator)
                     c == '\r' &&
-                    i < this.length() - 1 &&
-                    this.charAt(i + 1) == '\n' -> {
+                    this.getOrElse(i + 1, null) == '\n' -> {
                         sb.append(newSeparator)
                         i++
                     }
                     else -> sb.append(c);
                 }
                 i++
-            } while (i < this.length())
+            }
     }
 }
