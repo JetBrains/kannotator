@@ -135,5 +135,5 @@ class PositionSerializerTest : TestCase() {
 
 data class MockTypePosition(
         override val method: Method,
-        override val positionWithinMethod: PositionWithinDeclaration
+        override val relativePosition: PositionWithinDeclaration
 ) : MethodTypePosition

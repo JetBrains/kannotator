@@ -17,7 +17,7 @@ import kotlinlib.*
 import util.getAllClassesWithPrefix
 import util.ClassesFromClassPath
 import java.util.ArrayList
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 import java.util.LinkedHashSet
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 
@@ -66,7 +66,7 @@ class AnnotationPropagationTest : TestCase() {
 }
 
 fun Annotations<NullabilityAnnotation>.toDeclarations(): String {
-    val positions = LinkedHashSet<TypePosition>()
+    val positions = LinkedHashSet<AnnotationPosition>()
     forEach {
         pos, ann ->
         positions.add(pos)

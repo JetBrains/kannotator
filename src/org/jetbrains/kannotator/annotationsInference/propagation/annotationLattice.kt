@@ -2,7 +2,7 @@ package org.jetbrains.kannotator.annotationsInference.propagation
 
 import org.jetbrains.kannotator.declarations.Variance
 import org.jetbrains.kannotator.declarations.Variance.*
-import org.jetbrains.kannotator.declarations.PositionWithinMethod
+import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
 
 trait AnnotationLattice<A> {
     fun leastCommonUpperBound(a: A, b: A): A

@@ -46,11 +46,13 @@ fun PositionsForMethod.getValidPositions(): Collection<AnnotationPosition> {
 
 private data class MethodTypePositionImpl(
         override val method: Method,
-        override val positionWithinMethod: PositionWithinDeclaration,
+        override val relativePosition: PositionWithinDeclaration,
         val position: Int // position from left to right inside the type signature
 ) : MethodTypePosition
 
-private data class FieldTypePositionImpl(override val field: Field): FieldTypePosition
+private data class FieldTypePositionImpl(override val field: Field): FieldTypePosition {
+    override val relativePosition: PositionWithinDeclaration = FIELD_TYPE
+}
 
 private data class AnnotatedTypeImpl(
         override val position: AnnotationPosition,

@@ -10,11 +10,11 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.PositionsForMethod
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.Variance.*
 import org.jetbrains.kannotator.declarations.getValidPositions
-import org.jetbrains.kannotator.declarations.PositionWithinMethod
+import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
 import org.jetbrains.kannotator.declarations.setIfNotNull
 
 fun propagateMetadata<A>(
@@ -46,16 +46,16 @@ private fun resolveAnnotationConflicts<A>(
         val method = node.method
         visited.add(method)
 
-        val typePositions = PositionsWithinMember(method).getValidPositions()
+        val typePositions = PositionsForMethod(method).getValidPositions()
 
         val parentNodes = node.parentNodes()
         val propagatedAnnotations = AnnotationsImpl(annotations)
 
         for (parent in parentNodes) {
-            val positionsWithinParent = PositionsWithinMember(parent.method)
+            val positionsWithinParent = PositionsForMethod(parent.method)
 
             for (positionInChild in typePositions) {
-                val positionWithinMethod = positionInChild.positionWithinMethod
+                val positionWithinMethod = positionInChild.relativePosition
                 val positionInParent = positionsWithinParent[positionWithinMethod].position
 
                 val fromChild = propagatedAnnotations[positionInChild]
@@ -76,7 +76,7 @@ private fun resolveAnnotationConflicts<A>(
     return visited
 }
 
-fun <A> AnnotationLattice<A>.resolveConflictInParent(position: PositionWithinMethod, parent: A, child: A): A {
+fun <A> AnnotationLattice<A>.resolveConflictInParent(position: PositionWithinDeclaration, parent: A, child: A): A {
     return when (position.variance) {
         COVARIANT -> leastCommonUpperBound(parent, child)
         CONTRAVARIANT -> greatestCommonLowerBound(parent, child)

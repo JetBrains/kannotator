@@ -21,7 +21,7 @@ import org.jetbrains.kannotator.declarations.toCanonical
 // org.objectweb.asm.ClassVisitor org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)
 fun AnnotationPosition.toAnnotationKey(): String {
     return when(this) {
-        is MethodTypePosition -> method.toAnnotationKeyPrefix() + positionWithinMethod.toAnnotationKeySuffix(method)
+        is MethodTypePosition -> method.toAnnotationKeyPrefix() + relativePosition.toAnnotationKeySuffix(method)
         is FieldTypePosition -> field.toFieldAnnotationKey()
         else -> throw UnsupportedOperationException()
     }
