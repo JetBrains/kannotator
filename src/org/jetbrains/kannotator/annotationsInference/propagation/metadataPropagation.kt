@@ -48,37 +48,46 @@ private fun resolveAnnotationConflicts<A>(
     queue.add(leafMethod)
     while (!queue.isEmpty()) {
         val node = queue.removeFirst()
-        val method = node.method
-        visited.add(method)
+        visited.add(node.method)
 
-        val typePositions = PositionsForMethod(method).getValidPositions()
-
-        val parents = node.parentNodes()
-        for (parent in parents) {
-            val positionsWithinParent = PositionsForMethod(parent.method)
-
-            for (positionInChild in typePositions) {
-                val relativePosition = positionInChild.relativePosition
-                val positionInParent = positionsWithinParent[relativePosition].position
-
-                val fromChild = propagatedAnnotations[positionInChild]
-                val inParent = annotationsToFix[positionInParent]
-
-                if (fromChild != null) {
-                    if (inParent != null) {
-                        annotationsToFix[positionInParent] = lattice.resolveConflictInParent<A>(
-                                relativePosition, inParent, fromChild)
-                    }
-                    else {
-                        propagatedAnnotations[positionInParent] = fromChild
-                    }
-                }
-            }
-        }
-        queue.addAll(parents)
+        resolveConflictsInParents(node, lattice, annotationsToFix, propagatedAnnotations)
+        queue.addAll(node.parentNodes())
     }
 
     return visited
+}
+
+private fun resolveConflictsInParents<A>(
+        node: HierarchyNode<Method>,
+        lattice: AnnotationLattice<A>,
+        annotationsToFix: MutableAnnotations<A>,
+        propagatedAnnotations: MutableAnnotations<A>
+) {
+    val method = node.method
+    val typePositions = PositionsForMethod(method).getValidPositions()
+
+    val parents = node.parentNodes()
+    for (parent in parents) {
+        val positionsWithinParent = PositionsForMethod(parent.method)
+
+        for (positionInChild in typePositions) {
+            val relativePosition = positionInChild.relativePosition
+            val positionInParent = positionsWithinParent[relativePosition].position
+
+            val fromChild = propagatedAnnotations[positionInChild]
+            val inParent = annotationsToFix[positionInParent]
+
+            if (fromChild != null) {
+                if (inParent != null) {
+                    annotationsToFix[positionInParent] = lattice.resolveConflictInParent<A>(
+                            relativePosition, inParent, fromChild)
+                }
+                else {
+                    propagatedAnnotations[positionInParent] = fromChild
+                }
+            }
+        }
+    }
 }
 
 fun <A> AnnotationLattice<A>.resolveConflictInParent(position: PositionWithinDeclaration, parent: A, child: A): A {
