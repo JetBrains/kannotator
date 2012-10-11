@@ -4,7 +4,8 @@ import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
 
 enum class NullabilityAnnotation : Annotation {
-    NOT_NULL NULLABLE
+    NOT_NULL
+    NULLABLE
 }
 
 fun NullabilityValueInfo.toAnnotation() : NullabilityAnnotation? = when (this) {
