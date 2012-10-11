@@ -1,7 +1,7 @@
 package org.jetbrains.kannotator.classHierarchy
 
 import org.jetbrains.kannotator.declarations.*
-import kotlinlib.prefixUpTo
+import kotlinlib.prefixUpToLast
 
 private val Method.isInheritable: Boolean
     get() =
@@ -12,7 +12,7 @@ private val Method.isInheritable: Boolean
         id.methodName != "<clinit>"
 
 fun samePackage(c1: ClassData, c2: ClassData): Boolean {
-    fun ClassData._package(): String = name.internal.prefixUpTo('/')!!
+    fun ClassData._package(): String = name.internal.prefixUpToLast('/')!!
     return c1._package() == c2._package()
 }
 
