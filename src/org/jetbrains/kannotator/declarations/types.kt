@@ -2,13 +2,27 @@ package org.jetbrains.kannotator.declarations
 
 import kotlinlib.join
 
-trait PositionWithinDeclaration
+enum class Variance {
+    COVARIANT
+    CONTRAVARIANT
+    INVARIANT
+}
+
+trait PositionWithinDeclaration {
+    val variance: Variance
+}
 
 object RETURN_TYPE : PositionWithinDeclaration {
+    override val variance: Variance
+        get() = Variance.COVARIANT    
+    
     fun toString(): String = "RETURN_TYPE"
 }
 
-data class ParameterPosition(val index: Int) : PositionWithinDeclaration
+data class ParameterPosition(val index: Int) : PositionWithinDeclaration {
+    override val variance: Variance
+        get() = Variance.CONTRAVARIANT    
+}
 
 trait AnnotationPosition
 
