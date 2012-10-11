@@ -10,7 +10,7 @@ import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
@@ -22,7 +22,7 @@ import org.jetbrains.kannotator.declarations.setIfNotNull
 
 fun buildNullabilityAnnotations(
         graph: ControlFlowGraph,
-        positions: PositionsWithinMember,
+        positions: PositionsForMethod,
         declarationIndex: DeclarationIndex,
         annotations: Annotations<NullabilityAnnotation>
 ): Annotations<NullabilityAnnotation> {

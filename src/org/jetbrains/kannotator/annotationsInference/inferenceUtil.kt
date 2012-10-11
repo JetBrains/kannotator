@@ -12,7 +12,7 @@ import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode
@@ -50,7 +50,7 @@ public fun <A: Annotation> generateAssertsForCallArguments(
     if (instruction.getOpcode() != INVOKEDYNAMIC) {
         val method = declarationIndex.findMethodByInstruction(instruction)
         if (method != null) {
-            val positions = PositionsWithinMember(method)
+            val positions = PositionsForMethod(method)
             for (paramIndex in thisSlots..parametersCount - 1) {
                 val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
                 if (paramAnnotation != null && needGenerateAssertForArgument(paramAnnotation)) {
@@ -77,4 +77,4 @@ fun Instruction.getReceiverValues(): Set<Value> {
     return state.stack[asmInstruction.getArgumentCount()]
 }
 
-fun PositionsWithinMember.forInterestingValue(value: Value) = forParameter(value.parameterIndex!!).position
+fun PositionsForMethod.forInterestingValue(value: Value) = forParameter(value.parameterIndex!!).position

@@ -6,7 +6,7 @@ import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnno
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotationsInference.nullability.buildNullabilityAnnotations
@@ -30,7 +30,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
         return existingNullabilityAnnotations
     }
 
-    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
+    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<NullabilityAnnotation>) : Annotations<NullabilityAnnotation> {
         return buildNullabilityAnnotations(graph, positions, declarationIndex, annotations)
     }

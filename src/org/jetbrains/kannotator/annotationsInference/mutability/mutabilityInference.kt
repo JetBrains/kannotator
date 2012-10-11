@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.controlFlow.builder.TypedValue
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.AbstractInsnNode
@@ -21,7 +21,7 @@ import org.objectweb.asm.tree.MethodInsnNode
 
 fun buildMutabilityAnnotations(
         graph: ControlFlowGraph,
-        positions: PositionsWithinMember,
+        positions: PositionsForMethod,
         declarationIndex: DeclarationIndex,
         annotations: Annotations<MutabilityAnnotation>
 ) : Annotations<MutabilityAnnotation> {

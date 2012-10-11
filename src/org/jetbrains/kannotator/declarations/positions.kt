@@ -8,8 +8,8 @@ import kotlinlib.join
 import java.util.Collections
 import kotlinlib.emptyList
 
-class PositionsWithinMember(val method: Method) {
-    public fun get(positionWithinMethod: PositionWithinMethod): AnnotatedType {
+class PositionsForMethod(val method: Method) {
+    public fun get(positionWithinMethod: PositionWithinDeclaration): AnnotatedType {
         return AnnotatedTypeImpl(
                 MethodTypePositionImpl(method, positionWithinMethod, 0),
                 positionWithinMethod.toString(),
@@ -30,7 +30,7 @@ public fun getFieldAnnotatedType(field: Field) : AnnotatedType {
     return AnnotatedTypeImpl(FieldTypePositionImpl(field), "Field annotation type", emptyList())
 }
 
-fun PositionsWithinMember.forEachValidPosition(body: (AnnotationPosition) -> Unit) {
+fun PositionsForMethod.forEachValidPosition(body: (AnnotationPosition) -> Unit) {
     val skip = if (method.isStatic()) 0 else 1
     for (i in skip..method.getArgumentTypes().size) {
         body(forParameter(i).position)
@@ -38,7 +38,7 @@ fun PositionsWithinMember.forEachValidPosition(body: (AnnotationPosition) -> Uni
     body(forReturnType().position)
 }
 
-fun PositionsWithinMember.getValidPositions(): Collection<AnnotationPosition> {
+fun PositionsForMethod.getValidPositions(): Collection<AnnotationPosition> {
     val result = ArrayList<AnnotationPosition>()
     forEachValidPosition {result.add(it)}
     return result
@@ -46,7 +46,7 @@ fun PositionsWithinMember.getValidPositions(): Collection<AnnotationPosition> {
 
 private data class MethodTypePositionImpl(
         override val method: Method,
-        override val positionWithinMethod: PositionWithinMethod,
+        override val positionWithinMethod: PositionWithinDeclaration,
         val position: Int // position from left to right inside the type signature
 ) : MethodTypePosition
 

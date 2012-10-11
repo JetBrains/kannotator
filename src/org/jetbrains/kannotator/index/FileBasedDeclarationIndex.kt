@@ -6,7 +6,7 @@ import java.util.HashSet
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.declarations.isStatic
 import org.objectweb.asm.ClassVisitor
@@ -80,7 +80,7 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
             val methods = classData.methodsByName[methodName]
             if (methods == null) continue
             for (method in methods) {
-                for (pos in PositionsWithinMember(method).getValidPositions()) {
+                for (pos in PositionsForMethod(method).getValidPositions()) {
                     if (annotationKey == pos.toAnnotationKey()) {
                         return pos
                     }

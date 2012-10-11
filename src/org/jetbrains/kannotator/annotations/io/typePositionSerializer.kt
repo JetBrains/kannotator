@@ -4,7 +4,7 @@ import kotlinlib.join
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.ParameterPosition
-import org.jetbrains.kannotator.declarations.PositionWithinMethod
+import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.getArgumentTypes
@@ -54,7 +54,7 @@ fun Method.getMethodNameAccountingForConstructor(): String {
     return id.methodName
 }
 
-private fun PositionWithinMethod.toAnnotationKeySuffix(method: Method): String {
+private fun PositionWithinDeclaration.toAnnotationKeySuffix(method: Method): String {
     return when (this) {
         RETURN_TYPE -> ""
         is ParameterPosition -> " " + correctIfNotStatic(method, this.index)

@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
@@ -22,7 +22,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
 
     protected abstract fun Array<jet.Annotation>.toAnnotation(): A?
 
-    protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
+    protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<A>) : Annotations<A>
 
     protected open fun getInitialAnnotations(): Annotations<A> = AnnotationsImpl()
@@ -38,7 +38,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         val graph = buildControlFlowGraph(classReader, methodName, methodDescriptor)
 
         val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
-        val positions = PositionsWithinMember(method)
+        val positions = PositionsForMethod(method)
         val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, getInitialAnnotations())
 
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
@@ -55,7 +55,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
     }
 
     fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,
-                     actual: Annotations<A>, parametersNumber: Int, positions: PositionsWithinMember) {
+                     actual: Annotations<A>, parametersNumber: Int, positions: PositionsForMethod) {
         assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position),
                 "Return annotations error")
 

@@ -17,14 +17,14 @@ import org.jetbrains.kannotator.controlFlow.builder
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.controlFlow.builder.TypedValue
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import org.jetbrains.kannotator.annotationsInference.forInterestingValue
 
 class FramesNullabilityManager(
-        val positions: PositionsWithinMember,
+        val positions: PositionsForMethod,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex
 ) {
@@ -153,7 +153,7 @@ class FramesNullabilityManager(
 }
 
 public class ValueNullabilityMap(
-        val positions: PositionsWithinMember,
+        val positions: PositionsForMethod,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
         m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()
@@ -177,7 +177,7 @@ public class ValueNullabilityMap(
                     else {
                         val method = declarationIndex.findMethodByMethodInsnNode(createdAtInsn as MethodInsnNode)
                         if (method != null) {
-                            val positions = PositionsWithinMember(method)
+                            val positions = PositionsForMethod(method)
                             val paramAnnotation = annotations[positions.forReturnType().position]
                             paramAnnotation.toValueInfo()
                         }
@@ -204,7 +204,7 @@ public class ValueNullabilityMap(
 }
 
 fun mergeValueNullabilityMaps(
-        positions: PositionsWithinMember,
+        positions: PositionsForMethod,
         annotations: Annotations<NullabilityAnnotation>,
         declarationIndex: DeclarationIndex,
         maps: Collection<ValueNullabilityMap>

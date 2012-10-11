@@ -2,7 +2,7 @@ package annotations.io
 
 import junit.framework.TestCase
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionWithinMethod
+import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
 import org.jetbrains.kannotator.declarations.Access
@@ -19,7 +19,7 @@ class PositionSerializerTest : TestCase() {
     fun doTest(
             expected: String,
             owner: String, methodName: String, desc: String,
-            position: PositionWithinMethod,
+            position: PositionWithinDeclaration,
             signature: String? = null,
             static: Boolean = false, varargs: Boolean = false) {
         val staticFlag = if (static) Opcodes.ACC_STATIC else 0
@@ -135,5 +135,5 @@ class PositionSerializerTest : TestCase() {
 
 data class MockTypePosition(
         override val method: Method,
-        override val positionWithinMethod: PositionWithinMethod
+        override val positionWithinMethod: PositionWithinDeclaration
 ) : MethodTypePosition

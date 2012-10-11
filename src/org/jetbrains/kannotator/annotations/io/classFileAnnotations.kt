@@ -7,7 +7,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.canonicalName
 import org.jetbrains.kannotator.declarations.forEachValidPosition
 import org.jetbrains.kannotator.declarations.isStatic
@@ -34,7 +34,7 @@ public fun <A> getAnnotationsFromClassFiles(
                 override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                     val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
                     return object : MethodVisitor(Opcodes.ASM4) {
-                        private val positions = PositionsWithinMember(method)
+                        private val positions = PositionsForMethod(method)
                         private val canonicalAnnotationClassNames = UnifiedSetMultimap<AnnotationPosition, String>()
 
                         private fun setAnnotation(annotatedType: AnnotatedType, desc: String) {

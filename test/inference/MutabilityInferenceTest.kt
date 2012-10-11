@@ -5,7 +5,7 @@ import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotationsInference.mutability.buildMutabilityAnnotations
@@ -32,7 +32,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         return existingNullabilityAnnotations
     }
 
-    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsWithinMember, declarationIndex: DeclarationIndex,
+    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
                                             annotations: Annotations<MutabilityAnnotation>) : Annotations<MutabilityAnnotation> {
         return buildMutabilityAnnotations(graph, positions, declarationIndex, annotations)
     }

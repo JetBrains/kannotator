@@ -6,7 +6,7 @@ import junit.framework.TestCase
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
@@ -68,7 +68,7 @@ fun visitAllInJar(jarFile: File, handler: (String) -> Unit) {
         reader.forEachMethod {
             owner, access, name, desc, signature ->
             val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
-            PositionsWithinMember(method).forEachValidPosition {
+            PositionsForMethod(method).forEachValidPosition {
                 handler(it.toAnnotationKey())
             }
         }

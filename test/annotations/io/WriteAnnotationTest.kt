@@ -17,7 +17,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.forEachValidPosition
 import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 import org.jetbrains.kannotator.declarations.internalNameToCanonical
@@ -96,7 +96,7 @@ public class WriteAnnotationTest {
         classReader.accept(object : ClassVisitor(Opcodes.ASM4) {
             override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                 val method = Method(ClassName.fromInternalName(classReader.getClassName()), access, name, desc, signature)
-                val positions = PositionsWithinMember(method)
+                val positions = PositionsForMethod(method)
                 positions.forEachValidPosition(handler)
                 return null
             }

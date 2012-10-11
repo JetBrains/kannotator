@@ -16,7 +16,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.declarations.PositionsWithinMember
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
@@ -103,7 +103,7 @@ private fun inferAnnotationsOnMutuallyRecursiveMethods(
         val method = queue.removeFirst()
 
         progressMonitor.processingStepStarted(method)
-        val inferredAnnotations = buildNullabilityAnnotations(cfGraph(method), PositionsWithinMember(method), declarationIndex, annotations)
+        val inferredAnnotations = buildNullabilityAnnotations(cfGraph(method), PositionsForMethod(method), declarationIndex, annotations)
         progressMonitor.processingStepFinished(method)
 
         var changed = false
