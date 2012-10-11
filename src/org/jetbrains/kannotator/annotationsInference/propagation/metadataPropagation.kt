@@ -1,21 +1,19 @@
 package org.jetbrains.kannotator.annotationsInference.propagation
 
 import java.util.HashSet
-import java.util.LinkedList
 import kotlinlib.*
 import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
 import org.jetbrains.kannotator.classHierarchy.HierarchyNode
-import org.jetbrains.kannotator.classHierarchy.parentNodes
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.MutableAnnotations
+import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
 import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.Variance.*
 import org.jetbrains.kannotator.declarations.getValidPositions
-import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
-import org.jetbrains.kannotator.declarations.setIfNotNull
+import java.util.LinkedHashSet
+import org.jetbrains.kannotator.classHierarchy.parentNodes
 
 fun propagateMetadata<A>(
         graph: HierarchyGraph<Method>,
@@ -25,52 +23,59 @@ fun propagateMetadata<A>(
     val result = AnnotationsImpl(annotations)
 
     val leafMethods = graph.nodes.filter { it.children.isEmpty() }
-    val conflictsResolvedFor = resolveAnnotationConflicts(leafMethods, lattice, result)
 
-    val unvisited = graph.nodes.map{ n -> n.method }.toSet() - conflictsResolvedFor
+    val visited = HashSet<Method>()
+    for (leafMethod in leafMethods) {
+        visited.addAll(resolveAnnotationConflicts(leafMethod, lattice, result))
+    }
+
+    val allMethods = graph.nodes.map{ n -> n.method }.toSet()
+    val unvisited = allMethods - visited
     assert (unvisited.isEmpty()) { "Methods not visited: $unvisited" }
 
     return result
 }
 
 private fun resolveAnnotationConflicts<A>(
-        leafMethods: List<HierarchyNode<Method>>,
+        leafMethod: HierarchyNode<Method>,
         lattice: AnnotationLattice<A>,
-        annotations: MutableAnnotations<A>
+        annotationsToFix: MutableAnnotations<A>
 ): Set<Method> {
     val visited = HashSet<Method>()
+    val propagatedAnnotations = AnnotationsImpl(annotationsToFix)
 
-    val queue = LinkedList(leafMethods)
+    val queue = LinkedHashSet<HierarchyNode<Method>>()
+    queue.add(leafMethod)
     while (!queue.isEmpty()) {
-        val node = queue.pop()
+        val node = queue.removeFirst()
         val method = node.method
         visited.add(method)
 
         val typePositions = PositionsForMethod(method).getValidPositions()
 
-        val parentNodes = node.parentNodes()
-        val propagatedAnnotations = AnnotationsImpl(annotations)
-
-        for (parent in parentNodes) {
+        val parents = node.parentNodes()
+        for (parent in parents) {
             val positionsWithinParent = PositionsForMethod(parent.method)
 
             for (positionInChild in typePositions) {
-                val positionWithinMethod = positionInChild.relativePosition
-                val positionInParent = positionsWithinParent[positionWithinMethod].position
+                val relativePosition = positionInChild.relativePosition
+                val positionInParent = positionsWithinParent[relativePosition].position
 
                 val fromChild = propagatedAnnotations[positionInChild]
-                val inParent = annotations[positionInParent]
+                val inParent = annotationsToFix[positionInParent]
 
                 if (fromChild != null) {
                     if (inParent != null) {
-                        annotations[positionInParent] = lattice.resolveConflictInParent<A>(
-                                positionWithinMethod, inParent, fromChild)
+                        annotationsToFix[positionInParent] = lattice.resolveConflictInParent<A>(
+                                relativePosition, inParent, fromChild)
                     }
-                    propagatedAnnotations.setIfNotNull(positionInParent, annotations[positionInParent])
+                    else {
+                        propagatedAnnotations[positionInParent] = fromChild
+                    }
                 }
             }
         }
-
+        queue.addAll(parents)
     }
 
     return visited

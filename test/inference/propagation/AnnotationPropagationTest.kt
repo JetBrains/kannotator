@@ -1,25 +1,27 @@
 package inference.propagation
 
-import junit.framework.TestCase
+import inferenceData.propagation.Conflicts
+import inferenceData.propagation.DiamondHierarchy
+import inferenceData.propagation.LinearHierarchy
+import inferenceData.propagation.YHierarchy
+import java.util.LinkedHashSet
 import junit.framework.Assert.*
-import org.jetbrains.kannotator.index.ClassSource
-import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
-import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
-import org.jetbrains.kannotator.annotationsInference.propagation.propagateMetadata
+import junit.framework.TestCase
+import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
+import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation.*
-import org.jetbrains.kannotator.declarations.Annotations
-import kotlinlib.*
-import util.getAllClassesWithPrefix
-import util.ClassesFromClassPath
-import java.util.ArrayList
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
+import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.propagation.propagateMetadata
+import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
+import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.declarations.AnnotationPosition
-import java.util.LinkedHashSet
-import org.jetbrains.kannotator.annotations.io.toAnnotationKey
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.index.ClassSource
+import util.Classes
+import inferenceData.propagation.*
 
 class AnnotationPropagationTest : TestCase() {
 
@@ -37,9 +39,7 @@ class AnnotationPropagationTest : TestCase() {
         val N = "org.jetbrains.annotations.Nullable"
         val expectedAnnotationClasses = hashMap(
                 NN to NOT_NULL,
-                N to NULLABLE,
-                EXPECT_NN to NOT_NULL,
-                EXPECT_N to NULLABLE
+                N to NULLABLE
         )
         val expectedAnnotations = getAnnotationsFromClassFiles(classSource) {
             names ->
@@ -57,10 +57,77 @@ class AnnotationPropagationTest : TestCase() {
         assertEquals(expectedAnnotations.toDeclarations(), propagatedAnnotations.toDeclarations())
     }
 
-    fun test() {
-        doTest(ClassesFromClassPath(
-                "inferenceData/propagation/Conflicts",
-                "inferenceData/propagation/Child"
+    fun testConflicts() {
+        doTest(Classes(
+                javaClass<Conflicts.Base>(),
+                javaClass<Conflicts.Child>()
+        ))
+    }
+
+    fun testLinearHierarchy() {
+        doTest(Classes(
+                javaClass<LinearHierarchy.A>(),
+                javaClass<LinearHierarchy.B>(),
+                javaClass<LinearHierarchy.C>()
+        ))
+    }
+
+    fun testYHierarchy() {
+        doTest(Classes(
+                javaClass<YHierarchy.A>(),
+                javaClass<YHierarchy.A1>(),
+                javaClass<YHierarchy.B>(),
+                javaClass<YHierarchy.C>()
+        ))
+    }
+
+    fun testDiamondHierarchy() {
+        doTest(Classes(
+                javaClass<DiamondHierarchy.Top>(),
+                javaClass<DiamondHierarchy.A>(),
+                javaClass<DiamondHierarchy.A1>(),
+                javaClass<DiamondHierarchy.B>(),
+                javaClass<DiamondHierarchy.C>()
+        ))
+    }
+
+    fun testXHierarchyHollowMiddle() {
+        doTest(Classes(
+                javaClass<XHierarchyHollowMiddle.Top1>(),
+                javaClass<XHierarchyHollowMiddle.Top2>(),
+                javaClass<XHierarchyHollowMiddle.Middle>(),
+                javaClass<XHierarchyHollowMiddle.Leaf1>(),
+                javaClass<XHierarchyHollowMiddle.Leaf2>()
+        ))
+    }
+
+    fun testXHierarchyAnnotatedMiddle() {
+        doTest(Classes(
+                javaClass<XHierarchyAnnotatedMiddle.Top1>(),
+                javaClass<XHierarchyAnnotatedMiddle.Top2>(),
+                javaClass<XHierarchyAnnotatedMiddle.Middle>(),
+                javaClass<XHierarchyAnnotatedMiddle.Leaf1>(),
+                javaClass<XHierarchyAnnotatedMiddle.Leaf2>()
+        ))
+    }
+
+    fun testXHierarchyConflictMiddle() {
+        doTest(Classes(
+                javaClass<XHierarchyConflictMiddle.Top1>(),
+                javaClass<XHierarchyConflictMiddle.Top2>(),
+                javaClass<XHierarchyConflictMiddle.Middle>(),
+                javaClass<XHierarchyConflictMiddle.Leaf1>(),
+                javaClass<XHierarchyConflictMiddle.Leaf2>()
+        ))
+    }
+
+    fun testAHierarchy() {
+        doTest(Classes(
+                javaClass<AHierarchy.A>(),
+                javaClass<AHierarchy.B>(),
+                javaClass<AHierarchy.B1>(),
+                javaClass<AHierarchy.C>(),
+                javaClass<AHierarchy.C1>()
         ))
     }
 }

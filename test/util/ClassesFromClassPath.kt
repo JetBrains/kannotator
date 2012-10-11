@@ -15,3 +15,13 @@ class ClassesFromClassPath(val classNames: Collection<String>) : ClassSource {
         }
     }
 }
+
+fun Classes(vararg classes: Class<*>): ClassSource = Classes(classes.toList())
+
+class Classes(val classes: Collection<Class<*>>) : ClassSource {
+    override fun forEach(body: (ClassReader) -> Unit) {
+        for (javaClass in classes) {
+            body(ClassReader(javaClass.getName()))
+        }
+    }
+}
