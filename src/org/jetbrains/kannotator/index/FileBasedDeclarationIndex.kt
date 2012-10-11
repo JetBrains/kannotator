@@ -25,7 +25,7 @@ import java.util.jar.JarEntry
 import kotlinlib.removeSuffix
 import org.jetbrains.kannotator.declarations.toFullString
 import org.jetbrains.kannotator.asm.util.forEachMethod
-import org.jetbrains.kannotator.annotations.io.parseAnnotationKey
+import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
 import org.jetbrains.kannotator.asm.util.forEachMethodWithMethodVisitor
 
@@ -72,7 +72,7 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
     }
 
     override fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition? {
-        val (canonicalClassName, _, methodName) = parseAnnotationKey(annotationKey)
+        val (canonicalClassName, _, methodName) = parseMethodAnnotationKey(annotationKey)
         val classes = classesByCanonicalName[canonicalClassName]
         if (classes == null) return null
 

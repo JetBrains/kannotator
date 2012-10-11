@@ -4,13 +4,13 @@ import junit.framework.TestCase
 import junit.framework.Assert.*
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
-import org.jetbrains.kannotator.annotations.io.parseAnnotationKey
+import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
 import org.jetbrains.kannotator.declarations.internalNameToCanonical
 import util.recurseIntoJars
 import java.io.File
 import org.jetbrains.kannotator.asm.util.forEachMethod
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
-import org.jetbrains.kannotator.annotations.io.AnnotationKeyData
+import org.jetbrains.kannotator.annotations.io.MethodAnnotationKeyData
 
 class AnnotationKeyParserTest : TestCase() {
     fun doTest(className: String, name: String, desc: String, signature: String? = null) {
@@ -23,7 +23,7 @@ class AnnotationKeyParserTest : TestCase() {
 
         val key = pos.position.toAnnotationKey()
         try {
-            val (parsedClassName, parsedReturnType, parsedMethodName) = parseAnnotationKey(key)
+            val (parsedClassName, parsedReturnType, parsedMethodName) = parseMethodAnnotationKey(key)
 
             assertEquals(method.declaringClass.canonicalName, parsedClassName)
             assertEquals(method.getMethodNameAccountingForConstructor(), parsedMethodName)
