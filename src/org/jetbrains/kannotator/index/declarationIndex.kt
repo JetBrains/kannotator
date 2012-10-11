@@ -2,7 +2,7 @@ package org.jetbrains.kannotator.index
 
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 
 trait DeclarationIndex {
     fun findMethod(owner: ClassName, name: String, desc: String) : Method?
@@ -13,6 +13,6 @@ trait DeclarationIndex {
 }
 
 trait AnnotationKeyIndex {
-    fun findPositionByAnnotationKeyString(annotationKey: String): TypePosition?
+    fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition?
 }
 

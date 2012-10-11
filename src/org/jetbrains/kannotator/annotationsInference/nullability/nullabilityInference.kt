@@ -11,7 +11,7 @@ import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import kotlinlib.emptyList

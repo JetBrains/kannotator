@@ -10,12 +10,18 @@ object RETURN_TYPE : PositionWithinMethod {
 
 data class ParameterPosition(val index: Int) : PositionWithinMethod
 
-trait TypePosition {
+trait AnnotationPosition
+
+trait MethodTypePosition : AnnotationPosition {
     val method: Method
     val positionWithinMethod: PositionWithinMethod
 }
 
+trait FieldTypePosition : AnnotationPosition {
+    val field: Field
+}
+
 trait AnnotatedType {
-    val position: TypePosition
+    val position: AnnotationPosition
     val arguments: List<AnnotatedType>
 }

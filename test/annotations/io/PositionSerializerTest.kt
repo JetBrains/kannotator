@@ -3,7 +3,7 @@ package annotations.io
 import junit.framework.TestCase
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.PositionWithinMethod
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
 import org.jetbrains.kannotator.declarations.Access
 import org.jetbrains.kannotator.declarations.ClassName
@@ -13,6 +13,7 @@ import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.objectweb.asm.signature.SignatureReader
 import org.objectweb.asm.util.TraceSignatureVisitor
+import org.jetbrains.kannotator.declarations.MethodTypePosition
 
 class PositionSerializerTest : TestCase() {
     fun doTest(
@@ -135,4 +136,4 @@ class PositionSerializerTest : TestCase() {
 data class MockTypePosition(
         override val method: Method,
         override val positionWithinMethod: PositionWithinMethod
-) : TypePosition
+) : MethodTypePosition

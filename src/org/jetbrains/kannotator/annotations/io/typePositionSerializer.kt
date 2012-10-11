@@ -6,7 +6,7 @@ import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.jetbrains.kannotator.declarations.PositionWithinMethod
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.declarations.getReturnType
 import org.jetbrains.kannotator.declarations.isStatic
@@ -19,8 +19,12 @@ import org.jetbrains.kannotator.declarations.toCanonical
 // ownerFQN returnType? name(paramType{", "}?) position?
 // Example:
 // org.objectweb.asm.ClassVisitor org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)
-fun TypePosition.toAnnotationKey(): String {
-    return method.toAnnotationKeyPrefix() + positionWithinMethod.toAnnotationKeySuffix(method)
+fun AnnotationPosition.toAnnotationKey(): String {
+    if (this is MethodTypePosition) {
+        return method.toAnnotationKeyPrefix() + positionWithinMethod.toAnnotationKeySuffix(method)
+    }
+
+    throw UnsupportedOperationException()
 }
 
 private fun Method.toAnnotationKeyPrefix(): String {

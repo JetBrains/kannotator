@@ -15,7 +15,7 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.PositionsWithinMember
-import org.jetbrains.kannotator.declarations.TypePosition
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.declarations.internalNameToCanonical
 import org.jetbrains.kannotator.declarations.isStatic
@@ -54,7 +54,7 @@ public class WriteAnnotationTest {
             dirOrFile.recurseFiltered({ it.extension == "xml" }) {
                 file ->
                 println("Processing ${file.getAbsolutePath()}")
-                val typePositionAndAnnotationData = LinkedHashSet<Pair<TypePosition, LinkedList<AnnotationData>>>()
+                val typePositionAndAnnotationData = LinkedHashSet<Pair<AnnotationPosition, LinkedList<AnnotationData>>>()
                 parseAnnotations(file.reader(), { key, annotationData ->
                     val classReader = classToReaderMap.get(key.substring(0, key.indexOf(" ")))
                     if (classReader != null) {
@@ -91,7 +91,7 @@ public class WriteAnnotationTest {
         }
     }
 
-    fun getTypePosition(reader: ClassReader, handler: (TypePosition) -> Unit) {
+    fun getTypePosition(reader: ClassReader, handler: (AnnotationPosition) -> Unit) {
         reader.accept(object : ClassVisitor(Opcodes.ASM4) {
             override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                 val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
@@ -107,8 +107,8 @@ public class WriteAnnotationTest {
     }
 }
 
-private class AnnotationsWithAnnotationData(val data: Set<Pair<TypePosition, LinkedList<AnnotationData>>>): Annotations<AnnotationData> {
-    override fun forEach(body: (TypePosition, AnnotationData) -> Unit) {
+private class AnnotationsWithAnnotationData(val data: Set<Pair<AnnotationPosition, LinkedList<AnnotationData>>>): Annotations<AnnotationData> {
+    override fun forEach(body: (AnnotationPosition, AnnotationData) -> Unit) {
         for ((position, annotations) in data) {
             for (annotation in annotations) {
                 body(position, annotation)
@@ -116,7 +116,7 @@ private class AnnotationsWithAnnotationData(val data: Set<Pair<TypePosition, Lin
         }
     }
 
-    override fun get(typePosition: TypePosition): AnnotationData? {
+    override fun get(typePosition: AnnotationPosition): AnnotationData? {
         throw UnsupportedOperationException()
     }
 }

@@ -71,7 +71,7 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
         return classes[owner]?.methodsById?.get(MethodId(name, desc))
     }
 
-    override fun findPositionByAnnotationKeyString(annotationKey: String): TypePosition? {
+    override fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition? {
         val (canonicalClassName, _, methodName) = parseAnnotationKey(annotationKey)
         val classes = classesByCanonicalName[canonicalClassName]
         if (classes == null) return null

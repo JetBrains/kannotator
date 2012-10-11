@@ -10,7 +10,7 @@ import java.util.Collections
 class PositionsWithinMember(val method: Method) {
     public fun get(positionWithinMethod: PositionWithinMethod): AnnotatedType {
         return AnnotatedTypeImpl(
-                TypePositionImpl(method, positionWithinMethod, 0),
+                MethodTypePositionImpl(method, positionWithinMethod, 0),
                 positionWithinMethod.toString(),
                 ArrayList(0)
         )
@@ -25,7 +25,7 @@ class PositionsWithinMember(val method: Method) {
     public fun forReturnType(): AnnotatedType = get(RETURN_TYPE)
 }
 
-fun PositionsWithinMember.forEachValidPosition(body: (TypePosition) -> Unit) {
+fun PositionsWithinMember.forEachValidPosition(body: (AnnotationPosition) -> Unit) {
     val skip = if (method.isStatic()) 0 else 1
     for (i in skip..method.getArgumentTypes().size) {
         body(forParameter(i).position)
@@ -33,20 +33,20 @@ fun PositionsWithinMember.forEachValidPosition(body: (TypePosition) -> Unit) {
     body(forReturnType().position)
 }
 
-fun PositionsWithinMember.getValidPositions(): Collection<TypePosition> {
-    val result = ArrayList<TypePosition>()
+fun PositionsWithinMember.getValidPositions(): Collection<AnnotationPosition> {
+    val result = ArrayList<AnnotationPosition>()
     forEachValidPosition {result.add(it)}
     return result
 }
 
-private data class TypePositionImpl(
+private data class MethodTypePositionImpl(
         override val method: Method,
         override val positionWithinMethod: PositionWithinMethod,
         val position: Int // position from left to right inside the type signature
-) : TypePosition
+) : MethodTypePosition
 
 private data class AnnotatedTypeImpl(
-        override val position: TypePosition,
+        override val position: AnnotationPosition,
         val debugName: String,
         override val arguments: MutableList<AnnotatedType>
 ) : AnnotatedType {
