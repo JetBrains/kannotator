@@ -3,6 +3,7 @@ package kotlinlib
 import java.util.Collections
 import java.util.Arrays
 
+// Already in the library
 public fun <T> Iterable<T>?.orEmpty(): Iterable<T> = if (this == null) Collections.emptyList() else this
 public fun <T> Iterator<T>?.orEmpty(): Iterator<T> = if (this == null) Collections.emptyList<T>().iterator() else this
 
