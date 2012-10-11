@@ -110,3 +110,24 @@ fun String.toCanonical(): String = replace('$', '.')
 fun ClassName.toType(): Type {
     return Type.getType(typeDescriptor)
 }
+
+data class FieldId(val fieldName: String) {
+    public fun toString(): String = fieldName
+}
+
+fun Field(declaringClass: ClassName,
+          access: Int,
+          name: String,
+          desc: String,
+          signature: String? = null,
+          value: Any? = null): Field = Field(declaringClass, Access(access), FieldId(name), signature)
+
+data class Field(
+        val declaringClass: ClassName,
+        val access: Access,
+        val id: FieldId,
+        val genericSignature: String? = null) {
+    public fun toString(): String {
+        return declaringClass.toType().getClassName() + ":" + id.fieldName;
+    }
+}
