@@ -6,13 +6,14 @@ import org.objectweb.asm.signature.SignatureVisitor
 import org.objectweb.asm.Opcodes.*
 import kotlinlib.join
 import java.util.Collections
+import kotlinlib.emptyList
 
 class PositionsWithinMember(val method: Method) {
     public fun get(positionWithinMethod: PositionWithinMethod): AnnotatedType {
         return AnnotatedTypeImpl(
                 MethodTypePositionImpl(method, positionWithinMethod, 0),
                 positionWithinMethod.toString(),
-                ArrayList(0)
+                emptyList()
         )
     }
 
@@ -23,6 +24,10 @@ class PositionsWithinMember(val method: Method) {
     }
 
     public fun forReturnType(): AnnotatedType = get(RETURN_TYPE)
+}
+
+public fun getFieldAnnotatedType(field: Field) : AnnotatedType {
+    return AnnotatedTypeImpl(FieldTypePositionImpl(field), "Field annotation type", emptyList())
 }
 
 fun PositionsWithinMember.forEachValidPosition(body: (AnnotationPosition) -> Unit) {
@@ -45,10 +50,12 @@ private data class MethodTypePositionImpl(
         val position: Int // position from left to right inside the type signature
 ) : MethodTypePosition
 
+private data class FieldTypePositionImpl(override val field: Field): FieldTypePosition
+
 private data class AnnotatedTypeImpl(
         override val position: AnnotationPosition,
         val debugName: String,
-        override val arguments: MutableList<AnnotatedType>
+        override val arguments: List<AnnotatedType>
 ) : AnnotatedType {
     fun toString(): String {
         val argStr =
