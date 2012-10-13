@@ -31,35 +31,35 @@ private fun resolveAnnotationConflicts<A>(
         leafMethod: HierarchyNode<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>
-): Set<Method> {
-    val visited = HashSet<Method>()
+): Collection<Method> {
     val propagatedAnnotations = AnnotationsImpl(annotationsToFix)
 
-    val queue = LinkedHashSet<HierarchyNode<Method>>()
-    queue.add(leafMethod)
-    while (!queue.isEmpty()) {
-        val node = queue.removeFirst()
-        visited.add(node.method)
+    return bfs(arrayList(leafMethod)) {
+        node ->
+        val parentNodes = node.parentNodes()
 
-        resolveConflictsInParents(node, lattice, annotationsToFix, propagatedAnnotations)
-        queue.addAll(node.parentNodes())
-    }
+        resolveConflictsInParents(
+                node.method,
+                parentNodes.map {node -> node.method},
+                lattice,
+                annotationsToFix,
+                propagatedAnnotations)
 
-    return visited
+        scheduleAll(parentNodes)
+    }.map { node -> node.method }
 }
 
 private fun resolveConflictsInParents<A>(
-        node: HierarchyNode<Method>,
+        method: Method,
+        immediateOverridden: Collection<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>,
         propagatedAnnotations: MutableAnnotations<A>
 ) {
-    val method = node.method
     val typePositions = PositionsForMethod(method).getValidPositions()
 
-    val parents = node.parentNodes()
-    for (parent in parents) {
-        val positionsWithinParent = PositionsForMethod(parent.method)
+    for (parent in immediateOverridden) {
+        val positionsWithinParent = PositionsForMethod(parent)
 
         for (positionInChild in typePositions) {
             val relativePosition = positionInChild.relativePosition
