@@ -1,4 +1,4 @@
-package inferenceData.propagation;
+package inferenceData.propagation.conflicts;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;

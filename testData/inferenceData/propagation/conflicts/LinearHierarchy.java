@@ -1,26 +1,18 @@
-package inferenceData.propagation;
+package inferenceData.propagation.conflicts;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class DiamondHierarchy {
+public class LinearHierarchy {
 
-    public interface Top {
+    public interface A {
         @NotNull @ExpectNullable
         Object m(@Nullable @ExpectNotNull Object x);
     }
 
-    public interface A extends Top {
-        Object m(Object x);
-    }
-
-    public interface A1 extends Top {
-        Object m(Object x);
-    }
-
-    public interface B extends A, A1 {
+    public interface B extends A {
         Object m(Object x);
     }
 
