@@ -24,16 +24,29 @@ fun propagateMetadata<A>(
 
     val leafMethods = graph.nodes.filter { it.children.isEmpty() }
 
-    val visited = HashSet<Method>()
-    for (leafMethod in leafMethods) {
-        visited.addAll(resolveAnnotationConflicts(leafMethod, lattice, result))
+    val allMethods = graph.nodes.map{ n -> n.method }.toSet()
+    fun assertAllVisited(visitedMethods: Set<Method>) {
+        val unvisited = allMethods - visitedMethods
+        assert (unvisited.isEmpty()) { "Methods not visited: $unvisited" }
     }
 
-    val allMethods = graph.nodes.map{ n -> n.method }.toSet()
-    val unvisited = allMethods - visited
-    assert (unvisited.isEmpty()) { "Methods not visited: $unvisited" }
+    assertAllVisited(
+            resolveAllAnnotationConflicts(leafMethods, lattice, result)
+    )
 
     return result
+}
+
+private fun resolveAllAnnotationConflicts<A>(
+        leafMethods: Collection<HierarchyNode<Method>>,
+        lattice: AnnotationLattice<A>,
+        annotationsToFix: MutableAnnotations<A>
+): Set<Method> {
+    val visited = HashSet<Method>()
+    for (leafMethod in leafMethods) {
+        visited.addAll(resolveAnnotationConflicts(leafMethod, lattice, annotationsToFix))
+    }
+    return visited
 }
 
 private fun resolveAnnotationConflicts<A>(
