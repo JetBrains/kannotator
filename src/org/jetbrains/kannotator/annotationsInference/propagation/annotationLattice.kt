@@ -9,6 +9,17 @@ trait AnnotationLattice<A> {
     fun greatestCommonLowerBound(a: A, b: A): A
 }
 
+fun <A> AnnotationLattice<A>.unify(position: PositionWithinDeclaration, parent: A, child: A): A {
+    return when (position.variance) {
+        COVARIANT -> leastCommonUpperBound(parent, child)
+        CONTRAVARIANT -> greatestCommonLowerBound(parent, child)
+        INVARIANT -> {
+            assert(parent == child) {"Conflicting annotations: $parent and $child"}
+            child
+        }
+    }
+}
+
 abstract class TwoElementLattice<A>(val small: A, val big: A) : AnnotationLattice<A> {
 
     override fun greatestCommonLowerBound(a: A, b: A): A {

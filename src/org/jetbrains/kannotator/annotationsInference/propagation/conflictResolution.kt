@@ -70,7 +70,7 @@ private fun resolveConflictsInParents<A>(
 
             if (fromChild != null) {
                 if (inParent != null) {
-                    annotationsToFix[positionInParent] = lattice.resolveConflictInParent<A>(
+                    annotationsToFix[positionInParent] = lattice.unify<A>(
                             relativePosition, inParent, fromChild)
                 }
                 else {
@@ -78,14 +78,6 @@ private fun resolveConflictsInParents<A>(
                 }
             }
         }
-    }
-}
-
-private fun <A> AnnotationLattice<A>.resolveConflictInParent(position: PositionWithinDeclaration, parent: A, child: A): A {
-    return when (position.variance) {
-        COVARIANT -> leastCommonUpperBound(parent, child)
-        CONTRAVARIANT -> greatestCommonLowerBound(parent, child)
-        INVARIANT -> throw UnsupportedOperationException("Invariant position is not supported: $position")
     }
 }
 
