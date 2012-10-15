@@ -6,6 +6,12 @@ import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
 
+trait ClassMember {
+    val declaringClass: ClassName
+    val access: Access
+    val name: String
+}
+
 data class MethodId(
         val methodName: String,
         val methodDesc: String
@@ -37,11 +43,11 @@ fun Method(
 ): Method = Method(declaringClass, Access(access), MethodId(name, desc), signature)
 
 data class Method(
-        val declaringClass: ClassName,
-        val access: Access,
+        override val declaringClass: ClassName,
+        override val access: Access,
         val id: MethodId,
-        val genericSignature: String? = null
-) {
+        val genericSignature: String? = null) : ClassMember {
+    override val name: String = id.methodName
     public fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
@@ -50,18 +56,18 @@ data class Method(
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
 
-fun Method.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
+fun ClassMember.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
 
-fun Method.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
+fun ClassMember.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
 
-fun Method.isVarargs(): Boolean = access.has(Opcodes.ACC_VARARGS)
-
-val Method.visibility: Visibility get() = when {
+val ClassMember.visibility: Visibility get() = when {
     access.has(Opcodes.ACC_PUBLIC) -> Visibility.PUBLIC
     access.has(Opcodes.ACC_PROTECTED) -> Visibility.PROTECTED
     access.has(Opcodes.ACC_PRIVATE) -> Visibility.PRIVATE
     else -> Visibility.PACKAGE
 }
+
+fun Method.isVarargs(): Boolean = access.has(Opcodes.ACC_VARARGS)
 
 fun Method.toFullString(): String {
     return buildString {
@@ -123,10 +129,11 @@ fun Field(declaringClass: ClassName,
           value: Any? = null): Field = Field(declaringClass, Access(access), FieldId(name), signature)
 
 data class Field(
-        val declaringClass: ClassName,
-        val access: Access,
+        override val declaringClass: ClassName,
+        override val access: Access,
         val id: FieldId,
-        val genericSignature: String? = null) {
+        val genericSignature: String? = null) : ClassMember {
+    override val name: String = id.fieldName
     public fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.fieldName;
     }
