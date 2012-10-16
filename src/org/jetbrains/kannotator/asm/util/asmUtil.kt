@@ -16,6 +16,7 @@ import org.objectweb.asm.util.Printer
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.declarations.MethodId
 import org.jetbrains.kannotator.declarations.getArgumentTypes
+import org.objectweb.asm.FieldVisitor
 
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {
@@ -47,7 +48,17 @@ public fun ClassReader.forEachMethod(delegateClassVisitor: ClassVisitor? = null,
             return super.visitMethod(access, name, desc, signature, exceptions)
         }
     }, 0)
+}
 
+public fun ClassReader.forEachField(
+        delegateClassVisitor: ClassVisitor? = null,
+        body: (className: String, access: Int, name: String, desc: String, signature: String?, value: Any?) -> Unit) {
+    accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
+        public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
+            body(getClassName(), access, name, desc, signature, value)
+            return super.visitField(access, name, desc, signature, value)
+        }
+    }, 0)
 }
 
 public fun Instruction.getAsmInstructionNode(): AbstractInsnNode? =
