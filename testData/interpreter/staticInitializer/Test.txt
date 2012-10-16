@@ -1,0 +1,233 @@
+interpreter/staticInitializer/Test
+
+interpreter.staticInitializer.Test:<init>()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/staticInitializer/Test;#0]
+  Stack
+Offset 1: LINENUMBER 6 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/staticInitializer/Test;#0]
+  Stack
+Offset 2: ALOAD 0
+Frame
+  Locals
+    locals[0] = [Linterpreter/staticInitializer/Test;#0]
+  Stack
+    stack[0] = [Linterpreter/staticInitializer/Test;#0]
+Offset 3: INVOKESPECIAL java/lang/Object.<init> ()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/staticInitializer/Test;#0]
+  Stack
+Offset 4: RETURN
+==========================================================================================
+
+
+
+interpreter.staticInitializer.Test:<clinit>()V
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+Offset 1: LINENUMBER 10 L0
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+Offset 2: ACONST_NULL
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+    stack[0] = [null#-1]
+Offset 3: PUTSTATIC interpreter/staticInitializer/Test.STRING_NULL_FIELD : Ljava/lang/String;
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+Offset 5: LINENUMBER 13 L1
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+Offset 6: NEW java/lang/Object
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+    stack[0] = [Ljava/lang/Object;#0]
+Offset 7: DUP
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+    stack[0] = [Ljava/lang/Object;#0]
+    stack[1] = [Ljava/lang/Object;#0]
+Offset 8: INVOKESPECIAL java/lang/Object.<init> ()V
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+    stack[0] = [Ljava/lang/Object;#0]
+Offset 9: PUTSTATIC interpreter/staticInitializer/Test.NEW_OBJECT_FIELD : Ljava/lang/Object;
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+Offset 11: LINENUMBER 16 L2
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+Offset 12: ICONST_3
+Frame
+  Locals
+    locals[0] = []
+    locals[1] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 13: ISTORE 0
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = []
+  Stack
+Offset 15: LINENUMBER 17 L3
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = []
+  Stack
+Offset 16: ICONST_2
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 17: ILOAD 0
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = []
+  Stack
+    stack[0] = [P1#-1]
+    stack[1] = [P1#-1]
+Offset 18: IADD
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 19: ISTORE 1
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 21: LINENUMBER 18 L4
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 22: ILOAD 0
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+    stack[0] = [P1#-1]
+Offset 23: ILOAD 1
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+    stack[0] = [P1#-1]
+    stack[1] = [P1#-1]
+Offset 24: IF_ICMPLE L5
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 26: LINENUMBER 19 L6
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 27: LDC "NOTNULL"
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+    stack[0] = [Ljava/lang/String;#1]
+Offset 28: PUTSTATIC interpreter/staticInitializer/Test.VALUE : Ljava/lang/String;
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 29: GOTO L7
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 31: LINENUMBER 21 L5
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 32: FRAME APPEND [I I]
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 33: ACONST_NULL
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+    stack[0] = [null#-1]
+Offset 34: PUTSTATIC interpreter/staticInitializer/Test.VALUE : Ljava/lang/String;
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 36: LINENUMBER 23 L7
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 37: FRAME CHOP 2
+Frame
+  Locals
+    locals[0] = [P1#-1]
+    locals[1] = [P1#-1]
+  Stack
+Offset 38: RETURN
+==========================================================================================
+
+

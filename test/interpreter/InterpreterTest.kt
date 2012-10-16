@@ -36,4 +36,8 @@ class InterpreterTest : TestCase() {
     fun testPrimitiveParamsAndReturn() {
         doTest(javaClass<interpreter.primitiveParamsAndReturn.Test>())
     }
+
+    fun testStaticInitializer() {
+        doTest(javaClass<interpreter.staticInitializer.Test>())
+    }
 }
