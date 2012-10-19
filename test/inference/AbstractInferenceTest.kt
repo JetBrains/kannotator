@@ -1,31 +1,68 @@
 package inference
 
+import java.util.HashMap
 import junit.framework.TestCase
 import kotlin.test.assertEquals
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.objectweb.asm.ClassReader
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.Type
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import java.util.HashMap
 import kotlinlib.*
 import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.Type
 import util.ClassPathDeclarationIndex
 import util.controlFlow.buildControlFlowGraph
+import util.junit.getTestName
+import org.jetbrains.kannotator.declarations.Field
+import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
+import org.objectweb.asm.ClassVisitor
+import org.jetbrains.kannotator.asm.util.forEachField
+import kotlin.test.assertFalse
+import kotlin.test.fail
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
     protected abstract fun Array<jet.Annotation>.toAnnotation(): A?
 
-    protected abstract fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
-                                            annotations: Annotations<A>) : Annotations<A>
+    protected open fun buildAnnotations(
+            graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
+            annotations: Annotations<A>) : Annotations<A> = AnnotationsImpl()
+
+    protected open fun buildFieldAnnotations(
+            field: Field,
+            classReader: ClassReader,
+            declarationIndex: DeclarationIndex,
+            annotations: Annotations<A>) : Annotations<A> = AnnotationsImpl()
 
     protected open fun getInitialAnnotations(): Annotations<A> = AnnotationsImpl()
+
+    protected fun doFieldTest() {
+        val fieldName = getTestName(true)
+
+        val reflectedField = testClass.getField(fieldName)
+        val classReader = ClassReader(testClass.getName())
+
+        var foundField: Field? = null
+        classReader.forEachField {
+            className, access, name, desc, signature, value ->
+            if (name == fieldName) {
+                foundField = Field(ClassName.fromInternalName(className), access, name, desc, signature, value)
+            }
+        }
+
+        val field = foundField ?: throw AssertionError("Field $fieldName wasn't found")
+
+        val result = buildFieldAnnotations(field, classReader, ClassPathDeclarationIndex, getInitialAnnotations())
+
+        val expectedReturnInfo = reflectedField.getAnnotations().toAnnotation()
+
+        checkFieldInferredAnnotations(expectedReturnInfo, result, field)
+    }
 
     protected fun doTest() {
         val className = testClass.getName()
@@ -63,5 +100,13 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
             assertEquals(expectedParametersAnnotations.get(index), actual.get(positions.forParameter(index).position),
                     "Annotations for parameter $index error")
         }
+    }
+
+    fun checkFieldInferredAnnotations(
+            expectedReturnAnnotation: A?,
+            actual: Annotations<A>,
+            field: Field) {
+        val fieldTypePosition = getFieldAnnotatedType(field).position
+        assertEquals(expectedReturnAnnotation, actual[fieldTypePosition], "Return annotations error")
     }
 }

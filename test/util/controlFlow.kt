@@ -22,6 +22,10 @@ public open class GraphBuilderCallbacks {
     }
 }
 
+public fun buildControlFlowGraph(classReader: ClassReader, method: Method): ControlFlowGraph {
+    return buildControlFlowGraph(classReader, method.name, method.id.methodDesc)
+}
+
 public fun buildControlFlowGraph(classReader: ClassReader, _methodName: String, _methodDesc: String): ControlFlowGraph {
     return buildGraphsForAllMethods(classReader, object : GraphBuilderCallbacks() {
         override fun beforeMethod(internalClassName: String, methodName: String, methodDesc: String): Boolean {

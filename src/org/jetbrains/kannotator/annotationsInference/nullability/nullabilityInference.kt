@@ -1,26 +1,20 @@
 package org.jetbrains.kannotator.annotationsInference.nullability
 
-import org.objectweb.asm.Opcodes.*
-import kotlin.test.assertTrue
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
+import org.jetbrains.kannotator.annotationsInference.forInterestingValue
+import org.jetbrains.kannotator.annotationsInference.traverseInstructions
+import org.jetbrains.kannotator.asm.util.getAsmInstructionNode
 import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.declarations.AnnotationPosition
+import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
-import kotlinlib.emptyList
-import org.jetbrains.kannotator.annotationsInference.traverseInstructions
-import org.jetbrains.kannotator.annotationsInference.forInterestingValue
-import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.declarations.setIfNotNull
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.Opcodes.*
+import org.objectweb.asm.tree.FieldInsnNode
+import util.controlFlow.buildControlFlowGraph
 
-fun buildNullabilityAnnotations(
+fun buildMethodNullabilityAnnotations(
         graph: ControlFlowGraph,
         positions: PositionsForMethod,
         declarationIndex: DeclarationIndex,
@@ -70,4 +64,72 @@ fun buildNullabilityAnnotations(
 }
 
 private val RETURN_OPCODES = hashSet(ARETURN, RETURN, IRETURN, LRETURN, DRETURN, FRETURN)
+
+fun buildFieldNullabilityAnnotations(
+        field: Field,
+        classReader: ClassReader,
+        declarationIndex: DeclarationIndex,
+        annotations: Annotations<NullabilityAnnotation>): Annotations<NullabilityAnnotation> {
+
+    val fieldAnnotations = AnnotationsImpl(annotations)
+
+    if (field.isFinal()) {
+        if (field.isStatic()) {
+            if (field.value != null) {
+                // Get value -> Infer nullability from value.
+                fieldAnnotations[getFieldAnnotatedType(field).position] = NullabilityAnnotation.NOT_NULL
+                return fieldAnnotations
+            }
+            else {
+                // Get in class static initializer -> Infer nullability
+                // TODO: Initializer can call other static functions and and use values of other fields
+                val method = declarationIndex.findMethod(field.declaringClass, "<clinit>", "()V")
+                if (method != null) {
+                    val graph = buildControlFlowGraph(classReader, method)
+                    return collectFieldInformationFromMethod(graph, field, PositionsForMethod(method), declarationIndex, annotations)
+                }
+
+                throw IllegalStateException("Static field ${field} is not initialized and no static initializer found")
+            }
+        }
+    }
+
+    return AnnotationsImpl()
+}
+
+fun collectFieldInformationFromMethod(
+        graph: ControlFlowGraph,
+        field: Field,
+        positions: PositionsForMethod,
+        declarationIndex: DeclarationIndex,
+        annotations: Annotations<NullabilityAnnotation>): Annotations<NullabilityAnnotation> {
+    val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
+
+    var fieldValueInfo: NullabilityValueInfo? = null
+
+    fun collectValueInfoForFieldInitInstruction(instruction: Instruction, nullabilityInfos: ValueNullabilityMap) {
+        if (instruction.getOpcode() == PUTSTATIC) {
+            val fieldNode = instruction.getAsmInstructionNode() as FieldInsnNode
+            if (field.name == fieldNode.name) {
+                val state = instruction[STATE_BEFORE]!!
+                val fieldValues = state.stack[0]
+                val nullabilityValueInfo = fieldValues.map { it -> nullabilityInfos[it] }.merge()
+                fieldValueInfo = nullabilityValueInfo.mergeWithNullable(fieldValueInfo)
+            }
+        }
+    }
+
+    fun createAnnotations(): Annotations<NullabilityAnnotation> {
+        val result = AnnotationsImpl<NullabilityAnnotation>()
+        result.setIfNotNull(getFieldAnnotatedType(field).position, fieldValueInfo?.toAnnotation())
+        return result
+    }
+
+    graph.traverseInstructions {
+        val valueNullabilityMap = framesManager.computeNullabilityInfosForInstruction(it)
+        collectValueInfoForFieldInitInstruction(it, valueNullabilityMap)
+    }
+
+    return createAnnotations()
+}
 

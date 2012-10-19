@@ -7,7 +7,7 @@ import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.buildNullabilityAnnotations
+import org.jetbrains.kannotator.annotationsInference.nullability.buildMethodNullabilityAnnotations
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
 import org.jetbrains.kannotator.asm.util.createMethodNode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
@@ -103,7 +103,7 @@ private fun inferAnnotationsOnMutuallyRecursiveMethods(
         val method = queue.removeFirst()
 
         progressMonitor.processingStepStarted(method)
-        val inferredAnnotations = buildNullabilityAnnotations(cfGraph(method), PositionsForMethod(method), declarationIndex, annotations)
+        val inferredAnnotations = buildMethodNullabilityAnnotations(cfGraph(method), PositionsForMethod(method), declarationIndex, annotations)
         progressMonitor.processingStepFinished(method)
 
         var changed = false
