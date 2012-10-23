@@ -61,7 +61,7 @@ fun inferNullabilityAnnotations(
 
     val fieldsInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
     for (fieldInfo in fieldsInfosMap.values()) {
-        val methodToGraph = buildControlFlowGraphs(fieldInfo.setters, { m -> methodNodes.getOrThrow(m) })
+        val methodToGraph = buildControlFlowGraphs(fieldInfo.writers, { m -> methodNodes.getOrThrow(m) })
         val inferredAnnotations = buildFieldNullabilityAnnotations(fieldInfo, { m -> methodToGraph.getOrThrow(m) }, declarationIndex, resultingAnnotations)
 
         // Store

@@ -14,15 +14,15 @@ import org.objectweb.asm.Opcodes.*
 trait FieldDependencyInfo {
     val field: Field
 
-    val setters: Collection<Method>
-    val getters: Collection<Method>
+    val writers: Collection<Method>
+    val readers: Collection<Method>
 }
 
 data class FieldDependencyInfoImpl(override val field: Field): FieldDependencyInfo {
-    override val setters: MutableCollection<Method> = HashSet<Method>()
-    override val getters: MutableCollection<Method> = HashSet<Method>()
+    override val writers: MutableCollection<Method> = HashSet<Method>()
+    override val readers: MutableCollection<Method> = HashSet<Method>()
 
-    public fun toString() : String = "FieldDependencyInfoImpl(field: $field, getters: $getters, setters: $setters)"
+    public fun toString() : String = "FieldDependencyInfoImpl(field: $field, readers: $readers, writers: $writers)"
 }
 
 fun buildFieldsDependencyInfos(declarationIndex: DeclarationIndex, classSource: ClassSource): Map<Field, FieldDependencyInfo> {
@@ -49,8 +49,8 @@ private class FieldUsageMethodVisitor(val method: Method,
             val fieldInfo = resultMap.getOrPut(checkedField /* Bug here */) { FieldDependencyInfoImpl(field) }
 
             when (opcode) {
-                GETSTATIC, GETFIELD -> fieldInfo.getters.add(method)
-                PUTSTATIC, PUTFIELD -> fieldInfo.setters.add(method)
+                GETSTATIC, GETFIELD -> fieldInfo.readers.add(method)
+                PUTSTATIC, PUTFIELD -> fieldInfo.writers.add(method)
                 else -> {}
             }
         }

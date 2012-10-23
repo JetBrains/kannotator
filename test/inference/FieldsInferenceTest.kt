@@ -84,7 +84,7 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
     }
 
     private class FakeFieldInfo(override val field : Field) : FieldDependencyInfo {
-        override val setters: Collection<Method> get() { throw UnsupportedOperationException() }
-        override val getters: Collection<Method> get() { throw UnsupportedOperationException() }
+        override val writers: Collection<Method> get() { throw UnsupportedOperationException() }
+        override val readers: Collection<Method> get() { throw UnsupportedOperationException() }
     }
 }
