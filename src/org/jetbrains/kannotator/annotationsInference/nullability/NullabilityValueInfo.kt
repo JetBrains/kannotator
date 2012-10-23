@@ -24,7 +24,9 @@ public enum class NullabilityValueInfo {
 
 fun Iterable<NullabilityValueInfo>.merge() : NullabilityValueInfo {
     if (!iterator().hasNext()) return NullabilityValueInfo.UNKNOWN
-    return this.fold(NullabilityValueInfo.CONFLICT, { (res : NullabilityValueInfo, value) -> res merge value} )
+    return this.fold(NullabilityValueInfo.CONFLICT, {
+        (res : NullabilityValueInfo, value : NullabilityValueInfo) -> res merge value
+    } )
 }
 
 fun NullabilityValueInfo.mergeWithNullable(that: NullabilityValueInfo?) =
