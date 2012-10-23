@@ -13,6 +13,8 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.FieldInsnNode
 import util.controlFlow.buildControlFlowGraph
+import org.jetbrains.kannotator.index.FieldDependencyInfo
+import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 
 fun buildMethodNullabilityAnnotations(
         graph: ControlFlowGraph,
@@ -66,17 +68,21 @@ fun buildMethodNullabilityAnnotations(
 private val RETURN_OPCODES = hashSet(ARETURN, RETURN, IRETURN, LRETURN, DRETURN, FRETURN)
 
 fun buildFieldNullabilityAnnotations(
-        field: Field,
-        classReader: ClassReader,
+        fieldInfo: FieldDependencyInfo,
+        controlFlowGraphBuilder: (Method) -> ControlFlowGraph,
         declarationIndex: DeclarationIndex,
         annotations: Annotations<NullabilityAnnotation>): Annotations<NullabilityAnnotation> {
 
     val fieldAnnotations = AnnotationsImpl(annotations)
+    val field = fieldInfo.field
+
+    if (field.getType().isPrimitiveOrVoidType()) {
+        return AnnotationsImpl()
+    }
 
     if (field.isFinal()) {
         if (field.isStatic()) {
             if (field.value != null) {
-                // Get value -> Infer nullability from value.
                 fieldAnnotations[getFieldAnnotatedType(field).position] = NullabilityAnnotation.NOT_NULL
                 return fieldAnnotations
             }
@@ -85,11 +91,11 @@ fun buildFieldNullabilityAnnotations(
                 // TODO: Initializer can call other static functions and and use values of other fields
                 val method = declarationIndex.findMethod(field.declaringClass, "<clinit>", "()V")
                 if (method != null) {
-                    val graph = buildControlFlowGraph(classReader, method)
+                    val graph = controlFlowGraphBuilder(method)
                     return collectFieldInformationFromMethod(graph, field, PositionsForMethod(method), declarationIndex, annotations)
                 }
 
-                throw IllegalStateException("Static field ${field} is not initialized and no static initializer found")
+                throw IllegalStateException("Static field ${fieldInfo} is not initialized and no static initializer found")
             }
         }
     }

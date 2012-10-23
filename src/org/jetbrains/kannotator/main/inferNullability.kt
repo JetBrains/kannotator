@@ -24,6 +24,10 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.objectweb.asm.tree.MethodNode
+import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
+import org.jetbrains.kannotator.annotationsInference.nullability.buildFieldNullabilityAnnotations
+import org.jetbrains.kannotator.declarations.isStatic
+import org.jetbrains.kannotator.declarations.isFinal
 
 open class ProgressMonitor {
     open fun totalMethods(methodCount: Int) {}
@@ -53,20 +57,30 @@ fun inferNullabilityAnnotations(
     // TODO Load annotations from .class files too, see MethodNode.visibleParameterAnnotations and MethodNode.invisibleParameterAnnotations
     val existingNullabilityAnnotations = loadNullabilityAnnotations(existingAnnotationFiles, declarationIndex)
 
-    val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
-
-    val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
-
     val resultingAnnotations = AnnotationsImpl(existingNullabilityAnnotations)
+
+    val fieldsInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
+    for (fieldInfo in fieldsInfosMap.values()) {
+        val methodToGraph = buildControlFlowGraphs(fieldInfo.setters, { m -> methodNodes.getOrThrow(m) })
+        val inferredAnnotations = buildFieldNullabilityAnnotations(fieldInfo, { m -> methodToGraph.getOrThrow(m) }, declarationIndex, resultingAnnotations)
+
+        // Store
+        inferredAnnotations forEach { pos, ann ->
+            val present = resultingAnnotations[pos]
+            if (present != ann) {
+                resultingAnnotations[pos] = ann
+            }
+        }
+    }
+
+    val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
+    val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
 
     for (component in components) {
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
         progressMonitor.processingStarted(methods.keySet())
 
-        val methodToGraph = buildControlFlowGraphs(
-                methods.keySet(),
-                {m -> methodNodes.getOrThrow(m) }
-        )
+        val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
 
         inferAnnotationsOnMutuallyRecursiveMethods(
                 declarationIndex,

@@ -7,9 +7,12 @@ import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnno
 import org.jetbrains.kannotator.annotationsInference.nullability.buildFieldNullabilityAnnotations
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.Field
+import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.ClassReader
 import util.junit.getTestName
+import org.jetbrains.kannotator.index.FieldDependencyInfo
+import util.controlFlow.buildControlFlowGraph
 
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
 
@@ -26,7 +29,11 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
             classReader: ClassReader,
             declarationIndex: DeclarationIndex,
             annotations: Annotations<NullabilityAnnotation>) : Annotations<NullabilityAnnotation> {
-        return buildFieldNullabilityAnnotations(field, classReader, declarationIndex, annotations)
+        return buildFieldNullabilityAnnotations(
+                FakeFieldInfo(field),
+                { method -> buildControlFlowGraph(classReader, method) },
+                declarationIndex,
+                annotations)
     }
 
     fun testSTRING_NOT_NULL_FIELD() = doFieldTest()
@@ -35,11 +42,11 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
 
     fun testFROM_PREVIOUS_FIELD() = doFieldTest()
 
+    fun testNEW_OBJECT_FIELD() = doFieldTest()
+
     fun testINTEGER_FIELD() = doFieldTest()
 
     fun testDOUBLE_FIELD() = doFieldTest()
-
-    fun testNEW_OBJECT_FIELD() = doFieldTest()
 
 //    fun testNullFinalField() = doFieldTest()
 //
@@ -74,5 +81,10 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
         val nonTestedFields = fieldsInTestClass - testedFields
 
         assertTrue(nonTestedFields.isEmpty(), "Fields in '$nonTestedFields' are not tested")
+    }
+
+    private class FakeFieldInfo(override val field : Field) : FieldDependencyInfo {
+        override val setters: Collection<Method> get() { throw UnsupportedOperationException() }
+        override val getters: Collection<Method> get() { throw UnsupportedOperationException() }
     }
 }

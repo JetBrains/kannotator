@@ -15,13 +15,11 @@ public class NullabilityFieldsInferenceTestClass {
     public final static String FROM_PREVIOUS_FIELD = STRING_NOT_NULL_FIELD + "HELLO";
 
     @ExpectNotNull
+    public final static Object NEW_OBJECT_FIELD = new Object();
+
     public final static int INTEGER_FIELD = 12;
 
-    @ExpectNotNull
     public final static double DOUBLE_FIELD = 12.5;
-
-    @ExpectNotNull
-    public final static Object NEW_OBJECT_FIELD = new Object();
 
     @Ignore
     @ExpectNullable
