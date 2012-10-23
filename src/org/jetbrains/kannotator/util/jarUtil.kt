@@ -9,7 +9,7 @@ import kotlinlib.removeSuffix
 fun processJar(file: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     val jar = JarFile(file)
     for (entry in jar.entries()) {
-        val name = entry!!.getName()!!
+        val name = entry!!.getName()
         if (!name.endsWith(".class")) continue
 
         val internalName = name.removeSuffix(".class")
