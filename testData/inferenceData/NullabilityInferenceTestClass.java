@@ -76,7 +76,7 @@ public class NullabilityInferenceTestClass {
             a.getBytes();
         }
     }
-    
+
     public void testIncompatibleChecks(@ExpectNullable String a) {
         if (a != null && a == null) {
             a.getBytes();
@@ -164,7 +164,7 @@ public class NullabilityInferenceTestClass {
             System.out.println();
         }
     }
-    
+
     public void testArrayLoad(@ExpectNotNull Object[] objectArray,
                               @ExpectNotNull byte[] byteArray,
                               @ExpectNotNull boolean[] booleanArray,
@@ -184,7 +184,7 @@ public class NullabilityInferenceTestClass {
         System.out.println(longArray[0]);
         System.out.println(charArray[0]);
     }
-    
+
     public void testArrayStore(@ExpectNotNull Object[] objectArray,
                                @ExpectNotNull byte[] byteArray,
                                @ExpectNotNull boolean[] booleanArray,
@@ -270,6 +270,17 @@ public class NullabilityInferenceTestClass {
             return o;
         }
         return "";
+    }
+
+    @ExpectNullable
+    public Object testNullableAfterInstanceOf(Object o) {
+        if (o instanceof Integer) {
+            return o;
+        } else if (o instanceof Double) {
+            return null;
+        }
+
+        return new Object();
     }
 
     public Object getUnannotatedObject() {

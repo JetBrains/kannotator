@@ -126,4 +126,6 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     fun testConflict() = doTest()
 
     fun testConflict2() = doTest()
+
+    fun testNullableAfterInstanceOf() = doTest()
 }
