@@ -1,33 +1,21 @@
 package org.jetbrains.kannotator.index
 
 import java.io.File
-import java.util.HashMap
-import java.util.HashSet
-import org.jetbrains.kannotator.annotations.io.toAnnotationKey
-import org.jetbrains.kannotator.declarations.*
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.declarations.getArgumentTypes
-import org.jetbrains.kannotator.declarations.isStatic
-import org.objectweb.asm.ClassVisitor
-import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.Opcodes
-import util.recurseIntoJars
-import java.io.InputStream
-import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.declarations.MethodId
-import org.jetbrains.kannotator.util.processJar
 import java.io.FileInputStream
 import java.util.ArrayList
-import kotlinlib.recurseFiltered
-import java.util.jar.JarFile
-import java.util.jar.JarEntry
-import kotlinlib.removeSuffix
-import org.jetbrains.kannotator.declarations.toFullString
-import org.jetbrains.kannotator.asm.util.forEachMethod
-import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
+import java.util.HashMap
+import java.util.HashSet
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
-import org.jetbrains.kannotator.asm.util.forEachMethodWithMethodVisitor
+import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
+import org.jetbrains.kannotator.annotations.io.toAnnotationKey
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.util.processJar
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.ClassReader.*
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.FieldVisitor
+import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.Opcodes
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
@@ -35,9 +23,10 @@ trait ClassSource {
 
 class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
-            val className: ClassName,
-            val methodsById: Map<MethodId, Method>,
-            val methodsByName: Map<String, Collection<Method>>
+        val className: ClassName,
+        val methodsById: Map<MethodId, Method>,
+        val methodsByName: Map<String, Collection<Method>>,
+        val fieldsById: Map<FieldId, Field>
     )
 
     private val classes = HashMap<ClassName, ClassData>()
@@ -46,29 +35,41 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
     { init(classSource, processMethodBody) }
 
     private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?) {
-        classSource forEach {
-            reader ->
+        classSource forEach { reader ->
             val className = ClassName.fromInternalName(reader.getClassName())
 
             val methodsById = HashMap<MethodId, Method>()
+            val fieldsById = HashMap<FieldId, Field>()
             val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
             assert (classes[className] == null) { "Class already visited: $className" }
-            reader.forEachMethodWithMethodVisitor {
-                owner, access, name, desc, signature ->
-                val method = Method(className, access, name, desc, signature)
-                methodsById[method.id] = method
-                methodsByNameForAnnotationKey.getOrPut(method.getMethodNameAccountingForConstructor(), {ArrayList()}).add(method)
-                processMethodBody(method)
-            }
 
-            val classData = ClassData(className, methodsById, methodsByNameForAnnotationKey)
+            reader.accept(object: ClassVisitor(Opcodes.ASM4) {
+                public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+                    val method = Method(className, access, name, desc, signature)
+                    methodsById[method.id] = method
+                    methodsByNameForAnnotationKey.getOrPut(method.getMethodNameAccountingForConstructor(), { ArrayList() }).add(method)
+                    return processMethodBody(method)
+                }
+
+                public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
+                    val field = Field(className, access, name, desc, signature, value)
+                    fieldsById[field.id] = field
+                    return null
+                }
+            }, 0);
+
+            val classData = ClassData(className, methodsById, methodsByNameForAnnotationKey, fieldsById)
             classes[className] = classData
-            classesByCanonicalName.getOrPut(className.canonicalName, {HashSet()}).add(classData)
+            classesByCanonicalName.getOrPut(className.canonicalName, { HashSet() }).add(classData)
         }
     }
 
     override fun findMethod(owner: ClassName, name: String, desc: String): Method? {
         return classes[owner]?.methodsById?.get(MethodId(name, desc))
+    }
+
+    override fun findField(owner: ClassName, name: String): Field? {
+        return classes[owner]?.fieldsById?.get(FieldId(name))
     }
 
     override fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition? {

@@ -7,6 +7,8 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.tree.ClassNode
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.declarations.Field
+import java.util.HashSet
 
 object ClassPathDeclarationIndex : DeclarationIndex {
     data class SearchQuery(val owner : ClassName, val name: String, val desc: String)
@@ -20,6 +22,10 @@ object ClassPathDeclarationIndex : DeclarationIndex {
         }
 
         return cache[query]
+    }
+
+    override fun findField(owner: ClassName, name: String): Field? {
+        throw UnsupportedOperationException()
     }
 
     private fun search(query : SearchQuery) {
