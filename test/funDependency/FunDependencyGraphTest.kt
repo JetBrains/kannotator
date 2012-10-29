@@ -40,6 +40,10 @@ class FunDependencyGraphTest {
         doTest("simple/simple.txt", "fundependency.simple.Simple")
     }
 
+    Test fun dependOnConstructorBecauseOfFields() {
+        doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "fundependency.dependOnConstructorBecauseOfFields.dependOnConstructorBecauseOfFields")
+    }
+
     fun doTest(expectedResultPath: String, vararg canonicalNames: String) {
         val classSource = ClassesFromClassPath(*canonicalNames)
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)

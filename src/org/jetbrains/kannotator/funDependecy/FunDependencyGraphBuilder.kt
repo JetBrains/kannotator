@@ -1,19 +1,19 @@
 package org.jetbrains.kannotator.funDependecy
 
+import kotlinlib.flags
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.declarations.getReturnType
-import org.objectweb.asm.ClassReader
+import org.jetbrains.kannotator.index.ClassSource
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.index.ClassSource
-import kotlinlib.flags
 
 public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : FunDependencyGraph =
         FunDependencyGraphBuilder(declarationIndex, classSource).build()
@@ -60,6 +60,21 @@ private class FunDependencyGraphBuilder(
         classSource.forEach {
             reader ->
             reader.accept(classVisitor, flags(SKIP_DEBUG, SKIP_FRAMES))
+        }
+
+        val fieldsDependencyInfos = buildFieldsDependencyInfos(declarationIndex, classSource)
+
+        // Make all getter nodes depend on setters node
+        for (fieldInfo in fieldsDependencyInfos.values()) {
+            for (readerFun in fieldInfo.readers.filter { it.canBeAnnotated() }) {
+                val readerNode = dependencyGraph.getOrCreateNode(readerFun)
+                for (writerFun in fieldInfo.writers) {
+                    if (writerFun != readerFun) {
+                        val writerNode = dependencyGraph.getOrCreateNode(writerFun)
+                        dependencyGraph.createEdge(readerNode, writerNode)
+                    }
+                }
+            }
         }
 
         return dependencyGraph
