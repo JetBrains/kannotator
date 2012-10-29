@@ -2,7 +2,6 @@ package inferenceData;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
-import inferenceData.annotations.Ignore;
 
 public class NullabilityFieldsInferenceTestClass {
     @ExpectNotNull
@@ -21,44 +20,35 @@ public class NullabilityFieldsInferenceTestClass {
 
     public final static double DOUBLE_FIELD = 12.5;
 
-    @Ignore
-    @ExpectNullable
+    // @ExpectNullable
     public final Object nullFinalField = null;
 
-    @Ignore
-    @ExpectNotNull
+    // @ExpectNotNull
     public final Object newObjectFinalField = new Object();
 
-    @Ignore
-    @ExpectNotNull
+    // @ExpectNotNull
     public final String constantStringFinalField = "HelloConstant";
 
-    @Ignore
-    @ExpectNotNull
+    // @ExpectNotNull
     public final Integer constantIntegerFinalField = 12;
 
-    @Ignore
-    @ExpectNotNull
+    // @ExpectNotNull
     public final Object methodInitFinalField = initFinalField();
 
     Object initFinalField() {
         return new Object();
     }
 
-    @Ignore
-    @ExpectNullable
+    // @ExpectNullable
     public final Object nullableInConstructorInitFinalField;
 
-    @Ignore
-    @ExpectNullable
+    // @ExpectNullable
     public final Object fromConstructorParameterFinalField;
 
-    @Ignore
-    @ExpectNotNull
+    // @ExpectNotNull
     public final Object fromMethodInConstructorFinalField;
 
-    @Ignore
-    @ExpectNullable
+    // @ExpectNullable
     public final Object differentAnnotationsFromDifferentConstructors;
 
     NullabilityFieldsInferenceTestClass(Object param) {

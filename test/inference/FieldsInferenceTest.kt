@@ -1,6 +1,5 @@
 package inference
 
-import inferenceData.annotations.Ignore
 import kotlin.test.assertTrue
 import kotlinlib.minus
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
@@ -65,23 +64,6 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
 //    fun testNullableInConstructorInitFinalField() = doFieldTest()
 //
 //    fun testFromMethodInConstructorFinalField() = doFieldTest()
-
-    fun testAllFieldsTested() {
-        val fieldsInTestClass = testClass.getFields()
-                .filter { field -> field.getAnnotation(javaClass<Ignore>()) == null }
-                .map { field -> field.getName() }
-
-        val testedFields = this.getClass().getMethods().iterator()
-                .map { method -> method.getName()!! }
-                .filter { methodName -> methodName.startsWith("test") }
-                .map { methodName -> getTestName(methodName, true) }
-                .filter { testName -> testName != getTestName(true) }
-                .toList()
-
-        val nonTestedFields = fieldsInTestClass - testedFields
-
-        assertTrue(nonTestedFields.isEmpty(), "Fields in '$nonTestedFields' are not tested")
-    }
 
     private class FakeFieldInfo(override val field : Field) : FieldDependencyInfo {
         override val writers: Collection<Method> get() { throw UnsupportedOperationException() }
