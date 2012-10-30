@@ -22,6 +22,9 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import org.jetbrains.kannotator.annotationsInference.forInterestingValue
+import org.objectweb.asm.tree.FieldInsnNode
+import org.jetbrains.kannotator.annotationsInference.findFieldByFieldInsnNode
+import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 
 class FramesNullabilityManager(
         val positions: PositionsForMethod,
@@ -183,8 +186,8 @@ public class ValueNullabilityMap(
         val positions: PositionsForMethod,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
-        m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()
-): HashMap<Value, NullabilityValueInfo>(m) {
+        m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
+
     override fun get(key: Any?): NullabilityValueInfo {
         val fromSuper = super.get(key)
         if (fromSuper != null) return fromSuper
@@ -213,7 +216,15 @@ public class ValueNullabilityMap(
                         }
                     }
                 }
-                GETFIELD, GETSTATIC -> UNKNOWN // TODO load from annotations
+                GETFIELD, GETSTATIC -> {
+                    val field = declarationIndex.findFieldByFieldInsnNode(createdAtInsn as FieldInsnNode)
+                    if (field != null) {
+                        annotations[getFieldAnnotatedType(field).position].toValueInfo()
+                    }
+                    else {
+                        UNKNOWN
+                    }
+                }
                 AALOAD -> UNKNOWN
                 else -> throw UnsupportedOperationException("Unsupported opcode=${createdAtInsn.getOpcode()}")
             }

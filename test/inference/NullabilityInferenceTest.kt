@@ -72,7 +72,11 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     fun testReturnField() = doTest()
 
+    fun testReturnNotNullField() = doTest()
+
     fun testReturnStaticField() = doTest()
+
+    fun testReturnNullableStaticField() = doTest()
 
     fun testReturnStringConstant() = doTest()
 

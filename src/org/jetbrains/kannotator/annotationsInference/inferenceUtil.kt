@@ -16,6 +16,8 @@ import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode
+import org.objectweb.asm.tree.FieldInsnNode
+import org.jetbrains.kannotator.declarations.Field
 
 trait Annotation
 
@@ -68,6 +70,10 @@ fun DeclarationIndex.findMethodByInstruction(instruction: Instruction): Method? 
 
 fun DeclarationIndex.findMethodByMethodInsnNode(methodInsnNode: MethodInsnNode): Method? {
     return this.findMethod(ClassName.fromInternalName(methodInsnNode.owner!!), methodInsnNode.name!!, methodInsnNode.desc)
+}
+
+fun DeclarationIndex.findFieldByFieldInsnNode(fieldInsnNode: FieldInsnNode): Field? {
+    return this.findField(ClassName.fromInternalName(fieldInsnNode.owner), fieldInsnNode.name)
 }
 
 fun Instruction.getReceiverValues(): Set<Value> {

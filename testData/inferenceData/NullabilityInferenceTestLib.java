@@ -28,4 +28,10 @@ public class NullabilityInferenceTestLib {
     public static Object returnNullable() {
         return new Object();
     }
+
+    @NotNull
+    public Object notNullField;
+
+    @Nullable
+    public static Object nullableStaticField;
 }

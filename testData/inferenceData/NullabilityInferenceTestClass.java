@@ -2,6 +2,7 @@ package inferenceData;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 
@@ -58,8 +59,18 @@ public class NullabilityInferenceTestClass {
         return field;
     }
 
+    @ExpectNotNull
+    public Object testReturnNotNullField() {
+        return new NullabilityInferenceTestLib().notNullField;
+    }
+
     public Object testReturnStaticField() {
         return staticField;
+    }
+
+    @ExpectNullable
+    public Object testReturnNullableStaticField() {
+        return NullabilityInferenceTestLib.nullableStaticField;
     }
 
     @ExpectNotNull

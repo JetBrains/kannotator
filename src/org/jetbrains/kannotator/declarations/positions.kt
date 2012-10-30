@@ -26,6 +26,8 @@ class PositionsForMethod(val method: Method) {
     public fun forReturnType(): AnnotatedType = get(RETURN_TYPE)
 }
 
+public fun getFieldTypePosition(field: Field) : FieldTypePosition = FieldTypePositionImpl(field)
+
 public fun getFieldAnnotatedType(field: Field) : AnnotatedType {
     return AnnotatedTypeImpl(FieldTypePositionImpl(field), "Field annotation type", emptyList())
 }
