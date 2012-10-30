@@ -126,15 +126,24 @@ fun Field(declaringClass: ClassName,
           name: String,
           desc: String,
           signature: String? = null,
-          value: Any? = null): Field = Field(declaringClass, Access(access), FieldId(name), signature)
+          value: Any? = null): Field = Field(declaringClass, Access(access), FieldId(name), desc, signature, value)
 
 data class Field(
         override val declaringClass: ClassName,
         override val access: Access,
         val id: FieldId,
-        val genericSignature: String? = null) : ClassMember {
-    override val name: String = id.fieldName
+        desc: String,
+        val genericSignature: String? = null,
+        value: Any? = null) : ClassMember {
+
+    override val name = id.fieldName
+
+    public val value : Any? = value
+    public val desc : String = desc
+
     public fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.fieldName;
     }
 }
+
+fun Field.getType(): Type = Type.getReturnType(desc)
