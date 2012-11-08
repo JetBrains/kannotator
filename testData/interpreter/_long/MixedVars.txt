@@ -1,0 +1,647 @@
+interpreter/_long/MixedVars
+
+interpreter._long.MixedVars:<init>()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+  Stack
+Offset 1: LINENUMBER 3 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+  Stack
+Offset 2: ALOAD 0
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+  Stack
+    stack[0] = [Linterpreter/_long/MixedVars;#0]
+Offset 3: INVOKESPECIAL java/lang/Object.<init> ()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+  Stack
+Offset 4: RETURN
+==========================================================================================
+
+
+
+interpreter._long.MixedVars:run(Ljava/lang/Object;)J
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 1: LINENUMBER 6 L0
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 2: ALOAD 1
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [1!Ljava/lang/Object;#1]
+Offset 3: IFNULL L1
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 5: LINENUMBER 7 L2
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 6: INVOKESTATIC java/lang/Math.random ()D
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 7: LDC 0.5
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+    stack[1] = [P2#-1]
+Offset 8: DCMPL
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 9: IFLE L3
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 10: ICONST_0
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 11: GOTO L4
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 13: FRAME SAME
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 14: ICONST_1
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 16: FRAME SAME1 I
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 17: ISTORE 4
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 19: LINENUMBER 8 L5
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 20: ICONST_0
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 21: ISTORE 5
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 23: LINENUMBER 9 L6
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 24: ILOAD 4
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 25: ILOAD 5
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+    stack[1] = [P1#-1]
+Offset 26: IADD
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 27: I2L
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 28: LSTORE 2
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P2#-1]
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 30: LINENUMBER 10 L7
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P2#-1]
+    locals[3] = []
+    locals[4] = [P1#-1]
+    locals[5] = [P1#-1]
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 31: GOTO L8
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 33: LINENUMBER 11 L1
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 34: FRAME SAME
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 35: INVOKESTATIC java/lang/Math.random ()D
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 36: LDC 0.5
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+    stack[1] = [P2#-1]
+Offset 37: DCMPL
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P1#-1]
+Offset 38: IFLE L9
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 39: LDC 12
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 40: GOTO L10
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 42: FRAME SAME
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 43: LDC 21
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 45: FRAME SAME1 J
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = []
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 46: LSTORE 4
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 48: LINENUMBER 12 L11
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+Offset 49: LDC 10
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = []
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 50: LSTORE 6
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+Offset 52: LINENUMBER 13 L12
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+Offset 53: LLOAD 4
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 54: LLOAD 6
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+    stack[1] = [P2#-1]
+Offset 55: LADD
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = []
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = []
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 56: LSTORE 2
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P2#-1]
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = [P1#-1]
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+Offset 58: LINENUMBER 15 L8
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P2#-1]
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = [P1#-1]
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+Offset 59: FRAME APPEND [J]
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P2#-1]
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = [P1#-1]
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+Offset 60: LLOAD 2
+Frame
+  Locals
+    locals[0] = [Linterpreter/_long/MixedVars;#0]
+    locals[1] = [1!Ljava/lang/Object;#1]
+    locals[2] = [P2#-1]
+    locals[3] = []
+    locals[4] = [P2#-1]
+    locals[5] = [P1#-1]
+    locals[6] = [P2#-1]
+    locals[7] = []
+  Stack
+    stack[0] = [P2#-1]
+Offset 61: LRETURN
+==========================================================================================
+
+

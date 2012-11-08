@@ -76,10 +76,14 @@ private class PossibleTypedValues(val _size: Int, val values: Set<TypedValue>) :
 }
 
 fun PossibleTypedValues.merge(other: PossibleTypedValues): PossibleTypedValues {
-    assert(getSize() == other.getSize()) {"Sizes don't match"}
-
     if (values.isEmpty()) return other
     if (other.values.isEmpty()) return this
+
+    if (getSize() != other.getSize()) {
+        // In case of merging  of variables with different sizes (e.g. int and long)
+        // both variables are not used after merge
+        return EMPTY_VALUES
+    }
 
     val mergedSet = UnifiedSetWithHashingStrategy(object : HashingStrategy<TypedValue> {
         public override fun equals(object1: TypedValue?, object2: TypedValue?): Boolean {

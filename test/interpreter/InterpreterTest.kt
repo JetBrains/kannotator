@@ -28,6 +28,10 @@ class InterpreterTest : TestCase() {
         doTest(javaClass<interpreter._long.Test.Listener>())
     }
 
+    fun testMixedVars() {
+        doTest(javaClass<interpreter._long.MixedVars>())
+    }
+
     fun testJSR_RET() {
         val name = "EDU/oswego/cs/dl/util/concurrent/ClockDaemon\$RunLoop"
         doTest(File("testData/interpreter"), ClassReader(name))
