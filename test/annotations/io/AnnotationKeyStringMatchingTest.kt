@@ -51,10 +51,10 @@ class AnnotationKeyStringMatchingTest : TestCase() {
                 arrayList(File("lib")))
     }
 
-    fun testJdk() {
+    /*fun testJdk() {
         doTest(arrayList(File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar")),
                 arrayList(File("/Volumes/WD600/work/kotlin/jdk-annotations")))
-    }
+    }*/
 
 }
 
