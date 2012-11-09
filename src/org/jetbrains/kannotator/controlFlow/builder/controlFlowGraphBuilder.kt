@@ -84,18 +84,18 @@ private class GraphBuilderAnalyzer(
     }
 
     protected override fun newControlFlowExceptionEdge(insn: Int, successor: Int): Boolean {
-        createEdge(insn, successor)
+        createEdge(insn, successor, true)
         return super<Analyzer>.newControlFlowExceptionEdge(insn, successor)
     }
 
     protected override fun newControlFlowEdge(insn: Int, successor: Int) {
-        createEdge(insn, successor)
+        createEdge(insn, successor, false)
         super<Analyzer>.newControlFlowEdge(insn, successor)
     }
 
-    private fun createEdge(from: Int, to: Int) {
+    private fun createEdge(from: Int, to: Int, exception: Boolean) {
         if (edges.add(Pair(instructions[from], instructions[to]))) {
-            graph.addEdge(instructions[from], instructions[to])
+            graph.addEdge(instructions[from], instructions[to], exception)
         }
     }
 

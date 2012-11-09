@@ -10,6 +10,7 @@ public trait ControlFlowGraph {
 public trait ControlFlowEdge {
     val from: Instruction
     val to: Instruction
+    val exception: Boolean
 }
 
 public trait Instruction : DataHolder<Instruction> {

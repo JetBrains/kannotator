@@ -40,19 +40,27 @@ class FramesNullabilityManager(
         return mergeValueNullabilityMaps(positions, annotations, declarationIndex, incomingEdgesMaps)
     }
 
+    data class BranchingInstructionEdges (val falseEdge: ControlFlowEdge, val trueEdge: ControlFlowEdge, val exceptionEdges: Collection<ControlFlowEdge>)
+
     fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
         val state = instruction[STATE_BEFORE]!!
 
         val infosForInstruction = mergeInfosFromIncomingEdges(instruction)
 
-        fun getFalseTrueEdges(): Pair<ControlFlowEdge, ControlFlowEdge> {
-            // first outgoing edge is 'false', second is 'true'
-            // this order is is provided by code in ASM's Analyzer
-            val it = instruction.outgoingEdges.iterator()
-            assertTrue(instruction.outgoingEdges.size() >= 2,  "Too few outgoing edges: $instruction")
-            val result = Pair(it.next(), it.next())
-            assertFalse(it.hasNext(), "Too many outgoing edges: $instruction") // should be exactly two edges!
-            return result
+        fun getFalseTrueEdges(): BranchingInstructionEdges {
+            // first outgoing edge is 'false', second is 'true', remaining (if any) are exceptions-related
+            // this order is provided by code in ASM's Analyzer
+
+            val (exceptionEdges, falseTrueEdges) = instruction.outgoingEdges.partition { e -> e.exception }
+
+            assertTrue(falseTrueEdges.size() in 1..2,  "Instruction must have one 'true' and one optional 'false' outgoing edge: $instruction")
+
+            // If there is only one non-exceptional edge, use it as both 'false' and 'true' edge (it means that corresponding 'if' has empty body)
+            val it = falseTrueEdges.iterator()
+            val falseEdge = it.next()
+            val trueEdge = if (it.hasNext()) it.next() else falseEdge
+
+            return BranchingInstructionEdges(falseEdge, trueEdge, exceptionEdges)
         }
 
         fun propagateConditionInfo(
@@ -73,38 +81,57 @@ class FramesNullabilityManager(
             setValueInfosForEdge(outgoingEdge, infosForEdge)
         }
 
+        // Note: propagator is used in the case of distinct 'false' (1st argument) and 'true' edges (2nd argument)
+        fun propagateBranchingInstructionEdges(
+                edges: BranchingInstructionEdges,
+                propagator: (ControlFlowEdge, ControlFlowEdge) -> Unit
+        ) {
+            val (falseEdge, trueEdge, remainingEdges) = getFalseTrueEdges()
+            if (trueEdge != falseEdge) {
+                propagator(falseEdge, trueEdge)
+            } else {
+                setValueInfosForEdge(falseEdge, infosForInstruction)
+            }
+
+            remainingEdges.forEach { edge -> setValueInfosForEdge(edge, infosForInstruction) }
+        }
+
         addInfoForDereferencingInstruction(instruction, infosForInstruction)
 
         val opcode = instruction.getOpcode()
         when (opcode) {
             IFNULL, IFNONNULL -> {
-                val (falseEdge, trueEdge) = getFalseTrueEdges()
+                propagateBranchingInstructionEdges(
+                        getFalseTrueEdges(),
+                        {(falseEdge, trueEdge) ->
+                            val (nullEdge, notNullEdge) =
+                            if (opcode == IFNULL) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                val (nullEdge, notNullEdge) =
-                    if (opcode == IFNULL) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
+                            propagateConditionInfo(nullEdge, state) { wasInfo ->
+                                if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
 
-                propagateConditionInfo(nullEdge, state) { wasInfo ->
-                    if (wasInfo == CONFLICT || wasInfo == NOT_NULL) CONFLICT else NULL }
-
-                propagateConditionInfo(notNullEdge, state) { wasInfo ->
-                    if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
-
+                            propagateConditionInfo(notNullEdge, state) { wasInfo ->
+                                if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+                        }
+                )
                 return infosForInstruction
             }
             IFEQ, IFNE -> {
                 if (instruction.incomingEdges.size == 1) {
                     val previousInstruction = instruction.incomingEdges.first().from
                     if (previousInstruction.getOpcode() == INSTANCEOF) {
-                        val (falseEdge, trueEdge) = getFalseTrueEdges()
+                        propagateBranchingInstructionEdges(
+                                getFalseTrueEdges(),
+                                {(falseEdge, trueEdge) ->
+                                    val (instanceOfEdge, notInstanceOfEdge) =
+                                    if (opcode == IFNE) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
 
-                        val (instanceOfEdge, notInstanceOfEdge) =
-                            if (opcode == IFNE) Pair(trueEdge, falseEdge) else Pair(falseEdge, trueEdge)
+                                    propagateConditionInfo(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
+                                    { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
 
-                        propagateConditionInfo(instanceOfEdge, previousInstruction[STATE_BEFORE]!!)
-                            { wasInfo -> if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
-
-                        propagateConditionInfo(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
-
+                                    propagateConditionInfo(notInstanceOfEdge, previousInstruction[STATE_BEFORE]!!, null)
+                                }
+                        )
                         return infosForInstruction
                     }
                 }

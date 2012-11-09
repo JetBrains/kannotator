@@ -36,12 +36,12 @@ public class ControlFlowGraphBuilder<L: Any> {
         }
     }
 
-    public fun addEdge(from: Instruction, to: Instruction) {
+    public fun addEdge(from: Instruction, to: Instruction, exception: Boolean) {
         checkFinished()
         instructions.add(from as InstructionImpl)
         instructions.add(to as InstructionImpl)
 
-        val edge = ControlFlowEdgeImpl(from, to)
+        val edge = ControlFlowEdgeImpl(from, to, exception)
 
         from.outgoingEdges.add(edge)
         to.incomingEdges.add(edge)
@@ -76,7 +76,8 @@ private class InstructionImpl(
 
 private class ControlFlowEdgeImpl(
         override val from: Instruction,
-        override val to: Instruction
+        override val to: Instruction,
+        override val exception: Boolean
 ) : ControlFlowEdge {
     public fun toString(): String = "${from.metadata} -> ${to.metadata}"
 }
