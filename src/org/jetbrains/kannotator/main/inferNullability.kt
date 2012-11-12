@@ -80,13 +80,19 @@ fun inferNullabilityAnnotations(
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
         progressMonitor.processingStarted(methods.keySet())
 
+        fun dependentMembersInsideThisComponent(m: Method): Collection<Method> {
+            return methods.getOrThrow(m)
+                    .map {e -> e.from.method} // dependent members
+                    .filter {m -> m in methods.keySet()} // only inside this component
+        }
+
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
 
         inferAnnotationsOnMutuallyRecursiveMethods(
                 declarationIndex,
                 resultingAnnotations,
                 methods.keySet(),
-                { m -> methods.getOrThrow(m).map {e -> e.to.method} },
+                { m -> dependentMembersInsideThisComponent(m) },
                 { m -> methodToGraph.getOrThrow(m) },
                 progressMonitor
         )
