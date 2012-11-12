@@ -22,8 +22,7 @@ import util.assertEqualsOrCreate
 
 class IntegratedInferenceTest : TestCase() {
     fun test() {
-
-        val jars = findJarFiles(arrayList(File("lib")))
+        val jars = findJarFiles(arrayList(File("lib"))).filter {f -> f.getName() != "kotlin-runtime.jar"}
 
         var errors = false
 
