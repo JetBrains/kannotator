@@ -12,12 +12,18 @@ import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import util.findJarFiles
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.declarations.Method
+import kotlinlib.removeSuffix
+import java.io.FileInputStream
+import interpreter.readWithBuffer
+import java.util.TreeMap
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import java.util.ArrayList
+import util.assertEqualsOrCreate
 
 class IntegratedInferenceTest : TestCase() {
     fun test() {
+
         val jars = findJarFiles(arrayList(File("lib")))
-//        val jars = arrayList(File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar"))
-//        val jars = arrayList(File("lib/junit-4.10.jar"))
 
         var errors = false
 
@@ -25,7 +31,8 @@ class IntegratedInferenceTest : TestCase() {
             println("start: $jar")
             var currentMethod: Method? = null
             try {
-                val outFile = File("testData/inferenceData/integrated/${jar.getName()}.annotations.txt")
+                val expectedFile = File("testData/inferenceData/integrated/${jar.getName()}.annotations.txt")
+                val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
                 outFile.getParentFile()!!.mkdirs()
 
                 val inferred = inferNullabilityAnnotations(arrayList(jar), Collections.emptyList(),
@@ -35,14 +42,23 @@ class IntegratedInferenceTest : TestCase() {
                             }
                         })
 
+                val map = TreeMap<String, NullabilityAnnotation>()
+                inferred forEach {
+                    pos, ann -> map.put(pos.toAnnotationKey(), ann)
+                }
+
                 PrintStream(FileOutputStream(outFile)) use {
                     p ->
-                    inferred forEach {
-                        pos, ann ->
-                        p.println(pos.toAnnotationKey())
-                        p.println("$ann")
+                    for ((key, ann) in map) {
+                        p.println(key)
+                        p.println(ann)
                     }
                 }
+
+                assertEqualsOrCreate(expectedFile, outFile.readText(), false)
+
+                outFile.delete()
+
                 println("success")
             } catch (e: Throwable) {
                 System.err.println("Working on $currentMethod")
