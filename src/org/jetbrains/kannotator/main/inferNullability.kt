@@ -40,7 +40,8 @@ open class ProgressMonitor {
 fun inferNullabilityAnnotations(
         jarOrClassFiles: Collection<File>,
         existingAnnotationFiles: Collection<File>,
-        progressMonitor: ProgressMonitor = ProgressMonitor()
+        progressMonitor: ProgressMonitor = ProgressMonitor(),
+        showErrors: Boolean = true
 ): Annotations<NullabilityAnnotation> {
     val classSource = FileBasedClassSource(jarOrClassFiles)
 
@@ -55,7 +56,7 @@ fun inferNullabilityAnnotations(
     progressMonitor.totalMethods(methodNodes.size)
 
     // TODO Load annotations from .class files too, see MethodNode.visibleParameterAnnotations and MethodNode.invisibleParameterAnnotations
-    val existingNullabilityAnnotations = loadNullabilityAnnotations(existingAnnotationFiles, declarationIndex)
+    val existingNullabilityAnnotations = loadNullabilityAnnotations(existingAnnotationFiles, declarationIndex, showErrors)
 
     val resultingAnnotations = AnnotationsImpl(existingNullabilityAnnotations)
 
@@ -144,7 +145,8 @@ private fun inferAnnotationsOnMutuallyRecursiveMethods(
 
 fun loadNullabilityAnnotations(
         annotationFiles: Collection<File>,
-        keyIndex: AnnotationKeyIndex): Annotations<NullabilityAnnotation>
+        keyIndex: AnnotationKeyIndex,
+        showErrorIfPositionNotFound: Boolean = true): Annotations<NullabilityAnnotation>
 {
     val nullabilityAnnotations = AnnotationsImpl<NullabilityAnnotation>()
 
@@ -154,7 +156,9 @@ fun loadNullabilityAnnotations(
                 key, annotations ->
                 val position = keyIndex.findPositionByAnnotationKeyString(key)
                 if (position == null) {
-                    error("Position not found for $key")
+                    if (showErrorIfPositionNotFound) {
+                        error("Position not found for $key")
+                    }
                 }
                 else {
                     for (data in annotations) {

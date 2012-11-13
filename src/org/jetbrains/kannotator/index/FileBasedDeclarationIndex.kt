@@ -16,6 +16,8 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import org.jetbrains.kannotator.annotations.io.tryParseMethodAnnotationKey
+import org.jetbrains.kannotator.annotations.io.tryParseFieldAnnotationKey
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
@@ -72,11 +74,8 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
         return classes[owner]?.fieldsById?.get(FieldId(name))
     }
 
-    override fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition? {
-        val (canonicalClassName, _, methodName) = parseMethodAnnotationKey(annotationKey)
-        val classes = classesByCanonicalName[canonicalClassName]
-        if (classes == null) return null
-
+    private fun findMethodPositionByAnnotationKeyString(
+            annotationKey: String, classes: MutableCollection<ClassData>, methodName: String): AnnotationPosition? {
         for (classData in classes) {
             val methods = classData.methodsByName[methodName]
             if (methods == null) continue
@@ -89,6 +88,33 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
             }
         }
         return null
+    }
+
+    private fun findFieldPositionByAnnotationKeyString(
+            classes: MutableCollection<ClassData>, fieldName: String): AnnotationPosition? {
+        val fieldId = FieldId(fieldName)
+        for (classData in classes) {
+            val field = classData.fieldsById[fieldId]
+            if (field == null) continue
+            return getFieldTypePosition(field)
+        }
+        return null
+    }
+
+    override fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition? {
+        val methodAnnotationKey = tryParseMethodAnnotationKey(annotationKey)
+        if (methodAnnotationKey != null) {
+            val classes = classesByCanonicalName[methodAnnotationKey.canonicalClassName]
+            return if (classes != null) findMethodPositionByAnnotationKeyString(annotationKey, classes, methodAnnotationKey.methodName) else null
+        }
+
+        val fieldAnnotationKey = tryParseFieldAnnotationKey(annotationKey)
+        if (fieldAnnotationKey != null) {
+            val classes = classesByCanonicalName[fieldAnnotationKey.canonicalClassName]
+            return if (classes != null) findFieldPositionByAnnotationKeyString(classes, fieldAnnotationKey.fieldName) else null
+        }
+
+        throw IllegalArgumentException("Can't parse annotation key $annotationKey")
     }
 }
 
