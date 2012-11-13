@@ -15,20 +15,34 @@ data class FieldAnnotationKeyData(
 )
 
 private val METHOD_ANNOTATION_KEY_PATTERN = Pattern.compile("""([\w\.]+) (.*?)\s?([\w<>$]+)\(""")
-private val FIELD_ANNOTATION_KEY_PATTERN = Pattern.compile("""([\w\.]+) ([\w$]+)""")
+private val FIELD_ANNOTATION_KEY_PATTERN = Pattern.compile("""(\w+(\.\w+)*)\s+(\w+)""")
 
-fun parseMethodAnnotationKey(annotationKey: String): MethodAnnotationKeyData {
+fun tryParseMethodAnnotationKey(annotationKey: String): MethodAnnotationKeyData? {
     val matcher = METHOD_ANNOTATION_KEY_PATTERN.matcher(annotationKey)
     if (!matcher.find()) {
-        throw IllegalArgumentException("Can't parse annotation key $annotationKey")
+        return null
     }
     return MethodAnnotationKeyData(matcher[1]!!, matcher[2]!!, matcher[3]!!)
 }
 
-fun parseFieldAnnotationKey(annotationKey: String): FieldAnnotationKeyData {
+fun parseMethodAnnotationKey(annotationKey: String): MethodAnnotationKeyData {
+    val data = tryParseMethodAnnotationKey(annotationKey)
+    if (data != null)
+        return data
+    throw IllegalArgumentException("Can't parse annotation key $annotationKey as method key")
+}
+
+fun tryParseFieldAnnotationKey(annotationKey: String): FieldAnnotationKeyData? {
     val matcher = FIELD_ANNOTATION_KEY_PATTERN.matcher(annotationKey)
     if (!matcher.find()) {
-        throw IllegalArgumentException("Can't parse annotation key $annotationKey as field key")
+        return null
     }
-    return FieldAnnotationKeyData(matcher[1]!!, matcher[2]!!)
+    return FieldAnnotationKeyData(matcher[1]!!, matcher[3]!!)
+}
+
+fun parseFieldAnnotationKey(annotationKey: String): FieldAnnotationKeyData {
+    val data = tryParseFieldAnnotationKey(annotationKey)
+    if (data != null)
+        return data
+    throw IllegalArgumentException("Can't parse annotation key $annotationKey as field key")
 }

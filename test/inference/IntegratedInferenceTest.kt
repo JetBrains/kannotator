@@ -19,9 +19,40 @@ import java.util.TreeMap
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.util.ArrayList
 import util.assertEqualsOrCreate
+import kotlinlib.recurseFiltered
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.declarations.AnnotationPosition
+import kotlin.test.assertTrue
+import org.jetbrains.kannotator.declarations.Annotations
 
 class IntegratedInferenceTest : TestCase() {
+    private fun checkConflicts(conflictFile: File, inferred: Annotations<NullabilityAnnotation>) {
+        val existingAnnotations = (inferred as AnnotationsImpl<NullabilityAnnotation>).delegate
+        if (existingAnnotations != null) {
+            val conflicts = ArrayList<Triple<AnnotationPosition, NullabilityAnnotation, NullabilityAnnotation>>()
+            existingAnnotations forEach {
+                pos, ann ->
+                if (inferred[pos] != ann) {
+                    conflicts.add(Triple(pos, ann, inferred[pos]!!))
+                }
+            }
+            if (!conflicts.isEmpty()) {
+                PrintStream(FileOutputStream(conflictFile)) use {
+                    p ->
+                    for ((key, expectedAnn, inferredAnn) in conflicts) {
+                        p.println("Conflict at ${key.toAnnotationKey()}")
+                        p.println("\t expected: $expectedAnn, inferred: $inferredAnn")
+                    }
+                }
+            }
+            assertTrue("Found annotation conflicts", conflicts.isEmpty())
+        }
+    }
+
     fun test() {
+        val annotationFiles = ArrayList<File>()
+        File("lib").recurseFiltered({f -> f.isFile() && f.getName().endsWith(".xml")}, {f -> annotationFiles.add(f)})
+
         val jars = findJarFiles(arrayList(File("lib"))).filter {f -> f.getName() != "kotlin-runtime.jar"}
 
         var errors = false
@@ -34,12 +65,14 @@ class IntegratedInferenceTest : TestCase() {
                 val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
                 outFile.getParentFile()!!.mkdirs()
 
-                val inferred = inferNullabilityAnnotations(arrayList(jar), Collections.emptyList(),
+                val inferred = inferNullabilityAnnotations(arrayList(jar), annotationFiles,
                         object : ProgressMonitor() {
                             override fun processingStepStarted(method: Method) {
                                 currentMethod = method
                             }
-                        })
+                        },
+                        false
+                )
 
                 val map = TreeMap<String, NullabilityAnnotation>()
                 inferred forEach {
@@ -57,6 +90,8 @@ class IntegratedInferenceTest : TestCase() {
                 assertEqualsOrCreate(expectedFile, outFile.readText(), false)
 
                 outFile.delete()
+
+                checkConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflict.txt"), inferred)
 
                 println("success")
             } catch (e: Throwable) {

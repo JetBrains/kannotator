@@ -30,6 +30,8 @@ com.ctc.wstx.api.ReaderConfig sProperties
 NOT_NULL
 com.ctc.wstx.api.ReaderConfig void setCustomInternalEntities(java.util.Map) 0
 NULLABLE
+com.ctc.wstx.api.ValidatorConfig com.ctc.wstx.api.ValidatorConfig createDefaults()
+NOT_NULL
 com.ctc.wstx.api.ValidatorConfig java.lang.Object getProperty(int)
 NULLABLE
 com.ctc.wstx.api.ValidatorConfig sInstance
@@ -72,6 +74,8 @@ com.ctc.wstx.compat.Jdk14Impl java.util.HashMap getInsertOrderedMap(int)
 NOT_NULL
 com.ctc.wstx.compat.Jdk14Impl java.util.HashMap getLRULimitMap(int)
 NOT_NULL
+com.ctc.wstx.compat.JdkFeatures com.ctc.wstx.compat.JdkImpl getInstance()
+NULLABLE
 com.ctc.wstx.compat.JdkFeatures sInstance
 NULLABLE
 com.ctc.wstx.dom.DOMWrappingReader DOMWrappingReader(com.ctc.wstx.api.ReaderConfig, org.w3c.dom.Node, java.lang.String) 0
@@ -128,7 +132,11 @@ com.ctc.wstx.dom.DOMWrappingReader java.lang.String safeGetLocalName(org.w3c.dom
 NULLABLE
 com.ctc.wstx.dom.DOMWrappingReader java.lang.String safeGetLocalName(org.w3c.dom.Node) 0
 NOT_NULL
+com.ctc.wstx.dom.DOMWrappingReader java.util.Iterator getPrefixes(java.lang.String)
+NOT_NULL
 com.ctc.wstx.dom.DOMWrappingReader javax.xml.namespace.NamespaceContext getNamespaceContext()
+NOT_NULL
+com.ctc.wstx.dom.DOMWrappingReader javax.xml.namespace.NamespaceContext getNonTransientNamespaceContext()
 NOT_NULL
 com.ctc.wstx.dom.DOMWrappingReader javax.xml.namespace.QName constructQName(java.lang.String, java.lang.String, java.lang.String)
 NOT_NULL
@@ -426,7 +434,11 @@ com.ctc.wstx.dtd.DTDValidatorBase void doReportValidationProblem(java.lang.Strin
 NULLABLE
 com.ctc.wstx.dtd.DefaultAttrValue com.ctc.wstx.dtd.DefaultAttrValue constructFixed()
 NOT_NULL
+com.ctc.wstx.dtd.DefaultAttrValue com.ctc.wstx.dtd.DefaultAttrValue constructImplied()
+NOT_NULL
 com.ctc.wstx.dtd.DefaultAttrValue com.ctc.wstx.dtd.DefaultAttrValue constructOptional()
+NOT_NULL
+com.ctc.wstx.dtd.DefaultAttrValue com.ctc.wstx.dtd.DefaultAttrValue constructRequired()
 NOT_NULL
 com.ctc.wstx.dtd.DefaultAttrValue java.lang.String getValueIfOk()
 NULLABLE
@@ -446,6 +458,10 @@ com.ctc.wstx.dtd.ElementIdMap int calcHash(char[], int, int) 0
 NOT_NULL
 com.ctc.wstx.dtd.ElementIdMap int calcHash(java.lang.String) 0
 NOT_NULL
+com.ctc.wstx.dtd.EmptyValidator com.ctc.wstx.dtd.EmptyValidator getEmptyInstance()
+NOT_NULL
+com.ctc.wstx.dtd.EmptyValidator com.ctc.wstx.dtd.EmptyValidator getPcdataInstance()
+NOT_NULL
 com.ctc.wstx.dtd.EmptyValidator com.ctc.wstx.dtd.StructValidator newInstance()
 NOT_NULL
 com.ctc.wstx.dtd.EmptyValidator java.lang.String fullyValid()
@@ -462,6 +478,8 @@ com.ctc.wstx.dtd.FullDTDReader FullDTDReader(com.ctc.wstx.io.WstxInputSource, co
 NOT_NULL
 com.ctc.wstx.dtd.FullDTDReader char[] parseEntityValue(java.lang.String, javax.xml.stream.Location, char)
 NULLABLE
+com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.ContentSpec readContentSpec(com.ctc.wstx.dtd.NameKey, boolean, boolean)
+NOT_NULL
 com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.DTDSubset flattenExternalSubset(com.ctc.wstx.io.WstxInputSource, java.io.Writer, boolean, boolean, boolean)
 NOT_NULL
 com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.DTDSubset flattenExternalSubset(com.ctc.wstx.io.WstxInputSource, java.io.Writer, boolean, boolean, boolean) 1
@@ -568,6 +586,8 @@ com.ctc.wstx.dtd.TokenContentSpec com.ctc.wstx.dtd.StructValidator getSimpleVali
 NOT_NULL
 com.ctc.wstx.dtd.TokenContentSpec com.ctc.wstx.dtd.TokenContentSpec construct(char, com.ctc.wstx.dtd.NameKey)
 NOT_NULL
+com.ctc.wstx.dtd.TokenContentSpec com.ctc.wstx.dtd.TokenContentSpec getDummySpec()
+NOT_NULL
 com.ctc.wstx.dtd.TokenContentSpec sDummy
 NOT_NULL
 com.ctc.wstx.dtd.TokenContentSpec.Validator com.ctc.wstx.dtd.StructValidator newInstance()
@@ -581,6 +601,8 @@ NOT_NULL
 com.ctc.wstx.dtd.TokenModel NULL_TOKEN
 NOT_NULL
 com.ctc.wstx.dtd.TokenModel com.ctc.wstx.dtd.ModelNode cloneModel()
+NOT_NULL
+com.ctc.wstx.dtd.TokenModel com.ctc.wstx.dtd.TokenModel getNullToken()
 NOT_NULL
 com.ctc.wstx.dtd.TokenModel void addFirstPos(java.util.BitSet) 0
 NOT_NULL
@@ -634,6 +656,8 @@ com.ctc.wstx.evt.CompactStartElement com.ctc.wstx.evt.WAttribute constructAttr(j
 NOT_NULL
 com.ctc.wstx.evt.CompactStartElement javax.xml.stream.events.Attribute getAttributeByName(javax.xml.namespace.QName)
 NULLABLE
+com.ctc.wstx.evt.DefaultEventAllocator com.ctc.wstx.evt.DefaultEventAllocator getDefaultInstance()
+NOT_NULL
 com.ctc.wstx.evt.DefaultEventAllocator com.ctc.wstx.evt.DefaultEventAllocator getFastInstance()
 NOT_NULL
 com.ctc.wstx.evt.DefaultEventAllocator java.lang.Object withStartElement(javax.xml.stream.Location, javax.xml.namespace.QName, com.ctc.wstx.util.BaseNsContext, com.ctc.wstx.sr.ElemAttrs, boolean)
@@ -834,6 +858,8 @@ com.ctc.wstx.io.DefaultInputResolver java.io.Reader constructOptimizedReader(com
 NOT_NULL
 com.ctc.wstx.io.DefaultInputResolver java.io.Reader constructOptimizedReader(com.ctc.wstx.api.ReaderConfig, java.io.InputStream, boolean, java.lang.String) 0
 NOT_NULL
+com.ctc.wstx.io.EBCDICCodec int[] getCp037Mapping()
+NOT_NULL
 com.ctc.wstx.io.EBCDICCodec sCodePage037
 NOT_NULL
 com.ctc.wstx.io.InputBootstrapper java.lang.String readXmlEncoding()
@@ -921,6 +947,8 @@ NOT_NULL
 com.ctc.wstx.io.WstxInputData sPubidValidity
 NOT_NULL
 com.ctc.wstx.io.WstxInputData void copyBufferStateFrom(com.ctc.wstx.io.WstxInputData) 0
+NOT_NULL
+com.ctc.wstx.io.WstxInputLocation com.ctc.wstx.io.WstxInputLocation getEmptyLocation()
 NOT_NULL
 com.ctc.wstx.io.WstxInputLocation sEmptyLocation
 NOT_NULL
@@ -1222,6 +1250,14 @@ com.ctc.wstx.sr.NonNsAttributeCollector int addDefaultAttribute(java.lang.String
 NOT_NULL
 com.ctc.wstx.sr.NonNsAttributeCollector int[] spillAttr(java.lang.String, int[], int, int, int, int, int)
 NULLABLE
+com.ctc.wstx.sr.NonNsAttributeCollector java.lang.String getNsPrefix(int)
+NULLABLE
+com.ctc.wstx.sr.NonNsAttributeCollector java.lang.String getNsURI(int)
+NULLABLE
+com.ctc.wstx.sr.NonNsAttributeCollector java.lang.String getPrefix(int)
+NULLABLE
+com.ctc.wstx.sr.NonNsAttributeCollector java.lang.String getURI(int)
+NULLABLE
 com.ctc.wstx.sr.NonNsAttributeCollector java.lang.String getValue(java.lang.String, java.lang.String)
 NULLABLE
 com.ctc.wstx.sr.NonNsAttributeCollector java.lang.String getValue(java.lang.String, java.lang.String) 0
@@ -1232,6 +1268,8 @@ com.ctc.wstx.sr.NonNsAttributeCollector void writeAttribute(int, com.ctc.wstx.sw
 NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack boolean matches(java.lang.String, java.lang.String) 0
 NULLABLE
+com.ctc.wstx.sr.NonNsInputElementStack com.ctc.wstx.util.BaseNsContext createNonTransientNsContext(javax.xml.stream.Location)
+NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack int findAttributeIndex(java.lang.String, java.lang.String) 0
@@ -1250,6 +1288,8 @@ com.ctc.wstx.sr.NonNsInputElementStack java.lang.String getPrefix()
 NULLABLE
 com.ctc.wstx.sr.NonNsInputElementStack java.lang.String getPrefix(java.lang.String)
 NULLABLE
+com.ctc.wstx.sr.NonNsInputElementStack java.util.Iterator getPrefixes(java.lang.String)
+NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack javax.xml.namespace.QName getCurrentElementName()
 NULLABLE
 com.ctc.wstx.sr.NsAttributeCollector DEFAULT_NS_URI
@@ -1840,6 +1880,8 @@ com.ctc.wstx.sw.NonNsStreamWriter java.lang.String getNamespaceURI(java.lang.Str
 NULLABLE
 com.ctc.wstx.sw.NonNsStreamWriter java.lang.String getPrefix(java.lang.String)
 NULLABLE
+com.ctc.wstx.sw.NonNsStreamWriter javax.xml.namespace.NamespaceContext getNamespaceContext()
+NOT_NULL
 com.ctc.wstx.sw.NonNsStreamWriter javax.xml.namespace.QName getCurrentElementName()
 NULLABLE
 com.ctc.wstx.sw.NonNsStreamWriter void copyStartElement(com.ctc.wstx.sr.InputElementStack, com.ctc.wstx.sr.AttributeCollector) 0
@@ -1988,6 +2030,8 @@ com.ctc.wstx.util.DataUtil boolean anyValuesInCommon(java.util.Collection, java.
 NOT_NULL
 com.ctc.wstx.util.DataUtil boolean anyValuesInCommon(java.util.Collection, java.util.Collection) 1
 NOT_NULL
+com.ctc.wstx.util.DataUtil char[] getEmptyCharArray()
+NOT_NULL
 com.ctc.wstx.util.DataUtil int[] growArrayBy(int[], int)
 NOT_NULL
 com.ctc.wstx.util.DataUtil int[] growArrayBy(int[], int) 0
@@ -2004,6 +2048,14 @@ com.ctc.wstx.util.DefaultXmlSymbolTable com.ctc.wstx.util.SymbolTable getInstanc
 NOT_NULL
 com.ctc.wstx.util.DefaultXmlSymbolTable sInstance
 NOT_NULL
+com.ctc.wstx.util.EmptyIterator char[] getEmptyCharArray()
+NOT_NULL
+com.ctc.wstx.util.EmptyIterator com.ctc.wstx.util.EmptyIterator getInstance()
+NOT_NULL
+com.ctc.wstx.util.EmptyIterator int[] getEmptyIntArray()
+NOT_NULL
+com.ctc.wstx.util.EmptyIterator java.lang.String[] getEmptyStringArray()
+NOT_NULL
 com.ctc.wstx.util.EmptyIterator sInstance
 NOT_NULL
 com.ctc.wstx.util.EmptyIterator sNoChars
@@ -2012,11 +2064,19 @@ com.ctc.wstx.util.EmptyIterator sNoInts
 NOT_NULL
 com.ctc.wstx.util.EmptyIterator sNoStrings
 NOT_NULL
+com.ctc.wstx.util.EmptyNamespaceContext com.ctc.wstx.util.EmptyNamespaceContext getInstance()
+NOT_NULL
 com.ctc.wstx.util.EmptyNamespaceContext java.lang.String doGetNamespaceURI(java.lang.String)
 NULLABLE
 com.ctc.wstx.util.EmptyNamespaceContext java.lang.String doGetPrefix(java.lang.String)
 NULLABLE
+com.ctc.wstx.util.EmptyNamespaceContext java.util.Iterator doGetPrefixes(java.lang.String)
+NOT_NULL
+com.ctc.wstx.util.EmptyNamespaceContext java.util.Iterator getNamespaces()
+NOT_NULL
 com.ctc.wstx.util.EmptyNamespaceContext sInstance
+NOT_NULL
+com.ctc.wstx.util.InternCache com.ctc.wstx.util.InternCache getInstance()
 NOT_NULL
 com.ctc.wstx.util.InternCache java.lang.String intern(java.lang.String)
 NULLABLE

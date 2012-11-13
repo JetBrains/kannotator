@@ -1306,6 +1306,8 @@ cern.colt.matrix.ObjectMatrix3D void getNonZeros(cern.colt.list.IntArrayList, ce
 NOT_NULL
 cern.colt.matrix.bench.BenchmarkMatrix boolean handle(java.lang.String[]) 0
 NOT_NULL
+cern.colt.matrix.bench.BenchmarkMatrix cern.colt.matrix.DoubleFactory2D getFactory(java.lang.String)
+NOT_NULL
 cern.colt.matrix.bench.BenchmarkMatrix cern.colt.matrix.DoubleFactory2D getFactory(java.lang.String) 0
 NOT_NULL
 cern.colt.matrix.bench.BenchmarkMatrix cern.colt.matrix.bench.Double2DProcedure funAssign()
@@ -1522,6 +1524,8 @@ cern.colt.matrix.doublealgo.Statistic CANBERRA
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic EUCLID
 NOT_NULL
+cern.colt.matrix.doublealgo.Statistic F
+NOT_NULL
 cern.colt.matrix.doublealgo.Statistic MANHATTAN
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic MAXIMUM
@@ -1556,6 +1560,8 @@ cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix3D viewSample
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix3D viewSample(cern.colt.matrix.DoubleMatrix3D, double, double, double, cern.jet.random.engine.RandomEngine) 4
 NULLABLE
+cern.colt.matrix.doublealgo.Statistic cern.jet.math.Functions access$000()
+NOT_NULL
 cern.colt.matrix.doublealgo.Statistic hep.aida.IHistogram1D histogram(hep.aida.IHistogram1D, cern.colt.matrix.DoubleMatrix1D) 1
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic hep.aida.IHistogram2D cube(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D) 0
@@ -2232,6 +2238,14 @@ cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewS
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix3D void setQuick(int, int, int, java.lang.Object) 3
 NULLABLE
+cern.colt.matrix.impl.TestMatrix2D Factory2D
+NOT_NULL
+cern.colt.matrix.impl.TestMatrix2D LinearAlgebra
+NOT_NULL
+cern.colt.matrix.impl.TestMatrix2D Property
+NOT_NULL
+cern.colt.matrix.impl.TestMatrix2D Transform
+NOT_NULL
 cern.colt.matrix.impl.TestMatrix2D double[][] randomMatrix(int, cern.jet.random.engine.MersenneTwister)
 NOT_NULL
 cern.colt.matrix.impl.TestMatrix2D void doubleTest28(cern.colt.matrix.DoubleFactory2D) 0

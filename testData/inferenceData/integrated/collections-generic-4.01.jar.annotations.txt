@@ -94,9 +94,21 @@ org.apache.commons.collections15.BufferUtils org.apache.commons.collections15.Bu
 NOT_NULL
 org.apache.commons.collections15.BufferUtils org.apache.commons.collections15.Buffer<O> transformedBuffer(org.apache.commons.collections15.Buffer<I>, org.apache.commons.collections15.Transformer<I,O>)
 NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure exceptionClosure()
+NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure invokerClosure(java.lang.String)
+NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure invokerClosure(java.lang.String) 0
 NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure invokerClosure(java.lang.String, java.lang.Class[], java.lang.Object[])
+NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure invokerClosure(java.lang.String, java.lang.Class[], java.lang.Object[]) 0
+NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure nopClosure()
+NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<I> asClosure(org.apache.commons.collections15.Transformer<I,O>)
+NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> chainedClosure(java.util.Collection<T>)
 NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> chainedClosure(java.util.Collection<T>) 0
 NOT_NULL
@@ -106,6 +118,8 @@ org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.C
 NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> chainedClosure(org.apache.commons.collections15.Closure<T>, org.apache.commons.collections15.Closure<T>) 1
 NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> chainedClosure(org.apache.commons.collections15.Closure<T>[])
+NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> chainedClosure(org.apache.commons.collections15.Closure<T>[]) 0
 NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> doWhileClosure(org.apache.commons.collections15.Closure<? super T>, org.apache.commons.collections15.Predicate<? super T>)
@@ -113,6 +127,8 @@ NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> doWhileClosure(org.apache.commons.collections15.Closure<? super T>, org.apache.commons.collections15.Predicate<? super T>) 0
 NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> doWhileClosure(org.apache.commons.collections15.Closure<? super T>, org.apache.commons.collections15.Predicate<? super T>) 1
+NOT_NULL
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> forClosure(int, org.apache.commons.collections15.Closure<T>)
 NOT_NULL
 org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> ifClosure(org.apache.commons.collections15.Predicate<? super T>, org.apache.commons.collections15.Closure<? super T>, org.apache.commons.collections15.Closure<? super T>)
 NOT_NULL
@@ -308,6 +324,8 @@ org.apache.commons.collections15.ComparatorUtils java.util.Comparator<T> reverse
 NOT_NULL
 org.apache.commons.collections15.ComparatorUtils java.util.Comparator<T> reversedComparator(java.util.Comparator<T>) 0
 NULLABLE
+org.apache.commons.collections15.ComparatorUtils java.util.Comparator<java.lang.Boolean> booleanComparator(boolean)
+NOT_NULL
 org.apache.commons.collections15.EnumerationUtils java.util.List<E> toList(java.util.Enumeration<E>)
 NOT_NULL
 org.apache.commons.collections15.ExtendedProperties ExtendedProperties(java.lang.String, java.lang.String) 1
@@ -360,6 +378,12 @@ org.apache.commons.collections15.ExtendedProperties void save(java.io.OutputStre
 NULLABLE
 org.apache.commons.collections15.ExtendedProperties.PropertiesReader java.lang.String readProperty()
 NULLABLE
+org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory exceptionFactory()
+NOT_NULL
+org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory nullFactory()
+NOT_NULL
+org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory<T> constantFactory(T)
+NOT_NULL
 org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory<T> instantiateFactory(java.lang.Class<T>)
 NOT_NULL
 org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory<T> instantiateFactory(java.lang.Class<T>) 0
@@ -368,11 +392,19 @@ org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.F
 NOT_NULL
 org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory<T> instantiateFactory(java.lang.Class<T>, java.lang.Class[], java.lang.Object[]) 0
 NOT_NULL
+org.apache.commons.collections15.FactoryUtils org.apache.commons.collections15.Factory<T> prototypeFactory(T)
+NOT_NULL
 org.apache.commons.collections15.FunctorException FunctorException(java.lang.Throwable) 0
 NULLABLE
 org.apache.commons.collections15.FunctorException void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
 org.apache.commons.collections15.FunctorException void printStackTrace(java.io.PrintWriter) 0
+NOT_NULL
+org.apache.commons.collections15.IteratorUtils EMPTY_LIST_ITERATOR
+NOT_NULL
+org.apache.commons.collections15.IteratorUtils EMPTY_ORDERED_ITERATOR
+NOT_NULL
+org.apache.commons.collections15.IteratorUtils EMPTY_ORDERED_MAP_ITERATOR
 NOT_NULL
 org.apache.commons.collections15.IteratorUtils E[] toArray(java.util.Iterator<E>) 0
 NOT_NULL
@@ -454,6 +486,10 @@ org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.
 NOT_NULL
 org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.MapIterator<K,V> unmodifiableMapIterator(org.apache.commons.collections15.MapIterator<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.OrderedIterator emptyOrderedIterator()
+NOT_NULL
+org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.OrderedMapIterator emptyOrderedMapIterator()
+NOT_NULL
 org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableIterator<E> arrayIterator(E[])
 NOT_NULL
 org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableIterator<E> arrayIterator(E[], int)
@@ -471,6 +507,8 @@ NOT_NULL
 org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableIterator<E> loopingIterator(java.util.Collection<E>) 0
 NOT_NULL
 org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableIterator<E> singletonIterator(E)
+NOT_NULL
+org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableListIterator emptyListIterator()
 NOT_NULL
 org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableListIterator<E> arrayListIterator(E[])
 NOT_NULL
@@ -636,6 +674,8 @@ org.apache.commons.collections15.MapUtils void verbosePrintInternal(java.io.Prin
 NULLABLE
 org.apache.commons.collections15.MapUtils void verbosePrintInternal(java.io.PrintStream, java.lang.Object, java.util.Map, org.apache.commons.collections15.ArrayStack, boolean) 3
 NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate exceptionPredicate()
+NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate instanceofPredicate(java.lang.Class)
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate instanceofPredicate(java.lang.Class) 0
@@ -682,6 +722,12 @@ org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> eitherPredicate(org.apache.commons.collections15.Predicate<? super T>, org.apache.commons.collections15.Predicate<? super T>)
 NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> equalPredicate(T)
+NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> falsePredicate()
+NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> identityPredicate(T)
+NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> neitherPredicate(org.apache.commons.collections15.Predicate<? super T>, org.apache.commons.collections15.Predicate<? super T>)
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> nonePredicate(java.util.Collection<org.apache.commons.collections15.Predicate<? super T>>)
@@ -691,6 +737,8 @@ NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> nonePredicate(org.apache.commons.collections15.Predicate<? super T>...)
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> nonePredicate(org.apache.commons.collections15.Predicate<? super T>...) 0
+NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> notNullPredicate()
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> notPredicate(org.apache.commons.collections15.Predicate<T>)
 NOT_NULL
@@ -708,6 +756,8 @@ org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> nullIsTruePredicate(org.apache.commons.collections15.Predicate<T>) 0
 NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> nullPredicate()
+NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> onePredicate(java.util.Collection<org.apache.commons.collections15.Predicate<? super T>>)
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> onePredicate(java.util.Collection<org.apache.commons.collections15.Predicate<? super T>>) 0
@@ -721,6 +771,8 @@ NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> orPredicate(org.apache.commons.collections15.Predicate<? super T>, org.apache.commons.collections15.Predicate<? super T>) 0
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> orPredicate(org.apache.commons.collections15.Predicate<? super T>, org.apache.commons.collections15.Predicate<? super T>) 1
+NOT_NULL
+org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> truePredicate()
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate<T> uniquePredicate()
 NOT_NULL
@@ -756,6 +808,10 @@ org.apache.commons.collections15.SetUtils java.util.SortedSet<E> unmodifiableSor
 NOT_NULL
 org.apache.commons.collections15.SetUtils java.util.SortedSet<O> transformedSortedSet(java.util.SortedSet<I>, org.apache.commons.collections15.Transformer<? super I,? extends O>)
 NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer cloneTransformer()
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer exceptionTransformer()
+NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer invokerTransformer(java.lang.String)
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer invokerTransformer(java.lang.String) 0
@@ -763,6 +819,12 @@ NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer invokerTransformer(java.lang.String, java.lang.Class[], java.lang.Object[])
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer invokerTransformer(java.lang.String, java.lang.Class[], java.lang.Object[]) 0
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer nopTransformer()
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer nullTransformer()
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> chainedTransformer(java.util.Collection)
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> chainedTransformer(java.util.Collection) 0
 NOT_NULL
@@ -772,7 +834,11 @@ org.apache.commons.collections15.TransformerUtils org.apache.commons.collections
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> chainedTransformer(org.apache.commons.collections15.Transformer<I,? extends M>, org.apache.commons.collections15.Transformer<? super M,O>) 1
 NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> chainedTransformer(org.apache.commons.collections15.Transformer[])
+NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> chainedTransformer(org.apache.commons.collections15.Transformer[]) 0
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> mapTransformer(java.util.Map<I,O>)
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> switchMapTransformer(java.util.Map<I,org.apache.commons.collections15.Transformer<? super I,? extends O>>)
 NULLABLE
@@ -806,9 +872,15 @@ org.apache.commons.collections15.TransformerUtils org.apache.commons.collections
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<T,java.lang.String> stringValueTransformer()
 NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<java.lang.Class,java.lang.Object> instantiateTransformer()
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<java.lang.Class,java.lang.Object> instantiateTransformer(java.lang.Class[], java.lang.Object[])
+NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<java.lang.Object,T> asTransformer(org.apache.commons.collections15.Factory<T>)
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<java.lang.Object,T> asTransformer(org.apache.commons.collections15.Factory<T>) 0
+NOT_NULL
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<java.lang.Object,T> constantTransformer(T)
 NOT_NULL
 org.apache.commons.collections15.bag.AbstractMapBag boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
@@ -1044,6 +1116,10 @@ org.apache.commons.collections15.bidimap.TreeBidiMap java.lang.Object remove(jav
 NULLABLE
 org.apache.commons.collections15.bidimap.TreeBidiMap java.lang.Object removeValue(java.lang.Object)
 NULLABLE
+org.apache.commons.collections15.bidimap.TreeBidiMap org.apache.commons.collections15.MapIterator<K,V> mapIterator()
+NOT_NULL
+org.apache.commons.collections15.bidimap.TreeBidiMap org.apache.commons.collections15.OrderedMapIterator<K,V> orderedMapIterator()
+NOT_NULL
 org.apache.commons.collections15.bidimap.TreeBidiMap org.apache.commons.collections15.bidimap.TreeBidiMap.Node access$1400(org.apache.commons.collections15.bidimap.TreeBidiMap, java.lang.Comparable, int)
 NULLABLE
 org.apache.commons.collections15.bidimap.TreeBidiMap org.apache.commons.collections15.bidimap.TreeBidiMap.Node access$1900(org.apache.commons.collections15.bidimap.TreeBidiMap.Node, int)
@@ -1154,6 +1230,10 @@ org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse java.lang.Object re
 NULLABLE
 org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse java.lang.Object removeValue(java.lang.Object)
 NULLABLE
+org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse org.apache.commons.collections15.MapIterator<V,K> mapIterator()
+NOT_NULL
+org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse org.apache.commons.collections15.OrderedMapIterator<V,K> orderedMapIterator()
+NOT_NULL
 org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse void putAll(java.util.Map<? extends V,? extends K>) 0
 NOT_NULL
 org.apache.commons.collections15.bidimap.TreeBidiMap.Node void copyColor(org.apache.commons.collections15.bidimap.TreeBidiMap.Node<K,V>, int) 0
@@ -1344,11 +1424,19 @@ org.apache.commons.collections15.comparators.BooleanComparator int compare(java.
 NOT_NULL
 org.apache.commons.collections15.comparators.BooleanComparator int compare(java.lang.Object, java.lang.Object) 1
 NOT_NULL
+org.apache.commons.collections15.comparators.BooleanComparator org.apache.commons.collections15.comparators.BooleanComparator getBooleanComparator(boolean)
+NOT_NULL
+org.apache.commons.collections15.comparators.BooleanComparator org.apache.commons.collections15.comparators.BooleanComparator getFalseFirstComparator()
+NOT_NULL
+org.apache.commons.collections15.comparators.BooleanComparator org.apache.commons.collections15.comparators.BooleanComparator getTrueFirstComparator()
+NOT_NULL
 org.apache.commons.collections15.comparators.ComparableComparator instance
 NOT_NULL
 org.apache.commons.collections15.comparators.ComparableComparator int compare(T, T) 0
 NOT_NULL
 org.apache.commons.collections15.comparators.ComparableComparator int compare(java.lang.Object, java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.comparators.ComparableComparator java.util.Comparator<T> getInstance()
 NOT_NULL
 org.apache.commons.collections15.comparators.ComparatorChain ComparatorChain(java.util.List<java.util.Comparator<T>>) 0
 NOT_NULL
@@ -1388,6 +1476,8 @@ org.apache.commons.collections15.functors.AnyPredicate org.apache.commons.collec
 NOT_NULL
 org.apache.commons.collections15.functors.AnyPredicate org.apache.commons.collections15.Predicate<T> getInstance(org.apache.commons.collections15.Predicate<? super T>[]) 0
 NOT_NULL
+org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(java.util.Collection<? super T>)
+NOT_NULL
 org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(java.util.Collection<? super T>) 0
 NOT_NULL
 org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(org.apache.commons.collections15.Closure<? super T>, org.apache.commons.collections15.Closure<? super T>)
@@ -1396,7 +1486,11 @@ org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.coll
 NOT_NULL
 org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(org.apache.commons.collections15.Closure<? super T>, org.apache.commons.collections15.Closure<? super T>) 1
 NOT_NULL
+org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(org.apache.commons.collections15.Closure<? super T>[])
+NOT_NULL
 org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(org.apache.commons.collections15.Closure<? super T>[]) 0
+NOT_NULL
+org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Collection<org.apache.commons.collections15.Transformer>)
 NOT_NULL
 org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Collection<org.apache.commons.collections15.Transformer>) 0
 NOT_NULL
@@ -1406,6 +1500,8 @@ org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.
 NOT_NULL
 org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(org.apache.commons.collections15.Transformer<I,? extends M>, org.apache.commons.collections15.Transformer<? super M,O>) 1
 NOT_NULL
+org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(org.apache.commons.collections15.Transformer[])
+NOT_NULL
 org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(org.apache.commons.collections15.Transformer[]) 0
 NOT_NULL
 org.apache.commons.collections15.functors.CloneTransformer INSTANCE
@@ -1414,33 +1510,53 @@ org.apache.commons.collections15.functors.CloneTransformer T transform(T)
 NULLABLE
 org.apache.commons.collections15.functors.CloneTransformer T transform(T) 0
 NULLABLE
+org.apache.commons.collections15.functors.CloneTransformer org.apache.commons.collections15.Transformer<T,T> getInstance()
+NOT_NULL
 org.apache.commons.collections15.functors.ClosureTransformer org.apache.commons.collections15.Transformer<T,T> getInstance(org.apache.commons.collections15.Closure<T>)
 NOT_NULL
 org.apache.commons.collections15.functors.ClosureTransformer org.apache.commons.collections15.Transformer<T,T> getInstance(org.apache.commons.collections15.Closure<T>) 0
 NOT_NULL
 org.apache.commons.collections15.functors.ConstantFactory NULL_INSTANCE
 NOT_NULL
+org.apache.commons.collections15.functors.ConstantFactory org.apache.commons.collections15.Factory<T> getInstance(T)
+NOT_NULL
 org.apache.commons.collections15.functors.ConstantFactory org.apache.commons.collections15.Factory<T> getInstance(T) 0
 NULLABLE
 org.apache.commons.collections15.functors.ConstantTransformer NULL_INSTANCE
 NOT_NULL
+org.apache.commons.collections15.functors.ConstantTransformer org.apache.commons.collections15.Transformer<java.lang.Object,T> getInstance(T)
+NOT_NULL
 org.apache.commons.collections15.functors.ConstantTransformer org.apache.commons.collections15.Transformer<java.lang.Object,T> getInstance(T) 0
 NULLABLE
+org.apache.commons.collections15.functors.EqualPredicate org.apache.commons.collections15.Predicate<T> getInstance(T)
+NOT_NULL
 org.apache.commons.collections15.functors.EqualPredicate org.apache.commons.collections15.Predicate<T> getInstance(T) 0
 NULLABLE
 org.apache.commons.collections15.functors.ExceptionClosure INSTANCE
 NOT_NULL
+org.apache.commons.collections15.functors.ExceptionClosure org.apache.commons.collections15.Closure<T> getInstance()
+NOT_NULL
 org.apache.commons.collections15.functors.ExceptionFactory INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.ExceptionFactory org.apache.commons.collections15.Factory<T> getInstance()
 NOT_NULL
 org.apache.commons.collections15.functors.ExceptionPredicate INSTANCE
 NOT_NULL
+org.apache.commons.collections15.functors.ExceptionPredicate org.apache.commons.collections15.Predicate<T> getInstance()
+NOT_NULL
 org.apache.commons.collections15.functors.ExceptionTransformer INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.ExceptionTransformer org.apache.commons.collections15.Transformer<I,O> getInstance()
 NOT_NULL
 org.apache.commons.collections15.functors.FactoryTransformer org.apache.commons.collections15.Transformer<K,T> getInstance(org.apache.commons.collections15.Factory<T>)
 NOT_NULL
 org.apache.commons.collections15.functors.FactoryTransformer org.apache.commons.collections15.Transformer<K,T> getInstance(org.apache.commons.collections15.Factory<T>) 0
 NOT_NULL
 org.apache.commons.collections15.functors.FalsePredicate INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.FalsePredicate org.apache.commons.collections15.Predicate<T> getInstance()
+NOT_NULL
+org.apache.commons.collections15.functors.ForClosure org.apache.commons.collections15.Closure<T> getInstance(int, org.apache.commons.collections15.Closure<T>)
 NOT_NULL
 org.apache.commons.collections15.functors.ForClosure org.apache.commons.collections15.Closure<T> getInstance(int, org.apache.commons.collections15.Closure<T>) 1
 NULLABLE
@@ -1467,6 +1583,8 @@ NOT_NULL
 org.apache.commons.collections15.functors.FunctorUtils void validate(org.apache.commons.collections15.Transformer<? super I,? extends O>[]) 0
 NOT_NULL
 org.apache.commons.collections15.functors.FunctorUtils void validateMin2(org.apache.commons.collections15.Predicate<? super T>[]) 0
+NOT_NULL
+org.apache.commons.collections15.functors.IdentityPredicate org.apache.commons.collections15.Predicate<T> getInstance(T)
 NOT_NULL
 org.apache.commons.collections15.functors.IdentityPredicate org.apache.commons.collections15.Predicate<T> getInstance(T) 0
 NULLABLE
@@ -1496,6 +1614,8 @@ org.apache.commons.collections15.functors.InstantiateTransformer java.lang.Objec
 NOT_NULL
 org.apache.commons.collections15.functors.InstantiateTransformer java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
+org.apache.commons.collections15.functors.InstantiateTransformer org.apache.commons.collections15.functors.InstantiateTransformer getInstance(java.lang.Class[], java.lang.Object[])
+NOT_NULL
 org.apache.commons.collections15.functors.InstantiateTransformer org.apache.commons.collections15.functors.InstantiateTransformer getInstance(java.lang.Class[], java.lang.Object[]) 0
 NULLABLE
 org.apache.commons.collections15.functors.InstantiateTransformer org.apache.commons.collections15.functors.InstantiateTransformer getInstance(java.lang.Class[], java.lang.Object[]) 1
@@ -1516,11 +1636,17 @@ org.apache.commons.collections15.functors.InvokerTransformer org.apache.commons.
 NULLABLE
 org.apache.commons.collections15.functors.InvokerTransformer org.apache.commons.collections15.Transformer getInstance(java.lang.String, java.lang.Class[], java.lang.Object[]) 2
 NULLABLE
+org.apache.commons.collections15.functors.MapTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Map<I,O>)
+NOT_NULL
 org.apache.commons.collections15.functors.MapTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Map<I,O>) 0
 NULLABLE
 org.apache.commons.collections15.functors.NOPClosure INSTANCE
 NOT_NULL
+org.apache.commons.collections15.functors.NOPClosure org.apache.commons.collections15.Closure<T> getInstance()
+NOT_NULL
 org.apache.commons.collections15.functors.NOPTransformer INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.NOPTransformer org.apache.commons.collections15.Transformer<T,T> getInstance()
 NOT_NULL
 org.apache.commons.collections15.functors.NonePredicate org.apache.commons.collections15.Predicate<T> getInstance(java.util.Collection<org.apache.commons.collections15.Predicate<? super T>>)
 NOT_NULL
@@ -1534,6 +1660,8 @@ org.apache.commons.collections15.functors.NotNullPredicate INSTANCE
 NOT_NULL
 org.apache.commons.collections15.functors.NotNullPredicate boolean evaluate(T) 0
 NULLABLE
+org.apache.commons.collections15.functors.NotNullPredicate org.apache.commons.collections15.Predicate<T> getInstance()
+NOT_NULL
 org.apache.commons.collections15.functors.NotPredicate org.apache.commons.collections15.Predicate<? super T>[] getPredicates()
 NOT_NULL
 org.apache.commons.collections15.functors.NotPredicate org.apache.commons.collections15.Predicate<T> getInstance(org.apache.commons.collections15.Predicate<T>)
@@ -1568,6 +1696,8 @@ org.apache.commons.collections15.functors.NullPredicate INSTANCE
 NOT_NULL
 org.apache.commons.collections15.functors.NullPredicate boolean evaluate(T) 0
 NULLABLE
+org.apache.commons.collections15.functors.NullPredicate org.apache.commons.collections15.Predicate<T> getInstance()
+NOT_NULL
 org.apache.commons.collections15.functors.OnePredicate org.apache.commons.collections15.Predicate<T> getInstance(java.util.Collection<org.apache.commons.collections15.Predicate<? super T>>)
 NOT_NULL
 org.apache.commons.collections15.functors.OnePredicate org.apache.commons.collections15.Predicate<T> getInstance(java.util.Collection<org.apache.commons.collections15.Predicate<? super T>>) 0
@@ -1587,6 +1717,8 @@ NOT_NULL
 org.apache.commons.collections15.functors.PredicateTransformer org.apache.commons.collections15.Transformer<T,java.lang.Boolean> getInstance(org.apache.commons.collections15.Predicate<T>)
 NOT_NULL
 org.apache.commons.collections15.functors.PredicateTransformer org.apache.commons.collections15.Transformer<T,java.lang.Boolean> getInstance(org.apache.commons.collections15.Predicate<T>) 0
+NOT_NULL
+org.apache.commons.collections15.functors.PrototypeFactory org.apache.commons.collections15.Factory<T> getInstance(T)
 NOT_NULL
 org.apache.commons.collections15.functors.PrototypeFactory org.apache.commons.collections15.Factory<T> getInstance(T) 0
 NULLABLE
@@ -1628,6 +1760,8 @@ org.apache.commons.collections15.functors.TransformedPredicate org.apache.common
 NOT_NULL
 org.apache.commons.collections15.functors.TransformedPredicate org.apache.commons.collections15.Predicate[] getPredicates()
 NOT_NULL
+org.apache.commons.collections15.functors.TransformerClosure org.apache.commons.collections15.Closure<I> getInstance(org.apache.commons.collections15.Transformer<? super I,O>)
+NOT_NULL
 org.apache.commons.collections15.functors.TransformerClosure org.apache.commons.collections15.Closure<I> getInstance(org.apache.commons.collections15.Transformer<? super I,O>) 0
 NULLABLE
 org.apache.commons.collections15.functors.TransformerPredicate org.apache.commons.collections15.Predicate<T> getInstance(org.apache.commons.collections15.Transformer<T,java.lang.Boolean>)
@@ -1635,6 +1769,8 @@ NOT_NULL
 org.apache.commons.collections15.functors.TransformerPredicate org.apache.commons.collections15.Predicate<T> getInstance(org.apache.commons.collections15.Transformer<T,java.lang.Boolean>) 0
 NOT_NULL
 org.apache.commons.collections15.functors.TruePredicate INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.TruePredicate org.apache.commons.collections15.Predicate<T> getInstance()
 NOT_NULL
 org.apache.commons.collections15.functors.UniquePredicate org.apache.commons.collections15.Predicate<T> getInstance()
 NOT_NULL
@@ -1671,6 +1807,8 @@ NOT_NULL
 org.apache.commons.collections15.iterators.CollatingIterator void setIterator(int, java.util.Iterator<? extends E>) 1
 NOT_NULL
 org.apache.commons.collections15.iterators.EmptyIterator RESETTABLE_INSTANCE
+NOT_NULL
+org.apache.commons.collections15.iterators.EmptyListIterator INSTANCE
 NOT_NULL
 org.apache.commons.collections15.iterators.EmptyListIterator RESETTABLE_INSTANCE
 NOT_NULL
@@ -2040,6 +2178,8 @@ org.apache.commons.collections15.map.AbstractHashedMap int hash(java.lang.Object
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap java.lang.Object clone()
 NULLABLE
+org.apache.commons.collections15.map.AbstractHashedMap org.apache.commons.collections15.MapIterator<K,V> mapIterator()
+NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V> createEntry(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V>, int, K, V)
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V> entryNext(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V>) 0
@@ -2106,6 +2246,16 @@ org.apache.commons.collections15.map.AbstractLinkedMap K previousKey(K)
 NULLABLE
 org.apache.commons.collections15.map.AbstractLinkedMap boolean containsValue(java.lang.Object) 0
 NULLABLE
+org.apache.commons.collections15.map.AbstractLinkedMap java.util.Iterator createKeySetIterator()
+NOT_NULL
+org.apache.commons.collections15.map.AbstractLinkedMap java.util.Iterator<V> createValuesIterator()
+NOT_NULL
+org.apache.commons.collections15.map.AbstractLinkedMap java.util.Iterator<java.util.Map.Entry<K,V>> createEntrySetIterator()
+NOT_NULL
+org.apache.commons.collections15.map.AbstractLinkedMap org.apache.commons.collections15.MapIterator<K,V> mapIterator()
+NOT_NULL
+org.apache.commons.collections15.map.AbstractLinkedMap org.apache.commons.collections15.OrderedMapIterator<K,V> orderedMapIterator()
+NOT_NULL
 org.apache.commons.collections15.map.AbstractLinkedMap org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V> createEntry(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V>, int, K, V)
 NOT_NULL
 org.apache.commons.collections15.map.AbstractLinkedMap org.apache.commons.collections15.map.AbstractLinkedMap.LinkEntry<K,V> entryAfter(org.apache.commons.collections15.map.AbstractLinkedMap.LinkEntry<K,V>) 0
@@ -2320,6 +2470,8 @@ org.apache.commons.collections15.map.Flat3Map java.lang.Object access$602(org.ap
 NOT_NULL
 org.apache.commons.collections15.map.Flat3Map java.lang.Object clone()
 NOT_NULL
+org.apache.commons.collections15.map.Flat3Map org.apache.commons.collections15.MapIterator<K,V> mapIterator()
+NOT_NULL
 org.apache.commons.collections15.map.Flat3Map org.apache.commons.collections15.map.AbstractHashedMap access$700(org.apache.commons.collections15.map.Flat3Map) 0
 NOT_NULL
 org.apache.commons.collections15.map.Flat3Map org.apache.commons.collections15.map.AbstractHashedMap<K,V> createDelegateMap()
@@ -2485,6 +2637,8 @@ NOT_NULL
 org.apache.commons.collections15.map.MultiKeyMap java.lang.Object remove(K...)
 NULLABLE
 org.apache.commons.collections15.map.MultiKeyMap java.lang.Object remove(K...) 0
+NOT_NULL
+org.apache.commons.collections15.map.MultiKeyMap org.apache.commons.collections15.MapIterator mapIterator()
 NOT_NULL
 org.apache.commons.collections15.map.MultiKeyMap org.apache.commons.collections15.map.MultiKeyMap<K,V> decorate(org.apache.commons.collections15.map.AbstractHashedMap<org.apache.commons.collections15.keyvalue.MultiKey<K>,V>)
 NOT_NULL

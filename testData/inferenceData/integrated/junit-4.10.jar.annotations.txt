@@ -26,6 +26,10 @@ junit.framework.ComparisonCompactor java.lang.String compactString(java.lang.Str
 NOT_NULL
 junit.framework.JUnit4TestAdapter boolean isIgnored(org.junit.runner.Description) 0
 NOT_NULL
+junit.framework.JUnit4TestAdapter org.junit.runner.Description getDescription()
+NOT_NULL
+junit.framework.JUnit4TestAdapter org.junit.runner.Description removeIgnored(org.junit.runner.Description)
+NOT_NULL
 junit.framework.JUnit4TestAdapter void filter(org.junit.runner.manipulation.Filter) 0
 NOT_NULL
 junit.framework.JUnit4TestAdapter void sort(org.junit.runner.manipulation.Sorter) 0
@@ -33,6 +37,8 @@ NOT_NULL
 junit.framework.JUnit4TestAdapterCache fInstance
 NOT_NULL
 junit.framework.JUnit4TestAdapterCache java.util.List<junit.framework.Test> asTestList(org.junit.runner.Description) 0
+NOT_NULL
+junit.framework.JUnit4TestAdapterCache junit.framework.JUnit4TestAdapterCache getDefault()
 NOT_NULL
 junit.framework.JUnit4TestAdapterCache junit.framework.Test asTest(org.junit.runner.Description) 0
 NOT_NULL
@@ -765,6 +771,8 @@ NOT_NULL
 org.junit.rules.RuleChain EMPTY_CHAIN
 NOT_NULL
 org.junit.rules.RuleChain org.junit.rules.RuleChain around(org.junit.rules.TestRule)
+NOT_NULL
+org.junit.rules.RuleChain org.junit.rules.RuleChain emptyRuleChain()
 NOT_NULL
 org.junit.rules.RuleChain org.junit.rules.RuleChain outerRule(org.junit.rules.TestRule)
 NOT_NULL

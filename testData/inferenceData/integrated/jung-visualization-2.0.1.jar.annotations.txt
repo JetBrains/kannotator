@@ -10,6 +10,8 @@ edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(
 NULLABLE
 edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.visualization.VisualizationModel<V,E>, java.awt.Dimension) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.BasicVisualizationServer edu.uci.ics.jung.visualization.RenderContext<V,E> getRenderContext()
+NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer java.awt.geom.Point2D getCenter()
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer void paintComponent(java.awt.Graphics) 0
@@ -125,6 +127,12 @@ NOT_NULL
 edu.uci.ics.jung.visualization.RenderContext dashing
 NOT_NULL
 edu.uci.ics.jung.visualization.RenderContext dotting
+NOT_NULL
+edu.uci.ics.jung.visualization.RenderContext edu.uci.ics.jung.visualization.MultiLayerTransformer getMultiLayerTransformer()
+NOT_NULL
+edu.uci.ics.jung.visualization.RenderContext void setEdgeLabelTransformer(org.apache.commons.collections15.Transformer<E,java.lang.String>) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.RenderContext void setEdgeShapeTransformer(org.apache.commons.collections15.Transformer<edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>,java.awt.Shape>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.RenderContext.DirectedEdgeArrowPredicate boolean evaluate(edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>) 0
 NOT_NULL
@@ -414,6 +422,10 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape.Wedge java.awt.Shape transfo
 NOT_NULL
 edu.uci.ics.jung.visualization.decorators.EdgeShape.Wedge java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer java.awt.Shape transform(V)
+NOT_NULL
+edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer java.lang.Object transform(java.lang.Object)
+NOT_NULL
 edu.uci.ics.jung.visualization.decorators.GradientEdgePaintTransformer GradientEdgePaintTransformer(java.awt.Color, java.awt.Color, edu.uci.ics.jung.visualization.VisualizationViewer<V,E>) 2
 NOT_NULL
 edu.uci.ics.jung.visualization.decorators.GradientEdgePaintTransformer java.awt.Paint transform(E)
@@ -568,7 +580,11 @@ edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer void labelVert
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.1 $SwitchMap$edu$uci$ics$jung$visualization$renderers$Renderer$VertexLabel$Position
 NOT_NULL
+edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.InsidePositioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
+NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.InsidePositioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
+NOT_NULL
+edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.OutsidePositioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.OutsidePositioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
 NOT_NULL
@@ -634,7 +650,11 @@ edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintVertex
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport getEdgeArrowRenderingSupport()
 NULLABLE
+edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()
+NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()
+NOT_NULL
+edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position $VALUES
 NOT_NULL
@@ -662,6 +682,8 @@ edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer void drawSimpleEd
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer void drawSimpleEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 1
 NOT_NULL
+edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()
+NOT_NULL
 edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer java.awt.Component prepareRenderer(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer, java.lang.Object, boolean, V) 0
@@ -673,6 +695,8 @@ NOT_NULL
 edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer void labelVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V, java.lang.String) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer void labelVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V, java.lang.String) 1
+NOT_NULL
+edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
 NOT_NULL
 edu.uci.ics.jung.visualization.subLayout.GraphCollapser boolean contains(edu.uci.ics.jung.graph.Graph, java.lang.Object) 0
 NOT_NULL
@@ -849,6 +873,12 @@ NOT_NULL
 edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph<V,E>, E, V, V) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph<V,E>, E) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.util.VertexShapeFactory java.awt.geom.Ellipse2D getEllipse(V)
+NOT_NULL
+edu.uci.ics.jung.visualization.util.VertexShapeFactory java.awt.geom.Rectangle2D getRectangle(V)
+NOT_NULL
+edu.uci.ics.jung.visualization.util.VertexShapeFactory java.awt.geom.RoundRectangle2D getRoundRectangle(V)
 NOT_NULL
 edu.uci.ics.jung.visualization.util.VertexShapeFactory theEllipse
 NOT_NULL
