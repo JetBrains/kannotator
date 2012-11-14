@@ -36,7 +36,6 @@ fun propagateMetadata<A>(
     }
 
     val leafMethods = classifiedMethods.getOrThrow("leaf", "No leaf methods. Can't be: no loops are possible")
-    val rootMethods = classifiedMethods.getOrThrow("root", "No root methods. Can't be: no loops are possible")
 
     val allMethods = graph.nodes.map{ n -> n.method }.toSet()
     fun assertAllVisited(visitedMethods: Collection<Method>) {
@@ -48,67 +47,9 @@ fun propagateMetadata<A>(
             resolveAllAnnotationConflicts(leafMethods, lattice, result)
     )
 
-    assertAllVisited(
-            propagateAllAnnotationsFromParentsToChildren(rootMethods, lattice, result)
-    )
-
     propagateParameterAnnotations(allMethods, lattice, result)
 
     return result
-}
-
-private fun propagateAllAnnotationsFromParentsToChildren<A>(
-        rootMethodNodes: Collection<HierarchyNode<Method>>,
-        lattice: AnnotationLattice<A>,
-        annotationsToFix: MutableAnnotations<A>
-): Collection<Method> {
-    return bfs(rootMethodNodes) {
-        node ->
-        val childNodes = node.childNodes()
-
-        propagateAnnotationsToImmediateChildren(
-                node.method,
-                childNodes.map{ node -> node.method },
-                lattice,
-                annotationsToFix
-        )
-
-        scheduleAll(childNodes)
-    }
-    .map { node -> node.method }
-}
-
-private fun propagateAnnotationsToImmediateChildren<A>(
-        method: Method,
-        immediateOverrides: Iterable<Method>,
-        lattice: AnnotationLattice<A>,
-        annotationsToFix: MutableAnnotations<A>
-) {
-    val typePositions = PositionsForMethod(method).getValidPositions()
-
-    for (child in immediateOverrides) {
-        val positionsWithinChild = PositionsForMethod(child)
-
-        for (positionInParent in typePositions) {
-            val relativePosition = positionInParent.relativePosition
-            val positionInChild = positionsWithinChild[relativePosition].position
-
-            val annotationInParent = annotationsToFix[positionInParent]
-            val annotationInChild = annotationsToFix[positionInChild]
-
-            if (annotationInParent == null) continue
-
-            if (annotationInChild == null) {
-                annotationsToFix[positionInChild] = annotationInParent
-            }
-            else {
-                if (relativePosition == RETURN_TYPE) continue // Covariant return (conflicts have been resolved already)
-
-                annotationsToFix[positionInChild] = lattice.unify<A>(
-                        relativePosition, annotationInParent, annotationInChild)
-            }
-        }
-    }
 }
 
 private fun propagateParameterAnnotations<A>(
