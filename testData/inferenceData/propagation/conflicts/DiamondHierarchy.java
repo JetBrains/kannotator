@@ -13,14 +13,17 @@ public class DiamondHierarchy {
     }
 
     public interface A extends Top {
+        @ExpectNullable
         Object m(Object x);
     }
 
     public interface A1 extends Top {
+        @ExpectNullable
         Object m(Object x);
     }
 
     public interface B extends A, A1 {
+        @ExpectNullable
         Object m(Object x);
     }
 

@@ -13,12 +13,13 @@ public class AHierarchy {
     }
 
     public interface B extends A {
+        @ExpectNullable
         Object m(Object x);
     }
 
     public interface C extends B {
         @Nullable
-        Object m( Object x);
+        Object m(Object x);
     }
 
     public interface B1 extends A {

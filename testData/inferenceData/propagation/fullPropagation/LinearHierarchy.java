@@ -1,4 +1,4 @@
-package inferenceData.propagation.down;
+package inferenceData.propagation.fullPropagation;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;

@@ -1,4 +1,4 @@
-package inferenceData.propagation.down;
+package inferenceData.propagation.fullPropagation;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 public class LinearHierarchyMultipleAnnotations {
     public interface A {
         @Nullable
-        Object test(@NotNull Object o, Object x);
+        Object test(@NotNull Object o, @ExpectNullable Object x);
     }
 
     public interface B extends A {

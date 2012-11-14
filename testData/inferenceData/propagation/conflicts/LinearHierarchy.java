@@ -13,6 +13,7 @@ public class LinearHierarchy {
     }
 
     public interface B extends A {
+        @ExpectNullable
         Object m(Object x);
     }
 

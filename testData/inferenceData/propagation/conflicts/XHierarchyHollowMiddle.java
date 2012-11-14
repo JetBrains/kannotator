@@ -18,6 +18,7 @@ public class XHierarchyHollowMiddle {
     }
 
     public interface Middle extends Top1, Top2 {
+        @ExpectNullable
         Object m(Object x);
     }
 

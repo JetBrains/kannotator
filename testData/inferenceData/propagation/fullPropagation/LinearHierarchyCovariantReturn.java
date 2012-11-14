@@ -1,7 +1,6 @@
-package inferenceData.propagation.down;
+package inferenceData.propagation.fullPropagation;
 
 import inferenceData.annotations.ExpectNotNull;
-import inferenceData.annotations.ExpectNullable;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

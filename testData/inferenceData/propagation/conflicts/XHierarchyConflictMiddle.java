@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 public class XHierarchyConflictMiddle {
 
     public interface Top1 {
+        @ExpectNullable
         Object m(Object x);
     }
 
