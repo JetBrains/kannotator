@@ -14,6 +14,7 @@ import org.jetbrains.kannotator.declarations.Variance.*
 import org.jetbrains.kannotator.declarations.getValidPositions
 import java.util.LinkedHashSet
 import org.jetbrains.kannotator.classHierarchy.parentNodes
+import org.jetbrains.kannotator.declarations.RETURN_TYPE
 
 fun resolveAllAnnotationConflicts<A>(
         leafMethodNodes: Collection<HierarchyNode<Method>>,
@@ -75,6 +76,10 @@ private fun resolveConflictsInParents<A>(
                 }
                 else {
                     propagatedAnnotations[positionInParent] = fromChild
+                    // propagate return value annotation up the graph
+                    if (relativePosition == RETURN_TYPE) {
+                        annotationsToFix[positionInParent] = fromChild
+                    }
                 }
             }
         }

@@ -20,6 +20,9 @@ fun <A> AnnotationLattice<A>.unify(position: PositionWithinDeclaration, parent: 
     }
 }
 
+fun <A> AnnotationLattice<A>.unify(position: PositionWithinDeclaration, annotations: Collection<out A>): A =
+        annotations.reduce {(left, right) -> unify(position, left, right)}
+
 abstract class TwoElementLattice<A>(val small: A, val big: A) : AnnotationLattice<A> {
 
     override fun greatestCommonLowerBound(a: A, b: A): A {
