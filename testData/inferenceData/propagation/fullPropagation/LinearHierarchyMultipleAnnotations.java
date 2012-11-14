@@ -12,12 +12,10 @@ public class LinearHierarchyMultipleAnnotations {
     }
 
     public interface B extends A {
-        @ExpectNullable
         Object test(@ExpectNotNull Object o, @Nullable Object x);
     }
 
     public interface C extends B {
-        @ExpectNullable
         Object test(@ExpectNotNull Object o, @ExpectNullable Object x);
     }
 }

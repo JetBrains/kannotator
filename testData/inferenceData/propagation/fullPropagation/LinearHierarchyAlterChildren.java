@@ -11,17 +11,14 @@ public class LinearHierarchyAlterChildren {
     }
 
     public interface B extends A {
-        @ExpectNotNull
         Object test(@ExpectNotNull Object o);
     }
 
     public interface C extends B {
-        @ExpectNotNull
         Object test(@Nullable @ExpectNotNull Object o);
     }
 
     public interface D extends C {
-        @ExpectNotNull
         Object test(@Nullable @ExpectNotNull Object o);
     }
 }

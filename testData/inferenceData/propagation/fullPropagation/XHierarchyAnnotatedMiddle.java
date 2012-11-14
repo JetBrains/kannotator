@@ -22,12 +22,10 @@ public class XHierarchyAnnotatedMiddle {
     }
 
     public interface Leaf1 extends Middle {
-        @ExpectNotNull
         Object m(@ExpectNullable Object x, @ExpectNotNull Object y, Object z);
     }
 
     public interface Leaf2 extends Middle {
-        @ExpectNotNull
         Object m(@ExpectNullable Object x, @ExpectNotNull Object y, Object z);
     }
 

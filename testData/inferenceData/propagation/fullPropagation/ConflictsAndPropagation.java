@@ -17,12 +17,10 @@ public class ConflictsAndPropagation {
     }
 
     public interface B extends A {
-        @ExpectNullable
         Object test(@ExpectNotNull Object o);
     }
 
     public interface C extends B {
-        @ExpectNullable
         Object test(@ExpectNotNull Object o);
     }
 }

@@ -27,7 +27,6 @@ public class DiamondHierarchy {
     }
 
     public interface C extends B {
-        @ExpectNotNull
         Object m(@NotNull Object x, Object y, @NotNull Object z);
     }
 

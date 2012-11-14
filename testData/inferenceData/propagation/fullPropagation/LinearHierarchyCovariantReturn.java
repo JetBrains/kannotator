@@ -16,7 +16,6 @@ public class LinearHierarchyCovariantReturn {
     }
 
     public interface C extends B {
-        @ExpectNotNull
         Object test(@Nullable @ExpectNotNull Object o);
     }
 }

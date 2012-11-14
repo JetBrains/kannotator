@@ -23,7 +23,6 @@ public class YHierarchy {
     }
 
     public interface C extends B {
-        @ExpectNullable
         Object m(@ExpectNullable Object x, @ExpectNullable Object y, @ExpectNotNull Object z);
     }
 
