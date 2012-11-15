@@ -15,7 +15,7 @@ import util.controlFlow.buildControlFlowGraph
 
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
 
-    protected override fun Array<Annotation>.toAnnotation(): NullabilityAnnotation? {
+    protected override fun Array<out Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
             if (ann.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL

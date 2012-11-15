@@ -20,7 +20,7 @@ data class MethodId(
 }
 
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
-fun MethodId.getArgumentTypes(): Array<Type> = Type.getArgumentTypes(methodDesc) //after KT-2872 should return Array<out Type>
+fun MethodId.getArgumentTypes(): Array<Type> = Type.getArgumentTypes(methodDesc) as Array<Type> //after KT-2872 should return Array<out Type>
 fun MethodId.getSignatureDescriptor(): String {
     return methodName + methodDesc.substring(0, methodDesc.lastIndexOf(')'))
 }

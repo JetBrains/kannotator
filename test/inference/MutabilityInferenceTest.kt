@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.annotationsInference.mutability.buildMutabilityA
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {
 
-    override fun Array<jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
+    override fun Array<out jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
             if (ann.annotationType().getSimpleName() == "ExpectMutable") return MutabilityAnnotation.MUTABLE
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return MutabilityAnnotation.IMMUTABLE
