@@ -1,0 +1,38 @@
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> switchClosure(java.util.Map<org.apache.commons.collections15.Predicate<? super T>,org.apache.commons.collections15.Closure<? super T>>) 0
+MUTABLE
+org.apache.commons.collections15.ClosureUtils org.apache.commons.collections15.Closure<T> switchMapClosure(java.util.Map<T,org.apache.commons.collections15.Closure<T>>) 0
+MUTABLE
+org.apache.commons.collections15.CollectionUtils C collect(java.lang.Iterable<I>, org.apache.commons.collections15.Transformer<? super I,? extends O>, C) 2
+MUTABLE
+org.apache.commons.collections15.CollectionUtils C collect(java.util.Iterator<I>, org.apache.commons.collections15.Transformer<? super I,? extends O>, C) 2
+MUTABLE
+org.apache.commons.collections15.CollectionUtils C select(java.lang.Iterable<E>, org.apache.commons.collections15.Predicate<? super E>, C) 2
+MUTABLE
+org.apache.commons.collections15.CollectionUtils void addAll(java.util.Collection<E>, T...) 0
+MUTABLE
+org.apache.commons.collections15.CollectionUtils void addAll(java.util.Collection<E>, java.util.Enumeration<? extends E>) 0
+MUTABLE
+org.apache.commons.collections15.CollectionUtils void addAll(java.util.Collection<E>, java.util.Iterator<? extends E>) 0
+MUTABLE
+org.apache.commons.collections15.CollectionUtils void selectRejected(java.lang.Iterable<E>, org.apache.commons.collections15.Predicate<? super E>, java.util.Collection<? super E>) 2
+MUTABLE
+org.apache.commons.collections15.CollectionUtils void transform(java.util.Collection<E>, org.apache.commons.collections15.Transformer<? super E,? extends E>) 0
+MUTABLE
+org.apache.commons.collections15.ExtendedProperties java.lang.String interpolateHelper(java.lang.String, java.util.List) 1
+MUTABLE
+org.apache.commons.collections15.MapUtils void safeAddToMap(java.util.Map, java.lang.Object, java.lang.Object) 0
+MUTABLE
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> switchMapTransformer(java.util.Map<I,org.apache.commons.collections15.Transformer<? super I,? extends O>>) 0
+MUTABLE
+org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer<I,O> switchTransformer(java.util.Map<org.apache.commons.collections15.Predicate<? super I>,org.apache.commons.collections15.Transformer<? super I,? extends O>>) 0
+MUTABLE
+org.apache.commons.collections15.bag.AbstractMapBag void doReadObject(java.util.Map<E,org.apache.commons.collections15.bag.AbstractMapBag.MutableInteger>, java.io.ObjectInputStream) 0
+MUTABLE
+org.apache.commons.collections15.functors.SwitchClosure org.apache.commons.collections15.Closure<T> getInstance(java.util.Map<org.apache.commons.collections15.Predicate<? super T>,org.apache.commons.collections15.Closure<? super T>>) 0
+MUTABLE
+org.apache.commons.collections15.functors.SwitchTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Map<org.apache.commons.collections15.Predicate<? super I>,org.apache.commons.collections15.Transformer<? super I,? extends O>>) 0
+MUTABLE
+org.apache.commons.collections15.list.SetUniqueList org.apache.commons.collections15.list.SetUniqueList<E> decorate(java.util.List<E>) 0
+MUTABLE
+org.apache.commons.collections15.set.ListOrderedSet org.apache.commons.collections15.set.ListOrderedSet<E> decorate(java.util.List<E>) 0
+MUTABLE

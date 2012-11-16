@@ -1,0 +1,102 @@
+edu.uci.ics.jung.graph.event.GraphEvent.Type $VALUES
+NOT_NULL
+edu.uci.ics.jung.graph.event.GraphEvent.Type EDGE_ADDED
+NOT_NULL
+edu.uci.ics.jung.graph.event.GraphEvent.Type EDGE_REMOVED
+NOT_NULL
+edu.uci.ics.jung.graph.event.GraphEvent.Type VERTEX_ADDED
+NOT_NULL
+edu.uci.ics.jung.graph.event.GraphEvent.Type VERTEX_REMOVED
+NOT_NULL
+edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction<V,E> getInstance()
+NOT_NULL
+edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph<V,E>, E, V) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph<V,E>, E, V, V) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph<V,E>, E) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.EdgeType $VALUES
+NOT_NULL
+edu.uci.ics.jung.graph.util.EdgeType DIRECTED
+NOT_NULL
+edu.uci.ics.jung.graph.util.EdgeType UNDIRECTED
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.DirectedGraph<V,E> synchronizedDirectedGraph(edu.uci.ics.jung.graph.DirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.DirectedGraph<V,E> unmodifiableDirectedGraph(edu.uci.ics.jung.graph.DirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.Graph<V,E> synchronizedGraph(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.Graph<V,E> unmodifiableGraph(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.UndirectedGraph<V,E> synchronizedUndirectedGraph(edu.uci.ics.jung.graph.UndirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.UndirectedGraph<V,E> unmodifiableUndirectedGraph(edu.uci.ics.jung.graph.UndirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.util.Graphs.SynchronizedForest<V,E> synchronizedForest(edu.uci.ics.jung.graph.Forest<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.util.Graphs.SynchronizedTree<V,E> synchronizedTree(edu.uci.ics.jung.graph.Tree<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.util.Graphs.UnmodifiableForest<V,E> unmodifiableForest(edu.uci.ics.jung.graph.Forest<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs edu.uci.ics.jung.graph.util.Graphs.UnmodifiableTree<V,E> unmodifiableTree(edu.uci.ics.jung.graph.Tree<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs.SynchronizedAbstractGraph SynchronizedAbstractGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Graphs.UnmodifiableAbstractGraph UnmodifiableAbstractGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.IncidentEdgeIndexFunction edu.uci.ics.jung.graph.util.IncidentEdgeIndexFunction<V,E> getInstance()
+NOT_NULL
+edu.uci.ics.jung.graph.util.IncidentEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph<V,E>, E, V) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.IncidentEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph<V,E>, E, V, V) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.IncidentEdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph<V,E>, E) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair Pair(T, T) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair Pair(T, T) 1
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair Pair(T[]) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair Pair(java.util.Collection<? extends T>) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair S[] toArray(S[])
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair S[] toArray(S[]) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair boolean containsAll(java.util.Collection<?>) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair java.lang.Object access$100(edu.uci.ics.jung.graph.util.Pair) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair java.lang.Object access$200(edu.uci.ics.jung.graph.util.Pair) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair java.lang.Object[] toArray()
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair java.util.Iterator<T> iterator()
+NOT_NULL
+edu.uci.ics.jung.graph.util.Pair.PairIterator T next()
+NULLABLE
+edu.uci.ics.jung.graph.util.TreeUtils edu.uci.ics.jung.graph.Tree<V,E> getSubTree(edu.uci.ics.jung.graph.Forest<V,E>, V) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils java.util.List<V> getRoots(edu.uci.ics.jung.graph.Forest<V,E>)
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils java.util.List<V> getRoots(edu.uci.ics.jung.graph.Forest<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils void addFromSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, E, V, V) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils void addFromSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, E, V, V) 1
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils void addFromSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, E, V, V) 2
+NULLABLE
+edu.uci.ics.jung.graph.util.TreeUtils void addFromSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, E, V, V) 3
+NULLABLE
+edu.uci.ics.jung.graph.util.TreeUtils void addSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, E) 0
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils void addSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, E) 1
+NOT_NULL
+edu.uci.ics.jung.graph.util.TreeUtils void addSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, E) 2
+NULLABLE
+edu.uci.ics.jung.graph.util.TreeUtils void growSubTree(edu.uci.ics.jung.graph.Forest<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V) 0
+NOT_NULL

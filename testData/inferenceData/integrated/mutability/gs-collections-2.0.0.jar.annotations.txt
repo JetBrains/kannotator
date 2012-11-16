@@ -1,0 +1,414 @@
+com.gs.collections.impl.bag.immutable.ImmutableArrayBag R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends V>, P, R) 2
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableArrayBag R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableArrayBag R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableSingletonBag R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableSingletonBag R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableSingletonBag R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableSingletonBag R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableSingletonBag R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.bag.immutable.ImmutableSingletonBag R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.block.factory.Procedures2.AddToCollection void value(T, java.util.Collection<T>) 1
+MUTABLE
+com.gs.collections.impl.block.factory.Procedures2.AddToCollection void value(java.lang.Object, java.lang.Object) 1
+MUTABLE
+com.gs.collections.impl.block.function.AddFunction.AddCollectionFunction java.lang.Object value(java.lang.Object, java.lang.Object) 0
+MUTABLE
+com.gs.collections.impl.block.function.AddFunction.AddCollectionFunction java.util.Collection<T> value(java.util.Collection<T>, T) 0
+MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends V>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R zip(java.lang.Iterable<S>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R zipWithIndex(R) 0
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R zip(java.lang.Iterable<S>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R zipWithIndex(R) 0
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends V>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R zip(java.lang.Iterable<S>, R) 1
+MUTABLE
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection R zipWithIndex(R) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets.4 void value(java.lang.Object, java.lang.Object) 1
+MUTABLE
+com.gs.collections.impl.factory.Sets.4 void value(java.util.Set<? extends E>, R) 1
+MUTABLE
+com.gs.collections.impl.factory.Sets.5 void value(java.lang.Object, java.lang.Object) 1
+MUTABLE
+com.gs.collections.impl.factory.Sets.5 void value(java.util.Set<? extends E>, R) 1
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends V>, P, R) 2
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R zip(java.lang.Iterable<S>, R) 1
+MUTABLE
+com.gs.collections.impl.lazy.AbstractLazyIterable R zipWithIndex(R) 0
+MUTABLE
+com.gs.collections.impl.lazy.LazyIterableAdapter R into(R) 0
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.immutable.AbstractImmutableList R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends V>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.immutable.AbstractImmutableList R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.list.immutable.AbstractImmutableList R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.immutable.AbstractImmutableList R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R collectWith(com.gs.collections.api.block.function.Function2<? super T,? super P,? extends V>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R flatCollect(com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R reject(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R rejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R select(com.gs.collections.api.block.predicate.Predicate<? super T>, R) 1
+MUTABLE
+com.gs.collections.impl.list.mutable.FastList R selectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 2
+MUTABLE
+com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void putIfFound(java.lang.Object, java.util.Map<K,V>) 1
+MUTABLE
+com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void putIfFoundFromChain(java.lang.Object[], java.lang.Object, java.util.Map<K,V>) 2
+MUTABLE
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void putIfFound(java.lang.Object, java.util.Map<K,V>) 1
+MUTABLE
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void putIfFoundFromChain(java.lang.Object[], K, java.util.Map<K,V>) 2
+MUTABLE
+com.gs.collections.impl.set.immutable.AbstractImmutableSet R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.immutable.AbstractImmutableSet R unionInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.AbstractMutableSet R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.AbstractMutableSet R unionInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.SetAdapter R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.SetAdapter R unionInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.UnifiedSet R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends K>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.UnifiedSet R unionInto(com.gs.collections.api.set.SetIterable<? extends K>, R) 1
+MUTABLE
+com.gs.collections.impl.set.mutable.UnifiedSet R zip(java.lang.Iterable<S>, R) 1
+MUTABLE
+com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet R unionInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter R unionInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.sorted.mutable.TreeSortedSet R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.sorted.mutable.TreeSortedSet R unionInto(com.gs.collections.api.set.SetIterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends K>, R) 1
+MUTABLE
+com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy R unionInto(com.gs.collections.api.set.SetIterable<? extends K>, R) 1
+MUTABLE
+com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy R zip(java.lang.Iterable<S>, R) 1
+MUTABLE
+com.gs.collections.impl.stack.mutable.ArrayStack R pop(int, R) 1
+MUTABLE
+com.gs.collections.impl.tuple.PairImpl void put(java.util.Map<T1,T2>) 0
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R collect(T[], com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R collectIf(T[], com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R collectWith(T[], com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R drop(T[], int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R reject(T[], com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R rejectWith(T[], com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R select(T[], com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R selectWith(T[], com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R take(T[], int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R zip(X[], Y[], R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayIterate R zipWithIndex(T[], R) 1
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R collect(java.util.ArrayList<T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R collectIf(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R collectWith(java.util.ArrayList<T>, com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R drop(java.util.ArrayList<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R flatCollect(java.util.ArrayList<T>, com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<A>>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R reject(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R rejectWith(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R select(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R selectWith(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R take(java.util.ArrayList<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R zip(java.util.ArrayList<X>, java.lang.Iterable<Y>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate R zipWithIndex(java.util.ArrayList<T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate java.util.ArrayList<T> removeIf(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.ArrayListIterate java.util.ArrayList<T> removeIfWith(java.util.ArrayList<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.Iterate R addAllTo(java.lang.Iterable<? extends T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.Iterate R collect(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.Iterate R collectIf(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.Iterate R collectWith(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.Iterate R flatCollect(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<A>>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.Iterate R flatten(java.lang.Iterable<? extends java.lang.Iterable<T>>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.Iterate R reject(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.Iterate R rejectWith(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.Iterate R select(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.Iterate R selectWith(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.Iterate R zip(java.lang.Iterable<X>, java.lang.Iterable<Y>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.Iterate R zipWithIndex(java.lang.Iterable<T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.Iterate boolean addAllIterable(java.lang.Iterable<? extends T>, java.util.Collection<T>) 1
+MUTABLE
+com.gs.collections.impl.utility.Iterate java.util.Collection<T> removeIf(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.Iterate java.util.Collection<T> removeIfWith(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R collect(java.util.List<T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R collectIf(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R collectWith(java.util.List<T>, com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R drop(java.util.List<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R flatCollect(java.util.List<T>, com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<A>>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R reject(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R rejectWith(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R select(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R selectWith(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R take(java.util.List<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R zip(java.util.List<X>, java.lang.Iterable<Y>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.ListIterate R zipWithIndex(java.util.List<T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.ListIterate java.util.List<T> removeIf(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.ListIterate java.util.List<T> removeIf(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.procedure.Procedure<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.ListIterate java.util.List<T> removeIfWith(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.MapIterate V getIfAbsentPut(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function0<? extends V>) 0
+MUTABLE
+com.gs.collections.impl.utility.MapIterate V getIfAbsentPutWith(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R collect(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R collectIf(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R collectWith(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R drop(java.lang.Iterable<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R flatCollect(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R reject(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R rejectWith(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R select(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R selectInstancesOf(java.lang.Iterable<?>, java.lang.Class<T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R selectWith(java.lang.Iterable<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R take(java.lang.Iterable<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R zip(java.lang.Iterable<X>, java.lang.Iterable<Y>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IterableIterate R zipWithIndex(java.lang.Iterable<T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R collect(java.util.Iterator<T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R collectIf(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R collectWith(java.util.Iterator<T>, com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R flatCollect(java.util.Iterator<T>, com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R reject(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R rejectWith(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R select(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R selectInstancesOf(java.util.Iterator<?>, java.lang.Class<T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R selectWith(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R zip(java.util.Iterator<X>, java.util.Iterator<Y>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate R zipWithIndex(java.util.Iterator<T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate java.util.Iterator<T> removeIf(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate java.util.Iterator<T> removeIf(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.procedure.Procedure<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.IteratorIterate java.util.Iterator<T> removeIfWith(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R collect(java.util.List<T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R collectIf(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends A>, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R collectWith(java.util.List<T>, com.gs.collections.api.block.function.Function2<? super T,? super P,? extends A>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R drop(java.util.List<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R flatCollect(java.util.List<T>, com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<A>>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R reject(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R rejectWith(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R select(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R selectWith(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, R) 3
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R take(java.util.List<T>, int, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R zip(java.util.List<X>, java.lang.Iterable<Y>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate R zipWithIndex(java.util.List<T>, R) 1
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate java.util.List<T> removeIf(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate java.util.List<T> removeIf(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.procedure.Procedure<? super T>) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate java.util.List<T> removeIfWith(java.util.List<T>, com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.internal.SetIterables R symmetricDifferenceInto(com.gs.collections.api.set.SetIterable<? extends E>, com.gs.collections.api.set.SetIterable<? extends E>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.SetIterables R unionInto(com.gs.collections.api.set.SetIterable<? extends E>, com.gs.collections.api.set.SetIterable<? extends E>, R) 2
+MUTABLE
+com.gs.collections.impl.utility.internal.SetIterate boolean removeAllIterable(java.util.Set<?>, java.lang.Iterable<?>) 0
+MUTABLE

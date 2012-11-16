@@ -1,0 +1,598 @@
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent boolean isStructurallyEquivalent(edu.uci.ics.jung.graph.Graph<V,?>, V, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent edu.uci.ics.jung.algorithms.blockmodel.VertexPartition<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent edu.uci.ics.jung.algorithms.blockmodel.VertexPartition<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent java.util.Set<edu.uci.ics.jung.graph.util.Pair<V>> getEquivalentPairs(edu.uci.ics.jung.graph.Graph<V,?>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent java.util.Set<edu.uci.ics.jung.graph.util.Pair<V>> getEquivalentPairs(edu.uci.ics.jung.graph.Graph<V,?>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer java.util.Set<java.util.Set<V>> transform(edu.uci.ics.jung.graph.UndirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer java.util.Set<java.util.Set<V>> transform(edu.uci.ics.jung.graph.UndirectedGraph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer void findBiconnectedComponents(edu.uci.ics.jung.graph.UndirectedGraph<V,E>, V, java.util.Set<java.util.Set<V>>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.util.List<E> getEdgesRemoved()
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.util.Set<java.util.Set<V>> transform(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.util.Set<java.util.Set<V>> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> cluster(int)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> cluster_internal(V, int)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> cluster_internal(V, int) 0
+NULLABLE
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> getCommunity(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.List<V> getSeedCandidates(java.util.Collection<java.util.Set<V>>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.List<V> getSeedCandidates(java.util.Collection<java.util.Set<V>>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map<V,double[]> getObjectCounts(java.util.Collection<java.util.Set<V>>, V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map<V,double[]> getObjectCounts(java.util.Collection<java.util.Set<V>>, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map<V,double[]> getObjectCounts(java.util.Collection<java.util.Set<V>>, V) 1
+NULLABLE
+edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.util.Set<java.util.Set<V>> transform(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.util.Set<java.util.Set<V>> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.EdgePredicateFilter edu.uci.ics.jung.graph.Graph<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.EdgePredicateFilter java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.FilterUtils G createInducedSubgraph(java.util.Collection<V>, G) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.FilterUtils G createInducedSubgraph(java.util.Collection<V>, G) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.FilterUtils java.util.Collection<G> createAllInducedSubgraphs(java.util.Collection<? extends java.util.Collection<V>>, G)
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.FilterUtils java.util.Collection<G> createAllInducedSubgraphs(java.util.Collection<? extends java.util.Collection<V>>, G) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter edu.uci.ics.jung.graph.Graph<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter.1 $SwitchMap$edu$uci$ics$jung$algorithms$filters$KNeighborhoodFilter$EdgeType
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter.EdgeType $VALUES
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter.EdgeType IN
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter.EdgeType IN_OUT
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter.EdgeType OUT
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.VertexPredicateFilter edu.uci.ics.jung.graph.Graph<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.VertexPredicateFilter edu.uci.ics.jung.graph.Graph<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.VertexPredicateFilter java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.filters.VertexPredicateFilter java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.flows.EdmondsKarpMaxFlow EdmondsKarpMaxFlow(edu.uci.ics.jung.graph.DirectedGraph<V,E>, V, V, org.apache.commons.collections15.Transformer<E,java.lang.Number>, java.util.Map<E,java.lang.Number>, org.apache.commons.collections15.Factory<E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.flows.EdmondsKarpMaxFlow EdmondsKarpMaxFlow(edu.uci.ics.jung.graph.DirectedGraph<V,E>, V, V, org.apache.commons.collections15.Transformer<E,java.lang.Number>, java.util.Map<E,java.lang.Number>, org.apache.commons.collections15.Factory<E>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator Lattice2DGenerator(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, int, boolean) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator void createRandomEdge(java.util.Collection<V>, V, java.util.Set<edu.uci.ics.jung.graph.util.Pair<V>>) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.EppsteinPowerLawGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.EppsteinPowerLawGenerator edu.uci.ics.jung.graph.Graph<V,E> initializeGraph()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.EppsteinPowerLawGenerator java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph<V,E> generateMixedRandomGraph(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>, int, boolean, java.util.Set<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph<V,E> generateMixedRandomGraph(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>, int, java.util.Set<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.AbstractRanker java.util.List<java.lang.Double> getRankScores(int)
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.AbstractRanker.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.AbstractRanker.1 java.util.Map<V,java.lang.Number> create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.AbstractRanker.2 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.AbstractRanker.2 java.util.Map<E,java.lang.Number> create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.BetweennessCentrality java.lang.Object getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.BetweennessCentrality java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void computeBetweenness(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void initializeData(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<V,edu.uci.ics.jung.algorithms.importance.BetweennessCentrality<V,E>.BetweennessData>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, int, java.util.Map<E,java.lang.Number>) 3
+NULLABLE
+edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.Object getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, java.util.Map<E,java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, java.util.Map<E,java.lang.Number>) 2
+NULLABLE
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality cern.colt.matrix.DoubleMatrix1D getStationaryDistribution()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.Object getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness java.lang.Object getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness java.lang.Object getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.Ranking int compareTo(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.WeightedNIPaths WeightedNIPaths(edu.uci.ics.jung.graph.DirectedGraph<V,E>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, double, int, java.util.Set<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.WeightedNIPaths java.lang.Object getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.WeightedNIPaths java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AbstractLayout AbstractLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AbstractLayout void adjustLocations(java.awt.Dimension, java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AbstractLayout void adjustLocations(java.awt.Dimension, java.awt.Dimension) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AbstractLayout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.AbstractLayout void setSize(java.awt.Dimension) 0
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.AbstractLayout.1 java.awt.geom.Point2D transform(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AbstractLayout.1 java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AggregateLayout java.awt.geom.Point2D transform(V)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.AggregateLayout java.lang.Object transform(java.lang.Object)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.BalloonLayout void setLocation(V, java.awt.geom.Point2D) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.BalloonLayout void setPolars(java.util.List<V>, java.awt.geom.Point2D, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.BalloonLayout.1 edu.uci.ics.jung.algorithms.layout.PolarPoint transform(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.BalloonLayout.1 java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.CircleLayout void setVertexOrder(java.util.List<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.CircleLayout.1 edu.uci.ics.jung.algorithms.layout.CircleLayout.CircleVertexData create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.CircleLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.DAGLayout void setRoot(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout FRLayout(edu.uci.ics.jung.graph.Graph<V,E>, java.awt.Dimension) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout void setSize(java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout.1 edu.uci.ics.jung.algorithms.layout.FRLayout.FRVertexData create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout2 FRLayout2(edu.uci.ics.jung.graph.Graph<V,E>, java.awt.Dimension) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout2 void setSize(java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout2.1 java.awt.geom.Point2D create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout2.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout.ISOMLayout.ISOMVertexData create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.KKLayout double[] calcDeltaXY(int)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint edu.uci.ics.jung.algorithms.layout.PolarPoint cartesianToPolar(double, double)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint edu.uci.ics.jung.algorithms.layout.PolarPoint cartesianToPolar(java.awt.geom.Point2D)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint edu.uci.ics.jung.algorithms.layout.PolarPoint cartesianToPolar(java.awt.geom.Point2D) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint java.awt.geom.Point2D polarToCartesian(double, double)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint java.awt.geom.Point2D polarToCartesian(edu.uci.ics.jung.algorithms.layout.PolarPoint)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint java.awt.geom.Point2D polarToCartesian(edu.uci.ics.jung.algorithms.layout.PolarPoint) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.PolarPoint void setLocation(edu.uci.ics.jung.algorithms.layout.PolarPoint) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D getMaxXY()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D transform(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout void setLocation(V, java.awt.geom.Point2D) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double, double)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double, double)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout.1 edu.uci.ics.jung.algorithms.layout.SpringLayout.SpringVertexData create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout.SpringDimensionChecker void componentResized(java.awt.event.ComponentEvent) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest<V,E>, int, int) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout int calculateDimensionX(java.util.Collection<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout java.awt.geom.Point2D getCenter()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout.1 java.awt.geom.Point2D transform(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout.1 java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.util.RandomLocationTransformer java.awt.geom.Point2D transform(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.util.RandomLocationTransformer java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix1D mapTo1DMatrix(java.util.Map<V,java.lang.Number>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix1D mapTo1DMatrix(java.util.Map<V,java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D createVertexDegreeDiagonalMatrix(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D createVertexDegreeDiagonalMatrix(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 1
+NULLABLE
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> square(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<E>, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations<E>)
+NULLABLE
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> square(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<E>, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations<E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.Metrics java.util.Map<V,java.lang.Double> clusteringCoefficients(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.Metrics java.util.Map<V,java.lang.Double> clusteringCoefficients(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus TRIAD_NAMES
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus boolean link(edu.uci.ics.jung.graph.Graph<V,E>, V, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus boolean shouldCount(edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, V, V, V) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus codeToType
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus int triCode(edu.uci.ics.jung.graph.Graph<V,E>, V, V, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus long[] getCounts(edu.uci.ics.jung.graph.DirectedGraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.metrics.TriadicCensus long[] getCounts(edu.uci.ics.jung.graph.DirectedGraph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Transformer<E,? extends java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality void initialize(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Double getVertexScore(V)
+NULLABLE
+edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Object getVertexScore(java.lang.Object)
+NULLABLE
+edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph<V,E>, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Transformer<E,java.lang.Double>, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.Hypergraph<V,E>, int) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.PageRank PageRank(edu.uci.ics.jung.graph.Hypergraph<V,E>, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.PageRank PageRank(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Transformer<E,? extends java.lang.Number>, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.VoltageScorer VoltageScorer(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Collection<V>, java.util.Collection<V>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.VoltageScorer VoltageScorer(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Transformer<E,? extends java.lang.Number>, java.util.Collection<V>, java.util.Collection<V>) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.DelegateToEdgeTransformer java.lang.Number transform(edu.uci.ics.jung.algorithms.scoring.util.VEPair<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.DelegateToEdgeTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils org.apache.commons.collections15.Transformer<V,edu.uci.ics.jung.algorithms.scoring.HITS.Scores> getHITSUniformRootPrior(java.util.Collection<V>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils org.apache.commons.collections15.Transformer<V,java.lang.Double> getUniformRootPrior(java.util.Collection<V>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils.2 edu.uci.ics.jung.algorithms.scoring.HITS.Scores transform(V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils.2 java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.UniformDegreeWeight java.lang.Double transform(edu.uci.ics.jung.algorithms.scoring.util.VEPair<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.UniformDegreeWeight java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.UniformInOut java.lang.Double transform(edu.uci.ics.jung.algorithms.scoring.util.VEPair<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.UniformInOut java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.VEPair VEPair(V, E) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.util.VEPair VEPair(V, E) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler int getDistance(edu.uci.ics.jung.graph.Hypergraph<V,E>, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void initialize(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Set<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void initialize(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Set<V>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(edu.uci.ics.jung.graph.Hypergraph<V,E>, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Set<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Set<V>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance<V,E>.SourceData getSourceData(V)
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.LinkedHashMap<V,java.lang.Number> singleSourceShortestPath(V, java.util.Collection<V>, int) 1
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.Map<V,java.lang.Number> getDistanceMap(V, java.util.Collection<V>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData SourceData(V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData java.util.Map.Entry<V,java.lang.Number> getNextVertex()
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance<V,E>.SourceData getSourceData(V)
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath java.util.List<E> getPath(V, V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData java.util.Map.Entry<V,java.lang.Number> getNextVertex()
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.Distance<V>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.Distance<V>, boolean) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics org.apache.commons.collections15.Transformer<V,java.lang.Double> averageDistances(edu.uci.ics.jung.graph.Hypergraph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics org.apache.commons.collections15.Transformer<V,java.lang.Double> averageDistances(edu.uci.ics.jung.graph.Hypergraph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.Distance<V>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, java.util.Map<E,java.lang.Double>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, java.util.Map<E,java.lang.Double>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, java.util.Map<E,java.lang.Double>) 3
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, V, java.util.Map<E,java.lang.Double>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest void updateForest(java.util.Collection<V>, java.util.Collection<E>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 3
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree PrimMinimumSpanningTree(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree V findRoot(edu.uci.ics.jung.graph.Graph<V,E>)
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree V findRoot(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree edu.uci.ics.jung.graph.Graph<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree edu.uci.ics.jung.graph.Graph<V,E> transform(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree java.lang.Object transform(java.lang.Object)
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree void updateTree(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Graph<V,E>, java.util.Collection<E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree void updateTree(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Graph<V,E>, java.util.Collection<E>) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.ShortestPathUtils java.util.List<E> getPath(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.ShortestPath<V,E>, V, V)
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.ShortestPathUtils java.util.List<E> getPath(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.ShortestPath<V,E>, V, V) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.UnweightedShortestPath java.util.Map<V,E> getIncomingEdgeMap(V)
+NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.UnweightedShortestPath java.util.Map<V,java.lang.Number> getDistanceMap(V)
+NULLABLE
+edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.Graph<V,E> toDirected(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.DirectedGraph<V,E>>, org.apache.commons.collections15.Factory<E>, boolean) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.Graph<V,E> toDirected(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.DirectedGraph<V,E>>, org.apache.commons.collections15.Factory<E>, boolean) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.UndirectedGraph<V,E> toUndirected(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.UndirectedGraph<V,E>>, org.apache.commons.collections15.Factory<E>, boolean) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.UndirectedGraph<V,E> toUndirected(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.UndirectedGraph<V,E>>, org.apache.commons.collections15.Factory<E>, boolean) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<E,F> foldHypergraphVertices(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<E,F>>, org.apache.commons.collections15.Factory<F>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<E,F> foldHypergraphVertices(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<E,F>>, org.apache.commons.collections15.Factory<F>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<E,java.util.Collection<V>> foldHypergraphVertices(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<E,java.util.Collection<V>>>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<E,java.util.Collection<V>> foldHypergraphVertices(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<E,java.util.Collection<V>>>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,E> foldHypergraphEdges(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,E> foldHypergraphEdges(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<E>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,E> foldKPartiteGraph(edu.uci.ics.jung.graph.KPartiteGraph<V,E>, org.apache.commons.collections15.Predicate<V>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,E> foldKPartiteGraph(edu.uci.ics.jung.graph.KPartiteGraph<V,E>, org.apache.commons.collections15.Predicate<V>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<E>) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,java.util.Collection<E>> foldHypergraphEdges(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,java.util.Collection<E>>>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,java.util.Collection<E>> foldHypergraphEdges(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,java.util.Collection<E>>>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,java.util.Collection<V>> foldKPartiteGraph(edu.uci.ics.jung.graph.KPartiteGraph<V,E>, org.apache.commons.collections15.Predicate<V>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,java.util.Collection<V>>>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph<V,java.util.Collection<V>> foldKPartiteGraph(edu.uci.ics.jung.graph.KPartiteGraph<V,E>, org.apache.commons.collections15.Predicate<V>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,java.util.Collection<V>>>) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.FoldingTransformer void populateTarget(edu.uci.ics.jung.graph.Graph<S,java.util.Collection<T>>, T, java.util.ArrayList<S>) 2
+NOT_NULL
+edu.uci.ics.jung.algorithms.transformation.VertexPartitionCollapser edu.uci.ics.jung.graph.Graph<CV,CE> collapseVertexPartitions(edu.uci.ics.jung.algorithms.blockmodel.VertexPartition<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double KullbackLeibler(double[], double[]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double KullbackLeibler(double[], double[]) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double cosine(double[], double[]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double cosine(double[], double[]) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double entropy(double[]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double squaredError(double[], double[]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double squaredError(double[], double[]) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double symmetricKL(double[], double[]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double symmetricKL(double[], double[]) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double[] mean(double[][])
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double[] mean(double[][]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double[] mean(java.util.Collection<double[]>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution double[] mean(java.util.Collection<double[]>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution void checkLengths(double[], double[]) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution void checkLengths(double[], double[]) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.DiscreteDistribution void normalize(double[], double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.Indexer org.apache.commons.collections15.BidiMap<T,java.lang.Integer> create(java.util.Collection<T>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.Indexer org.apache.commons.collections15.BidiMap<T,java.lang.Integer> create(java.util.Collection<T>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.Indexer org.apache.commons.collections15.BidiMap<T,java.lang.Integer> create(java.util.Collection<T>, int)
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.Indexer org.apache.commons.collections15.BidiMap<T,java.lang.Integer> create(java.util.Collection<T>, int) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.KMeansClusterer java.util.Collection<java.util.Map<T,double[]>> cluster(java.util.Map<T,double[]>, int) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.KMeansClusterer java.util.Map<double[],java.util.Map<T,double[]>> assignToClusters(java.util.Map<T,double[]>, java.util.Set<double[]>)
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.KMeansClusterer java.util.Map<double[],java.util.Map<T,double[]>> assignToClusters(java.util.Map<T,double[]>, java.util.Set<double[]>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.KMeansClusterer java.util.Map<double[],java.util.Map<T,double[]>> assignToClusters(java.util.Map<T,double[]>, java.util.Set<double[]>) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.KMeansClusterer.NotEnoughClustersException java.lang.String getMessage()
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap T element()
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap T peek()
+NULLABLE
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap T poll()
+NULLABLE
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap T pop()
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap T remove()
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap.ComparableComparator int compare(T, T) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.MapBinaryHeap.ComparableComparator int compare(T, T) 1
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map<T,? extends java.lang.Number>, java.util.Random, double) 0
+NOT_NULL

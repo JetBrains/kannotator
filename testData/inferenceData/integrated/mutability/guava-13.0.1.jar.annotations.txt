@@ -1,0 +1,56 @@
+com.google.common.base.Defaults void put(java.util.Map<java.lang.Class<?>,java.lang.Object>, java.lang.Class<T>, T) 0
+MUTABLE
+com.google.common.collect.ForwardingNavigableMap T poll(java.util.Iterator<T>) 0
+MUTABLE
+com.google.common.collect.ForwardingNavigableSet E poll(java.util.Iterator<E>) 0
+MUTABLE
+com.google.common.collect.Iterables boolean addAll(java.util.Collection<T>, java.lang.Iterable<? extends T>) 0
+MUTABLE
+com.google.common.collect.Iterables boolean removeAll(java.lang.Iterable<?>, java.util.Collection<?>) 0
+MUTABLE
+com.google.common.collect.Iterables boolean removeIf(java.lang.Iterable<T>, com.google.common.base.Predicate<? super T>) 0
+MUTABLE
+com.google.common.collect.Iterables boolean removeIfFromRandomAccessList(java.util.List<T>, com.google.common.base.Predicate<? super T>) 0
+MUTABLE
+com.google.common.collect.Iterables boolean retainAll(java.lang.Iterable<?>, java.util.Collection<?>) 0
+MUTABLE
+com.google.common.collect.Iterables void slowRemoveIfForRemainingElements(java.util.List<T>, com.google.common.base.Predicate<? super T>, int, int) 0
+MUTABLE
+com.google.common.collect.Iterators boolean addAll(java.util.Collection<T>, java.util.Iterator<? extends T>) 0
+MUTABLE
+com.google.common.collect.Iterators boolean removeAll(java.util.Iterator<?>, java.util.Collection<?>) 0
+MUTABLE
+com.google.common.collect.Iterators boolean removeIf(java.util.Iterator<T>, com.google.common.base.Predicate<? super T>) 0
+MUTABLE
+com.google.common.collect.Iterators boolean retainAll(java.util.Iterator<?>, java.util.Collection<?>) 0
+MUTABLE
+com.google.common.collect.Iterators void clear(java.util.Iterator<?>) 0
+MUTABLE
+com.google.common.collect.Maps boolean removeEntryImpl(java.util.Collection<java.util.Map.Entry<K,V>>, java.lang.Object) 0
+MUTABLE
+com.google.common.collect.Maps void putAllImpl(java.util.Map<K,V>, java.util.Map<? extends K,? extends V>) 0
+MUTABLE
+com.google.common.collect.Multisets boolean addAllImpl(com.google.common.collect.Multiset<E>, java.util.Collection<? extends E>) 0
+MUTABLE
+com.google.common.collect.Queues int drain(java.util.concurrent.BlockingQueue<E>, java.util.Collection<? super E>, int, long, java.util.concurrent.TimeUnit) 1
+MUTABLE
+com.google.common.collect.Queues int drainUninterruptibly(java.util.concurrent.BlockingQueue<E>, java.util.Collection<? super E>, int, long, java.util.concurrent.TimeUnit) 1
+MUTABLE
+com.google.common.collect.Serialization void populateMap(java.util.Map<K,V>, java.io.ObjectInputStream) 0
+MUTABLE
+com.google.common.collect.Serialization void populateMap(java.util.Map<K,V>, java.io.ObjectInputStream, int) 0
+MUTABLE
+com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Collection<?>) 0
+MUTABLE
+com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Iterator<?>) 0
+MUTABLE
+com.google.common.primitives.Primitives void add(java.util.Map<java.lang.Class<?>,java.lang.Class<?>>, java.util.Map<java.lang.Class<?>,java.lang.Class<?>>, java.lang.Class<?>, java.lang.Class<?>) 0
+MUTABLE
+com.google.common.primitives.Primitives void add(java.util.Map<java.lang.Class<?>,java.lang.Class<?>>, java.util.Map<java.lang.Class<?>,java.lang.Class<?>>, java.lang.Class<?>, java.lang.Class<?>) 1
+MUTABLE
+com.google.common.reflect.TypeResolver void populateTypeMappings(java.util.Map<java.lang.reflect.TypeVariable<?>,java.lang.reflect.Type>, java.lang.reflect.Type, java.lang.reflect.Type) 0
+MUTABLE
+com.google.common.reflect.TypeToken.TypeCollector int collectTypes(K, java.util.Map<? super K,java.lang.Integer>) 1
+MUTABLE
+com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode com.google.common.util.concurrent.CycleDetectingLockFactory.ExampleStackTrace findPathTo(com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode, java.util.Set<com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode>) 1
+MUTABLE

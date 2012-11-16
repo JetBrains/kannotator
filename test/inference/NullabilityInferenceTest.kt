@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.annotationsInference.nullability.buildMethodNull
 
 class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
 
-    protected override fun Array<jet.Annotation>.toAnnotation(): NullabilityAnnotation? {
+    protected override fun Array<out jet.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
             if (ann.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL

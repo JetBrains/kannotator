@@ -1,0 +1,28 @@
+edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer void findBiconnectedComponents(edu.uci.ics.jung.graph.UndirectedGraph<V,E>, V, java.util.Set<java.util.Set<V>>) 2
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator BarabasiAlbertGenerator(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, int, int, java.util.Set<V>) 6
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator BarabasiAlbertGenerator(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, int, java.util.Set<V>) 5
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator void createRandomEdge(java.util.Collection<V>, V, java.util.Set<edu.uci.ics.jung.graph.util.Pair<V>>) 2
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator void initialize(java.util.Set<V>) 0
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph<V,E> generateMixedRandomGraph(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>, int, boolean, java.util.Set<V>) 3
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph<V,E> generateMixedRandomGraph(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>, int, boolean, java.util.Set<V>) 6
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph<V,E> generateMixedRandomGraph(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>, int, java.util.Set<V>) 3
+MUTABLE
+edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph<V,E> generateMixedRandomGraph(org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>, int, java.util.Set<V>) 5
+MUTABLE
+edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void initializeData(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<V,edu.uci.ics.jung.algorithms.importance.BetweennessCentrality<V,E>.BetweennessData>) 1
+MUTABLE
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 4
+MUTABLE
+edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void visitNewVertex(V, V, int, java.util.List<V>) 3
+MUTABLE
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest void updateForest(java.util.Collection<V>, java.util.Collection<E>) 1
+MUTABLE
+edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree void updateTree(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Graph<V,E>, java.util.Collection<E>) 2
+MUTABLE

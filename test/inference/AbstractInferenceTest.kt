@@ -27,7 +27,7 @@ import kotlin.test.fail
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
-    protected abstract fun Array<jet.Annotation>.toAnnotation(): A?
+    protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
 
     protected open fun buildAnnotations(
             graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
