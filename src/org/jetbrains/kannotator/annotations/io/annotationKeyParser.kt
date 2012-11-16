@@ -15,7 +15,7 @@ data class FieldAnnotationKeyData(
 )
 
 private val METHOD_ANNOTATION_KEY_PATTERN = Pattern.compile("""([\w\.]+) (.*?)\s?([\w<>$]+)\(""")
-private val FIELD_ANNOTATION_KEY_PATTERN = Pattern.compile("""(\w+(\.\w+)*)\s+(\w+)""")
+private val FIELD_ANNOTATION_KEY_PATTERN = Pattern.compile("""(\w+(\.\w+)*)\s+([\w\$]+)""")
 
 fun tryParseMethodAnnotationKey(annotationKey: String): MethodAnnotationKeyData? {
     val matcher = METHOD_ANNOTATION_KEY_PATTERN.matcher(annotationKey)
