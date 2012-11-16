@@ -23,10 +23,12 @@ fun NullabilityAnnotation?.toValueInfo() : NullabilityValueInfo = when (this) {
 
 private val JB_NOT_NULL = "org.jetbrains.annotations.NotNull"
 private val JB_NULLABLE = "org.jetbrains.annotations.Nullable"
+private val JSR_305_NOT_NULL = "javax.annotation.Nonnull"
+private val JSR_305_NULLABLE = "javax.annotation.Nullable"
 
 fun classNamesToNullabilityAnnotation(canonicalClassNames: Set<String>) : NullabilityAnnotation? {
-    val containsNotNull = canonicalClassNames.contains(JB_NOT_NULL)
-    val containsNullable = canonicalClassNames.contains(JB_NULLABLE)
+    val containsNotNull = canonicalClassNames.contains(JB_NOT_NULL) || canonicalClassNames.contains(JSR_305_NOT_NULL)
+    val containsNullable = canonicalClassNames.contains(JB_NULLABLE) || canonicalClassNames.contains(JSR_305_NULLABLE)
 
     if (containsNotNull == containsNullable) return null
     return if (containsNotNull)
