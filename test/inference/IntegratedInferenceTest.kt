@@ -3,7 +3,6 @@ package inference
 import junit.framework.TestCase
 import junit.framework.Assert.*
 import java.io.File
-import org.jetbrains.kannotator.main.inferNullabilityAnnotations
 import java.util.Collections
 import java.io.PrintStream
 import java.io.FileOutputStream
@@ -16,6 +15,7 @@ import kotlinlib.removeSuffix
 import java.io.FileInputStream
 import interpreter.readWithBuffer
 import java.util.TreeMap
+import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.util.ArrayList
 import util.assertEqualsOrCreate
@@ -24,12 +24,13 @@ import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import kotlin.test.assertTrue
 import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.main.*
 
 class IntegratedInferenceTest : TestCase() {
-    private fun checkConflicts(conflictFile: File, inferred: Annotations<NullabilityAnnotation>) {
-        val existingAnnotations = (inferred as AnnotationsImpl<NullabilityAnnotation>).delegate
+    private fun checkConflicts(conflictFile: File, inferred: Annotations<Any>) {
+        val existingAnnotations = (inferred as AnnotationsImpl<Any>).delegate
         if (existingAnnotations != null) {
-            val conflicts = ArrayList<Triple<AnnotationPosition, NullabilityAnnotation, NullabilityAnnotation>>()
+            val conflicts = ArrayList<Triple<AnnotationPosition, Any, Any>>()
             existingAnnotations forEach {
                 pos, ann ->
                 if (inferred[pos] != ann) {
@@ -44,12 +45,19 @@ class IntegratedInferenceTest : TestCase() {
                         p.println("\t expected: $expectedAnn, inferred: $inferredAnn")
                     }
                 }
+                assertTrue("Found annotation conflicts", false);
             }
-            assertTrue("Found annotation conflicts", conflicts.isEmpty())
         }
     }
 
-    fun test() {
+    private fun doInferenceTest(testMap: Map<Any, AnnotationInferrer<Any>>) {
+        var currentMethod: Method? = null
+        val progressMonitor = object : ProgressMonitor() {
+            override fun processingStepStarted(method: Method) {
+                currentMethod = method
+            }
+        }
+
         val annotationFiles = ArrayList<File>()
         File("lib").recurseFiltered({f -> f.isFile() && f.getName().endsWith(".xml")}, {f -> annotationFiles.add(f)})
 
@@ -59,39 +67,33 @@ class IntegratedInferenceTest : TestCase() {
 
         for (jar in jars) {
             println("start: $jar")
-            var currentMethod: Method? = null
             try {
-                val expectedFile = File("testData/inferenceData/integrated/${jar.getName()}.annotations.txt")
-                val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
-                outFile.getParentFile()!!.mkdirs()
+                val annotationsMap = inferAnnotations(arrayList(jar), annotationFiles, testMap, progressMonitor, false)
 
-                val inferred = inferNullabilityAnnotations(arrayList(jar), annotationFiles,
-                        object : ProgressMonitor() {
-                            override fun processingStepStarted(method: Method) {
-                                currentMethod = method
-                            }
-                        },
-                        false
-                )
+                for ((testName, annotations) in annotationsMap) {
+                    val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
+                    val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
+                    outFile.getParentFile()!!.mkdirs()
 
-                val map = TreeMap<String, NullabilityAnnotation>()
-                inferred forEach {
-                    pos, ann -> map.put(pos.toAnnotationKey(), ann)
-                }
+                    checkConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations)
 
-                PrintStream(FileOutputStream(outFile)) use {
-                    p ->
-                    for ((key, ann) in map) {
-                        p.println(key)
-                        p.println(ann)
+                    val map = TreeMap<String, Any>()
+                    annotations forEach {
+                        pos, ann -> map.put(pos.toAnnotationKey(), ann)
                     }
+
+                    PrintStream(FileOutputStream(outFile)) use {
+                        p ->
+                        for ((key, ann) in map) {
+                            p.println(key)
+                            p.println(ann)
+                        }
+                    }
+
+                    assertEqualsOrCreate(expectedFile, outFile.readText(), false)
+
+                    outFile.delete()
                 }
-
-                assertEqualsOrCreate(expectedFile, outFile.readText(), false)
-
-                outFile.delete()
-
-                checkConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflict.txt"), inferred)
 
                 println("success")
             } catch (e: Throwable) {
@@ -103,4 +105,11 @@ class IntegratedInferenceTest : TestCase() {
 
         if (errors) fail("There were errors, see the output")
     }
+
+    fun test() = doInferenceTest(
+            hashMap(
+                    Pair("nullability", NULLABILITY_INFERRER as AnnotationInferrer<Any>),
+                    Pair("mutability", MUTABILITY_INFERRER as AnnotationInferrer<Any>)
+            )
+    )
 }

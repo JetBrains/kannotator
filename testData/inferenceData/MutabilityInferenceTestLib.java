@@ -1,6 +1,6 @@
 package inferenceData;
 
-import inferenceData.annotations.Mutable;
+import org.jetbrains.kannotator.runtime.annotations.Mutable;
 
 import java.util.Collection;
 import java.util.List;
