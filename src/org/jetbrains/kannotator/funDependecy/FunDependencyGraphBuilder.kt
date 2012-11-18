@@ -1,13 +1,14 @@
 package org.jetbrains.kannotator.funDependecy
 
+import java.util.ArrayList
+import java.util.HashMap
 import kotlinlib.flags
-import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.getArgumentTypes
-import org.jetbrains.kannotator.declarations.getReturnType
 import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
@@ -16,15 +17,12 @@ import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
 
 public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : FunDependencyGraph =
-        FunDependencyGraphBuilder(declarationIndex, classSource).build()
-
-fun Method.canBeAnnotated() : Boolean {
-    return !id.getReturnType().isPrimitiveOrVoidType() || !id.getArgumentTypes().all { it.isPrimitiveOrVoidType() }
-}
+        FunDependencyGraphBuilder(declarationIndex, classSource, buildFieldsDependencyInfos(declarationIndex, classSource)).build()
 
 private class FunDependencyGraphBuilder(
         private val declarationIndex: DeclarationIndex,
-        private val classSource: ClassSource
+        private val classSource: ClassSource,
+        private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
 ) {
     private var currentFromNode : FunctionNodeImpl? = null
     private var currentClassName : ClassName? = null
@@ -38,20 +36,16 @@ private class FunDependencyGraphBuilder(
 
         public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
             val method = Method(currentClassName!!, access, name, desc, signature)
-            if (method.canBeAnnotated()) {
-                currentFromNode = dependencyGraph.getOrCreateNode(method)
-                return methodVisitor
-            }
-
-            return null
+            currentFromNode = dependencyGraph.getOrCreateNode(method)
+            return methodVisitor
         }
     }
 
     private val methodVisitor = object : MethodVisitor(ASM4) {
         public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
             val method = declarationIndex.findMethod(ClassName.fromInternalName(owner), name, desc)
-            if (method != null && method.canBeAnnotated()) {
-                dependencyGraph.createEdge(currentFromNode!!, dependencyGraph.getOrCreateNode(method))
+            if (method != null) {
+                dependencyGraph.createEdge(currentFromNode!!, dependencyGraph.getOrCreateNode(method), "call")
             }
         }
     }
@@ -62,16 +56,14 @@ private class FunDependencyGraphBuilder(
             reader.accept(classVisitor, flags(SKIP_DEBUG, SKIP_FRAMES))
         }
 
-        val fieldsDependencyInfos = buildFieldsDependencyInfos(declarationIndex, classSource)
-
         // Make all getter nodes depend on setters node
         for (fieldInfo in fieldsDependencyInfos.values()) {
-            for (readerFun in fieldInfo.readers.filter { it.canBeAnnotated() }) {
+            for (readerFun in fieldInfo.readers) {
                 val readerNode = dependencyGraph.getOrCreateNode(readerFun)
                 for (writerFun in fieldInfo.writers) {
                     if (writerFun != readerFun) {
                         val writerNode = dependencyGraph.getOrCreateNode(writerFun)
-                        dependencyGraph.createEdge(readerNode, writerNode)
+                        dependencyGraph.createEdge(readerNode, writerNode, "reading '${fieldInfo.field.name}'")
                     }
                 }
             }

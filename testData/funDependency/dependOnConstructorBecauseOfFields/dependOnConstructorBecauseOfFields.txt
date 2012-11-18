@@ -1,24 +1,29 @@
 == All Nodes == 
 funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
+    outgoing edges:
+        call funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V -> java.lang.Object:<init>()V
     incoming edges:
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
+        reading 'finalField' funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
 funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+    outgoing edges:
+        call funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V -> java.lang.Object:<init>()V
     incoming edges:
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getNonFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+        reading 'finalField' funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+        reading 'nonFinalField' funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getNonFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
 funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String;
     outgoing edges:
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+        reading 'finalField' funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
+        reading 'finalField' funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
 funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getNonFinalField()Ljava/lang/String;
     outgoing edges:
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getNonFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+        reading 'nonFinalField' funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getNonFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V -> java.lang.Object:<init>()V
 
 == No Outgoing Nodes == 
-funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
+java.lang.Object:<init>()V
     incoming edges:
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V
-funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
-    incoming edges:
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
-        funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:getNonFinalField()Ljava/lang/String; -> funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V
+        call funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields:<init>(Ljava/lang/String;)V -> java.lang.Object:<init>()V

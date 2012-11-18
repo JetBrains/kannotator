@@ -1,15 +1,35 @@
 == All Nodes == 
+funDependency.recursiveFun.First:<init>()V
+    outgoing edges:
+        call funDependency.recursiveFun.First:<init>()V -> java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:<init>()V
 funDependency.recursiveFun.First:foo()Ljava/lang/Object;
     outgoing edges:
-        funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
-        funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:bar()Ljava/lang/Object;
+        call funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
+        call funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:<init>()V
+        call funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:bar()Ljava/lang/Object;
     incoming edges:
-        funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
-        funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
+        call funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
+        call funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
+funDependency.recursiveFun.Second:<init>()V
+    outgoing edges:
+        call funDependency.recursiveFun.Second:<init>()V -> java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:<init>()V
 funDependency.recursiveFun.Second:bar()Ljava/lang/Object;
     outgoing edges:
-        funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
+        call funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:<init>()V
+        call funDependency.recursiveFun.Second:bar()Ljava/lang/Object; -> funDependency.recursiveFun.First:foo()Ljava/lang/Object;
     incoming edges:
-        funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:bar()Ljava/lang/Object;
+        call funDependency.recursiveFun.First:foo()Ljava/lang/Object; -> funDependency.recursiveFun.Second:bar()Ljava/lang/Object;
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.recursiveFun.First:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.recursiveFun.Second:<init>()V -> java.lang.Object:<init>()V
 
-== No Outgoing Nodes ==
+== No Outgoing Nodes == 
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.recursiveFun.First:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.recursiveFun.Second:<init>()V -> java.lang.Object:<init>()V

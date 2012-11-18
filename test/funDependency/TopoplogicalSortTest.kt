@@ -20,6 +20,16 @@ class TopologicalSortTest {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
+    Test fun callDependencyForNonAnnotativeMethod() {
+        doTest("callDependencyForNonAnnotativeMethod/callDependencyForNonAnnotativeMethod.sorted.txt",
+                "fundependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod")
+    }
+
+    Test fun dependOnConstructorBecauseOfFields() {
+        doTest("dependOnConstructorBecauseOfFields/DependOnConstructorBecauseOfFields.sorted.txt",
+                "fundependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
+    }
+
     Test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.sorted.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
     }
@@ -43,5 +53,4 @@ class TopologicalSortTest {
     Test fun multipleComponents() {
         doTest("multipleComponents/multipleComponents.sorted.txt", "funDependency.multipleComponents.First")
     }
-
 }

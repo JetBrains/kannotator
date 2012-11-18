@@ -2,23 +2,21 @@ package funDependency
 
 import java.io.File
 import java.util.Comparator
-import kotlin.test.fail
 import kotlinlib.*
 import org.jetbrains.kannotator.funDependecy.FunctionNode
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
-import org.junit.Assert
 import org.junit.Test
-import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
-import org.jetbrains.kannotator.index.ClassSource
 import util.ClassesFromClassPath
 import util.assertEqualsOrCreate
 
 private val PATH = "testData/funDependency/"
 
 class FunDependencyGraphTest {
+    Test fun callDependencyForNonAnnotativeMethod() {
+        doTest("callDependencyForNonAnnotativeMethod/callDependencyForNonAnnotativeMethod.txt",
+                "funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod")
+    }
 
     Test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")

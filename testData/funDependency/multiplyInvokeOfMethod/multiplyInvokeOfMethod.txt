@@ -1,12 +1,29 @@
 == All Nodes == 
+funDependency.multiplyInvokeOfMethod.First:<init>()V
+    outgoing edges:
+        call funDependency.multiplyInvokeOfMethod.First:<init>()V -> java.lang.Object:<init>()V
 funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object;
     outgoing edges:
-        funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+        call funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:<init>()V
+        call funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+funDependency.multiplyInvokeOfMethod.Second:<init>()V
+    outgoing edges:
+        call funDependency.multiplyInvokeOfMethod.Second:<init>()V -> java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:<init>()V
 funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
     incoming edges:
-        funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+        call funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.multiplyInvokeOfMethod.First:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.multiplyInvokeOfMethod.Second:<init>()V -> java.lang.Object:<init>()V
 
 == No Outgoing Nodes == 
 funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
     incoming edges:
-        funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+        call funDependency.multiplyInvokeOfMethod.First:foo()Ljava/lang/Object; -> funDependency.multiplyInvokeOfMethod.Second:foo()Ljava/lang/Object;
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.multiplyInvokeOfMethod.First:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.multiplyInvokeOfMethod.Second:<init>()V -> java.lang.Object:<init>()V

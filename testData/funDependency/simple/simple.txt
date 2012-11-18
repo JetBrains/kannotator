@@ -1,12 +1,26 @@
 == All Nodes == 
+funDependency.simple.Simple:<init>()V
+    outgoing edges:
+        call funDependency.simple.Simple:<init>()V -> java.lang.Object:<init>()V
 funDependency.simple.Simple:bar()Ljava/lang/Object;
+    outgoing edges:
+        call funDependency.simple.Simple:bar()Ljava/lang/Object; -> java.io.PrintStream:println()V
     incoming edges:
-        funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;
+        call funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;
 funDependency.simple.Simple:foo()Ljava/lang/Object;
     outgoing edges:
-        funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;
+        call funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;
+java.io.PrintStream:println()V
+    incoming edges:
+        call funDependency.simple.Simple:bar()Ljava/lang/Object; -> java.io.PrintStream:println()V
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.simple.Simple:<init>()V -> java.lang.Object:<init>()V
 
 == No Outgoing Nodes == 
-funDependency.simple.Simple:bar()Ljava/lang/Object;
+java.io.PrintStream:println()V
     incoming edges:
-        funDependency.simple.Simple:foo()Ljava/lang/Object; -> funDependency.simple.Simple:bar()Ljava/lang/Object;
+        call funDependency.simple.Simple:bar()Ljava/lang/Object; -> java.io.PrintStream:println()V
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.simple.Simple:<init>()V -> java.lang.Object:<init>()V
