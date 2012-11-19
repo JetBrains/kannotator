@@ -21,7 +21,7 @@ public fun String.convertLineSeparators(newSeparator: String): String {
                 when {
                     c == '\n' ->  sb.append(newSeparator)
                     c == '\r' &&
-                    this.getOrElse(i + 1, null) == '\n' -> {
+                    this.getOrElse(i + 1, null: Char?) == '\n' -> {   // KT-209
                         sb.append(newSeparator)
                         i++
                     }
