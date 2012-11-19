@@ -20,6 +20,7 @@ import java.io.Reader
 import java.io.FileWriter
 import java.io.PrintWriter
 import org.jetbrains.kannotator.declarations.ClassName
+import util.getClassReader
 
 fun PrintStream.appendStates(instructions: Collection<Instruction>) {
     val renderer = AsmInstructionRenderer()
@@ -70,7 +71,7 @@ fun writeGraphsToFile(file: File, className: ClassName, methodsAndGraphs: Collec
 }
 
 fun doTest(theClass: Class<out Any>) {
-    val classReader = ClassReader(theClass.getName())
+    val classReader = getClassReader(theClass)
     doTest(File("testData/"), classReader)
 }
 

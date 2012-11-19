@@ -37,12 +37,13 @@ object ClassPathDeclarationIndex : DeclarationIndex {
     }
 
     private fun search(query : SearchQuery) {
-        val stream = ClassLoader.getSystemResourceAsStream(query.owner.internal + ".class")
+        // Name of class may be not valid, ex. [Ljava.lang.Object; (when fixed use getClassLoader() instead)
+        val stream = getClassAsStream(query.owner.internal)
         if (stream == null) {
             return
         }
-
         val reader = ClassReader(stream)
+        stream.close()
         val node = ClassNode()
         reader.accept(node, SKIP_CODE or SKIP_DEBUG or SKIP_FRAMES)
 

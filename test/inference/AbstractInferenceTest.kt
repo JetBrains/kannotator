@@ -24,6 +24,7 @@ import org.objectweb.asm.ClassVisitor
 import org.jetbrains.kannotator.asm.util.forEachField
 import kotlin.test.assertFalse
 import kotlin.test.fail
+import util.getClassReader
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
@@ -45,7 +46,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         val fieldName = getTestName(true)
 
         val reflectedField = testClass.getField(fieldName)
-        val classReader = ClassReader(testClass.getName())
+        val classReader = getClassReader(testClass)
 
         var foundField: Field? = null
         classReader.forEachField {
@@ -70,7 +71,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         val reflectMethod = testClass.getMethods().find { m -> m.getName() == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
-        val classReader = ClassReader(className)
+        val classReader = getClassReader(className)
 
         val graph = buildControlFlowGraph(classReader, methodName, methodDescriptor)
 
