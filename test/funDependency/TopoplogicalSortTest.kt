@@ -17,7 +17,7 @@ class TopologicalSortTest {
         val actual = components.map { it.map {n -> n.method.toString()}.toSortedList().join("\n", "", "\n===========\n") }.join("\n")
         val expectedFile = File("testData/funDependency/" + expectedFileName)
 
-        assertEqualsOrCreate(expectedFile, actual.toSystemLineSeparators())
+        assertEqualsOrCreate(expectedFile, actual)
     }
 
     Test fun funInDifferentClassesTest() {

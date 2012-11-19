@@ -28,6 +28,7 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
+import kotlinlib.toUnixSeparators
 
 public class WriteAnnotationTest {
 
@@ -80,7 +81,7 @@ public class WriteAnnotationTest {
                 writeAnnotations<AnnotationData>(FileWriter(actualFile), annotationsList, {
                     annotation -> annotation
                 })
-                Assert.assertEquals(file.readText().trim(), actualFile.readText().trim())
+                Assert.assertEquals(file.readText().trim().toUnixSeparators(), actualFile.readText().trim().toUnixSeparators())
             }
         }
     }

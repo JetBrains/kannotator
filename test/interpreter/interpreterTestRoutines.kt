@@ -137,8 +137,8 @@ fun doTest(
             val chunkActual = actualReader.readWithBuffer(buffer)
             val chunkExpected = expectedReader.readWithBuffer(buffer)
 
-            assertEquals(chunkExpected, chunkActual)
             if (chunkActual == null || chunkExpected == null) break;
+            assertEquals(chunkExpected.toUnixSeparators(), chunkActual.toUnixSeparators())
         }
     }
     finally {

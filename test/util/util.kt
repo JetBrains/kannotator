@@ -9,6 +9,7 @@ import java.util.ArrayList
 import kotlinlib.recurseFiltered
 import org.jetbrains.kannotator.index.ClassSource
 import junit.framework.Assert
+import kotlinlib.toUnixSeparators
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
@@ -71,6 +72,6 @@ fun assertEqualsOrCreate(expectedFile: File, actual: String, failOnNoData: Boole
 
     val expected = expectedFile.readText()
 
-    Assert.assertEquals(expected, actual)
+    Assert.assertEquals(expected.toUnixSeparators(), actual.toUnixSeparators())
     return true
 }

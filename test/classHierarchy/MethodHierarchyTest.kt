@@ -41,7 +41,7 @@ class MethodHierarchyTest : TestCase() {
                 appendNodes("It is overridden by", methodNode.childNodes())
                 sb.append("\n")
             }
-        }.toSystemLineSeparators()
+        }
 
         assertEqualsOrCreate(expectedFile, actual)
     }
