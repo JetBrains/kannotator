@@ -8,7 +8,6 @@ import java.io.PrintStream
 import java.io.FileOutputStream
 import kotlinlib.println
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
-import util.findJarFiles
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.declarations.Method
 import kotlinlib.removeSuffix
@@ -25,6 +24,7 @@ import org.jetbrains.kannotator.declarations.AnnotationPosition
 import kotlin.test.assertTrue
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.main.*
+import util.findJarsInLibFolder
 
 class IntegratedInferenceTest : TestCase() {
     private fun checkConflicts(conflictFile: File, inferred: Annotations<Any>) {
@@ -61,7 +61,7 @@ class IntegratedInferenceTest : TestCase() {
         val annotationFiles = ArrayList<File>()
         File("lib").recurseFiltered({f -> f.isFile() && f.getName().endsWith(".xml")}, {f -> annotationFiles.add(f)})
 
-        val jars = findJarFiles(arrayList(File("lib"))).filter {f -> f.getName() != "kotlin-runtime.jar"}
+        val jars = findJarsInLibFolder().filter {f -> f.getName() != "kotlin-runtime.jar"}
 
         var errors = false
 
