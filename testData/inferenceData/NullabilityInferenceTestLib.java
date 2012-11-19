@@ -26,7 +26,7 @@ public class NullabilityInferenceTestLib {
 
     @Nullable
     public static Object returnNullable() {
-        return new Object();
+        return null;
     }
 
     @NotNull

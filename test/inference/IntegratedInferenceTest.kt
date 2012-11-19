@@ -25,6 +25,7 @@ import kotlin.test.assertTrue
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.main.*
 import util.findJarsInLibFolder
+import org.jetbrains.kannotator.index.FileBasedClassSource
 
 class IntegratedInferenceTest : TestCase() {
     private fun checkConflicts(conflictFile: File, inferred: Annotations<Any>) {
@@ -50,7 +51,7 @@ class IntegratedInferenceTest : TestCase() {
         }
     }
 
-    private fun doInferenceTest(testMap: Map<Any, AnnotationInferrer<Any>>) {
+    private fun doInferenceTest(testMap: Map<Any, AnnotationInferrer<Annotation>>) {
         var currentMethod: Method? = null
         val progressMonitor = object : ProgressMonitor() {
             override fun processingStepStarted(method: Method) {
@@ -68,7 +69,7 @@ class IntegratedInferenceTest : TestCase() {
         for (jar in jars) {
             println("start: $jar")
             try {
-                val annotationsMap = inferAnnotations(arrayList(jar), annotationFiles, testMap, progressMonitor, false)
+                val annotationsMap = inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, testMap, progressMonitor, false)
 
                 for ((testName, annotations) in annotationsMap) {
                     val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
@@ -108,8 +109,8 @@ class IntegratedInferenceTest : TestCase() {
 
     fun test() = doInferenceTest(
             hashMap(
-                    Pair("nullability", NULLABILITY_INFERRER as AnnotationInferrer<Any>),
-                    Pair("mutability", MUTABILITY_INFERRER as AnnotationInferrer<Any>)
+                    Pair("nullability", NullabilityInferrer() as AnnotationInferrer<Annotation>),
+                    Pair("mutability", MUTABILITY_INFERRER as AnnotationInferrer<Annotation>)
             )
     )
 }

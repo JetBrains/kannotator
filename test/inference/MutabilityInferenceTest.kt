@@ -1,17 +1,24 @@
 package inference
 
 import java.io.File
-import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.main.AnnotationInferrer
+import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.annotationsInference.mutability.buildMutabilityAnnotations
+import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {
+    protected override fun getClassFiles(): Collection<File> {
+        return arrayList(
+                "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class",
+                "out/production/kannotator/inferenceData/MutabilityInferenceTestClass.class").map { File(it) }
+    }
+
+    protected override fun getInferrer(): AnnotationInferrer<MutabilityAnnotation> {
+        return MUTABILITY_INFERRER
+    }
 
     override fun Array<out jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
@@ -24,17 +31,13 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
     protected override fun getInitialAnnotations(): Annotations<MutabilityAnnotation> {
         val utilClass = "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
-        val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
-            annotationNames -> if ("org.jetbrains.kannotator.runtime.annotations.Mutable" in annotationNames)
-                                   MutabilityAnnotation.MUTABLE
-                              else MutabilityAnnotation.IMMUTABLE
+        val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) { annotationNames ->
+            if ("org.jetbrains.kannotator.runtime.annotations.Mutable" in annotationNames)
+                MutabilityAnnotation.MUTABLE
+            else
+                MutabilityAnnotation.IMMUTABLE
         }
         return existingNullabilityAnnotations
-    }
-
-    override protected fun buildAnnotations(graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
-                                            annotations: Annotations<MutabilityAnnotation>) : Annotations<MutabilityAnnotation> {
-        return buildMutabilityAnnotations(graph, positions, declarationIndex, annotations)
     }
 
     fun testMutableCollection() = doTest()

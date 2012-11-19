@@ -1,46 +1,42 @@
 package inference
 
+import java.io.File
+import java.util.ArrayList
 import java.util.HashMap
 import junit.framework.TestCase
 import kotlin.test.assertEquals
 import kotlinlib.*
 import org.jetbrains.kannotator.annotationsInference.Annotation
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.objectweb.asm.ClassReader
-import org.objectweb.asm.Opcodes
-import org.objectweb.asm.Type
-import util.ClassPathDeclarationIndex
-import util.controlFlow.buildControlFlowGraph
-import util.junit.getTestName
-import org.jetbrains.kannotator.declarations.Field
-import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
-import org.objectweb.asm.ClassVisitor
 import org.jetbrains.kannotator.asm.util.forEachField
-import kotlin.test.assertFalse
-import kotlin.test.fail
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.index.ClassSource
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.main.AnnotationInferrer
+import org.jetbrains.kannotator.main.ProgressMonitor
+import org.jetbrains.kannotator.main.inferAnnotations
+import org.objectweb.asm.ClassReader
+import org.objectweb.asm.Type
 import util.getClassReader
+import util.junit.getTestName
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
     protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
 
-    protected open fun buildAnnotations(
-            graph: ControlFlowGraph, positions: PositionsForMethod, declarationIndex: DeclarationIndex,
-            annotations: Annotations<A>) : Annotations<A> = AnnotationsImpl()
+    protected abstract fun getInitialAnnotations(): Annotations<A>
+    protected abstract fun getInferrer(): AnnotationInferrer<A>
+    protected abstract fun getClassFiles(): Collection<File>
 
-    protected open fun buildFieldAnnotations(
-            field: Field,
-            classReader: ClassReader,
-            declarationIndex: DeclarationIndex,
-            annotations: Annotations<A>) : Annotations<A> = AnnotationsImpl()
-
-    protected open fun getInitialAnnotations(): Annotations<A> = AnnotationsImpl()
+    private fun doInferAnnotations(annotations: Annotations<A>) : Annotations<Annotation> {
+        return inferAnnotations<String>(
+                FileBasedClassSource(getClassFiles()),
+                ArrayList<File>(),
+                hashMap(Pair("inferrer", getInferrer() as AnnotationInferrer<Annotation>)),
+                ProgressMonitor(),
+                false,
+                hashMap(Pair("inferrer", annotations)))["inferrer"]!!
+    }
 
     protected fun doFieldTest() {
         val fieldName = getTestName(true)
@@ -57,28 +53,28 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         }
 
         val field = foundField ?: throw AssertionError("Field $fieldName wasn't found")
-
-        val result = buildFieldAnnotations(field, classReader, ClassPathDeclarationIndex, getInitialAnnotations())
+        val resultFieldAnnotation = doInferAnnotations(getInitialAnnotations())[getFieldTypePosition(field)]
 
         val expectedReturnInfo = reflectedField.getAnnotations().toAnnotation()
 
-        checkFieldInferredAnnotations(expectedReturnInfo, result, field)
+        checkFieldInferredAnnotations(expectedReturnInfo, resultFieldAnnotation, field)
     }
 
     protected fun doTest() {
-        val className = testClass.getName()
         val methodName = getName()!!
         val reflectMethod = (testClass.getMethods() as Array<java.lang.reflect.Method>).find { m -> m.getName() == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
-        val classReader = getClassReader(className)
+        val classReader = getClassReader(testClass.getName())
 
-        val graph = buildControlFlowGraph(classReader, methodName, methodDescriptor)
+        // Bad: Reading class source twice
+        val declarationIndex = DeclarationIndexImpl(object : ClassSource { override fun forEach(body: (ClassReader) -> Unit) = body(classReader) })
+        val method = declarationIndex.findMethod(ClassName.fromInternalName(Type.getInternalName(testClass)), methodName, methodDescriptor)
+        assert(method != null, "Tested method $methodName wasn't found in index")
 
-        val method = Method(ClassName.fromInternalName(className), Opcodes.ACC_PUBLIC, methodName, methodDescriptor, null)
-        val positions = PositionsForMethod(method)
-        val result = buildAnnotations(graph, positions, ClassPathDeclarationIndex, getInitialAnnotations())
+        val resultAnnotations = doInferAnnotations(getInitialAnnotations())
 
+        val positions = PositionsForMethod(method!!)
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 
         val parametersMap = HashMap<Int, A>()
@@ -89,25 +85,21 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
             }
         }
 
-        checkInferredAnnotations(parametersMap, expectedReturnInfo, result, reflectMethod.getParameterTypes()!!.size, positions)
+        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.getParameterTypes()!!.size, positions)
     }
 
     fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,
-                     actual: Annotations<A>, parametersNumber: Int, positions: PositionsForMethod) {
-        assertEquals(expectedReturnAnnotation, actual.get(positions.forReturnType().position),
+                     actual: Annotations<Annotation>, parametersNumber: Int, positions: PositionsForMethod) {
+        assertEquals(expectedReturnAnnotation, actual[positions.forReturnType().position],
                 "Return annotations error")
 
         for (index in 1..parametersNumber) {
-            assertEquals(expectedParametersAnnotations.get(index), actual.get(positions.forParameter(index).position),
+            assertEquals(expectedParametersAnnotations[index], actual[positions.forParameter(index).position],
                     "Annotations for parameter $index error")
         }
     }
 
-    fun checkFieldInferredAnnotations(
-            expectedReturnAnnotation: A?,
-            actual: Annotations<A>,
-            field: Field) {
-        val fieldTypePosition = getFieldAnnotatedType(field).position
-        assertEquals(expectedReturnAnnotation, actual[fieldTypePosition], "Return annotations error")
+    fun checkFieldInferredAnnotations(expectedReturnAnnotation: A?, actualAnnotation: Annotation?, field: Field) {
+        assertEquals(expectedReturnAnnotation, actualAnnotation, "Return annotations error for field $field")
     }
 }

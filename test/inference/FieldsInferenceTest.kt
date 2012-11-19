@@ -3,7 +3,6 @@ package inference
 import kotlin.test.assertTrue
 import kotlinlib.minus
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.buildFieldNullabilityAnnotations
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
@@ -12,8 +11,41 @@ import org.objectweb.asm.ClassReader
 import util.junit.getTestName
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import util.controlFlow.buildControlFlowGraph
+import org.jetbrains.kannotator.index.ClassSource
+import util.ClassPathDeclarationIndex
+import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
+import java.util.ArrayList
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
+import java.io.File
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
+import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
+import org.jetbrains.kannotator.main.inferAnnotations
+import org.jetbrains.kannotator.main.AnnotationInferrer
+import org.jetbrains.kannotator.main.ProgressMonitor
+import org.jetbrains.kannotator.declarations.getFieldTypePosition
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.declarations.setIfNotNull
+import org.jetbrains.kannotator.main.NullabilityInferrer
 
-class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
+class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
+        javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
+    protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
+        val utilClass = "out/production/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"
+        val classSource = FileBasedClassSource(arrayList(File(utilClass)))
+        val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
+            annotationNames -> classNamesToNullabilityAnnotation(annotationNames)
+        }
+        return existingNullabilityAnnotations
+    }
+
+    protected override fun getClassFiles(): Collection<File> {
+        return arrayList(File("out/production/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"))
+    }
+
+    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation> {
+        return NullabilityInferrer()
+    }
 
     protected override fun Array<out Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
@@ -21,18 +53,6 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
             if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
-    }
-
-    protected override fun buildFieldAnnotations(
-            field: Field,
-            classReader: ClassReader,
-            declarationIndex: DeclarationIndex,
-            annotations: Annotations<NullabilityAnnotation>) : Annotations<NullabilityAnnotation> {
-        return buildFieldNullabilityAnnotations(
-                FakeFieldInfo(field),
-                { method -> buildControlFlowGraph(classReader, method) },
-                declarationIndex,
-                annotations)
     }
 
     fun testSTRING_NOT_NULL_FIELD() = doFieldTest()
@@ -47,26 +67,30 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(javaClas
 
     fun testDOUBLE_FIELD() = doFieldTest()
 
-//    fun testNullFinalField() = doFieldTest()
-//
-//    fun testNewObjectFinalField() = doFieldTest()
-//
-//    fun testConstantStringFinalField() = doFieldTest()
-//
-//    fun testConstantIntegerFinalField() = doFieldTest()
-//
-//    fun testMethodInitFinalField() = doFieldTest()
-//
-//    fun testFromConstructorParameterFinalField() = doFieldTest()
-//
-//    fun testDifferentAnnotationsFromDifferentConstructors() = doFieldTest()
-//
-//    fun testNullableInConstructorInitFinalField() = doFieldTest()
-//
-//    fun testFromMethodInConstructorFinalField() = doFieldTest()
+    fun testStringClass() = doFieldTest()
 
-    private class FakeFieldInfo(override val field : Field) : FieldDependencyInfo {
-        override val writers: Collection<Method> get() { throw UnsupportedOperationException() }
-        override val readers: Collection<Method> get() { throw UnsupportedOperationException() }
+    fun testNullFinalField() = doFieldTest()
+
+    fun testNewObjectFinalField() = doFieldTest()
+
+    fun testConstantStringFinalField() = doFieldTest()
+
+    fun testConstantIntegerFinalField() = doFieldTest()
+
+    // fun testMethodInitFinalField() = doFieldTest()
+
+    fun testFromConstructorParameterFinalField() = doFieldTest()
+
+    fun testDifferentAnnotationsFromDifferentConstructors() = doFieldTest()
+
+    fun testNullableInConstructorInitFinalField() = doFieldTest()
+
+    // fun testFromMethodInConstructorFinalField() = doFieldTest()
+
+    // fun testNullableFromCallingMethodOnValue() = doFieldTest()
+
+    private class EmptyFieldInfo(override val field : Field) : FieldDependencyInfo {
+        override val writers: Collection<Method> = ArrayList()
+        override val readers: Collection<Method> = ArrayList()
     }
 }
