@@ -33,3 +33,14 @@ public fun <A> MutableAnnotations<A>.setIfNotNull(position: AnnotationPosition, 
         this[position] = annotation
     }
 }
+
+public fun <A> MutableAnnotations<A>.copyAll(
+        annotations: Annotations<A>,
+        merger: (pos: AnnotationPosition, previous: A?, new: A) -> A = { pos, previous, new -> new }) {
+    annotations.forEach { pos, ann ->
+        val previous = this[pos]
+        if (previous != ann) {
+            this[pos] = merger(pos, previous, ann)
+        }
+    }
+}
