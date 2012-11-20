@@ -294,6 +294,8 @@ cern.colt.bitvector.QuickBitVector long[] makeBitVector(int, int)
 NOT_NULL
 cern.colt.bitvector.QuickBitVector long[] precomputePows()
 NOT_NULL
+cern.colt.bitvector.QuickBitVector pows
+NOT_NULL
 cern.colt.bitvector.QuickBitVector void clear(long[], int) 0
 NOT_NULL
 cern.colt.bitvector.QuickBitVector void put(long[], int, boolean) 0
@@ -1616,6 +1618,8 @@ cern.colt.matrix.doublealgo.Stencil int stencil27(cern.colt.matrix.DoubleMatrix3
 NOT_NULL
 cern.colt.matrix.doublealgo.Stencil int stencil9(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function, int, cern.colt.matrix.DoubleMatrix2DProcedure, int) 0
 NOT_NULL
+cern.colt.matrix.doublealgo.Transform F
+NOT_NULL
 cern.colt.matrix.doublealgo.Transform cern.colt.matrix.DoubleMatrix1D abs(cern.colt.matrix.DoubleMatrix1D)
 NOT_NULL
 cern.colt.matrix.doublealgo.Transform cern.colt.matrix.DoubleMatrix1D abs(cern.colt.matrix.DoubleMatrix1D) 0
@@ -1753,6 +1757,20 @@ NOT_NULL
 cern.colt.matrix.doublealgo.Transform cern.colt.matrix.DoubleMatrix2D pow(cern.colt.matrix.DoubleMatrix2D, double) 0
 NOT_NULL
 cern.colt.matrix.doublealgo.Transform transform
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter CENTER
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter DECIMAL
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter DEFAULT_COLUMN_SEPARATOR
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter DEFAULT_ROW_SEPARATOR
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter DEFAULT_SLICE_SEPARATOR
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter LEFT
+NOT_NULL
+cern.colt.matrix.impl.AbstractFormatter RIGHT
 NOT_NULL
 cern.colt.matrix.impl.AbstractFormatter factory
 NOT_NULL
@@ -2238,6 +2256,10 @@ cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewS
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix3D void setQuick(int, int, int, java.lang.Object) 3
 NULLABLE
+cern.colt.matrix.impl.TestMatrix2D F
+NOT_NULL
+cern.colt.matrix.impl.TestMatrix2D Factory1D
+NOT_NULL
 cern.colt.matrix.impl.TestMatrix2D Factory2D
 NOT_NULL
 cern.colt.matrix.impl.TestMatrix2D LinearAlgebra
@@ -2574,6 +2596,8 @@ cern.colt.matrix.linalg.QRDecomposition cern.colt.matrix.DoubleMatrix2D getH()
 NOT_NULL
 cern.colt.matrix.linalg.QRDecomposition cern.colt.matrix.DoubleMatrix2D solve(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
+cern.colt.matrix.linalg.SeqBlas F
+NOT_NULL
 cern.colt.matrix.linalg.SeqBlas double dasum(cern.colt.matrix.DoubleMatrix1D) 0
 NOT_NULL
 cern.colt.matrix.linalg.SeqBlas double ddot(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D) 0
@@ -2870,11 +2894,15 @@ cern.jet.math.Functions max
 NOT_NULL
 cern.jet.math.Functions min
 NOT_NULL
+cern.jet.math.Functions minus
+NOT_NULL
 cern.jet.math.Functions mod
 NOT_NULL
 cern.jet.math.Functions mult
 NOT_NULL
 cern.jet.math.Functions neg
+NOT_NULL
+cern.jet.math.Functions plus
 NOT_NULL
 cern.jet.math.Functions plusAbs
 NOT_NULL

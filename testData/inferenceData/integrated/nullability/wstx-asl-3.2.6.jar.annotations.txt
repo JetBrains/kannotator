@@ -1,3 +1,7 @@
+com.ctc.wstx.api.CommonConfig IMPL_NAME
+NOT_NULL
+com.ctc.wstx.api.CommonConfig IMPL_VERSION
+NOT_NULL
 com.ctc.wstx.api.CommonConfig sStdProperties
 NOT_NULL
 com.ctc.wstx.api.ReaderConfig byte[] allocFullBBuffer(int)
@@ -36,6 +40,8 @@ com.ctc.wstx.api.ValidatorConfig java.lang.Object getProperty(int)
 NULLABLE
 com.ctc.wstx.api.ValidatorConfig sInstance
 NOT_NULL
+com.ctc.wstx.api.WriterConfig DEFAULT_AUTOMATIC_NS_PREFIX
+NOT_NULL
 com.ctc.wstx.api.WriterConfig byte[] allocFullBBuffer(int)
 NOT_NULL
 com.ctc.wstx.api.WriterConfig char[] allocFullCBuffer(int)
@@ -60,12 +66,130 @@ com.ctc.wstx.api.WstxInputProperties PARSING_MODE_DOCUMENTS
 NOT_NULL
 com.ctc.wstx.api.WstxInputProperties PARSING_MODE_FRAGMENT
 NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_BASE_URL
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_CACHE_DTDS
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_CACHE_DTDS_BY_PUBLIC_ID
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_CUSTOM_INTERNAL_ENTITIES
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_DTD_RESOLVER
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_ENTITY_RESOLVER
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_INPUT_BUFFER_LENGTH
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_INPUT_PARSING_MODE
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_LAZY_PARSING
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_MIN_TEXT_SEGMENT
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_NORMALIZE_ATTR_VALUES
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_NORMALIZE_LFS
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_SUPPORT_DTDPP
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_UNDECLARED_ENTITY_RESOLVER
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties P_VALIDATE_TEXT_CHARS
+NOT_NULL
+com.ctc.wstx.api.WstxInputProperties UNKNOWN_ATTR_TYPE
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties DEFAULT_OUTPUT_ENCODING
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties DEFAULT_XML_VERSION
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_COPY_DEFAULT_ATTRS
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_CDATA_AS_TEXT
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_ESCAPE_CR
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_FIX_CONTENT
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_UNDERLYING_STREAM
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_UNDERLYING_WRITER
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_VALIDATE_ATTR
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_VALIDATE_CONTENT
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_VALIDATE_NAMES
+NOT_NULL
+com.ctc.wstx.api.WstxOutputProperties P_OUTPUT_VALIDATE_STRUCTURE
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_EOF_EXP_NAME
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_ATTR_VALUE
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_CDATA
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_CLOSE_ELEMENT
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_COMMENT
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_DEF_ATTR_VALUE
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_DOC
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_DTD
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_DTD_EXTERNAL
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_DTD_INTERNAL
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_ELEMENT
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_ENTITY_REF
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_EPILOG
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_NAME
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_PROC_INSTR
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_PROLOG
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_TEXT
+NOT_NULL
+com.ctc.wstx.cfg.ParsingErrorMsgs SUFFIX_IN_XML_DECL
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_DECL_KW_ENCODING
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_DECL_KW_STANDALONE
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_DECL_KW_VERSION
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_SA_NO
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_SA_YES
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_V_10_STR
+NOT_NULL
+com.ctc.wstx.cfg.XmlConsts XML_V_11_STR
+NOT_NULL
 com.ctc.wstx.compat.Jdk12Impl java.util.HashMap getInsertOrderedMap()
 NOT_NULL
 com.ctc.wstx.compat.Jdk12Impl java.util.HashMap getInsertOrderedMap(int)
 NOT_NULL
 com.ctc.wstx.compat.Jdk12Impl java.util.HashMap getLRULimitMap(int)
 NOT_NULL
+com.ctc.wstx.compat.Jdk12Impl java.util.List getEmptyList()
+NULLABLE
+com.ctc.wstx.compat.Jdk12Impl java.util.Map getEmptyMap()
+NULLABLE
+com.ctc.wstx.compat.Jdk12Impl java.util.Set getEmptySet()
+NULLABLE
+com.ctc.wstx.compat.Jdk12Impl mEmptyList
+NULLABLE
+com.ctc.wstx.compat.Jdk12Impl mEmptyMap
+NULLABLE
+com.ctc.wstx.compat.Jdk12Impl mEmptySet
+NULLABLE
 com.ctc.wstx.compat.Jdk14Impl boolean setInitCause(java.lang.Throwable, java.lang.Throwable) 0
 NOT_NULL
 com.ctc.wstx.compat.Jdk14Impl java.util.HashMap getInsertOrderedMap()
@@ -150,6 +274,10 @@ com.ctc.wstx.dom.DOMWrappingReader javax.xml.namespace.QName getName()
 NOT_NULL
 com.ctc.wstx.dom.DOMWrappingReader javax.xml.stream.Location getLocation()
 NULLABLE
+com.ctc.wstx.dom.DOMWrappingReader mConfig
+NOT_NULL
+com.ctc.wstx.dom.DOMWrappingReader mRootNode
+NOT_NULL
 com.ctc.wstx.dom.DOMWrappingReader org.codehaus.stax2.AttributeInfo getAttributeInfo()
 NULLABLE
 com.ctc.wstx.dom.DOMWrappingReader org.codehaus.stax2.DTDInfo getDTDInfo()
@@ -374,6 +502,12 @@ com.ctc.wstx.dtd.DTDNotationAttr com.ctc.wstx.dtd.DTDAttribute cloneWith(int)
 NOT_NULL
 com.ctc.wstx.dtd.DTDSchemaFactory com.ctc.wstx.api.ReaderConfig createPrivateReaderConfig()
 NOT_NULL
+com.ctc.wstx.dtd.DTDSchemaFactory mReaderConfig
+NOT_NULL
+com.ctc.wstx.dtd.DTDSchemaFactory mRootSymbols
+NOT_NULL
+com.ctc.wstx.dtd.DTDSchemaFactory mSchemaConfig
+NOT_NULL
 com.ctc.wstx.dtd.DTDSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema createSchema(java.io.File)
 NOT_NULL
 com.ctc.wstx.dtd.DTDSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema createSchema(java.io.File) 0
@@ -427,6 +561,10 @@ NULLABLE
 com.ctc.wstx.dtd.DTDValidatorBase DTDValidatorBase(com.ctc.wstx.dtd.DTDSubset, org.codehaus.stax2.validation.ValidationContext, boolean, java.util.Map, java.util.Map) 3
 NULLABLE
 com.ctc.wstx.dtd.DTDValidatorBase EMPTY_MAP
+NOT_NULL
+com.ctc.wstx.dtd.DTDValidatorBase mElemSpecs
+NULLABLE
+com.ctc.wstx.dtd.DTDValidatorBase mTmpKey
 NOT_NULL
 com.ctc.wstx.dtd.DTDValidatorBase void doAddDefaultValue(com.ctc.wstx.dtd.DTDAttribute) 0
 NOT_NULL
@@ -522,6 +660,16 @@ com.ctc.wstx.dtd.FullDTDReader java.lang.String readNotationEntry(char, com.ctc.
 NULLABLE
 com.ctc.wstx.dtd.FullDTDReader java.util.HashMap getElementMap()
 NULLABLE
+com.ctc.wstx.dtd.FullDTDReader mAccessKey
+NOT_NULL
+com.ctc.wstx.dtd.FullDTDReader mEventListener
+NULLABLE
+com.ctc.wstx.dtd.FullDTDReader mPredefdGEs
+NULLABLE
+com.ctc.wstx.dtd.FullDTDReader mPredefdNotations
+NULLABLE
+com.ctc.wstx.dtd.FullDTDReader mPredefdPEs
+NULLABLE
 com.ctc.wstx.dtd.FullDTDReader void handleIncompleteEntityProblem(com.ctc.wstx.io.WstxInputSource) 0
 NOT_NULL
 com.ctc.wstx.dtd.FullDTDReader void parseAttrDefaultValue(com.ctc.wstx.dtd.DefaultAttrValue, char, com.ctc.wstx.dtd.NameKey, javax.xml.stream.Location, boolean) 0
@@ -535,6 +683,10 @@ NULLABLE
 com.ctc.wstx.dtd.LargeNameKeySet LargeNameKeySet(boolean, com.ctc.wstx.dtd.NameKey[]) 1
 NOT_NULL
 com.ctc.wstx.dtd.LargeNameKeySet boolean contains(com.ctc.wstx.dtd.NameKey) 0
+NOT_NULL
+com.ctc.wstx.dtd.LargeNameKeySet mBuckets
+NULLABLE
+com.ctc.wstx.dtd.LargeNameKeySet mNames
 NOT_NULL
 com.ctc.wstx.dtd.MinimalDTDReader MinimalDTDReader(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, boolean) 1
 NOT_NULL
@@ -577,6 +729,8 @@ NULLABLE
 com.ctc.wstx.dtd.SmallNameKeySet SmallNameKeySet(boolean, com.ctc.wstx.dtd.NameKey[]) 1
 NOT_NULL
 com.ctc.wstx.dtd.SmallNameKeySet boolean contains(com.ctc.wstx.dtd.NameKey) 0
+NOT_NULL
+com.ctc.wstx.dtd.SmallNameKeySet mStrings
 NOT_NULL
 com.ctc.wstx.dtd.StarModel com.ctc.wstx.dtd.ModelNode cloneModel()
 NOT_NULL
@@ -656,6 +810,10 @@ com.ctc.wstx.evt.CompactStartElement com.ctc.wstx.evt.WAttribute constructAttr(j
 NOT_NULL
 com.ctc.wstx.evt.CompactStartElement javax.xml.stream.events.Attribute getAttributeByName(javax.xml.namespace.QName)
 NULLABLE
+com.ctc.wstx.evt.CompactStartElement mAttrs
+NULLABLE
+com.ctc.wstx.evt.CompactStartElement mRawAttrs
+NULLABLE
 com.ctc.wstx.evt.DefaultEventAllocator com.ctc.wstx.evt.DefaultEventAllocator getDefaultInstance()
 NOT_NULL
 com.ctc.wstx.evt.DefaultEventAllocator com.ctc.wstx.evt.DefaultEventAllocator getFastInstance()
@@ -689,6 +847,8 @@ NOT_NULL
 com.ctc.wstx.evt.MergedNsContext java.lang.String doGetNamespaceURI(java.lang.String)
 NULLABLE
 com.ctc.wstx.evt.MergedNsContext java.lang.String doGetPrefix(java.lang.String)
+NULLABLE
+com.ctc.wstx.evt.MergedNsContext mNamespaces
 NULLABLE
 com.ctc.wstx.evt.SimpleStartElement com.ctc.wstx.evt.SimpleStartElement construct(javax.xml.stream.Location, javax.xml.namespace.QName, java.util.Iterator, java.util.Iterator, javax.xml.namespace.NamespaceContext)
 NOT_NULL
@@ -730,8 +890,18 @@ com.ctc.wstx.evt.WEndElement WEndElement(javax.xml.stream.Location, javax.xml.st
 NOT_NULL
 com.ctc.wstx.evt.WEndElement javax.xml.stream.events.EndElement asEndElement()
 NOT_NULL
+com.ctc.wstx.evt.WEndElement mNamespaces
+NULLABLE
 com.ctc.wstx.evt.WEndElement void writeUsing(javax.xml.stream.XMLStreamWriter) 0
 NOT_NULL
+com.ctc.wstx.evt.WEntityReference java.lang.String getName()
+NULLABLE
+com.ctc.wstx.evt.WEntityReference javax.xml.stream.events.EntityDeclaration getDeclaration()
+NULLABLE
+com.ctc.wstx.evt.WEntityReference mDecl
+NULLABLE
+com.ctc.wstx.evt.WEntityReference mName
+NULLABLE
 com.ctc.wstx.evt.WEntityReference void writeUsing(javax.xml.stream.XMLStreamWriter) 0
 NOT_NULL
 com.ctc.wstx.evt.WEvent javax.xml.namespace.QName getSchemaType()
@@ -754,6 +924,10 @@ com.ctc.wstx.evt.WStartDocument WStartDocument(javax.xml.stream.Location, javax.
 NULLABLE
 com.ctc.wstx.evt.WStartDocument WStartDocument(javax.xml.stream.Location, javax.xml.stream.XMLStreamReader) 1
 NOT_NULL
+com.ctc.wstx.evt.WStartDocument java.lang.String getVersion()
+NULLABLE
+com.ctc.wstx.evt.WStartDocument mVersion
+NULLABLE
 com.ctc.wstx.evt.WStartDocument void writeUsing(javax.xml.stream.XMLStreamWriter) 0
 NOT_NULL
 com.ctc.wstx.evt.WstxEventReader java.lang.Object next()
@@ -764,6 +938,8 @@ com.ctc.wstx.evt.WstxEventReader javax.xml.stream.events.XMLEvent nextTag()
 NULLABLE
 com.ctc.wstx.evt.WstxEventReader javax.xml.stream.events.XMLEvent peek()
 NULLABLE
+com.ctc.wstx.evt.WstxEventWriter mWstxWriter
+NULLABLE
 com.ctc.wstx.evt.WstxEventWriter void add(javax.xml.stream.XMLEventReader) 0
 NOT_NULL
 com.ctc.wstx.evt.WstxEventWriter void add(javax.xml.stream.events.XMLEvent) 0
@@ -773,6 +949,8 @@ NOT_NULL
 com.ctc.wstx.exc.WstxException java.lang.String getLocationDesc()
 NULLABLE
 com.ctc.wstx.exc.WstxLazyException WstxLazyException(javax.xml.stream.XMLStreamException) 0
+NOT_NULL
+com.ctc.wstx.exc.WstxLazyException mOrig
 NOT_NULL
 com.ctc.wstx.exc.WstxValidationException com.ctc.wstx.exc.WstxValidationException create(java.lang.String, javax.xml.stream.Location, int)
 NOT_NULL
@@ -802,7 +980,31 @@ com.ctc.wstx.io.CharArraySource CharArraySource(com.ctc.wstx.io.WstxInputSource,
 NOT_NULL
 com.ctc.wstx.io.CharArraySource boolean readMore(com.ctc.wstx.io.WstxInputData, int) 0
 NOT_NULL
+com.ctc.wstx.io.CharArraySource mContentStart
+NOT_NULL
 com.ctc.wstx.io.CharArraySource void doInitInputLocation(com.ctc.wstx.io.WstxInputData) 0
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_EBCDIC_SUBSET
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_ISO_LATIN1
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_SHIFT_JIS
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_US_ASCII
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF16
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF16BE
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF16LE
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF32
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF32BE
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF32LE
+NOT_NULL
+com.ctc.wstx.io.CharsetNames CS_UTF8
 NOT_NULL
 com.ctc.wstx.io.CharsetNames java.lang.String findEncodingFor(java.io.Writer)
 NULLABLE
@@ -862,7 +1064,23 @@ com.ctc.wstx.io.EBCDICCodec int[] getCp037Mapping()
 NOT_NULL
 com.ctc.wstx.io.EBCDICCodec sCodePage037
 NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_END_MARKER
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_EXP_ATTRVAL
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_EXP_EQ
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_EXP_SPACE
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_KW_ENCODING
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_KW_STANDALONE
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper ERR_XMLDECL_KW_VERSION
+NOT_NULL
 com.ctc.wstx.io.InputBootstrapper java.lang.String readXmlEncoding()
+NOT_NULL
+com.ctc.wstx.io.InputBootstrapper mKeyword
 NOT_NULL
 com.ctc.wstx.io.InputBootstrapper void initFrom(com.ctc.wstx.io.InputBootstrapper) 0
 NOT_NULL
@@ -890,8 +1108,12 @@ com.ctc.wstx.io.ReaderBootstrapper int readQuotedValue(char[], int) 0
 NOT_NULL
 com.ctc.wstx.io.ReaderBootstrapper java.io.Reader bootstrapInput(com.ctc.wstx.api.ReaderConfig, boolean, int) 0
 NULLABLE
+com.ctc.wstx.io.ReaderBootstrapper java.lang.String getInputEncoding()
+NULLABLE
 com.ctc.wstx.io.ReaderBootstrapper javax.xml.stream.Location getLocation()
 NOT_NULL
+com.ctc.wstx.io.ReaderBootstrapper mInputEncoding
+NULLABLE
 com.ctc.wstx.io.ReaderSource ReaderSource(com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.WstxInputSource, java.lang.String, java.lang.String, java.lang.String, java.net.URL, java.io.Reader, boolean) 0
 NOT_NULL
 com.ctc.wstx.io.ReaderSource void doInitInputLocation(com.ctc.wstx.io.WstxInputData) 0
@@ -936,6 +1158,8 @@ com.ctc.wstx.io.UTF8Writer void write(char[]) 0
 NOT_NULL
 com.ctc.wstx.io.UTF8Writer void write(java.lang.String) 0
 NOT_NULL
+com.ctc.wstx.io.WriterBase STR_ESCAPED_CR
+NOT_NULL
 com.ctc.wstx.io.WriterBase java.lang.String getQuoteEntity(char)
 NOT_NULL
 com.ctc.wstx.io.WstxInputData int findIllegalNameChar(java.lang.String, boolean, boolean) 0
@@ -970,6 +1194,10 @@ com.ctc.wstx.msv.RelaxNGSchema java.lang.String getSchemaType()
 NOT_NULL
 com.ctc.wstx.msv.RelaxNGSchema org.codehaus.stax2.validation.XMLValidator createValidator(org.codehaus.stax2.validation.ValidationContext)
 NOT_NULL
+com.ctc.wstx.msv.RelaxNGSchemaFactory mConfig
+NOT_NULL
+com.ctc.wstx.msv.RelaxNGSchemaFactory mDummyController
+NOT_NULL
 com.ctc.wstx.msv.RelaxNGSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema createSchema(java.io.File)
 NOT_NULL
 com.ctc.wstx.msv.RelaxNGSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema createSchema(java.io.File) 0
@@ -992,6 +1220,18 @@ com.ctc.wstx.msv.RelaxNGValidator java.lang.String validateAttribute(java.lang.S
 NULLABLE
 com.ctc.wstx.msv.RelaxNGValidator java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 1
 NULLABLE
+com.ctc.wstx.msv.RelaxNGValidator mAcceptors
+NOT_NULL
+com.ctc.wstx.msv.RelaxNGValidator mAttributeProxy
+NOT_NULL
+com.ctc.wstx.msv.RelaxNGValidator mErrorRef
+NOT_NULL
+com.ctc.wstx.msv.RelaxNGValidator mMsvContext
+NOT_NULL
+com.ctc.wstx.msv.RelaxNGValidator mStartTag
+NOT_NULL
+com.ctc.wstx.msv.RelaxNGValidator mTextAccumulator
+NOT_NULL
 com.ctc.wstx.msv.RelaxNGValidator void reportError(com.sun.msv.util.StringRef) 0
 NOT_NULL
 com.ctc.wstx.msv.RelaxNGValidator void validateElementStart(java.lang.String, java.lang.String, java.lang.String) 1
@@ -1011,6 +1251,8 @@ NOT_NULL
 com.ctc.wstx.sax.SAXFeature NAMESPACE_PREFIXES
 NOT_NULL
 com.ctc.wstx.sax.SAXFeature RESOLVE_DTD_URIS
+NOT_NULL
+com.ctc.wstx.sax.SAXFeature STD_FEATURE_PREFIX
 NOT_NULL
 com.ctc.wstx.sax.SAXFeature STRING_INTERNING
 NOT_NULL
@@ -1041,6 +1283,8 @@ NOT_NULL
 com.ctc.wstx.sax.SAXProperty DOM_NODE
 NOT_NULL
 com.ctc.wstx.sax.SAXProperty LEXICAL_HANDLER
+NOT_NULL
+com.ctc.wstx.sax.SAXProperty STD_PROPERTY_PREFIX
 NOT_NULL
 com.ctc.wstx.sax.SAXProperty XML_STRING
 NOT_NULL
@@ -1080,6 +1324,10 @@ com.ctc.wstx.sax.WstxSAXParser java.lang.String getValue(java.lang.String)
 NULLABLE
 com.ctc.wstx.sax.WstxSAXParser java.lang.String getValue(java.lang.String, java.lang.String)
 NULLABLE
+com.ctc.wstx.sax.WstxSAXParser mConfig
+NOT_NULL
+com.ctc.wstx.sax.WstxSAXParser mStaxFactory
+NOT_NULL
 com.ctc.wstx.sax.WstxSAXParser org.xml.sax.EntityResolver access$000(com.ctc.wstx.sax.WstxSAXParser) 0
 NOT_NULL
 com.ctc.wstx.sax.WstxSAXParser org.xml.sax.Parser getParser()
@@ -1094,6 +1342,8 @@ com.ctc.wstx.sax.WstxSAXParser void setProperty(java.lang.String, java.lang.Obje
 NOT_NULL
 com.ctc.wstx.sax.WstxSAXParser.AttributesWrapper java.lang.String getName(int)
 NULLABLE
+com.ctc.wstx.sax.WstxSAXParser.DocHandlerWrapper mAttrWrapper
+NOT_NULL
 com.ctc.wstx.sax.WstxSAXParser.DocHandlerWrapper void endElement(java.lang.String, java.lang.String, java.lang.String) 2
 NULLABLE
 com.ctc.wstx.sax.WstxSAXParser.DocHandlerWrapper void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes) 2
@@ -1103,6 +1353,8 @@ NULLABLE
 com.ctc.wstx.sax.WstxSAXParserFactory boolean getFeature(java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sax.WstxSAXParserFactory javax.xml.parsers.SAXParser newSAXParser()
+NOT_NULL
+com.ctc.wstx.sax.WstxSAXParserFactory mStaxFactory
 NOT_NULL
 com.ctc.wstx.sax.WstxSAXParserFactory void setFeature(java.lang.String, boolean) 0
 NOT_NULL
@@ -1140,6 +1392,8 @@ com.ctc.wstx.sr.BasicStreamReader com.ctc.wstx.sr.InputElementStack createElemen
 NOT_NULL
 com.ctc.wstx.sr.BasicStreamReader com.ctc.wstx.sr.InputElementStack createElementStack(com.ctc.wstx.api.ReaderConfig) 0
 NOT_NULL
+com.ctc.wstx.sr.BasicStreamReader com.ctc.wstx.sr.InputElementStack getInputElementStack()
+NOT_NULL
 com.ctc.wstx.sr.BasicStreamReader java.lang.Object getProcessedDTD()
 NULLABLE
 com.ctc.wstx.sr.BasicStreamReader java.lang.Object withStartElement(com.ctc.wstx.sr.ElemCallback, javax.xml.stream.Location)
@@ -1158,6 +1412,14 @@ com.ctc.wstx.sr.BasicStreamReader java.lang.String getText()
 NULLABLE
 com.ctc.wstx.sr.BasicStreamReader java.lang.String getVersion()
 NULLABLE
+com.ctc.wstx.sr.BasicStreamReader javax.xml.namespace.NamespaceContext getNamespaceContext()
+NOT_NULL
+com.ctc.wstx.sr.BasicStreamReader mElementStack
+NOT_NULL
+com.ctc.wstx.sr.BasicStreamReader mTextBuffer
+NOT_NULL
+com.ctc.wstx.sr.BasicStreamReader org.codehaus.stax2.AttributeInfo getAttributeInfo()
+NOT_NULL
 com.ctc.wstx.sr.BasicStreamReader org.codehaus.stax2.DTDInfo getDTDInfo()
 NULLABLE
 com.ctc.wstx.sr.BasicStreamReader org.codehaus.stax2.LocationInfo getLocationInfo()
@@ -1216,6 +1478,8 @@ com.ctc.wstx.sr.ElemAttrs int findMapIndex(java.lang.String, java.lang.String) 0
 NULLABLE
 com.ctc.wstx.sr.ElemAttrs int findMapIndex(java.lang.String, java.lang.String) 1
 NOT_NULL
+com.ctc.wstx.sr.ElemAttrs mAttrMap
+NULLABLE
 com.ctc.wstx.sr.InputElementStack java.lang.String getAttributeValue(int)
 NULLABLE
 com.ctc.wstx.sr.InputElementStack java.lang.String getAttributeValue(java.lang.String, java.lang.String)
@@ -1266,8 +1530,12 @@ com.ctc.wstx.sr.NonNsAttributeCollector javax.xml.namespace.QName getQName(int)
 NOT_NULL
 com.ctc.wstx.sr.NonNsAttributeCollector void writeAttribute(int, com.ctc.wstx.sw.XmlWriter) 1
 NOT_NULL
+com.ctc.wstx.sr.NonNsInputElementStack INT_ERR_UNEXPECTED_CALL
+NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack boolean matches(java.lang.String, java.lang.String) 0
 NULLABLE
+com.ctc.wstx.sr.NonNsInputElementStack com.ctc.wstx.sr.AttributeCollector getAttrCollector()
+NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack com.ctc.wstx.util.BaseNsContext createNonTransientNsContext(javax.xml.stream.Location)
 NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 0
@@ -1292,6 +1560,8 @@ com.ctc.wstx.sr.NonNsInputElementStack java.util.Iterator getPrefixes(java.lang.
 NOT_NULL
 com.ctc.wstx.sr.NonNsInputElementStack javax.xml.namespace.QName getCurrentElementName()
 NULLABLE
+com.ctc.wstx.sr.NonNsInputElementStack mAttrCollector
+NOT_NULL
 com.ctc.wstx.sr.NsAttributeCollector DEFAULT_NS_URI
 NULLABLE
 com.ctc.wstx.sr.NsAttributeCollector com.ctc.wstx.sr.ElemAttrs buildAttrOb()
@@ -1300,6 +1570,8 @@ com.ctc.wstx.sr.NsAttributeCollector com.ctc.wstx.util.TextBuilder getDefaultNsB
 NULLABLE
 com.ctc.wstx.sr.NsAttributeCollector com.ctc.wstx.util.TextBuilder getNsBuilder(java.lang.String)
 NULLABLE
+com.ctc.wstx.sr.NsAttributeCollector com.ctc.wstx.util.TextBuilder getNsURIs()
+NOT_NULL
 com.ctc.wstx.sr.NsAttributeCollector int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sr.NsAttributeCollector int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 1
@@ -1314,6 +1586,10 @@ com.ctc.wstx.sr.NsAttributeCollector java.lang.String getValue(java.lang.String,
 NULLABLE
 com.ctc.wstx.sr.NsAttributeCollector javax.xml.namespace.QName getQName(int)
 NOT_NULL
+com.ctc.wstx.sr.NsAttributeCollector mNamespaceURIs
+NOT_NULL
+com.ctc.wstx.sr.NsAttributeCollector mNsPrefixes
+NOT_NULL
 com.ctc.wstx.sr.NsAttributeCollector void writeAttribute(int, com.ctc.wstx.sw.XmlWriter) 1
 NOT_NULL
 com.ctc.wstx.sr.NsInputElementStack DEFAULT_NAMESPACE_URI
@@ -1322,6 +1598,8 @@ com.ctc.wstx.sr.NsInputElementStack boolean isPrefixLocallyDeclared(java.lang.St
 NULLABLE
 com.ctc.wstx.sr.NsInputElementStack boolean matches(java.lang.String, java.lang.String) 0
 NULLABLE
+com.ctc.wstx.sr.NsInputElementStack com.ctc.wstx.sr.AttributeCollector getAttrCollector()
+NOT_NULL
 com.ctc.wstx.sr.NsInputElementStack int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sr.NsInputElementStack int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 1
@@ -1338,6 +1616,12 @@ com.ctc.wstx.sr.NsInputElementStack java.util.Iterator getPrefixes(java.lang.Str
 NOT_NULL
 com.ctc.wstx.sr.NsInputElementStack javax.xml.namespace.QName getCurrentElementName()
 NULLABLE
+com.ctc.wstx.sr.NsInputElementStack mAttrCollector
+NOT_NULL
+com.ctc.wstx.sr.NsInputElementStack mNamespaces
+NOT_NULL
+com.ctc.wstx.sr.NsInputElementStack sInternCache
+NOT_NULL
 com.ctc.wstx.sr.NsInputElementStack void addNsBinding(java.lang.String, java.lang.String) 0
 NULLABLE
 com.ctc.wstx.sr.NsInputElementStack void addNsBinding(java.lang.String, java.lang.String) 1
@@ -1380,6 +1664,10 @@ com.ctc.wstx.sr.StreamScanner void expandEntity(com.ctc.wstx.ent.EntityDecl, boo
 NOT_NULL
 com.ctc.wstx.sr.StreamScanner void reportValidationProblem(org.codehaus.stax2.validation.XMLValidationProblem) 0
 NOT_NULL
+com.ctc.wstx.sr.ValidatingStreamReader STAX_PROP_ENTITIES
+NOT_NULL
+com.ctc.wstx.sr.ValidatingStreamReader STAX_PROP_NOTATIONS
+NOT_NULL
 com.ctc.wstx.sr.ValidatingStreamReader com.ctc.wstx.dtd.DTDId constructDtdId(java.lang.String, java.lang.String)
 NULLABLE
 com.ctc.wstx.sr.ValidatingStreamReader com.ctc.wstx.dtd.DTDId constructDtdId(java.lang.String, java.lang.String) 0
@@ -1416,6 +1704,8 @@ com.ctc.wstx.sr.ValidatingStreamReader void setFeature(java.lang.String, java.la
 NOT_NULL
 com.ctc.wstx.sr.ValidatingStreamReader void setFeature(java.lang.String, java.lang.Object) 1
 NULLABLE
+com.ctc.wstx.stax.MinimalInputFactory com.ctc.wstx.api.ReaderConfig getConfig()
+NOT_NULL
 com.ctc.wstx.stax.MinimalInputFactory com.ctc.wstx.dtd.DTDSubset findCachedDTD(com.ctc.wstx.dtd.DTDId)
 NULLABLE
 com.ctc.wstx.stax.MinimalInputFactory com.ctc.wstx.stax.MinimalInputFactory newMinimalInstance()
@@ -1450,7 +1740,13 @@ com.ctc.wstx.stax.MinimalInputFactory javax.xml.stream.XMLStreamReader doCreateS
 NOT_NULL
 com.ctc.wstx.stax.MinimalInputFactory javax.xml.stream.XMLStreamReader doCreateSR(com.ctc.wstx.io.BranchingReaderSource, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper) 1
 NOT_NULL
+com.ctc.wstx.stax.MinimalInputFactory mConfig
+NOT_NULL
+com.ctc.wstx.stax.MinimalInputFactory mRootSymbols
+NOT_NULL
 com.ctc.wstx.stax.MinimalInputFactory void updateSymbolTable(com.ctc.wstx.util.SymbolTable) 0
+NOT_NULL
+com.ctc.wstx.stax.MinimalOutputFactory com.ctc.wstx.api.WriterConfig getConfig()
 NOT_NULL
 com.ctc.wstx.stax.MinimalOutputFactory com.ctc.wstx.stax.MinimalOutputFactory newMinimalInstance()
 NOT_NULL
@@ -1473,6 +1769,8 @@ NOT_NULL
 com.ctc.wstx.stax.MinimalOutputFactory javax.xml.stream.XMLStreamWriter createXMLStreamWriter(java.io.Writer, java.lang.String)
 NOT_NULL
 com.ctc.wstx.stax.MinimalOutputFactory javax.xml.stream.XMLStreamWriter createXMLStreamWriter(javax.xml.transform.Result)
+NOT_NULL
+com.ctc.wstx.stax.MinimalOutputFactory mConfig
 NOT_NULL
 com.ctc.wstx.stax.WstxEventFactory javax.xml.stream.events.Attribute createAttribute(java.lang.String, java.lang.String)
 NOT_NULL
@@ -1532,6 +1830,8 @@ com.ctc.wstx.stax.WstxEventFactory org.codehaus.stax2.evt.DTD2 createDTD(java.la
 NOT_NULL
 com.ctc.wstx.stax.WstxInputFactory com.ctc.wstx.api.ReaderConfig createPrivateConfig()
 NOT_NULL
+com.ctc.wstx.stax.WstxInputFactory com.ctc.wstx.api.ReaderConfig getConfig()
+NOT_NULL
 com.ctc.wstx.stax.WstxInputFactory com.ctc.wstx.dtd.DTDSubset findCachedDTD(com.ctc.wstx.dtd.DTDId)
 NULLABLE
 com.ctc.wstx.stax.WstxInputFactory java.lang.Object getProperty(java.lang.String)
@@ -1583,6 +1883,10 @@ NOT_NULL
 com.ctc.wstx.stax.WstxInputFactory javax.xml.stream.XMLStreamReader createXMLStreamReader(javax.xml.transform.Source)
 NOT_NULL
 com.ctc.wstx.stax.WstxInputFactory javax.xml.stream.XMLStreamReader createXMLStreamReader(javax.xml.transform.Source) 0
+NOT_NULL
+com.ctc.wstx.stax.WstxInputFactory mConfig
+NOT_NULL
+com.ctc.wstx.stax.WstxInputFactory mRootSymbols
 NOT_NULL
 com.ctc.wstx.stax.WstxInputFactory org.codehaus.stax2.XMLEventReader2 createXMLEventReader(java.io.File)
 NOT_NULL
@@ -1636,6 +1940,8 @@ com.ctc.wstx.stax.WstxInputFactory org.codehaus.stax2.XMLStreamReader2 doCreateS
 NOT_NULL
 com.ctc.wstx.stax.WstxInputFactory void updateSymbolTable(com.ctc.wstx.util.SymbolTable) 0
 NOT_NULL
+com.ctc.wstx.stax.WstxOutputFactory com.ctc.wstx.api.WriterConfig getConfig()
+NOT_NULL
 com.ctc.wstx.stax.WstxOutputFactory com.ctc.wstx.sw.BaseStreamWriter createSW(java.io.OutputStream, java.io.Writer, java.lang.String, boolean)
 NOT_NULL
 com.ctc.wstx.stax.WstxOutputFactory com.ctc.wstx.sw.BaseStreamWriter createSW(java.io.OutputStream, java.io.Writer, java.lang.String, boolean) 1
@@ -1678,6 +1984,8 @@ com.ctc.wstx.stax.WstxOutputFactory javax.xml.stream.XMLStreamWriter createXMLSt
 NOT_NULL
 com.ctc.wstx.stax.WstxOutputFactory javax.xml.stream.XMLStreamWriter createXMLStreamWriter(javax.xml.transform.Result)
 NOT_NULL
+com.ctc.wstx.stax.WstxOutputFactory mConfig
+NOT_NULL
 com.ctc.wstx.stax.WstxOutputFactory org.codehaus.stax2.XMLStreamWriter2 createXMLStreamWriter(java.io.Writer, java.lang.String)
 NOT_NULL
 com.ctc.wstx.sw.AsciiXmlWriter int writeCDataContent(java.lang.String) 0
@@ -1689,6 +1997,8 @@ NOT_NULL
 com.ctc.wstx.sw.AsciiXmlWriter void writeAttrValue(java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sw.AsciiXmlWriter void writeTextContent(java.lang.String) 0
+NOT_NULL
+com.ctc.wstx.sw.BaseNsStreamWriter ERR_NSDECL_WRONG_STATE
 NOT_NULL
 com.ctc.wstx.sw.BaseNsStreamWriter java.lang.String getNamespaceURI(java.lang.String)
 NULLABLE
@@ -1717,6 +2027,8 @@ NOT_NULL
 com.ctc.wstx.sw.BaseNsStreamWriter void writeAttribute(java.lang.String, java.lang.String) 1
 NOT_NULL
 com.ctc.wstx.sw.BaseStreamWriter BaseStreamWriter(com.ctc.wstx.sw.XmlWriter, java.lang.String, com.ctc.wstx.api.WriterConfig) 2
+NOT_NULL
+com.ctc.wstx.sw.BaseStreamWriter NO_NS_URI
 NOT_NULL
 com.ctc.wstx.sw.BaseStreamWriter NO_PREFIX
 NULLABLE
@@ -1776,6 +2088,8 @@ com.ctc.wstx.sw.BufferingXmlWriter int verifyCommentContent(java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sw.BufferingXmlWriter int writePI(java.lang.String, java.lang.String) 1
 NULLABLE
+com.ctc.wstx.sw.BufferingXmlWriter mEncQuoteEntity
+NOT_NULL
 com.ctc.wstx.sw.BufferingXmlWriter void fastWriteRaw(java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sw.BufferingXmlWriter void writeAttribute(java.lang.String, java.lang.String) 1
@@ -1814,6 +2128,8 @@ com.ctc.wstx.sw.EncodingXmlWriter int writePI(java.lang.String, java.lang.String
 NULLABLE
 com.ctc.wstx.sw.EncodingXmlWriter java.io.Writer getWriter()
 NULLABLE
+com.ctc.wstx.sw.EncodingXmlWriter mOutputBuffer
+NOT_NULL
 com.ctc.wstx.sw.EncodingXmlWriter void writeAscii(java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sw.EncodingXmlWriter void writeAttribute(java.lang.String, char[], int, int) 0
@@ -1884,6 +2200,8 @@ com.ctc.wstx.sw.NonNsStreamWriter javax.xml.namespace.NamespaceContext getNamesp
 NOT_NULL
 com.ctc.wstx.sw.NonNsStreamWriter javax.xml.namespace.QName getCurrentElementName()
 NULLABLE
+com.ctc.wstx.sw.NonNsStreamWriter mElements
+NOT_NULL
 com.ctc.wstx.sw.NonNsStreamWriter void copyStartElement(com.ctc.wstx.sr.InputElementStack, com.ctc.wstx.sr.AttributeCollector) 0
 NOT_NULL
 com.ctc.wstx.sw.NonNsStreamWriter void copyStartElement(com.ctc.wstx.sr.InputElementStack, com.ctc.wstx.sr.AttributeCollector) 1
@@ -1966,6 +2284,10 @@ com.ctc.wstx.sw.SimpleOutputElement java.lang.String getPrefix(java.lang.String)
 NULLABLE
 com.ctc.wstx.sw.SimpleOutputElement javax.xml.namespace.QName getName()
 NOT_NULL
+com.ctc.wstx.sw.SimpleOutputElement sXmlNsPrefix
+NOT_NULL
+com.ctc.wstx.sw.SimpleOutputElement sXmlNsURI
+NOT_NULL
 com.ctc.wstx.sw.SimpleOutputElement void addPrefix(java.lang.String, java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.sw.SimpleOutputElement void relink(com.ctc.wstx.sw.SimpleOutputElement, java.lang.String, java.lang.String, java.lang.String) 0
@@ -1974,6 +2296,8 @@ com.ctc.wstx.sw.SimpleOutputElement.AttrName AttrName(java.lang.String, java.lan
 NULLABLE
 com.ctc.wstx.sw.SimpleOutputElement.AttrName int compareTo(java.lang.Object) 0
 NOT_NULL
+com.ctc.wstx.sw.SimpleOutputElement.AttrName mNsURI
+NULLABLE
 com.ctc.wstx.sw.XmlWriter XmlWriter(com.ctc.wstx.api.WriterConfig, java.lang.String, boolean) 0
 NOT_NULL
 com.ctc.wstx.sw.XmlWriter void verifyNameValidity(java.lang.String, boolean) 0
@@ -1994,6 +2318,8 @@ com.ctc.wstx.util.ArgUtil boolean convertToBoolean(java.lang.String, java.lang.O
 NULLABLE
 com.ctc.wstx.util.ArgUtil int convertToInt(java.lang.String, java.lang.Object, int) 1
 NULLABLE
+com.ctc.wstx.util.BaseNsContext UNDECLARED_NS_URI
+NOT_NULL
 com.ctc.wstx.util.BaseNsContext java.lang.String getNamespaceURI(java.lang.String) 0
 NOT_NULL
 com.ctc.wstx.util.BaseNsContext java.lang.String getPrefix(java.lang.String) 0
@@ -2025,6 +2351,8 @@ NOT_NULL
 com.ctc.wstx.util.BijectiveNsMap java.util.List getPrefixesBoundToUri(java.lang.String, java.util.List) 0
 NOT_NULL
 com.ctc.wstx.util.DataUtil EMPTY_CHAR_ARRAY
+NOT_NULL
+com.ctc.wstx.util.DataUtil NO_TYPE
 NOT_NULL
 com.ctc.wstx.util.DataUtil boolean anyValuesInCommon(java.util.Collection, java.util.Collection) 0
 NOT_NULL
@@ -2114,6 +2442,8 @@ com.ctc.wstx.util.StringVector java.lang.String findLastNonInterned(java.lang.St
 NULLABLE
 com.ctc.wstx.util.StringVector java.lang.String[] asArray()
 NOT_NULL
+com.ctc.wstx.util.SymbolTable EMPTY_STRING
+NOT_NULL
 com.ctc.wstx.util.SymbolTable boolean isDirectChildOf(com.ctc.wstx.util.SymbolTable) 0
 NOT_NULL
 com.ctc.wstx.util.SymbolTable com.ctc.wstx.util.SymbolTable makeChild()
@@ -2152,7 +2482,11 @@ com.ctc.wstx.util.TextBuffer com.ctc.wstx.util.TextBuffer createTemporaryBuffer(
 NOT_NULL
 com.ctc.wstx.util.TextBuffer java.io.Reader rawContentsViaReader()
 NOT_NULL
+com.ctc.wstx.util.TextBuffer sIndSpaces
+NOT_NULL
 com.ctc.wstx.util.TextBuffer sIndSpacesStrings
+NOT_NULL
+com.ctc.wstx.util.TextBuffer sIndTabs
 NOT_NULL
 com.ctc.wstx.util.TextBuffer sIndTabsStrings
 NOT_NULL
@@ -2188,6 +2522,8 @@ com.ctc.wstx.util.WordResolver.Builder Builder(java.util.TreeSet) 0
 NOT_NULL
 com.ctc.wstx.util.WordResolver.Builder com.ctc.wstx.util.WordResolver construct()
 NULLABLE
+com.ctc.wstx.util.WordResolver.Builder mWords
+NOT_NULL
 com.ctc.wstx.util.WordSet boolean contains(char[], char[], int, int) 0
 NOT_NULL
 com.ctc.wstx.util.WordSet boolean contains(char[], java.lang.String) 0
@@ -2204,11 +2540,53 @@ com.ctc.wstx.util.WordSet.Builder Builder(java.util.TreeSet) 0
 NOT_NULL
 com.ctc.wstx.util.WordSet.Builder char[] construct()
 NOT_NULL
+com.ctc.wstx.util.WordSet.Builder mWords
+NOT_NULL
 com.ctc.wstx.util.XmlChars sXml10Chars
 NOT_NULL
 com.ctc.wstx.util.XmlChars sXml10StartChars
 NOT_NULL
 com.ctc.wstx.util.XmlChars void SETBITS(int[], int) 0
+NOT_NULL
+org.codehaus.stax2.XMLInputFactory2 P_AUTO_CLOSE_INPUT
+NOT_NULL
+org.codehaus.stax2.XMLInputFactory2 P_INTERN_NAMES
+NOT_NULL
+org.codehaus.stax2.XMLInputFactory2 P_INTERN_NS_URIS
+NOT_NULL
+org.codehaus.stax2.XMLInputFactory2 P_PRESERVE_LOCATION
+NOT_NULL
+org.codehaus.stax2.XMLInputFactory2 P_REPORT_CDATA
+NOT_NULL
+org.codehaus.stax2.XMLInputFactory2 P_REPORT_PROLOG_WHITESPACE
+NOT_NULL
+org.codehaus.stax2.XMLOutputFactory2 P_ATTR_VALUE_ESCAPER
+NOT_NULL
+org.codehaus.stax2.XMLOutputFactory2 P_AUTOMATIC_EMPTY_ELEMENTS
+NOT_NULL
+org.codehaus.stax2.XMLOutputFactory2 P_AUTOMATIC_NS_PREFIX
+NOT_NULL
+org.codehaus.stax2.XMLOutputFactory2 P_TEXT_ESCAPER
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_IMPLEMENTATION_NAME
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_IMPLEMENTATION_VERSION
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_NAMESPACE_AWARE
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_PROBLEM_REPORTER
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_SUPPORTS_XML11
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_SUPPORT_XMLID
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_V_XMLID_FULL
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_V_XMLID_NONE
+NOT_NULL
+org.codehaus.stax2.XMLStreamProperties XSP_V_XMLID_TYPING
+NOT_NULL
+org.codehaus.stax2.XMLStreamReader2 FEATURE_DTD_OVERRIDE
 NOT_NULL
 org.codehaus.stax2.io.Stax2BlockSource java.net.URL getReference()
 NULLABLE
@@ -2304,6 +2682,8 @@ org.codehaus.stax2.ri.Stax2WriterAdapter void writeRaw(java.lang.String) 0
 NOT_NULL
 org.codehaus.stax2.ri.Stax2WriterAdapter void writeSpace(java.lang.String) 0
 NOT_NULL
+org.codehaus.stax2.validation.ValidatorPair ATTR_TYPE_DEFAULT
+NOT_NULL
 org.codehaus.stax2.validation.ValidatorPair boolean removeValidator(org.codehaus.stax2.validation.XMLValidator, org.codehaus.stax2.validation.XMLValidationSchema, org.codehaus.stax2.validation.XMLValidator[]) 0
 NOT_NULL
 org.codehaus.stax2.validation.ValidatorPair java.lang.String getAttributeType(int)
@@ -2319,6 +2699,32 @@ NULLABLE
 org.codehaus.stax2.validation.XMLValidationException org.codehaus.stax2.validation.XMLValidationException createException(org.codehaus.stax2.validation.XMLValidationProblem)
 NOT_NULL
 org.codehaus.stax2.validation.XMLValidationException org.codehaus.stax2.validation.XMLValidationException createException(org.codehaus.stax2.validation.XMLValidationProblem) 0
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchema SCHEMA_ID_DTD
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchema SCHEMA_ID_RELAXNG
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchema SCHEMA_ID_TREX
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchema SCHEMA_ID_W3C_SCHEMA
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory INTERNAL_ID_SCHEMA_DTD
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory INTERNAL_ID_SCHEMA_RELAXNG
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory INTERNAL_ID_SCHEMA_TREX
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory INTERNAL_ID_SCHEMA_W3C
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory JAXP_PROP_FILENAME
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory P_ENABLE_CACHING
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory P_IS_NAMESPACE_AWARE
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory SERVICE_DEFINITION_PATH
+NOT_NULL
+org.codehaus.stax2.validation.XMLValidationSchemaFactory SYSTEM_PROPERTY_FOR_IMPL
 NOT_NULL
 org.codehaus.stax2.validation.XMLValidationSchemaFactory org.codehaus.stax2.validation.XMLValidationSchemaFactory createNewInstance(java.lang.ClassLoader, java.lang.String) 0
 NULLABLE

@@ -720,6 +720,8 @@ edu.uci.ics.jung.visualization.subLayout.TreeCollapser void expand(edu.uci.ics.j
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.AbstractLensSupport AbstractLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.transform.AbstractLensSupport instructions
+NOT_NULL
 edu.uci.ics.jung.visualization.transform.AbstractLensSupport.Lens Lens(edu.uci.ics.jung.visualization.transform.LensTransformer) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.AbstractLensSupport.Lens void paint(java.awt.Graphics) 0
@@ -822,6 +824,8 @@ edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyIm
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 1
 NOT_NULL
+edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport instructions
+NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
@@ -859,6 +863,8 @@ NOT_NULL
 edu.uci.ics.jung.visualization.util.ArrowFactory java.awt.geom.GeneralPath getWedgeArrow(float, float)
 NOT_NULL
 edu.uci.ics.jung.visualization.util.GeneralPathAsString java.lang.String toString(java.awt.geom.GeneralPath) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.util.LabelWrapper breaker
 NOT_NULL
 edu.uci.ics.jung.visualization.util.LabelWrapper java.lang.Object transform(java.lang.Object)
 NULLABLE

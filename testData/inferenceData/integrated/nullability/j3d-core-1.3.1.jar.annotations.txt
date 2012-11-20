@@ -1850,6 +1850,8 @@ javax.media.j3d.ImageComponentRetained void copyImage(java.awt.image.RenderedIma
 NOT_NULL
 javax.media.j3d.ImageComponentRetained void updateMirrorObject(int, java.lang.Object) 1
 NULLABLE
+javax.media.j3d.ImplementationVersion J3D_VERSION
+NOT_NULL
 javax.media.j3d.ImplementationVersion java.lang.String getJ3dVersion()
 NOT_NULL
 javax.media.j3d.IndexedGeometryArray void getColorIndices(int, int[]) 1
@@ -4416,6 +4418,12 @@ javax.media.j3d.ViewSpecificGroupRetained void setNodeData(javax.media.j3d.SetLi
 NOT_NULL
 javax.media.j3d.ViewSpecificGroupRetained void setView(javax.media.j3d.View, int) 0
 NULLABLE
+javax.media.j3d.VirtualUniverse J3D_SPECIFICATION_VENDOR
+NOT_NULL
+javax.media.j3d.VirtualUniverse J3D_SPECIFICATION_VERSION
+NOT_NULL
+javax.media.j3d.VirtualUniverse J3D_VENDOR
+NOT_NULL
 javax.media.j3d.VirtualUniverse void removeLocale(javax.media.j3d.Locale) 0
 NOT_NULL
 javax.media.j3d.WakeupAnd WakeupAnd(javax.media.j3d.WakeupCriterion[]) 0
