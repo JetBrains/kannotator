@@ -14,6 +14,7 @@ import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.objectweb.asm.signature.SignatureReader
 import org.objectweb.asm.util.TraceSignatureVisitor
 import org.jetbrains.kannotator.declarations.MethodTypePosition
+import org.jetbrains.kannotator.declarations.ClassMember
 
 class PositionSerializerTest : TestCase() {
     fun doTest(
@@ -136,4 +137,6 @@ class PositionSerializerTest : TestCase() {
 data class MockTypePosition(
         override val method: Method,
         override val relativePosition: PositionWithinDeclaration
-) : MethodTypePosition
+) : MethodTypePosition {
+    override val member: ClassMember get() { return method }
+}

@@ -32,6 +32,7 @@ data class ParameterPosition(val index: Int) : PositionWithinDeclaration {
 }
 
 trait AnnotationPosition {
+    val member: ClassMember
     val relativePosition: PositionWithinDeclaration
 }
 
