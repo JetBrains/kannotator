@@ -52,7 +52,7 @@ fun buildMethodNullabilityAnnotations(
             val fieldNode = instruction.getAsmInstructionNode() as FieldInsnNode
             val field = declarationIndex.findField(ClassName.fromInternalName(fieldNode.owner), fieldNode.name)
 
-            if (field != null && !field.getType().isPrimitiveOrVoidType()) {
+            if (field != null && shouldCollectNullabilityInfo(field)) {
                 assert(field.name == fieldNode.name)
 
                 val state = instruction[STATE_BEFORE]!!
