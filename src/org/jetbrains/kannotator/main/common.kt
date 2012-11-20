@@ -38,6 +38,9 @@ import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import kotlin.nullable.all
 import org.jetbrains.kannotator.declarations.copyAll
 import org.jetbrains.kannotator.index.ClassSource
+import org.jetbrains.kannotator.declarations.MethodTypePosition
+import org.jetbrains.kannotator.declarations.FieldTypePosition
+import org.jetbrains.kannotator.declarations.ClassMember
 
 open class ProgressMonitor {
     open fun totalFields(fieldCount: Int) {}
@@ -144,10 +147,15 @@ fun <K> inferAnnotations(
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
         progressMonitor.processingStarted(methods.keySet())
 
-        fun dependentMembersInsideThisComponent(m: Method): Collection<Method> {
-            return methods.getOrThrow(m)
-                    .map {e -> e.from.method} // dependent members
-                    .filter {m -> m in methods.keySet()} // only inside this component
+        fun dependentMembersInsideThisComponent(annotatedMember: ClassMember): Collection<Method> {
+            return methods.keySet() intersect when (annotatedMember) {
+                is Method ->
+                        methods.getOrThrow(annotatedMember as Method).map {e -> e.from.method} // dependent members
+                is Field ->
+                        fieldToDependencyInfosMap.getOrThrow(annotatedMember as Field).writers
+                else ->
+                        throw IllegalStateException("Unknown type for annotation position")
+            }
         }
 
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
@@ -157,7 +165,7 @@ fun <K> inferAnnotations(
                     declarationIndex,
                     resultingAnnotationsMap[key]!!,
                     methods.keySet(),
-                    { m -> dependentMembersInsideThisComponent(m) },
+                    { classMember -> dependentMembersInsideThisComponent(classMember) },
                     { m -> methodToGraph.getOrThrow(m) },
                     { f -> fieldToDependencyInfosMap.getOrThrow(f) },
                     inferrer,
@@ -180,7 +188,7 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         declarationIndex: DeclarationIndex,
         annotations: MutableAnnotations<A>,
         methods: Collection<Method>,
-        dependentMethods: (Method) -> Collection<Method>,
+        dependentMethods: (ClassMember) -> Collection<Method>,
         cfGraph: (Method) -> ControlFlowGraph,
         fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
         inferrer: AnnotationInferrer<A>,
@@ -197,21 +205,11 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         val inferredAnnotations = inferrer.inferAnnotationsFromMethod(
                 method, cfGraph(method), fieldDependencyInfoProvider, declarationIndex, annotations)
 
-        var annotationInSignatureChanged = false
         annotations.copyAll(inferredAnnotations) { pos, previous, new ->
-            annotationInSignatureChanged = true
-
-            // TODO: Add method dependencies according to annotation position
-            // TODO: Check errors
+            queue.addAll(dependentMethods(pos.member))
 
             // Return merged
             new
-        }
-
-        if (annotationInSignatureChanged) {
-            // Add itself as annotation in signature can change inference for fields
-            // queue.add(method)
-            queue.addAll(dependentMethods(method))
         }
 
         progressMonitor.processingStepFinished(method)
