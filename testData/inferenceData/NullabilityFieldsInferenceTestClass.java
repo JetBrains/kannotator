@@ -60,6 +60,9 @@ public class NullabilityFieldsInferenceTestClass {
     @ExpectNotNull
     public Object nullableFromCallingMethodOnValue;
 
+    @ExpectNullable
+    public Object notUsedNonFinalField;
+
     public void setNullableFromCallingMethodOnValue(Object param) {
         nullableFromCallingMethodOnValue = param;
         nullableFromCallingMethodOnValue.toString();

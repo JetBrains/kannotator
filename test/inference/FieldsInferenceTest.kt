@@ -89,6 +89,8 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
 
     // fun testNullableFromCallingMethodOnValue() = doFieldTest()
 
+    // fun testNotUsedNonFinalField() = doFieldTest()
+
     private class EmptyFieldInfo(override val field : Field) : FieldDependencyInfo {
         override val writers: Collection<Method> = ArrayList()
         override val readers: Collection<Method> = ArrayList()
