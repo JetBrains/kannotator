@@ -68,7 +68,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
     protected fun doTest() {
         val className = testClass.getName()
         val methodName = getName()!!
-        val reflectMethod = testClass.getMethods().find { m -> m.getName() == methodName }!!
+        val reflectMethod = (testClass.getMethods() as Array<java.lang.reflect.Method>).find { m -> m.getName() == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
         val classReader = getClassReader(className)
@@ -82,7 +82,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 
         val parametersMap = HashMap<Int, A>()
-        for ((paramIndex, paramAnnotations) in reflectMethod.getParameterAnnotations().indexed) {
+        for ((paramIndex, paramAnnotations) in (reflectMethod.getParameterAnnotations() as Array<Array<jet.Annotation>>).indexed) {
             val annotation = paramAnnotations.toAnnotation()
             if (annotation != null) {
                 parametersMap[paramIndex + 1] = annotation!! // Kotlin compiler bug
