@@ -1,8 +1,8 @@
 package inferenceData;
 
-import com.sun.istack.internal.NotNull;
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class NullabilityFieldsInferenceTestClass {
