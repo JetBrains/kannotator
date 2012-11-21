@@ -58,8 +58,8 @@ class IntegratedInferenceTest : TestCase() {
     )
 
     private fun doInferenceTest(testedJarSubstring: String) {
-        var currentMethod: Method? = null
         val progressMonitor = object : ProgressMonitor() {
+            var currentMethod: Method? = null
             override fun processingStepStarted(method: Method) {
                 currentMethod = method
             }
@@ -73,39 +73,37 @@ class IntegratedInferenceTest : TestCase() {
 
         val jar = jars.first()
         println("start: $jar")
-        try {
-            val annotationsMap = inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false)
 
-            for ((testName, annotations) in annotationsMap) {
-                val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
-                val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
-                outFile.getParentFile()!!.mkdirs()
+        val annotationsMap = try {
+            inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false)
+        }
+        catch (e: Throwable) {
+            throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
+        }
 
-                checkConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations)
+        for ((testName, annotations) in annotationsMap) {
+            val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
+            val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
+            outFile.getParentFile()!!.mkdirs()
 
-                val map = TreeMap<String, Any>()
-                annotations forEach {
-                    pos, ann -> map.put(pos.toAnnotationKey(), ann)
-                }
+            checkConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations)
 
-                PrintStream(FileOutputStream(outFile)) use {
-                    p ->
-                    for ((key, ann) in map) {
-                        p.println(key)
-                        p.println(ann)
-                    }
-                }
-
-                assertEqualsOrCreate(expectedFile, outFile.readText(), false)
-
-                outFile.delete()
+            val map = TreeMap<String, Any>()
+            annotations forEach {
+                pos, ann -> map.put(pos.toAnnotationKey(), ann)
             }
 
-            println("success")
-        } catch (e: Throwable) {
-            System.err.println("Working on $currentMethod")
-            e.printStackTrace()
-            fail();
+            PrintStream(FileOutputStream(outFile)) use {
+                p ->
+                for ((key, ann) in map) {
+                    p.println(key)
+                    p.println(ann)
+                }
+            }
+
+            assertEqualsOrCreate(expectedFile, outFile.readText(), false)
+
+            outFile.delete()
         }
     }
 
