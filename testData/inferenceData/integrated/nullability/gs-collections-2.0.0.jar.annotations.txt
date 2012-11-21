@@ -120,6 +120,8 @@ com.gs.collections.impl.bag.immutable.ImmutableArrayBag java.util.Iterator<T> it
 NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableArrayBag.ArrayBagIterator ArrayBagIterator(com.gs.collections.impl.bag.immutable.ImmutableArrayBag) 0
 NOT_NULL
+com.gs.collections.impl.bag.immutable.ImmutableArrayBag.ArrayBagIterator this$0
+NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableBagFactoryImpl com.gs.collections.api.bag.ImmutableBag<T> of()
 NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableBagFactoryImpl com.gs.collections.api.bag.ImmutableBag<T> of(T)
@@ -1946,17 +1948,29 @@ com.gs.collections.impl.block.function.MaxFunction INTEGER
 NOT_NULL
 com.gs.collections.impl.block.function.MaxFunction LONG
 NOT_NULL
+com.gs.collections.impl.block.function.MaxFunction.MaxDoubleFunction java.lang.Double value(java.lang.Double, java.lang.Double)
+NULLABLE
 com.gs.collections.impl.block.function.MaxFunction.MaxDoubleFunction java.lang.Double value(java.lang.Double, java.lang.Double) 0
 NULLABLE
 com.gs.collections.impl.block.function.MaxFunction.MaxDoubleFunction java.lang.Double value(java.lang.Double, java.lang.Double) 1
+NULLABLE
+com.gs.collections.impl.block.function.MaxFunction.MaxDoubleFunction java.lang.Object value(java.lang.Object, java.lang.Object)
+NULLABLE
+com.gs.collections.impl.block.function.MaxFunction.MaxIntegerFunction java.lang.Integer value(java.lang.Integer, java.lang.Integer)
 NULLABLE
 com.gs.collections.impl.block.function.MaxFunction.MaxIntegerFunction java.lang.Integer value(java.lang.Integer, java.lang.Integer) 0
 NULLABLE
 com.gs.collections.impl.block.function.MaxFunction.MaxIntegerFunction java.lang.Integer value(java.lang.Integer, java.lang.Integer) 1
 NULLABLE
+com.gs.collections.impl.block.function.MaxFunction.MaxIntegerFunction java.lang.Object value(java.lang.Object, java.lang.Object)
+NULLABLE
+com.gs.collections.impl.block.function.MaxFunction.MaxLongFunction java.lang.Long value(java.lang.Long, java.lang.Long)
+NULLABLE
 com.gs.collections.impl.block.function.MaxFunction.MaxLongFunction java.lang.Long value(java.lang.Long, java.lang.Long) 0
 NULLABLE
 com.gs.collections.impl.block.function.MaxFunction.MaxLongFunction java.lang.Long value(java.lang.Long, java.lang.Long) 1
+NULLABLE
+com.gs.collections.impl.block.function.MaxFunction.MaxLongFunction java.lang.Object value(java.lang.Object, java.lang.Object)
 NULLABLE
 com.gs.collections.impl.block.function.MaxSizeFunction COLLECTION
 NOT_NULL
@@ -1994,17 +2008,29 @@ com.gs.collections.impl.block.function.MinFunction INTEGER
 NOT_NULL
 com.gs.collections.impl.block.function.MinFunction LONG
 NOT_NULL
+com.gs.collections.impl.block.function.MinFunction.MinDoubleFunction java.lang.Double value(java.lang.Double, java.lang.Double)
+NULLABLE
 com.gs.collections.impl.block.function.MinFunction.MinDoubleFunction java.lang.Double value(java.lang.Double, java.lang.Double) 0
 NULLABLE
 com.gs.collections.impl.block.function.MinFunction.MinDoubleFunction java.lang.Double value(java.lang.Double, java.lang.Double) 1
+NULLABLE
+com.gs.collections.impl.block.function.MinFunction.MinDoubleFunction java.lang.Object value(java.lang.Object, java.lang.Object)
+NULLABLE
+com.gs.collections.impl.block.function.MinFunction.MinIntegerFunction java.lang.Integer value(java.lang.Integer, java.lang.Integer)
 NULLABLE
 com.gs.collections.impl.block.function.MinFunction.MinIntegerFunction java.lang.Integer value(java.lang.Integer, java.lang.Integer) 0
 NULLABLE
 com.gs.collections.impl.block.function.MinFunction.MinIntegerFunction java.lang.Integer value(java.lang.Integer, java.lang.Integer) 1
 NULLABLE
+com.gs.collections.impl.block.function.MinFunction.MinIntegerFunction java.lang.Object value(java.lang.Object, java.lang.Object)
+NULLABLE
+com.gs.collections.impl.block.function.MinFunction.MinLongFunction java.lang.Long value(java.lang.Long, java.lang.Long)
+NULLABLE
 com.gs.collections.impl.block.function.MinFunction.MinLongFunction java.lang.Long value(java.lang.Long, java.lang.Long) 0
 NULLABLE
 com.gs.collections.impl.block.function.MinFunction.MinLongFunction java.lang.Long value(java.lang.Long, java.lang.Long) 1
+NULLABLE
+com.gs.collections.impl.block.function.MinFunction.MinLongFunction java.lang.Object value(java.lang.Object, java.lang.Object)
 NULLABLE
 com.gs.collections.impl.block.function.MinSizeFunction COLLECTION
 NOT_NULL
@@ -5065,6 +5091,8 @@ NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap.HashIterator HashIterator(com.gs.collections.impl.map.mutable.ConcurrentHashMap) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap.HashIterator com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> nextEntry()
+NOT_NULL
+com.gs.collections.impl.map.mutable.ConcurrentHashMap.HashIterator this$0
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL

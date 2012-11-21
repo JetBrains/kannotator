@@ -1532,6 +1532,8 @@ com.google.common.cache.LocalCache.HashIterator HashIterator(com.google.common.c
 NOT_NULL
 com.google.common.cache.LocalCache.HashIterator boolean advanceTo(com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 0
 NOT_NULL
+com.google.common.cache.LocalCache.HashIterator this$0
+NOT_NULL
 com.google.common.cache.LocalCache.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 com.google.common.cache.LocalCache.LoadingSerializationProxy void readObject(java.io.ObjectInputStream) 0
@@ -1896,6 +1898,8 @@ com.google.common.collect.AbstractMapBasedMultiset.1 java.lang.Object next()
 NOT_NULL
 com.google.common.collect.AbstractMapBasedMultiset.MapBasedMultisetIterator MapBasedMultisetIterator(com.google.common.collect.AbstractMapBasedMultiset) 0
 NOT_NULL
+com.google.common.collect.AbstractMapBasedMultiset.MapBasedMultisetIterator this$0
+NOT_NULL
 com.google.common.collect.AbstractMultimap AbstractMultimap(java.util.Map<K,java.util.Collection<V>>) 0
 NOT_NULL
 com.google.common.collect.AbstractMultimap boolean putAll(K, java.lang.Iterable<? extends V>) 1
@@ -1975,6 +1979,8 @@ NOT_NULL
 com.google.common.collect.AbstractMultimap.EntryIterator java.lang.Object next()
 NOT_NULL
 com.google.common.collect.AbstractMultimap.EntryIterator java.util.Map.Entry<K,V> next()
+NOT_NULL
+com.google.common.collect.AbstractMultimap.EntryIterator this$0
 NOT_NULL
 com.google.common.collect.AbstractMultimap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
@@ -2220,6 +2226,8 @@ com.google.common.collect.ArrayTable.Column Column(com.google.common.collect.Arr
 NOT_NULL
 com.google.common.collect.ArrayTable.Column java.lang.String getKeyRole()
 NOT_NULL
+com.google.common.collect.ArrayTable.Column this$0
+NOT_NULL
 com.google.common.collect.ArrayTable.ColumnMap ColumnMap(com.google.common.collect.ArrayTable) 0
 NOT_NULL
 com.google.common.collect.ArrayTable.ColumnMap java.lang.Object getValue(int)
@@ -2228,9 +2236,13 @@ com.google.common.collect.ArrayTable.ColumnMap java.lang.String getKeyRole()
 NOT_NULL
 com.google.common.collect.ArrayTable.ColumnMap java.util.Map<R,V> getValue(int)
 NOT_NULL
+com.google.common.collect.ArrayTable.ColumnMap this$0
+NOT_NULL
 com.google.common.collect.ArrayTable.Row Row(com.google.common.collect.ArrayTable, int) 0
 NOT_NULL
 com.google.common.collect.ArrayTable.Row java.lang.String getKeyRole()
+NOT_NULL
+com.google.common.collect.ArrayTable.Row this$0
 NOT_NULL
 com.google.common.collect.ArrayTable.RowMap RowMap(com.google.common.collect.ArrayTable) 0
 NOT_NULL
@@ -2239,6 +2251,8 @@ NOT_NULL
 com.google.common.collect.ArrayTable.RowMap java.lang.String getKeyRole()
 NOT_NULL
 com.google.common.collect.ArrayTable.RowMap java.util.Map<C,V> getValue(int)
+NOT_NULL
+com.google.common.collect.ArrayTable.RowMap this$0
 NOT_NULL
 com.google.common.collect.ArrayTable.Values java.util.Iterator<V> iterator()
 NOT_NULL
@@ -3762,9 +3776,13 @@ com.google.common.collect.ImmutableList.Builder com.google.common.collect.Immuta
 NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList ReverseImmutableList(com.google.common.collect.ImmutableList<E>) 0
 NOT_NULL
+com.google.common.collect.ImmutableList.ReverseImmutableList com.google.common.collect.ImmutableList<E> reverse()
+NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList com.google.common.collect.ImmutableList<E> subList(int, int)
 NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList com.google.common.collect.UnmodifiableListIterator<E> listIterator(int)
+NOT_NULL
+com.google.common.collect.ImmutableList.ReverseImmutableList forwardList
 NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList java.util.Iterator iterator()
 NOT_NULL
@@ -5634,9 +5652,13 @@ com.google.common.collect.LinkedListMultimap.NodeIterator NodeIterator(com.googl
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.NodeIterator NodeIterator(com.google.common.collect.LinkedListMultimap, int) 0
 NOT_NULL
+com.google.common.collect.LinkedListMultimap.NodeIterator this$0
+NOT_NULL
 com.google.common.collect.LinkedListMultimap.ValueForKeyIterator ValueForKeyIterator(com.google.common.collect.LinkedListMultimap, java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.ValueForKeyIterator ValueForKeyIterator(com.google.common.collect.LinkedListMultimap, java.lang.Object, int) 0
+NOT_NULL
+com.google.common.collect.LinkedListMultimap.ValueForKeyIterator this$0
 NOT_NULL
 com.google.common.collect.Lists boolean addAllImpl(java.util.List<E>, int, java.lang.Iterable<? extends E>) 0
 NOT_NULL
@@ -6321,6 +6343,8 @@ NOT_NULL
 com.google.common.collect.MapMakerInternalMap.HashIterator HashIterator(com.google.common.collect.MapMakerInternalMap) 0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.HashIterator boolean advanceTo(com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 0
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.HashIterator this$0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
@@ -7262,6 +7286,8 @@ com.google.common.collect.Multimaps.TransformedEntriesMultimap.3 java.lang.Objec
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries TransformedEntries(com.google.common.collect.Maps.EntryTransformer<? super K,? super V1,V2>) 0
 NOT_NULL
+com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries this$0
+NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries.1 java.util.Map.Entry<K,V2> apply(java.util.Map.Entry<K,V1>)
@@ -8038,6 +8064,8 @@ com.google.common.collect.RegularImmutableSortedSet com.google.common.collect.Im
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedSet com.google.common.collect.UnmodifiableIterator<E> iterator()
 NOT_NULL
+com.google.common.collect.RegularImmutableSortedSet elements
+NOT_NULL
 com.google.common.collect.RegularImmutableSortedSet int headIndex(E, boolean) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedSet int indexOf(java.lang.Object) 0
@@ -8162,6 +8190,8 @@ com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Column Colum
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Column com.google.common.collect.ImmutableMap<R,java.lang.Integer> keyToIndex()
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Column this$0
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap ColumnMap(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap com.google.common.collect.ImmutableMap<C,java.lang.Integer> keyToIndex()
@@ -8175,6 +8205,8 @@ NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Row Row(com.google.common.collect.RegularImmutableTable.DenseImmutableTable, int) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Row com.google.common.collect.ImmutableMap<C,java.lang.Integer> keyToIndex()
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Row this$0
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.RowMap RowMap(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
 NOT_NULL
@@ -8319,6 +8351,8 @@ NOT_NULL
 com.google.common.collect.Serialization void writeMultiset(com.google.common.collect.Multiset<E>, java.io.ObjectOutputStream) 1
 NOT_NULL
 com.google.common.collect.Serialization.FieldSetter FieldSetter(java.lang.reflect.Field) 0
+NOT_NULL
+com.google.common.collect.Serialization.FieldSetter field
 NOT_NULL
 com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Collection<?>) 1
 NOT_NULL
@@ -8477,6 +8511,8 @@ NOT_NULL
 com.google.common.collect.Sets.ImprovedAbstractSet boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.Sets.PowerSet PowerSet(com.google.common.collect.ImmutableSet<E>) 0
+NOT_NULL
+com.google.common.collect.Sets.PowerSet inputSet
 NOT_NULL
 com.google.common.collect.Sets.PowerSet java.util.Iterator<java.util.Set<E>> iterator()
 NOT_NULL
@@ -8856,6 +8892,8 @@ com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet boolean remo
 NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet java.util.Iterator<java.util.Map.Entry<C,java.util.Map<R,V>>> iterator()
 NOT_NULL
+com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet this$1
+NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet.1 java.lang.Object transform(java.lang.Object)
 NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet.1 java.util.Map.Entry<C,java.util.Map<R,V>> transform(C)
@@ -8867,6 +8905,8 @@ NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapValues boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapValues java.util.Iterator<java.util.Map<R,V>> iterator()
+NOT_NULL
+com.google.common.collect.StandardTable.ColumnMap.ColumnMapValues this$1
 NOT_NULL
 com.google.common.collect.StandardTable.Row Row(R) 1
 NOT_NULL
@@ -8917,6 +8957,8 @@ NOT_NULL
 com.google.common.collect.StandardTable.RowMap.EntrySet EntrySet(com.google.common.collect.StandardTable.RowMap) 0
 NOT_NULL
 com.google.common.collect.StandardTable.RowMap.EntrySet java.util.Iterator<java.util.Map.Entry<R,java.util.Map<C,V>>> iterator()
+NOT_NULL
+com.google.common.collect.StandardTable.RowMap.EntrySet this$1
 NOT_NULL
 com.google.common.collect.StandardTable.RowMap.EntrySet.1 java.lang.Object transform(java.lang.Object)
 NOT_NULL
@@ -9246,6 +9288,8 @@ com.google.common.collect.Tables.TransformedTable.3 java.util.Map<R,V2> apply(ja
 NOT_NULL
 com.google.common.collect.Tables.TransformedTable.CellSet CellSet(com.google.common.collect.Tables.TransformedTable) 0
 NOT_NULL
+com.google.common.collect.Tables.TransformedTable.CellSet this$0
+NOT_NULL
 com.google.common.collect.Tables.TransposeTable TRANSPOSE_CELL
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable TransposeTable(com.google.common.collect.Table<R,C,V>) 0
@@ -9265,6 +9309,8 @@ NOT_NULL
 com.google.common.collect.Tables.TransposeTable.1 java.lang.Object apply(java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable.CellSet CellSet(com.google.common.collect.Tables.TransposeTable) 0
+NOT_NULL
+com.google.common.collect.Tables.TransposeTable.CellSet this$0
 NOT_NULL
 com.google.common.collect.Tables.UnmodifiableRowSortedMap com.google.common.collect.RowSortedTable<R,C,V> delegate()
 NOT_NULL
@@ -9352,6 +9398,10 @@ com.google.common.collect.TreeBasedTable.TreeRow java.util.SortedMap<C,V> tailMa
 NOT_NULL
 com.google.common.collect.TreeBasedTable.TreeRow java.util.SortedMap<C,V> tailMap(C) 0
 NOT_NULL
+com.google.common.collect.TreeBasedTable.TreeRow lowerBound
+NULLABLE
+com.google.common.collect.TreeBasedTable.TreeRow upperBound
+NULLABLE
 com.google.common.collect.TreeMultimap com.google.common.collect.TreeMultimap<K,V> create()
 NOT_NULL
 com.google.common.collect.TreeMultimap com.google.common.collect.TreeMultimap<K,V> create(com.google.common.collect.Multimap<? extends K,? extends V>)
@@ -12827,6 +12877,8 @@ NOT_NULL
 com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter create(double, long, java.util.concurrent.TimeUnit)
 NOT_NULL
 com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter createBursty(com.google.common.util.concurrent.RateLimiter.SleepingTicker, double, int)
+NOT_NULL
+com.google.common.util.concurrent.RateLimiter ticker
 NOT_NULL
 com.google.common.util.concurrent.RateLimiter.SleepingTicker SYSTEM_TICKER
 NOT_NULL

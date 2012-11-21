@@ -316,6 +316,8 @@ com.ctc.wstx.dom.DOMWrappingWriter java.lang.Object getProperty(java.lang.String
 NULLABLE
 com.ctc.wstx.dom.DOMWrappingWriter java.lang.String getPrefix(java.lang.String)
 NULLABLE
+com.ctc.wstx.dom.DOMWrappingWriter mConfig
+NOT_NULL
 com.ctc.wstx.dom.DOMWrappingWriter org.codehaus.stax2.XMLStreamLocation2 getLocation()
 NULLABLE
 com.ctc.wstx.dom.DOMWrappingWriter org.codehaus.stax2.validation.ValidationProblemHandler setValidationProblemHandler(org.codehaus.stax2.validation.ValidationProblemHandler)
@@ -355,6 +357,8 @@ NULLABLE
 com.ctc.wstx.dtd.ChoiceModel ChoiceModel(com.ctc.wstx.dtd.ModelNode[]) 0
 NOT_NULL
 com.ctc.wstx.dtd.ChoiceModel com.ctc.wstx.dtd.ModelNode cloneModel()
+NOT_NULL
+com.ctc.wstx.dtd.ChoiceModel mSubModels
 NOT_NULL
 com.ctc.wstx.dtd.ChoiceModel void addFirstPos(java.util.BitSet) 0
 NOT_NULL
@@ -536,9 +540,13 @@ com.ctc.wstx.dtd.DTDSubsetImpl com.ctc.wstx.dtd.DTDSubset combineWithExternalSub
 NOT_NULL
 com.ctc.wstx.dtd.DTDSubsetImpl com.ctc.wstx.dtd.DTDSubsetImpl constructInstance(boolean, java.util.HashMap, java.util.Set, java.util.HashMap, java.util.Set, java.util.HashMap, java.util.HashMap, boolean)
 NOT_NULL
+com.ctc.wstx.dtd.DTDSubsetImpl java.util.HashMap getElementMap()
+NULLABLE
 com.ctc.wstx.dtd.DTDSubsetImpl java.util.List getGeneralEntityList()
 NULLABLE
 com.ctc.wstx.dtd.DTDSubsetImpl java.util.List getNotationList()
+NULLABLE
+com.ctc.wstx.dtd.DTDSubsetImpl mElements
 NULLABLE
 com.ctc.wstx.dtd.DTDSubsetImpl org.codehaus.stax2.validation.XMLValidator createValidator(org.codehaus.stax2.validation.ValidationContext)
 NOT_NULL
@@ -924,7 +932,11 @@ com.ctc.wstx.evt.WStartDocument WStartDocument(javax.xml.stream.Location, javax.
 NULLABLE
 com.ctc.wstx.evt.WStartDocument WStartDocument(javax.xml.stream.Location, javax.xml.stream.XMLStreamReader) 1
 NOT_NULL
+com.ctc.wstx.evt.WStartDocument java.lang.String getCharacterEncodingScheme()
+NULLABLE
 com.ctc.wstx.evt.WStartDocument java.lang.String getVersion()
+NULLABLE
+com.ctc.wstx.evt.WStartDocument mEncodingScheme
 NULLABLE
 com.ctc.wstx.evt.WStartDocument mVersion
 NULLABLE
@@ -1116,6 +1128,8 @@ com.ctc.wstx.io.ReaderBootstrapper mInputEncoding
 NULLABLE
 com.ctc.wstx.io.ReaderSource ReaderSource(com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.WstxInputSource, java.lang.String, java.lang.String, java.lang.String, java.net.URL, java.io.Reader, boolean) 0
 NOT_NULL
+com.ctc.wstx.io.ReaderSource mConfig
+NOT_NULL
 com.ctc.wstx.io.ReaderSource void doInitInputLocation(com.ctc.wstx.io.WstxInputData) 0
 NOT_NULL
 com.ctc.wstx.io.StreamBootstrapper com.ctc.wstx.io.StreamBootstrapper getInstance(java.io.InputStream, java.lang.String, java.lang.String)
@@ -1153,6 +1167,8 @@ NOT_NULL
 com.ctc.wstx.io.TextEscaper void writeEscapedXMLText(java.io.Writer, java.lang.String) 1
 NOT_NULL
 com.ctc.wstx.io.UTF8Writer UTF8Writer(com.ctc.wstx.api.WriterConfig, java.io.OutputStream, boolean) 0
+NOT_NULL
+com.ctc.wstx.io.UTF8Writer mConfig
 NOT_NULL
 com.ctc.wstx.io.UTF8Writer void write(char[]) 0
 NOT_NULL
@@ -1652,6 +1668,8 @@ com.ctc.wstx.sr.StreamScanner java.lang.String parsePublicId(char, boolean, java
 NOT_NULL
 com.ctc.wstx.sr.StreamScanner java.lang.String parseSystemId(char, boolean, java.lang.String)
 NOT_NULL
+com.ctc.wstx.sr.StreamScanner mConfig
+NOT_NULL
 com.ctc.wstx.sr.StreamScanner sCharValidity
 NOT_NULL
 com.ctc.wstx.sr.StreamScanner sPubidValidity
@@ -2050,6 +2068,8 @@ com.ctc.wstx.sw.BaseStreamWriter java.lang.String getXmlVersion()
 NOT_NULL
 com.ctc.wstx.sw.BaseStreamWriter javax.xml.stream.Location getValidationLocation()
 NOT_NULL
+com.ctc.wstx.sw.BaseStreamWriter mConfig
+NOT_NULL
 com.ctc.wstx.sw.BaseStreamWriter org.codehaus.stax2.XMLStreamLocation2 getLocation()
 NOT_NULL
 com.ctc.wstx.sw.BaseStreamWriter org.codehaus.stax2.validation.XMLValidator stopValidatingAgainst(org.codehaus.stax2.validation.XMLValidationSchema)
@@ -2299,6 +2319,8 @@ NOT_NULL
 com.ctc.wstx.sw.SimpleOutputElement.AttrName mNsURI
 NULLABLE
 com.ctc.wstx.sw.XmlWriter XmlWriter(com.ctc.wstx.api.WriterConfig, java.lang.String, boolean) 0
+NOT_NULL
+com.ctc.wstx.sw.XmlWriter mConfig
 NOT_NULL
 com.ctc.wstx.sw.XmlWriter void verifyNameValidity(java.lang.String, boolean) 0
 NOT_NULL

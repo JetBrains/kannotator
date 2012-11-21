@@ -1030,6 +1030,8 @@ org.junit.runners.ParentRunner org.junit.runner.manipulation.Sorter access$100(o
 NOT_NULL
 org.junit.runners.ParentRunner org.junit.runners.model.Statement childrenInvoker(org.junit.runner.notification.RunNotifier)
 NOT_NULL
+org.junit.runners.ParentRunner org.junit.runners.model.TestClass getTestClass()
+NOT_NULL
 org.junit.runners.ParentRunner.1 void schedule(java.lang.Runnable) 0
 NOT_NULL
 org.junit.runners.Suite Suite(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 0
@@ -1086,6 +1088,10 @@ org.junit.runners.model.TestClass TestClass(java.lang.Class<?>) 0
 NULLABLE
 org.junit.runners.model.TestClass boolean runsTopToBottom(java.lang.Class<? extends java.lang.annotation.Annotation>) 0
 NOT_NULL
+org.junit.runners.model.TestClass fClass
+NULLABLE
+org.junit.runners.model.TestClass java.lang.Class<?> getJavaClass()
+NULLABLE
 org.junit.runners.model.TestClass java.util.List<T> getAnnotatedFieldValues(java.lang.Object, java.lang.Class<? extends java.lang.annotation.Annotation>, java.lang.Class<T>)
 NOT_NULL
 org.junit.runners.model.TestClass java.util.List<T> getAnnotatedMembers(java.util.Map<java.lang.Class<?>,java.util.List<T>>, java.lang.Class<? extends java.lang.annotation.Annotation>) 0

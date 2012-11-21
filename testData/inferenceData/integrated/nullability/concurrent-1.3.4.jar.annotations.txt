@@ -86,6 +86,8 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.EntrySet java.util.Iterator i
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.HashIterator HashIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.HashIterator this$0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeySet java.util.Iterator iterator()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Values java.util.Iterator iterator()
@@ -129,6 +131,8 @@ NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.EntrySet java.util.Iterator iterator()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.HashIterator HashIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.HashIterator this$0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.KeySet boolean contains(java.lang.Object) 0
 NOT_NULL
@@ -827,4 +831,6 @@ NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.UpdateCommand UpdateCommand(EDU.oswego.cs.dl.util.concurrent.misc.RNG) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.UpdateCommand int compareTo(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.misc.UpdateCommand obj_
 NOT_NULL

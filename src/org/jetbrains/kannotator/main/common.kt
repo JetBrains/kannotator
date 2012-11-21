@@ -150,11 +150,11 @@ fun <K> inferAnnotations(
         fun dependentMembersInsideThisComponent(annotatedMember: ClassMember): Collection<Method> {
             return methods.keySet() intersect when (annotatedMember) {
                 is Method ->
-                        methods.getOrThrow(annotatedMember as Method).map {e -> e.from.method} // dependent members
+                    methods.getOrThrow(annotatedMember as Method).map {e -> e.from.method} // dependent members
                 is Field ->
-                        fieldToDependencyInfosMap.getOrThrow(annotatedMember as Field).writers
+                    fieldToDependencyInfosMap.getOrThrow(annotatedMember as Field).readers
                 else ->
-                        throw IllegalStateException("Unknown type for annotation position")
+                    throw IllegalStateException("Unknown type for annotation position")
             }
         }
 
@@ -207,6 +207,7 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
 
         annotations.copyAll(inferredAnnotations) { pos, previous, new ->
             queue.addAll(dependentMethods(pos.member))
+            queue.add(method)
 
             // Return merged
             new

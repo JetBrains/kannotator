@@ -1010,6 +1010,8 @@ javax.media.j3d.GeneralizedVertexList void copyVertexData(javax.media.j3d.Geomet
 NOT_NULL
 javax.media.j3d.GeneralizedVertexList.Vertex Vertex(javax.media.j3d.GeneralizedVertexList, javax.vecmath.Point3f, javax.vecmath.Vector3f, javax.vecmath.Color4f, int) 0
 NOT_NULL
+javax.media.j3d.GeneralizedVertexList.Vertex this$0
+NOT_NULL
 javax.media.j3d.GeometryArray javax.vecmath.TexCoord2f[] getTexCoordRef2f(int)
 NULLABLE
 javax.media.j3d.GeometryArray javax.vecmath.TexCoord3f[] getTexCoordRef3f(int)
@@ -2011,6 +2013,8 @@ NOT_NULL
 javax.media.j3d.J3dQueryProps.EntrySet java.util.Iterator iterator()
 NOT_NULL
 javax.media.j3d.J3dQueryProps.MapIterator MapIterator(javax.media.j3d.J3dQueryProps) 0
+NOT_NULL
+javax.media.j3d.J3dQueryProps.MapIterator this$0
 NOT_NULL
 javax.media.j3d.J3dStructure void addMessage(javax.media.j3d.J3dMessage) 0
 NOT_NULL

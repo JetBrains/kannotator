@@ -1024,6 +1024,8 @@ org.apache.commons.collections15.bidimap.AbstractDualBidiMap void putAll(java.ut
 NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.BidiMapIterator BidiMapIterator(org.apache.commons.collections15.bidimap.AbstractDualBidiMap<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.bidimap.AbstractDualBidiMap.BidiMapIterator parent
+NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.EntrySet EntrySet(org.apache.commons.collections15.bidimap.AbstractDualBidiMap<K,V>) 0
 NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
@@ -1067,6 +1069,8 @@ NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap.BidiOrderedMapIterator BidiOrderedMapIterator(org.apache.commons.collections15.bidimap.AbstractDualBidiMap<K,V>) 0
+NOT_NULL
+org.apache.commons.collections15.bidimap.DualTreeBidiMap.BidiOrderedMapIterator parent
 NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap.ViewMap ViewMap(org.apache.commons.collections15.bidimap.DualTreeBidiMap<K,V>, java.util.SortedMap<K,V>) 0
 NOT_NULL
@@ -1300,6 +1304,8 @@ org.apache.commons.collections15.bidimap.TreeBidiMap.ViewIterator java.lang.Obje
 NULLABLE
 org.apache.commons.collections15.bidimap.TreeBidiMap.ViewIterator java.lang.Object previous()
 NULLABLE
+org.apache.commons.collections15.bidimap.TreeBidiMap.ViewIterator main
+NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableBidiMap java.util.Collection values()
 NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableBidiMap java.util.Set<K> keySet()
@@ -1920,6 +1926,8 @@ org.apache.commons.collections15.iterators.EmptyOrderedMapIterator INSTANCE
 NOT_NULL
 org.apache.commons.collections15.iterators.EntrySetMapIterator EntrySetMapIterator(java.util.Map<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.iterators.EntrySetMapIterator map
+NOT_NULL
 org.apache.commons.collections15.iterators.IteratorChain IteratorChain(java.util.Collection<java.util.Iterator<? extends E>>) 0
 NOT_NULL
 org.apache.commons.collections15.iterators.IteratorChain IteratorChain(java.util.Iterator<? extends E>) 0
@@ -2046,6 +2054,8 @@ org.apache.commons.collections15.list.AbstractLinkedList void updateNode(org.apa
 NOT_NULL
 org.apache.commons.collections15.list.AbstractLinkedList.LinkedListIterator LinkedListIterator(org.apache.commons.collections15.list.AbstractLinkedList<E>, int) 0
 NOT_NULL
+org.apache.commons.collections15.list.AbstractLinkedList.LinkedListIterator parent
+NOT_NULL
 org.apache.commons.collections15.list.AbstractLinkedList.LinkedSubList LinkedSubList(org.apache.commons.collections15.list.AbstractLinkedList<E>, int, int) 0
 NOT_NULL
 org.apache.commons.collections15.list.AbstractLinkedList.LinkedSubList boolean addAll(int, java.util.Collection<? extends E>) 1
@@ -2098,6 +2108,8 @@ org.apache.commons.collections15.list.FastArrayList java.lang.Object clone()
 NOT_NULL
 org.apache.commons.collections15.list.FastArrayList.ListIter ListIter(org.apache.commons.collections15.list.FastArrayList, int) 0
 NOT_NULL
+org.apache.commons.collections15.list.FastArrayList.ListIter this$0
+NOT_NULL
 org.apache.commons.collections15.list.FastArrayList.SubList SubList(org.apache.commons.collections15.list.FastArrayList, int, int) 0
 NOT_NULL
 org.apache.commons.collections15.list.FastArrayList.SubList int access$108(org.apache.commons.collections15.list.FastArrayList.SubList) 0
@@ -2114,7 +2126,11 @@ org.apache.commons.collections15.list.FastArrayList.SubList java.util.ListIterat
 NOT_NULL
 org.apache.commons.collections15.list.FastArrayList.SubList java.util.ListIterator<E> listIterator(int)
 NOT_NULL
+org.apache.commons.collections15.list.FastArrayList.SubList this$0
+NOT_NULL
 org.apache.commons.collections15.list.FastArrayList.SubList.SubListIter SubListIter(org.apache.commons.collections15.list.FastArrayList.SubList, int) 0
+NOT_NULL
+org.apache.commons.collections15.list.FastArrayList.SubList.SubListIter this$1
 NOT_NULL
 org.apache.commons.collections15.list.FixedSizeList java.util.Iterator<E> iterator()
 NOT_NULL
@@ -2252,6 +2268,8 @@ org.apache.commons.collections15.list.TreeList.AVLNode void toArray(T[], int) 0
 NOT_NULL
 org.apache.commons.collections15.list.TreeList.TreeListIterator TreeListIterator(org.apache.commons.collections15.list.TreeList<E>, int) 0
 NOT_NULL
+org.apache.commons.collections15.list.TreeList.TreeListIterator parent
+NOT_NULL
 org.apache.commons.collections15.list.TypedList java.util.List decorate(java.util.List, java.lang.Class)
 NOT_NULL
 org.apache.commons.collections15.list.TypedList java.util.List decorate(java.util.List, java.lang.Class) 1
@@ -2364,6 +2382,8 @@ org.apache.commons.collections15.map.AbstractHashedMap.HashIterator HashIterator
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap.HashIterator org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V> nextEntry()
 NOT_NULL
+org.apache.commons.collections15.map.AbstractHashedMap.HashIterator parent
+NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap.KeySet boolean contains(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap.KeySet boolean remove(java.lang.Object) 0
@@ -2411,6 +2431,8 @@ NOT_NULL
 org.apache.commons.collections15.map.AbstractLinkedMap void removeEntry(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V>, int, org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V>) 0
 NOT_NULL
 org.apache.commons.collections15.map.AbstractLinkedMap.LinkIterator LinkIterator(org.apache.commons.collections15.map.AbstractLinkedMap<K,V>) 0
+NOT_NULL
+org.apache.commons.collections15.map.AbstractLinkedMap.LinkIterator parent
 NOT_NULL
 org.apache.commons.collections15.map.AbstractMapDecorator AbstractMapDecorator(java.util.Map<K,V>) 0
 NOT_NULL
@@ -2462,6 +2484,8 @@ org.apache.commons.collections15.map.AbstractReferenceMap.ReferenceEntry parent
 NOT_NULL
 org.apache.commons.collections15.map.AbstractReferenceMap.ReferenceIteratorBase ReferenceIteratorBase(org.apache.commons.collections15.map.AbstractReferenceMap<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.map.AbstractReferenceMap.ReferenceIteratorBase parent
+NOT_NULL
 org.apache.commons.collections15.map.CaseInsensitiveMap V get(java.lang.Object)
 NULLABLE
 org.apache.commons.collections15.map.CaseInsensitiveMap V put(java.lang.String, V)
@@ -2508,6 +2532,8 @@ org.apache.commons.collections15.map.FastHashMap.CollectionView java.util.Iterat
 NOT_NULL
 org.apache.commons.collections15.map.FastHashMap.CollectionView.CollectionViewIterator CollectionViewIterator(org.apache.commons.collections15.map.FastHashMap.CollectionView) 0
 NOT_NULL
+org.apache.commons.collections15.map.FastHashMap.CollectionView.CollectionViewIterator this$1
+NOT_NULL
 org.apache.commons.collections15.map.FastHashMap.EntrySet java.util.Collection get(java.util.Map<K,V>) 0
 NOT_NULL
 org.apache.commons.collections15.map.FastHashMap.KeySet K iteratorNext(java.util.Map.Entry<K,V>) 0
@@ -2531,6 +2557,8 @@ NOT_NULL
 org.apache.commons.collections15.map.FastTreeMap.CollectionView java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.map.FastTreeMap.CollectionView.CollectionViewIterator CollectionViewIterator(org.apache.commons.collections15.map.FastTreeMap.CollectionView) 0
+NOT_NULL
+org.apache.commons.collections15.map.FastTreeMap.CollectionView.CollectionViewIterator this$1
 NOT_NULL
 org.apache.commons.collections15.map.FastTreeMap.EntrySet java.util.Collection<java.util.Map.Entry<K,V>> get(java.util.Map<K,V>) 0
 NOT_NULL
@@ -2737,6 +2765,8 @@ NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap.ListOrderedIterator java.util.Map.Entry<K,V> next()
 NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap.ListOrderedMapIterator ListOrderedMapIterator(org.apache.commons.collections15.map.ListOrderedMap<K,V>) 0
+NOT_NULL
+org.apache.commons.collections15.map.ListOrderedMap.ListOrderedMapIterator parent
 NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap.ValuesView java.util.Iterator<V> iterator()
 NOT_NULL
@@ -3015,6 +3045,8 @@ NOT_NULL
 org.apache.commons.collections15.multimap.MultiHashMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.multimap.MultiHashMap.ValueIterator ValueIterator(org.apache.commons.collections15.multimap.MultiHashMap) 0
+NOT_NULL
+org.apache.commons.collections15.multimap.MultiHashMap.ValueIterator this$0
 NOT_NULL
 org.apache.commons.collections15.multimap.MultiHashMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
