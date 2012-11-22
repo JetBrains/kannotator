@@ -34,7 +34,7 @@ public fun <A> MutableAnnotations<A>.setIfNotNull(position: AnnotationPosition, 
     }
 }
 
-public fun <A> MutableAnnotations<A>.copyAll(
+public fun <A> MutableAnnotations<A>.copyAllChanged(
         annotations: Annotations<A>,
         merger: (pos: AnnotationPosition, previous: A?, new: A) -> A = { pos, previous, new -> new }) {
     annotations.forEach { pos, ann ->

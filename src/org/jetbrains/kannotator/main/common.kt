@@ -36,7 +36,7 @@ import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import kotlin.nullable.all
-import org.jetbrains.kannotator.declarations.copyAll
+import org.jetbrains.kannotator.declarations.copyAllChanged
 import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.declarations.MethodTypePosition
 import org.jetbrains.kannotator.declarations.FieldTypePosition
@@ -119,7 +119,7 @@ fun <K> inferAnnotations(
         val loadedAnnotations = AnnotationsImpl(loadAnnotations(existingAnnotationFiles, declarationIndex, entry.value, showErrors))
         val inferrerExistingAnnotations = existingAnnotations[entry.key]
         if (inferrerExistingAnnotations != null) {
-            loadedAnnotations.copyAll(inferrerExistingAnnotations)
+            loadedAnnotations.copyAllChanged(inferrerExistingAnnotations)
         }
 
         loadedAnnotations
@@ -135,7 +135,7 @@ fun <K> inferAnnotations(
 
     for ((key, inferrer) in inferrers) {
         for (fieldInfo in fieldToDependencyInfosMap.values()) {
-            resultingAnnotationsMap[key]!!.copyAll(inferrer.inferAnnotationsFromFieldValue(fieldInfo.field))
+            resultingAnnotationsMap[key]!!.copyAllChanged(inferrer.inferAnnotationsFromFieldValue(fieldInfo.field))
         }
     }
 
@@ -200,7 +200,7 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
                 method, cfGraph(method), fieldDependencyInfoProvider, declarationIndex, annotations)
 
         var changed = false
-        annotations.copyAll(inferredAnnotations) { pos, previous, new ->
+        annotations.copyAllChanged(inferredAnnotations) { pos, previous, new ->
             changed = true
             new // Return merged
         }
