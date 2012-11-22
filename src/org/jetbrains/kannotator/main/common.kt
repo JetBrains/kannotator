@@ -147,15 +147,9 @@ fun <K> inferAnnotations(
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
         progressMonitor.processingStarted(methods.keySet())
 
-        fun dependentMembersInsideThisComponent(annotatedMember: ClassMember): Collection<Method> {
-            return methods.keySet() intersect when (annotatedMember) {
-                is Method ->
-                    methods.getOrThrow(annotatedMember as Method).map {e -> e.from.method} // dependent members
-                is Field ->
-                    fieldToDependencyInfosMap.getOrThrow(annotatedMember as Field).readers
-                else ->
-                    throw IllegalStateException("Unknown type for annotation position")
-            }
+        fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
+            // Add itself as inferred annotation can produce more annotations
+            return methods.keySet() intersect methods.getOrThrow(method).map { e -> e.from.method } plus method
         }
 
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
@@ -188,7 +182,7 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         declarationIndex: DeclarationIndex,
         annotations: MutableAnnotations<A>,
         methods: Collection<Method>,
-        dependentMethods: (ClassMember) -> Collection<Method>,
+        dependentMethods: (Method) -> Collection<Method>,
         cfGraph: (Method) -> ControlFlowGraph,
         fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
         inferrer: AnnotationInferrer<A>,
@@ -205,12 +199,14 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         val inferredAnnotations = inferrer.inferAnnotationsFromMethod(
                 method, cfGraph(method), fieldDependencyInfoProvider, declarationIndex, annotations)
 
+        var changed = false
         annotations.copyAll(inferredAnnotations) { pos, previous, new ->
-            queue.addAll(dependentMethods(pos.member))
-            queue.add(method)
+            changed = true
+            new // Return merged
+        }
 
-            // Return merged
-            new
+        if (changed) {
+            queue.addAll(dependentMethods(method))
         }
 
         progressMonitor.processingStepFinished(method)
