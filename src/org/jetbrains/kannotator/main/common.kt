@@ -8,12 +8,7 @@ import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.asm.util.createMethodNode
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.declarations.AnnotationPosition
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.declarations.PositionsForMethod
+import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
@@ -23,9 +18,6 @@ import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
-import org.jetbrains.kannotator.declarations.isStatic
-import org.jetbrains.kannotator.declarations.isFinal
-import org.jetbrains.kannotator.declarations.Field
 import java.util.Collections
 import org.jetbrains.kannotator.annotationsInference.Annotation
 import java.util.ArrayList
@@ -36,6 +28,8 @@ import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import kotlin.nullable.all
+import org.objectweb.asm.tree.AnnotationNode
+import org.objectweb.asm.Type
 
 open class ProgressMonitor {
     open fun totalFields(fieldCount: Int) {}
@@ -49,13 +43,70 @@ open class ProgressMonitor {
     open fun processingFinished(methods: Collection<Method>) {}
 }
 
-fun <A> loadAnnotations(
+private fun List<AnnotationNode>.extractClassNamesTo(classNames: MutableSet<String>) {
+    classNames.addAll(this.map{node ->
+        Type.getType(node.desc).getClassName()!!}
+    )
+}
+
+private fun <K> loadInternalAnnotations(
+        methodNodes: Map<Method, MethodNode>,
+        inferrers: Map<K, AnnotationInferrer<Any>>
+): Map<K, Annotations<Any>> {
+    val internalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>() }
+
+    for ((method, methodNode) in methodNodes) {
+
+        PositionsForMethod(method).forEachValidPosition {
+            position ->
+            val declPos = position.relativePosition
+            val classNames =
+            when (declPos) {
+                RETURN_TYPE -> {
+                    val classNames = HashSet<String>()
+                    methodNode.visibleAnnotations?.extractClassNamesTo(classNames)
+                    methodNode.invisibleAnnotations?.extractClassNamesTo(classNames)
+                    classNames
+                }
+                is ParameterPosition -> {
+                    val classNames = HashSet<String>()
+                    val index = if (method.isStatic()) declPos.index else declPos.index - 1
+                    if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size) {
+                        methodNode.visibleParameterAnnotations!![index]?.extractClassNamesTo(classNames)
+                    }
+
+                    if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size) {
+                        methodNode.invisibleParameterAnnotations!![index]?.extractClassNamesTo(classNames)
+                    }
+                    classNames
+                }
+                else -> Collections.emptySet<String>()
+            }
+
+            if (!classNames.empty) {
+                for ((inferrerKey, inferrer) in inferrers) {
+                    val internalAnnotations = internalAnnotationsMap[inferrerKey]!!
+                    val annotation = inferrer.resolveAnnotation(classNames)
+                    if (annotation != null) {
+                        internalAnnotations[position] = annotation
+                    }
+                }
+            }
+        }
+
+    }
+
+    return internalAnnotationsMap
+}
+
+private fun <K> loadExternalAnnotations(
+        delegatingAnnotations: Map<K, Annotations<Any>>,
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
-        inferrer: AnnotationInferrer<A>,
+        inferrers: Map<K, AnnotationInferrer<Any>>,
         showErrorIfPositionNotFound: Boolean = true
-): Annotations<A> {
-    val resolvedAnnotations = AnnotationsImpl<A>()
+): Map<K, Annotations<Any>> {
+    val externalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>(delegatingAnnotations[entry.key]) }
 
     for (annotationFile in annotationFiles) {
         FileReader(annotationFile) use {
@@ -63,11 +114,12 @@ fun <A> loadAnnotations(
                 key, annotations ->
                 val position = keyIndex.findPositionByAnnotationKeyString(key)
                 if (position != null) {
-                    for (data in annotations) {
-                        val annotation = inferrer.resolveAnnotation(hashSet(data.annotationClassFqn))
-
+                    val classNames = annotations.mapTo(HashSet<String>(), {data -> data.annotationClassFqn})
+                    for ((inferrerKey, inferrer) in inferrers) {
+                        val externalAnnotations = externalAnnotationsMap[inferrerKey]!!
+                        val annotation = inferrer.resolveAnnotation(classNames)
                         if (annotation != null) {
-                            resolvedAnnotations[position] = annotation
+                            externalAnnotations[position] = annotation
                         }
                     }
                 } else if (showErrorIfPositionNotFound) {
@@ -77,8 +129,17 @@ fun <A> loadAnnotations(
         }
     }
 
-    return resolvedAnnotations
+    return externalAnnotationsMap
 }
+
+private fun <K> loadAnnotations(
+        annotationFiles: Collection<File>,
+        keyIndex: AnnotationKeyIndex,
+        methodNodes: Map<Method, MethodNode>,
+        inferrers: Map<K, AnnotationInferrer<Any>>,
+        showErrorIfPositionNotFound: Boolean = true
+): Map<K, Annotations<Any>> =
+        loadExternalAnnotations(loadInternalAnnotations(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
 
 trait AnnotationInferrer<A: Any> {
     fun resolveAnnotation(classNames: Set<String>): A?
@@ -96,6 +157,8 @@ trait AnnotationInferrer<A: Any> {
             positions: PositionsForMethod,
             declarationIndex: DeclarationIndex,
             annotations: Annotations<A>): Annotations<A>
+
+    fun subsumes(position: AnnotationPosition, parentValue: A, childValue: A): Boolean
 }
 
 fun <K> inferAnnotations(
@@ -115,9 +178,9 @@ fun <K> inferAnnotations(
         methodNode
     }
 
-    // TODO Load annotations from .class files too, see MethodNode.visibleParameterAnnotations and MethodNode.invisibleParameterAnnotations
-    val resultingAnnotationsMap = inferrers.mapValues {entry ->
-        AnnotationsImpl(loadAnnotations(existingAnnotationFiles, declarationIndex, entry.value, showErrors))
+    val existingAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
+    val resultingAnnotationsMap = existingAnnotationsMap.mapValues{
+        entry -> AnnotationsImpl(entry.value)
     }
 
     val fieldsInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
@@ -227,6 +290,34 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
     }
 }
 
+data class AnnotationsConflict<out V>(val position: AnnotationPosition, val expectedValue: V, val actualValue: V)
+
+fun <A: Any> findAnnotationInferenceConflicts(
+        inferredAnnotations: Annotations<A>,
+        inferrer: AnnotationInferrer<A>
+): List<AnnotationsConflict<A>> {
+    val existingAnnotations = (inferredAnnotations as AnnotationsImpl<A>).delegate
+    if (existingAnnotations != null) {
+        val conflicts = ArrayList<AnnotationsConflict<A>>()
+        val positions = HashSet<AnnotationPosition>()
+        existingAnnotations forEach {
+            position, ann -> positions.add(position)
+        }
+        for (position in positions) {
+            val inferred = inferredAnnotations[position]!!
+            val existing = existingAnnotations[position]!!
+            if (inferred == existing) {
+                continue
+            }
+            if (!inferrer.subsumes(position, existing, inferred)) {
+                conflicts.add(AnnotationsConflict(position, existing, inferred))
+            }
+        }
+        return conflicts
+    }
+    return Collections.emptyList()
+}
+
 fun buildControlFlowGraphs(methods: Collection<Method>, node: (Method) -> MethodNode): Map<Method, ControlFlowGraph> {
     return methods.map {m -> Pair(m, node(m).buildControlFlowGraph(m.declaringClass))}.toMap()
 }
@@ -234,3 +325,4 @@ fun buildControlFlowGraphs(methods: Collection<Method>, node: (Method) -> Method
 fun error(message: String) {
     System.err.println(message)
 }
+

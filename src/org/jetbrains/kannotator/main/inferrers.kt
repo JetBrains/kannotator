@@ -2,20 +2,16 @@ package org.jetbrains.kannotator.main
 
 import java.io.File
 import kotlinlib.*
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.nullability.buildFieldNullabilityAnnotations
-import org.jetbrains.kannotator.annotationsInference.nullability.buildMethodNullabilityAnnotations
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.buildMutabilityAnnotations
-import org.jetbrains.kannotator.annotationsInference.mutability.classNamesToMutabilityAnnotation
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.annotationsInference.nullability.*
+import org.jetbrains.kannotator.annotationsInference.mutability.*
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.annotationsInference.propagation.*
 import java.util.ArrayList
 import java.util.Arrays
 
@@ -43,6 +39,14 @@ object NULLABILITY_INFERRER: AnnotationInferrer<NullabilityAnnotation> {
     ): Annotations<NullabilityAnnotation> {
         return buildMethodNullabilityAnnotations(graph, positions, declarationIndex, annotations)
     }
+
+
+    override fun subsumes(
+            position: AnnotationPosition,
+            parentValue: NullabilityAnnotation,
+            childValue: NullabilityAnnotation): Boolean {
+        return NullabiltyLattice.subsumes(position.relativePosition, parentValue, childValue)
+    }
 }
 
 object MUTABILITY_INFERRER: AnnotationInferrer<MutabilityAnnotation> {
@@ -68,5 +72,10 @@ object MUTABILITY_INFERRER: AnnotationInferrer<MutabilityAnnotation> {
             annotations: Annotations<MutabilityAnnotation>
     ): Annotations<MutabilityAnnotation> {
         return buildMutabilityAnnotations(graph, positions, declarationIndex, annotations)
+    }
+
+
+    override fun subsumes(position: AnnotationPosition, parentValue: MutabilityAnnotation, childValue: MutabilityAnnotation): Boolean {
+        return MutabiltyLattice.subsumes(position.relativePosition, parentValue, childValue)
     }
 }
