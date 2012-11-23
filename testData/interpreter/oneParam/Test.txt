@@ -60,36 +60,28 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [null#-1]
   Stack
-Offset 9: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#1]
-    locals[1] = [1!Ljava/lang/Object;#2]
-    locals[2] = [null#-1]
-  Stack
-    stack[0] = [Ljet/Tuple0;#4]
-Offset 10: GOTO L3
+Offset 9: GOTO L3
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 12: LINENUMBER 10 L1
+Offset 11: LINENUMBER 10 L1
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 13: FRAME SAME
+Offset 12: FRAME SAME
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 14: ALOAD 1
+Offset 13: ALOAD 1
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
@@ -97,44 +89,28 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [1!Ljava/lang/Object;#2]
-Offset 15: ASTORE 2
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#1]
-    locals[1] = [1!Ljava/lang/Object;#2]
-    locals[2] = [1!Ljava/lang/Object;#2]
-  Stack
-Offset 16: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
+Offset 14: ASTORE 2
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;#3, Ljet/Tuple0;#4]
-Offset 18: FRAME FULL [interpreter/oneParam/Test java/lang/Object java/lang/Object] [jet/Tuple0]
+Offset 16: LINENUMBER 12 L3
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;#3, Ljet/Tuple0;#4]
-Offset 19: POP
+Offset 17: FRAME APPEND [java/lang/Object]
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
-Offset 21: LINENUMBER 12 L4
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#1]
-    locals[1] = [1!Ljava/lang/Object;#2]
-    locals[2] = [1!Ljava/lang/Object;#2, null#-1]
-  Stack
-Offset 22: ALOAD 2
+Offset 18: ALOAD 2
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#1]
@@ -142,7 +118,7 @@ Frame
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
     stack[0] = [1!Ljava/lang/Object;#2, null#-1]
-Offset 23: ARETURN
+Offset 19: ARETURN
 ==========================================================================================
 
 
@@ -207,36 +183,28 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [null#-1]
   Stack
-Offset 9: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#0]
-    locals[1] = [1!Ljava/lang/Object;#1]
-    locals[2] = [null#-1]
-  Stack
-    stack[0] = [Ljet/Tuple0;#3]
-Offset 10: GOTO L3
+Offset 9: GOTO L3
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 12: LINENUMBER 21 L1
+Offset 11: LINENUMBER 21 L1
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 13: FRAME SAME
+Offset 12: FRAME SAME
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 14: ALOAD 1
+Offset 13: ALOAD 1
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
@@ -244,44 +212,28 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [1!Ljava/lang/Object;#1]
-Offset 15: ASTORE 2
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#0]
-    locals[1] = [1!Ljava/lang/Object;#1]
-    locals[2] = [1!Ljava/lang/Object;#1]
-  Stack
-Offset 16: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
+Offset 14: ASTORE 2
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;#2, Ljet/Tuple0;#3]
-Offset 18: FRAME FULL [interpreter/oneParam/Test java/lang/Object java/lang/Object] [jet/Tuple0]
+Offset 16: LINENUMBER 23 L3
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;#2, Ljet/Tuple0;#3]
-Offset 19: POP
+Offset 17: FRAME APPEND [java/lang/Object]
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-Offset 21: LINENUMBER 23 L4
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#0]
-    locals[1] = [1!Ljava/lang/Object;#1]
-    locals[2] = [1!Ljava/lang/Object;#1, null#-1]
-  Stack
-Offset 22: ALOAD 2
+Offset 18: ALOAD 2
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
@@ -289,14 +241,14 @@ Frame
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
     stack[0] = [1!Ljava/lang/Object;#1, null#-1]
-Offset 23: INVOKESTATIC kotlin/io/namespace.println (Ljava/lang/Object;)V
+Offset 19: INVOKESTATIC kotlin/io/namespace.println (Ljava/lang/Object;)V
 Frame
   Locals
     locals[0] = [Linterpreter/oneParam/Test;#0]
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-Offset 25: RETURN
+Offset 21: RETURN
 ==========================================================================================
 
 
