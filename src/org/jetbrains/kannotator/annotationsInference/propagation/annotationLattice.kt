@@ -9,16 +9,21 @@ trait AnnotationLattice<A> {
     fun greatestCommonLowerBound(a: A, b: A): A
 }
 
-fun <A> AnnotationLattice<A>.unify(position: PositionWithinDeclaration, parent: A, child: A): A {
+fun <A> AnnotationLattice<A>.unify(position: PositionWithinDeclaration, parent: A, child: A, failOnError: Boolean = true): A {
     return when (position.variance) {
         COVARIANT -> leastCommonUpperBound(parent, child)
         CONTRAVARIANT -> greatestCommonLowerBound(parent, child)
         INVARIANT -> {
-            assert(parent == child) {"Conflicting annotations: $parent and $child"}
+            if (failOnError){
+                assert(parent == child) {"Conflicting annotations: $parent and $child"}
+            }
             child
         }
     }
 }
+
+fun <A> AnnotationLattice<A>.subsumes(position: PositionWithinDeclaration, parent: A, child: A): Boolean =
+        parent == unify(position, parent, child, false)
 
 fun <A> AnnotationLattice<A>.unify(position: PositionWithinDeclaration, annotations: Collection<out A>): A =
         annotations.reduce {(left, right) -> unify(position, left, right)}

@@ -4,20 +4,20 @@ import org.jetbrains.kannotator.annotationsInference.Annotation
 
 enum class MutabilityAnnotation : Annotation {
     MUTABLE
-    IMMUTABLE
+    READ_ONLY
 }
 
 private val JB_MUTABLE = "org.jetbrains.kannotator.runtime.annotations.Mutable"
-private val JB_IMMUTABLE = "org.jetbrains.kannotator.runtime.annotations.ReadOnly"
+private val JB_READ_ONLY = "org.jetbrains.kannotator.runtime.annotations.ReadOnly"
 
 fun classNamesToMutabilityAnnotation(canonicalClassNames: Set<String>) : MutabilityAnnotation? {
     val containsMutable = canonicalClassNames.contains(JB_MUTABLE)
-    val containsImmutable = canonicalClassNames.contains(JB_IMMUTABLE)
+    val containsImmutable = canonicalClassNames.contains(JB_READ_ONLY)
 
     if (containsMutable == containsImmutable) return null
 
     return if (containsMutable)
         MutabilityAnnotation.MUTABLE
     else
-        MutabilityAnnotation.IMMUTABLE
+        MutabilityAnnotation.READ_ONLY
 }
