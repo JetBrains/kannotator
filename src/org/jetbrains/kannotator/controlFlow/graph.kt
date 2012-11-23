@@ -11,6 +11,7 @@ public trait ControlFlowEdge {
     val from: Instruction
     val to: Instruction
     val exception: Boolean
+    val state: State
 }
 
 public trait Instruction : DataHolder<Instruction> {

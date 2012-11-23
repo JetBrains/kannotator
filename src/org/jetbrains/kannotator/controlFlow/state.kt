@@ -30,3 +30,7 @@ public val LocalVariableTable.indexed: Iterator<IndexedElement<Set<Value>>>
 
 public val Stack.indexed: Iterator<IndexedElement<Set<Value>>>
         get() = indexedIterator(this, size) { c, i -> c.get(i) }
+
+fun State.containsValue(v: Value): Boolean {
+    return stack.indexed.any {element -> element.value.contains(v)} || localVariables.indexed.any {element -> element.value.contains(v)}
+}

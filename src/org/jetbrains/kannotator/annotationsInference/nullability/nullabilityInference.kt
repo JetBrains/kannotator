@@ -15,6 +15,7 @@ import org.objectweb.asm.tree.FieldInsnNode
 import util.controlFlow.buildControlFlowGraph
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
+import org.jetbrains.kannotator.controlFlow.State
 
 fun buildMethodNullabilityAnnotations(
         graph: ControlFlowGraph,

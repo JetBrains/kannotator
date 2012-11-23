@@ -9,10 +9,7 @@ import kotlin.test.assertTrue
 import org.jetbrains.kannotator.annotationsInference.findMethodByMethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
 import org.jetbrains.kannotator.asm.util.getOpcode
-import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
-import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlow.State
-import org.jetbrains.kannotator.controlFlow.Value
+import org.jetbrains.kannotator.controlFlow.*
 import org.jetbrains.kannotator.controlFlow.builder
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.controlFlow.builder.TypedValue
@@ -25,6 +22,8 @@ import org.jetbrains.kannotator.annotationsInference.forInterestingValue
 import org.objectweb.asm.tree.FieldInsnNode
 import org.jetbrains.kannotator.annotationsInference.findFieldByFieldInsnNode
 import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
+import org.jetbrains.kannotator.controlFlow.builder.AsmInstructionMetadata
+import org.objectweb.asm.tree.VarInsnNode
 
 class FramesNullabilityManager(
         val positions: PositionsForMethod,
@@ -35,7 +34,7 @@ class FramesNullabilityManager(
 
     private fun setValueInfosForEdge(edge: ControlFlowEdge, infos: ValueNullabilityMap) {
         assertNull(nullabilityInfosForEdges[edge])
-        nullabilityInfosForEdges[edge] = infos
+        nullabilityInfosForEdges[edge] = infos.copyWithUpdatedState(edge.state)
     }
 
     private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
@@ -76,7 +75,7 @@ class FramesNullabilityManager(
                 return
             }
 
-            val infosForEdge = ValueNullabilityMap(positions, annotations, declarationIndex, infosForInstruction)
+            val infosForEdge = ValueNullabilityMap(positions, annotations, declarationIndex, outgoingEdge.state, infosForInstruction)
             val conditionSubjects = state.stack[0]
             for (value in conditionSubjects) {
                 infosForEdge[value] = transform(infosForInstruction[value])
@@ -89,7 +88,7 @@ class FramesNullabilityManager(
                 edges: BranchingInstructionEdges,
                 propagator: (ControlFlowEdge, ControlFlowEdge) -> Unit
         ) {
-            val (falseEdge, trueEdge, remainingEdges) = getFalseTrueEdges()
+            val (falseEdge, trueEdge, remainingEdges) = edges
             if (trueEdge != falseEdge) {
                 propagator(falseEdge, trueEdge)
             } else {
@@ -186,6 +185,7 @@ public class ValueNullabilityMap(
         val positions: PositionsForMethod,
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
+        val state: State? = null,
         m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
 
     override fun get(key: Any?): NullabilityValueInfo {
@@ -241,6 +241,10 @@ public class ValueNullabilityMap(
     }
 }
 
+fun ValueNullabilityMap.copyWithUpdatedState(state: State): ValueNullabilityMap {
+    return ValueNullabilityMap(positions, annotations, declarationIndex, state, this)
+}
+
 fun mergeValueNullabilityMaps(
         positions: PositionsForMethod,
         annotations: Annotations<NullabilityAnnotation>,
@@ -248,12 +252,20 @@ fun mergeValueNullabilityMaps(
         maps: Collection<ValueNullabilityMap>
 ): ValueNullabilityMap {
     val result = ValueNullabilityMap(positions, annotations, declarationIndex)
-    val affectedValues = maps.flatMap { m -> m.keySet() }.toSet()
+    val affectedValues = maps.flatMap {m -> m.keySet()}.toSet()
 
-    for (m in maps) {
-        for (value in affectedValues) {
-            result[value] =  if (result.containsKey(value)) m[value] merge result[value] else m[value]
+    for (value in affectedValues) {
+        for (m in maps) {
+            val state = m.state
+
+            if (state != null && !state.containsValue(value)) {
+                result[value] = CONFLICT
+                break;
+            }
+
+            result[value] = if (result.containsKey(value)) m[value] merge result[value] else m[value]
         }
     }
+
     return result
 }

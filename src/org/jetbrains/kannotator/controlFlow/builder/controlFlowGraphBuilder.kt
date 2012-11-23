@@ -17,8 +17,9 @@ import org.objectweb.asm.tree.FrameNode
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.MethodNode
-import org.objectweb.asm.tree.analysis.Analyzer
 import org.objectweb.asm.util.Printer
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Analyzer
+import org.objectweb.asm.tree.analysis.Frame
 
 public fun MethodNode.buildControlFlowGraph(
         owner: ClassName,
@@ -83,19 +84,19 @@ private class GraphBuilderAnalyzer(
         return graph.newInstruction(AsmInstructionMetadata(this))
     }
 
-    protected override fun newControlFlowExceptionEdge(insn: Int, successor: Int): Boolean {
-        createEdge(insn, successor, true)
-        return super<Analyzer>.newControlFlowExceptionEdge(insn, successor)
+    protected override fun newControlFlowExceptionEdge(insn: Int, successor: Int, frame: Frame<PossibleTypedValues>) {
+        createEdge(insn, successor, true, frame)
+        super<Analyzer>.newControlFlowExceptionEdge(insn, successor, frame)
     }
 
-    protected override fun newControlFlowEdge(insn: Int, successor: Int) {
-        createEdge(insn, successor, false)
-        super<Analyzer>.newControlFlowEdge(insn, successor)
+    protected override fun newControlFlowEdge(insn: Int, successor: Int, frame: Frame<PossibleTypedValues>) {
+        createEdge(insn, successor, false, frame)
+        super<Analyzer>.newControlFlowEdge(insn, successor, frame)
     }
 
-    private fun createEdge(from: Int, to: Int, exception: Boolean) {
+    private fun createEdge(from: Int, to: Int, exception: Boolean, frame: Frame<PossibleTypedValues>) {
         if (edges.add(Pair(instructions[from], instructions[to]))) {
-            graph.addEdge(instructions[from], instructions[to], exception)
+            graph.addEdge(instructions[from], instructions[to], exception, FrameState(frame))
         }
     }
 

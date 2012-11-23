@@ -6,7 +6,6 @@ import java.util.HashMap
 import org.jetbrains.kannotator.util.DataHolderImpl
 
 public class ControlFlowGraphBuilder<L: Any> {
-
     private var result: ControlFlowGraph? = null
 
     private var entryPoint: Instruction? = null
@@ -36,15 +35,17 @@ public class ControlFlowGraphBuilder<L: Any> {
         }
     }
 
-    public fun addEdge(from: Instruction, to: Instruction, exception: Boolean) {
+    public fun addInstruction(insn: Instruction) {
+        instructions.add(insn as InstructionImpl)
+    }
+
+    public fun addEdge(from: Instruction, to: Instruction, exception: Boolean, state: State) {
         checkFinished()
-        instructions.add(from as InstructionImpl)
-        instructions.add(to as InstructionImpl)
 
-        val edge = ControlFlowEdgeImpl(from, to, exception)
+        val edge = ControlFlowEdgeImpl(from, to, exception, state)
 
-        from.outgoingEdges.add(edge)
-        to.incomingEdges.add(edge)
+        (from as InstructionImpl).outgoingEdges.add(edge)
+        (to as InstructionImpl).incomingEdges.add(edge)
     }
 
     public fun build(): ControlFlowGraph {
@@ -77,7 +78,8 @@ private class InstructionImpl(
 private class ControlFlowEdgeImpl(
         override val from: Instruction,
         override val to: Instruction,
-        override val exception: Boolean
+        override val exception: Boolean,
+        override val state: State
 ) : ControlFlowEdge {
     public fun toString(): String = "${from.metadata} -> ${to.metadata}"
 }
