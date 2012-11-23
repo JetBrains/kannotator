@@ -10,9 +10,15 @@
     </item>
     <item name='org.objectweb.asm.tree.MethodNode visibleAnnotations'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var visibleAnnotations : List&lt;AnnotationNode&gt;?&quot;"/>
+        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode invisibleAnnotations'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var invisibleAnnotations : List&lt;AnnotationNode&gt;?&quot;"/>
+        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode attrs'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
@@ -22,9 +28,17 @@
     </item>
     <item name='org.objectweb.asm.tree.MethodNode visibleParameterAnnotations'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;var visibleParameterAnnotations : Array&lt;List&lt;AnnotationNode&gt;?&gt;?&quot;"/>
+        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode invisibleParameterAnnotations'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value"
+                 val="&quot;var invisibleParameterAnnotations : Array&lt;List&lt;AnnotationNode&gt;?&gt;?&quot;"/>
+        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode instructions'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -291,6 +305,9 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.tree.FieldNode desc'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.AnnotationNode desc'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
 </root>
