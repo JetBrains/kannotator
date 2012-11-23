@@ -16,7 +16,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
     override fun Array<out jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
             if (ann.annotationType().getSimpleName() == "ExpectMutable") return MutabilityAnnotation.MUTABLE
-            if (ann.annotationType().getSimpleName() == "ExpectReadOnly") return MutabilityAnnotation.IMMUTABLE
+            if (ann.annotationType().getSimpleName() == "ExpectReadOnly") return MutabilityAnnotation.READ_ONLY
         }
         return null
     }
@@ -27,7 +27,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationNames -> if ("org.jetbrains.kannotator.runtime.annotations.Mutable" in annotationNames)
                                    MutabilityAnnotation.MUTABLE
-                              else MutabilityAnnotation.IMMUTABLE
+                              else MutabilityAnnotation.READ_ONLY
         }
         return existingNullabilityAnnotations
     }

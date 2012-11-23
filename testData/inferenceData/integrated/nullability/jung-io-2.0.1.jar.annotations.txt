@@ -132,8 +132,6 @@ edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, 
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 0
 NOT_NULL
-edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 3
-NULLABLE
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String) 0
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>) 0
@@ -193,7 +191,7 @@ NOT_NULL
 edu.uci.ics.jung.io.graphml.Key.ForType PORT
 NOT_NULL
 edu.uci.ics.jung.io.graphml.KeyMap java.util.List<edu.uci.ics.jung.io.graphml.Key> getKeyList(edu.uci.ics.jung.io.graphml.Metadata.MetadataType)
-NULLABLE
+NOT_NULL
 edu.uci.ics.jung.io.graphml.KeyMap void addKey(edu.uci.ics.jung.io.graphml.Key) 0
 NOT_NULL
 edu.uci.ics.jung.io.graphml.KeyMap void applyKeys(edu.uci.ics.jung.io.graphml.Metadata) 0
@@ -218,8 +216,6 @@ edu.uci.ics.jung.io.graphml.NodeMetadata edu.uci.ics.jung.io.graphml.Metadata.Me
 NOT_NULL
 edu.uci.ics.jung.io.graphml.PortMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
 NOT_NULL
-edu.uci.ics.jung.io.graphml.parser.AbstractElementParser edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)
-NULLABLE
 edu.uci.ics.jung.io.graphml.parser.AbstractElementParser void applyKeys(edu.uci.ics.jung.io.graphml.Metadata) 0
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.AbstractElementParser void verifyMatch(javax.xml.stream.events.StartElement, javax.xml.stream.events.EndElement) 0
@@ -233,8 +229,6 @@ NULLABLE
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml.EdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
-NULLABLE
-edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser edu.uci.ics.jung.io.graphml.EndpointMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE

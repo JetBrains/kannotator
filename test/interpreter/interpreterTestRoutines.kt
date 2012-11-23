@@ -22,24 +22,28 @@ import java.io.PrintWriter
 import org.jetbrains.kannotator.declarations.ClassName
 
 fun PrintStream.appendStates(instructions: Collection<Instruction>) {
+    fun printState(state: State) {
+        this.println("Frame")
+        this.println("  Locals")
+        for ((i, value) in state.localVariables.indexed) {
+            this.println("    locals[$i] = ${value.sorted()}")
+        }
+        this.println("  Stack")
+        for ((i, value) in state.stack.indexed) {
+            this.println("    stack[$i] = ${value.sorted()}")
+        }
+    }
+
     val renderer = AsmInstructionRenderer()
     for ((i, instruction) in instructions.iterator().indexed) {
         val metadata = instruction.metadata
         if (metadata is LabelMetadata<*>) continue
-        val state = instruction[STATE_BEFORE]
-        if (state == null) {
+        val preState = instruction[STATE_BEFORE]
+        if (preState == null) {
             this.println("Unreachable: ${instruction}")
         }
         else {
-            this.println("Frame")
-            this.println("  Locals")
-            for ((i, value) in state.localVariables.indexed) {
-                this.println("    locals[$i] = ${value.sorted()}")
-            }
-            this.println("  Stack")
-            for ((i, value) in state.stack.indexed) {
-                this.println("    stack[$i] = ${value.sorted()}")
-            }
+            printState(preState)
             when (metadata) {
                 is AsmInstructionMetadata -> {
                     val insn: AbstractInsnNode = metadata.asmInstruction
@@ -47,6 +51,7 @@ fun PrintStream.appendStates(instructions: Collection<Instruction>) {
                 }
                 else -> throw IllegalArgumentException("Unknown metadata type: ${metadata}")
             }
+            this.println("------------------------------------------------------------")
         }
     }
 }

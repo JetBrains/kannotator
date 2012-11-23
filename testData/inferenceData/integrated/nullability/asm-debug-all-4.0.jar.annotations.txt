@@ -191,49 +191,49 @@ NULLABLE
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item get(org.objectweb.asm.Item) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newClassItem(java.lang.String)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newClassItem(java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newConstItem(java.lang.Object)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newConstItem(java.lang.Object) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newDouble(double)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newFieldItem(java.lang.String, java.lang.String, java.lang.String)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newFieldItem(java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newFloat(float)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newHandleItem(int, java.lang.String, java.lang.String, java.lang.String)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newHandleItem(int, java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newInteger(int)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newInvokeDynamicItem(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newInvokeDynamicItem(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...) 2
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newInvokeDynamicItem(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...) 3
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newLong(long)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newMethodItem(java.lang.String, java.lang.String, java.lang.String, boolean)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newMethodItem(java.lang.String, java.lang.String, java.lang.String, boolean) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newMethodTypeItem(java.lang.String)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newMethodTypeItem(java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newNameTypeItem(java.lang.String, java.lang.String)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newNameTypeItem(java.lang.String, java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newString(java.lang.String)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.Item newString(java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.ClassWriter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
@@ -1205,6 +1205,8 @@ NOT_NULL
 org.objectweb.asm.tree.AbstractInsnNode org.objectweb.asm.tree.LabelNode[] clone(java.util.List<org.objectweb.asm.tree.LabelNode>, java.util.Map<org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode>)
 NOT_NULL
 org.objectweb.asm.tree.AbstractInsnNode org.objectweb.asm.tree.LabelNode[] clone(java.util.List<org.objectweb.asm.tree.LabelNode>, java.util.Map<org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode>) 0
+NOT_NULL
+org.objectweb.asm.tree.AnnotationNode desc
 NOT_NULL
 org.objectweb.asm.tree.AnnotationNode org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String)
 NOT_NULL
@@ -2397,7 +2399,7 @@ NOT_NULL
 org.objectweb.asm.xml.ASMContentHandler.Rule org.objectweb.asm.Handle decodeHandle(java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.xml.ASMContentHandler.Rule org.objectweb.asm.Label getLabel(java.lang.Object)
-NULLABLE
+NOT_NULL
 org.objectweb.asm.xml.ASMContentHandler.Rule org.objectweb.asm.MethodVisitor getCodeVisitor()
 NULLABLE
 org.objectweb.asm.xml.ASMContentHandler.RuleSet java.lang.Object match(java.lang.String)
@@ -2496,8 +2498,6 @@ org.objectweb.asm.xml.SAXClassAdapter void visitSource(java.lang.String, java.la
 NULLABLE
 org.objectweb.asm.xml.SAXCodeAdapter TYPES
 NOT_NULL
-org.objectweb.asm.xml.SAXCodeAdapter java.lang.String getLabel(org.objectweb.asm.Label)
-NULLABLE
 org.objectweb.asm.xml.SAXCodeAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)
 NOT_NULL
 org.objectweb.asm.xml.SAXCodeAdapter org.objectweb.asm.AnnotationVisitor visitAnnotationDefault()

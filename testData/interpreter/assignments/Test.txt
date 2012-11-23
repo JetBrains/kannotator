@@ -1,0 +1,157 @@
+interpreter/assignments/Test
+
+interpreter.assignments.Test:<init>()V
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#0]
+  Stack
+Offset 1: LINENUMBER 3 L0
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#0]
+  Stack
+Offset 2: ALOAD 0
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#0]
+  Stack
+    stack[0] = [Linterpreter/assignments/Test;#0]
+Offset 3: INVOKESPECIAL java/lang/Object.<init> ()V
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#0]
+  Stack
+Offset 4: RETURN
+------------------------------------------------------------
+==========================================================================================
+
+
+
+interpreter.assignments.Test:foo([Ljava/lang/Object;)Ljava/lang/Object;
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2]
+  Stack
+Offset 1: LINENUMBER 7 L0
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2]
+  Stack
+Offset 2: ALOAD 1
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2]
+  Stack
+    stack[0] = [1![Ljava/lang/Object;#2]
+Offset 3: IFNONNULL L1
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2]
+  Stack
+Offset 5: LINENUMBER 8 L2
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2]
+  Stack
+Offset 6: GETSTATIC interpreter/assignments/Test.NO_ARGS : [Ljava/lang/Object;
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2]
+  Stack
+    stack[0] = [[Ljava/lang/Object;#4]
+Offset 7: ASTORE 1
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+  Stack
+Offset 9: LINENUMBER 10 L1
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+  Stack
+Offset 10: FRAME SAME
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+  Stack
+Offset 11: ALOAD 1
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+  Stack
+    stack[0] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+Offset 12: ARRAYLENGTH
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+  Stack
+    stack[0] = [P1#-1]
+Offset 13: INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+------------------------------------------------------------
+Frame
+  Locals
+    locals[0] = [Linterpreter/assignments/Test;#1]
+    locals[1] = [1![Ljava/lang/Object;#2, [Ljava/lang/Object;#4]
+  Stack
+    stack[0] = [Ljava/lang/Integer;#3]
+Offset 14: ARETURN
+------------------------------------------------------------
+==========================================================================================
+
+
+
+interpreter.assignments.Test:<clinit>()V
+Frame
+  Locals
+  Stack
+Offset 1: LINENUMBER 4 L0
+------------------------------------------------------------
+Frame
+  Locals
+  Stack
+Offset 2: ICONST_0
+------------------------------------------------------------
+Frame
+  Locals
+  Stack
+    stack[0] = [P1#-1]
+Offset 3: ANEWARRAY java/lang/Object
+------------------------------------------------------------
+Frame
+  Locals
+  Stack
+    stack[0] = [[Ljava/lang/Object;#0]
+Offset 4: PUTSTATIC interpreter/assignments/Test.NO_ARGS : [Ljava/lang/Object;
+------------------------------------------------------------
+Frame
+  Locals
+  Stack
+Offset 5: RETURN
+------------------------------------------------------------
+==========================================================================================
+
+

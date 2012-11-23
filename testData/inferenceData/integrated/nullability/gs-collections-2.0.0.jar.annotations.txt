@@ -2212,11 +2212,7 @@ com.gs.collections.impl.collection.immutable.AbstractImmutableCollection void re
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter T detect(com.gs.collections.api.block.predicate.Predicate<? super T>)
 NULLABLE
-com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter T detectIfNone(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function0<? extends T>)
-NULLABLE
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter T detectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P)
-NULLABLE
-com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter T detectWithIfNone(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, com.gs.collections.api.block.function.Function0<? extends T>)
 NULLABLE
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter T getFirst()
 NULLABLE
@@ -3012,11 +3008,7 @@ com.gs.collections.impl.list.fixed.AbstractArrayAdapter E[] toArray(E[]) 0
 NOT_NULL
 com.gs.collections.impl.list.fixed.AbstractArrayAdapter T detect(com.gs.collections.api.block.predicate.Predicate<? super T>)
 NULLABLE
-com.gs.collections.impl.list.fixed.AbstractArrayAdapter T detectIfNone(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function0<? extends T>)
-NULLABLE
 com.gs.collections.impl.list.fixed.AbstractArrayAdapter T detectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P)
-NULLABLE
-com.gs.collections.impl.list.fixed.AbstractArrayAdapter T detectWithIfNone(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P, com.gs.collections.api.block.function.Function0<? extends T>)
 NULLABLE
 com.gs.collections.impl.list.fixed.AbstractArrayAdapter T getFirst()
 NULLABLE
@@ -3383,10 +3375,6 @@ NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList java.util.ListIterator<T> listIterator()
 NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
-NOT_NULL
-com.gs.collections.impl.list.immutable.ImmutableArrayList E[] toArray(E[])
-NOT_NULL
-com.gs.collections.impl.list.immutable.ImmutableArrayList E[] toArray(E[]) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableArrayList T detect(com.gs.collections.api.block.predicate.Predicate<? super T>)
 NULLABLE
@@ -3927,10 +3915,6 @@ NOT_NULL
 com.gs.collections.impl.list.mutable.CompositeFastList.ProcedureToInnerListObjectIntProcedure void value(java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList DEFAULT_SIZED_EMPTY_ARRAY
-NOT_NULL
-com.gs.collections.impl.list.mutable.FastList E[] toArray(E[])
-NOT_NULL
-com.gs.collections.impl.list.mutable.FastList E[] toArray(E[]) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList FastList(T[]) 0
 NOT_NULL
@@ -5232,10 +5216,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap void writeExternal(java.io.Object
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap void writeExternalChain(java.io.ObjectOutput, java.lang.Object[]) 1
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet T[] toArray(T[])
-NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet T[] toArray(T[]) 0
-NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object) 2
@@ -5264,10 +5244,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap.EntrySetIterator java.util.Map.En
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySetIterator java.util.Map.Entry<K,V> nextFromChain()
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.KeySet T[] toArray(T[])
-NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.KeySet T[] toArray(T[]) 0
-NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet boolean removeAll(java.util.Collection<?>) 0
@@ -5289,10 +5265,6 @@ NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySetIterator K nextFromChain()
 NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.PositionalIterator void removeLastFromChain(java.lang.Object[], int) 0
-NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection T[] toArray(T[])
-NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection T[] toArray(T[]) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
@@ -5856,10 +5828,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void 
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void writeExternalChain(java.io.ObjectOutput, java.lang.Object[]) 1
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet T[] toArray(T[])
-NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet T[] toArray(T[]) 0
-NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object) 2
@@ -5888,10 +5856,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.Entry
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySetIterator java.util.Map.Entry<K,V> nextFromChain()
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet T[] toArray(T[])
-NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet T[] toArray(T[]) 0
-NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet boolean removeAll(java.util.Collection<?>) 0
@@ -5913,10 +5877,6 @@ NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySetIterator K nextFromChain()
 NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.PositionalIterator void removeLastFromChain(java.lang.Object[], int) 0
-NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection T[] toArray(T[])
-NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection T[] toArray(T[]) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL

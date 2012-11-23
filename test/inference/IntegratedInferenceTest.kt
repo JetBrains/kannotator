@@ -25,35 +25,45 @@ import org.jetbrains.kannotator.declarations.AnnotationPosition
 import kotlin.test.assertTrue
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.main.*
+import java.util.HashSet
+import org.jetbrains.kannotator.declarations.Field
 
 class IntegratedInferenceTest : TestCase() {
-    private fun checkConflicts(conflictFile: File, inferred: Annotations<Any>) {
-        val existingAnnotations = (inferred as AnnotationsImpl<Any>).delegate
-        if (existingAnnotations != null) {
-            val conflicts = ArrayList<Triple<AnnotationPosition, Any, Any>>()
-            existingAnnotations forEach {
-                pos, ann ->
-                if (inferred[pos] != ann) {
-                    conflicts.add(Triple(pos, ann, inferred[pos]!!))
+    private fun <A: Any> reportConflicts(
+            conflictFile: File,
+            inferredAnnotations: Annotations<A>,
+            inferrer: AnnotationInferrer<A>
+    ) {
+        val conflicts = findAnnotationInferenceConflicts(inferredAnnotations, inferrer)
+        if (!conflicts.isEmpty()) {
+            PrintStream(FileOutputStream(conflictFile)) use {
+                p ->
+                for ((key, expectedAnn, inferredAnn) in conflicts) {
+                    p.println("Conflict at ${key.toAnnotationKey()}")
+                    p.println("\t expected: $expectedAnn, inferred: $inferredAnn")
                 }
             }
-            if (!conflicts.isEmpty()) {
-                PrintStream(FileOutputStream(conflictFile)) use {
-                    p ->
-                    for ((key, expectedAnn, inferredAnn) in conflicts) {
-                        p.println("Conflict at ${key.toAnnotationKey()}")
-                        p.println("\t expected: $expectedAnn, inferred: $inferredAnn")
-                    }
-                }
-                assertTrue("Found annotation conflicts", false);
-            }
+            assertTrue("Found annotation conflicts", false);
         }
     }
 
     private fun doInferenceTest(testMap: Map<Any, AnnotationInferrer<Any>>) {
         var currentMethod: Method? = null
         val progressMonitor = object : ProgressMonitor() {
+            override fun totalFields(fieldCount: Int) {
+                //println("Total fields: $fieldCount")
+            }
+
+            override fun totalMethods(methodCount: Int) {
+                //println("Total methods: $methodCount")
+            }
+
+            override fun processingStepStarted(field: Field) {
+                //println(field)
+            }
+
             override fun processingStepStarted(method: Method) {
+                //println(method)
                 currentMethod = method
             }
         }
@@ -75,7 +85,7 @@ class IntegratedInferenceTest : TestCase() {
                     val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
                     outFile.getParentFile()!!.mkdirs()
 
-                    checkConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations)
+                    reportConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations, testMap[testName]!!)
 
                     val map = TreeMap<String, Any>()
                     annotations forEach {

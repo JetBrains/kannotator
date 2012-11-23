@@ -6,22 +6,26 @@ Frame
     locals[0] = [Linterpreter/loops/Test;#0]
   Stack
 Offset 1: LINENUMBER 3 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
   Stack
 Offset 2: ALOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
   Stack
     stack[0] = [Linterpreter/loops/Test;#0]
 Offset 3: INVOKESPECIAL java/lang/Object.<init> ()V
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
   Stack
 Offset 4: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 
@@ -32,11 +36,13 @@ Frame
     locals[0] = [0!Ljava/lang/Object;#0]
   Stack
 Offset 1: LINENUMBER 4 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Object;#0]
   Stack
 Offset 2: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 
@@ -47,38 +53,45 @@ Frame
     locals[0] = []
   Stack
 Offset 1: LINENUMBER 7 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = []
   Stack
 Offset 2: ICONST_0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = []
   Stack
     stack[0] = [P1#-1]
 Offset 3: ISTORE 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 5: LINENUMBER 8 L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 6: FRAME APPEND [I]
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 7: ILOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
     stack[0] = [P1#-1]
 Offset 8: BIPUSH 10
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
@@ -86,53 +99,63 @@ Frame
     stack[0] = [P1#-1]
     stack[1] = [P1#-1]
 Offset 9: IF_ICMPGE L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 10: IINC 0 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 11: GOTO L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 13: LINENUMBER 9 L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 14: FRAME SAME
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 15: ILOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
     stack[0] = [P1#-1]
 Offset 16: INVOKESTATIC java/lang/Integer.valueOf (I)Ljava/lang/Integer;
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
     stack[0] = [Ljava/lang/Integer;#0]
 Offset 17: INVOKESTATIC interpreter/loops/Test.consume (Ljava/lang/Object;)V
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 19: LINENUMBER 10 L3
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [P1#-1]
   Stack
 Offset 20: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 
@@ -143,85 +166,101 @@ Frame
     locals[0] = []
   Stack
 Offset 1: LINENUMBER 13 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = []
   Stack
 Offset 2: ACONST_NULL
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = []
   Stack
     stack[0] = [null#-1]
 Offset 3: ASTORE 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 5: LINENUMBER 14 L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 6: FRAME APPEND [java/lang/Object]
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 7: ALOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
     stack[0] = [Ljava/lang/String;#0, null#-1]
 Offset 8: IFNONNULL L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 9: LDC ""
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
     stack[0] = [Ljava/lang/String;#0]
 Offset 10: ASTORE 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0]
   Stack
 Offset 11: GOTO L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 13: LINENUMBER 15 L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 14: FRAME SAME
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 15: ALOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
     stack[0] = [Ljava/lang/String;#0, null#-1]
 Offset 16: INVOKESTATIC interpreter/loops/Test.consume (Ljava/lang/Object;)V
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 18: LINENUMBER 16 L3
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Ljava/lang/String;#0, null#-1]
   Stack
 Offset 19: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 
@@ -233,12 +272,14 @@ Frame
     locals[1] = []
   Stack
 Offset 1: LINENUMBER 19 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = []
   Stack
 Offset 2: ACONST_NULL
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
@@ -246,24 +287,28 @@ Frame
   Stack
     stack[0] = [null#-1]
 Offset 3: ASTORE 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 5: LINENUMBER 20 L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 6: FRAME APPEND [java/lang/Object]
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 7: ALOAD 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
@@ -271,12 +316,14 @@ Frame
   Stack
     stack[0] = [0!Ljava/lang/Integer;#0, null#-1]
 Offset 8: IFNONNULL L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 9: ALOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
@@ -284,30 +331,35 @@ Frame
   Stack
     stack[0] = [0!Ljava/lang/Integer;#0]
 Offset 10: ASTORE 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0]
   Stack
 Offset 11: GOTO L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 13: LINENUMBER 21 L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 14: FRAME SAME
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 15: ALOAD 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
@@ -315,18 +367,21 @@ Frame
   Stack
     stack[0] = [0!Ljava/lang/Integer;#0, null#-1]
 Offset 16: INVOKESTATIC interpreter/loops/Test.consume (Ljava/lang/Object;)V
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 18: LINENUMBER 22 L3
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [0!Ljava/lang/Integer;#0]
     locals[1] = [0!Ljava/lang/Integer;#0, null#-1]
   Stack
 Offset 19: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 
@@ -339,6 +394,7 @@ Frame
     locals[2] = []
   Stack
 Offset 1: LINENUMBER 25 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -346,6 +402,7 @@ Frame
     locals[2] = []
   Stack
 Offset 2: ACONST_NULL
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -354,6 +411,7 @@ Frame
   Stack
     stack[0] = [null#-1]
 Offset 3: ASTORE 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -361,6 +419,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 5: LINENUMBER 26 L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -368,6 +427,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 6: FRAME APPEND [java/lang/Object]
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -375,6 +435,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 7: ALOAD 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -383,6 +444,7 @@ Frame
   Stack
     stack[0] = [1!Ljava/lang/Integer;#1, null#-1]
 Offset 8: IFNONNULL L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -390,6 +452,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 10: LINENUMBER 27 L3
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -397,6 +460,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 11: ALOAD 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -405,6 +469,7 @@ Frame
   Stack
     stack[0] = [1!Ljava/lang/Integer;#1, null#-1]
 Offset 12: ALOAD 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -414,6 +479,7 @@ Frame
     stack[0] = [1!Ljava/lang/Integer;#1]
     stack[1] = [1!Ljava/lang/Integer;#1, null#-1]
 Offset 13: IF_ACMPNE L4
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -421,6 +487,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 15: LINENUMBER 28 L5
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -428,6 +495,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 16: ALOAD 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -436,6 +504,7 @@ Frame
   Stack
     stack[0] = [1!Ljava/lang/Integer;#1]
 Offset 17: ASTORE 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -443,6 +512,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1]
   Stack
 Offset 18: GOTO L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -450,6 +520,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 20: LINENUMBER 31 L4
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -457,6 +528,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 21: FRAME SAME
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -464,6 +536,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 22: ALOAD 0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -472,6 +545,7 @@ Frame
   Stack
     stack[0] = [Linterpreter/loops/Test;#0]
 Offset 23: ASTORE 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -479,6 +553,7 @@ Frame
     locals[2] = [Linterpreter/loops/Test;#0]
   Stack
 Offset 24: GOTO L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -486,6 +561,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 26: LINENUMBER 34 L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -493,6 +569,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 27: FRAME SAME
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -500,6 +577,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 28: ALOAD 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -508,6 +586,7 @@ Frame
   Stack
     stack[0] = [1!Ljava/lang/Integer;#1, null#-1]
 Offset 29: INVOKESTATIC interpreter/loops/Test.consume (Ljava/lang/Object;)V
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -515,6 +594,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 31: LINENUMBER 35 L6
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -522,6 +602,7 @@ Frame
     locals[2] = [1!Ljava/lang/Integer;#1, null#-1]
   Stack
 Offset 32: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 
@@ -536,6 +617,7 @@ Frame
     locals[4] = []
   Stack
 Offset 1: LINENUMBER 38 L0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -545,6 +627,7 @@ Frame
     locals[4] = []
   Stack
 Offset 2: ICONST_0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -555,6 +638,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
 Offset 3: NEWARRAY T_BYTE
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -565,6 +649,7 @@ Frame
   Stack
     stack[0] = [[B#1]
 Offset 4: ASTORE 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -574,6 +659,7 @@ Frame
     locals[4] = []
   Stack
 Offset 6: LINENUMBER 39 L1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -583,6 +669,7 @@ Frame
     locals[4] = []
   Stack
 Offset 7: LCONST_0
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -593,6 +680,7 @@ Frame
   Stack
     stack[0] = [P2#-1]
 Offset 8: LSTORE 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -602,6 +690,7 @@ Frame
     locals[4] = []
   Stack
 Offset 10: LINENUMBER 40 L2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -611,6 +700,7 @@ Frame
     locals[4] = []
   Stack
 Offset 11: ALOAD 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -621,6 +711,7 @@ Frame
   Stack
     stack[0] = [[B#1]
 Offset 12: ARRAYLENGTH
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -631,6 +722,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
 Offset 13: BIPUSH 8
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -642,6 +734,7 @@ Frame
     stack[0] = [P1#-1]
     stack[1] = [P1#-1]
 Offset 14: INVOKESTATIC java/lang/Math.min (II)I
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -652,6 +745,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
 Offset 15: ICONST_1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -663,6 +757,7 @@ Frame
     stack[0] = [P1#-1]
     stack[1] = [P1#-1]
 Offset 16: ISUB
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -673,6 +768,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
 Offset 17: ISTORE 4
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -682,6 +778,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 19: FRAME APPEND [[B J I]
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -691,6 +788,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 20: ILOAD 4
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -701,6 +799,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
 Offset 21: IFLT L3
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -710,6 +809,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 23: LINENUMBER 41 L4
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -719,6 +819,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 24: LLOAD 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -729,6 +830,7 @@ Frame
   Stack
     stack[0] = [P2#-1]
 Offset 25: BIPUSH 8
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -740,6 +842,7 @@ Frame
     stack[0] = [P1#-1]
     stack[1] = [P2#-1]
 Offset 26: LSHL
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -750,6 +853,7 @@ Frame
   Stack
     stack[0] = [P2#-1]
 Offset 27: ALOAD 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -761,6 +865,7 @@ Frame
     stack[0] = [[B#1]
     stack[1] = [P2#-1]
 Offset 28: ILOAD 4
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -773,6 +878,7 @@ Frame
     stack[1] = [[B#1]
     stack[2] = [P2#-1]
 Offset 29: BALOAD
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -784,6 +890,7 @@ Frame
     stack[0] = [P1#-1]
     stack[1] = [P2#-1]
 Offset 30: SIPUSH 255
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -796,6 +903,7 @@ Frame
     stack[1] = [P1#-1]
     stack[2] = [P2#-1]
 Offset 31: IAND
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -807,6 +915,7 @@ Frame
     stack[0] = [P1#-1]
     stack[1] = [P2#-1]
 Offset 32: I2L
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -818,6 +927,7 @@ Frame
     stack[0] = [P2#-1]
     stack[1] = [P2#-1]
 Offset 33: LOR
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -828,6 +938,7 @@ Frame
   Stack
     stack[0] = [P2#-1]
 Offset 34: LSTORE 2
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -837,6 +948,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 36: LINENUMBER 40 L5
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -846,6 +958,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 37: IINC 4 -1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -855,6 +968,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 38: GOTO L6
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -864,6 +978,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 40: LINENUMBER 43 L3
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -873,6 +988,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 41: FRAME CHOP 1
+------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/loops/Test;#0]
@@ -882,6 +998,7 @@ Frame
     locals[4] = [P1#-1]
   Stack
 Offset 42: RETURN
+------------------------------------------------------------
 ==========================================================================================
 
 

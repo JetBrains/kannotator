@@ -44,4 +44,8 @@ class InterpreterTest : TestCase() {
     fun testStaticInitializer() {
         doTest(javaClass<interpreter.staticInitializer.Test>())
     }
+
+    fun testAssignments() {
+        doTest(javaClass<interpreter.assignments.Test>())
+    }
 }

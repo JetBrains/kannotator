@@ -320,8 +320,6 @@ edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.S
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 0
 NOT_NULL
-edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 1
-NULLABLE
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>)
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 0
@@ -417,7 +415,7 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Set<V>) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance<V,E>.SourceData getSourceData(V)
-NULLABLE
+NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.LinkedHashMap<V,java.lang.Number> singleSourceShortestPath(V, java.util.Collection<V>, int) 1
 NULLABLE
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.Map<V,java.lang.Number> getDistanceMap(V, java.util.Collection<V>) 1
@@ -427,7 +425,7 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData java.util.Map.Entry<V,java.lang.Number> getNextVertex()
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance<V,E>.SourceData getSourceData(V)
-NULLABLE
+NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath java.util.List<E> getPath(V, V)
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData java.util.Map.Entry<V,java.lang.Number> getNextVertex()
@@ -486,10 +484,6 @@ edu.uci.ics.jung.algorithms.shortestpath.ShortestPathUtils java.util.List<E> get
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.ShortestPathUtils java.util.List<E> getPath(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.ShortestPath<V,E>, V, V) 1
 NOT_NULL
-edu.uci.ics.jung.algorithms.shortestpath.UnweightedShortestPath java.util.Map<V,E> getIncomingEdgeMap(V)
-NULLABLE
-edu.uci.ics.jung.algorithms.shortestpath.UnweightedShortestPath java.util.Map<V,java.lang.Number> getDistanceMap(V)
-NULLABLE
 edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.Graph<V,E> toDirected(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.DirectedGraph<V,E>>, org.apache.commons.collections15.Factory<E>, boolean) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.Graph<V,E> toDirected(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.DirectedGraph<V,E>>, org.apache.commons.collections15.Factory<E>, boolean) 1
