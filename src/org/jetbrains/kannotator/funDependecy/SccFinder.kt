@@ -19,7 +19,7 @@ public class SCCFinder<Graph, Node>(
         val adjacentNodes: (Node) -> Iterable<Node>) {
 
     private class object {
-        private fun <T>identityHashSet(): MutableSet<T> = MutableHashingStrategySetFactoryImpl().with(object : HashingStrategy<T> {
+        private fun <T: Any> identityHashSet(): MutableSet<T> = MutableHashingStrategySetFactoryImpl().with(object : HashingStrategy<T> {
             public override fun equals(object1: T?, object2: T?): Boolean = object1 identityEquals object2
             public override fun computeHashCode(`object`: T?): Int = System.identityHashCode(`object`)
         })!!

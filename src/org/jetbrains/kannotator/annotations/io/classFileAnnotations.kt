@@ -12,7 +12,7 @@ import org.objectweb.asm.Type
 import java.util.HashSet
 import org.objectweb.asm.FieldVisitor
 
-public fun <A> getAnnotationsFromClassFiles(
+public fun <A: Any> getAnnotationsFromClassFiles(
         classSource: ClassSource,
         // We use canonical names to avoid making users have annotations.jar on the class path
         annotationClassesToAnnotation: (canonicalAnnotationClassNames: Set<String>) -> A?

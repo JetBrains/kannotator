@@ -53,7 +53,7 @@ fun propagateMetadata<A>(
 }
 
 private fun propagateParameterAnnotations<A>(
-        methods: Collection<out Method>,
+        methods: Collection<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>
 ) {
