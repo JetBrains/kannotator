@@ -1,0 +1,101 @@
+<project name="Update Dependencies" default="update">
+    <property name="idea.sdk.fetch.needed" value="true"/>
+
+    <target name="update" depends="fetch-third-party">
+        <execute_update
+                base.url="http://teamcity.jetbrains.com/guestAuth/repository/download/bt410/72290:id"
+                build.zip="ideaIC-123.SNAPSHOT.win.zip"
+                />
+    </target>
+
+    <target name="jb_update" depends="fetch-third-party">
+        <execute_update
+                base.url="http://buildserver.labs.intellij.net/guestAuth/repository/download/bt3446/1634820:id"
+                build.zip="ideaIC-123.SNAPSHOT.win.zip"
+                />
+    </target>
+
+    <target name="fetch-third-party">
+        <mkdir dir="dependencies"/>
+        <mkdir dir="dependencies/download"/>
+
+        <!-- PluginVerifier -->
+        <!--
+        <get src="http://teamcity.jetbrains.com/guestAuth/repository/download/bt351/.lastPinned/plugin-verifier-1.0-SNAPSHOT.jar"
+             dest="dependencies/download/plugin-verifier-1.0-SNAPSHOT.jar" usetimestamp="true"/>
+        <copy file="dependencies/download/plugin-verifier-1.0-SNAPSHOT.jar" tofile="dependencies/plugin-verifier.jar" overwrite="true"/>
+        -->
+
+        <!-- ant contrib -->
+        <get src="http://heanet.dl.sourceforge.net/project/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3-bin.zip"
+             dest="dependencies/download/ant-contrib-1.0b3-bin.zip" usetimestamp="true"/>
+
+        <delete file="dependencies/ant-contrib.jar" failonerror="false"/>
+        <unzip src="dependencies/download/ant-contrib-1.0b3-bin.zip" dest="dependencies">
+            <patternset>
+                <include name="ant-contrib/ant-contrib-1.0b3.jar"/>
+            </patternset>
+            <mapper type="merge" to="ant-contrib.jar"/>
+        </unzip>
+    </target>
+
+    <macrodef name="execute_update">
+        <attribute name="base.url" default="http://teamcity.example.com/guestAuth/repository/download/btXXX/XXXX:id"/>
+        <attribute name="base.url.for.core" default="@{base.url}"/>
+        <attribute name="build.zip" default="ideaIC-XXX.SNAPSHOT.win.zip"/>
+
+        <sequential>
+            <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${basedir}/dependencies/ant-contrib.jar"/>
+            <property name="core" value="ideaSDK/core"/>
+
+            <if>
+                <istrue value="${idea.sdk.fetch.needed}"/>
+
+                <then>
+                    <delete dir="ideaSDK" failonerror="false">
+                        <exclude name="config/**"/>
+                        <exclude name="system/**"/>
+                        <exclude name="system-idea/**"/>
+                    </delete>
+
+                    <mkdir dir="${core}"/>
+
+                    <get src="@{base.url.for.core}/core/intellij-core.jar" dest="${core}/intellij-core.jar" usetimestamp="true"/>
+                    <get src="@{base.url}/core/annotations.jar" dest="${core}/annotations.jar" usetimestamp="true"/>
+                    <get src="@{base.url}/core/cli-parser-1.1.jar" dest="${core}/cli-parser-1.1.jar" usetimestamp="true"/>
+                    <get src="@{base.url}/core/guava-12.0.jar" dest="${core}/guava-12.0.jar" usetimestamp="true"/>
+                    <get src="@{base.url}/core/picocontainer.jar" dest="${core}/picocontainer.jar" usetimestamp="true"/>
+                    <get src="@{base.url}/core/trove4j.jar" dest="${core}/trove4j.jar" usetimestamp="true"/>
+                    <get src="@{base.url.for.core}/core/intellij-core.jar" dest="${core}/intellij-core.jar" usetimestamp="true"/>
+
+                    <get src="@{base.url}/@{build.zip}" dest="dependencies/download/@{build.zip}" usetimestamp="true"/>
+
+                    <get src="@{base.url}/sources.zip" dest="dependencies/download/idea-sdk-sources.zip" usetimestamp="true"/>
+                </then>
+            </if>
+
+            <unzip src="dependencies/download/@{build.zip}" dest="ideaSDK"/>
+
+            <mkdir dir="ideaSDK/sources"/>
+            <copy file="dependencies/download/idea-sdk-sources.zip" tofile="ideaSDK/sources/sources.zip"/>
+
+            <copy file="ideaSDK/lib/jdom.jar" todir="${core}"/>
+            <copy file="ideaSDK/lib/jna.jar" todir="${core}"/>
+            <copy file="ideaSDK/lib/log4j.jar" todir="${core}"/>
+            <copy file="ideaSDK/lib/xstream-1.4.3.jar" todir="${core}"/>
+            <copy file="ideaSDK/lib/xpp3-1.1.4-min.jar" todir="${core}"/>
+            <copy file="ideaSDK/lib/asm4-all.jar" todir="${core}"/>
+
+            <!-- TODO temporary workaround since util-rt is not packaged into intellij-core.jar -->
+            <copy file="ideaSDK/lib/util.jar" todir="${core}"/>
+
+            <!--
+                 This one needs to be deleted because otherwise it gets onto the classpath
+                 together with junit-4.10.jar and the classloading goes crazy that breaks
+                 many nice features of IDEA including diffs in the test console.
+            -->
+            <delete file="ideaSDK/lib/junit.jar"/>
+
+        </sequential>
+    </macrodef>
+</project>

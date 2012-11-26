@@ -1,0 +1,34 @@
+<idea-plugin version="2">
+    <id>org.jetbrains.jarannotator</id>
+    <name>JarAnnotator</name>
+    <version>1.0</version>
+    <vendor url="http://www.jetbrains.com">JetBrains Inc.</vendor>
+    <description>
+        <![CDATA[
+Automatic inferrer nullability and kotlin annotations for the set of jar files
+]]>
+    </description>
+    <idea-version since-build="123.4" until-build="123.9999"/>
+    <!--
+     please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+           on how to target different products
+    -->
+    <!--
+     uncomment to enable plugin in all products
+      <depends>com.intellij.modules.lang</depends>
+
+    -->
+    <application-components>
+        <!--  Add your application components here  -->
+    </application-components>
+    <project-components>
+        <!--  Add your project components here  -->
+    </project-components>
+
+    <actions>
+        <action id="annotate.jar" class="org.jetbrains.annotator.actions.AnnotateJarAction" text="Annotate Jar Files..."
+                description="Infer nullability and Kotlin annotation for jar files">
+            <add-to-group group-id="AnalyzeActions" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
