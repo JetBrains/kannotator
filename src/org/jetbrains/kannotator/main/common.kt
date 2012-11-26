@@ -28,13 +28,17 @@ import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import kotlin.nullable.all
+import org.jetbrains.kannotator.declarations.copyAllChanged
 import org.objectweb.asm.tree.AnnotationNode
 import org.objectweb.asm.Type
+import org.jetbrains.kannotator.declarations.FieldTypePosition
+import org.jetbrains.kannotator.declarations.ClassMember
+import org.jetbrains.kannotator.index.ClassSource
 
 open class ProgressMonitor {
     open fun totalFields(fieldCount: Int) {}
-    open fun processingStepStarted(field: Field) {}
-    open fun processingStepFinished(field: Field) {}
+    open fun valueFieldsProcessingStarted() {}
+    open fun valueFieldsProcessingFinished() {}
 
     open fun totalMethods(methodCount: Int) {}
     open fun processingStarted(methods: Collection<Method>) {}
@@ -43,8 +47,8 @@ open class ProgressMonitor {
     open fun processingFinished(methods: Collection<Method>) {}
 }
 
-private fun List<AnnotationNode>.extractClassNamesTo(classNames: MutableSet<String>) {
-    classNames.addAll(this.map{node ->
+private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<String>) {
+    classNames.addAll(this.filterNotNull().map{node ->
         Type.getType(node.desc).getClassName()!!}
     )
 }
@@ -72,11 +76,11 @@ private fun <K> loadInternalAnnotations(
                     val classNames = HashSet<String>()
                     val index = if (method.isStatic()) declPos.index else declPos.index - 1
                     if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size) {
-                        methodNode.visibleParameterAnnotations!![index]?.extractClassNamesTo(classNames)
+                        methodNode.visibleParameterAnnotations!![index]?.filterNotNull()?.extractClassNamesTo(classNames)
                     }
 
                     if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size) {
-                        methodNode.invisibleParameterAnnotations!![index]?.extractClassNamesTo(classNames)
+                        methodNode.invisibleParameterAnnotations!![index]?.filterNotNull()?.extractClassNamesTo(classNames)
                     }
                     classNames
                 }
@@ -105,7 +109,7 @@ private fun <K> loadExternalAnnotations(
         keyIndex: AnnotationKeyIndex,
         inferrers: Map<K, AnnotationInferrer<Any>>,
         showErrorIfPositionNotFound: Boolean = true
-): Map<K, Annotations<Any>> {
+): Map<K, MutableAnnotations<Any>> {
     val externalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>(delegatingAnnotations[entry.key]) }
 
     for (annotationFile in annotationFiles) {
@@ -138,23 +142,18 @@ private fun <K> loadAnnotations(
         methodNodes: Map<Method, MethodNode>,
         inferrers: Map<K, AnnotationInferrer<Any>>,
         showErrorIfPositionNotFound: Boolean = true
-): Map<K, Annotations<Any>> =
+): Map<K, MutableAnnotations<Any>> =
         loadExternalAnnotations(loadInternalAnnotations(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
 
 trait AnnotationInferrer<A: Any> {
     fun resolveAnnotation(classNames: Set<String>): A?
 
-    val supportsFields: Boolean
-    fun inferFieldAnnotations(
-            fieldInfo: FieldDependencyInfo,
-            controlFlowGraphBuilder: (Method) -> ControlFlowGraph,
-            declarationIndex: DeclarationIndex,
-            annotations: Annotations<A>): Annotations<A>
+    fun inferAnnotationsFromFieldValue(field: Field): Annotations<A>
 
-    val supportsMethods: Boolean
-    fun inferMethodAnnotations(
-            graph: ControlFlowGraph,
-            positions: PositionsForMethod,
+    fun inferAnnotationsFromMethod(
+            method: Method,
+            cfGraph: ControlFlowGraph,
+            fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
             declarationIndex: DeclarationIndex,
             annotations: Annotations<A>): Annotations<A>
 
@@ -162,14 +161,13 @@ trait AnnotationInferrer<A: Any> {
 }
 
 fun <K> inferAnnotations(
-        jarOrClassFiles: Collection<File>,
+        classSource: ClassSource,
         existingAnnotationFiles: Collection<File>,
         inferrers: Map<K, AnnotationInferrer<Any>>,
         progressMonitor: ProgressMonitor = ProgressMonitor(),
-        showErrors: Boolean = true
+        showErrors: Boolean = true,
+        existingAnnotations: Map<K, Annotations<Any>> = hashMap()
 ): Map<K, Annotations<Any>> {
-    val classSource = FileBasedClassSource(jarOrClassFiles)
-
     val methodNodes = HashMap<Method, MethodNode>()
     val declarationIndex = DeclarationIndexImpl(classSource) {
         method ->
@@ -178,45 +176,30 @@ fun <K> inferAnnotations(
         methodNode
     }
 
-    val existingAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
-    val resultingAnnotationsMap = existingAnnotationsMap.mapValues{
-        entry -> AnnotationsImpl(entry.value)
+    val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
+    val resultingAnnotationsMap = loadedAnnotationsMap.mapValues {entry -> AnnotationsImpl<Any>(entry.value)}
+    for (key in inferrers.keySet()) {
+        val inferrerExistingAnnotations = existingAnnotations[key]
+        if (inferrerExistingAnnotations != null) {
+            resultingAnnotationsMap[key]!!.copyAllChanged(inferrerExistingAnnotations)
+        }
     }
 
-    val fieldsInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
+    val fieldToDependencyInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
     val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
     val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
 
-    progressMonitor.totalFields(fieldsInfosMap.size)
+    progressMonitor.totalFields(fieldToDependencyInfosMap.size)
 
-    for (fieldInfo in fieldsInfosMap.values()) {
-        progressMonitor.processingStepStarted(fieldInfo.field)
+    progressMonitor.valueFieldsProcessingStarted()
 
-        val methodToGraph = buildControlFlowGraphs(fieldInfo.writers, { m -> methodNodes.getOrThrow(m) })
-        val inferredAnnotationsMap = inferrers.mapValues { entry ->
-            val (key, inferrer) = entry
-            val resultingAnnotations = resultingAnnotationsMap[key]!!
-
-            if (inferrer.supportsFields)
-                inferrer.inferFieldAnnotations(fieldInfo, { m -> methodToGraph.getOrThrow(m) }, declarationIndex, resultingAnnotations)
-            else
-                null
+    for ((key, inferrer) in inferrers) {
+        for (fieldInfo in fieldToDependencyInfosMap.values()) {
+            resultingAnnotationsMap[key]!!.copyAllChanged(inferrer.inferAnnotationsFromFieldValue(fieldInfo.field))
         }
-
-        for ((key, inferredAnnotations) in inferredAnnotationsMap) {
-            if (inferredAnnotations == null)
-                continue
-            val resultingAnnotations = resultingAnnotationsMap[key]!!
-            inferredAnnotations forEach { pos, ann ->
-                val present = resultingAnnotations[pos]
-                if (present != ann) {
-                    resultingAnnotations[pos] = ann
-                }
-            }
-        }
-
-        progressMonitor.processingStepFinished(fieldInfo.field)
     }
+
+    progressMonitor.valueFieldsProcessingFinished()
 
     progressMonitor.totalMethods(methodNodes.size)
 
@@ -224,22 +207,23 @@ fun <K> inferAnnotations(
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
         progressMonitor.processingStarted(methods.keySet())
 
-        fun dependentMembersInsideThisComponent(m: Method): Collection<Method> {
-            return methods.getOrThrow(m)
-                    .map {e -> e.from.method} // dependent members
-                    .filter {m -> m in methods.keySet()} // only inside this component
+        fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
+            // Add itself as inferred annotation can produce more annotations
+            // intersect methods.getOrThrow(method).map { e -> e.from.method } plus method
+            methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.method}).plus<Method>(method)
         }
 
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
 
-        for ((key, inferencer) in inferrers) {
+        for ((key, inferrer) in inferrers) {
             inferAnnotationsOnMutuallyRecursiveMethods(
                     declarationIndex,
                     resultingAnnotationsMap[key]!!,
                     methods.keySet(),
-                    { m -> dependentMembersInsideThisComponent(m) },
+                    { classMember -> dependentMembersInsideThisComponent(classMember) },
                     { m -> methodToGraph.getOrThrow(m) },
-                    inferencer,
+                    { f -> fieldToDependencyInfosMap.getOrThrow(f) },
+                    inferrer,
                     progressMonitor
             )
         }
@@ -261,6 +245,7 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         methods: Collection<Method>,
         dependentMethods: (Method) -> Collection<Method>,
         cfGraph: (Method) -> ControlFlowGraph,
+        fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
         inferrer: AnnotationInferrer<A>,
         progressMonitor: ProgressMonitor
 ) {
@@ -271,22 +256,21 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         val method = queue.removeFirst()
 
         progressMonitor.processingStepStarted(method)
-        val inferredAnnotations = inferrer.inferMethodAnnotations(cfGraph(method), PositionsForMethod(method), declarationIndex, annotations)
-        progressMonitor.processingStepFinished(method)
+
+        val inferredAnnotations = inferrer.inferAnnotationsFromMethod(
+                method, cfGraph(method), fieldDependencyInfoProvider, declarationIndex, annotations)
 
         var changed = false
-        inferredAnnotations forEach {
-            pos, ann ->
-            val present = annotations[pos]
-            if (present != ann) {
-                annotations[pos] = ann
-                changed = true
-            }
+        annotations.copyAllChanged(inferredAnnotations) { pos, previous, new ->
+            changed = true
+            new // Return merged
         }
 
         if (changed) {
             queue.addAll(dependentMethods(method))
         }
+
+        progressMonitor.processingStepFinished(method)
     }
 }
 

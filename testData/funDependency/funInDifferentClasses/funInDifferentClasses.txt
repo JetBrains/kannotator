@@ -1,19 +1,32 @@
 == All Nodes == 
 funDependency.funInDifferentClasses.First:<init>()V
+    outgoing edges:
+        call funDependency.funInDifferentClasses.First:<init>()V -> funDependency.funInDifferentClasses.Second:<init>()V
+        call funDependency.funInDifferentClasses.First:<init>()V -> java.lang.Object:<init>()V
     incoming edges:
-        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.First:<init>()V
+        reading 'second' funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.First:<init>()V
 funDependency.funInDifferentClasses.First:test()Ljava/lang/Object;
     outgoing edges:
-        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.First:<init>()V
-        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+        call funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+        reading 'second' funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.First:<init>()V
+funDependency.funInDifferentClasses.Second:<init>()V
+    outgoing edges:
+        call funDependency.funInDifferentClasses.Second:<init>()V -> java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.funInDifferentClasses.First:<init>()V -> funDependency.funInDifferentClasses.Second:<init>()V
 funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
     incoming edges:
-        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+        call funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.funInDifferentClasses.First:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.funInDifferentClasses.Second:<init>()V -> java.lang.Object:<init>()V
 
 == No Outgoing Nodes == 
-funDependency.funInDifferentClasses.First:<init>()V
-    incoming edges:
-        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.First:<init>()V
 funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
     incoming edges:
-        funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+        call funDependency.funInDifferentClasses.First:test()Ljava/lang/Object; -> funDependency.funInDifferentClasses.Second:foo()Ljava/lang/Object;
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.funInDifferentClasses.First:<init>()V -> java.lang.Object:<init>()V
+        call funDependency.funInDifferentClasses.Second:<init>()V -> java.lang.Object:<init>()V

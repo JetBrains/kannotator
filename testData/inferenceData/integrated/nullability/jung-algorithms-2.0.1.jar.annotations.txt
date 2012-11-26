@@ -132,6 +132,8 @@ edu.uci.ics.jung.algorithms.importance.AbstractRanker.2 java.lang.Object create(
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.AbstractRanker.2 java.util.Map<E,java.lang.Number> create()
 NOT_NULL
+edu.uci.ics.jung.algorithms.importance.BetweennessCentrality CENTRALITY
+NOT_NULL
 edu.uci.ics.jung.algorithms.importance.BetweennessCentrality java.lang.Object getRankScoreKey()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.BetweennessCentrality java.lang.String getRankScoreKey()
@@ -140,11 +142,17 @@ edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void computeBetween
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void initializeData(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<V,edu.uci.ics.jung.algorithms.importance.BetweennessCentrality<V,E>.BetweennessData>) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.importance.KStepMarkov CURRENT_RANK
+NOT_NULL
 edu.uci.ics.jung.algorithms.importance.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, int, java.util.Map<E,java.lang.Number>) 3
 NULLABLE
+edu.uci.ics.jung.algorithms.importance.KStepMarkov RANK_SCORE
+NOT_NULL
 edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.Object getRankScoreKey()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality MEAN_FIRST_PASSAGE_TIME
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, java.util.Map<E,java.lang.Number>) 0
 NOT_NULL
@@ -156,15 +164,21 @@ edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.Object getRank
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.String getRankScoreKey()
 NOT_NULL
+edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness CENTRALITY
+NOT_NULL
 edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness java.lang.Object getRankScoreKey()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness java.lang.String getRankScoreKey()
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness CENTRALITY
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness java.lang.Object getRankScoreKey()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness java.lang.String getRankScoreKey()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.Ranking int compareTo(java.lang.Object) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.WeightedNIPaths WEIGHTED_NIPATHS_KEY
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.WeightedNIPaths WeightedNIPaths(edu.uci.ics.jung.graph.DirectedGraph<V,E>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, double, int, java.util.Set<V>) 0
 NOT_NULL
@@ -423,6 +437,8 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData SourceData(V) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData java.util.Map.Entry<V,java.lang.Number> getNextVertex()
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData this$0
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance<V,E>.SourceData getSourceData(V)
 NOT_NULL

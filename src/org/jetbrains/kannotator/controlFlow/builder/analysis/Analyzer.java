@@ -94,7 +94,7 @@ public class Analyzer<V extends Value> implements Opcodes {
      *         instruction cannot be reached (dead code).
      * @throws AnalyzerException if a problem occurs during the analysis.
      */
-    @KotlinSignature("fun analyze(owner : String?, m : MethodNode) : Array<Frame<V>?>")
+
     @SuppressWarnings("unchecked")
     public Frame<V>[] analyze(final String owner, final MethodNode m)
             throws AnalyzerException

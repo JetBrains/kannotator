@@ -10,6 +10,9 @@ import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.*
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.Opcodes
+import org.objectweb.asm.FieldVisitor
 
 trait FieldDependencyInfo {
     val field: Field
@@ -28,12 +31,23 @@ data class FieldDependencyInfoImpl(override val field: Field): FieldDependencyIn
 fun buildFieldsDependencyInfos(declarationIndex: DeclarationIndex, classSource: ClassSource): Map<Field, FieldDependencyInfo> {
     val resultMap = HashMap<Field, FieldDependencyInfoImpl>()
 
-    classSource.forEach {
-        reader ->
-        reader.forEachMethodWithMethodVisitor { className, access, name, desc, signature ->
-            val method = declarationIndex.findMethod(ClassName.fromInternalName(className), name, desc)
-            if (method != null) FieldUsageMethodVisitor(method, declarationIndex, resultMap) else null
-        }
+    classSource.forEach { reader ->
+        reader.accept(object : ClassVisitor(Opcodes.ASM4) {
+            override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+                val method = declarationIndex.findMethod(ClassName.fromInternalName(reader.getClassName()), name, desc)
+                return if (method != null) FieldUsageMethodVisitor(method, declarationIndex, resultMap) else null
+            }
+
+            override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
+                val field = declarationIndex.findField(ClassName.fromInternalName(reader.getClassName()), name)
+                if (field != null) {
+                    val checkedField: Field = field
+                    resultMap.getOrPut(checkedField) { FieldDependencyInfoImpl(field) }
+                }
+
+                return null
+            }
+        }, 0);
     }
 
     return resultMap

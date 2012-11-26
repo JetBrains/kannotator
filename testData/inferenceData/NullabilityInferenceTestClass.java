@@ -20,14 +20,17 @@ public class NullabilityInferenceTestClass {
             return null;
     }
 
+    @ExpectNullable
     public Object testReturnInvokeSpecial() {
         return privateMethod();
     }
 
+    @ExpectNullable
     public Object testReturnInvokeVirtual() {
         return publicMethod();
     }
 
+    @ExpectNullable
     public Object testReturnInvokeStatic() {
         return staticMethod();
     }
@@ -55,6 +58,7 @@ public class NullabilityInferenceTestClass {
         return new int[1][1];
     }
 
+    @ExpectNullable
     public Object testReturnField() {
         return field;
     }
@@ -176,6 +180,17 @@ public class NullabilityInferenceTestClass {
         }
     }
 
+    private void testMonitorValueThroughLocalVariable(@ExpectNotNull Object o) {
+        Object local = o;
+        local.toString();
+    }
+
+    private Object tempField;
+    private void testMonitorValueThroughField(@ExpectNotNull Object o) {
+        tempField = o;
+        tempField.toString();
+    }
+
     public void testArrayLoad(@ExpectNotNull Object[] objectArray,
                               @ExpectNotNull byte[] byteArray,
                               @ExpectNotNull boolean[] booleanArray,
@@ -281,6 +296,11 @@ public class NullabilityInferenceTestClass {
             return o;
         }
         return "";
+    }
+
+    @ExpectNotNull
+    public Integer testAutoboxing() {
+        return 12;
     }
 
     @ExpectNullable

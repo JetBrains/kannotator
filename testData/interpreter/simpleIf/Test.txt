@@ -59,36 +59,28 @@ Frame
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = [P1#-1]
   Stack
-Offset 9: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/simpleIf/Test;#0]
-    locals[1] = [P1#-1]
-  Stack
-    stack[0] = [Ljet/Tuple0;#2]
-Offset 10: GOTO L3
+Offset 9: GOTO L3
 ------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-Offset 12: LINENUMBER 10 L1
+Offset 11: LINENUMBER 10 L1
 ------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-Offset 13: FRAME SAME
+Offset 12: FRAME SAME
 ------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = []
   Stack
-Offset 14: ICONST_2
+Offset 13: ICONST_2
 ------------------------------------------------------------
 Frame
   Locals
@@ -96,44 +88,28 @@ Frame
     locals[1] = []
   Stack
     stack[0] = [P1#-1]
-Offset 15: ISTORE 1
+Offset 14: ISTORE 1
 ------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = [P1#-1]
   Stack
-Offset 16: GETSTATIC jet/Tuple0.VALUE : Ljet/Tuple0;
+Offset 16: LINENUMBER 12 L3
 ------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = [P1#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;#1, Ljet/Tuple0;#2]
-Offset 18: FRAME FULL [interpreter/simpleIf/Test I] [jet/Tuple0]
+Offset 17: FRAME APPEND [I]
 ------------------------------------------------------------
 Frame
   Locals
     locals[0] = [Linterpreter/simpleIf/Test;#0]
     locals[1] = [P1#-1]
   Stack
-    stack[0] = [Ljet/Tuple0;#1, Ljet/Tuple0;#2]
-Offset 19: POP
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/simpleIf/Test;#0]
-    locals[1] = [P1#-1]
-  Stack
-Offset 21: LINENUMBER 12 L4
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/simpleIf/Test;#0]
-    locals[1] = [P1#-1]
-  Stack
-Offset 22: ILOAD 1
+Offset 18: ILOAD 1
 ------------------------------------------------------------
 Frame
   Locals
@@ -141,7 +117,7 @@ Frame
     locals[1] = [P1#-1]
   Stack
     stack[0] = [P1#-1]
-Offset 23: IRETURN
+Offset 19: IRETURN
 ------------------------------------------------------------
 ==========================================================================================
 

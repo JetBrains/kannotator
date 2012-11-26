@@ -5,6 +5,7 @@ import org.objectweb.asm.commons.Method as AsmMethod
 import java.io.File
 import org.objectweb.asm.Type
 import org.objectweb.asm.ClassReader
+import util.getClassReader
 
 class InterpreterTest : TestCase() {
 
@@ -34,7 +35,7 @@ class InterpreterTest : TestCase() {
 
     fun testJSR_RET() {
         val name = "EDU/oswego/cs/dl/util/concurrent/ClockDaemon\$RunLoop"
-        doTest(File("testData/interpreter"), ClassReader(name))
+        doTest(File("testData/interpreter"), getClassReader(name))
     }
 
     fun testPrimitiveParamsAndReturn() {

@@ -994,6 +994,8 @@ javax.media.j3d.GeneralizedVertexList void copyVertexData(javax.media.j3d.Geomet
 NOT_NULL
 javax.media.j3d.GeneralizedVertexList.Vertex Vertex(javax.media.j3d.GeneralizedVertexList, javax.vecmath.Point3f, javax.vecmath.Vector3f, javax.vecmath.Color4f, int) 0
 NOT_NULL
+javax.media.j3d.GeneralizedVertexList.Vertex this$0
+NOT_NULL
 javax.media.j3d.GeometryArray javax.vecmath.TexCoord2f[] getTexCoordRef2f(int)
 NULLABLE
 javax.media.j3d.GeometryArray javax.vecmath.TexCoord3f[] getTexCoordRef3f(int)
@@ -1824,6 +1826,8 @@ javax.media.j3d.ImageComponentRetained void copyImage(java.awt.image.RenderedIma
 NOT_NULL
 javax.media.j3d.ImageComponentRetained void updateMirrorObject(int, java.lang.Object) 1
 NULLABLE
+javax.media.j3d.ImplementationVersion J3D_VERSION
+NOT_NULL
 javax.media.j3d.ImplementationVersion java.lang.String getJ3dVersion()
 NOT_NULL
 javax.media.j3d.IndexedGeometryArray void getColorIndices(int, int[]) 1
@@ -1983,6 +1987,8 @@ NOT_NULL
 javax.media.j3d.J3dQueryProps.EntrySet java.util.Iterator iterator()
 NOT_NULL
 javax.media.j3d.J3dQueryProps.MapIterator MapIterator(javax.media.j3d.J3dQueryProps) 0
+NOT_NULL
+javax.media.j3d.J3dQueryProps.MapIterator this$0
 NOT_NULL
 javax.media.j3d.J3dStructure void addMessage(javax.media.j3d.J3dMessage) 0
 NOT_NULL
@@ -4380,6 +4386,12 @@ javax.media.j3d.ViewSpecificGroupRetained void setNodeData(javax.media.j3d.SetLi
 NOT_NULL
 javax.media.j3d.ViewSpecificGroupRetained void setView(javax.media.j3d.View, int) 0
 NULLABLE
+javax.media.j3d.VirtualUniverse J3D_SPECIFICATION_VENDOR
+NOT_NULL
+javax.media.j3d.VirtualUniverse J3D_SPECIFICATION_VERSION
+NOT_NULL
+javax.media.j3d.VirtualUniverse J3D_VENDOR
+NOT_NULL
 javax.media.j3d.VirtualUniverse void removeLocale(javax.media.j3d.Locale) 0
 NOT_NULL
 javax.media.j3d.WakeupAnd WakeupAnd(javax.media.j3d.WakeupCriterion[]) 0

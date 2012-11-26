@@ -20,6 +20,7 @@ import java.io.Reader
 import java.io.FileWriter
 import java.io.PrintWriter
 import org.jetbrains.kannotator.declarations.ClassName
+import util.getClassReader
 
 fun PrintStream.appendStates(instructions: Collection<Instruction>) {
     fun printState(state: State) {
@@ -75,7 +76,7 @@ fun writeGraphsToFile(file: File, className: ClassName, methodsAndGraphs: Collec
 }
 
 fun doTest(theClass: Class<out Any>) {
-    val classReader = ClassReader(theClass.getName())
+    val classReader = getClassReader(theClass)
     doTest(File("testData/"), classReader)
 }
 
@@ -141,8 +142,8 @@ fun doTest(
             val chunkActual = actualReader.readWithBuffer(buffer)
             val chunkExpected = expectedReader.readWithBuffer(buffer)
 
-            assertEquals(chunkExpected, chunkActual)
             if (chunkActual == null || chunkExpected == null) break;
+            assertEquals(chunkExpected.toUnixSeparators(), chunkActual.toUnixSeparators())
         }
     }
     finally {

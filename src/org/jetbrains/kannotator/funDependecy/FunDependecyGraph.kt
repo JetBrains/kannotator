@@ -36,8 +36,8 @@ class FunDependencyGraphImpl : FunDependencyGraph {
         })
     }
 
-    fun createEdge(from: FunctionNodeImpl, to: FunctionNodeImpl) : FunDependencyEdgeImpl {
-        val edge = FunDependencyEdgeImpl(from, to)
+    fun createEdge(from: FunctionNodeImpl, to: FunctionNodeImpl, debugName: String? = null) : FunDependencyEdgeImpl {
+        val edge = FunDependencyEdgeImpl(from, to, debugName)
 
         from.outgoingEdges.add(edge)
         to.incomingEdges.add(edge)
@@ -49,10 +49,12 @@ class FunDependencyGraphImpl : FunDependencyGraph {
 }
 
 class FunDependencyEdgeImpl(override val from: FunctionNode,
-                            override val to: FunctionNode): FunDependencyEdge {
+                            override val to: FunctionNode,
+                            val debugName: String? = null): FunDependencyEdge {
 
     fun toString(): String {
-        return "${from.method} -> ${to.method}"
+        val prefix = if (debugName != null) debugName + " " else ""
+        return "${prefix}${from.method} -> ${to.method}"
     }
 
     fun hashCode(): Int {

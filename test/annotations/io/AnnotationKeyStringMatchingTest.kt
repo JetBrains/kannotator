@@ -51,11 +51,14 @@ class AnnotationKeyStringMatchingTest : TestCase() {
                 arrayList(File("lib")))
     }
 
-    /*fun testJdk() {
-        doTest(arrayList(File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar")),
-                arrayList(File("/Volumes/WD600/work/kotlin/jdk-annotations")))
-    }*/
-
+//    fun testJdk() {
+//        val rtJarPath = if (System.getProperty("os.name")!!.contains("Win"))
+//            "C:\\Program Files\\Java\\jdk1.6.0_33\\jre\\lib\\rt.jar"
+//        else
+//            "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar"
+//
+//        doTest(arrayList(File(rtJarPath)), arrayList(File("/Volumes/WD600/work/kotlin/jdk-annotations")))
+//    }
 }
 
 fun visitAllInJar(jarFile: File, handler: (String) -> Unit) {

@@ -138,6 +138,10 @@ edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, 
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 0
 NOT_NULL
+edu.uci.ics.jung.io.graphml.AbstractMetadata java.util.Map<java.lang.String,java.lang.String> getProperties()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.AbstractMetadata properties
+NOT_NULL
 edu.uci.ics.jung.io.graphml.AbstractMetadata void addData(edu.uci.ics.jung.io.graphml.DataMetadata) 0
 NOT_NULL
 edu.uci.ics.jung.io.graphml.EdgeMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
@@ -152,6 +156,70 @@ edu.uci.ics.jung.io.graphml.EndpointMetadata.EndpointType OUT
 NOT_NULL
 edu.uci.ics.jung.io.graphml.EndpointMetadata.EndpointType UNDIR
 NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants ALL_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants ATTRNAME_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants ATTRTYPE_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants DATA_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants DEFAULT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants DESC_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants DIRECTED_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants EDGEDEFAULT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants EDGE_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants ENDPOINT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants FOR_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants GRAPHML_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants GRAPH_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants HYPEREDGE_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants ID_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants IN_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants KEY_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants NAME_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants NODE_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants OUT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants PORT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants SOURCEPORT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants SOURCE_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants TARGETPORT_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants TARGET_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants TYPE_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants UNDIRECTED_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLConstants UNDIR_NAME
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLDocument edu.uci.ics.jung.io.graphml.KeyMap getKeyMap()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLDocument graphMetadata
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLDocument java.util.List<edu.uci.ics.jung.io.graphml.GraphMetadata> getGraphMetadata()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLDocument keyMap
+NOT_NULL
 edu.uci.ics.jung.io.graphml.GraphMLReader2 GraphMLReader2(java.io.Reader, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.GraphMetadata,G>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.NodeMetadata,V>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.EdgeMetadata,E>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.HyperEdgeMetadata,E>) 0
 NOT_NULL
 edu.uci.ics.jung.io.graphml.GraphMLReader2 GraphMLReader2(java.io.Reader, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.GraphMetadata,G>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.NodeMetadata,V>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.EdgeMetadata,E>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.HyperEdgeMetadata,E>) 1
@@ -162,7 +230,25 @@ edu.uci.ics.jung.io.graphml.GraphMLReader2 GraphMLReader2(java.io.Reader, org.ap
 NOT_NULL
 edu.uci.ics.jung.io.graphml.GraphMLReader2 GraphMLReader2(java.io.Reader, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.GraphMetadata,G>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.NodeMetadata,V>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.EdgeMetadata,E>, org.apache.commons.collections15.Transformer<edu.uci.ics.jung.io.graphml.HyperEdgeMetadata,E>) 4
 NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLReader2 document
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLReader2 edu.uci.ics.jung.io.graphml.GraphMLDocument getGraphMLDocument()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMLReader2 parserRegistry
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMetadata edges
+NOT_NULL
 edu.uci.ics.jung.io.graphml.GraphMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMetadata hyperEdges
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMetadata java.util.Map<java.lang.Object,edu.uci.ics.jung.io.graphml.EdgeMetadata> getEdgeMap()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMetadata java.util.Map<java.lang.Object,edu.uci.ics.jung.io.graphml.HyperEdgeMetadata> getHyperEdgeMap()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMetadata java.util.Map<java.lang.Object,edu.uci.ics.jung.io.graphml.NodeMetadata> getNodeMap()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.GraphMetadata nodes
 NOT_NULL
 edu.uci.ics.jung.io.graphml.GraphMetadata.EdgeDefault $VALUES
 NOT_NULL
@@ -171,6 +257,10 @@ NOT_NULL
 edu.uci.ics.jung.io.graphml.GraphMetadata.EdgeDefault UNDIRECTED
 NOT_NULL
 edu.uci.ics.jung.io.graphml.HyperEdgeMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.HyperEdgeMetadata endpoints
+NOT_NULL
+edu.uci.ics.jung.io.graphml.HyperEdgeMetadata java.util.List<edu.uci.ics.jung.io.graphml.EndpointMetadata> getEndpoints()
 NOT_NULL
 edu.uci.ics.jung.io.graphml.Key void applyKey(edu.uci.ics.jung.io.graphml.Metadata) 0
 NOT_NULL
@@ -191,6 +281,8 @@ NOT_NULL
 edu.uci.ics.jung.io.graphml.Key.ForType PORT
 NOT_NULL
 edu.uci.ics.jung.io.graphml.KeyMap java.util.List<edu.uci.ics.jung.io.graphml.Key> getKeyList(edu.uci.ics.jung.io.graphml.Metadata.MetadataType)
+NOT_NULL
+edu.uci.ics.jung.io.graphml.KeyMap map
 NOT_NULL
 edu.uci.ics.jung.io.graphml.KeyMap void addKey(edu.uci.ics.jung.io.graphml.Key) 0
 NOT_NULL
@@ -214,7 +306,15 @@ edu.uci.ics.jung.io.graphml.Metadata.MetadataType PORT
 NOT_NULL
 edu.uci.ics.jung.io.graphml.NodeMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
 NOT_NULL
+edu.uci.ics.jung.io.graphml.NodeMetadata java.util.List<edu.uci.ics.jung.io.graphml.PortMetadata> getPorts()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.NodeMetadata ports
+NOT_NULL
 edu.uci.ics.jung.io.graphml.PortMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.parser.AbstractElementParser edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)
+NOT_NULL
+edu.uci.ics.jung.io.graphml.parser.AbstractElementParser edu.uci.ics.jung.io.graphml.parser.ElementParser getUnknownParser()
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.AbstractElementParser void applyKeys(edu.uci.ics.jung.io.graphml.Metadata) 0
 NOT_NULL
@@ -230,6 +330,14 @@ edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)
+NOT_NULL
+edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getUnknownElementParser()
+NOT_NULL
+edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry parserMap
+NOT_NULL
+edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry unknownElementParser
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser edu.uci.ics.jung.io.graphml.EndpointMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser endpointTypeMap

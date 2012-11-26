@@ -2,6 +2,8 @@ package inferenceData;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class NullabilityFieldsInferenceTestClass {
     @ExpectNotNull
@@ -20,36 +22,51 @@ public class NullabilityFieldsInferenceTestClass {
 
     public final static double DOUBLE_FIELD = 12.5;
 
-    // @ExpectNullable
+    @ExpectNotNull
+    public final static Class<String> stringClass = String.class;
+
+    @ExpectNullable
     public final Object nullFinalField = null;
 
-    // @ExpectNotNull
+    @ExpectNotNull
     public final Object newObjectFinalField = new Object();
 
-    // @ExpectNotNull
+    @ExpectNotNull
     public final String constantStringFinalField = "HelloConstant";
 
-    // @ExpectNotNull
+    // TODO: @ExpectNotNull
     public final Integer constantIntegerFinalField = 12;
 
-    // @ExpectNotNull
+    @ExpectNotNull
     public final Object methodInitFinalField = initFinalField();
 
+    @NotNull
     Object initFinalField() {
         return new Object();
     }
 
-    // @ExpectNullable
+    @ExpectNullable
     public final Object nullableInConstructorInitFinalField;
 
-    // @ExpectNullable
+    @ExpectNullable
     public final Object fromConstructorParameterFinalField;
 
-    // @ExpectNotNull
+    @ExpectNotNull
     public final Object fromMethodInConstructorFinalField;
 
-    // @ExpectNullable
+    @ExpectNullable
     public final Object differentAnnotationsFromDifferentConstructors;
+
+    @ExpectNotNull
+    public Object nullableFromCallingMethodOnValue;
+
+    @ExpectNullable
+    public Object notUsedNonFinalField;
+
+    public void setNullableFromCallingMethodOnValue(Object param) {
+        nullableFromCallingMethodOnValue = param;
+        nullableFromCallingMethodOnValue.toString();
+    }
 
     NullabilityFieldsInferenceTestClass(Object param) {
         if (param == null) {
@@ -63,7 +80,7 @@ public class NullabilityFieldsInferenceTestClass {
         differentAnnotationsFromDifferentConstructors = new Object();
     }
 
-    NullabilityFieldsInferenceTestClass(Object param, Object param1) {
+    NullabilityFieldsInferenceTestClass(Object param, @Nullable Object param1) {
         if (param == null) {
             nullableInConstructorInitFinalField = null;
         } else {

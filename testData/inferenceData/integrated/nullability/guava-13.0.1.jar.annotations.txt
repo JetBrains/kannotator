@@ -66,6 +66,14 @@ com.google.common.base.CaseFormat.1 $SwitchMap$com$google$common$base$CaseFormat
 NOT_NULL
 com.google.common.base.CharMatcher ANY
 NOT_NULL
+com.google.common.base.CharMatcher ASCII
+NOT_NULL
+com.google.common.base.CharMatcher BREAKING_WHITESPACE
+NOT_NULL
+com.google.common.base.CharMatcher DIGIT
+NOT_NULL
+com.google.common.base.CharMatcher INVISIBLE
+NOT_NULL
 com.google.common.base.CharMatcher JAVA_DIGIT
 NOT_NULL
 com.google.common.base.CharMatcher JAVA_LETTER
@@ -77,6 +85,8 @@ NOT_NULL
 com.google.common.base.CharMatcher JAVA_UPPER_CASE
 NOT_NULL
 com.google.common.base.CharMatcher NONE
+NOT_NULL
+com.google.common.base.CharMatcher SINGLE_WIDTH
 NOT_NULL
 com.google.common.base.CharMatcher WHITESPACE
 NOT_NULL
@@ -182,6 +192,8 @@ com.google.common.base.CharMatcher.15 com.google.common.base.CharMatcher precomp
 NOT_NULL
 com.google.common.base.CharMatcher.16 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
+com.google.common.base.CharMatcher.16 table
+NOT_NULL
 com.google.common.base.CharMatcher.2 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
 com.google.common.base.CharMatcher.6 boolean matchesAllOf(java.lang.CharSequence) 0
@@ -284,6 +296,10 @@ com.google.common.base.CharMatcher.And com.google.common.base.CharMatcher and(co
 NOT_NULL
 com.google.common.base.CharMatcher.And com.google.common.base.CharMatcher withToString(java.lang.String)
 NOT_NULL
+com.google.common.base.CharMatcher.And first
+NOT_NULL
+com.google.common.base.CharMatcher.And second
+NOT_NULL
 com.google.common.base.CharMatcher.Or Or(com.google.common.base.CharMatcher, com.google.common.base.CharMatcher, java.lang.String) 0
 NOT_NULL
 com.google.common.base.CharMatcher.Or Or(com.google.common.base.CharMatcher, com.google.common.base.CharMatcher, java.lang.String) 1
@@ -293,6 +309,10 @@ NOT_NULL
 com.google.common.base.CharMatcher.Or com.google.common.base.CharMatcher or(com.google.common.base.CharMatcher) 0
 NOT_NULL
 com.google.common.base.CharMatcher.Or com.google.common.base.CharMatcher withToString(java.lang.String)
+NOT_NULL
+com.google.common.base.CharMatcher.Or first
+NOT_NULL
+com.google.common.base.CharMatcher.Or second
 NOT_NULL
 com.google.common.base.Defaults void put(java.util.Map<java.lang.Class<?>,java.lang.Object>, java.lang.Class<T>, T) 0
 NOT_NULL
@@ -312,6 +332,8 @@ com.google.common.base.Enums.ValueOfFunction ValueOfFunction(java.lang.Class<T>)
 NOT_NULL
 com.google.common.base.Enums.ValueOfFunction boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Enums.ValueOfFunction enumClass
+NOT_NULL
 com.google.common.base.Enums.ValueOfFunction java.lang.Object apply(java.lang.Object)
 NULLABLE
 com.google.common.base.Equivalence boolean equivalent(T, T) 0
@@ -352,6 +374,10 @@ com.google.common.base.Equivalence.EquivalentToPredicate boolean apply(T) 0
 NULLABLE
 com.google.common.base.Equivalence.EquivalentToPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Equivalence.EquivalentToPredicate equivalence
+NOT_NULL
+com.google.common.base.Equivalence.EquivalentToPredicate target
+NULLABLE
 com.google.common.base.Equivalence.Identity INSTANCE
 NOT_NULL
 com.google.common.base.Equivalence.Identity java.lang.Object readResolve()
@@ -364,17 +390,25 @@ com.google.common.base.Equivalence.Wrapper Wrapper(com.google.common.base.Equiva
 NULLABLE
 com.google.common.base.Equivalence.Wrapper boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Equivalence.Wrapper equivalence
+NOT_NULL
+com.google.common.base.Equivalence.Wrapper reference
+NULLABLE
 com.google.common.base.Equivalences com.google.common.base.Equivalence<java.lang.Object> equals()
 NOT_NULL
 com.google.common.base.Equivalences com.google.common.base.Equivalence<java.lang.Object> identity()
 NOT_NULL
 com.google.common.base.FinalizablePhantomReference FinalizablePhantomReference(T, com.google.common.base.FinalizableReferenceQueue) 1
 NOT_NULL
+com.google.common.base.FinalizableReferenceQueue FINALIZER_CLASS_NAME
+NOT_NULL
 com.google.common.base.FinalizableReferenceQueue java.lang.Class<?> loadFinalizer(com.google.common.base.FinalizableReferenceQueue.FinalizerLoader...)
 NOT_NULL
 com.google.common.base.FinalizableReferenceQueue java.lang.Class<?> loadFinalizer(com.google.common.base.FinalizableReferenceQueue.FinalizerLoader...) 0
 NOT_NULL
 com.google.common.base.FinalizableReferenceQueue java.lang.reflect.Method getStartFinalizer(java.lang.Class<?>) 0
+NOT_NULL
+com.google.common.base.FinalizableReferenceQueue.DecoupledLoader LOADING_ERROR
 NOT_NULL
 com.google.common.base.FinalizableReferenceQueue.DecoupledLoader java.lang.Class<?> loadFinalizer()
 NULLABLE
@@ -400,6 +434,10 @@ com.google.common.base.FunctionalEquivalence FunctionalEquivalence(com.google.co
 NOT_NULL
 com.google.common.base.FunctionalEquivalence boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.FunctionalEquivalence function
+NOT_NULL
+com.google.common.base.FunctionalEquivalence resultEquivalence
+NOT_NULL
 com.google.common.base.Functions com.google.common.base.Function<A,C> compose(com.google.common.base.Function<B,C>, com.google.common.base.Function<A,? extends B>)
 NOT_NULL
 com.google.common.base.Functions com.google.common.base.Function<E,E> identity()
@@ -422,9 +460,13 @@ com.google.common.base.Functions com.google.common.base.Function<java.lang.Objec
 NOT_NULL
 com.google.common.base.Functions.ConstantFunction ConstantFunction(E) 0
 NULLABLE
+com.google.common.base.Functions.ConstantFunction E apply(java.lang.Object)
+NULLABLE
 com.google.common.base.Functions.ConstantFunction E apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.Functions.ConstantFunction boolean equals(java.lang.Object) 0
+NULLABLE
+com.google.common.base.Functions.ConstantFunction value
 NULLABLE
 com.google.common.base.Functions.ForMapWithDefault ForMapWithDefault(java.util.Map<K,? extends V>, V) 0
 NOT_NULL
@@ -434,6 +476,10 @@ com.google.common.base.Functions.ForMapWithDefault V apply(K)
 NULLABLE
 com.google.common.base.Functions.ForMapWithDefault boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Functions.ForMapWithDefault defaultValue
+NULLABLE
+com.google.common.base.Functions.ForMapWithDefault map
+NOT_NULL
 com.google.common.base.Functions.FunctionComposition C apply(A)
 NULLABLE
 com.google.common.base.Functions.FunctionComposition FunctionComposition(com.google.common.base.Function<B,C>, com.google.common.base.Function<A,? extends B>) 0
@@ -442,12 +488,18 @@ com.google.common.base.Functions.FunctionComposition FunctionComposition(com.goo
 NOT_NULL
 com.google.common.base.Functions.FunctionComposition boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Functions.FunctionComposition f
+NOT_NULL
+com.google.common.base.Functions.FunctionComposition g
+NOT_NULL
 com.google.common.base.Functions.FunctionForMapNoDefault FunctionForMapNoDefault(java.util.Map<K,V>) 0
 NOT_NULL
 com.google.common.base.Functions.FunctionForMapNoDefault V apply(K)
 NULLABLE
 com.google.common.base.Functions.FunctionForMapNoDefault boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Functions.FunctionForMapNoDefault map
+NOT_NULL
 com.google.common.base.Functions.IdentityFunction $VALUES
 NOT_NULL
 com.google.common.base.Functions.IdentityFunction INSTANCE
@@ -458,12 +510,16 @@ com.google.common.base.Functions.PredicateFunction PredicateFunction(com.google.
 NOT_NULL
 com.google.common.base.Functions.PredicateFunction boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Functions.PredicateFunction predicate
+NOT_NULL
 com.google.common.base.Functions.SupplierFunction SupplierFunction(com.google.common.base.Supplier<T>) 0
 NOT_NULL
 com.google.common.base.Functions.SupplierFunction T apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.Functions.SupplierFunction boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Functions.SupplierFunction supplier
+NOT_NULL
 com.google.common.base.Functions.ToStringFunction $VALUES
 NOT_NULL
 com.google.common.base.Functions.ToStringFunction INSTANCE
@@ -644,6 +700,8 @@ com.google.common.base.Joiner.MapJoiner java.lang.StringBuilder appendTo(java.la
 NOT_NULL
 com.google.common.base.Joiner.MapJoiner java.lang.StringBuilder appendTo(java.lang.StringBuilder, java.util.Map<?,?>) 1
 NOT_NULL
+com.google.common.base.Joiner.MapJoiner keyValueSeparator
+NOT_NULL
 com.google.common.base.MediumCharMatcher com.google.common.base.CharMatcher from(char[], java.lang.String)
 NOT_NULL
 com.google.common.base.MediumCharMatcher com.google.common.base.CharMatcher from(char[], java.lang.String) 0
@@ -675,6 +733,8 @@ NULLABLE
 com.google.common.base.Objects java.lang.String simpleName(java.lang.Class<?>) 0
 NOT_NULL
 com.google.common.base.Objects.ToStringHelper ToStringHelper(java.lang.String) 0
+NOT_NULL
+com.google.common.base.Objects.ToStringHelper className
 NOT_NULL
 com.google.common.base.Objects.ToStringHelper com.google.common.base.Objects.ToStringHelper add(java.lang.String, boolean)
 NOT_NULL
@@ -720,6 +780,10 @@ com.google.common.base.Objects.ToStringHelper com.google.common.base.Objects.ToS
 NULLABLE
 com.google.common.base.Objects.ToStringHelper java.lang.StringBuilder checkNameAndAppend(java.lang.String) 0
 NOT_NULL
+com.google.common.base.Objects.ToStringHelper valueHolders
+NOT_NULL
+com.google.common.base.Objects.ToStringHelper.ValueHolder builder
+NOT_NULL
 com.google.common.base.Optional T orNull()
 NULLABLE
 com.google.common.base.Optional boolean equals(java.lang.Object) 0
@@ -740,6 +804,8 @@ com.google.common.base.Optional java.lang.Iterable<T> presentInstances(java.lang
 NOT_NULL
 com.google.common.base.Optional.1 java.util.Iterator<T> iterator()
 NOT_NULL
+com.google.common.base.Optional.1.1 iterator
+NOT_NULL
 com.google.common.base.PairwiseEquivalence PairwiseEquivalence(com.google.common.base.Equivalence<? super T>) 0
 NOT_NULL
 com.google.common.base.PairwiseEquivalence boolean doEquivalent(java.lang.Iterable<T>, java.lang.Iterable<T>) 0
@@ -752,6 +818,8 @@ com.google.common.base.PairwiseEquivalence boolean doEquivalent(java.lang.Object
 NOT_NULL
 com.google.common.base.PairwiseEquivalence boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.PairwiseEquivalence elementEquivalence
+NOT_NULL
 com.google.common.base.PairwiseEquivalence int doHash(java.lang.Iterable<T>) 0
 NOT_NULL
 com.google.common.base.PairwiseEquivalence int doHash(java.lang.Object) 0
@@ -806,6 +874,10 @@ com.google.common.base.Predicate boolean apply(T) 0
 NULLABLE
 com.google.common.base.Predicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates COMMA_JOINER
+NOT_NULL
+com.google.common.base.Predicates com.google.common.base.Joiner access$800()
+NOT_NULL
 com.google.common.base.Predicates com.google.common.base.Predicate<A> compose(com.google.common.base.Predicate<B>, com.google.common.base.Function<A,? extends B>)
 NOT_NULL
 com.google.common.base.Predicates com.google.common.base.Predicate<T> alwaysFalse()
@@ -868,32 +940,46 @@ com.google.common.base.Predicates.AssignableFromPredicate AssignableFromPredicat
 NOT_NULL
 com.google.common.base.Predicates.AssignableFromPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates.AssignableFromPredicate clazz
+NOT_NULL
 com.google.common.base.Predicates.CompositionPredicate CompositionPredicate(com.google.common.base.Predicate<B>, com.google.common.base.Function<A,? extends B>) 0
 NOT_NULL
 com.google.common.base.Predicates.CompositionPredicate CompositionPredicate(com.google.common.base.Predicate<B>, com.google.common.base.Function<A,? extends B>) 1
 NOT_NULL
 com.google.common.base.Predicates.CompositionPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates.CompositionPredicate f
+NOT_NULL
+com.google.common.base.Predicates.CompositionPredicate p
+NOT_NULL
 com.google.common.base.Predicates.ContainsPatternPredicate ContainsPatternPredicate(java.util.regex.Pattern) 0
 NOT_NULL
 com.google.common.base.Predicates.ContainsPatternPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates.ContainsPatternPredicate pattern
+NOT_NULL
 com.google.common.base.Predicates.InPredicate InPredicate(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.base.Predicates.InPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates.InPredicate target
+NOT_NULL
 com.google.common.base.Predicates.InstanceOfPredicate InstanceOfPredicate(java.lang.Class<?>) 0
 NOT_NULL
 com.google.common.base.Predicates.InstanceOfPredicate boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.Predicates.InstanceOfPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates.InstanceOfPredicate clazz
+NOT_NULL
 com.google.common.base.Predicates.IsEqualToPredicate boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.base.Predicates.NotPredicate NotPredicate(com.google.common.base.Predicate<T>) 0
 NOT_NULL
 com.google.common.base.Predicates.NotPredicate boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.base.Predicates.NotPredicate predicate
+NOT_NULL
 com.google.common.base.Predicates.ObjectPredicate $VALUES
 NOT_NULL
 com.google.common.base.Predicates.ObjectPredicate ALWAYS_FALSE
@@ -1000,7 +1086,11 @@ com.google.common.base.Splitter.4 com.google.common.base.Splitter.SplittingItera
 NOT_NULL
 com.google.common.base.Splitter.4 java.util.Iterator iterator(com.google.common.base.Splitter, java.lang.CharSequence)
 NOT_NULL
+com.google.common.base.Splitter.MapSplitter INVALID_ENTRY_MESSAGE
+NOT_NULL
 com.google.common.base.Splitter.MapSplitter MapSplitter(com.google.common.base.Splitter, com.google.common.base.Splitter) 1
+NOT_NULL
+com.google.common.base.Splitter.MapSplitter entrySplitter
 NOT_NULL
 com.google.common.base.Splitter.MapSplitter java.util.Map<java.lang.String,java.lang.String> split(java.lang.CharSequence) 0
 NOT_NULL
@@ -1019,6 +1109,8 @@ NOT_NULL
 com.google.common.base.Stopwatch java.lang.String abbreviate(java.util.concurrent.TimeUnit) 0
 NOT_NULL
 com.google.common.base.Stopwatch long elapsedTime(java.util.concurrent.TimeUnit) 0
+NOT_NULL
+com.google.common.base.Stopwatch ticker
 NOT_NULL
 com.google.common.base.Stopwatch.1 $SwitchMap$java$util$concurrent$TimeUnit
 NOT_NULL
@@ -1074,6 +1166,8 @@ com.google.common.base.Suppliers.ExpiringMemoizingSupplier ExpiringMemoizingSupp
 NOT_NULL
 com.google.common.base.Suppliers.ExpiringMemoizingSupplier ExpiringMemoizingSupplier(com.google.common.base.Supplier<T>, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
+com.google.common.base.Suppliers.ExpiringMemoizingSupplier delegate
+NOT_NULL
 com.google.common.base.Suppliers.SupplierComposition T get()
 NULLABLE
 com.google.common.base.Suppliers.SupplierFunction $VALUES
@@ -1087,6 +1181,10 @@ NOT_NULL
 com.google.common.base.Suppliers.SupplierFunction java.lang.String toString()
 NOT_NULL
 com.google.common.base.Suppliers.SupplierOfInstance SupplierOfInstance(T) 0
+NULLABLE
+com.google.common.base.Suppliers.SupplierOfInstance T get()
+NULLABLE
+com.google.common.base.Suppliers.SupplierOfInstance instance
 NULLABLE
 com.google.common.base.Throwables java.lang.String getStackTraceAsString(java.lang.Throwable) 0
 NOT_NULL
@@ -1108,10 +1206,22 @@ com.google.common.base.Ticker SYSTEM_TICKER
 NOT_NULL
 com.google.common.base.Ticker com.google.common.base.Ticker systemTicker()
 NOT_NULL
+com.google.common.base.internal.Finalizer FINALIZABLE_REFERENCE
+NOT_NULL
+com.google.common.base.internal.Finalizer finalizableReferenceClassReference
+NOT_NULL
+com.google.common.base.internal.Finalizer frqReference
+NOT_NULL
+com.google.common.base.internal.Finalizer inheritableThreadLocals
+NULLABLE
+com.google.common.base.internal.Finalizer java.lang.ref.ReferenceQueue<java.lang.Object> startFinalizer(java.lang.Class<?>, java.lang.Object)
+NOT_NULL
 com.google.common.base.internal.Finalizer java.lang.ref.ReferenceQueue<java.lang.Object> startFinalizer(java.lang.Class<?>, java.lang.Object) 0
 NOT_NULL
 com.google.common.base.internal.Finalizer java.lang.reflect.Field getInheritableThreadLocalsField()
 NULLABLE
+com.google.common.base.internal.Finalizer queue
+NOT_NULL
 com.google.common.cache.AbstractCache com.google.common.collect.ImmutableMap<K,V> getAllPresent(java.lang.Iterable<?>)
 NOT_NULL
 com.google.common.cache.AbstractCache com.google.common.collect.ImmutableMap<K,V> getAllPresent(java.lang.Iterable<?>) 0
@@ -1121,6 +1231,18 @@ NOT_NULL
 com.google.common.cache.AbstractCache void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
 com.google.common.cache.AbstractCache.SimpleStatsCounter com.google.common.cache.CacheStats snapshot()
+NOT_NULL
+com.google.common.cache.AbstractCache.SimpleStatsCounter evictionCount
+NOT_NULL
+com.google.common.cache.AbstractCache.SimpleStatsCounter hitCount
+NOT_NULL
+com.google.common.cache.AbstractCache.SimpleStatsCounter loadExceptionCount
+NOT_NULL
+com.google.common.cache.AbstractCache.SimpleStatsCounter loadSuccessCount
+NOT_NULL
+com.google.common.cache.AbstractCache.SimpleStatsCounter missCount
+NOT_NULL
+com.google.common.cache.AbstractCache.SimpleStatsCounter totalLoadTime
 NOT_NULL
 com.google.common.cache.AbstractCache.SimpleStatsCounter void incrementBy(com.google.common.cache.AbstractCache.StatsCounter) 0
 NOT_NULL
@@ -1133,6 +1255,8 @@ NULLABLE
 com.google.common.cache.CacheBuilder CACHE_STATS_COUNTER
 NOT_NULL
 com.google.common.cache.CacheBuilder EMPTY_STATS
+NOT_NULL
+com.google.common.cache.CacheBuilder NULL_STATS_COUNTER
 NOT_NULL
 com.google.common.cache.CacheBuilder NULL_TICKER
 NOT_NULL
@@ -1238,6 +1362,12 @@ com.google.common.cache.CacheBuilder.OneWeigher $VALUES
 NOT_NULL
 com.google.common.cache.CacheBuilder.OneWeigher INSTANCE
 NOT_NULL
+com.google.common.cache.CacheBuilderSpec KEYS_SPLITTER
+NOT_NULL
+com.google.common.cache.CacheBuilderSpec KEY_VALUE_SPLITTER
+NOT_NULL
+com.google.common.cache.CacheBuilderSpec VALUE_PARSERS
+NOT_NULL
 com.google.common.cache.CacheBuilderSpec com.google.common.cache.CacheBuilder<java.lang.Object,java.lang.Object> toCacheBuilder()
 NOT_NULL
 com.google.common.cache.CacheBuilderSpec com.google.common.cache.CacheBuilderSpec disableCaching()
@@ -1292,7 +1422,11 @@ com.google.common.cache.CacheLoader.FunctionToCacheLoader FunctionToCacheLoader(
 NOT_NULL
 com.google.common.cache.CacheLoader.FunctionToCacheLoader V load(K)
 NULLABLE
+com.google.common.cache.CacheLoader.FunctionToCacheLoader computingFunction
+NOT_NULL
 com.google.common.cache.CacheLoader.SupplierToCacheLoader SupplierToCacheLoader(com.google.common.base.Supplier<V>) 0
+NOT_NULL
+com.google.common.cache.CacheLoader.SupplierToCacheLoader computingSupplier
 NOT_NULL
 com.google.common.cache.CacheStats boolean equals(java.lang.Object) 0
 NULLABLE
@@ -1308,7 +1442,21 @@ com.google.common.cache.ForwardingCache V getIfPresent(java.lang.Object)
 NULLABLE
 com.google.common.cache.ForwardingCache.SimpleForwardingCache SimpleForwardingCache(com.google.common.cache.Cache<K,V>) 0
 NOT_NULL
+com.google.common.cache.ForwardingCache.SimpleForwardingCache com.google.common.cache.Cache<K,V> delegate()
+NOT_NULL
+com.google.common.cache.ForwardingCache.SimpleForwardingCache delegate
+NOT_NULL
+com.google.common.cache.ForwardingCache.SimpleForwardingCache java.lang.Object delegate()
+NOT_NULL
 com.google.common.cache.ForwardingLoadingCache.SimpleForwardingLoadingCache SimpleForwardingLoadingCache(com.google.common.cache.LoadingCache<K,V>) 0
+NOT_NULL
+com.google.common.cache.ForwardingLoadingCache.SimpleForwardingLoadingCache com.google.common.cache.Cache delegate()
+NOT_NULL
+com.google.common.cache.ForwardingLoadingCache.SimpleForwardingLoadingCache com.google.common.cache.LoadingCache<K,V> delegate()
+NOT_NULL
+com.google.common.cache.ForwardingLoadingCache.SimpleForwardingLoadingCache delegate
+NOT_NULL
+com.google.common.cache.ForwardingLoadingCache.SimpleForwardingLoadingCache java.lang.Object delegate()
 NOT_NULL
 com.google.common.cache.LocalCache DISCARDING_QUEUE
 NOT_NULL
@@ -1404,6 +1552,8 @@ com.google.common.cache.LocalCache com.google.common.collect.ImmutableMap<K,V> g
 NOT_NULL
 com.google.common.cache.LocalCache com.google.common.collect.ImmutableMap<K,V> getAllPresent(java.lang.Iterable<?>) 0
 NOT_NULL
+com.google.common.cache.LocalCache defaultLoader
+NULLABLE
 com.google.common.cache.LocalCache java.util.Collection<V> values()
 NULLABLE
 com.google.common.cache.LocalCache java.util.Map<K,V> loadAll(java.util.Set<? extends K>, com.google.common.cache.CacheLoader<? super K,V>)
@@ -1415,6 +1565,22 @@ NOT_NULL
 com.google.common.cache.LocalCache java.util.Set<K> keySet()
 NULLABLE
 com.google.common.cache.LocalCache java.util.Set<java.util.Map.Entry<K,V>> entrySet()
+NULLABLE
+com.google.common.cache.LocalCache keyEquivalence
+NULLABLE
+com.google.common.cache.LocalCache keyStrength
+NULLABLE
+com.google.common.cache.LocalCache removalListener
+NULLABLE
+com.google.common.cache.LocalCache removalNotificationQueue
+NOT_NULL
+com.google.common.cache.LocalCache sameThreadExecutor
+NOT_NULL
+com.google.common.cache.LocalCache segments
+NOT_NULL
+com.google.common.cache.LocalCache valueEquivalence
+NULLABLE
+com.google.common.cache.LocalCache valueStrength
 NULLABLE
 com.google.common.cache.LocalCache void connectAccessOrder(com.google.common.cache.LocalCache.ReferenceEntry<K,V>, com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 0
 NOT_NULL
@@ -1438,6 +1604,8 @@ com.google.common.cache.LocalCache void reclaimValue(com.google.common.cache.Loc
 NOT_NULL
 com.google.common.cache.LocalCache void refresh(K) 0
 NOT_NULL
+com.google.common.cache.LocalCache weigher
+NULLABLE
 com.google.common.cache.LocalCache.1 com.google.common.cache.LocalCache.ReferenceEntry<java.lang.Object,java.lang.Object> getEntry()
 NULLABLE
 com.google.common.cache.LocalCache.1 com.google.common.cache.LocalCache.ValueReference<java.lang.Object,java.lang.Object> copyFor(java.lang.ref.ReferenceQueue<java.lang.Object>, java.lang.Object, com.google.common.cache.LocalCache.ReferenceEntry<java.lang.Object,java.lang.Object>)
@@ -1466,6 +1634,8 @@ com.google.common.cache.LocalCache.AccessQueue com.google.common.cache.LocalCach
 NULLABLE
 com.google.common.cache.LocalCache.AccessQueue com.google.common.cache.LocalCache.ReferenceEntry<K,V> poll()
 NULLABLE
+com.google.common.cache.LocalCache.AccessQueue head
+NOT_NULL
 com.google.common.cache.LocalCache.AccessQueue java.lang.Object peek()
 NULLABLE
 com.google.common.cache.LocalCache.AccessQueue java.lang.Object poll()
@@ -1558,6 +1728,8 @@ com.google.common.cache.LocalCache.HashIterator HashIterator(com.google.common.c
 NOT_NULL
 com.google.common.cache.LocalCache.HashIterator boolean advanceTo(com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 0
 NOT_NULL
+com.google.common.cache.LocalCache.HashIterator this$0
+NOT_NULL
 com.google.common.cache.LocalCache.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 com.google.common.cache.LocalCache.LoadingSerializationProxy void readObject(java.io.ObjectInputStream) 0
@@ -1573,6 +1745,12 @@ NOT_NULL
 com.google.common.cache.LocalCache.LoadingValueReference com.google.common.cache.LocalCache.ValueReference<K,V> copyFor(java.lang.ref.ReferenceQueue<V>, V, com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 1
 NULLABLE
 com.google.common.cache.LocalCache.LoadingValueReference com.google.common.util.concurrent.ListenableFuture<V> fullyFailedFuture(java.lang.Throwable)
+NOT_NULL
+com.google.common.cache.LocalCache.LoadingValueReference com.google.common.util.concurrent.ListenableFuture<V> loadFuture(K, com.google.common.cache.CacheLoader<? super K,V>)
+NOT_NULL
+com.google.common.cache.LocalCache.LoadingValueReference futureValue
+NOT_NULL
+com.google.common.cache.LocalCache.LoadingValueReference stopwatch
 NOT_NULL
 com.google.common.cache.LocalCache.LoadingValueReference void notifyNewValue(V) 0
 NULLABLE
@@ -1622,6 +1800,8 @@ com.google.common.cache.LocalCache.ManualSerializationProxy ManualSerializationP
 NOT_NULL
 com.google.common.cache.LocalCache.ManualSerializationProxy com.google.common.cache.CacheBuilder<java.lang.Object,java.lang.Object> recreateCacheBuilder()
 NOT_NULL
+com.google.common.cache.LocalCache.ManualSerializationProxy ticker
+NULLABLE
 com.google.common.cache.LocalCache.ManualSerializationProxy void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 com.google.common.cache.LocalCache.NullEntry $VALUES
@@ -1678,6 +1858,8 @@ com.google.common.cache.LocalCache.Segment V waitForLoadingValue(com.google.comm
 NOT_NULL
 com.google.common.cache.LocalCache.Segment V waitForLoadingValue(com.google.common.cache.LocalCache.ReferenceEntry<K,V>, K, com.google.common.cache.LocalCache.ValueReference<K,V>) 2
 NOT_NULL
+com.google.common.cache.LocalCache.Segment accessQueue
+NOT_NULL
 com.google.common.cache.LocalCache.Segment com.google.common.cache.LocalCache.LoadingValueReference<K,V> insertLoadingValueReference(K, int)
 NULLABLE
 com.google.common.cache.LocalCache.Segment com.google.common.cache.LocalCache.ReferenceEntry<K,V> copyEntry(com.google.common.cache.LocalCache.ReferenceEntry<K,V>, com.google.common.cache.LocalCache.ReferenceEntry<K,V>)
@@ -1710,6 +1892,16 @@ com.google.common.cache.LocalCache.Segment com.google.common.util.concurrent.Lis
 NOT_NULL
 com.google.common.cache.LocalCache.Segment java.util.concurrent.atomic.AtomicReferenceArray<com.google.common.cache.LocalCache.ReferenceEntry<K,V>> newEntryArray(int)
 NOT_NULL
+com.google.common.cache.LocalCache.Segment keyReferenceQueue
+NULLABLE
+com.google.common.cache.LocalCache.Segment map
+NOT_NULL
+com.google.common.cache.LocalCache.Segment readCount
+NOT_NULL
+com.google.common.cache.LocalCache.Segment recencyQueue
+NOT_NULL
+com.google.common.cache.LocalCache.Segment valueReferenceQueue
+NULLABLE
 com.google.common.cache.LocalCache.Segment void enqueueNotification(K, int, com.google.common.cache.LocalCache.ValueReference<K,V>, com.google.common.cache.RemovalCause) 0
 NULLABLE
 com.google.common.cache.LocalCache.Segment void enqueueNotification(K, int, com.google.common.cache.LocalCache.ValueReference<K,V>, com.google.common.cache.RemovalCause) 2
@@ -1725,6 +1917,8 @@ NOT_NULL
 com.google.common.cache.LocalCache.Segment void removeCollectedEntry(com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 0
 NOT_NULL
 com.google.common.cache.LocalCache.Segment void setValue(com.google.common.cache.LocalCache.ReferenceEntry<K,V>, K, V, long) 0
+NOT_NULL
+com.google.common.cache.LocalCache.Segment writeQueue
 NOT_NULL
 com.google.common.cache.LocalCache.SoftValueReference com.google.common.cache.LocalCache.ValueReference<K,V> copyFor(java.lang.ref.ReferenceQueue<V>, V, com.google.common.cache.LocalCache.ReferenceEntry<K,V>)
 NOT_NULL
@@ -1758,6 +1952,10 @@ com.google.common.cache.LocalCache.StrongAccessWriteEntry StrongAccessWriteEntry
 NULLABLE
 com.google.common.cache.LocalCache.StrongEntry StrongEntry(K, int, com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 2
 NULLABLE
+com.google.common.cache.LocalCache.StrongEntry com.google.common.cache.LocalCache.ReferenceEntry<K,V> getNext()
+NULLABLE
+com.google.common.cache.LocalCache.StrongEntry next
+NULLABLE
 com.google.common.cache.LocalCache.StrongValueReference com.google.common.cache.LocalCache.ReferenceEntry<K,V> getEntry()
 NULLABLE
 com.google.common.cache.LocalCache.StrongValueReference com.google.common.cache.LocalCache.ValueReference<K,V> copyFor(java.lang.ref.ReferenceQueue<V>, V, com.google.common.cache.LocalCache.ReferenceEntry<K,V>)
@@ -1780,6 +1978,10 @@ com.google.common.cache.LocalCache.WeakAccessWriteEntry WeakAccessWriteEntry(jav
 NULLABLE
 com.google.common.cache.LocalCache.WeakEntry WeakEntry(java.lang.ref.ReferenceQueue<K>, K, int, com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 3
 NULLABLE
+com.google.common.cache.LocalCache.WeakEntry com.google.common.cache.LocalCache.ReferenceEntry<K,V> getNext()
+NULLABLE
+com.google.common.cache.LocalCache.WeakEntry next
+NULLABLE
 com.google.common.cache.LocalCache.WeakValueReference com.google.common.cache.LocalCache.ValueReference<K,V> copyFor(java.lang.ref.ReferenceQueue<V>, V, com.google.common.cache.LocalCache.ReferenceEntry<K,V>)
 NOT_NULL
 com.google.common.cache.LocalCache.WeakWriteEntry WeakWriteEntry(java.lang.ref.ReferenceQueue<K>, K, int, com.google.common.cache.LocalCache.ReferenceEntry<K,V>) 3
@@ -1800,6 +2002,8 @@ com.google.common.cache.LocalCache.WriteQueue com.google.common.cache.LocalCache
 NULLABLE
 com.google.common.cache.LocalCache.WriteQueue com.google.common.cache.LocalCache.ReferenceEntry<K,V> poll()
 NULLABLE
+com.google.common.cache.LocalCache.WriteQueue head
+NOT_NULL
 com.google.common.cache.LocalCache.WriteQueue java.lang.Object peek()
 NULLABLE
 com.google.common.cache.LocalCache.WriteQueue java.lang.Object poll()
@@ -1845,6 +2049,14 @@ NOT_NULL
 com.google.common.cache.RemovalNotification V getValue()
 NULLABLE
 com.google.common.cache.RemovalNotification boolean equals(java.lang.Object) 0
+NULLABLE
+com.google.common.cache.RemovalNotification cause
+NOT_NULL
+com.google.common.cache.RemovalNotification com.google.common.cache.RemovalCause getCause()
+NOT_NULL
+com.google.common.cache.RemovalNotification key
+NULLABLE
+com.google.common.cache.RemovalNotification value
 NULLABLE
 com.google.common.cache.Striped64 threadHashCode
 NOT_NULL
@@ -1914,8 +2126,16 @@ com.google.common.collect.AbstractBiMap.Inverse void writeObject(java.io.ObjectO
 NOT_NULL
 com.google.common.collect.AbstractBiMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
+com.google.common.collect.AbstractBiMap.ValueSet java.lang.Object delegate()
+NULLABLE
+com.google.common.collect.AbstractBiMap.ValueSet java.util.Collection delegate()
+NULLABLE
 com.google.common.collect.AbstractBiMap.ValueSet java.util.Iterator<V> iterator()
 NOT_NULL
+com.google.common.collect.AbstractBiMap.ValueSet java.util.Set<V> delegate()
+NULLABLE
+com.google.common.collect.AbstractBiMap.ValueSet valuesDelegate
+NULLABLE
 com.google.common.collect.AbstractIterator T endOfData()
 NULLABLE
 com.google.common.collect.AbstractIterator.1 $SwitchMap$com$google$common$collect$AbstractIterator$State
@@ -1981,6 +2201,8 @@ NOT_NULL
 com.google.common.collect.AbstractMapBasedMultiset.1 java.lang.Object next()
 NOT_NULL
 com.google.common.collect.AbstractMapBasedMultiset.MapBasedMultisetIterator MapBasedMultisetIterator(com.google.common.collect.AbstractMapBasedMultiset) 0
+NOT_NULL
+com.google.common.collect.AbstractMapBasedMultiset.MapBasedMultisetIterator this$0
 NOT_NULL
 com.google.common.collect.AbstractMapEntry boolean equals(java.lang.Object) 0
 NULLABLE
@@ -2100,6 +2322,8 @@ com.google.common.collect.AbstractMultimap.EntryIterator java.lang.Object next()
 NOT_NULL
 com.google.common.collect.AbstractMultimap.EntryIterator java.util.Map.Entry<K,V> next()
 NOT_NULL
+com.google.common.collect.AbstractMultimap.EntryIterator this$0
+NOT_NULL
 com.google.common.collect.AbstractMultimap.KeySet boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.AbstractMultimap.KeySet java.util.Iterator<K> iterator()
@@ -2124,9 +2348,15 @@ com.google.common.collect.AbstractMultimap.SortedKeySet java.util.SortedSet<K> s
 NOT_NULL
 com.google.common.collect.AbstractMultimap.SortedKeySet java.util.SortedSet<K> tailSet(K)
 NOT_NULL
+com.google.common.collect.AbstractMultimap.WrappedCollection K getKey()
+NULLABLE
 com.google.common.collect.AbstractMultimap.WrappedCollection WrappedCollection(K, java.util.Collection<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection) 1
 NULLABLE
 com.google.common.collect.AbstractMultimap.WrappedCollection WrappedCollection(K, java.util.Collection<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection) 3
+NULLABLE
+com.google.common.collect.AbstractMultimap.WrappedCollection ancestor
+NULLABLE
+com.google.common.collect.AbstractMultimap.WrappedCollection ancestorDelegate
 NULLABLE
 com.google.common.collect.AbstractMultimap.WrappedCollection boolean addAll(java.util.Collection<? extends V>) 0
 NOT_NULL
@@ -2136,8 +2366,12 @@ com.google.common.collect.AbstractMultimap.WrappedCollection boolean removeAll(j
 NOT_NULL
 com.google.common.collect.AbstractMultimap.WrappedCollection boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
+com.google.common.collect.AbstractMultimap.WrappedCollection com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection getAncestor()
+NULLABLE
 com.google.common.collect.AbstractMultimap.WrappedCollection java.util.Iterator<V> iterator()
 NOT_NULL
+com.google.common.collect.AbstractMultimap.WrappedCollection key
+NULLABLE
 com.google.common.collect.AbstractMultimap.WrappedCollection.WrappedIterator WrappedIterator(com.google.common.collect.AbstractMultimap.WrappedCollection) 0
 NOT_NULL
 com.google.common.collect.AbstractMultimap.WrappedList WrappedList(K, java.util.List<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection) 1
@@ -2242,6 +2476,10 @@ com.google.common.collect.AbstractSortedMultiset com.google.common.collect.Sorte
 NULLABLE
 com.google.common.collect.AbstractSortedMultiset com.google.common.collect.SortedMultiset<E> subMultiset(E, com.google.common.collect.BoundType, E, com.google.common.collect.BoundType) 3
 NOT_NULL
+com.google.common.collect.AbstractSortedMultiset comparator
+NOT_NULL
+com.google.common.collect.AbstractSortedMultiset java.util.Comparator<? super E> comparator()
+NOT_NULL
 com.google.common.collect.AbstractSortedMultiset java.util.Iterator<E> descendingIterator()
 NOT_NULL
 com.google.common.collect.AbstractSortedMultiset java.util.Set createElementSet()
@@ -2334,6 +2572,8 @@ com.google.common.collect.ArrayTable V put(R, C, V) 2
 NULLABLE
 com.google.common.collect.ArrayTable V set(int, int, V) 2
 NULLABLE
+com.google.common.collect.ArrayTable array
+NOT_NULL
 com.google.common.collect.ArrayTable boolean contains(java.lang.Object, java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ArrayTable boolean contains(java.lang.Object, java.lang.Object) 1
@@ -2368,6 +2608,8 @@ com.google.common.collect.ArrayTable com.google.common.collect.ImmutableSet<C> c
 NULLABLE
 com.google.common.collect.ArrayTable com.google.common.collect.ImmutableSet<R> rowKeySet()
 NULLABLE
+com.google.common.collect.ArrayTable java.lang.Object[][] access$300(com.google.common.collect.ArrayTable)
+NOT_NULL
 com.google.common.collect.ArrayTable java.lang.Object[][] access$300(com.google.common.collect.ArrayTable) 0
 NOT_NULL
 com.google.common.collect.ArrayTable java.util.Collection<V> values()
@@ -2428,6 +2670,8 @@ com.google.common.collect.ArrayTable.Column Column(com.google.common.collect.Arr
 NOT_NULL
 com.google.common.collect.ArrayTable.Column java.lang.String getKeyRole()
 NOT_NULL
+com.google.common.collect.ArrayTable.Column this$0
+NOT_NULL
 com.google.common.collect.ArrayTable.ColumnMap ColumnMap(com.google.common.collect.ArrayTable) 0
 NOT_NULL
 com.google.common.collect.ArrayTable.ColumnMap java.lang.Object getValue(int)
@@ -2436,9 +2680,13 @@ com.google.common.collect.ArrayTable.ColumnMap java.lang.String getKeyRole()
 NOT_NULL
 com.google.common.collect.ArrayTable.ColumnMap java.util.Map<R,V> getValue(int)
 NOT_NULL
+com.google.common.collect.ArrayTable.ColumnMap this$0
+NOT_NULL
 com.google.common.collect.ArrayTable.Row Row(com.google.common.collect.ArrayTable, int) 0
 NOT_NULL
 com.google.common.collect.ArrayTable.Row java.lang.String getKeyRole()
+NOT_NULL
+com.google.common.collect.ArrayTable.Row this$0
 NOT_NULL
 com.google.common.collect.ArrayTable.RowMap RowMap(com.google.common.collect.ArrayTable) 0
 NOT_NULL
@@ -2447,6 +2695,8 @@ NOT_NULL
 com.google.common.collect.ArrayTable.RowMap java.lang.String getKeyRole()
 NOT_NULL
 com.google.common.collect.ArrayTable.RowMap java.util.Map<C,V> getValue(int)
+NOT_NULL
+com.google.common.collect.ArrayTable.RowMap this$0
 NOT_NULL
 com.google.common.collect.ArrayTable.Values java.util.Iterator<V> iterator()
 NOT_NULL
@@ -2476,8 +2726,14 @@ com.google.common.collect.ByFunctionOrdering ByFunctionOrdering(com.google.commo
 NOT_NULL
 com.google.common.collect.ByFunctionOrdering boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.ByFunctionOrdering function
+NOT_NULL
+com.google.common.collect.ByFunctionOrdering ordering
+NOT_NULL
 com.google.common.collect.ClassToInstanceMap T putInstance(java.lang.Class<T>, T) 1
 NULLABLE
+com.google.common.collect.Collections2 STANDARD_JOINER
+NOT_NULL
 com.google.common.collect.Collections2 boolean access$100(java.util.List, java.util.List) 0
 NOT_NULL
 com.google.common.collect.Collections2 boolean access$100(java.util.List, java.util.List) 1
@@ -2528,6 +2784,8 @@ com.google.common.collect.Collections2.OrderedPermutationCollection OrderedPermu
 NOT_NULL
 com.google.common.collect.Collections2.OrderedPermutationCollection boolean contains(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Collections2.OrderedPermutationCollection inputList
+NOT_NULL
 com.google.common.collect.Collections2.OrderedPermutationCollection int calculateSize(java.util.List<E>, java.util.Comparator<? super E>) 0
 NOT_NULL
 com.google.common.collect.Collections2.OrderedPermutationCollection java.util.Iterator<java.util.List<E>> iterator()
@@ -2540,9 +2798,19 @@ com.google.common.collect.Collections2.PermutationCollection java.util.Iterator<
 NOT_NULL
 com.google.common.collect.Collections2.PermutationIterator PermutationIterator(java.util.List<E>) 0
 NOT_NULL
+com.google.common.collect.Collections2.PermutationIterator c
+NOT_NULL
+com.google.common.collect.Collections2.PermutationIterator list
+NOT_NULL
+com.google.common.collect.Collections2.PermutationIterator o
+NOT_NULL
 com.google.common.collect.Collections2.TransformedCollection TransformedCollection(java.util.Collection<F>, com.google.common.base.Function<? super F,? extends T>) 0
 NOT_NULL
 com.google.common.collect.Collections2.TransformedCollection TransformedCollection(java.util.Collection<F>, com.google.common.base.Function<? super F,? extends T>) 1
+NOT_NULL
+com.google.common.collect.Collections2.TransformedCollection fromCollection
+NOT_NULL
+com.google.common.collect.Collections2.TransformedCollection function
 NOT_NULL
 com.google.common.collect.Collections2.TransformedCollection java.util.Iterator<T> iterator()
 NOT_NULL
@@ -2553,6 +2821,8 @@ NULLABLE
 com.google.common.collect.ComparatorOrdering com.google.common.collect.ImmutableList<E> immutableSortedCopy(java.lang.Iterable<E>)
 NOT_NULL
 com.google.common.collect.ComparatorOrdering com.google.common.collect.ImmutableList<E> immutableSortedCopy(java.lang.Iterable<E>) 0
+NOT_NULL
+com.google.common.collect.ComparatorOrdering comparator
 NOT_NULL
 com.google.common.collect.ComparatorOrdering java.util.List<E> sortedCopy(java.lang.Iterable<E>)
 NOT_NULL
@@ -2630,6 +2900,8 @@ com.google.common.collect.ComparisonChain.InactiveComparisonChain com.google.com
 NOT_NULL
 com.google.common.collect.CompoundOrdering CompoundOrdering(java.lang.Iterable<? extends java.util.Comparator<? super T>>) 0
 NOT_NULL
+com.google.common.collect.CompoundOrdering comparators
+NOT_NULL
 com.google.common.collect.ComputingConcurrentHashMap ComputingConcurrentHashMap(com.google.common.collect.MapMaker, com.google.common.base.Function<? super K,? extends V>) 1
 NOT_NULL
 com.google.common.collect.ComputingConcurrentHashMap V getOrCompute(K)
@@ -2637,6 +2909,8 @@ NULLABLE
 com.google.common.collect.ComputingConcurrentHashMap V getOrCompute(K) 0
 NOT_NULL
 com.google.common.collect.ComputingConcurrentHashMap com.google.common.collect.MapMakerInternalMap.Segment<K,V> createSegment(int, int)
+NOT_NULL
+com.google.common.collect.ComputingConcurrentHashMap computingFunction
 NOT_NULL
 com.google.common.collect.ComputingConcurrentHashMap java.lang.Object writeReplace()
 NOT_NULL
@@ -2648,10 +2922,16 @@ com.google.common.collect.ComputingConcurrentHashMap.ComputationExceptionReferen
 NOT_NULL
 com.google.common.collect.ComputingConcurrentHashMap.ComputedReference ComputedReference(V) 0
 NULLABLE
+com.google.common.collect.ComputingConcurrentHashMap.ComputedReference V get()
+NULLABLE
+com.google.common.collect.ComputingConcurrentHashMap.ComputedReference V waitForValue()
+NULLABLE
 com.google.common.collect.ComputingConcurrentHashMap.ComputedReference com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> getEntry()
 NULLABLE
 com.google.common.collect.ComputingConcurrentHashMap.ComputedReference com.google.common.collect.MapMakerInternalMap.ValueReference<K,V> copyFor(java.lang.ref.ReferenceQueue<V>, V, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>)
 NOT_NULL
+com.google.common.collect.ComputingConcurrentHashMap.ComputedReference value
+NULLABLE
 com.google.common.collect.ComputingConcurrentHashMap.ComputingMapAdapter V get(java.lang.Object)
 NOT_NULL
 com.google.common.collect.ComputingConcurrentHashMap.ComputingSegment V compute(K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>, com.google.common.collect.ComputingConcurrentHashMap.ComputingValueReference<K,V>)
@@ -2692,6 +2972,8 @@ com.google.common.collect.ConcurrentHashMultiset com.google.common.collect.Concu
 NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset com.google.common.collect.ConcurrentHashMultiset<E> create(java.lang.Iterable<? extends E>) 0
 NOT_NULL
+com.google.common.collect.ConcurrentHashMultiset countMap
+NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset int add(E, int) 0
 NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset int count(java.lang.Object) 0
@@ -2712,6 +2994,8 @@ com.google.common.collect.ConcurrentHashMultiset java.util.Set<E> createElementS
 NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset java.util.Set<com.google.common.collect.Multiset.Entry<E>> entrySet()
 NOT_NULL
+com.google.common.collect.ConcurrentHashMultiset java.util.concurrent.ConcurrentMap access$100(com.google.common.collect.ConcurrentHashMultiset)
+NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset java.util.concurrent.ConcurrentMap access$100(com.google.common.collect.ConcurrentHashMultiset) 0
 NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset java.util.concurrent.atomic.AtomicInteger safeGet(java.lang.Object)
@@ -2721,6 +3005,8 @@ NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset.EntrySet java.util.List<com.google.common.collect.Multiset.Entry<E>> snapshot()
+NOT_NULL
+com.google.common.collect.ConcurrentHashMultiset.FieldSettersHolder COUNT_MAP_FIELD_SETTER
 NOT_NULL
 com.google.common.collect.Constraints com.google.common.collect.Constraint<E> notNull()
 NOT_NULL
@@ -2754,6 +3040,14 @@ com.google.common.collect.Constraints.ConstrainedCollection ConstrainedCollectio
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedCollection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
+com.google.common.collect.Constraints.ConstrainedCollection constraint
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedCollection delegate
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedCollection java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedCollection java.util.Collection<E> delegate()
+NOT_NULL
 com.google.common.collect.Constraints.ConstrainedList ConstrainedList(java.util.List<E>, com.google.common.collect.Constraint<? super E>) 0
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedList ConstrainedList(java.util.List<E>, com.google.common.collect.Constraint<? super E>) 1
@@ -2761,6 +3055,16 @@ NOT_NULL
 com.google.common.collect.Constraints.ConstrainedList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedList boolean addAll(java.util.Collection<? extends E>) 0
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedList constraint
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedList delegate
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedList java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedList java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedList java.util.List<E> delegate()
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedList java.util.List<E> subList(int, int)
 NOT_NULL
@@ -2774,17 +3078,41 @@ com.google.common.collect.Constraints.ConstrainedMultiset ConstrainedMultiset(co
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedMultiset boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
+com.google.common.collect.Constraints.ConstrainedMultiset constraint
+NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSet ConstrainedSet(java.util.Set<E>, com.google.common.collect.Constraint<? super E>) 0
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSet ConstrainedSet(java.util.Set<E>, com.google.common.collect.Constraint<? super E>) 1
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSet boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSet constraint
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSet delegate
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSet java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSet java.util.Set<E> delegate()
+NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSortedSet ConstrainedSortedSet(java.util.SortedSet<E>, com.google.common.collect.Constraint<? super E>) 0
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSortedSet ConstrainedSortedSet(java.util.SortedSet<E>, com.google.common.collect.Constraint<? super E>) 1
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSortedSet boolean addAll(java.util.Collection<? extends E>) 0
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSortedSet constraint
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSortedSet delegate
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSortedSet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSortedSet java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSortedSet java.util.Set delegate()
+NOT_NULL
+com.google.common.collect.Constraints.ConstrainedSortedSet java.util.SortedSet<E> delegate()
 NOT_NULL
 com.google.common.collect.Constraints.ConstrainedSortedSet java.util.SortedSet<E> headSet(E)
 NOT_NULL
@@ -2858,6 +3186,8 @@ com.google.common.collect.ContiguousSet java.util.SortedSet tailSet(java.lang.Ob
 NOT_NULL
 com.google.common.collect.Count boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Cut C endpoint()
+NULLABLE
 com.google.common.collect.Cut Cut(C) 0
 NULLABLE
 com.google.common.collect.Cut com.google.common.collect.Cut<C> aboveAll()
@@ -2870,6 +3200,8 @@ com.google.common.collect.Cut com.google.common.collect.Cut<C> belowValue(C)
 NOT_NULL
 com.google.common.collect.Cut com.google.common.collect.Cut<C> canonical(com.google.common.collect.DiscreteDomain<C>)
 NOT_NULL
+com.google.common.collect.Cut endpoint
+NULLABLE
 com.google.common.collect.Cut.1 $SwitchMap$com$google$common$collect$BoundType
 NOT_NULL
 com.google.common.collect.Cut.AboveAll INSTANCE
@@ -3206,6 +3538,8 @@ com.google.common.collect.EmptyImmutableSortedMap boolean equals(java.lang.Objec
 NULLABLE
 com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableCollection<V> values()
 NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableSet keySet()
+NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableSet<java.util.Map.Entry<K,V>> entrySet()
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableSortedMap<K,V> createDescendingMap()
@@ -3217,6 +3551,8 @@ NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableSortedMap<K,V> tailMap(K, boolean)
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableSortedMap<K,V> tailMap(K, boolean) 0
+NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMap com.google.common.collect.ImmutableSortedSet<K> keySet()
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap java.lang.String toString()
 NOT_NULL
@@ -3231,6 +3567,10 @@ NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap java.util.NavigableMap tailMap(java.lang.Object, boolean) 0
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMap java.util.Set entrySet()
+NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMap java.util.Set keySet()
+NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMap keySet
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset boolean contains(java.lang.Object) 0
 NULLABLE
@@ -3254,6 +3594,8 @@ com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> tailMultiset(E, com.google.common.collect.BoundType) 1
 NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.ImmutableSortedSet<E> elementSet()
+NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.Multiset.Entry<E> firstEntry()
 NULLABLE
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.Multiset.Entry<E> lastEntry()
@@ -3272,6 +3614,8 @@ com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.UnmodifiableIterator<E> iterator()
 NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMultiset elementSet
+NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset int count(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.EmptyImmutableSortedMultiset java.lang.Object[] toArray()
@@ -3280,7 +3624,11 @@ com.google.common.collect.EmptyImmutableSortedMultiset java.lang.String toString
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset java.util.Iterator iterator()
 NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMultiset java.util.Set elementSet()
+NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset java.util.Set entrySet()
+NOT_NULL
+com.google.common.collect.EmptyImmutableSortedMultiset java.util.SortedSet elementSet()
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedSet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
@@ -3504,6 +3852,8 @@ com.google.common.collect.FluentIterable com.google.common.collect.ImmutableSort
 NOT_NULL
 com.google.common.collect.FluentIterable com.google.common.collect.ImmutableSortedSet<E> toImmutableSortedSet(java.util.Comparator<? super E>) 0
 NOT_NULL
+com.google.common.collect.FluentIterable iterable
+NOT_NULL
 com.google.common.collect.ForwardingCollection boolean standardAddAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 com.google.common.collect.ForwardingCollection boolean standardContains(java.lang.Object) 0
@@ -3656,6 +4006,10 @@ com.google.common.collect.GeneralRange GeneralRange(java.util.Comparator<? super
 NULLABLE
 com.google.common.collect.GeneralRange GeneralRange(java.util.Comparator<? super T>, boolean, T, com.google.common.collect.BoundType, boolean, T, com.google.common.collect.BoundType) 6
 NOT_NULL
+com.google.common.collect.GeneralRange T getLowerEndpoint()
+NULLABLE
+com.google.common.collect.GeneralRange T getUpperEndpoint()
+NULLABLE
 com.google.common.collect.GeneralRange boolean contains(T) 0
 NULLABLE
 com.google.common.collect.GeneralRange boolean equals(java.lang.Object) 0
@@ -3664,6 +4018,10 @@ com.google.common.collect.GeneralRange boolean tooHigh(T) 0
 NULLABLE
 com.google.common.collect.GeneralRange boolean tooLow(T) 0
 NULLABLE
+com.google.common.collect.GeneralRange com.google.common.collect.BoundType getLowerBoundType()
+NOT_NULL
+com.google.common.collect.GeneralRange com.google.common.collect.BoundType getUpperBoundType()
+NOT_NULL
 com.google.common.collect.GeneralRange com.google.common.collect.GeneralRange<T> all(java.util.Comparator<? super T>)
 NOT_NULL
 com.google.common.collect.GeneralRange com.google.common.collect.GeneralRange<T> downTo(java.util.Comparator<? super T>, T, com.google.common.collect.BoundType)
@@ -3689,6 +4047,18 @@ NOT_NULL
 com.google.common.collect.GeneralRange com.google.common.collect.GeneralRange<T> upTo(java.util.Comparator<? super T>, T, com.google.common.collect.BoundType)
 NOT_NULL
 com.google.common.collect.GeneralRange com.google.common.collect.GeneralRange<T> upTo(java.util.Comparator<? super T>, T, com.google.common.collect.BoundType) 1
+NULLABLE
+com.google.common.collect.GeneralRange comparator
+NOT_NULL
+com.google.common.collect.GeneralRange java.util.Comparator<? super T> comparator()
+NOT_NULL
+com.google.common.collect.GeneralRange lowerBoundType
+NOT_NULL
+com.google.common.collect.GeneralRange lowerEndpoint
+NULLABLE
+com.google.common.collect.GeneralRange upperBoundType
+NOT_NULL
+com.google.common.collect.GeneralRange upperEndpoint
 NULLABLE
 com.google.common.collect.GeneralRange.1 $SwitchMap$com$google$common$collect$BoundType
 NOT_NULL
@@ -3956,6 +4326,8 @@ com.google.common.collect.ImmutableClassToInstanceMap.Builder com.google.common.
 NOT_NULL
 com.google.common.collect.ImmutableClassToInstanceMap.Builder com.google.common.collect.ImmutableClassToInstanceMap<B> build()
 NOT_NULL
+com.google.common.collect.ImmutableClassToInstanceMap.Builder mapBuilder
+NOT_NULL
 com.google.common.collect.ImmutableCollection EMPTY_IMMUTABLE_COLLECTION
 NOT_NULL
 com.google.common.collect.ImmutableCollection boolean contains(java.lang.Object) 0
@@ -4011,6 +4383,10 @@ NULLABLE
 com.google.common.collect.ImmutableEntry K getKey()
 NULLABLE
 com.google.common.collect.ImmutableEntry V getValue()
+NULLABLE
+com.google.common.collect.ImmutableEntry key
+NULLABLE
+com.google.common.collect.ImmutableEntry value
 NULLABLE
 com.google.common.collect.ImmutableEnumSet com.google.common.collect.UnmodifiableIterator<E> iterator()
 NOT_NULL
@@ -4142,9 +4518,13 @@ com.google.common.collect.ImmutableList.ReverseImmutableList ReverseImmutableLis
 NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList boolean contains(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.ImmutableList.ReverseImmutableList com.google.common.collect.ImmutableList<E> reverse()
+NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList com.google.common.collect.ImmutableList<E> subList(int, int)
 NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList com.google.common.collect.UnmodifiableListIterator<E> listIterator(int)
+NOT_NULL
+com.google.common.collect.ImmutableList.ReverseImmutableList forwardList
 NOT_NULL
 com.google.common.collect.ImmutableList.ReverseImmutableList int indexOf(java.lang.Object) 0
 NULLABLE
@@ -4370,6 +4750,8 @@ com.google.common.collect.ImmutableMap.Builder com.google.common.collect.Immutab
 NOT_NULL
 com.google.common.collect.ImmutableMap.Builder com.google.common.collect.ImmutableMap<K,V> fromEntryList(java.util.List<java.util.Map.Entry<K,V>>) 0
 NOT_NULL
+com.google.common.collect.ImmutableMap.Builder entries
+NOT_NULL
 com.google.common.collect.ImmutableMap.SerializedForm SerializedForm(com.google.common.collect.ImmutableMap<?,?>) 0
 NOT_NULL
 com.google.common.collect.ImmutableMap.SerializedForm java.lang.Object createMap(com.google.common.collect.ImmutableMap.Builder<java.lang.Object,java.lang.Object>)
@@ -4377,6 +4759,10 @@ NOT_NULL
 com.google.common.collect.ImmutableMap.SerializedForm java.lang.Object createMap(com.google.common.collect.ImmutableMap.Builder<java.lang.Object,java.lang.Object>) 0
 NOT_NULL
 com.google.common.collect.ImmutableMap.SerializedForm java.lang.Object readResolve()
+NOT_NULL
+com.google.common.collect.ImmutableMap.SerializedForm keys
+NOT_NULL
+com.google.common.collect.ImmutableMap.SerializedForm values
 NOT_NULL
 com.google.common.collect.ImmutableMapEntrySet boolean contains(java.lang.Object) 0
 NULLABLE
@@ -4500,6 +4886,10 @@ com.google.common.collect.ImmutableMultimap.EntryCollection.1 java.lang.Object n
 NOT_NULL
 com.google.common.collect.ImmutableMultimap.EntryCollection.1 java.util.Map.Entry<K,V> next()
 NOT_NULL
+com.google.common.collect.ImmutableMultimap.FieldSettersHolder MAP_FIELD_SETTER
+NOT_NULL
+com.google.common.collect.ImmutableMultimap.FieldSettersHolder SIZE_FIELD_SETTER
+NOT_NULL
 com.google.common.collect.ImmutableMultimap.Keys boolean contains(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ImmutableMultimap.Keys com.google.common.collect.ImmutableSet<com.google.common.collect.Multiset.Entry<K>> createEntrySet()
@@ -4612,6 +5002,10 @@ com.google.common.collect.ImmutableMultiset.EntrySetSerializedForm java.lang.Obj
 NULLABLE
 com.google.common.collect.ImmutableMultiset.SerializedForm SerializedForm(com.google.common.collect.Multiset<?>) 0
 NOT_NULL
+com.google.common.collect.ImmutableMultiset.SerializedForm counts
+NOT_NULL
+com.google.common.collect.ImmutableMultiset.SerializedForm elements
+NOT_NULL
 com.google.common.collect.ImmutableMultiset.SerializedForm java.lang.Object readResolve()
 NOT_NULL
 com.google.common.collect.ImmutableSet boolean equals(java.lang.Object) 0
@@ -4678,7 +5072,11 @@ com.google.common.collect.ImmutableSetMultimap ImmutableSetMultimap(com.google.c
 NULLABLE
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableCollection entries()
 NULLABLE
+com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableCollection get(java.lang.Object)
+NULLABLE
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableMultimap inverse()
+NULLABLE
+com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSet<V> get(K)
 NULLABLE
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSet<V> get(K) 0
 NULLABLE
@@ -4776,9 +5174,15 @@ com.google.common.collect.ImmutableSetMultimap com.google.common.collect.Immutab
 NULLABLE
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSetMultimap<V,K> invert()
 NOT_NULL
+com.google.common.collect.ImmutableSetMultimap emptySet
+NULLABLE
 com.google.common.collect.ImmutableSetMultimap java.util.Collection entries()
 NULLABLE
+com.google.common.collect.ImmutableSetMultimap java.util.Collection get(java.lang.Object)
+NULLABLE
 com.google.common.collect.ImmutableSetMultimap java.util.Set entries()
+NULLABLE
+com.google.common.collect.ImmutableSetMultimap java.util.Set get(java.lang.Object)
 NULLABLE
 com.google.common.collect.ImmutableSetMultimap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
@@ -4869,6 +5273,8 @@ NULLABLE
 com.google.common.collect.ImmutableSortedMap K lowerKey(K)
 NULLABLE
 com.google.common.collect.ImmutableSortedMap NATURAL_EMPTY_MAP
+NOT_NULL
+com.google.common.collect.ImmutableSortedMap NATURAL_ORDER
 NOT_NULL
 com.google.common.collect.ImmutableSortedMap boolean containsValue(java.lang.Object) 0
 NULLABLE
@@ -5046,9 +5452,13 @@ com.google.common.collect.ImmutableSortedMap.Builder com.google.common.collect.I
 NOT_NULL
 com.google.common.collect.ImmutableSortedMap.Builder com.google.common.collect.ImmutableSortedMap<K,V> build()
 NOT_NULL
+com.google.common.collect.ImmutableSortedMap.Builder comparator
+NOT_NULL
 com.google.common.collect.ImmutableSortedMap.SerializedForm SerializedForm(com.google.common.collect.ImmutableSortedMap<?,?>) 0
 NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset NATURAL_EMPTY_MULTISET
+NOT_NULL
+com.google.common.collect.ImmutableSortedMultiset NATURAL_ORDER
 NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset.Builder<E> naturalOrder()
 NOT_NULL
@@ -5142,6 +5552,8 @@ com.google.common.collect.ImmutableSortedMultiset.Builder com.google.common.coll
 NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset.Builder com.google.common.collect.ImmutableSortedMultiset<E> build()
 NOT_NULL
+com.google.common.collect.ImmutableSortedMultiset.Builder comparator
+NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset.SerializedForm SerializedForm(com.google.common.collect.SortedMultiset<?>) 0
 NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset.SerializedForm java.lang.Object readResolve()
@@ -5163,6 +5575,8 @@ NULLABLE
 com.google.common.collect.ImmutableSortedSet E lower(E) 0
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet NATURAL_EMPTY_SET
+NOT_NULL
+com.google.common.collect.ImmutableSortedSet NATURAL_ORDER
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet.Builder<E> naturalOrder()
 NOT_NULL
@@ -5298,6 +5712,8 @@ com.google.common.collect.ImmutableSortedSet.Builder com.google.common.collect.I
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet.Builder com.google.common.collect.ImmutableSortedSet<E> build()
 NOT_NULL
+com.google.common.collect.ImmutableSortedSet.Builder comparator
+NOT_NULL
 com.google.common.collect.ImmutableSortedSet.SerializedForm java.lang.Object readResolve()
 NOT_NULL
 com.google.common.collect.ImmutableTable boolean equals(java.lang.Object) 0
@@ -5319,6 +5735,8 @@ NOT_NULL
 com.google.common.collect.ImmutableTable com.google.common.collect.Table.Cell<R,C,V> cellOf(R, C, V) 1
 NOT_NULL
 com.google.common.collect.ImmutableTable com.google.common.collect.Table.Cell<R,C,V> cellOf(R, C, V) 2
+NOT_NULL
+com.google.common.collect.ImmutableTable.Builder cells
 NOT_NULL
 com.google.common.collect.ImmutableTable.Builder com.google.common.collect.ImmutableTable.Builder<R,C,V> orderColumnsBy(java.util.Comparator<? super C>)
 NOT_NULL
@@ -5359,6 +5777,8 @@ NULLABLE
 com.google.common.collect.Interners.1 E intern(E) 0
 NOT_NULL
 com.google.common.collect.Interners.WeakInterner E intern(E)
+NOT_NULL
+com.google.common.collect.Interners.WeakInterner map
 NOT_NULL
 com.google.common.collect.Interners.WeakInterner.Dummy $VALUES
 NOT_NULL
@@ -5836,6 +6256,8 @@ com.google.common.collect.Iterators.9 T transform(F)
 NULLABLE
 com.google.common.collect.Iterators.MergingIterator MergingIterator(java.lang.Iterable<? extends java.util.Iterator<? extends T>>, java.util.Comparator<? super T>) 0
 NOT_NULL
+com.google.common.collect.Iterators.MergingIterator queue
+NOT_NULL
 com.google.common.collect.Iterators.MergingIterator.1 int compare(com.google.common.collect.PeekingIterator<T>, com.google.common.collect.PeekingIterator<T>) 0
 NOT_NULL
 com.google.common.collect.Iterators.MergingIterator.1 int compare(com.google.common.collect.PeekingIterator<T>, com.google.common.collect.PeekingIterator<T>) 1
@@ -5845,6 +6267,8 @@ NOT_NULL
 com.google.common.collect.Iterators.MergingIterator.1 int compare(java.lang.Object, java.lang.Object) 1
 NOT_NULL
 com.google.common.collect.Iterators.PeekingImpl PeekingImpl(java.util.Iterator<? extends E>) 0
+NOT_NULL
+com.google.common.collect.Iterators.PeekingImpl iterator
 NOT_NULL
 com.google.common.collect.LexicographicalOrdering boolean equals(java.lang.Object) 0
 NULLABLE
@@ -5910,11 +6334,19 @@ com.google.common.collect.LinkedHashMultimap void succeedsInValueSet(com.google.
 NOT_NULL
 com.google.common.collect.LinkedHashMultimap void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
+com.google.common.collect.LinkedHashMultimap.ValueEntry K getKey()
+NULLABLE
+com.google.common.collect.LinkedHashMultimap.ValueEntry V getValue()
+NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueEntry ValueEntry(K, V, int, com.google.common.collect.LinkedHashMultimap.ValueEntry<K,V>) 0
 NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueEntry ValueEntry(K, V, int, com.google.common.collect.LinkedHashMultimap.ValueEntry<K,V>) 1
 NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueEntry ValueEntry(K, V, int, com.google.common.collect.LinkedHashMultimap.ValueEntry<K,V>) 3
+NULLABLE
+com.google.common.collect.LinkedHashMultimap.ValueEntry key
+NULLABLE
+com.google.common.collect.LinkedHashMultimap.ValueEntry value
 NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueSet boolean add(V) 0
 NULLABLE
@@ -5934,6 +6366,8 @@ com.google.common.collect.LinkedHashMultimap.ValueSet int access$510(com.google.
 NOT_NULL
 com.google.common.collect.LinkedHashMultimap.ValueSet java.util.Iterator<V> iterator()
 NOT_NULL
+com.google.common.collect.LinkedHashMultimap.ValueSet.1 V next()
+NULLABLE
 com.google.common.collect.LinkedHashMultiset com.google.common.collect.LinkedHashMultiset<E> create()
 NOT_NULL
 com.google.common.collect.LinkedHashMultiset com.google.common.collect.LinkedHashMultiset<E> create(int)
@@ -6062,6 +6496,8 @@ com.google.common.collect.LinkedListMultimap.3.1 V transform(com.google.common.c
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.3.1 java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
+com.google.common.collect.LinkedListMultimap.4 K getKey()
+NULLABLE
 com.google.common.collect.LinkedListMultimap.5 java.util.ListIterator<java.util.Map.Entry<K,V>> listIterator(int)
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.5.1 java.lang.Object transform(java.lang.Object)
@@ -6078,6 +6514,10 @@ com.google.common.collect.LinkedListMultimap.6.1.1 java.lang.Object getValue()
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.6.1.1 java.util.Collection<V> getValue()
 NOT_NULL
+com.google.common.collect.LinkedListMultimap.DistinctKeyIterator K next()
+NULLABLE
+com.google.common.collect.LinkedListMultimap.DistinctKeyIterator seenKeys
+NOT_NULL
 com.google.common.collect.LinkedListMultimap.MultisetView boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.LinkedListMultimap.MultisetView int remove(java.lang.Object, int) 0
@@ -6092,17 +6532,25 @@ com.google.common.collect.LinkedListMultimap.MultisetView.1 com.google.common.co
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.MultisetView.1 java.lang.Object transform(java.lang.Object)
 NOT_NULL
+com.google.common.collect.LinkedListMultimap.MultisetView.2 K transform(com.google.common.collect.LinkedListMultimap.Node<K,V>)
+NULLABLE
 com.google.common.collect.LinkedListMultimap.MultisetView.2 K transform(com.google.common.collect.LinkedListMultimap.Node<K,V>) 0
 NOT_NULL
+com.google.common.collect.LinkedListMultimap.MultisetView.2 java.lang.Object transform(java.lang.Object)
+NULLABLE
 com.google.common.collect.LinkedListMultimap.MultisetView.2 java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.Node Node(K, V) 0
 NULLABLE
 com.google.common.collect.LinkedListMultimap.Node Node(K, V) 1
 NULLABLE
+com.google.common.collect.LinkedListMultimap.Node key
+NULLABLE
 com.google.common.collect.LinkedListMultimap.NodeIterator NodeIterator(com.google.common.collect.LinkedListMultimap) 0
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.NodeIterator NodeIterator(com.google.common.collect.LinkedListMultimap, int) 0
+NOT_NULL
+com.google.common.collect.LinkedListMultimap.NodeIterator this$0
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.ValueForKeyIterator ValueForKeyIterator(com.google.common.collect.LinkedListMultimap, java.lang.Object) 0
 NOT_NULL
@@ -6112,6 +6560,10 @@ com.google.common.collect.LinkedListMultimap.ValueForKeyIterator ValueForKeyIter
 NOT_NULL
 com.google.common.collect.LinkedListMultimap.ValueForKeyIterator ValueForKeyIterator(com.google.common.collect.LinkedListMultimap, java.lang.Object, int) 1
 NULLABLE
+com.google.common.collect.LinkedListMultimap.ValueForKeyIterator key
+NULLABLE
+com.google.common.collect.LinkedListMultimap.ValueForKeyIterator this$0
+NOT_NULL
 com.google.common.collect.ListMultimap boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ListMultimap java.util.List<V> get(K) 0
@@ -6174,6 +6626,8 @@ com.google.common.collect.Lists java.util.List<E> asList(E, E[])
 NOT_NULL
 com.google.common.collect.Lists java.util.List<E> asList(E, E[]) 0
 NULLABLE
+com.google.common.collect.Lists java.util.List<T> reverse(java.util.List<T>)
+NOT_NULL
 com.google.common.collect.Lists java.util.List<T> transform(java.util.List<F>, com.google.common.base.Function<? super F,? extends T>)
 NOT_NULL
 com.google.common.collect.Lists java.util.List<java.lang.Character> charactersOf(java.lang.CharSequence)
@@ -6192,6 +6646,8 @@ com.google.common.collect.Lists java.util.concurrent.CopyOnWriteArrayList<E> new
 NOT_NULL
 com.google.common.collect.Lists.AbstractListWrapper AbstractListWrapper(java.util.List<E>) 0
 NOT_NULL
+com.google.common.collect.Lists.AbstractListWrapper backingList
+NOT_NULL
 com.google.common.collect.Lists.CharSequenceAsList boolean contains(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Lists.CharSequenceAsList boolean equals(java.lang.Object) 0
@@ -6202,9 +6658,15 @@ com.google.common.collect.Lists.CharSequenceAsList int lastIndexOf(java.lang.Obj
 NULLABLE
 com.google.common.collect.Lists.CharSequenceAsList java.util.List<java.lang.Character> subList(int, int)
 NOT_NULL
+com.google.common.collect.Lists.OnePlusArrayList E get(int)
+NULLABLE
 com.google.common.collect.Lists.OnePlusArrayList OnePlusArrayList(E, E[]) 0
 NULLABLE
 com.google.common.collect.Lists.OnePlusArrayList OnePlusArrayList(E, E[]) 1
+NOT_NULL
+com.google.common.collect.Lists.OnePlusArrayList first
+NULLABLE
+com.google.common.collect.Lists.OnePlusArrayList rest
 NOT_NULL
 com.google.common.collect.Lists.ReverseList ReverseList(java.util.List<T>) 0
 NOT_NULL
@@ -6212,10 +6674,16 @@ com.google.common.collect.Lists.ReverseList T set(int, T) 1
 NULLABLE
 com.google.common.collect.Lists.ReverseList boolean contains(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Lists.ReverseList forwardList
+NOT_NULL
 com.google.common.collect.Lists.ReverseList int indexOf(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Lists.ReverseList int lastIndexOf(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Lists.ReverseList java.util.List<T> getForwardList()
+NOT_NULL
+com.google.common.collect.Lists.ReverseList java.util.List<T> subList(int, int)
+NOT_NULL
 com.google.common.collect.Lists.ReverseList java.util.ListIterator<T> listIterator(int)
 NOT_NULL
 com.google.common.collect.Lists.ReverseList void add(int, T) 1
@@ -6238,9 +6706,17 @@ com.google.common.collect.Lists.TransformingRandomAccessList TransformingRandomA
 NOT_NULL
 com.google.common.collect.Lists.TransformingRandomAccessList TransformingRandomAccessList(java.util.List<F>, com.google.common.base.Function<? super F,? extends T>) 1
 NOT_NULL
+com.google.common.collect.Lists.TransformingRandomAccessList fromList
+NOT_NULL
+com.google.common.collect.Lists.TransformingRandomAccessList function
+NOT_NULL
 com.google.common.collect.Lists.TransformingSequentialList TransformingSequentialList(java.util.List<F>, com.google.common.base.Function<? super F,? extends T>) 0
 NOT_NULL
 com.google.common.collect.Lists.TransformingSequentialList TransformingSequentialList(java.util.List<F>, com.google.common.base.Function<? super F,? extends T>) 1
+NOT_NULL
+com.google.common.collect.Lists.TransformingSequentialList fromList
+NOT_NULL
+com.google.common.collect.Lists.TransformingSequentialList function
 NOT_NULL
 com.google.common.collect.Lists.TransformingSequentialList java.util.ListIterator<T> listIterator(int)
 NOT_NULL
@@ -6248,12 +6724,20 @@ com.google.common.collect.Lists.TransformingSequentialList.1 T next()
 NULLABLE
 com.google.common.collect.Lists.TransformingSequentialList.1 T previous()
 NULLABLE
+com.google.common.collect.Lists.TwoPlusArrayList E get(int)
+NULLABLE
 com.google.common.collect.Lists.TwoPlusArrayList TwoPlusArrayList(E, E, E[]) 0
 NULLABLE
 com.google.common.collect.Lists.TwoPlusArrayList TwoPlusArrayList(E, E, E[]) 1
 NULLABLE
 com.google.common.collect.Lists.TwoPlusArrayList TwoPlusArrayList(E, E, E[]) 2
 NOT_NULL
+com.google.common.collect.Lists.TwoPlusArrayList first
+NULLABLE
+com.google.common.collect.Lists.TwoPlusArrayList rest
+NOT_NULL
+com.google.common.collect.Lists.TwoPlusArrayList second
+NULLABLE
 com.google.common.collect.MapConstraint void checkKeyValue(K, V) 0
 NULLABLE
 com.google.common.collect.MapConstraint void checkKeyValue(K, V) 1
@@ -6338,6 +6822,12 @@ com.google.common.collect.MapConstraints.ConstrainedAsMapValues java.util.Iterat
 NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedBiMap ConstrainedBiMap(com.google.common.collect.BiMap<K,V>, com.google.common.collect.BiMap<V,K>, com.google.common.collect.MapConstraint<? super K,? super V>) 1
 NULLABLE
+com.google.common.collect.MapConstraints.ConstrainedBiMap com.google.common.collect.BiMap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedBiMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedBiMap java.util.Map delegate()
+NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedEntries java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedEntries.1 java.lang.Object next()
@@ -6354,6 +6844,14 @@ com.google.common.collect.MapConstraints.ConstrainedMap ConstrainedMap(java.util
 NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedMap ConstrainedMap(java.util.Map<K,V>, com.google.common.collect.MapConstraint<? super K,? super V>) 1
 NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMap constraint
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMap delegate
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMap java.util.Map<K,V> delegate()
+NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedMap java.util.Set<java.util.Map.Entry<K,V>> entrySet()
 NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedMultimap ConstrainedMultimap(com.google.common.collect.Multimap<K,V>, com.google.common.collect.MapConstraint<? super K,? super V>) 0
@@ -6363,6 +6861,14 @@ NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedMultimap boolean putAll(K, java.lang.Iterable<? extends V>) 1
 NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedMultimap boolean putAll(com.google.common.collect.Multimap<? extends K,? extends V>) 0
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMultimap com.google.common.collect.Multimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMultimap constraint
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMultimap delegate
+NOT_NULL
+com.google.common.collect.MapConstraints.ConstrainedMultimap java.lang.Object delegate()
 NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedMultimap java.util.Collection<V> get(K)
 NOT_NULL
@@ -6395,6 +6901,8 @@ NOT_NULL
 com.google.common.collect.MapConstraints.ConstrainedSortedSetMultimap java.util.SortedSet<V> get(K)
 NOT_NULL
 com.google.common.collect.MapConstraints.InverseConstraint InverseConstraint(com.google.common.collect.MapConstraint<? super V,? super K>) 0
+NOT_NULL
+com.google.common.collect.MapConstraints.InverseConstraint constraint
 NOT_NULL
 com.google.common.collect.MapConstraints.NotNullMapConstraint $VALUES
 NOT_NULL
@@ -6495,6 +7003,8 @@ NULLABLE
 com.google.common.collect.MapMaker.NullComputingConcurrentMap V compute(K) 0
 NOT_NULL
 com.google.common.collect.MapMaker.NullComputingConcurrentMap V get(java.lang.Object)
+NOT_NULL
+com.google.common.collect.MapMaker.NullComputingConcurrentMap computingFunction
 NOT_NULL
 com.google.common.collect.MapMaker.NullConcurrentMap NullConcurrentMap(com.google.common.collect.MapMaker) 0
 NOT_NULL
@@ -6644,6 +7154,18 @@ com.google.common.collect.MapMakerInternalMap java.util.Set<K> keySet()
 NULLABLE
 com.google.common.collect.MapMakerInternalMap java.util.Set<java.util.Map.Entry<K,V>> entrySet()
 NULLABLE
+com.google.common.collect.MapMakerInternalMap keyEquivalence
+NULLABLE
+com.google.common.collect.MapMakerInternalMap keyStrength
+NULLABLE
+com.google.common.collect.MapMakerInternalMap removalNotificationQueue
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap segments
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap ticker
+NULLABLE
+com.google.common.collect.MapMakerInternalMap valueStrength
+NULLABLE
 com.google.common.collect.MapMakerInternalMap void connectEvictables(com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap void connectEvictables(com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 1
@@ -6685,6 +7207,8 @@ NOT_NULL
 com.google.common.collect.MapMakerInternalMap.AbstractSerializationProxy void readEntries(java.io.ObjectInputStream) 0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.AbstractSerializationProxy void writeMapTo(java.io.ObjectOutputStream) 0
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.CleanupMapTask mapReference
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.EntryFactory $VALUES
 NOT_NULL
@@ -6806,6 +7330,8 @@ com.google.common.collect.MapMakerInternalMap.EvictionQueue com.google.common.co
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.EvictionQueue com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> poll()
 NULLABLE
+com.google.common.collect.MapMakerInternalMap.EvictionQueue head
+NOT_NULL
 com.google.common.collect.MapMakerInternalMap.EvictionQueue java.lang.Object peek()
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.EvictionQueue java.lang.Object poll()
@@ -6832,6 +7358,8 @@ com.google.common.collect.MapMakerInternalMap.ExpirationQueue com.google.common.
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.ExpirationQueue com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> poll()
 NULLABLE
+com.google.common.collect.MapMakerInternalMap.ExpirationQueue head
+NOT_NULL
 com.google.common.collect.MapMakerInternalMap.ExpirationQueue java.lang.Object peek()
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.ExpirationQueue java.lang.Object poll()
@@ -6849,6 +7377,8 @@ NOT_NULL
 com.google.common.collect.MapMakerInternalMap.HashIterator HashIterator(com.google.common.collect.MapMakerInternalMap) 0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.HashIterator boolean advanceTo(com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 0
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.HashIterator this$0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
@@ -6902,8 +7432,22 @@ com.google.common.collect.MapMakerInternalMap.Segment com.google.common.collect.
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.Segment com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> removeFromChain(com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 1
 NOT_NULL
+com.google.common.collect.MapMakerInternalMap.Segment evictionQueue
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.Segment expirationQueue
+NOT_NULL
 com.google.common.collect.MapMakerInternalMap.Segment java.util.concurrent.atomic.AtomicReferenceArray<com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>> newEntryArray(int)
 NOT_NULL
+com.google.common.collect.MapMakerInternalMap.Segment keyReferenceQueue
+NULLABLE
+com.google.common.collect.MapMakerInternalMap.Segment map
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.Segment readCount
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.Segment recencyQueue
+NOT_NULL
+com.google.common.collect.MapMakerInternalMap.Segment valueReferenceQueue
+NULLABLE
 com.google.common.collect.MapMakerInternalMap.Segment void enqueueNotification(K, int, V, com.google.common.collect.MapMaker.RemovalCause) 0
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.Segment void enqueueNotification(K, int, V, com.google.common.collect.MapMaker.RemovalCause) 2
@@ -6923,6 +7467,10 @@ NOT_NULL
 com.google.common.collect.MapMakerInternalMap.SerializationProxy void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.SoftEntry SoftEntry(java.lang.ref.ReferenceQueue<K>, K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 3
+NULLABLE
+com.google.common.collect.MapMakerInternalMap.SoftEntry com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> getNext()
+NULLABLE
+com.google.common.collect.MapMakerInternalMap.SoftEntry next
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.SoftEvictableEntry SoftEvictableEntry(java.lang.ref.ReferenceQueue<K>, K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 3
 NULLABLE
@@ -6958,6 +7506,10 @@ com.google.common.collect.MapMakerInternalMap.Strength.3 com.google.common.colle
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.StrongEntry StrongEntry(K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 2
 NULLABLE
+com.google.common.collect.MapMakerInternalMap.StrongEntry com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> getNext()
+NULLABLE
+com.google.common.collect.MapMakerInternalMap.StrongEntry next
+NULLABLE
 com.google.common.collect.MapMakerInternalMap.StrongEvictableEntry StrongEvictableEntry(K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 2
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.StrongExpirableEntry StrongExpirableEntry(K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 2
@@ -6975,6 +7527,10 @@ NULLABLE
 com.google.common.collect.MapMakerInternalMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 com.google.common.collect.MapMakerInternalMap.WeakEntry WeakEntry(java.lang.ref.ReferenceQueue<K>, K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 3
+NULLABLE
+com.google.common.collect.MapMakerInternalMap.WeakEntry com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V> getNext()
+NULLABLE
+com.google.common.collect.MapMakerInternalMap.WeakEntry next
 NULLABLE
 com.google.common.collect.MapMakerInternalMap.WeakEvictableEntry WeakEvictableEntry(java.lang.ref.ReferenceQueue<K>, K, int, com.google.common.collect.MapMakerInternalMap.ReferenceEntry<K,V>) 3
 NULLABLE
@@ -6994,6 +7550,8 @@ com.google.common.collect.Maps K keyOrNull(java.util.Map.Entry<K,?>)
 NULLABLE
 com.google.common.collect.Maps K keyOrNull(java.util.Map.Entry<K,?>) 0
 NULLABLE
+com.google.common.collect.Maps STANDARD_JOINER
+NOT_NULL
 com.google.common.collect.Maps V safeGet(java.util.Map<?,V>, java.lang.Object)
 NULLABLE
 com.google.common.collect.Maps boolean containsKeyImpl(java.util.Map<?,?>, java.lang.Object) 0
@@ -7242,13 +7800,27 @@ com.google.common.collect.Maps.AsMapView V remove(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Maps.AsMapView boolean containsKey(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Maps.AsMapView function
+NOT_NULL
 com.google.common.collect.Maps.AsMapView java.util.Collection<V> values()
 NOT_NULL
+com.google.common.collect.Maps.AsMapView java.util.Set access$000(com.google.common.collect.Maps.AsMapView)
+NOT_NULL
 com.google.common.collect.Maps.AsMapView java.util.Set access$000(com.google.common.collect.Maps.AsMapView) 0
+NOT_NULL
+com.google.common.collect.Maps.AsMapView java.util.Set<K> backingSet()
 NOT_NULL
 com.google.common.collect.Maps.AsMapView java.util.Set<K> keySet()
 NOT_NULL
 com.google.common.collect.Maps.AsMapView java.util.Set<java.util.Map.Entry<K,V>> createEntrySet()
+NOT_NULL
+com.google.common.collect.Maps.AsMapView set
+NOT_NULL
+com.google.common.collect.Maps.AsMapView.1 java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Maps.AsMapView.1 java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Maps.AsMapView.1 java.util.Set<K> delegate()
 NOT_NULL
 com.google.common.collect.Maps.AsMapView.2 java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
@@ -7280,11 +7852,19 @@ com.google.common.collect.Maps.EntryTransformer V2 transformEntry(K, V1) 1
 NULLABLE
 com.google.common.collect.Maps.FilteredEntryMap FilteredEntryMap(java.util.Map<K,V>, com.google.common.base.Predicate<? super java.util.Map.Entry<K,V>>) 0
 NOT_NULL
+com.google.common.collect.Maps.FilteredEntryMap filteredEntrySet
+NOT_NULL
 com.google.common.collect.Maps.FilteredEntryMap java.util.Set<K> keySet()
 NULLABLE
 com.google.common.collect.Maps.FilteredEntryMap java.util.Set<java.util.Map.Entry<K,V>> entrySet()
 NULLABLE
+com.google.common.collect.Maps.FilteredEntryMap.EntrySet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Maps.FilteredEntryMap.EntrySet java.util.Collection delegate()
+NOT_NULL
 com.google.common.collect.Maps.FilteredEntryMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
+NOT_NULL
+com.google.common.collect.Maps.FilteredEntryMap.EntrySet java.util.Set<java.util.Map.Entry<K,V>> delegate()
 NOT_NULL
 com.google.common.collect.Maps.FilteredEntryMap.EntrySet.1 java.lang.Object next()
 NOT_NULL
@@ -7314,11 +7894,15 @@ com.google.common.collect.Maps.NavigableKeySet K pollFirst()
 NULLABLE
 com.google.common.collect.Maps.NavigableKeySet K pollLast()
 NULLABLE
+com.google.common.collect.Maps.SortedAsMapView java.util.Set backingSet()
+NOT_NULL
 com.google.common.collect.Maps.SortedAsMapView java.util.SortedMap<K,V> headMap(K)
 NOT_NULL
 com.google.common.collect.Maps.SortedAsMapView java.util.SortedMap<K,V> subMap(K, K)
 NOT_NULL
 com.google.common.collect.Maps.SortedAsMapView java.util.SortedMap<K,V> tailMap(K)
+NOT_NULL
+com.google.common.collect.Maps.SortedAsMapView java.util.SortedSet<K> backingSet()
 NOT_NULL
 com.google.common.collect.Maps.TransformedEntriesMap TransformedEntriesMap(java.util.Map<K,V1>, com.google.common.collect.Maps.EntryTransformer<? super K,? super V1,V2>) 0
 NOT_NULL
@@ -7328,9 +7912,13 @@ com.google.common.collect.Maps.TransformedEntriesMap V2 get(java.lang.Object)
 NULLABLE
 com.google.common.collect.Maps.TransformedEntriesMap V2 remove(java.lang.Object)
 NULLABLE
+com.google.common.collect.Maps.TransformedEntriesMap fromMap
+NOT_NULL
 com.google.common.collect.Maps.TransformedEntriesMap java.util.Collection<V2> values()
 NOT_NULL
 com.google.common.collect.Maps.TransformedEntriesMap java.util.Set<java.util.Map.Entry<K,V2>> entrySet()
+NOT_NULL
+com.google.common.collect.Maps.TransformedEntriesMap transformer
 NOT_NULL
 com.google.common.collect.Maps.TransformedEntriesMap.1 java.util.Iterator<java.util.Map.Entry<K,V2>> iterator()
 NOT_NULL
@@ -7430,6 +8018,10 @@ com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.SortedMap<K,V>
 NOT_NULL
 com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.SortedMap<K,V> tailMap(K)
 NOT_NULL
+com.google.common.collect.Maps.ValueDifferenceImpl V leftValue()
+NULLABLE
+com.google.common.collect.Maps.ValueDifferenceImpl V rightValue()
+NULLABLE
 com.google.common.collect.Maps.ValueDifferenceImpl ValueDifferenceImpl(V, V) 0
 NULLABLE
 com.google.common.collect.Maps.ValueDifferenceImpl ValueDifferenceImpl(V, V) 1
@@ -7441,6 +8033,10 @@ NOT_NULL
 com.google.common.collect.Maps.ValueDifferenceImpl com.google.common.collect.MapDifference.ValueDifference<V> create(V, V) 0
 NULLABLE
 com.google.common.collect.Maps.ValueDifferenceImpl com.google.common.collect.MapDifference.ValueDifference<V> create(V, V) 1
+NULLABLE
+com.google.common.collect.Maps.ValueDifferenceImpl left
+NULLABLE
+com.google.common.collect.Maps.ValueDifferenceImpl right
 NULLABLE
 com.google.common.collect.Maps.Values boolean contains(java.lang.Object) 0
 NULLABLE
@@ -7482,6 +8078,8 @@ com.google.common.collect.MinMaxPriorityQueue com.google.common.collect.MinMaxPr
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue com.google.common.collect.MinMaxPriorityQueue<E> create(java.lang.Iterable<? extends E>) 0
 NOT_NULL
+com.google.common.collect.MinMaxPriorityQueue com.google.common.collect.MinMaxPriorityQueue<E>.Heap heapForIndex(int)
+NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue int access$600(com.google.common.collect.MinMaxPriorityQueue) 0
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue int access$700(com.google.common.collect.MinMaxPriorityQueue) 0
@@ -7491,6 +8089,10 @@ NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue java.lang.Object[] toArray()
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue java.util.Iterator<E> iterator()
+NOT_NULL
+com.google.common.collect.MinMaxPriorityQueue maxHeap
+NOT_NULL
+com.google.common.collect.MinMaxPriorityQueue minHeap
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue.Builder Builder(java.util.Comparator<B>) 0
 NOT_NULL
@@ -7503,6 +8105,8 @@ NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue.Builder com.google.common.collect.MinMaxPriorityQueue<T> create(java.lang.Iterable<? extends T>)
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue.Builder com.google.common.collect.MinMaxPriorityQueue<T> create(java.lang.Iterable<? extends T>) 0
+NOT_NULL
+com.google.common.collect.MinMaxPriorityQueue.Builder comparator
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue.Builder int access$300(com.google.common.collect.MinMaxPriorityQueue.Builder) 0
 NOT_NULL
@@ -7778,6 +8382,8 @@ com.google.common.collect.Multimaps.Keys.KeysEntrySet boolean remove(java.lang.O
 NULLABLE
 com.google.common.collect.Multimaps.Keys.KeysEntrySet java.util.Iterator<com.google.common.collect.Multiset.Entry<K>> iterator()
 NOT_NULL
+com.google.common.collect.Multimaps.MapMultimap JOINER
+NOT_NULL
 com.google.common.collect.Multimaps.MapMultimap MapMultimap(java.util.Map<K,V>) 0
 NOT_NULL
 com.google.common.collect.Multimaps.MapMultimap boolean equals(java.lang.Object) 0
@@ -7793,6 +8399,8 @@ NOT_NULL
 com.google.common.collect.Multimaps.MapMultimap java.util.Set<V> get(K)
 NOT_NULL
 com.google.common.collect.Multimaps.MapMultimap java.util.Set<V> removeAll(java.lang.Object)
+NOT_NULL
+com.google.common.collect.Multimaps.MapMultimap map
 NOT_NULL
 com.google.common.collect.Multimaps.MapMultimap.1 java.util.Iterator<V> iterator()
 NOT_NULL
@@ -7832,11 +8440,15 @@ com.google.common.collect.Multimaps.TransformedEntriesMultimap TransformedEntrie
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap TransformedEntriesMultimap(com.google.common.collect.Multimap<K,V1>, com.google.common.collect.Maps.EntryTransformer<? super K,? super V1,V2>) 1
 NOT_NULL
+com.google.common.collect.Multimaps.TransformedEntriesMultimap fromMultimap
+NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap java.util.Collection<V2> get(K)
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap java.util.Collection<V2> removeAll(java.lang.Object)
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap java.util.Collection<V2> transform(K, java.util.Collection<V1>)
+NOT_NULL
+com.google.common.collect.Multimaps.TransformedEntriesMultimap transformer
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object)
 NOT_NULL
@@ -7847,6 +8459,8 @@ NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.3 java.lang.Object apply(java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries TransformedEntries(com.google.common.collect.Maps.EntryTransformer<? super K,? super V1,V2>) 0
+NOT_NULL
+com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries this$0
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
@@ -7862,9 +8476,21 @@ com.google.common.collect.Multimaps.UnmodifiableAsMapEntries.1 java.util.Map.Ent
 NOT_NULL
 com.google.common.collect.Multimaps.UnmodifiableAsMapValues java.util.Iterator<java.util.Collection<V>> iterator()
 NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableListMultimap com.google.common.collect.ListMultimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableListMultimap com.google.common.collect.Multimap delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableListMultimap java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Multimaps.UnmodifiableMultimap UnmodifiableMultimap(com.google.common.collect.Multimap<K,V>) 0
 NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableMultimap com.google.common.collect.Multimap<K,V> delegate()
+NOT_NULL
 com.google.common.collect.Multimaps.UnmodifiableMultimap com.google.common.collect.Multiset<K> keys()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableMultimap delegate
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableMultimap java.lang.Object delegate()
 NOT_NULL
 com.google.common.collect.Multimaps.UnmodifiableMultimap java.util.Collection<java.util.Map.Entry<K,V>> entries()
 NOT_NULL
@@ -7878,9 +8504,23 @@ com.google.common.collect.Multimaps.UnmodifiableMultimap.1 java.util.Collection<
 NULLABLE
 com.google.common.collect.Multimaps.UnmodifiableMultimap.1 java.util.Set<java.util.Map.Entry<K,java.util.Collection<V>>> entrySet()
 NULLABLE
+com.google.common.collect.Multimaps.UnmodifiableSetMultimap com.google.common.collect.Multimap delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableSetMultimap com.google.common.collect.SetMultimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableSetMultimap java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Multimaps.UnmodifiableSetMultimap java.util.Collection entries()
 NOT_NULL
 com.google.common.collect.Multimaps.UnmodifiableSetMultimap java.util.Set<java.util.Map.Entry<K,V>> entries()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableSortedSetMultimap com.google.common.collect.Multimap delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableSortedSetMultimap com.google.common.collect.SetMultimap delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableSortedSetMultimap com.google.common.collect.SortedSetMultimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Multimaps.UnmodifiableSortedSetMultimap java.lang.Object delegate()
 NOT_NULL
 com.google.common.collect.Multimaps.Values boolean contains(java.lang.Object) 0
 NULLABLE
@@ -7994,10 +8634,20 @@ com.google.common.collect.Multisets.ImmutableEntry E getElement()
 NULLABLE
 com.google.common.collect.Multisets.ImmutableEntry ImmutableEntry(E, int) 0
 NULLABLE
+com.google.common.collect.Multisets.ImmutableEntry element
+NULLABLE
 com.google.common.collect.Multisets.SetMultiset SetMultiset(java.util.Set<E>) 0
 NOT_NULL
 com.google.common.collect.Multisets.SetMultiset boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Multisets.SetMultiset delegate
+NOT_NULL
+com.google.common.collect.Multisets.SetMultiset java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Multisets.SetMultiset java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Multisets.SetMultiset java.util.Set<E> delegate()
+NOT_NULL
 com.google.common.collect.Multisets.SetMultiset java.util.Set<E> elementSet()
 NULLABLE
 com.google.common.collect.Multisets.SetMultiset java.util.Set<com.google.common.collect.Multiset.Entry<E>> entrySet()
@@ -8007,6 +8657,12 @@ NOT_NULL
 com.google.common.collect.Multisets.SetMultiset.1.1 com.google.common.collect.Multiset.Entry<E> transform(E)
 NOT_NULL
 com.google.common.collect.Multisets.SetMultiset.1.1 java.lang.Object transform(java.lang.Object)
+NOT_NULL
+com.google.common.collect.Multisets.SetMultiset.ElementSet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Multisets.SetMultiset.ElementSet java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Multisets.SetMultiset.ElementSet java.util.Set<E> delegate()
 NOT_NULL
 com.google.common.collect.Multisets.UnmodifiableMultiset java.util.Iterator<E> iterator()
 NOT_NULL
@@ -8234,6 +8890,8 @@ com.google.common.collect.Ordering.ArbitraryOrdering int compare(java.lang.Objec
 NULLABLE
 com.google.common.collect.Ordering.ArbitraryOrdering java.lang.String toString()
 NOT_NULL
+com.google.common.collect.Ordering.ArbitraryOrdering.1 counter
+NOT_NULL
 com.google.common.collect.Ordering.ArbitraryOrderingHolder ARBITRARY_ORDERING
 NOT_NULL
 com.google.common.collect.Platform T[] clone(T[]) 0
@@ -8298,6 +8956,10 @@ com.google.common.collect.Queues java.util.concurrent.PriorityBlockingQueue<E> n
 NOT_NULL
 com.google.common.collect.Queues java.util.concurrent.SynchronousQueue<E> newSynchronousQueue()
 NOT_NULL
+com.google.common.collect.Range C lowerEndpoint()
+NULLABLE
+com.google.common.collect.Range C upperEndpoint()
+NULLABLE
 com.google.common.collect.Range Range(com.google.common.collect.Cut<C>, com.google.common.collect.Cut<C>) 0
 NOT_NULL
 com.google.common.collect.Range boolean apply(C) 0
@@ -8336,6 +8998,8 @@ com.google.common.collect.Range java.lang.String toString(com.google.common.coll
 NOT_NULL
 com.google.common.collect.Range java.lang.String toString(com.google.common.collect.Cut<?>, com.google.common.collect.Cut<?>) 1
 NOT_NULL
+com.google.common.collect.Range lowerBound
+NOT_NULL
 com.google.common.collect.RangeMap V apply(K)
 NULLABLE
 com.google.common.collect.RangeMap V get(K)
@@ -8361,6 +9025,8 @@ NOT_NULL
 com.google.common.collect.RangeMap.RangeValue RangeValue(com.google.common.collect.Range<K>, V) 0
 NOT_NULL
 com.google.common.collect.RangeMap.RangeValue RangeValue(com.google.common.collect.Range<K>, V) 1
+NOT_NULL
+com.google.common.collect.RangeMap.RangeValue com.google.common.collect.Cut<K> getLowerBound()
 NOT_NULL
 com.google.common.collect.RangeMap.RangeValue com.google.common.collect.RangeMap.RangeValue<K,V> withLowerBound(com.google.common.collect.Cut<K>)
 NULLABLE
@@ -8526,7 +9192,13 @@ com.google.common.collect.RegularImmutableMap com.google.common.collect.RegularI
 NULLABLE
 com.google.common.collect.RegularImmutableMap com.google.common.collect.RegularImmutableMap.LinkedEntry<K,V>[] createEntryArray(int)
 NOT_NULL
+com.google.common.collect.RegularImmutableMap com.google.common.collect.RegularImmutableMap.LinkedEntry[] access$100(com.google.common.collect.RegularImmutableMap)
+NOT_NULL
 com.google.common.collect.RegularImmutableMap com.google.common.collect.RegularImmutableMap.LinkedEntry[] access$100(com.google.common.collect.RegularImmutableMap) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableMap entries
+NOT_NULL
+com.google.common.collect.RegularImmutableMap table
 NOT_NULL
 com.google.common.collect.RegularImmutableMap.EntrySet com.google.common.collect.ImmutableList<java.util.Map.Entry<K,V>> createAsList()
 NOT_NULL
@@ -8596,6 +9268,8 @@ com.google.common.collect.RegularImmutableSortedMap.EntrySet.1 java.lang.Object 
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedMap.EntrySet.1 java.util.Map.Entry<K,V> get(int)
 NOT_NULL
+com.google.common.collect.RegularImmutableSortedMap.EntrySet.1 valueList
+NULLABLE
 com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.ImmutableSet<com.google.common.collect.Multiset.Entry<E>> createEntrySet()
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> headMultiset(E, com.google.common.collect.BoundType) 0
@@ -8655,6 +9329,8 @@ NOT_NULL
 com.google.common.collect.RegularImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> tailSetImpl(E, boolean) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedSet com.google.common.collect.UnmodifiableIterator<E> iterator()
+NOT_NULL
+com.google.common.collect.RegularImmutableSortedSet elements
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedSet int headIndex(E, boolean) 0
 NOT_NULL
@@ -8718,13 +9394,25 @@ com.google.common.collect.RegularImmutableTable.DenseImmutableTable boolean cont
 NULLABLE
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable boolean containsRow(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable columnCounts
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable columnKeyToIndex
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable columnMap
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap access$400(com.google.common.collect.RegularImmutableTable.DenseImmutableTable)
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap access$400(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap access$700(com.google.common.collect.RegularImmutableTable.DenseImmutableTable)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap access$700(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap<C,V> row(R)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap<C,V> row(R) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap<C,java.util.Map<R,V>> columnMap()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap<E,java.lang.Integer> makeIndex(com.google.common.collect.ImmutableSet<E>)
 NOT_NULL
@@ -8734,13 +9422,21 @@ com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.c
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap<R,V> column(C) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableMap<R,java.util.Map<C,V>> rowMap()
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableSet<C> columnKeySet()
 NULLABLE
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable com.google.common.collect.ImmutableSet<R> rowKeySet()
 NULLABLE
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable int[] access$300(com.google.common.collect.RegularImmutableTable.DenseImmutableTable)
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable int[] access$300(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable int[] access$600(com.google.common.collect.RegularImmutableTable.DenseImmutableTable)
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable int[] access$600(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.lang.Object[][] access$500(com.google.common.collect.RegularImmutableTable.DenseImmutableTable)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.lang.Object[][] access$500(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
 NOT_NULL
@@ -8750,29 +9446,57 @@ com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Ma
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map column(java.lang.Object) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map columnMap()
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map row(java.lang.Object)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map row(java.lang.Object) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map rowMap()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Set columnKeySet()
 NULLABLE
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Set rowKeySet()
 NULLABLE
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable rowCounts
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable rowKeyToIndex
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable rowMap
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable values
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Column Column(com.google.common.collect.RegularImmutableTable.DenseImmutableTable, int) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Column com.google.common.collect.ImmutableMap<R,java.lang.Integer> keyToIndex()
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Column this$0
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap ColumnMap(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap com.google.common.collect.ImmutableMap<C,java.lang.Integer> keyToIndex()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap java.lang.Object getValue(int)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap java.util.Map<R,V> getValue(int)
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.ColumnMap this$0
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Row Row(com.google.common.collect.RegularImmutableTable.DenseImmutableTable, int) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Row com.google.common.collect.ImmutableMap<C,java.lang.Integer> keyToIndex()
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.Row this$0
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.RowMap RowMap(com.google.common.collect.RegularImmutableTable.DenseImmutableTable) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.RowMap com.google.common.collect.ImmutableMap<R,java.lang.Integer> keyToIndex()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.RowMap java.lang.Object getValue(int)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable.RowMap java.util.Map<C,V> getValue(int)
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.DenseImmutableTable.RowMap this$0
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.ImmutableArrayMap V get(java.lang.Object)
 NULLABLE
@@ -8816,15 +9540,21 @@ com.google.common.collect.RegularImmutableTable.SparseImmutableTable boolean con
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable boolean containsRow(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.RegularImmutableTable.SparseImmutableTable columnMap
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<A,java.util.Map<B,V>> buildIndex(java.util.Map<A,com.google.common.collect.ImmutableMap.Builder<B,V>>)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<C,V> row(R)
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<C,V> row(R) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<C,java.util.Map<R,V>> columnMap()
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<R,V> column(C)
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<R,V> column(C) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableMap<R,java.util.Map<C,V>> rowMap()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable com.google.common.collect.ImmutableSet<C> columnKeySet()
 NULLABLE
@@ -8836,9 +9566,13 @@ com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.M
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map column(java.lang.Object) 0
 NOT_NULL
+com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map columnMap()
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map row(java.lang.Object)
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map row(java.lang.Object) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map rowMap()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map<A,com.google.common.collect.ImmutableMap.Builder<B,V>> makeIndexBuilder(com.google.common.collect.ImmutableSet<A>)
 NOT_NULL
@@ -8848,6 +9582,8 @@ com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.S
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Set rowKeySet()
 NULLABLE
+com.google.common.collect.RegularImmutableTable.SparseImmutableTable rowMap
+NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable.1 java.lang.Object apply(java.lang.Object) 0
@@ -8900,6 +9636,10 @@ com.google.common.collect.ReverseOrdering ReverseOrdering(com.google.common.coll
 NOT_NULL
 com.google.common.collect.ReverseOrdering boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.ReverseOrdering com.google.common.collect.Ordering<S> reverse()
+NOT_NULL
+com.google.common.collect.ReverseOrdering forwardOrder
+NOT_NULL
 com.google.common.collect.Serialization com.google.common.collect.Serialization.FieldSetter<T> getFieldSetter(java.lang.Class<T>, java.lang.String)
 NOT_NULL
 com.google.common.collect.Serialization com.google.common.collect.Serialization.FieldSetter<T> getFieldSetter(java.lang.Class<T>, java.lang.String) 0
@@ -8925,6 +9665,8 @@ NOT_NULL
 com.google.common.collect.Serialization void writeMultiset(com.google.common.collect.Multiset<E>, java.io.ObjectOutputStream) 1
 NOT_NULL
 com.google.common.collect.Serialization.FieldSetter FieldSetter(java.lang.reflect.Field) 0
+NOT_NULL
+com.google.common.collect.Serialization.FieldSetter field
 NOT_NULL
 com.google.common.collect.SetMultimap boolean equals(java.lang.Object) 0
 NULLABLE
@@ -9062,6 +9804,8 @@ com.google.common.collect.Sets.3 java.util.Iterator<E> iterator()
 NOT_NULL
 com.google.common.collect.Sets.CartesianSet CartesianSet(java.util.List<? extends java.util.Set<? extends B>>) 0
 NOT_NULL
+com.google.common.collect.Sets.CartesianSet axes
+NOT_NULL
 com.google.common.collect.Sets.CartesianSet boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Sets.CartesianSet com.google.common.collect.UnmodifiableIterator<java.util.List<B>> iterator()
@@ -9096,6 +9840,8 @@ com.google.common.collect.Sets.PowerSet boolean contains(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Sets.PowerSet boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Sets.PowerSet inputSet
+NOT_NULL
 com.google.common.collect.Sets.PowerSet java.util.Iterator<java.util.Set<E>> iterator()
 NOT_NULL
 com.google.common.collect.Sets.PowerSet.1 java.lang.Object get(int)
@@ -9108,6 +9854,8 @@ com.google.common.collect.Sets.SetFromMap SetFromMap(java.util.Map<E,java.lang.B
 NOT_NULL
 com.google.common.collect.Sets.SetFromMap boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Sets.SetFromMap m
+NOT_NULL
 com.google.common.collect.Sets.SetFromMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 com.google.common.collect.Sets.SetView S copyInto(S)
@@ -9116,6 +9864,8 @@ com.google.common.collect.Sets.SetView S copyInto(S) 0
 NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet UnmodifiableNavigableSet(java.util.NavigableSet<E>) 0
 NOT_NULL
+com.google.common.collect.Sets.UnmodifiableNavigableSet delegate
+NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.Iterator<E> descendingIterator()
 NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.NavigableSet<E> headSet(E, boolean)
@@ -9123,6 +9873,8 @@ NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.NavigableSet<E> subSet(E, boolean, E, boolean)
 NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.NavigableSet<E> tailSet(E, boolean)
+NOT_NULL
+com.google.common.collect.SingletonImmutableList E get(int)
 NOT_NULL
 com.google.common.collect.SingletonImmutableList SingletonImmutableList(E) 0
 NOT_NULL
@@ -9133,6 +9885,8 @@ NOT_NULL
 com.google.common.collect.SingletonImmutableList com.google.common.collect.ImmutableList<E> subList(int, int)
 NOT_NULL
 com.google.common.collect.SingletonImmutableList com.google.common.collect.UnmodifiableIterator<E> iterator()
+NOT_NULL
+com.google.common.collect.SingletonImmutableList element
 NOT_NULL
 com.google.common.collect.SingletonImmutableList int indexOf(java.lang.Object) 0
 NULLABLE
@@ -9237,6 +9991,12 @@ NOT_NULL
 com.google.common.collect.SingletonImmutableTable java.util.Set columnKeySet()
 NOT_NULL
 com.google.common.collect.SingletonImmutableTable java.util.Set rowKeySet()
+NOT_NULL
+com.google.common.collect.SingletonImmutableTable singleColumnKey
+NOT_NULL
+com.google.common.collect.SingletonImmutableTable singleRowKey
+NOT_NULL
+com.google.common.collect.SingletonImmutableTable singleValue
 NOT_NULL
 com.google.common.collect.SortedIterables boolean hasSameComparator(java.util.Comparator<?>, java.lang.Iterable<?>) 0
 NOT_NULL
@@ -9424,6 +10184,8 @@ com.google.common.collect.StandardTable.Column V put(R, V) 1
 NOT_NULL
 com.google.common.collect.StandardTable.Column V remove(java.lang.Object)
 NULLABLE
+com.google.common.collect.StandardTable.Column columnKey
+NOT_NULL
 com.google.common.collect.StandardTable.Column java.util.Collection<V> values()
 NULLABLE
 com.google.common.collect.StandardTable.Column java.util.Set<R> keySet()
@@ -9488,6 +10250,8 @@ com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet boolean remo
 NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet java.util.Iterator<java.util.Map.Entry<C,java.util.Map<R,V>>> iterator()
 NOT_NULL
+com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet this$1
+NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet.1 java.lang.Object transform(java.lang.Object)
 NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapEntrySet.1 java.util.Map.Entry<C,java.util.Map<R,V>> transform(C)
@@ -9499,6 +10263,8 @@ NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapValues boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.StandardTable.ColumnMap.ColumnMapValues java.util.Iterator<java.util.Map<R,V>> iterator()
+NOT_NULL
+com.google.common.collect.StandardTable.ColumnMap.ColumnMapValues this$1
 NOT_NULL
 com.google.common.collect.StandardTable.Row Row(R) 1
 NOT_NULL
@@ -9517,6 +10283,8 @@ NULLABLE
 com.google.common.collect.StandardTable.Row java.util.Set<C> keySet()
 NOT_NULL
 com.google.common.collect.StandardTable.Row java.util.Set<java.util.Map.Entry<C,V>> entrySet()
+NOT_NULL
+com.google.common.collect.StandardTable.Row rowKey
 NOT_NULL
 com.google.common.collect.StandardTable.Row.RowEntrySet java.util.Iterator<java.util.Map.Entry<C,V>> iterator()
 NOT_NULL
@@ -9547,6 +10315,8 @@ NOT_NULL
 com.google.common.collect.StandardTable.RowMap.EntrySet EntrySet(com.google.common.collect.StandardTable.RowMap) 0
 NOT_NULL
 com.google.common.collect.StandardTable.RowMap.EntrySet java.util.Iterator<java.util.Map.Entry<R,java.util.Map<C,V>>> iterator()
+NOT_NULL
+com.google.common.collect.StandardTable.RowMap.EntrySet this$1
 NOT_NULL
 com.google.common.collect.StandardTable.RowMap.EntrySet.1 java.lang.Object transform(java.lang.Object)
 NOT_NULL
@@ -9680,30 +10450,74 @@ com.google.common.collect.Synchronized.SynchronizedBiMap SynchronizedBiMap(com.g
 NULLABLE
 com.google.common.collect.Synchronized.SynchronizedBiMap SynchronizedBiMap(com.google.common.collect.BiMap<K,V>, java.lang.Object, com.google.common.collect.BiMap<V,K>) 2
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedBiMap com.google.common.collect.BiMap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedBiMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedBiMap java.util.Map delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedCollection SynchronizedCollection(java.util.Collection<E>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedCollection java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedCollection java.util.Collection<E> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedEntry SynchronizedEntry(java.util.Map.Entry<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedEntry java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedEntry java.util.Map.Entry<K,V> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedList SynchronizedList(java.util.List<E>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedList java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedList java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedList java.util.List<E> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedList java.util.List<E> subList(int, int)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedListMultimap SynchronizedListMultimap(com.google.common.collect.ListMultimap<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedListMultimap com.google.common.collect.ListMultimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedListMultimap com.google.common.collect.Multimap delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedListMultimap java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedListMultimap java.util.Collection get(java.lang.Object)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedListMultimap java.util.List<V> get(K)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedMap SynchronizedMap(java.util.Map<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedMap java.util.Map<K,V> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedMultimap SynchronizedMultimap(com.google.common.collect.Multimap<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedMultimap com.google.common.collect.Multimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedMultimap java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedMultimap java.util.Collection<V> get(K)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedMultiset SynchronizedMultiset(com.google.common.collect.Multiset<E>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedMultiset com.google.common.collect.Multiset<E> delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedMultiset java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedMultiset java.util.Collection delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableMap SynchronizedNavigableMap(java.util.NavigableMap<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedNavigableMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.Map delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.Map.Entry<K,V> ceilingEntry(K)
 NULLABLE
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.Map.Entry<K,V> firstEntry()
@@ -9720,11 +10534,15 @@ com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.Map.En
 NULLABLE
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.Map.Entry<K,V> pollLastEntry()
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.NavigableMap<K,V> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.NavigableMap<K,V> headMap(K, boolean)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.NavigableMap<K,V> subMap(K, boolean, K, boolean)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.NavigableMap<K,V> tailMap(K, boolean)
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.SortedMap delegate()
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.SortedMap<K,V> headMap(K)
 NOT_NULL
@@ -9734,11 +10552,21 @@ com.google.common.collect.Synchronized.SynchronizedNavigableMap java.util.Sorted
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableSet SynchronizedNavigableSet(java.util.NavigableSet<E>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedNavigableSet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.NavigableSet<E> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.NavigableSet<E> headSet(E, boolean)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.NavigableSet<E> subSet(E, boolean, E, boolean)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.NavigableSet<E> tailSet(E, boolean)
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.Set delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.SortedSet delegate()
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedNavigableSet java.util.SortedSet<E> headSet(E)
 NOT_NULL
@@ -9750,20 +10578,44 @@ com.google.common.collect.Synchronized.SynchronizedObject SynchronizedObject(jav
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedObject SynchronizedObject(java.lang.Object, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedObject delegate
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedObject java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedObject mutex
+NULLABLE
 com.google.common.collect.Synchronized.SynchronizedObject void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedRandomAccessList SynchronizedRandomAccessList(java.util.List<E>, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.Synchronized.SynchronizedSet SynchronizedSet(java.util.Set<E>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedSet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSet java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSet java.util.Set<E> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSetMultimap SynchronizedSetMultimap(com.google.common.collect.SetMultimap<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedSetMultimap com.google.common.collect.Multimap delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSetMultimap com.google.common.collect.SetMultimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSetMultimap java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSetMultimap java.util.Collection get(java.lang.Object)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSetMultimap java.util.Set<V> get(K)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedMap SynchronizedSortedMap(java.util.SortedMap<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedSortedMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedMap java.util.Map delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedMap java.util.SortedMap<K,V> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedMap java.util.SortedMap<K,V> headMap(K)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedMap java.util.SortedMap<K,V> subMap(K, K)
@@ -9772,6 +10624,14 @@ com.google.common.collect.Synchronized.SynchronizedSortedMap java.util.SortedMap
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedSet SynchronizedSortedSet(java.util.SortedSet<E>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedSortedSet java.lang.Object delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedSet java.util.Collection delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedSet java.util.Set delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedSet java.util.SortedSet<E> delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedSet java.util.SortedSet<E> headSet(E)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedSet java.util.SortedSet<E> subSet(E, E)
@@ -9780,6 +10640,14 @@ com.google.common.collect.Synchronized.SynchronizedSortedSet java.util.SortedSet
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap SynchronizedSortedSetMultimap(com.google.common.collect.SortedSetMultimap<K,V>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap com.google.common.collect.Multimap delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap com.google.common.collect.SetMultimap delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap com.google.common.collect.SortedSetMultimap<K,V> delegate()
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap java.util.Collection get(java.lang.Object)
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedSortedSetMultimap java.util.Set get(java.lang.Object)
@@ -9824,6 +10692,8 @@ com.google.common.collect.Tables com.google.common.collect.Table.Cell<R,C,V> imm
 NULLABLE
 com.google.common.collect.Tables com.google.common.collect.Table.Cell<R,C,V> immutableCell(R, C, V) 2
 NULLABLE
+com.google.common.collect.Tables com.google.common.collect.Table<C,R,V> transpose(com.google.common.collect.Table<R,C,V>)
+NOT_NULL
 com.google.common.collect.Tables com.google.common.collect.Table<R,C,V2> transformValues(com.google.common.collect.Table<R,C,V1>, com.google.common.base.Function<? super V1,V2>)
 NOT_NULL
 com.google.common.collect.Tables com.google.common.collect.Table<R,C,V> newCustomTable(java.util.Map<R,java.util.Map<C,V>>, com.google.common.base.Supplier<? extends java.util.Map<C,V>>)
@@ -9834,11 +10704,23 @@ com.google.common.collect.Tables com.google.common.collect.Table<R,C,V> newCusto
 NOT_NULL
 com.google.common.collect.Tables com.google.common.collect.Table<R,C,V> unmodifiableTable(com.google.common.collect.Table<? extends R,? extends C,? extends V>)
 NOT_NULL
+com.google.common.collect.Tables.ImmutableCell C getColumnKey()
+NULLABLE
 com.google.common.collect.Tables.ImmutableCell ImmutableCell(R, C, V) 0
 NULLABLE
 com.google.common.collect.Tables.ImmutableCell ImmutableCell(R, C, V) 1
 NULLABLE
 com.google.common.collect.Tables.ImmutableCell ImmutableCell(R, C, V) 2
+NULLABLE
+com.google.common.collect.Tables.ImmutableCell R getRowKey()
+NULLABLE
+com.google.common.collect.Tables.ImmutableCell V getValue()
+NULLABLE
+com.google.common.collect.Tables.ImmutableCell columnKey
+NULLABLE
+com.google.common.collect.Tables.ImmutableCell rowKey
+NULLABLE
+com.google.common.collect.Tables.ImmutableCell value
 NULLABLE
 com.google.common.collect.Tables.TransformedTable TransformedTable(com.google.common.collect.Table<R,C,V1>, com.google.common.base.Function<? super V1,V2>) 0
 NOT_NULL
@@ -9851,6 +10733,10 @@ NULLABLE
 com.google.common.collect.Tables.TransformedTable boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Tables.TransformedTable com.google.common.base.Function<com.google.common.collect.Table.Cell<R,C,V1>,com.google.common.collect.Table.Cell<R,C,V2>> cellFunction()
+NOT_NULL
+com.google.common.collect.Tables.TransformedTable fromTable
+NOT_NULL
+com.google.common.collect.Tables.TransformedTable function
 NOT_NULL
 com.google.common.collect.Tables.TransformedTable java.util.Map<C,V2> row(R)
 NOT_NULL
@@ -9877,6 +10763,8 @@ NOT_NULL
 com.google.common.collect.Tables.TransformedTable.3 java.util.Map<R,V2> apply(java.util.Map<R,V1>)
 NOT_NULL
 com.google.common.collect.Tables.TransformedTable.CellSet CellSet(com.google.common.collect.Tables.TransformedTable) 0
+NOT_NULL
+com.google.common.collect.Tables.TransformedTable.CellSet this$0
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable TRANSPOSE_CELL
 NOT_NULL
@@ -9906,6 +10794,8 @@ com.google.common.collect.Tables.TransposeTable com.google.common.base.Function 
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable java.util.Set<com.google.common.collect.Table.Cell<C,R,V>> cellSet()
 NULLABLE
+com.google.common.collect.Tables.TransposeTable original
+NOT_NULL
 com.google.common.collect.Tables.TransposeTable.1 com.google.common.collect.Table.Cell<?,?,?> apply(com.google.common.collect.Table.Cell<?,?,?>)
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable.1 com.google.common.collect.Table.Cell<?,?,?> apply(com.google.common.collect.Table.Cell<?,?,?>) 0
@@ -9915,6 +10805,14 @@ NOT_NULL
 com.google.common.collect.Tables.TransposeTable.1 java.lang.Object apply(java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable.CellSet CellSet(com.google.common.collect.Tables.TransposeTable) 0
+NOT_NULL
+com.google.common.collect.Tables.TransposeTable.CellSet this$0
+NOT_NULL
+com.google.common.collect.Tables.UnmodifiableRowSortedMap com.google.common.collect.RowSortedTable<R,C,V> delegate()
+NOT_NULL
+com.google.common.collect.Tables.UnmodifiableRowSortedMap com.google.common.collect.Table delegate()
+NOT_NULL
+com.google.common.collect.Tables.UnmodifiableRowSortedMap java.lang.Object delegate()
 NOT_NULL
 com.google.common.collect.Tables.UnmodifiableTable UnmodifiableTable(com.google.common.collect.Table<? extends R,? extends C,? extends V>) 0
 NOT_NULL
@@ -9928,6 +10826,12 @@ com.google.common.collect.Tables.UnmodifiableTable V remove(java.lang.Object, ja
 NULLABLE
 com.google.common.collect.Tables.UnmodifiableTable V remove(java.lang.Object, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Tables.UnmodifiableTable com.google.common.collect.Table<R,C,V> delegate()
+NOT_NULL
+com.google.common.collect.Tables.UnmodifiableTable delegate
+NOT_NULL
+com.google.common.collect.Tables.UnmodifiableTable java.lang.Object delegate()
+NOT_NULL
 com.google.common.collect.Tables.UnmodifiableTable java.util.Map<C,V> row(R) 0
 NULLABLE
 com.google.common.collect.Tables.UnmodifiableTable java.util.Map<R,V> column(C) 0
@@ -9937,6 +10841,8 @@ NOT_NULL
 com.google.common.collect.TransformedImmutableSet java.util.Iterator iterator()
 NOT_NULL
 com.google.common.collect.TransformedIterator TransformedIterator(java.util.Iterator<? extends F>) 0
+NOT_NULL
+com.google.common.collect.TransformedIterator backingIterator
 NOT_NULL
 com.google.common.collect.TreeBasedTable V get(java.lang.Object, java.lang.Object) 0
 NULLABLE
@@ -10016,6 +10922,10 @@ com.google.common.collect.TreeBasedTable.TreeRow java.util.SortedMap<C,V> tailMa
 NOT_NULL
 com.google.common.collect.TreeBasedTable.TreeRow java.util.SortedMap<C,V> tailMap(C) 0
 NOT_NULL
+com.google.common.collect.TreeBasedTable.TreeRow lowerBound
+NULLABLE
+com.google.common.collect.TreeBasedTable.TreeRow upperBound
+NULLABLE
 com.google.common.collect.TreeMultimap com.google.common.collect.TreeMultimap<K,V> create()
 NOT_NULL
 com.google.common.collect.TreeMultimap com.google.common.collect.TreeMultimap<K,V> create(com.google.common.collect.Multimap<? extends K,? extends V>)
@@ -10046,6 +10956,8 @@ com.google.common.collect.TreeMultiset TreeMultiset(com.google.common.collect.Tr
 NOT_NULL
 com.google.common.collect.TreeMultiset boolean setCount(E, int, int) 0
 NULLABLE
+com.google.common.collect.TreeMultiset com.google.common.collect.GeneralRange access$1300(com.google.common.collect.TreeMultiset)
+NOT_NULL
 com.google.common.collect.TreeMultiset com.google.common.collect.GeneralRange access$1300(com.google.common.collect.TreeMultiset) 0
 NOT_NULL
 com.google.common.collect.TreeMultiset com.google.common.collect.Multiset.Entry access$1400(com.google.common.collect.TreeMultiset, com.google.common.collect.TreeMultiset.AvlNode)
@@ -10100,6 +11012,8 @@ com.google.common.collect.TreeMultiset int remove(java.lang.Object, int) 0
 NULLABLE
 com.google.common.collect.TreeMultiset int setCount(E, int) 0
 NULLABLE
+com.google.common.collect.TreeMultiset java.util.Comparator comparator()
+NOT_NULL
 com.google.common.collect.TreeMultiset java.util.Iterator<com.google.common.collect.Multiset.Entry<E>> descendingEntryIterator()
 NOT_NULL
 com.google.common.collect.TreeMultiset java.util.Iterator<com.google.common.collect.Multiset.Entry<E>> entryIterator()
@@ -10111,6 +11025,8 @@ NULLABLE
 com.google.common.collect.TreeMultiset long aggregateBelowRange(com.google.common.collect.TreeMultiset.Aggregate, com.google.common.collect.TreeMultiset.AvlNode<E>) 1
 NULLABLE
 com.google.common.collect.TreeMultiset long aggregateForEntries(com.google.common.collect.TreeMultiset.Aggregate) 0
+NOT_NULL
+com.google.common.collect.TreeMultiset range
 NOT_NULL
 com.google.common.collect.TreeMultiset void access$1700(com.google.common.collect.TreeMultiset.AvlNode, com.google.common.collect.TreeMultiset.AvlNode, com.google.common.collect.TreeMultiset.AvlNode) 0
 NOT_NULL
@@ -10136,6 +11052,8 @@ com.google.common.collect.TreeMultiset void successor(com.google.common.collect.
 NOT_NULL
 com.google.common.collect.TreeMultiset void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
+com.google.common.collect.TreeMultiset.1 E getElement()
+NULLABLE
 com.google.common.collect.TreeMultiset.2 com.google.common.collect.Multiset.Entry<E> next()
 NOT_NULL
 com.google.common.collect.TreeMultiset.2 java.lang.Object next()
@@ -10161,6 +11079,8 @@ NULLABLE
 com.google.common.collect.TreeMultiset.Aggregate.2 long treeAggregate(com.google.common.collect.TreeMultiset.AvlNode<?>) 0
 NULLABLE
 com.google.common.collect.TreeMultiset.AvlNode AvlNode(E, int) 0
+NULLABLE
+com.google.common.collect.TreeMultiset.AvlNode E getElement()
 NULLABLE
 com.google.common.collect.TreeMultiset.AvlNode com.google.common.collect.TreeMultiset.AvlNode access$1000(com.google.common.collect.TreeMultiset.AvlNode, java.util.Comparator, java.lang.Object)
 NULLABLE
@@ -10222,6 +11142,8 @@ com.google.common.collect.TreeMultiset.AvlNode com.google.common.collect.TreeMul
 NULLABLE
 com.google.common.collect.TreeMultiset.AvlNode com.google.common.collect.TreeMultiset.AvlNode<E> setCount(java.util.Comparator<? super E>, E, int, int[]) 3
 NOT_NULL
+com.google.common.collect.TreeMultiset.AvlNode elem
+NULLABLE
 com.google.common.collect.TreeMultiset.AvlNode int access$200(com.google.common.collect.TreeMultiset.AvlNode) 0
 NOT_NULL
 com.google.common.collect.TreeMultiset.AvlNode int access$400(com.google.common.collect.TreeMultiset.AvlNode) 0
@@ -10229,6 +11151,8 @@ NOT_NULL
 com.google.common.collect.TreeMultiset.AvlNode int count(java.util.Comparator<? super E>, E) 0
 NOT_NULL
 com.google.common.collect.TreeMultiset.AvlNode int height(com.google.common.collect.TreeMultiset.AvlNode<?>) 0
+NULLABLE
+com.google.common.collect.TreeMultiset.AvlNode java.lang.Object access$500(com.google.common.collect.TreeMultiset.AvlNode)
 NULLABLE
 com.google.common.collect.TreeMultiset.AvlNode java.lang.Object access$500(com.google.common.collect.TreeMultiset.AvlNode) 0
 NOT_NULL
@@ -10294,6 +11218,18 @@ com.google.common.eventbus.AnnotatedHandlerFinder com.google.common.eventbus.Eve
 NOT_NULL
 com.google.common.eventbus.AnnotatedHandlerFinder com.google.common.eventbus.EventHandler makeHandler(java.lang.Object, java.lang.reflect.Method) 1
 NOT_NULL
+com.google.common.eventbus.AsyncEventBus eventsToDispatch
+NOT_NULL
+com.google.common.eventbus.EventBus eventsToDispatch
+NOT_NULL
+com.google.common.eventbus.EventBus finder
+NOT_NULL
+com.google.common.eventbus.EventBus flattenHierarchyCache
+NOT_NULL
+com.google.common.eventbus.EventBus handlersByType
+NOT_NULL
+com.google.common.eventbus.EventBus isDispatching
+NOT_NULL
 com.google.common.eventbus.EventBus java.util.Set<com.google.common.eventbus.EventHandler> newHandlerSet()
 NOT_NULL
 com.google.common.eventbus.EventBus void post(java.lang.Object) 0
@@ -10312,6 +11248,10 @@ com.google.common.eventbus.EventHandler EventHandler(java.lang.Object, java.lang
 NOT_NULL
 com.google.common.eventbus.EventHandler boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.eventbus.EventHandler method
+NOT_NULL
+com.google.common.eventbus.EventHandler target
+NOT_NULL
 com.google.common.hash.AbstractCompositeHashFunction com.google.common.hash.Hasher newHasher()
 NOT_NULL
 com.google.common.hash.AbstractCompositeHashFunction.1 com.google.common.hash.Hasher putBoolean(boolean)
@@ -10418,6 +11358,8 @@ com.google.common.hash.AbstractNonStreamingHashFunction.BufferingHasher com.goog
 NOT_NULL
 com.google.common.hash.AbstractNonStreamingHashFunction.BufferingHasher com.google.common.hash.PrimitiveSink putShort(short)
 NOT_NULL
+com.google.common.hash.AbstractNonStreamingHashFunction.BufferingHasher stream
+NOT_NULL
 com.google.common.hash.AbstractStreamingHashFunction.AbstractStreamingHasher com.google.common.hash.Hasher putByte(byte)
 NOT_NULL
 com.google.common.hash.AbstractStreamingHashFunction.AbstractStreamingHasher com.google.common.hash.Hasher putBytes(byte[])
@@ -10472,6 +11414,8 @@ com.google.common.hash.BloomFilter BloomFilter(com.google.common.hash.BloomFilte
 NOT_NULL
 com.google.common.hash.BloomFilter BloomFilter(com.google.common.hash.BloomFilterStrategies.BitArray, int, com.google.common.hash.Funnel<T>, com.google.common.hash.BloomFilter.Strategy) 2
 NOT_NULL
+com.google.common.hash.BloomFilter bits
+NOT_NULL
 com.google.common.hash.BloomFilter com.google.common.hash.BloomFilter.Strategy access$300(com.google.common.hash.BloomFilter) 0
 NOT_NULL
 com.google.common.hash.BloomFilter com.google.common.hash.BloomFilter<T> copy()
@@ -10484,15 +11428,25 @@ com.google.common.hash.BloomFilter com.google.common.hash.BloomFilter<T> create(
 NOT_NULL
 com.google.common.hash.BloomFilter com.google.common.hash.BloomFilter<T> create(com.google.common.hash.Funnel<T>, int, double) 0
 NOT_NULL
+com.google.common.hash.BloomFilter com.google.common.hash.BloomFilterStrategies.BitArray access$000(com.google.common.hash.BloomFilter)
+NOT_NULL
 com.google.common.hash.BloomFilter com.google.common.hash.BloomFilterStrategies.BitArray access$000(com.google.common.hash.BloomFilter) 0
 NOT_NULL
+com.google.common.hash.BloomFilter com.google.common.hash.Funnel access$200(com.google.common.hash.BloomFilter)
+NOT_NULL
 com.google.common.hash.BloomFilter com.google.common.hash.Funnel access$200(com.google.common.hash.BloomFilter) 0
+NOT_NULL
+com.google.common.hash.BloomFilter funnel
 NOT_NULL
 com.google.common.hash.BloomFilter int access$100(com.google.common.hash.BloomFilter) 0
 NOT_NULL
 com.google.common.hash.BloomFilter java.lang.Object writeReplace()
 NOT_NULL
 com.google.common.hash.BloomFilter.SerialForm SerialForm(com.google.common.hash.BloomFilter<T>) 0
+NOT_NULL
+com.google.common.hash.BloomFilter.SerialForm data
+NOT_NULL
+com.google.common.hash.BloomFilter.SerialForm funnel
 NOT_NULL
 com.google.common.hash.BloomFilter.SerialForm java.lang.Object readResolve()
 NOT_NULL
@@ -10503,6 +11457,8 @@ NOT_NULL
 com.google.common.hash.BloomFilterStrategies.BitArray BitArray(long[]) 0
 NOT_NULL
 com.google.common.hash.BloomFilterStrategies.BitArray com.google.common.hash.BloomFilterStrategies.BitArray copy()
+NOT_NULL
+com.google.common.hash.BloomFilterStrategies.BitArray data
 NOT_NULL
 com.google.common.hash.Funnels com.google.common.hash.Funnel<byte[]> byteArrayFunnel()
 NOT_NULL
@@ -10554,6 +11510,8 @@ com.google.common.hash.Funnels.LongFunnel void funnel(java.lang.Object, com.goog
 NOT_NULL
 com.google.common.hash.Funnels.SinkAsStream SinkAsStream(com.google.common.hash.PrimitiveSink) 0
 NOT_NULL
+com.google.common.hash.Funnels.SinkAsStream sink
+NOT_NULL
 com.google.common.hash.Funnels.StringFunnel $VALUES
 NOT_NULL
 com.google.common.hash.Funnels.StringFunnel INSTANCE
@@ -10580,6 +11538,10 @@ com.google.common.hash.HashCodes.IntHashCode byte[] asBytes()
 NOT_NULL
 com.google.common.hash.HashCodes.LongHashCode byte[] asBytes()
 NOT_NULL
+com.google.common.hash.Hashing GOOD_FAST_HASH_FUNCTION_128
+NOT_NULL
+com.google.common.hash.Hashing GOOD_FAST_HASH_FUNCTION_32
+NOT_NULL
 com.google.common.hash.Hashing MD5
 NOT_NULL
 com.google.common.hash.Hashing MURMUR3_128
@@ -10599,6 +11561,8 @@ NOT_NULL
 com.google.common.hash.Hashing com.google.common.hash.HashCode combineUnordered(java.lang.Iterable<com.google.common.hash.HashCode>)
 NOT_NULL
 com.google.common.hash.Hashing com.google.common.hash.HashCode combineUnordered(java.lang.Iterable<com.google.common.hash.HashCode>) 0
+NOT_NULL
+com.google.common.hash.Hashing com.google.common.hash.HashFunction goodFastHash(int)
 NOT_NULL
 com.google.common.hash.Hashing com.google.common.hash.HashFunction md5()
 NOT_NULL
@@ -10812,6 +11776,10 @@ com.google.common.io.ByteStreams.4 java.lang.Object getInput()
 NOT_NULL
 com.google.common.io.ByteStreams.ByteArrayDataInputStream ByteArrayDataInputStream(byte[], int) 0
 NOT_NULL
+com.google.common.io.ByteStreams.ByteArrayDataInputStream input
+NOT_NULL
+com.google.common.io.ByteStreams.ByteArrayDataOutputStream output
+NOT_NULL
 com.google.common.io.CharStreams T readLines(com.google.common.io.InputSupplier<R>, com.google.common.io.LineProcessor<T>) 0
 NOT_NULL
 com.google.common.io.CharStreams T readLines(com.google.common.io.InputSupplier<R>, com.google.common.io.LineProcessor<T>) 1
@@ -10890,9 +11858,13 @@ com.google.common.io.Closeables void close(java.io.Closeable, boolean) 0
 NULLABLE
 com.google.common.io.Closeables void closeQuietly(java.io.Closeable) 0
 NULLABLE
+com.google.common.io.FileBackedOutputStream com.google.common.io.InputSupplier<java.io.InputStream> getSupplier()
+NOT_NULL
 com.google.common.io.FileBackedOutputStream java.io.InputStream access$100(com.google.common.io.FileBackedOutputStream)
 NOT_NULL
 com.google.common.io.FileBackedOutputStream java.io.InputStream openStream()
+NOT_NULL
+com.google.common.io.FileBackedOutputStream supplier
 NOT_NULL
 com.google.common.io.FileBackedOutputStream void write(byte[]) 0
 NOT_NULL
@@ -11058,8 +12030,20 @@ com.google.common.io.LimitInputStream LimitInputStream(java.io.InputStream, long
 NOT_NULL
 com.google.common.io.LineReader LineReader(java.lang.Readable) 0
 NOT_NULL
+com.google.common.io.LineReader buf
+NOT_NULL
+com.google.common.io.LineReader java.util.Queue access$000(com.google.common.io.LineReader)
+NOT_NULL
 com.google.common.io.LineReader java.util.Queue access$000(com.google.common.io.LineReader) 0
 NOT_NULL
+com.google.common.io.LineReader lineBuf
+NOT_NULL
+com.google.common.io.LineReader lines
+NOT_NULL
+com.google.common.io.LineReader readable
+NOT_NULL
+com.google.common.io.LineReader reader
+NULLABLE
 com.google.common.io.LittleEndianDataInputStream LittleEndianDataInputStream(java.io.InputStream) 0
 NOT_NULL
 com.google.common.io.LittleEndianDataInputStream void readFully(byte[]) 0
@@ -11072,6 +12056,8 @@ com.google.common.io.PatternFilenameFilter PatternFilenameFilter(java.util.regex
 NOT_NULL
 com.google.common.io.PatternFilenameFilter boolean accept(java.io.File, java.lang.String) 0
 NULLABLE
+com.google.common.io.PatternFilenameFilter pattern
+NOT_NULL
 com.google.common.io.Resources T readLines(java.net.URL, java.nio.charset.Charset, com.google.common.io.LineProcessor<T>) 0
 NOT_NULL
 com.google.common.io.Resources T readLines(java.net.URL, java.nio.charset.Charset, com.google.common.io.LineProcessor<T>) 1
@@ -11220,6 +12206,154 @@ com.google.common.net.HostSpecifier com.google.common.net.HostSpecifier fromVali
 NOT_NULL
 com.google.common.net.HostSpecifier com.google.common.net.HostSpecifier fromValid(java.lang.String) 0
 NOT_NULL
+com.google.common.net.HttpHeaders ACCEPT
+NOT_NULL
+com.google.common.net.HttpHeaders ACCEPT_CHARSET
+NOT_NULL
+com.google.common.net.HttpHeaders ACCEPT_ENCODING
+NOT_NULL
+com.google.common.net.HttpHeaders ACCEPT_LANGUAGE
+NOT_NULL
+com.google.common.net.HttpHeaders ACCEPT_RANGES
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_ALLOW_CREDENTIALS
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_ALLOW_HEADERS
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_ALLOW_METHODS
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_ALLOW_ORIGIN
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_EXPOSE_HEADERS
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_MAX_AGE
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_REQUEST_HEADERS
+NOT_NULL
+com.google.common.net.HttpHeaders ACCESS_CONTROL_REQUEST_METHOD
+NOT_NULL
+com.google.common.net.HttpHeaders AGE
+NOT_NULL
+com.google.common.net.HttpHeaders ALLOW
+NOT_NULL
+com.google.common.net.HttpHeaders AUTHORIZATION
+NOT_NULL
+com.google.common.net.HttpHeaders CACHE_CONTROL
+NOT_NULL
+com.google.common.net.HttpHeaders CONNECTION
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_DISPOSITION
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_ENCODING
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_LANGUAGE
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_LENGTH
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_LOCATION
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_MD5
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_RANGE
+NOT_NULL
+com.google.common.net.HttpHeaders CONTENT_TYPE
+NOT_NULL
+com.google.common.net.HttpHeaders COOKIE
+NOT_NULL
+com.google.common.net.HttpHeaders DATE
+NOT_NULL
+com.google.common.net.HttpHeaders DNT
+NOT_NULL
+com.google.common.net.HttpHeaders ETAG
+NOT_NULL
+com.google.common.net.HttpHeaders EXPECT
+NOT_NULL
+com.google.common.net.HttpHeaders EXPIRES
+NOT_NULL
+com.google.common.net.HttpHeaders FROM
+NOT_NULL
+com.google.common.net.HttpHeaders HOST
+NOT_NULL
+com.google.common.net.HttpHeaders IF_MATCH
+NOT_NULL
+com.google.common.net.HttpHeaders IF_MODIFIED_SINCE
+NOT_NULL
+com.google.common.net.HttpHeaders IF_NONE_MATCH
+NOT_NULL
+com.google.common.net.HttpHeaders IF_RANGE
+NOT_NULL
+com.google.common.net.HttpHeaders IF_UNMODIFIED_SINCE
+NOT_NULL
+com.google.common.net.HttpHeaders LAST_EVENT_ID
+NOT_NULL
+com.google.common.net.HttpHeaders LAST_MODIFIED
+NOT_NULL
+com.google.common.net.HttpHeaders LINK
+NOT_NULL
+com.google.common.net.HttpHeaders LOCATION
+NOT_NULL
+com.google.common.net.HttpHeaders MAX_FORWARDS
+NOT_NULL
+com.google.common.net.HttpHeaders ORIGIN
+NOT_NULL
+com.google.common.net.HttpHeaders P3P
+NOT_NULL
+com.google.common.net.HttpHeaders PRAGMA
+NOT_NULL
+com.google.common.net.HttpHeaders PROXY_AUTHENTICATE
+NOT_NULL
+com.google.common.net.HttpHeaders PROXY_AUTHORIZATION
+NOT_NULL
+com.google.common.net.HttpHeaders RANGE
+NOT_NULL
+com.google.common.net.HttpHeaders REFERER
+NOT_NULL
+com.google.common.net.HttpHeaders REFRESH
+NOT_NULL
+com.google.common.net.HttpHeaders RETRY_AFTER
+NOT_NULL
+com.google.common.net.HttpHeaders SERVER
+NOT_NULL
+com.google.common.net.HttpHeaders SET_COOKIE
+NOT_NULL
+com.google.common.net.HttpHeaders SET_COOKIE2
+NOT_NULL
+com.google.common.net.HttpHeaders TE
+NOT_NULL
+com.google.common.net.HttpHeaders TRAILER
+NOT_NULL
+com.google.common.net.HttpHeaders TRANSFER_ENCODING
+NOT_NULL
+com.google.common.net.HttpHeaders UPGRADE
+NOT_NULL
+com.google.common.net.HttpHeaders USER_AGENT
+NOT_NULL
+com.google.common.net.HttpHeaders VARY
+NOT_NULL
+com.google.common.net.HttpHeaders VIA
+NOT_NULL
+com.google.common.net.HttpHeaders WARNING
+NOT_NULL
+com.google.common.net.HttpHeaders WWW_AUTHENTICATE
+NOT_NULL
+com.google.common.net.HttpHeaders X_CONTENT_TYPE_OPTIONS
+NOT_NULL
+com.google.common.net.HttpHeaders X_DO_NOT_TRACK
+NOT_NULL
+com.google.common.net.HttpHeaders X_FORWARDED_FOR
+NOT_NULL
+com.google.common.net.HttpHeaders X_FORWARDED_PROTO
+NOT_NULL
+com.google.common.net.HttpHeaders X_FRAME_OPTIONS
+NOT_NULL
+com.google.common.net.HttpHeaders X_POWERED_BY
+NOT_NULL
+com.google.common.net.HttpHeaders X_REQUESTED_WITH
+NOT_NULL
+com.google.common.net.HttpHeaders X_USER_IP
+NOT_NULL
+com.google.common.net.HttpHeaders X_XSS_PROTECTION
+NOT_NULL
 com.google.common.net.InetAddresses boolean hasEmbeddedIPv4ClientAddress(java.net.Inet6Address) 0
 NOT_NULL
 com.google.common.net.InetAddresses boolean is6to4Address(java.net.Inet6Address) 0
@@ -11272,6 +12406,8 @@ com.google.common.net.InetAddresses java.net.Inet4Address getCoercedIPv4Address(
 NOT_NULL
 com.google.common.net.InetAddresses java.net.Inet4Address getCompatIPv4Address(java.net.Inet6Address) 0
 NOT_NULL
+com.google.common.net.InetAddresses java.net.Inet4Address getEmbeddedIPv4ClientAddress(java.net.Inet6Address)
+NULLABLE
 com.google.common.net.InetAddresses java.net.Inet4Address getEmbeddedIPv4ClientAddress(java.net.Inet6Address) 0
 NOT_NULL
 com.google.common.net.InetAddresses java.net.Inet4Address getInet4Address(byte[]) 0
@@ -11292,6 +12428,26 @@ com.google.common.net.InetAddresses.TeredoInfo TeredoInfo(java.net.Inet4Address,
 NULLABLE
 com.google.common.net.InetAddresses.TeredoInfo TeredoInfo(java.net.Inet4Address, java.net.Inet4Address, int, int) 1
 NULLABLE
+com.google.common.net.InetAddresses.TeredoInfo client
+NULLABLE
+com.google.common.net.InetAddresses.TeredoInfo java.net.Inet4Address getClient()
+NULLABLE
+com.google.common.net.InetAddresses.TeredoInfo java.net.Inet4Address getServer()
+NULLABLE
+com.google.common.net.InetAddresses.TeredoInfo server
+NULLABLE
+com.google.common.net.InternetDomainName DASH_MATCHER
+NOT_NULL
+com.google.common.net.InternetDomainName DOTS_MATCHER
+NOT_NULL
+com.google.common.net.InternetDomainName DOT_JOINER
+NOT_NULL
+com.google.common.net.InternetDomainName DOT_REGEX
+NOT_NULL
+com.google.common.net.InternetDomainName DOT_SPLITTER
+NOT_NULL
+com.google.common.net.InternetDomainName PART_CHAR_MATCHER
+NOT_NULL
 com.google.common.net.InternetDomainName boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.net.InternetDomainName boolean matchesWildcardPublicSuffix(java.lang.String) 0
@@ -11299,6 +12455,8 @@ NOT_NULL
 com.google.common.net.InternetDomainName boolean validatePart(java.lang.String, boolean) 0
 NOT_NULL
 com.google.common.net.InternetDomainName boolean validateSyntax(java.util.List<java.lang.String>) 0
+NOT_NULL
+com.google.common.net.InternetDomainName com.google.common.collect.ImmutableList<java.lang.String> parts()
 NOT_NULL
 com.google.common.net.InternetDomainName com.google.common.net.InternetDomainName ancestor(int)
 NOT_NULL
@@ -11320,9 +12478,165 @@ com.google.common.net.InternetDomainName com.google.common.net.InternetDomainNam
 NULLABLE
 com.google.common.net.InternetDomainName com.google.common.net.InternetDomainName topPrivateDomain()
 NOT_NULL
+com.google.common.net.InternetDomainName parts
+NOT_NULL
+com.google.common.net.MediaType ANY_APPLICATION_TYPE
+NOT_NULL
+com.google.common.net.MediaType ANY_AUDIO_TYPE
+NOT_NULL
+com.google.common.net.MediaType ANY_IMAGE_TYPE
+NOT_NULL
+com.google.common.net.MediaType ANY_TEXT_TYPE
+NOT_NULL
+com.google.common.net.MediaType ANY_TYPE
+NOT_NULL
+com.google.common.net.MediaType ANY_VIDEO_TYPE
+NOT_NULL
+com.google.common.net.MediaType APPLICATION_TYPE
+NOT_NULL
+com.google.common.net.MediaType ATOM_UTF_8
+NOT_NULL
+com.google.common.net.MediaType AUDIO_TYPE
+NOT_NULL
+com.google.common.net.MediaType BMP
+NOT_NULL
+com.google.common.net.MediaType BZIP2
+NOT_NULL
+com.google.common.net.MediaType CACHE_MANIFEST_UTF_8
+NOT_NULL
+com.google.common.net.MediaType CHARSET_ATTRIBUTE
+NOT_NULL
+com.google.common.net.MediaType CSS_UTF_8
+NOT_NULL
+com.google.common.net.MediaType CSV_UTF_8
+NOT_NULL
+com.google.common.net.MediaType FORM_DATA
+NOT_NULL
+com.google.common.net.MediaType GIF
+NOT_NULL
+com.google.common.net.MediaType GZIP
+NOT_NULL
+com.google.common.net.MediaType HTML_UTF_8
+NOT_NULL
+com.google.common.net.MediaType ICO
+NOT_NULL
+com.google.common.net.MediaType IMAGE_TYPE
+NOT_NULL
+com.google.common.net.MediaType I_CALENDAR_UTF_8
+NOT_NULL
+com.google.common.net.MediaType JAVASCRIPT_UTF_8
+NOT_NULL
+com.google.common.net.MediaType JPEG
+NOT_NULL
+com.google.common.net.MediaType JSON_UTF_8
+NOT_NULL
+com.google.common.net.MediaType KML
+NOT_NULL
+com.google.common.net.MediaType KMZ
+NOT_NULL
+com.google.common.net.MediaType KNOWN_TYPES
+NOT_NULL
+com.google.common.net.MediaType LINEAR_WHITE_SPACE
+NOT_NULL
+com.google.common.net.MediaType MBOX
+NOT_NULL
+com.google.common.net.MediaType MICROSOFT_EXCEL
+NOT_NULL
+com.google.common.net.MediaType MICROSOFT_POWERPOINT
+NOT_NULL
+com.google.common.net.MediaType MICROSOFT_WORD
+NOT_NULL
+com.google.common.net.MediaType MP4_AUDIO
+NOT_NULL
+com.google.common.net.MediaType MP4_VIDEO
+NOT_NULL
+com.google.common.net.MediaType MPEG_AUDIO
+NOT_NULL
+com.google.common.net.MediaType MPEG_VIDEO
+NOT_NULL
+com.google.common.net.MediaType OCTET_STREAM
+NOT_NULL
+com.google.common.net.MediaType OGG_AUDIO
+NOT_NULL
+com.google.common.net.MediaType OGG_CONTAINER
+NOT_NULL
+com.google.common.net.MediaType OGG_VIDEO
+NOT_NULL
+com.google.common.net.MediaType OOXML_DOCUMENT
+NOT_NULL
+com.google.common.net.MediaType OOXML_PRESENTATION
+NOT_NULL
+com.google.common.net.MediaType OOXML_SHEET
+NOT_NULL
+com.google.common.net.MediaType OPENDOCUMENT_GRAPHICS
+NOT_NULL
+com.google.common.net.MediaType OPENDOCUMENT_PRESENTATION
+NOT_NULL
+com.google.common.net.MediaType OPENDOCUMENT_SPREADSHEET
+NOT_NULL
+com.google.common.net.MediaType OPENDOCUMENT_TEXT
+NOT_NULL
+com.google.common.net.MediaType PARAMETER_JOINER
+NOT_NULL
+com.google.common.net.MediaType PDF
+NOT_NULL
+com.google.common.net.MediaType PLAIN_TEXT_UTF_8
+NOT_NULL
+com.google.common.net.MediaType PNG
+NOT_NULL
+com.google.common.net.MediaType POSTSCRIPT
+NOT_NULL
+com.google.common.net.MediaType QUICKTIME
+NOT_NULL
+com.google.common.net.MediaType QUOTED_TEXT_MATCHER
+NOT_NULL
+com.google.common.net.MediaType RTF_UTF_8
+NOT_NULL
+com.google.common.net.MediaType SHOCKWAVE_FLASH
+NOT_NULL
+com.google.common.net.MediaType SKETCHUP
+NOT_NULL
+com.google.common.net.MediaType SVG_UTF_8
+NOT_NULL
+com.google.common.net.MediaType TAR
+NOT_NULL
+com.google.common.net.MediaType TEXT_JAVASCRIPT_UTF_8
+NOT_NULL
+com.google.common.net.MediaType TEXT_TYPE
+NOT_NULL
+com.google.common.net.MediaType TIFF
+NOT_NULL
+com.google.common.net.MediaType TOKEN_MATCHER
+NOT_NULL
+com.google.common.net.MediaType UTF_8_CONSTANT_PARAMETERS
+NOT_NULL
+com.google.common.net.MediaType VCARD_UTF_8
+NOT_NULL
+com.google.common.net.MediaType VIDEO_TYPE
+NOT_NULL
+com.google.common.net.MediaType WEBM_AUDIO
+NOT_NULL
+com.google.common.net.MediaType WEBM_VIDEO
+NOT_NULL
+com.google.common.net.MediaType WEBP
+NOT_NULL
+com.google.common.net.MediaType WILDCARD
+NOT_NULL
+com.google.common.net.MediaType WML_UTF_8
+NOT_NULL
+com.google.common.net.MediaType WMV
+NOT_NULL
+com.google.common.net.MediaType XHTML_UTF_8
+NOT_NULL
+com.google.common.net.MediaType XML_UTF_8
+NOT_NULL
+com.google.common.net.MediaType ZIP
+NOT_NULL
 com.google.common.net.MediaType boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.net.MediaType boolean is(com.google.common.net.MediaType) 0
+NOT_NULL
+com.google.common.net.MediaType com.google.common.base.CharMatcher access$000()
 NOT_NULL
 com.google.common.net.MediaType com.google.common.base.Optional<java.nio.charset.Charset> charset()
 NOT_NULL
@@ -11958,6 +13272,12 @@ com.google.common.primitives.UnsignedBytes.LexicographicalComparatorHolder.Unsaf
 NOT_NULL
 com.google.common.primitives.UnsignedBytes.LexicographicalComparatorHolder.UnsafeComparator int compare(java.lang.Object, java.lang.Object) 1
 NOT_NULL
+com.google.common.primitives.UnsignedInteger MAX_VALUE
+NOT_NULL
+com.google.common.primitives.UnsignedInteger ONE
+NOT_NULL
+com.google.common.primitives.UnsignedInteger ZERO
+NOT_NULL
 com.google.common.primitives.UnsignedInteger boolean equals(java.lang.Object) 0
 NULLABLE
 com.google.common.primitives.UnsignedInteger com.google.common.primitives.UnsignedInteger add(com.google.common.primitives.UnsignedInteger)
@@ -12138,6 +13458,8 @@ com.google.common.reflect.ImmutableTypeToInstanceMap.Builder com.google.common.r
 NOT_NULL
 com.google.common.reflect.ImmutableTypeToInstanceMap.Builder com.google.common.reflect.ImmutableTypeToInstanceMap<B> build()
 NOT_NULL
+com.google.common.reflect.ImmutableTypeToInstanceMap.Builder mapBuilder
+NOT_NULL
 com.google.common.reflect.MutableTypeToInstanceMap T getInstance(com.google.common.reflect.TypeToken<T>)
 NULLABLE
 com.google.common.reflect.MutableTypeToInstanceMap T getInstance(com.google.common.reflect.TypeToken<T>) 0
@@ -12160,6 +13482,12 @@ com.google.common.reflect.MutableTypeToInstanceMap T trustedPut(com.google.commo
 NULLABLE
 com.google.common.reflect.MutableTypeToInstanceMap T trustedPut(com.google.common.reflect.TypeToken<T>, T) 1
 NULLABLE
+com.google.common.reflect.MutableTypeToInstanceMap backingMap
+NOT_NULL
+com.google.common.reflect.MutableTypeToInstanceMap java.lang.Object delegate()
+NOT_NULL
+com.google.common.reflect.MutableTypeToInstanceMap java.util.Map<com.google.common.reflect.TypeToken<? extends B>,B> delegate()
+NOT_NULL
 com.google.common.reflect.Reflection T newProxy(java.lang.Class<T>, java.lang.reflect.InvocationHandler) 0
 NOT_NULL
 com.google.common.reflect.Reflection T newProxy(java.lang.Class<T>, java.lang.reflect.InvocationHandler) 1
@@ -12208,6 +13536,10 @@ com.google.common.reflect.TypeResolver.TypeMappingIntrospector com.google.common
 NOT_NULL
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector com.google.common.collect.ImmutableMap<java.lang.reflect.TypeVariable<?>,java.lang.reflect.Type> getTypeMappings(java.lang.reflect.Type) 0
 NOT_NULL
+com.google.common.reflect.TypeResolver.TypeMappingIntrospector introspectedTypes
+NOT_NULL
+com.google.common.reflect.TypeResolver.TypeMappingIntrospector mappings
+NOT_NULL
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector void introspectClass(java.lang.Class<?>) 0
 NOT_NULL
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector void introspectParameterizedType(java.lang.reflect.ParameterizedType) 0
@@ -12215,6 +13547,8 @@ NOT_NULL
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector void map(java.lang.reflect.TypeVariable<?>, java.lang.reflect.Type) 1
 NULLABLE
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector wildcardCapturer
+NOT_NULL
+com.google.common.reflect.TypeResolver.WildcardCapturer id
 NOT_NULL
 com.google.common.reflect.TypeResolver.WildcardCapturer java.lang.reflect.Type capture(java.lang.reflect.Type) 0
 NOT_NULL
@@ -12436,6 +13770,8 @@ com.google.common.reflect.TypeToken.TypeSet com.google.common.reflect.TypeToken<
 NOT_NULL
 com.google.common.reflect.TypeToken.TypeSet com.google.common.reflect.TypeToken<T>.TypeSet interfaces()
 NOT_NULL
+com.google.common.reflect.Types COMMA_JOINER
+NOT_NULL
 com.google.common.reflect.Types TYPE_TO_STRING
 NOT_NULL
 com.google.common.reflect.Types boolean containsTypeVariable(java.lang.reflect.Type) 0
@@ -12443,6 +13779,8 @@ NULLABLE
 com.google.common.reflect.Types boolean containsTypeVariable(java.lang.reflect.Type[]) 0
 NOT_NULL
 com.google.common.reflect.Types com.google.common.base.Function access$300()
+NOT_NULL
+com.google.common.reflect.Types com.google.common.base.Joiner access$400()
 NOT_NULL
 com.google.common.reflect.Types java.lang.IllegalArgumentException buildUnexpectedTypeException(java.lang.reflect.Type, java.lang.Class<?>...)
 NOT_NULL
@@ -12496,6 +13834,8 @@ com.google.common.reflect.Types.1 java.lang.String apply(java.lang.reflect.Type)
 NOT_NULL
 com.google.common.reflect.Types.ClassOwnership $VALUES
 NOT_NULL
+com.google.common.reflect.Types.ClassOwnership JVM_BEHAVIOR
+NOT_NULL
 com.google.common.reflect.Types.ClassOwnership LOCAL_CLASS_HAS_NO_OWNER
 NOT_NULL
 com.google.common.reflect.Types.ClassOwnership OWNED_BY_ENCLOSING_CLASS
@@ -12513,6 +13853,8 @@ NULLABLE
 com.google.common.reflect.Types.ClassOwnership.2 java.lang.Class<?> getOwnerType(java.lang.Class<?>) 0
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion $VALUES
+NOT_NULL
+com.google.common.reflect.Types.JavaVersion CURRENT
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion JAVA6
 NOT_NULL
@@ -12540,15 +13882,43 @@ com.google.common.reflect.Types.ParameterizedTypeImpl ParameterizedTypeImpl(java
 NOT_NULL
 com.google.common.reflect.Types.ParameterizedTypeImpl ParameterizedTypeImpl(java.lang.reflect.Type, java.lang.Class<?>, java.lang.reflect.Type[]) 2
 NOT_NULL
+com.google.common.reflect.Types.ParameterizedTypeImpl argumentsList
+NOT_NULL
+com.google.common.reflect.Types.ParameterizedTypeImpl java.lang.reflect.Type getOwnerType()
+NULLABLE
+com.google.common.reflect.Types.ParameterizedTypeImpl java.lang.reflect.Type getRawType()
+NOT_NULL
+com.google.common.reflect.Types.ParameterizedTypeImpl ownerType
+NULLABLE
+com.google.common.reflect.Types.ParameterizedTypeImpl rawType
+NOT_NULL
+com.google.common.reflect.Types.TypeVariableImpl D getGenericDeclaration()
+NOT_NULL
 com.google.common.reflect.Types.TypeVariableImpl TypeVariableImpl(D, java.lang.String, java.lang.reflect.Type[]) 0
 NOT_NULL
 com.google.common.reflect.Types.TypeVariableImpl TypeVariableImpl(D, java.lang.String, java.lang.reflect.Type[]) 1
 NOT_NULL
 com.google.common.reflect.Types.TypeVariableImpl TypeVariableImpl(D, java.lang.String, java.lang.reflect.Type[]) 2
 NOT_NULL
+com.google.common.reflect.Types.TypeVariableImpl bounds
+NOT_NULL
+com.google.common.reflect.Types.TypeVariableImpl genericDeclaration
+NOT_NULL
+com.google.common.reflect.Types.TypeVariableImpl java.lang.String getName()
+NOT_NULL
+com.google.common.reflect.Types.TypeVariableImpl java.lang.String toString()
+NOT_NULL
+com.google.common.reflect.Types.TypeVariableImpl name
+NOT_NULL
 com.google.common.reflect.Types.WildcardTypeImpl WildcardTypeImpl(java.lang.reflect.Type[], java.lang.reflect.Type[]) 0
 NOT_NULL
 com.google.common.reflect.Types.WildcardTypeImpl WildcardTypeImpl(java.lang.reflect.Type[], java.lang.reflect.Type[]) 1
+NOT_NULL
+com.google.common.reflect.Types.WildcardTypeImpl lowerBounds
+NOT_NULL
+com.google.common.reflect.Types.WildcardTypeImpl upperBounds
+NOT_NULL
+com.google.common.util.concurrent.AbstractExecutionThreadService delegate
 NOT_NULL
 com.google.common.util.concurrent.AbstractExecutionThreadService java.util.concurrent.Executor executor()
 NOT_NULL
@@ -12557,6 +13927,10 @@ NOT_NULL
 com.google.common.util.concurrent.AbstractFuture boolean set(V) 0
 NULLABLE
 com.google.common.util.concurrent.AbstractFuture boolean setException(java.lang.Throwable) 0
+NOT_NULL
+com.google.common.util.concurrent.AbstractFuture executionList
+NOT_NULL
+com.google.common.util.concurrent.AbstractFuture sync
 NOT_NULL
 com.google.common.util.concurrent.AbstractFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0
 NOT_NULL
@@ -12568,6 +13942,8 @@ com.google.common.util.concurrent.AbstractFuture.Sync boolean complete(V, java.l
 NULLABLE
 com.google.common.util.concurrent.AbstractFuture.Sync boolean set(V) 0
 NULLABLE
+com.google.common.util.concurrent.AbstractIdleService delegate
+NOT_NULL
 com.google.common.util.concurrent.AbstractIdleService java.util.concurrent.Executor executor(com.google.common.util.concurrent.Service.State)
 NOT_NULL
 com.google.common.util.concurrent.AbstractListeningExecutorService T invokeAny(java.util.Collection<? extends java.util.concurrent.Callable<T>>) 0
@@ -12598,11 +13974,21 @@ com.google.common.util.concurrent.AbstractListeningExecutorService java.util.con
 NOT_NULL
 com.google.common.util.concurrent.AbstractListeningExecutorService java.util.concurrent.Future submit(java.util.concurrent.Callable)
 NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService com.google.common.util.concurrent.AbstractService access$400(com.google.common.util.concurrent.AbstractScheduledService)
+NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService com.google.common.util.concurrent.AbstractService access$400(com.google.common.util.concurrent.AbstractScheduledService) 0
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService com.google.common.util.concurrent.ListenableFuture<com.google.common.util.concurrent.Service.State> start()
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService com.google.common.util.concurrent.ListenableFuture<com.google.common.util.concurrent.Service.State> stop()
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService delegate
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService.1 java.lang.Runnable access$600(com.google.common.util.concurrent.AbstractScheduledService.1)
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.1 java.lang.Runnable access$600(com.google.common.util.concurrent.AbstractScheduledService.1) 0
 NOT_NULL
@@ -12610,7 +13996,13 @@ com.google.common.util.concurrent.AbstractScheduledService.1 java.util.concurren
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.1 java.util.concurrent.ScheduledExecutorService access$500(com.google.common.util.concurrent.AbstractScheduledService.1) 0
 NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService.1 java.util.concurrent.locks.ReentrantLock access$100(com.google.common.util.concurrent.AbstractScheduledService.1)
+NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.1 java.util.concurrent.locks.ReentrantLock access$100(com.google.common.util.concurrent.AbstractScheduledService.1) 0
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService.1 lock
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService.1 task
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler java.util.concurrent.Future<?> schedule(com.google.common.util.concurrent.AbstractService, java.util.concurrent.ScheduledExecutorService, java.lang.Runnable)
 NOT_NULL
@@ -12618,11 +14010,17 @@ com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Resch
 NULLABLE
 com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.ReschedulableCallable java.lang.Void call()
 NULLABLE
+com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.ReschedulableCallable lock
+NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule Schedule(long, java.util.concurrent.TimeUnit) 1
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule java.util.concurrent.TimeUnit access$800(com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule)
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule java.util.concurrent.TimeUnit access$800(com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule) 0
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule long access$700(com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule) 0
+NOT_NULL
+com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule unit
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.Scheduler com.google.common.util.concurrent.AbstractScheduledService.Scheduler newFixedDelaySchedule(long, long, java.util.concurrent.TimeUnit)
 NOT_NULL
@@ -12632,9 +14030,27 @@ com.google.common.util.concurrent.AbstractScheduledService.Scheduler.1 java.util
 NOT_NULL
 com.google.common.util.concurrent.AbstractScheduledService.Scheduler.2 java.util.concurrent.Future<?> schedule(com.google.common.util.concurrent.AbstractService, java.util.concurrent.ScheduledExecutorService, java.lang.Runnable) 1
 NOT_NULL
+com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.AbstractService.Transition access$100(com.google.common.util.concurrent.AbstractService)
+NOT_NULL
 com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.AbstractService.Transition access$100(com.google.common.util.concurrent.AbstractService) 0
 NOT_NULL
+com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.AbstractService.Transition access$200(com.google.common.util.concurrent.AbstractService)
+NOT_NULL
 com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.AbstractService.Transition access$200(com.google.common.util.concurrent.AbstractService) 0
+NOT_NULL
+com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.ListenableFuture<com.google.common.util.concurrent.Service.State> start()
+NOT_NULL
+com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.ListenableFuture<com.google.common.util.concurrent.Service.State> stop()
+NOT_NULL
+com.google.common.util.concurrent.AbstractService listeners
+NOT_NULL
+com.google.common.util.concurrent.AbstractService lock
+NOT_NULL
+com.google.common.util.concurrent.AbstractService queuedListeners
+NOT_NULL
+com.google.common.util.concurrent.AbstractService shutdown
+NOT_NULL
+com.google.common.util.concurrent.AbstractService startup
 NOT_NULL
 com.google.common.util.concurrent.AbstractService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0
 NOT_NULL
@@ -12647,6 +14063,10 @@ NOT_NULL
 com.google.common.util.concurrent.AbstractService.7 $SwitchMap$com$google$common$util$concurrent$Service$State
 NOT_NULL
 com.google.common.util.concurrent.AbstractService.StateSnapshot StateSnapshot(com.google.common.util.concurrent.Service.State, boolean, java.lang.Throwable) 2
+NULLABLE
+com.google.common.util.concurrent.AbstractService.StateSnapshot failure
+NULLABLE
+com.google.common.util.concurrent.AbstractService.StateSnapshot java.lang.Throwable failureCause()
 NULLABLE
 com.google.common.util.concurrent.AtomicDouble void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
@@ -12668,6 +14088,8 @@ com.google.common.util.concurrent.AtomicLongMap com.google.common.util.concurren
 NOT_NULL
 com.google.common.util.concurrent.AtomicLongMap java.util.Map<K,java.lang.Long> asMap()
 NULLABLE
+com.google.common.util.concurrent.AtomicLongMap map
+NOT_NULL
 com.google.common.util.concurrent.AtomicLongMap void putAll(java.util.Map<? extends K,? extends java.lang.Long>) 0
 NOT_NULL
 com.google.common.util.concurrent.AtomicLongMap.1 java.lang.Long apply(java.util.concurrent.atomic.AtomicLong) 0
@@ -12702,6 +14124,8 @@ com.google.common.util.concurrent.CycleDetectingLockFactory java.util.concurrent
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory java.util.concurrent.locks.ReentrantReadWriteLock newReentrantReadWriteLock(java.lang.String, boolean)
 NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory lockGraphNodesPerType
+NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory void aboutToAcquire(com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingLock) 0
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory void lockStateChanged(com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingLock) 0
@@ -12712,7 +14136,27 @@ com.google.common.util.concurrent.CycleDetectingLockFactory.1 java.util.ArrayLis
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantLock CycleDetectingReentrantLock(com.google.common.util.concurrent.CycleDetectingLockFactory, com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode, boolean) 1
 NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantLock com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode getLockGraphNode()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantLock lockGraphNode
+NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock CycleDetectingReentrantReadWriteLock(com.google.common.util.concurrent.CycleDetectingLockFactory, com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode, boolean) 1
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode getLockGraphNode()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock java.util.concurrent.locks.Lock readLock()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock java.util.concurrent.locks.Lock writeLock()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock java.util.concurrent.locks.ReentrantReadWriteLock.ReadLock readLock()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock writeLock()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock lockGraphNode
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock readLock
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.CycleDetectingReentrantReadWriteLock writeLock
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.ExampleStackTrace EMPTY_STACK_TRACE
 NOT_NULL
@@ -12722,9 +14166,17 @@ com.google.common.util.concurrent.CycleDetectingLockFactory.ExampleStackTrace Ex
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode LockGraphNode(java.lang.String) 0
 NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode allowedPriorLocks
+NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode com.google.common.util.concurrent.CycleDetectingLockFactory.ExampleStackTrace findPathTo(com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode, java.util.Set<com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode>)
 NULLABLE
 com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode com.google.common.util.concurrent.CycleDetectingLockFactory.ExampleStackTrace findPathTo(com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode, java.util.Set<com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode>) 1
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode disallowedPriorLocks
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode java.lang.String getLockName()
+NOT_NULL
+com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode lockName
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode void checkAcquiredLock(com.google.common.util.concurrent.CycleDetectingLockFactory.Policy, com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode) 1
 NOT_NULL
@@ -12754,6 +14206,8 @@ com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering java.util.concurrent.locks.ReentrantReadWriteLock newReentrantReadWriteLock(E, boolean)
 NOT_NULL
+com.google.common.util.concurrent.ExecutionList runnables
+NOT_NULL
 com.google.common.util.concurrent.ExecutionList void add(java.lang.Runnable, java.util.concurrent.Executor) 0
 NOT_NULL
 com.google.common.util.concurrent.ExecutionList void add(java.lang.Runnable, java.util.concurrent.Executor) 1
@@ -12762,9 +14216,33 @@ com.google.common.util.concurrent.FakeTimeLimiter T callWithTimeout(java.util.co
 NOT_NULL
 com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture SimpleForwardingCheckedFuture(com.google.common.util.concurrent.CheckedFuture<V,X>) 0
 NOT_NULL
+com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture com.google.common.util.concurrent.CheckedFuture<V,X> delegate()
+NOT_NULL
+com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture com.google.common.util.concurrent.ListenableFuture delegate()
+NOT_NULL
+com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture delegate
+NOT_NULL
+com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture java.lang.Object delegate()
+NOT_NULL
+com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture java.util.concurrent.Future delegate()
+NOT_NULL
 com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture SimpleForwardingFuture(java.util.concurrent.Future<V>) 0
 NOT_NULL
+com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture delegate
+NOT_NULL
+com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture java.lang.Object delegate()
+NOT_NULL
+com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture java.util.concurrent.Future<V> delegate()
+NOT_NULL
 com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture SimpleForwardingListenableFuture(com.google.common.util.concurrent.ListenableFuture<V>) 0
+NOT_NULL
+com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture com.google.common.util.concurrent.ListenableFuture<V> delegate()
+NOT_NULL
+com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture delegate
+NOT_NULL
+com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture java.lang.Object delegate()
+NOT_NULL
+com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture java.util.concurrent.Future delegate()
 NOT_NULL
 com.google.common.util.concurrent.Futures DEREFERENCER
 NOT_NULL
@@ -12775,6 +14253,8 @@ NOT_NULL
 com.google.common.util.concurrent.Futures V get(java.util.concurrent.Future<V>, long, java.util.concurrent.TimeUnit, java.lang.Class<X>) 2
 NOT_NULL
 com.google.common.util.concurrent.Futures V getUnchecked(java.util.concurrent.Future<V>) 0
+NOT_NULL
+com.google.common.util.concurrent.Futures WITH_STRING_PARAM_FIRST
 NOT_NULL
 com.google.common.util.concurrent.Futures X newFromConstructor(java.lang.reflect.Constructor<X>, java.lang.Throwable)
 NULLABLE
@@ -12880,14 +14360,22 @@ com.google.common.util.concurrent.Futures.ChainingListenableFuture ChainingListe
 NOT_NULL
 com.google.common.util.concurrent.Futures.ChainingListenableFuture com.google.common.util.concurrent.ListenableFuture access$102(com.google.common.util.concurrent.Futures.ChainingListenableFuture, com.google.common.util.concurrent.ListenableFuture) 0
 NOT_NULL
+com.google.common.util.concurrent.Futures.ChainingListenableFuture mayInterruptIfRunningChannel
+NOT_NULL
+com.google.common.util.concurrent.Futures.ChainingListenableFuture outputCreated
+NOT_NULL
 com.google.common.util.concurrent.Futures.ChainingListenableFuture void cancel(java.util.concurrent.Future<?>, boolean) 0
 NULLABLE
 com.google.common.util.concurrent.Futures.ListFuture ListFuture(com.google.common.collect.ImmutableList<? extends com.google.common.util.concurrent.ListenableFuture<? extends V>>, boolean, java.util.concurrent.Executor) 0
+NOT_NULL
+com.google.common.util.concurrent.Futures.ListFuture remaining
 NOT_NULL
 com.google.common.util.concurrent.Futures.MappingCheckedFuture MappingCheckedFuture(com.google.common.util.concurrent.ListenableFuture<V>, com.google.common.base.Function<java.lang.Exception,X>) 1
 NOT_NULL
 com.google.common.util.concurrent.Futures.MappingCheckedFuture X mapException(java.lang.Exception)
 NULLABLE
+com.google.common.util.concurrent.Futures.MappingCheckedFuture mapper
+NOT_NULL
 com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture<V> listenInPoolThread(java.util.concurrent.Future<V>)
 NOT_NULL
 com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture<V> listenInPoolThread(java.util.concurrent.Future<V>, java.util.concurrent.Executor)
@@ -12898,9 +14386,27 @@ com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter List
 NOT_NULL
 com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter ListenableFutureAdapter(java.util.concurrent.Future<V>, java.util.concurrent.Executor) 1
 NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter adapterExecutor
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter com.google.common.util.concurrent.ExecutionList access$100(com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter)
+NOT_NULL
 com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter com.google.common.util.concurrent.ExecutionList access$100(com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter) 0
 NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter delegate
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter executionList
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter hasListeners
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter java.lang.Object delegate()
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter java.util.concurrent.Future access$000(com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter)
+NOT_NULL
 com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter java.util.concurrent.Future access$000(com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter) 0
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter java.util.concurrent.Future<V> delegate()
+NOT_NULL
+com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter threadFactory
 NOT_NULL
 com.google.common.util.concurrent.JdkFutureAdapters.ListenableFutureAdapter void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0
 NOT_NULL
@@ -12914,9 +14420,13 @@ com.google.common.util.concurrent.ListenableFutureTask com.google.common.util.co
 NULLABLE
 com.google.common.util.concurrent.ListenableFutureTask com.google.common.util.concurrent.ListenableFutureTask<V> create(java.util.concurrent.Callable<V>)
 NOT_NULL
+com.google.common.util.concurrent.ListenableFutureTask executionList
+NOT_NULL
 com.google.common.util.concurrent.ListenableFutureTask void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0
 NOT_NULL
 com.google.common.util.concurrent.ListenableFutureTask void addListener(java.lang.Runnable, java.util.concurrent.Executor) 1
+NOT_NULL
+com.google.common.util.concurrent.Monitor activeGuards
 NOT_NULL
 com.google.common.util.concurrent.Monitor boolean enterIf(com.google.common.util.concurrent.Monitor.Guard) 0
 NOT_NULL
@@ -12950,7 +14460,11 @@ com.google.common.util.concurrent.Monitor boolean waitUninterruptibly(com.google
 NOT_NULL
 com.google.common.util.concurrent.Monitor int getWaitQueueLength(com.google.common.util.concurrent.Monitor.Guard) 0
 NOT_NULL
+com.google.common.util.concurrent.Monitor java.util.concurrent.locks.ReentrantLock access$000(com.google.common.util.concurrent.Monitor)
+NOT_NULL
 com.google.common.util.concurrent.Monitor java.util.concurrent.locks.ReentrantLock access$000(com.google.common.util.concurrent.Monitor) 0
+NOT_NULL
+com.google.common.util.concurrent.Monitor lock
 NOT_NULL
 com.google.common.util.concurrent.Monitor void decrementWaiters(com.google.common.util.concurrent.Monitor.Guard) 0
 NOT_NULL
@@ -12972,6 +14486,8 @@ com.google.common.util.concurrent.Monitor void waitUninterruptibly(com.google.co
 NOT_NULL
 com.google.common.util.concurrent.Monitor.Guard Guard(com.google.common.util.concurrent.Monitor) 0
 NOT_NULL
+com.google.common.util.concurrent.Monitor.Guard monitor
+NOT_NULL
 com.google.common.util.concurrent.MoreExecutors T invokeAnyImpl(com.google.common.util.concurrent.ListeningExecutorService, java.util.Collection<? extends java.util.concurrent.Callable<T>>, boolean, long) 0
 NOT_NULL
 com.google.common.util.concurrent.MoreExecutors T invokeAnyImpl(com.google.common.util.concurrent.ListeningExecutorService, java.util.Collection<? extends java.util.concurrent.Callable<T>>, boolean, long) 1
@@ -12992,11 +14508,17 @@ com.google.common.util.concurrent.MoreExecutors java.util.concurrent.ScheduledEx
 NOT_NULL
 com.google.common.util.concurrent.MoreExecutors.ListeningDecorator ListeningDecorator(java.util.concurrent.ExecutorService) 0
 NOT_NULL
+com.google.common.util.concurrent.MoreExecutors.ListeningDecorator delegate
+NOT_NULL
 com.google.common.util.concurrent.MoreExecutors.SameThreadExecutorService boolean awaitTermination(long, java.util.concurrent.TimeUnit) 1
+NOT_NULL
+com.google.common.util.concurrent.MoreExecutors.SameThreadExecutorService lock
 NOT_NULL
 com.google.common.util.concurrent.MoreExecutors.SameThreadExecutorService void execute(java.lang.Runnable) 0
 NOT_NULL
 com.google.common.util.concurrent.MoreExecutors.ScheduledListeningDecorator ScheduledListeningDecorator(java.util.concurrent.ScheduledExecutorService) 0
+NOT_NULL
+com.google.common.util.concurrent.MoreExecutors.ScheduledListeningDecorator delegate
 NOT_NULL
 com.google.common.util.concurrent.RateLimiter RateLimiter(com.google.common.util.concurrent.RateLimiter.SleepingTicker) 0
 NOT_NULL
@@ -13013,6 +14535,8 @@ NOT_NULL
 com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter create(double, long, java.util.concurrent.TimeUnit)
 NOT_NULL
 com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter createBursty(com.google.common.util.concurrent.RateLimiter.SleepingTicker, double, int)
+NOT_NULL
+com.google.common.util.concurrent.RateLimiter ticker
 NOT_NULL
 com.google.common.util.concurrent.RateLimiter.SleepingTicker SYSTEM_TICKER
 NOT_NULL
@@ -13051,6 +14575,8 @@ NOT_NULL
 com.google.common.util.concurrent.SimpleTimeLimiter T newProxy(java.lang.Class<T>, java.lang.reflect.InvocationHandler) 0
 NOT_NULL
 com.google.common.util.concurrent.SimpleTimeLimiter boolean declaresInterruptedEx(java.lang.reflect.Method) 0
+NOT_NULL
+com.google.common.util.concurrent.SimpleTimeLimiter executor
 NOT_NULL
 com.google.common.util.concurrent.SimpleTimeLimiter java.util.Set<java.lang.reflect.Method> findInterruptibleMethods(java.lang.Class<?>)
 NOT_NULL
@@ -13091,6 +14617,10 @@ NOT_NULL
 com.google.common.util.concurrent.Striped.5 java.lang.Object get()
 NOT_NULL
 com.google.common.util.concurrent.Striped.5 java.util.concurrent.locks.ReadWriteLock get()
+NOT_NULL
+com.google.common.util.concurrent.Striped.CompactStriped array
+NOT_NULL
+com.google.common.util.concurrent.Striped.LazyStriped cache
 NOT_NULL
 com.google.common.util.concurrent.Striped.PowerOfTwoStriped L get(java.lang.Object) 0
 NOT_NULL

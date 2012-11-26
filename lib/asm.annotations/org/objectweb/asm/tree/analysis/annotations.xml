@@ -8,7 +8,7 @@
     <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt;[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value"
-                 val="&quot;fun analyze(owner : String, m : MethodNode) : Array&lt;Frame&lt;V&gt;?&gt;&quot;"/>
+                 val="&quot;fun analyze(owner : String, m : MethodNode) : Array&lt;out Frame&lt;V&gt;?&gt;&quot;"/>
         </annotation>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -180,7 +180,7 @@
     <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt;[] getFrames()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getFrames() : Array&lt;Frame&lt;V&gt;?&gt;&quot;"/>
+            <val name="value" val="&quot;fun getFrames() : Array&lt;out Frame&lt;V&gt;?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Frame void execute(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Interpreter&lt;V&gt;)'>

@@ -1,3 +1,13 @@
+javax.xml.XMLConstants DEFAULT_NS_PREFIX
+NOT_NULL
+javax.xml.XMLConstants XMLNS_ATTRIBUTE
+NOT_NULL
+javax.xml.XMLConstants XMLNS_ATTRIBUTE_NS_URI
+NOT_NULL
+javax.xml.XMLConstants XML_NS_PREFIX
+NOT_NULL
+javax.xml.XMLConstants XML_NS_URI
+NOT_NULL
 javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 javax.xml.namespace.QName boolean equals(java.lang.Object) 0
@@ -10,6 +20,26 @@ javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang
 NULLABLE
 javax.xml.stream.FactoryFinder java.lang.Object newInstance(java.lang.String, java.lang.ClassLoader) 1
 NULLABLE
+javax.xml.stream.XMLInputFactory ALLOCATOR
+NOT_NULL
+javax.xml.stream.XMLInputFactory IS_COALESCING
+NOT_NULL
+javax.xml.stream.XMLInputFactory IS_NAMESPACE_AWARE
+NOT_NULL
+javax.xml.stream.XMLInputFactory IS_REPLACING_ENTITY_REFERENCES
+NOT_NULL
+javax.xml.stream.XMLInputFactory IS_SUPPORTING_EXTERNAL_ENTITIES
+NOT_NULL
+javax.xml.stream.XMLInputFactory IS_VALIDATING
+NOT_NULL
+javax.xml.stream.XMLInputFactory REPORTER
+NOT_NULL
+javax.xml.stream.XMLInputFactory RESOLVER
+NOT_NULL
+javax.xml.stream.XMLInputFactory SUPPORT_DTD
+NOT_NULL
+javax.xml.stream.XMLOutputFactory IS_REPAIRING_NAMESPACES
+NOT_NULL
 javax.xml.stream.XMLStreamException XMLStreamException(java.lang.String, javax.xml.stream.Location) 1
 NOT_NULL
 javax.xml.stream.XMLStreamException XMLStreamException(java.lang.String, javax.xml.stream.Location, java.lang.Throwable) 1

@@ -1,29 +1,34 @@
 package org.jetbrains.kannotator.annotationsInference.nullability
 
+import java.util.HashMap
+import java.util.HashSet
 import org.jetbrains.kannotator.annotationsInference.forInterestingValue
 import org.jetbrains.kannotator.annotationsInference.traverseInstructions
 import org.jetbrains.kannotator.asm.util.getAsmInstructionNode
 import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.objectweb.asm.ClassReader
+import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.FieldInsnNode
-import util.controlFlow.buildControlFlowGraph
-import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
-import org.jetbrains.kannotator.controlFlow.State
+
+class AnnotationsBuildingResult(
+        val inferredAnnotations: Annotations<NullabilityAnnotation>,
+        val writtenFieldValueInfos: Map<Field, NullabilityValueInfo>)
 
 fun buildMethodNullabilityAnnotations(
-        graph: ControlFlowGraph,
-        positions: PositionsForMethod,
+        method: Method,
+        cfGraph: ControlFlowGraph,
+        fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
         declarationIndex: DeclarationIndex,
-        annotations: Annotations<NullabilityAnnotation>
-): Annotations<NullabilityAnnotation> {
-
+        annotations: Annotations<NullabilityAnnotation>,
+        methodFieldsNullabilityInfoProvider: (Method) -> Map<Field, NullabilityValueInfo>?
+): AnnotationsBuildingResult {
+    val positions = PositionsForMethod(method)
     val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
     val valueNullabilityMapsOnReturn = arrayList<ValueNullabilityMap>()
     var returnValueInfo : NullabilityValueInfo? = null
@@ -41,6 +46,26 @@ fun buildMethodNullabilityAnnotations(
         valueNullabilityMapsOnReturn.add(nullabilityInfos)
     }
 
+    val fieldNullabilityInfoMap = HashMap<Field, NullabilityValueInfo>()
+    fun collectValueInfoForFieldInitInstruction(instruction: Instruction, nullabilityInfos: ValueNullabilityMap) {
+        if (instruction.getOpcode() == PUTSTATIC || instruction.getOpcode() == PUTFIELD) {
+            val fieldNode = instruction.getAsmInstructionNode() as FieldInsnNode
+            val field = declarationIndex.findField(ClassName.fromInternalName(fieldNode.owner), fieldNode.name)
+
+            if (field != null && shouldCollectNullabilityInfo(field)) {
+                assert(field.name == fieldNode.name)
+
+                val state = instruction[STATE_BEFORE]!!
+                val fieldValues = state.stack[0]
+                val nullabilityValueInfo = fieldValues.map { it -> nullabilityInfos[it] }.merge()
+
+                val autoCastedField : Field = field // Avoid KT-2746 bug
+                fieldNullabilityInfoMap[autoCastedField] = nullabilityValueInfo merge
+                        fieldNullabilityInfoMap.getOrElse(autoCastedField, { NullabilityValueInfo.CONFLICT })
+            }
+        }
+    }
+
     fun createAnnotations(): Annotations<NullabilityAnnotation> {
         val result = AnnotationsImpl<NullabilityAnnotation>()
         result.setIfNotNull(positions.forReturnType().position, returnValueInfo?.toAnnotation())
@@ -51,92 +76,84 @@ fun buildMethodNullabilityAnnotations(
                 result.setIfNotNull(positions.forInterestingValue(value), valueInfo.toAnnotation())
             }
         }
+
+        val updatedFieldInfoProvider = {(m: Method) -> if (m == method) fieldNullabilityInfoMap else methodFieldsNullabilityInfoProvider(m) }
+
+        for (changedField in findFieldsWithChangedNullabilityInfo(methodFieldsNullabilityInfoProvider(method), fieldNullabilityInfoMap)) {
+            val fieldAnnotation = buildFieldNullabilityAnnotations(fieldDependencyInfoProvider(changedField), updatedFieldInfoProvider)
+            if (fieldAnnotation != null) {
+                result[getFieldTypePosition(changedField)] = fieldAnnotation
+            }
+        }
+
         return result
     }
 
-
-    graph.traverseInstructions {
+    cfGraph.traverseInstructions {
         instruction ->
         val valueNullabilityMap = framesManager.computeNullabilityInfosForInstruction(instruction)
+
         if (instruction.getOpcode() in RETURN_OPCODES) {
             collectValueInfoForReturnInstruction(instruction, valueNullabilityMap)
         }
+
+        collectValueInfoForFieldInitInstruction(instruction, valueNullabilityMap)
     }
 
-    return createAnnotations()
+    return AnnotationsBuildingResult(createAnnotations(), fieldNullabilityInfoMap)
+}
+
+fun findFieldsWithChangedNullabilityInfo(previous: Map<Field, NullabilityValueInfo>?,
+                                         new: Map<Field, NullabilityValueInfo>) : Collection<Field> {
+    if (previous == null) {
+        return new.keySet()
+    }
+
+    val changedInFields = HashSet<Field>()
+    assert(previous.keySet() == new.keySet())
+
+    for (key in previous.keySet()) {
+        if (previous[key] != new[key]) {
+            changedInFields.add(key)
+        }
+    }
+
+    return changedInFields
 }
 
 private val RETURN_OPCODES = hashSet(ARETURN, RETURN, IRETURN, LRETURN, DRETURN, FRETURN)
 
-fun buildFieldNullabilityAnnotations(
+private fun FieldDependencyInfo.areAllWritersProcessed(methodFieldsNullabilityInfoProvider: (Method) -> Map<Field, NullabilityValueInfo>?) : Boolean =
+        this.writers.all { methodFieldsNullabilityInfoProvider(it) != null }
+
+private fun buildFieldNullabilityAnnotations(
         fieldInfo: FieldDependencyInfo,
-        controlFlowGraphBuilder: (Method) -> ControlFlowGraph,
-        declarationIndex: DeclarationIndex,
-        annotations: Annotations<NullabilityAnnotation>): Annotations<NullabilityAnnotation> {
+        methodToFieldsNullabilityProvider: (Method) -> Map<Field, NullabilityValueInfo>?): NullabilityAnnotation? {
+    val fromValueAnnotation = inferAnnotationsFromFieldValue(fieldInfo.field)
 
-    val fieldAnnotations = AnnotationsImpl(annotations)
-    val field = fieldInfo.field
-
-    if (field.getType().isPrimitiveOrVoidType()) {
-        return AnnotationsImpl()
+    if (fromValueAnnotation != null) {
+        return fromValueAnnotation
     }
 
-    if (field.isFinal()) {
-        if (field.isStatic()) {
-            if (field.value != null) {
-                fieldAnnotations[getFieldAnnotatedType(field).position] = NullabilityAnnotation.NOT_NULL
-                return fieldAnnotations
-            }
-            else {
-                // Get in class static initializer -> Infer nullability
-                // TODO: Initializer can call other static functions and and use values of other fields
-                val method = declarationIndex.findMethod(field.declaringClass, "<clinit>", "()V")
-                if (method != null) {
-                    val graph = controlFlowGraphBuilder(method)
-                    return collectFieldInformationFromMethod(graph, field, PositionsForMethod(method), declarationIndex, annotations)
-                }
-
-                throw IllegalStateException("Static field ${fieldInfo} is not initialized and no static initializer found")
-            }
+    if (!fieldInfo.field.getType().isPrimitiveOrVoidType()) {
+        if (fieldInfo.areAllWritersProcessed(methodToFieldsNullabilityProvider)) {
+            val fieldNullabilityInfos = fieldInfo.writers.map { writer -> methodToFieldsNullabilityProvider(writer)!!.get(fieldInfo.field)!! }
+            return fieldNullabilityInfos.merge().toAnnotation()
         }
     }
 
-    return AnnotationsImpl()
+    return null
 }
 
-fun collectFieldInformationFromMethod(
-        graph: ControlFlowGraph,
-        field: Field,
-        positions: PositionsForMethod,
-        declarationIndex: DeclarationIndex,
-        annotations: Annotations<NullabilityAnnotation>): Annotations<NullabilityAnnotation> {
-    val framesManager = FramesNullabilityManager(positions, annotations, declarationIndex)
-
-    var fieldValueInfo: NullabilityValueInfo? = null
-
-    fun collectValueInfoForFieldInitInstruction(instruction: Instruction, nullabilityInfos: ValueNullabilityMap) {
-        if (instruction.getOpcode() == PUTSTATIC) {
-            val fieldNode = instruction.getAsmInstructionNode() as FieldInsnNode
-            if (field.name == fieldNode.name) {
-                val state = instruction[STATE_BEFORE]!!
-                val fieldValues = state.stack[0]
-                val nullabilityValueInfo = fieldValues.map { it -> nullabilityInfos[it] }.merge()
-                fieldValueInfo = nullabilityValueInfo.mergeWithNullable(fieldValueInfo)
-            }
-        }
-    }
-
-    fun createAnnotations(): Annotations<NullabilityAnnotation> {
-        val result = AnnotationsImpl<NullabilityAnnotation>()
-        result.setIfNotNull(getFieldAnnotatedType(field).position, fieldValueInfo?.toAnnotation())
-        return result
-    }
-
-    graph.traverseInstructions {
-        val valueNullabilityMap = framesManager.computeNullabilityInfosForInstruction(it)
-        collectValueInfoForFieldInitInstruction(it, valueNullabilityMap)
-    }
-
-    return createAnnotations()
+fun shouldCollectNullabilityInfo(field: Field): Boolean {
+    return !field.getType().isPrimitiveOrVoidType() && field.isFinal()
 }
 
+fun inferAnnotationsFromFieldValue(field: Field) : NullabilityAnnotation? {
+    if (field.isFinal() && field.value != null && !field.getType().isPrimitiveOrVoidType()) {
+        // A very simple case when final field has initial value
+        return NullabilityAnnotation.NOT_NULL
+    }
+
+    return null
+}

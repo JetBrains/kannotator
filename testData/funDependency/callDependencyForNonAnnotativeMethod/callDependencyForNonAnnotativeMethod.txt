@@ -1,0 +1,21 @@
+== All Nodes == 
+funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:<init>()V
+    outgoing edges:
+        call funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:<init>()V -> java.lang.Object:<init>()V
+funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:boo()V
+    incoming edges:
+        call funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:foo()V -> funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:boo()V
+funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:foo()V
+    outgoing edges:
+        call funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:foo()V -> funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:boo()V
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:<init>()V -> java.lang.Object:<init>()V
+
+== No Outgoing Nodes == 
+funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:boo()V
+    incoming edges:
+        call funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:foo()V -> funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:boo()V
+java.lang.Object:<init>()V
+    incoming edges:
+        call funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod:<init>()V -> java.lang.Object:<init>()V

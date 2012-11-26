@@ -9,6 +9,7 @@ import java.util.ArrayList
 import kotlinlib.recurseFiltered
 import org.jetbrains.kannotator.index.ClassSource
 import junit.framework.Assert
+import kotlinlib.toUnixSeparators
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
@@ -22,11 +23,10 @@ fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classR
 }
 
 fun getAllClassesWithPrefix(prefix: String): ClassSource {
-    val classPath = System.getProperty("java.class.path")!!
     val result = arrayList<ClassName>()
 
-    for (jar in classPath.split(File.pathSeparatorChar)) {
-        recurseIntoJars(File(jar)) {
+    findJarsInLibFolder().forEach {
+        recurseIntoJars(it) {
             f, classType, classReader ->
             val name = ClassName.fromType(classType)
             if (name.internal.startsWith(prefix)) {
@@ -48,6 +48,18 @@ fun findJarFiles(dirs: Collection<File>): Collection<File> {
     return jars
 }
 
+fun findJarsInLibFolder(): List<File> {
+    val jars = ArrayList<File>()
+    File("lib").recurse {
+        file ->
+        if (file.isFile() && file.getName().endsWith(".jar")) {
+            jars.add(file)
+        }
+    }
+    return jars
+}
+
+
 fun assertEqualsOrCreate(expectedFile: File, actual: String, failOnNoData: Boolean = true): Boolean {
     if (!expectedFile.exists()) {
         expectedFile.getParentFile()!!.mkdirs()
@@ -60,6 +72,6 @@ fun assertEqualsOrCreate(expectedFile: File, actual: String, failOnNoData: Boole
 
     val expected = expectedFile.readText()
 
-    Assert.assertEquals(expected, actual)
+    Assert.assertEquals(expected.toUnixSeparators(), actual.toUnixSeparators())
     return true
 }

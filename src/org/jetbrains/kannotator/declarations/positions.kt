@@ -50,9 +50,12 @@ private data class MethodTypePositionImpl(
         override val method: Method,
         override val relativePosition: PositionWithinDeclaration,
         val position: Int // position from left to right inside the type signature
-) : MethodTypePosition
+) : MethodTypePosition {
+    override val member: ClassMember get() { return method }
+}
 
 private data class FieldTypePositionImpl(override val field: Field): FieldTypePosition {
+    override val member: ClassMember get() { return field }
     override val relativePosition: PositionWithinDeclaration = FIELD_TYPE
 }
 
