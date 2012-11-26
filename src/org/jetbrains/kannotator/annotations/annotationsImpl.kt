@@ -28,7 +28,7 @@ class AnnotationsImpl<A: Any>(val delegate: Annotations<A>? = null) : MutableAnn
     }
 }
 
-public fun <A> MutableAnnotations<A>.setIfNotNull(position: AnnotationPosition, annotation: A?) {
+public fun <A: Any> MutableAnnotations<A>.setIfNotNull(position: AnnotationPosition, annotation: A?) {
     if (annotation != null) {
         this[position] = annotation
     }

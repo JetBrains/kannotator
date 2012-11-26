@@ -273,7 +273,7 @@ private class GraphBuilderInterpreter(val method: Method): Interpreter<PossibleT
         return null
     }
 
-    public override fun naryOperation(insn: AbstractInsnNode, values: List<out PossibleTypedValues>): PossibleTypedValues? {
+    public override fun naryOperation(insn: AbstractInsnNode, values: List<PossibleTypedValues>): PossibleTypedValues? {
         return when (insn) {
             is MultiANewArrayInsnNode -> newValueAtInstruction(Type.getType(insn.desc), insn)
             is InvokeDynamicInsnNode -> newValueAtInstruction(Type.getReturnType(insn.desc), insn)
