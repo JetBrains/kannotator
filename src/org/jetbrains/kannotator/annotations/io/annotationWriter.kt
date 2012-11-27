@@ -4,37 +4,32 @@ import java.io.Writer
 import java.util.LinkedHashMap
 import kotlinlib.buildString
 import kotlinlib.println
-import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 
-fun writeAnnotations<A>(writer: Writer, annotations: Collection<Annotations<A>>, renderer: (A) -> AnnotationData) {
+fun writeAnnotations(writer: Writer, annotations: Collection<Pair<AnnotationPosition, AnnotationData>>) {
     val sb = StringBuilder()
     val printer = XmlPrinter(sb)
     printer.openTag("root")
     printer.pushIndent()
-    for (annotation in annotations) {
-        annotation.forEach {
-            typePosition, annotation ->
-            printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
-            printer.pushIndent()
-            val annotationData = renderer(annotation)
-            if (annotationData.attributes.size() < 1) {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
-            } else {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
-                for ((name, value) in annotationData.attributes) {
-                    val attributesMap = LinkedHashMap<String, String>()
-                    attributesMap.put("name", name)
-                    attributesMap.put("val", value)
-                    printer.pushIndent()
-                    printer.openTag("val", attributesMap, true, '"')
-                    printer.popIndent()
-                }
-                printer.closeTag("annotation")
+    for ((typePosition, annotationData) in annotations) {
+        printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
+        printer.pushIndent()
+        if (annotationData.attributes.size() < 1) {
+            printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
+        } else {
+            printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
+            for ((name, value) in annotationData.attributes) {
+                val attributesMap = LinkedHashMap<String, String>()
+                attributesMap.put("name", name)
+                attributesMap.put("val", value)
+                printer.pushIndent()
+                printer.openTag("val", attributesMap, true, '"')
+                printer.popIndent()
             }
-            printer.popIndent()
-            printer.closeTag("item")
-
+            printer.closeTag("annotation")
         }
+        printer.popIndent()
+        printer.closeTag("item")
     }
     printer.popIndent()
     printer.closeTag("root")
