@@ -14,13 +14,13 @@ fun writeAnnotations<A>(writer: Writer, annotations: Collection<Annotations<A>>,
     for (annotation in annotations) {
         annotation.forEach {
             typePosition, annotation ->
-            printer.openTag("item", hashMap(Pair("name", typePosition.toAnnotationKey())))
+            printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
             printer.pushIndent()
             val annotationData = renderer(annotation)
             if (annotationData.attributes.size() < 1) {
-                printer.openTag("annotation", hashMap(Pair("name", annotationData.annotationClassFqn)), true)
+                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
             } else {
-                printer.openTag("annotation", hashMap(Pair("name", annotationData.annotationClassFqn)))
+                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
                 for ((name, value) in annotationData.attributes) {
                     val attributesMap = LinkedHashMap<String, String>()
                     attributesMap.put("name", name)
