@@ -217,8 +217,6 @@ class KotlinSignatureRendererTest: TestCase() {
 
     fun testMethosWithPRefTP() { doTest(javaClass<kotlinSignatures.MethosWithPRefTP>(), "kotlinSignatures/MethosWithPRefTP.kt.txt") }
 
-    fun testModalityOfFakeOverrides() { doTest(javaClass<kotlinSignatures.modality.ModalityOfFakeOverrides>(), "kotlinSignatures/modality/ModalityOfFakeOverrides.kt.txt") }
-
     fun testMyException() { doTest(javaClass<kotlinSignatures.MyException>(), "kotlinSignatures/MyException.kt.txt") }
 
     fun testSimple() { doTest(javaClass<kotlinSignatures.Simple>(), "kotlinSignatures/Simple.kt.txt") }

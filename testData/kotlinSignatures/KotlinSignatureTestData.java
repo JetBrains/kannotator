@@ -12,6 +12,12 @@ import java.util.*;
 public abstract class KotlinSignatureTestData {
 
     public static abstract class NoAnnotations {
+
+        @KotlinSignature("val fi : Int")
+        final int fi = 1;
+        @KotlinSignature("val fs : String?")
+        final String fs = "";
+
         @KotlinSignature("var b : Boolean")
         boolean b;
         @KotlinSignature("var by : Byte")
@@ -114,6 +120,12 @@ public abstract class KotlinSignatureTestData {
 
         @KotlinSignature("fun voidNotNullString(p0 : String) : Unit")
         abstract void voidNotNullString(@NotNull String p0);
+
+        @KotlinSignature("fun staticVoidNullableString(p0 : String?) : Unit")
+        static void staticVoidNullableString(@Nullable String p0) {}
+
+        @KotlinSignature("fun staticVoidNotNullString(p0 : String) : Unit")
+        static void staticVoidNotNullString(@NotNull String p0) {}
 
     }
 
