@@ -13,6 +13,9 @@
     </item>
     <item name='org.objectweb.asm.tree.MethodNode invisibleAnnotations'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var invisibleAnnotations : List&lt;AnnotationNode&gt;?&quot;"/>
+        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode attrs'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
@@ -295,5 +298,10 @@
     </item>
     <item name='org.objectweb.asm.tree.AnnotationNode desc'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.FieldNode invisibleAnnotations'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var invisibleAnnotations : List&lt;AnnotationNode&gt;?&quot;"/>
+        </annotation>
     </item>
 </root>
