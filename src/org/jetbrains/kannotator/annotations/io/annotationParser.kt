@@ -12,6 +12,11 @@ trait AnnotationData {
     val attributes: Map<String, String>
 }
 
+class AnnotationDataImpl(
+        override val annotationClassFqn: String,
+        override val attributes: MutableMap<String, String>): AnnotationData
+
+
 fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<AnnotationData>) -> Unit, errorHandler: (String) -> Unit) {
     val text = escapeAttributes(xml.readText())
     val parser = SAXParserFactory.newInstance()!!.newSAXParser()!!
@@ -20,7 +25,6 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
         private var currentItemElement: ItemElement? = null
 
         private class ItemElement(val name: String, val annotations: MutableCollection<AnnotationDataImpl>)
-        private class AnnotationDataImpl(override val annotationClassFqn: String, override val attributes: MutableMap<String, String>): AnnotationData
 
         public override fun startElement(name: String?, attributes: AttributeList?) {
             if (attributes != null) {
