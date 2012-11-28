@@ -24,6 +24,22 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.AnnotationVisitor
 import junit.framework.ComparisonFailure
+import org.objectweb.asm.tree.MethodNode
+import java.util.HashMap
+import org.objectweb.asm.tree.FieldNode
+import org.jetbrains.kannotator.main.loadMethodAnnotationsFromByteCode
+import util.*
+import org.jetbrains.kannotator.main.loadFieldAnnotationsFromByteCode
+import org.jetbrains.kannotator.main.AnnotationInferrer
+import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
+import org.jetbrains.kannotator.main.NullabilityInferrer
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.index.FieldDependencyInfo
+import org.jetbrains.kannotator.index.DeclarationIndex
+import java.util.LinkedHashMap
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
+import org.objectweb.asm.ClassReader
 
 class KotlinSignatureRendererTest: TestCase() {
     fun doTest(javaClass: Class<*>, expectedPath: String) {
@@ -41,20 +57,25 @@ class KotlinSignatureRendererTest: TestCase() {
                         members.filter { m -> m !is Method || m.id.methodName != "<init>" }.first()
 
         val expectedText = File("testData/" + expectedPath).readText()
-        assertSignature(member, expectedText)
+        assertSignature(expectedText, member)
     }
 
-    fun assertSignature(member: ClassMember, expectedSignature: String) {
-        val check = checkSignature(member, expectedSignature)
+    fun assertSignature(expectedSignature: String, member: ClassMember) {
+        val check = checkSignature(expectedSignature, member)
         if (check != null) {
             throw check
         }
     }
 
-    fun checkSignature(member: ClassMember, expectedSignature: String): ComparisonFailure? {
+    fun checkSignature(
+            expectedSignature: String,
+            member: ClassMember,
+            nullability: Annotations<NullabilityAnnotation> = AnnotationsImpl(),
+            mutability: Annotations<MutabilityAnnotation> = AnnotationsImpl()
+    ): ComparisonFailure? {
         val signature = when (member) {
-            is Method -> renderMethodSignature(member, AnnotationsImpl(), AnnotationsImpl())
-            is Field -> renderFieldSignature(member, AnnotationsImpl(), AnnotationsImpl())
+            is Method -> renderMethodSignature(member, nullability, mutability)
+            is Field -> renderFieldSignature(member, nullability, mutability)
             else -> throw AssertionError("Unknown member type: $member")
         }
         if (expectedSignature != signature) {
@@ -63,41 +84,57 @@ class KotlinSignatureRendererTest: TestCase() {
         return null
     }
 
-    fun testMultipleDeclarationsInOneClass() {
+    fun doMultipleDeclarationsTest(classReader: ClassReader) {
+        val methodNodes = LinkedHashMap<Method, MethodNode>()
+        val fieldNodes = LinkedHashMap<Field, FieldNode>()
+
         val errors = ArrayList<ComparisonFailure?>()
 
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData<*>>())
         val className = ClassName.fromInternalName(classReader.getClassName())
         classReader.accept(object : ClassVisitor(Opcodes.ASM4) {
             public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                 val method = Method(className, access, name, desc, signature)
-                return object : MethodVisitor(Opcodes.ASM4) {
-                    public override fun visitAnnotation(desc: String, visible: Boolean): AnnotationVisitor? {
-                        if (desc != "Ljet/runtime/typeinfo/KotlinSignature;") return null
-                        return object : AnnotationVisitor(Opcodes.ASM4) {
-                            public override fun visit(name: String?, value: Any?) {
-                                errors.add(checkSignature(method, value.toString()))
-                            }
-                        }
-                    }
-                }
+                val node = MethodNode(access, name, desc, signature, exceptions)
+                methodNodes[method] = node
+                return node
             }
 
             public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
                 val field = Field(className, access, name, desc, signature, value)
-                return object : FieldVisitor(Opcodes.ASM4) {
+                val node = FieldNode(access, name, desc, signature, value)
+                fieldNodes[field] = node
+                return node
+            }
+        }, 0)
 
-                    public override fun visitAnnotation(desc: String, visible: Boolean): AnnotationVisitor? {
-                        if (desc != "Ljet/runtime/typeinfo/KotlinSignature;") return null
-                        return object : AnnotationVisitor(Opcodes.ASM4) {
-                            public override fun visit(name: String?, value: Any?) {
-                                errors.add(checkSignature(field, value.toString()))
-                            }
-                        }
+        val methodAnnotations = loadMethodAnnotationsFromByteCode(methodNodes, INFERRERS)
+        val fieldAnnotations = loadFieldAnnotationsFromByteCode(fieldNodes, INFERRERS)
+
+        for ((field, node) in fieldNodes) {
+            val annotations = node.invisibleAnnotations
+            if (annotations != null) {
+                for (annotation in annotations) {
+                    if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
+                        val nullability = fieldAnnotations["nullability"] as Annotations<NullabilityAnnotation>
+                        val mutability = fieldAnnotations["mutability"] as Annotations<MutabilityAnnotation>
+                        errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), field, nullability, mutability))
                     }
                 }
             }
-        }, 0)
+        }
+
+        for ((method, node) in methodNodes) {
+            val annotations = node.invisibleAnnotations
+            if (annotations != null) {
+                for (annotation in annotations) {
+                    if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
+                        val nullability = methodAnnotations["nullability"] as Annotations<NullabilityAnnotation>
+                        val mutability = methodAnnotations["mutability"] as Annotations<MutabilityAnnotation>
+                        errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), method, nullability, mutability))
+                    }
+                }
+            }
+        }
 
         val actualErrors = errors.filterNotNull()
         for (error in actualErrors) {
@@ -107,9 +144,19 @@ class KotlinSignatureRendererTest: TestCase() {
         }
 
         if (!actualErrors.isEmpty()) {
-            fail("See errors above")
+            fail("See errors above: $actualErrors")
         }
 
+    }
+
+    fun testNoAnnotations() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotations>())
+        doMultipleDeclarationsTest(classReader)
+    }
+
+    fun testNullability() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Nullability>())
+        doMultipleDeclarationsTest(classReader)
     }
 
     fun testAnnotatedMethod() { doTest(javaClass<kotlinSignatures.annotation.AnnotatedMethod>(), "kotlinSignatures/annotation/AnnotatedMethod.kt.txt") }
@@ -173,12 +220,6 @@ class KotlinSignatureRendererTest: TestCase() {
     fun testModalityOfFakeOverrides() { doTest(javaClass<kotlinSignatures.modality.ModalityOfFakeOverrides>(), "kotlinSignatures/modality/ModalityOfFakeOverrides.kt.txt") }
 
     fun testMyException() { doTest(javaClass<kotlinSignatures.MyException>(), "kotlinSignatures/MyException.kt.txt") }
-
-    fun testNotNullField() { doTest(javaClass<kotlinSignatures.notNull.NotNullField>(), "kotlinSignatures/notNull/NotNullField.kt.txt") }
-
-    fun testNotNullMethod() { doTest(javaClass<kotlinSignatures.notNull.NotNullMethod>(), "kotlinSignatures/notNull/NotNullMethod.kt.txt") }
-
-    fun testNotNullParameter() { doTest(javaClass<kotlinSignatures.notNull.NotNullParameter>(), "kotlinSignatures/notNull/NotNullParameter.kt.txt") }
 
     fun testSimple() { doTest(javaClass<kotlinSignatures.Simple>(), "kotlinSignatures/Simple.kt.txt") }
 

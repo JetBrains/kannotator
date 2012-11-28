@@ -17,6 +17,9 @@ import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.declarations.isFinal
 import org.jetbrains.kannotator.declarations.getType
+import org.jetbrains.kannotator.declarations.PositionsForMethod
+import org.jetbrains.kannotator.declarations.getFieldTypePosition
+import org.jetbrains.kannotator.declarations.isStatic
 
 fun renderKotlinSignature(
         member: ClassMember,
@@ -40,6 +43,7 @@ fun renderMethodSignature(
     // return type
     // value parameters
     val genericSignature = method.genericSignature
+    val positions = PositionsForMethod(method)
     if (genericSignature == null) {
         val sb = StringBuilder("fun ${method.getMethodNameAccountingForConstructor()}(")
         // primitives
@@ -47,6 +51,9 @@ fun renderMethodSignature(
         // varargs
         val argumentTypes = method.getArgumentTypes()
         for ((i, argType) in argumentTypes.indexed) {
+            val thisOffset = if (method.isStatic()) 0 else 1
+            val annotationPosition = positions.forParameter(i + thisOffset).position
+            val nullabilityAnnotation = nullability[annotationPosition] ?: NullabilityAnnotation.NULLABLE
             val last = i == argumentTypes.size - 1
             val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
             if (vararg) {
@@ -54,10 +61,10 @@ fun renderMethodSignature(
             }
             sb.append("p$i : ")
             if (vararg) {
-                sb.append(renderType(argType.getElementType(), Position.VARARG))
+                sb.append(renderType(argType.getElementType(), Position.VARARG, nullabilityAnnotation))
             }
             else {
-                sb.append(renderType(argType, Position.IN))
+                sb.append(renderType(argType, Position.IN, nullabilityAnnotation))
             }
             if (!last) {
                 sb.append(", ")
@@ -70,7 +77,8 @@ fun renderMethodSignature(
         else {
             sb.append(") : ")
             val returnType = method.getReturnType()
-            sb.append(renderType(returnType, Position.OUT))
+            val nullabilityAnnotation = nullability[positions.forReturnType().position] ?: NullabilityAnnotation.NULLABLE
+            sb.append(renderType(returnType, Position.OUT, nullabilityAnnotation))
         }
         return sb.toString()
     }
@@ -89,7 +97,8 @@ fun renderFieldSignature(
     sb.append(if (field.isFinal()) "val " else "var ")
     sb.append(field.name)
     sb.append(" : ")
-    sb.append(renderType(field.getType(), Position.OUT))
+    val nullabilityAnnotation = nullability[getFieldTypePosition(field)] ?: NullabilityAnnotation.NULLABLE
+    sb.append(renderType(field.getType(), Position.OUT, nullabilityAnnotation))
     return sb.toString()
 }
 
@@ -100,7 +109,7 @@ enum class Position {
     NONE
 }
 
-fun renderType(asmType: Type, position: Position): String {
+fun renderType(asmType: Type, position: Position, nullability: NullabilityAnnotation): String {
     return when (asmType.getSort()) {
         Type.VOID -> "Unit"
         Type.BOOLEAN -> "Boolean"
@@ -112,9 +121,9 @@ fun renderType(asmType: Type, position: Position): String {
         Type.LONG -> "Long"
         Type.DOUBLE -> "Double"
         Type.ARRAY -> {
-            return renderArrayType(asmType.getElementType(), asmType.getDimensions() - 1, position) + "?"
+            return renderArrayType(asmType.getElementType(), asmType.getDimensions() - 1, position) + nullability.suffix()
         }
-        Type.OBJECT -> mapJavaClass(asmType) + "?"
+        Type.OBJECT -> mapJavaClass(asmType) + nullability.suffix()
         else -> throw IllegalArgumentException("Unknown asm type: $asmType")
     }
 }
@@ -129,7 +138,7 @@ fun renderArrayType(elementType: Type, extraDimensions: Int, position: Position)
         Type.FLOAT -> "FloatArray"
         Type.LONG -> "LongArray"
         Type.DOUBLE -> "DoubleArray"
-        Type.OBJECT -> "Array<${arrayElementPosition(position)}${renderType(elementType, position)}>"
+        Type.OBJECT -> "Array<${arrayElementPosition(position)}${renderType(elementType, position, NullabilityAnnotation.NULLABLE)}>"
         else -> throw IllegalArgumentException("impossible array element type: $elementType")
     }, position)
 }
@@ -164,3 +173,5 @@ fun mapJavaClass(asmType: Type): String {
         else -> asmType.getClassName()!!.suffixAfter(".").replace('$', '.')
     }
 }
+
+fun NullabilityAnnotation.suffix(): String = if (this == NullabilityAnnotation.NULLABLE) "?" else ""
