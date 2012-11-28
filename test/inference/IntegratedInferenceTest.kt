@@ -27,6 +27,7 @@ import org.jetbrains.kannotator.main.*
 import util.findJarsInLibFolder
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.junit.Assert
+import util.*
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -48,11 +49,6 @@ class IntegratedInferenceTest : TestCase() {
             assertTrue("Found annotation conflicts", false);
         }
     }
-
-    private val INFERRERS = hashMap(
-            Pair("nullability", NullabilityInferrer() as AnnotationInferrer<Any>),
-            Pair("mutability", MUTABILITY_INFERRER as AnnotationInferrer<Any>)
-    )
 
     private fun doInferenceTest(testedJarSubstring: String) {
         val progressMonitor = object : ProgressMonitor() {
