@@ -17,6 +17,9 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.declarations.MethodId
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.objectweb.asm.FieldVisitor
+import org.jetbrains.kannotator.declarations.ClassMember
+import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.declarations.Field
 
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {
@@ -56,6 +59,23 @@ public fun ClassReader.forEachField(
     accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
         public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
             body(getClassName(), access, name, desc, signature, value)
+            return super.visitField(access, name, desc, signature, value)
+        }
+    }, 0)
+}
+
+public fun ClassReader.forEachMember(
+        delegateClassVisitor: ClassVisitor? = null,
+        body: (ClassMember) -> Unit) {
+    val className = ClassName.fromInternalName(getClassName())
+    accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
+        public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+            body(Method(className, access, name, desc, signature))
+            return super.visitMethod(access, name, desc, signature, exceptions)
+        }
+
+        public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
+            body(Field(className, access, name, desc, signature, value))
             return super.visitField(access, name, desc, signature, value)
         }
     }, 0)
