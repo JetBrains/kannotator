@@ -54,7 +54,7 @@ private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<Str
     )
 }
 
-private fun <K> loadMethodAnnotationsFromByteCode(
+public fun <K> loadMethodAnnotationsFromByteCode(
         methodNodes: Map<Method, MethodNode>,
         inferrers: Map<K, AnnotationInferrer<Any>>
 ): Map<K, Annotations<Any>> {
@@ -104,7 +104,7 @@ private fun <K> loadMethodAnnotationsFromByteCode(
     return internalAnnotationsMap
 }
 
-private fun <K> loadFieldAnnotationsFromByteCode(
+public fun <K> loadFieldAnnotationsFromByteCode(
         fieldNodes: Map<Field, FieldNode>,
         inferrers: Map<K, AnnotationInferrer<Any>>
 ): Map<K, Annotations<Any>> {
