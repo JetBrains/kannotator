@@ -35,6 +35,7 @@ import org.jetbrains.kannotator.declarations.FieldTypePosition
 import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.index.ClassSource
 import java.io.BufferedReader
+import org.objectweb.asm.tree.FieldNode
 
 open class ProgressMonitor {
     open fun totalFields(fieldCount: Int) {}
@@ -54,7 +55,7 @@ private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<Str
     )
 }
 
-private fun <K> loadInternalAnnotations(
+private fun <K> loadMethodAnnotationsFromByteCode(
         methodNodes: Map<Method, MethodNode>,
         inferrers: Map<K, AnnotationInferrer<Any>>
 ): Map<K, Annotations<Any>> {
@@ -104,6 +105,34 @@ private fun <K> loadInternalAnnotations(
     return internalAnnotationsMap
 }
 
+private fun <K> loadFieldAnnotationsFromByteCode(
+        fieldNodes: Map<Field, FieldNode>,
+        inferrers: Map<K, AnnotationInferrer<Any>>
+): Map<K, Annotations<Any>> {
+    val internalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>() }
+
+    for ((field, node) in fieldNodes) {
+        val position = getFieldTypePosition(field)
+
+        val classNames = HashSet<String>()
+        node.visibleAnnotations?.extractClassNamesTo(classNames)
+        node.invisibleAnnotations?.extractClassNamesTo(classNames)
+
+        if (!classNames.empty) {
+            for ((inferrerKey, inferrer) in inferrers) {
+                val internalAnnotations = internalAnnotationsMap[inferrerKey]!!
+                val annotation = inferrer.resolveAnnotation(classNames)
+                if (annotation != null) {
+                    internalAnnotations[position] = annotation
+                }
+            }
+        }
+
+    }
+
+    return internalAnnotationsMap
+}
+
 private fun <K> loadExternalAnnotations(
         delegatingAnnotations: Map<K, Annotations<Any>>,
         annotationFiles: Collection<File>,
@@ -144,7 +173,7 @@ private fun <K> loadAnnotations(
         inferrers: Map<K, AnnotationInferrer<Any>>,
         showErrorIfPositionNotFound: Boolean = true
 ): Map<K, MutableAnnotations<Any>> =
-        loadExternalAnnotations(loadInternalAnnotations(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
+        loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
 
 trait AnnotationInferrer<A: Any> {
     fun resolveAnnotation(classNames: Set<String>): A?
