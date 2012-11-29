@@ -125,6 +125,12 @@ class KotlinSignatureRendererTest: TestCase() {
         }
 
         val actualErrors = errors.filterNotNull()
+
+        if (!actualErrors.isEmpty()) {
+            System.err.println("${actualErrors.size} Errors:")
+            System.err.println()
+        }
+
         for (error in actualErrors) {
             System.err.println("Expected: ${error.getExpected()}")
             System.err.println("Actual  : ${error.getActual()}")
@@ -155,6 +161,16 @@ class KotlinSignatureRendererTest: TestCase() {
 
     fun testMutabilityNoAnnotations() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.MutabilityNoAnnotations>())
+        doMultipleDeclarationsTest(classReader)
+    }
+
+    fun testGenericInner() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.WithGenericInner<*>>())
+        doMultipleDeclarationsTest(classReader)
+    }
+
+    fun testMutability() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Mutability>())
         doMultipleDeclarationsTest(classReader)
     }
 }
