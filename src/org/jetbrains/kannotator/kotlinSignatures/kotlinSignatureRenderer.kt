@@ -202,15 +202,17 @@ enum class Position {
     VARARG
     CLASS_TYPE_ARGUMENT
     UPPER_BOUND
+    OUTER
 }
 
 fun renderType(genericType: GenericType, position: Position, annotations: KnownAnnotations): String {
     val classifier = genericType.classifier
+    val suffix = if (position == Position.OUTER) "" else annotations.nullability.suffix()
     return when (classifier) {
         is BaseType -> renderBaseType(classifier)
-        is NamedClass -> renderNamedClass(classifier, annotations) + renderArguments(genericType, position) + annotations.nullability.suffix()
+        is NamedClass -> renderNamedClass(classifier, annotations) + renderArguments(genericType, position) + suffix
         is TypeVariable -> renderTypeVariable(classifier, position, annotations)
-        Array -> renderArrayType(genericType, position) + annotations.nullability.suffix()
+        Array -> renderArrayType(genericType, position) + suffix
         else -> throw IllegalArgumentException("Unknown classifier: $classifier")
     }
 }
@@ -302,7 +304,7 @@ fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): Str
             "java/util/Map\$Entry" -> prefix("Map") + "." + prefix("Entry")
             else -> namedClass.internalName.suffixAfter("/").replace('$', '.')
         }
-        is InnerClass -> renderNamedClass(namedClass.outer, annotations) + "." + namedClass.name
+        is InnerClass -> renderType(namedClass.outer, Position.OUTER, annotations) + "." + namedClass.name
         else -> throw IllegalArgumentException(namedClass.toString())
     }
 }
@@ -310,3 +312,8 @@ fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): Str
 fun NullabilityAnnotation.suffix(): String = if (this == NullabilityAnnotation.NULLABLE) "?" else ""
 fun MutabilityAnnotation.prefix(): String = if (this == MutabilityAnnotation.MUTABLE) "Mutable" else ""
 
+
+class C<T> {
+    class Inner
+    fun f(p: C<String>.Inner) {}
+}

@@ -4,13 +4,14 @@ import org.objectweb.asm.signature.SignatureVisitor
 import java.util.ArrayList
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.signature.SignatureReader
+import kotlinlib.join
 
 trait Classifier
-class BaseType(val descriptor: Char) : Classifier
+data class BaseType(val descriptor: Char) : Classifier
 trait NamedClass : Classifier
-class ToplevelClass(val internalName: String) : NamedClass
-class InnerClass(val outer: NamedClass, val name: String) : NamedClass
-class TypeVariable(val name: String) : Classifier
+data class ToplevelClass(val internalName: String) : NamedClass
+data class InnerClass(val outer: GenericType, val name: String) : NamedClass
+data class TypeVariable(val name: String) : Classifier
 object Array : Classifier
 
 enum class Wildcard {
@@ -19,16 +20,16 @@ enum class Wildcard {
 }
 
 trait TypeArgument
-class BoundedWildcard(val wildcard: Wildcard, val bound: GenericType) : TypeArgument
+data class BoundedWildcard(val wildcard: Wildcard, val bound: GenericType) : TypeArgument
 object UnBoundedWildcard : TypeArgument
-class NoWildcard(val genericType: GenericType) : TypeArgument
+data class NoWildcard(val genericType: GenericType) : TypeArgument
 
 trait GenericType {
     val classifier: Classifier
     val arguments: List<TypeArgument>
 }
 
-class ImmutableGenericType(
+data class ImmutableGenericType(
     override val classifier: Classifier,
     override val arguments: List<TypeArgument>
 ) : GenericType
@@ -45,6 +46,8 @@ class GenericTypeImpl : GenericType {
     override val arguments: MutableList<TypeArgument> = ArrayList()
     override val classifier: Classifier
         get() = classifierVar!!
+
+    fun toString(): String = "$classifier<${arguments.join(", ")}>"
 }
 
 class TypeParameter(val name: String, val upperBounds: List<GenericType>)
@@ -107,8 +110,6 @@ fun parseGenericMethodSignature(signature: String): GenericMethodSignature {
 
 private class GenericTypeParser(val result: GenericTypeImpl) : SignatureVisitor(Opcodes.ASM4) {
 
-    var outer: NamedClass? = null
-
     override fun visitBaseType(descriptor: Char) {
         result.classifierVar = BaseType(descriptor)
     }
@@ -125,13 +126,15 @@ private class GenericTypeParser(val result: GenericTypeImpl) : SignatureVisitor(
     }
 
     override fun visitClassType(name: String) {
-        outer = ToplevelClass(name)
-        result.classifierVar = outer
+        result.classifierVar = ToplevelClass(name)
     }
 
     override fun visitInnerClassType(name: String) {
-        outer = InnerClass(outer!!, name)
-        result.classifierVar = outer
+        val outer = GenericTypeImpl()
+        outer.classifierVar = result.classifier
+        outer.arguments.addAll(result.arguments)
+        result.classifierVar = InnerClass(outer, name)
+        result.arguments.clear()
     }
 
     override fun visitTypeArgument() {

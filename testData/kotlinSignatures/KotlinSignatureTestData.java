@@ -179,11 +179,17 @@ public abstract class KotlinSignatureTestData {
         @KotlinSignature("fun <T> typeParametersInLowerBounds(ts : List<in T>?, cs : List<in C>?) : Unit")
         <T> void typeParametersInLowerBounds(List<? super T> ts, List<? super C> cs) {}
 
-        class TwoParams<T, R> {
-        }
+        static class TwoParams<T, R> {}
 
         @KotlinSignature("fun twoGenericParams(p0 : KotlinSignatureTestData.NoAnnotationsGeneric.TwoParams<String?, Int?>?) : KotlinSignatureTestData.NoAnnotationsGeneric.TwoParams<String?, Int?>?")
         abstract TwoParams<String, Integer> twoGenericParams(TwoParams<String, Integer> p0);
+    }
+
+    public static abstract class WithGenericInner<C> {
+        class Inner<T> {}
+
+        @KotlinSignature("fun inner(p0 : KotlinSignatureTestData.WithGenericInner<C>.Inner<String?>?) : KotlinSignatureTestData.WithGenericInner<C>.Inner<String?>?")
+        abstract Inner<String> inner(Inner<String> p0);
 
     }
 
