@@ -6,7 +6,7 @@ import java.util.HashMap
 import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
-import org.jetbrains.kannotator.asm.util.createMethodNode
+import org.jetbrains.kannotator.asm.util.createMethodNodeStub
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
@@ -201,7 +201,7 @@ fun <K> inferAnnotations(
     val methodNodes = HashMap<Method, MethodNode>()
     val declarationIndex = DeclarationIndexImpl(classSource) {
         method ->
-        val methodNode = method.createMethodNode()
+        val methodNode = method.createMethodNodeStub()
         methodNodes[method] = methodNode
         methodNode
     }

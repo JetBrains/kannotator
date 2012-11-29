@@ -95,6 +95,6 @@ public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, 
 
 }
 
-public fun Method.createMethodNode(): MethodNode = MethodNode(access.flags, id.methodName, id.methodDesc, genericSignature, null)
+public fun Method.createMethodNodeStub(): MethodNode = MethodNode(access.flags, id.methodName, id.methodDesc, genericSignature, null)
 
 public fun MethodInsnNode.getArgumentCount(): Int = Type.getArgumentTypes(desc).size
