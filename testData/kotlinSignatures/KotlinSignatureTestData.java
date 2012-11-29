@@ -130,21 +130,41 @@ public abstract class KotlinSignatureTestData {
     }
 
     public static abstract class NoAnnotationsGeneric<C> {
-        <T> NoAnnotationsGeneric(T t) {}
+        @KotlinSignature("fun NoAnnotationsGeneric(p0 : Any?)")
+        <T> NoAnnotationsGeneric(T p0) {}
 
-        <T extends Runnable> NoAnnotationsGeneric(T t) {}
+        @KotlinSignature("fun NoAnnotationsGeneric(p0 : Class<Any?>?)")
+        <T> NoAnnotationsGeneric(Class<T> p0) {}
 
+        @KotlinSignature("fun NoAnnotationsGeneric(p0 : Runnable?)")
+        <T extends Runnable> NoAnnotationsGeneric(T p0) {}
+
+        @KotlinSignature("fun NoAnnotationsGeneric(p0 : List<Runnable?>?)")
+        <T extends Runnable> NoAnnotationsGeneric(List<T> p0) {}
+
+//        @KotlinSignature("fun NoAnnotationsGeneric(t : {Runnable & Serializable}?)")
+//        <T extends Runnable & Serializable> NoAnnotationsGeneric() {}
+
+        @KotlinSignature("fun unboundedWildcard(p0 : List<*>?) : Unit")
         abstract void unboundedWildcard(List<?> p0);
 
+        @KotlinSignature("fun <T> generic(t : T?, ts : List<T>?, tss : Collection<out T>?, tsss : List<in Collection<out T>?>?) : Unit")
         abstract <T> void generic(T t, List<T> ts, Collection<? extends T> tss, List<? super Collection<? extends T>> tsss);
+        @KotlinSignature("fun <T : Serializable?> genericOneBound() : Unit")
         abstract <T extends Serializable> void genericOneBound();
+        @KotlinSignature("fun <T> genericTwoBounds() : Unit where T : Serializable?, T : Runnable?")
         abstract <T extends Serializable & Runnable> void genericTwoBounds();
+        @KotlinSignature("fun <T, R : T> genericTwoParameters() : Unit")
         abstract <T, R extends T> void genericTwoParameters();
 
+        @KotlinSignature("fun <T> typeParametersAreTypeArguments(ts : List<T>?, cs : List<C>?) : Unit")
         <T> void typeParametersAreTypeArguments(List<T> ts, List<C> cs) {}
+        @KotlinSignature("fun <T> standaloneTypeParameters(t : T?, c : C?) : Unit")
         <T> void standaloneTypeParameters(T t, C c) {}
 
+        @KotlinSignature("fun <T, R : T, X : C> typeParametersInUpperBounds(ts : List<out T>?, cs : List<out C>?) : Unit")
         <T, R extends T, X extends C> void typeParametersInUpperBounds(List<? extends T> ts, List<? extends C> cs) {}
+        @KotlinSignature("fun <T> typeParametersInLowerBounds(ts : List<in T>?, cs : List<in C>?) : Unit")
         <T> void typeParametersInLowerBounds(List<? super T> ts, List<? super C> cs) {}
 
     }

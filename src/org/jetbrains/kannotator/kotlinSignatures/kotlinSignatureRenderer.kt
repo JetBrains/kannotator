@@ -20,6 +20,9 @@ import org.jetbrains.kannotator.declarations.getType
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.getFieldTypePosition
 import org.jetbrains.kannotator.declarations.isStatic
+import org.objectweb.asm.signature.SignatureVisitor
+import org.objectweb.asm.signature.SignatureReader
+import java.util.ArrayList
 
 fun renderKotlinSignature(
         member: ClassMember,
@@ -39,53 +42,85 @@ fun renderMethodSignature(
         nullability: Annotations<NullabilityAnnotation>,
         mutability: Annotations<MutabilityAnnotation>
 ): String {
-    // generic parameters (and bounds)
-    // return type
-    // value parameters
-    val genericSignature = method.genericSignature
-    val positions = PositionsForMethod(method)
-    if (genericSignature == null) {
-        val sb = StringBuilder("fun ${method.getMethodNameAccountingForConstructor()}(")
-        // primitives
-        // arrays
-        // varargs
-        val argumentTypes = method.getArgumentTypes()
-        for ((i, argType) in argumentTypes.indexed) {
-            val thisOffset = if (method.isStatic()) 0 else 1
-            val annotationPosition = positions.forParameter(i + thisOffset).position
-            val nullabilityAnnotation = nullability[annotationPosition] ?: NullabilityAnnotation.NULLABLE
-            val last = i == argumentTypes.size - 1
-            val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
-            if (vararg) {
-                sb.append("vararg ")
+    val signature = parseGenericMethodSignature(method.genericSignature ?: method.id.methodDesc)
+    val isConstructor = method.name == "<init>"
+
+    val typeParametersByName = signature.typeParameters.toMap {
+        param -> param.name to param
+    }
+
+    fun substituteIfNeeded(genericType: GenericType): GenericType {
+        if (isConstructor) {
+            return substitute(genericType) {
+                name -> typeParametersByName[name]?.upperBounds?.get(0)
             }
-            sb.append("p$i : ")
-            if (vararg) {
-                sb.append(renderType(argType.getElementType(), Position.VARARG, nullabilityAnnotation))
-            }
-            else {
-                sb.append(renderType(argType, Position.IN, nullabilityAnnotation))
-            }
-            if (!last) {
-                sb.append(", ")
-            }
-        }
-        if (method.name == "<init>") {
-            // Constructor
-            sb.append(")")
         }
         else {
-            sb.append(") : ")
-            val returnType = method.getReturnType()
-            val nullabilityAnnotation = nullability[positions.forReturnType().position] ?: NullabilityAnnotation.NULLABLE
-            sb.append(renderType(returnType, Position.OUT, nullabilityAnnotation))
+            return genericType
         }
-        return sb.toString()
+    }
+
+    val sb = StringBuilder()
+    val whereClause = ArrayList<String>()
+    sb.append("fun ")
+
+    if (!signature.typeParameters.isEmpty() && !isConstructor) {
+        sb.append("<")
+        for ((i, param) in signature.typeParameters.indexed) {
+            if (i != 0) {
+                sb.append(", ")
+            }
+            sb.append(param.name)
+
+            if (param.hasNontrivialBounds()) {
+                fun renderUpperBound(bound: GenericType): String {
+                    return renderType(bound, Position.UPPER_BOUND, NullabilityAnnotation.NULLABLE)
+                }
+                if (param.upperBounds.size == 1) {
+                    sb.append(" : ").append(renderUpperBound(param.upperBounds[0]))
+                }
+                else {
+                    for (bound in param.upperBounds) {
+                        whereClause.add(param.name + " : " + renderUpperBound(bound))
+                    }
+                }
+            }
+        }
+        sb.append("> ")
+    }
+
+    sb.append(method.getMethodNameAccountingForConstructor())
+    sb.append("(")
+
+    for (param in signature.valueParameters) {
+        sb.appendParameter(method, param.index, signature.valueParameters.size) {
+            vararg ->
+            val nullabilityAnnotation = nullability.getAnnotationForParameter(method, param.index, NullabilityAnnotation.NULLABLE)
+            if (vararg) {
+                sb.append(renderType(substituteIfNeeded(param.genericType.arrayElementType), Position.VARARG, nullabilityAnnotation))
+            }
+            else {
+                sb.append(renderType(substituteIfNeeded(param.genericType), Position.METHOD_PARAMETER, nullabilityAnnotation))
+            }
+        }
+    }
+
+    if (isConstructor) {
+        // Constructor
+        sb.append(")")
     }
     else {
-
-        return method.id.methodDesc
+        sb.append(") : ")
+        val returnType = signature.returnType
+        val nullabilityAnnotation = nullability.getAnnotationForReturnType(method, NullabilityAnnotation.NULLABLE)
+        sb.append(renderType(returnType, Position.RETURN_TYPE, nullabilityAnnotation))
     }
+
+    if (!whereClause.isEmpty()) {
+        sb.append(" where ").append(whereClause.join(", "))
+    }
+
+    return sb.toString()
 }
 
 fun renderFieldSignature(
@@ -98,80 +133,139 @@ fun renderFieldSignature(
     sb.append(field.name)
     sb.append(" : ")
     val nullabilityAnnotation = nullability[getFieldTypePosition(field)] ?: NullabilityAnnotation.NULLABLE
-    sb.append(renderType(field.getType(), Position.OUT, nullabilityAnnotation))
+    sb.append(renderType(field.getType().toGenericType(), Position.RETURN_TYPE, nullabilityAnnotation))
     return sb.toString()
 }
 
-enum class Position {
-    IN
-    OUT
-    VARARG
-    NONE
+fun Type.toGenericType(): GenericType {
+    val signature = "(${this.getDescriptor()})V"
+    return parseGenericMethodSignature(signature).valueParameters[0].genericType
 }
 
-fun renderType(asmType: Type, position: Position, nullability: NullabilityAnnotation): String {
-    return when (asmType.getSort()) {
-        Type.VOID -> "Unit"
-        Type.BOOLEAN -> "Boolean"
-        Type.CHAR -> "Char"
-        Type.BYTE -> "Byte"
-        Type.SHORT -> "Short"
-        Type.INT -> "Int"
-        Type.FLOAT -> "Float"
-        Type.LONG -> "Long"
-        Type.DOUBLE -> "Double"
-        Type.ARRAY -> {
-            return renderArrayType(asmType.getElementType(), asmType.getDimensions() - 1, position) + nullability.suffix()
-        }
-        Type.OBJECT -> mapJavaClass(asmType) + nullability.suffix()
-        else -> throw IllegalArgumentException("Unknown asm type: $asmType")
+fun <A> Annotations<A>.getAnnotationForParameter(method: Method, parameterIndex: Int, default: A): A {
+    val thisOffset = if (method.isStatic()) 0 else 1
+    val positions = PositionsForMethod(method)
+    val annotationPosition = positions.forParameter(parameterIndex + thisOffset).position
+    return this[annotationPosition] ?: default
+}
+
+fun <A> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A {
+    val positions = PositionsForMethod(method)
+    val annotationPosition = positions.forReturnType().position
+    return this[annotationPosition] ?: default
+}
+
+fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, parameterCount: Int, forType: (isVararg: Boolean) -> Unit) {
+    if (parameterIndex != 0) {
+        append(", ")
+    }
+
+    val last = parameterIndex == parameterCount - 1
+    val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
+    if (vararg) {
+        append("vararg ")
+    }
+    append("p$parameterIndex : ")
+    forType(vararg)
+}
+
+enum class Position {
+    METHOD_PARAMETER
+    RETURN_TYPE
+    VARARG
+    CLASS_TYPE_ARGUMENT
+    UPPER_BOUND
+}
+
+fun renderType(genericType: GenericType, position: Position, nullability: NullabilityAnnotation): String {
+    val classifier = genericType.classifier
+    return when (classifier) {
+        is BaseType -> renderBaseType(classifier)
+        is NamedClass -> renderNamedClass(classifier) + renderArguments(genericType, position) + nullability.suffix()
+        is TypeVariable -> renderTypeVariable(classifier, position, nullability)
+        Array -> renderArrayType(genericType, position) + nullability.suffix()
+        else -> throw IllegalArgumentException("Unknown classifier: $classifier")
     }
 }
 
-fun renderArrayType(elementType: Type, extraDimensions: Int, position: Position): String {
-    return wrapIntoExtraDimensions(extraDimensions, when (elementType.getSort()) {
-        Type.BOOLEAN -> "BooleanArray"
-        Type.CHAR -> "CharArray"
-        Type.BYTE -> "ByteArray"
-        Type.SHORT -> "ShortArray"
-        Type.INT -> "IntArray"
-        Type.FLOAT -> "FloatArray"
-        Type.LONG -> "LongArray"
-        Type.DOUBLE -> "DoubleArray"
-        Type.OBJECT -> "Array<${arrayElementPosition(position)}${renderType(elementType, position, NullabilityAnnotation.NULLABLE)}>"
-        else -> throw IllegalArgumentException("impossible array element type: $elementType")
-    }, position)
+fun renderArguments(genericType: GenericType, position: Position): String {
+    if (genericType.arguments.isEmpty()) return ""
+    return buildString {
+        sb ->
+        sb.append("<")
+        for (arg in genericType.arguments) {
+            sb.append(when (arg) {
+                UnBoundedWildcard -> "*"
+                is BoundedWildcard -> arg.wildcard.projection() + renderType(arg.bound, Position.UPPER_BOUND, NullabilityAnnotation.NULLABLE)
+                is NoWildcard -> renderType(arg.genericType, Position.CLASS_TYPE_ARGUMENT, NullabilityAnnotation.NULLABLE)
+                else -> throw IllegalStateException(arg.toString())
+            })
+        }
+        sb.append(">")
+    }
+}
+
+fun Wildcard.projection(): String = when(this) {
+    Wildcard.EXTENDS -> "out "
+    Wildcard.SUPER -> "in "
+}
+
+fun renderBaseType(classifier: BaseType): String {
+    return when (classifier.descriptor) {
+        'V' -> "Unit"
+        'B' -> "Byte"
+        'J' -> "Long"
+        'Z' -> "Boolean"
+        'I' -> "Int"
+        'S' -> "Short"
+        'C' -> "Char"
+        'F' -> "Float"
+        'D' -> "Double"
+        else -> throw IllegalArgumentException("Unknown base type: ${classifier.descriptor}")
+    }
+}
+
+fun renderBaseArrayType(classifier: BaseType): String {
+    return when (classifier.descriptor) {
+        'B' -> "ByteArray"
+        'J' -> "LongArray"
+        'Z' -> "BooleanArray"
+        'I' -> "IntArray"
+        'S' -> "ShortArray"
+        'C' -> "CharArray"
+        'F' -> "FloatArray"
+        'D' -> "DoubleArray"
+        else -> throw IllegalArgumentException("Unknown base array element type: ${classifier.descriptor}")
+    }
+}
+
+fun renderTypeVariable(variable: TypeVariable, position: Position, nullability: NullabilityAnnotation): String {
+    val nullableByDefault = position !in hashSet(Position.CLASS_TYPE_ARGUMENT, Position.UPPER_BOUND)
+    return variable.name + if (nullableByDefault) nullability.suffix() else ""
+}
+
+fun renderArrayType(arrayType: GenericType, position: Position): String {
+    val elementType = arrayType.arrayElementType
+    if (elementType.classifier is BaseType) {
+        return renderBaseArrayType(elementType.classifier as BaseType)
+
+    }
+    return "Array<${arrayElementPosition(position)}${renderType(elementType, Position.CLASS_TYPE_ARGUMENT, NullabilityAnnotation.NULLABLE)}>"
 }
 
 fun arrayElementPosition(position: Position): String = if (position != Position.VARARG) "out " else ""
 
-fun wrapIntoExtraDimensions(dimensions: Int, typeString: String, position: Position): String {
-    val sb = StringBuilder()
-    for (i in 1..dimensions) {
-        sb.append("Array<${arrayElementPosition(position)}")
-    }
-    sb.append(typeString)
-    for (i in 1..dimensions) {
-        sb.append("?>")
-    }
-    return sb.toString()
-}
-
-fun mapJavaClass(asmType: Type): String {
-    return when (asmType.getInternalName()) {
-        "java/lang/Object" -> "Any"
-        "java/lang/Boolean" -> "Boolean"
-        "java/lang/Byte" -> "Byte"
-        "java/lang/Short" -> "Short"
-        "java/lang/Integer" -> "Int"
-        "java/lang/Long" -> "Long"
-        "java/lang/Char" -> "Char"
-        "java/lang/Float" -> "Float"
-        "java/lang/Double" -> "Double"
-        "java/lang/String" -> "String"
-        "java/lang/Throwable" -> "Throwable"
-        else -> asmType.getClassName()!!.suffixAfter(".").replace('$', '.')
+fun renderNamedClass(namedClass: NamedClass): String {
+    return when (namedClass) {
+        is ToplevelClass -> when (namedClass.internalName) {
+            "java/lang/Object" -> "Any"
+            "java/lang/Integer" -> "Int"
+            else -> namedClass.internalName.suffixAfter("/").replace('$', '.')
+        }
+        is InnerClass -> renderNamedClass(namedClass.outer) + "." + namedClass.name
+        else -> throw IllegalArgumentException(namedClass.toString())
     }
 }
 
 fun NullabilityAnnotation.suffix(): String = if (this == NullabilityAnnotation.NULLABLE) "?" else ""
+

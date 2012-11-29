@@ -141,6 +141,7 @@ class KotlinSignatureRendererTest: TestCase() {
             System.err.println("Expected: ${error.getExpected()}")
             System.err.println("Actual  : ${error.getActual()}")
             error.printStackTrace()
+            System.err.flush()
         }
 
         if (!actualErrors.isEmpty()) {
@@ -156,6 +157,11 @@ class KotlinSignatureRendererTest: TestCase() {
 
     fun testNullability() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Nullability>())
+        doMultipleDeclarationsTest(classReader)
+    }
+
+    fun testGenerics() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotationsGeneric<*>>())
         doMultipleDeclarationsTest(classReader)
     }
 
