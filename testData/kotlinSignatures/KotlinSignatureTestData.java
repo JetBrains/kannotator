@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import org.jetbrains.kannotator.runtime.annotations.Mutable;
 import org.jetbrains.kannotator.runtime.annotations.ReadOnly;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.*;
 
@@ -69,6 +70,9 @@ public abstract class KotlinSignatureTestData {
         @KotlinSignature("var caa : Array<out CharArray?>?")
         char[][] caa;
 
+        @KotlinSignature("var of : Array<out File?>?")
+        File[] of;
+
         @KotlinSignature("fun NoAnnotations()")
         NoAnnotations() {}
 
@@ -80,6 +84,9 @@ public abstract class KotlinSignatureTestData {
 
         @KotlinSignature("fun vararg(vararg p0 : String?) : Unit")
         abstract void vararg(String... p0);
+
+        @KotlinSignature("fun varargInt(vararg ints : Int) : Unit")
+        void varargInt(int... ints) {}
 
         @KotlinSignature("fun arrayOfArray(p0 : Array<out Array<out Any?>?>?) : Unit")
         void arrayOfArray(Object[][] p0) {}
@@ -149,7 +156,7 @@ public abstract class KotlinSignatureTestData {
         abstract void unboundedWildcard(List<?> p0);
 
         @KotlinSignature("fun <T> generic(t : T?, ts : List<T>?, tss : Collection<out T>?, tsss : List<in Collection<out T>?>?) : Unit")
-        abstract <T> void generic(T t, List<T> ts, Collection<? extends T> tss, List<? super Collection<? extends T>> tsss);
+        <T> void generic(T t, List<T> ts, Collection<? extends T> tss, List<? super Collection<? extends T>> tsss) {}
         @KotlinSignature("fun <T : Serializable?> genericOneBound() : Unit")
         abstract <T extends Serializable> void genericOneBound();
         @KotlinSignature("fun <T> genericTwoBounds() : Unit where T : Serializable?, T : Runnable?")
@@ -162,47 +169,228 @@ public abstract class KotlinSignatureTestData {
         @KotlinSignature("fun <T> standaloneTypeParameters(t : T?, c : C?) : Unit")
         <T> void standaloneTypeParameters(T t, C c) {}
 
+        @KotlinSignature("fun returnParameterOfClass() : C?")
+        C returnParameterOfClass() {return null; }
+        @KotlinSignature("fun returnListOfParameterOfClass() : MutableList<C>?")
+        List<C> returnListOfParameterOfClass() {return null; }
+
         @KotlinSignature("fun <T, R : T, X : C> typeParametersInUpperBounds(ts : List<out T>?, cs : List<out C>?) : Unit")
         <T, R extends T, X extends C> void typeParametersInUpperBounds(List<? extends T> ts, List<? extends C> cs) {}
         @KotlinSignature("fun <T> typeParametersInLowerBounds(ts : List<in T>?, cs : List<in C>?) : Unit")
         <T> void typeParametersInLowerBounds(List<? super T> ts, List<? super C> cs) {}
 
+        class TwoParams<T, R> {
+        }
+
+        @KotlinSignature("fun twoGenericParams(p0 : KotlinSignatureTestData.NoAnnotationsGeneric.TwoParams<String?, Int?>?) : KotlinSignatureTestData.NoAnnotationsGeneric.TwoParams<String?, Int?>?")
+        abstract TwoParams<String, Integer> twoGenericParams(TwoParams<String, Integer> p0);
+
+    }
+
+    public static abstract class MutabilityNoAnnotations {
+        @KotlinSignature("fun paramIterator(p0 : Iterator<String?>?) : Unit")
+        abstract void paramIterator(Iterator<String> p0);
+        @KotlinSignature("fun paramIterator() : MutableIterator<String?>?")
+        abstract Iterator<String> paramIterator();
+
+        @KotlinSignature("fun paramIterable(p0 : Iterable<String?>?) : Unit")
+        abstract void paramIterable(Iterable<String> p0);
+        @KotlinSignature("fun paramIterable() : MutableIterable<String?>?")
+        abstract Iterable<String> paramIterable();
+
+        @KotlinSignature("fun paramCollection(p0 : Collection<String?>?) : Unit")
+        abstract void paramCollection(Collection<String> p0);
+        @KotlinSignature("fun paramCollection() : MutableCollection<String?>?")
+        abstract Collection<String> paramCollection();
+
+        @KotlinSignature("fun paramList(p0 : List<String?>?) : Unit")
+        abstract void paramList(List<String> p0);
+        @KotlinSignature("fun paramList() : MutableList<String?>?")
+        abstract List<String> paramList();
+
+        @KotlinSignature("fun paramSet(p0 : Set<String?>?) : Unit")
+        abstract void paramSet(Set<String> p0);
+        @KotlinSignature("fun paramSet() : MutableSet<String?>?")
+        abstract Set<String> paramSet();
+
+        @KotlinSignature("fun paramMap(p0 : Map<String?, Int?>?) : Unit")
+        abstract void paramMap(Map<String, Integer> p0);
+        @KotlinSignature("fun paramMap() : MutableMap<String?, Int?>?")
+        abstract Map<String, Integer> paramMap();
+
+        @KotlinSignature("fun paramMapEntry(p0 : Map.Entry<String?, Int?>?) : Unit")
+        abstract void paramMapEntry(Map.Entry<String, Integer> p0);
+        @KotlinSignature("fun paramMapEntry() : MutableMap.MutableEntry<String?, Int?>?")
+        abstract Map.Entry<String, Integer> paramMapEntry();
+
+
+        @KotlinSignature("fun inIterator(p0 : Iterator<in String?>?) : Unit")
+        abstract void inIterator(Iterator<? super String> p0);
+        @KotlinSignature("fun inIterator() : MutableIterator<in String?>?")
+        abstract Iterator<? super String> inIterator();
+
+        @KotlinSignature("fun inIterable(p0 : Iterable<in String?>?) : Unit")
+        abstract void inIterable(Iterable<? super String> p0);
+        @KotlinSignature("fun inIterable() : MutableIterable<in String?>?")
+        abstract Iterable<? super String> inIterable();
+
+        @KotlinSignature("fun inCollection(p0 : Collection<in String?>?) : Unit")
+        abstract void inCollection(Collection<? super String> p0);
+        @KotlinSignature("fun inCollection() : MutableCollection<in String?>?")
+        abstract Collection<? super String> inCollection();
+
+        @KotlinSignature("fun inList(p0 : List<in String?>?) : Unit")
+        abstract void inList(List<? super String> p0);
+        @KotlinSignature("fun inList() : MutableList<in String?>?")
+        abstract List<? super String> inList();
+
+        @KotlinSignature("fun inSet(p0 : Set<in String?>?) : Unit")
+        abstract void inSet(Set<? super String> p0);
+        @KotlinSignature("fun inSet() : MutableSet<in String?>?")
+        abstract Set<? super String> inSet();
+
+        @KotlinSignature("fun inMap(p0 : Map<in String?, in Int?>?) : Unit")
+        abstract void inMap(Map<? super String, ? super Integer> p0);
+        @KotlinSignature("fun inMap() : MutableMap<in String?, in Int?>?")
+        abstract Map<? super String, ? super Integer> inMap();
+
+        @KotlinSignature("fun inMapEntry(p0 : Map.Entry<in String?, in Int?>?) : Unit")
+        abstract void inMapEntry(Map.Entry<? super String, ? super Integer> p0);
+        @KotlinSignature("fun inMapEntry() : MutableMap.MutableEntry<in String?, in Int?>?")
+        abstract Map.Entry<? super String, ? super Integer> inMapEntry();
+
+
+        @KotlinSignature("fun outIterator(p0 : Iterator<out String?>?) : Unit")
+        abstract void outIterator(Iterator<? extends String> p0);
+        @KotlinSignature("fun outIterator() : MutableIterator<out String?>?")
+        abstract Iterator<? extends String> outIterator();
+
+        @KotlinSignature("fun outIterable(p0 : Iterable<out String?>?) : Unit")
+        abstract void outIterable(Iterable<? extends String> p0);
+        @KotlinSignature("fun outIterable() : MutableIterable<out String?>?")
+        abstract Iterable<? extends String> outIterable();
+
+        @KotlinSignature("fun outCollection(p0 : Collection<out String?>?) : Unit")
+        abstract void outCollection(Collection<? extends String> p0);
+        @KotlinSignature("fun outCollection() : MutableCollection<out String?>?")
+        abstract Collection<? extends String> outCollection();
+
+        @KotlinSignature("fun outList(p0 : List<out String?>?) : Unit")
+        abstract void outList(List<? extends String> p0);
+        @KotlinSignature("fun outList() : MutableList<out String?>?")
+        abstract List<? extends String> outList();
+
+        @KotlinSignature("fun outSet(p0 : Set<out String?>?) : Unit")
+        abstract void outSet(Set<? extends String> p0);
+        @KotlinSignature("fun outSet() : MutableSet<out String?>?")
+        abstract Set<? extends String> outSet();
+
+        @KotlinSignature("fun outMap(p0 : Map<out String?, out Int?>?) : Unit")
+        abstract void outMap(Map<? extends String, ? extends Integer> p0);
+        @KotlinSignature("fun outMap() : MutableMap<out String?, out Int?>?")
+        abstract Map<? extends String, ? extends Integer> outMap();
+
+        @KotlinSignature("fun outMapEntry(p0 : Map.Entry<out String?, out Int?>?) : Unit")
+        abstract void outMapEntry(Map.Entry<? extends String, ? extends Integer> p0);
+        @KotlinSignature("fun outMapEntry() : MutableMap.MutableEntry<out String?, out Int?>?")
+        abstract Map.Entry<? extends String, ? extends Integer> outMapEntry();
+
     }
 
     public static abstract class Mutability {
         abstract void readOnlyIterator(@ReadOnly Iterator<String> p0);
+        abstract @ReadOnly Iterator<String> readOnlyIterator();
+
         abstract void readOnlyIterable(@ReadOnly Iterable<String> p0);
+        abstract @ReadOnly Iterable<String> readOnlyIterable();
+
         abstract void readOnlyCollection(@ReadOnly Collection<String> p0);
+        abstract @ReadOnly Collection<String> readOnlyCollection();
+
         abstract void readOnlyList(@ReadOnly List<String> p0);
+        abstract @ReadOnly List<String> readOnlyList();
+
         abstract void readOnlySet(@ReadOnly Set<String> p0);
+        abstract @ReadOnly Set<String> readOnlySet();
+
         abstract void readOnlyMap(@ReadOnly Map<String, Integer> p0);
+        abstract @ReadOnly Map<String, Integer> readOnlyMap();
+
+        abstract void readOnlyMapEntry(@ReadOnly Map.Entry<String, Integer> p0);
+        abstract @ReadOnly Map.Entry<String, Integer> readOnlyMapEntry();
+
+
         abstract void mutableIterator(@Mutable Iterator<String> p0);
+        abstract @Mutable Iterator<String> mutableIterator();
+
 
         abstract void mutableIterable(@Mutable Iterable<String> p0);
+        abstract @Mutable Iterable<String> mutableIterable();
+
         abstract void mutableCollection(@Mutable Collection<String> p0);
+        abstract @Mutable Collection<String> mutableCollection();
+
         abstract void mutableList(@Mutable List<String> p0);
+        abstract @Mutable List<String> mutableList();
+
         abstract void mutableSet(@Mutable Set<String> p0);
-        abstract void mutableMap(@Mutable Map<String, Integer> p0);
+        abstract @Mutable Set<String> mutableSet();
+
+        abstract void mutableMapEntry(@Mutable Map.Entry<String, Integer> p0);
+        abstract @Mutable Map.Entry<String, Integer> mutableMapEntry();
+
 
         abstract void readOnlyArrayList(@ReadOnly ArrayList<String> p0);
+        abstract @ReadOnly ArrayList<String> readOnlyArrayList();
+
         abstract void mutableArrayList(@Mutable ArrayList<String> p0);
+        abstract @Mutable ArrayList<String> mutableArrayList();
+
 
         abstract void inMutableIterator(@Mutable Iterator<? super String> p0);
+        abstract @Mutable Iterator<? super String> inMutableIterator();
+
         abstract void inMutableIterable(@Mutable Iterable<? super String> p0);
+        abstract @Mutable Iterable<? super String> inMutableIterable();
+
         abstract void inMutableCollection(@Mutable Collection<? super String> p0);
+        abstract @Mutable Collection<? super String> inMutableCollection();
+
         abstract void inMutableList(@Mutable List<? super String> p0);
+        abstract @Mutable List<? super String> inMutableList();
+
         abstract void inMutableSet(@Mutable Set<? super String> p0);
-        abstract void inMutableMap(@Mutable Map<? super String, ? super Integer> p0);
+        abstract @Mutable Set<? super String> inMutableSet();
+
+        abstract void inMutableMapEntry(@Mutable Map.Entry<? super String, ? super Integer> p0);
+        abstract @Mutable Map.Entry<? super String, ? super Integer> inMutableMapEntry();
+
 
         abstract void outMutableIterator(@Mutable Iterator<? extends String> p0);
+        abstract @Mutable Iterator<? extends String> outMutableIterator();
+
         abstract void outMutableIterable(@Mutable Iterable<? extends String> p0);
+        abstract @Mutable Iterable<? extends String> outMutableIterable();
+
         abstract void outMutableCollection(@Mutable Collection<? extends String> p0);
+        abstract @Mutable Collection<? extends String> outMutableCollection();
+
         abstract void outMutableList(@Mutable List<? extends String> p0);
+        abstract @Mutable List<? extends String> outMutableList();
+
         abstract void outMutableSet(@Mutable Set<? extends String> p0);
-        abstract void outMutableMap(@Mutable Map<? extends String, ? extends Integer> p0);
+        abstract @Mutable Set<? extends String> outMutableSet();
+
+        abstract void outMutableMapEntry(@Mutable Map.Entry<? extends String, ? extends Integer> p0);
+        abstract @Mutable Map.Entry<? extends String, ? extends Integer> outMutableMapEntry();
+
 
         abstract void nullableMutableIterator(@Nullable @Mutable Iterator<String> p0);
+        abstract @Nullable @Mutable Iterator<String> nullableMutableIterator();
+
         abstract void notNullReadonlyIterator(@NotNull @ReadOnly Iterator<String> p0);
+        abstract @NotNull @ReadOnly Iterator<String> notNullReadonlyIterator();
+
     }
 
 }
