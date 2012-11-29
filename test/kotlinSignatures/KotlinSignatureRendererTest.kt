@@ -40,30 +40,21 @@ import java.util.LinkedHashMap
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.index.createMethodWithNamedParameters
+import org.jetbrains.kannotator.index.loadMethodParameterNames
 
 class KotlinSignatureRendererTest: TestCase() {
 
-    fun checkMethodSignature(
+    fun checkSignature(
             expectedSignature: String,
-            method: MethodWithNamedParameters,
+            member: ClassMember,
             nullability: Annotations<NullabilityAnnotation> = AnnotationsImpl(),
             mutability: Annotations<MutabilityAnnotation> = AnnotationsImpl()
     ): ComparisonFailure? {
-        val signature = renderMethodSignature(method, nullability, mutability)
-        if (expectedSignature != signature) {
-            return ComparisonFailure(null, expectedSignature, signature)
-        }
-        return null
-    }
-
-    fun checkFieldSignature(
-            expectedSignature: String,
-            field: Field,
-            nullability: Annotations<NullabilityAnnotation> = AnnotationsImpl(),
-            mutability: Annotations<MutabilityAnnotation> = AnnotationsImpl()
-    ): ComparisonFailure? {
-        val signature = renderFieldSignature(field, nullability, mutability)
+        val signature = when (member) {
+                            is Method -> renderMethodSignature(member, nullability, mutability)
+                            is Field -> renderFieldSignature(member, nullability, mutability)
+                            else -> throw IllegalArgumentException("Unknown member kind: $member")
+                        }
         if (expectedSignature != signature) {
             return ComparisonFailure(null, expectedSignature, signature)
         }
@@ -103,14 +94,14 @@ class KotlinSignatureRendererTest: TestCase() {
                     if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
                         val nullability = fieldAnnotations["nullability"] as Annotations<NullabilityAnnotation>
                         val mutability = fieldAnnotations["mutability"] as Annotations<MutabilityAnnotation>
-                        errors.add(checkFieldSignature(annotation.values!!.get(1)!!.toString(), field, nullability, mutability))
+                        errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), field, nullability, mutability))
                     }
                 }
             }
         }
 
         for ((method, node) in methodNodes) {
-            val methodsWithNamedParameters = createMethodWithNamedParameters(method, node)
+            loadMethodParameterNames(method, node)
 
             val annotations = node.invisibleAnnotations
             if (annotations != null) {
@@ -118,7 +109,7 @@ class KotlinSignatureRendererTest: TestCase() {
                     if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
                         val nullability = methodAnnotations["nullability"] as Annotations<NullabilityAnnotation>
                         val mutability = methodAnnotations["mutability"] as Annotations<MutabilityAnnotation>
-                        errors.add(checkMethodSignature(annotation.values!!.get(1)!!.toString(), methodsWithNamedParameters, nullability, mutability))
+                        errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), method, nullability, mutability))
                     }
                 }
             }

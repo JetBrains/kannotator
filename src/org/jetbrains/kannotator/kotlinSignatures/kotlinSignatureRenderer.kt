@@ -23,7 +23,6 @@ import org.jetbrains.kannotator.declarations.isStatic
 import org.objectweb.asm.signature.SignatureVisitor
 import org.objectweb.asm.signature.SignatureReader
 import java.util.ArrayList
-import org.jetbrains.kannotator.declarations.MethodWithNamedParameters
 
 fun renderKotlinSignature(kotlinSignatureString: String): AnnotationData? {
     return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
@@ -38,11 +37,10 @@ val NULLABLE_READONLY = KnownAnnotations(NullabilityAnnotation.NULLABLE, Mutabil
 val NULLABLE_MUTABLE = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.MUTABLE)
 
 fun renderMethodSignature(
-        methodWithNamedParameters: MethodWithNamedParameters,
+        method: Method,
         nullability: Annotations<NullabilityAnnotation>,
         mutability: Annotations<MutabilityAnnotation>
 ): String {
-    val method = methodWithNamedParameters.method
     val signature = parseGenericMethodSignature(method.genericSignature ?: method.id.methodDesc)
     val isConstructor = method.name == "<init>"
 
@@ -94,7 +92,7 @@ fun renderMethodSignature(
     sb.append("(")
 
     for (param in signature.valueParameters) {
-        sb.appendParameter(methodWithNamedParameters, param.index) {
+        sb.appendParameter(method, param.index) {
             vararg ->
             val annotations = method.getAnnotationsForParameter(nullability, mutability, param.index, NULLABLE_READONLY)
             if (vararg) {
@@ -181,13 +179,13 @@ fun <A> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A
     return this[annotationPosition] ?: default
 }
 
-fun StringBuilder.appendParameter(method: MethodWithNamedParameters, parameterIndex: Int, forType: (isVararg: Boolean) -> Unit) {
+fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, forType: (isVararg: Boolean) -> Unit) {
     if (parameterIndex != 0) {
         append(", ")
     }
 
     val last = parameterIndex == method.parameterNames.size - 1
-    val vararg = last && method.method.access.has(Opcodes.ACC_VARARGS)
+    val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
     if (vararg) {
         append("vararg ")
     }

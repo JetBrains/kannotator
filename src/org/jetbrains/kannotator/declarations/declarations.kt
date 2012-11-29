@@ -5,6 +5,7 @@ import org.objectweb.asm.Type
 import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
+import java.util.ArrayList
 
 trait ClassMember {
     val declaringClass: ClassName
@@ -50,13 +51,37 @@ data class Method(
         override val access: Access,
         val id: MethodId,
         val genericSignature: String? = null) : ClassMember {
-    override val name: String = id.methodName
+
+    private var _parameterNames : List<String>? = null
+    public fun setParameterNames(names: List<String>) {
+        if (_parameterNames != null) {
+            throw IllegalStateException("Parameter names already initialized: $parameterNames")
+        }
+        val arity = getArgumentTypes().size
+        if (names.size != arity) {
+            throw IllegalArgumentException("Incorrect number of parameter names: $names, must be $arity")
+        }
+        _parameterNames = ArrayList(names)
+    }
+
+    public val parameterNames: List<String>
+        get() {
+            if (_parameterNames == null) {
+                _parameterNames = defaultMethodParameterNames(this)
+            }
+            return _parameterNames!!
+        }
+
+    override val name: String
+        get() = id.methodName
+
     public fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
 }
 
-class MethodWithNamedParameters(val method: Method, val parameterNames: List<String>)
+private fun defaultMethodParameterNames(method: Method): List<String>
+        = (0..method.getArgumentTypes().size - 1).map { i -> "p$i" }
 
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
