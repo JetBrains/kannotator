@@ -56,6 +56,8 @@ data class Method(
     }
 }
 
+class MethodWithNamedParameters(val method: Method, val parameterNames: List<String>)
+
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
 

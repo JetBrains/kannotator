@@ -23,25 +23,18 @@ import org.jetbrains.kannotator.declarations.isStatic
 import org.objectweb.asm.signature.SignatureVisitor
 import org.objectweb.asm.signature.SignatureReader
 import java.util.ArrayList
+import org.jetbrains.kannotator.declarations.MethodWithNamedParameters
 
-fun renderKotlinSignature(
-        member: ClassMember,
-        nullability: Annotations<NullabilityAnnotation>,
-        mutability: Annotations<MutabilityAnnotation>
-): AnnotationData? {
-    val signatureString = when (member) {
-        is Method -> renderMethodSignature(member, nullability, mutability)
-        is Field -> renderFieldSignature(member, nullability, mutability)
-        else -> throw IllegalStateException("Unknown member: $member")
-    }
-    return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$signatureString\""))
+fun renderKotlinSignature(kotlinSignatureString: String): AnnotationData? {
+    return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
 }
 
 fun renderMethodSignature(
-        method: Method,
+        methodWithNamedParameters: MethodWithNamedParameters,
         nullability: Annotations<NullabilityAnnotation>,
         mutability: Annotations<MutabilityAnnotation>
 ): String {
+    val method = methodWithNamedParameters.method
     val signature = parseGenericMethodSignature(method.genericSignature ?: method.id.methodDesc)
     val isConstructor = method.name == "<init>"
 
@@ -93,7 +86,7 @@ fun renderMethodSignature(
     sb.append("(")
 
     for (param in signature.valueParameters) {
-        sb.appendParameter(method, param.index, signature.valueParameters.size) {
+        sb.appendParameter(methodWithNamedParameters, param.index) {
             vararg ->
             val nullabilityAnnotation = nullability.getAnnotationForParameter(method, param.index, NullabilityAnnotation.NULLABLE)
             if (vararg) {
@@ -155,17 +148,18 @@ fun <A> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A
     return this[annotationPosition] ?: default
 }
 
-fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, parameterCount: Int, forType: (isVararg: Boolean) -> Unit) {
+fun StringBuilder.appendParameter(method: MethodWithNamedParameters, parameterIndex: Int, forType: (isVararg: Boolean) -> Unit) {
     if (parameterIndex != 0) {
         append(", ")
     }
 
-    val last = parameterIndex == parameterCount - 1
-    val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
+    val last = parameterIndex == method.parameterNames.size - 1
+    val vararg = last && method.method.access.has(Opcodes.ACC_VARARGS)
     if (vararg) {
         append("vararg ")
     }
-    append("p$parameterIndex : ")
+    append(method.parameterNames[parameterIndex])
+    append(" : ")
     forType(vararg)
 }
 
@@ -193,7 +187,10 @@ fun renderArguments(genericType: GenericType, position: Position): String {
     return buildString {
         sb ->
         sb.append("<")
-        for (arg in genericType.arguments) {
+        for ((i, arg) in genericType.arguments.indexed) {
+            if (i > 0) {
+                sb.append(", ")
+            }
             sb.append(when (arg) {
                 UnBoundedWildcard -> "*"
                 is BoundedWildcard -> arg.wildcard.projection() + renderType(arg.bound, Position.UPPER_BOUND, NullabilityAnnotation.NULLABLE)
