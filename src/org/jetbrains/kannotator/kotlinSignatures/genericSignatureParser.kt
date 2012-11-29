@@ -9,7 +9,7 @@ trait Classifier
 class BaseType(val descriptor: Char) : Classifier
 trait NamedClass : Classifier
 class ToplevelClass(val internalName: String) : NamedClass
-class InnerClass(val outer: NamedClass, val name: String) : NamedClass
+class InnerClass(val outer: GenericType, val name: String) : NamedClass
 class TypeVariable(val name: String) : Classifier
 object Array : Classifier
 
@@ -105,9 +105,7 @@ fun parseGenericMethodSignature(signature: String): GenericMethodSignature {
     return GenericMethodSignature(typeParameters, returnType, valueParameters)
 }
 
-private class GenericTypeParser(val result: GenericTypeImpl) : SignatureVisitor(Opcodes.ASM4) {
-
-    var outer: NamedClass? = null
+private class GenericTypeParser(private var result: GenericTypeImpl) : SignatureVisitor(Opcodes.ASM4) {
 
     override fun visitBaseType(descriptor: Char) {
         result.classifierVar = BaseType(descriptor)
@@ -125,13 +123,13 @@ private class GenericTypeParser(val result: GenericTypeImpl) : SignatureVisitor(
     }
 
     override fun visitClassType(name: String) {
-        outer = ToplevelClass(name)
-        result.classifierVar = outer
+        result.classifierVar = ToplevelClass(name)
     }
 
     override fun visitInnerClassType(name: String) {
-        outer = InnerClass(outer!!, name)
-        result.classifierVar = outer
+        val inner = GenericTypeImpl()
+        inner.classifierVar = InnerClass(result, name)
+        result = inner
     }
 
     override fun visitTypeArgument() {

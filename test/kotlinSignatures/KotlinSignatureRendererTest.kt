@@ -157,6 +157,11 @@ class KotlinSignatureRendererTest: TestCase() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.MutabilityNoAnnotations>())
         doMultipleDeclarationsTest(classReader)
     }
+
+    fun testGenericInner() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.WithGenericInner<*>>())
+        doMultipleDeclarationsTest(classReader)
+    }
 }
 
 fun main(args: Array<String>) {
