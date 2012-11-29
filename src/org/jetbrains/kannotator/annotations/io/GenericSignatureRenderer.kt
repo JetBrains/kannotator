@@ -119,7 +119,7 @@ private open class GenericTypeRenderer(val sb: StringBuilder): SignatureVisitor(
             SignatureVisitor.EXTENDS -> sb.append("? extends ")
             SignatureVisitor.SUPER -> sb.append("? super ")
             SignatureVisitor.INSTANCEOF -> {}
-            else -> IllegalArgumentException("Unkonown wildcard: $wildcard")
+            else -> throw IllegalArgumentException("Unknown wildcard: $wildcard")
         }
         return GenericTypeRenderer(sb)
     }
