@@ -37,6 +37,9 @@
     </item>
     <item name='org.objectweb.asm.tree.MethodNode localVariables'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;var localVariables : List&lt;LocalVariableNode&gt;?&quot;"/>
+        </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode MethodNode(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 1'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -303,5 +306,17 @@
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;var invisibleAnnotations : List&lt;AnnotationNode&gt;?&quot;"/>
         </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.LocalVariableNode name'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.LocalVariableNode desc'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.LocalVariableNode start'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.tree.LocalVariableNode end'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
 </root>
