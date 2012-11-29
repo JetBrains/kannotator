@@ -29,6 +29,14 @@ fun renderKotlinSignature(kotlinSignatureString: String): AnnotationData? {
     return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
 }
 
+private data class KnownAnnotations(
+        val nullability: NullabilityAnnotation,
+        val mutability: MutabilityAnnotation
+)
+
+val NULLABLE_READONLY = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.READ_ONLY)
+val NULLABLE_MUTABLE = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.MUTABLE)
+
 fun renderMethodSignature(
         methodWithNamedParameters: MethodWithNamedParameters,
         nullability: Annotations<NullabilityAnnotation>,
@@ -67,7 +75,7 @@ fun renderMethodSignature(
 
             if (param.hasNontrivialBounds()) {
                 fun renderUpperBound(bound: GenericType): String {
-                    return renderType(bound, Position.UPPER_BOUND, NullabilityAnnotation.NULLABLE)
+                    return renderType(bound, Position.UPPER_BOUND, NULLABLE_READONLY)
                 }
                 if (param.upperBounds.size == 1) {
                     sb.append(" : ").append(renderUpperBound(param.upperBounds[0]))
@@ -88,12 +96,12 @@ fun renderMethodSignature(
     for (param in signature.valueParameters) {
         sb.appendParameter(methodWithNamedParameters, param.index) {
             vararg ->
-            val nullabilityAnnotation = nullability.getAnnotationForParameter(method, param.index, NullabilityAnnotation.NULLABLE)
+            val annotations = method.getAnnotationsForParameter(nullability, mutability, param.index, NULLABLE_READONLY)
             if (vararg) {
-                sb.append(renderType(substituteIfNeeded(param.genericType.arrayElementType), Position.VARARG, nullabilityAnnotation))
+                sb.append(renderType(substituteIfNeeded(param.genericType.arrayElementType), Position.VARARG, annotations))
             }
             else {
-                sb.append(renderType(substituteIfNeeded(param.genericType), Position.METHOD_PARAMETER, nullabilityAnnotation))
+                sb.append(renderType(substituteIfNeeded(param.genericType), Position.METHOD_PARAMETER, annotations))
             }
         }
     }
@@ -105,8 +113,8 @@ fun renderMethodSignature(
     else {
         sb.append(") : ")
         val returnType = signature.returnType
-        val nullabilityAnnotation = nullability.getAnnotationForReturnType(method, NullabilityAnnotation.NULLABLE)
-        sb.append(renderType(returnType, Position.RETURN_TYPE, nullabilityAnnotation))
+        val annotations = method.getAnnotationsForReturnType(nullability, mutability, NULLABLE_MUTABLE)
+        sb.append(renderType(returnType, Position.RETURN_TYPE, annotations))
     }
 
     if (!whereClause.isEmpty()) {
@@ -125,14 +133,39 @@ fun renderFieldSignature(
     sb.append(if (field.isFinal()) "val " else "var ")
     sb.append(field.name)
     sb.append(" : ")
-    val nullabilityAnnotation = nullability[getFieldTypePosition(field)] ?: NullabilityAnnotation.NULLABLE
-    sb.append(renderType(field.getType().toGenericType(), Position.RETURN_TYPE, nullabilityAnnotation))
+    val pos = getFieldTypePosition(field)
+    val annotations = KnownAnnotations(
+            nullability[pos] ?: NullabilityAnnotation.NULLABLE,
+            mutability[pos] ?: MutabilityAnnotation.MUTABLE
+    )
+
+    sb.append(renderType(field.getType().toGenericType(), Position.RETURN_TYPE, annotations))
     return sb.toString()
 }
 
 fun Type.toGenericType(): GenericType {
     val signature = "(${this.getDescriptor()})V"
     return parseGenericMethodSignature(signature).valueParameters[0].genericType
+}
+
+fun Method.getAnnotationsForParameter(
+        nullability: Annotations<NullabilityAnnotation>,
+        mutability: Annotations<MutabilityAnnotation>,
+        parameterIndex: Int, default: KnownAnnotations): KnownAnnotations {
+    return KnownAnnotations(
+            nullability.getAnnotationForParameter(this, parameterIndex, default.nullability),
+            mutability.getAnnotationForParameter(this, parameterIndex, default.mutability)
+    )
+}
+
+fun Method.getAnnotationsForReturnType(
+        nullability: Annotations<NullabilityAnnotation>,
+        mutability: Annotations<MutabilityAnnotation>,
+        default: KnownAnnotations): KnownAnnotations {
+    return KnownAnnotations(
+            nullability.getAnnotationForReturnType(this, default.nullability),
+            mutability.getAnnotationForReturnType(this, default.mutability)
+    )
 }
 
 fun <A> Annotations<A>.getAnnotationForParameter(method: Method, parameterIndex: Int, default: A): A {
@@ -171,13 +204,13 @@ enum class Position {
     UPPER_BOUND
 }
 
-fun renderType(genericType: GenericType, position: Position, nullability: NullabilityAnnotation): String {
+fun renderType(genericType: GenericType, position: Position, annotations: KnownAnnotations): String {
     val classifier = genericType.classifier
     return when (classifier) {
         is BaseType -> renderBaseType(classifier)
-        is NamedClass -> renderNamedClass(classifier) + renderArguments(genericType, position) + nullability.suffix()
-        is TypeVariable -> renderTypeVariable(classifier, position, nullability)
-        Array -> renderArrayType(genericType, position) + nullability.suffix()
+        is NamedClass -> renderNamedClass(classifier, annotations) + renderArguments(genericType, position) + annotations.nullability.suffix()
+        is TypeVariable -> renderTypeVariable(classifier, position, annotations)
+        Array -> renderArrayType(genericType, position) + annotations.nullability.suffix()
         else -> throw IllegalArgumentException("Unknown classifier: $classifier")
     }
 }
@@ -193,8 +226,8 @@ fun renderArguments(genericType: GenericType, position: Position): String {
             }
             sb.append(when (arg) {
                 UnBoundedWildcard -> "*"
-                is BoundedWildcard -> arg.wildcard.projection() + renderType(arg.bound, Position.UPPER_BOUND, NullabilityAnnotation.NULLABLE)
-                is NoWildcard -> renderType(arg.genericType, Position.CLASS_TYPE_ARGUMENT, NullabilityAnnotation.NULLABLE)
+                is BoundedWildcard -> arg.wildcard.projection() + renderType(arg.bound, Position.UPPER_BOUND, NULLABLE_READONLY)
+                is NoWildcard -> renderType(arg.genericType, Position.CLASS_TYPE_ARGUMENT, NULLABLE_READONLY)
                 else -> throw IllegalStateException(arg.toString())
             })
         }
@@ -236,9 +269,9 @@ fun renderBaseArrayType(classifier: BaseType): String {
     }
 }
 
-fun renderTypeVariable(variable: TypeVariable, position: Position, nullability: NullabilityAnnotation): String {
+fun renderTypeVariable(variable: TypeVariable, position: Position, annotations: KnownAnnotations): String {
     val nullableByDefault = position !in hashSet(Position.CLASS_TYPE_ARGUMENT, Position.UPPER_BOUND)
-    return variable.name + if (nullableByDefault) nullability.suffix() else ""
+    return variable.name + if (nullableByDefault) annotations.nullability.suffix() else ""
 }
 
 fun renderArrayType(arrayType: GenericType, position: Position): String {
@@ -247,22 +280,33 @@ fun renderArrayType(arrayType: GenericType, position: Position): String {
         return renderBaseArrayType(elementType.classifier as BaseType)
 
     }
-    return "Array<${arrayElementPosition(position)}${renderType(elementType, Position.CLASS_TYPE_ARGUMENT, NullabilityAnnotation.NULLABLE)}>"
+    return "Array<${arrayElementPosition(position)}${renderType(elementType, Position.CLASS_TYPE_ARGUMENT, NULLABLE_READONLY)}>"
 }
 
 fun arrayElementPosition(position: Position): String = if (position != Position.VARARG) "out " else ""
 
-fun renderNamedClass(namedClass: NamedClass): String {
+fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): String {
+    fun prefix(s: String): String = annotations.mutability.prefix() + s
+
     return when (namedClass) {
         is ToplevelClass -> when (namedClass.internalName) {
             "java/lang/Object" -> "Any"
             "java/lang/Integer" -> "Int"
+            "java/lang/Iterable",
+            "java/util/Iterator",
+            "java/util/Collection",
+            "java/util/List",
+            "java/util/ListIterator",
+            "java/util/Set",
+            "java/util/Map" -> prefix(namedClass.internalName.suffixAfter("/"))
+            "java/util/Map\$Entry" -> prefix("Map") + "." + prefix("Entry")
             else -> namedClass.internalName.suffixAfter("/").replace('$', '.')
         }
-        is InnerClass -> renderNamedClass(namedClass.outer) + "." + namedClass.name
+        is InnerClass -> renderNamedClass(namedClass.outer, annotations) + "." + namedClass.name
         else -> throw IllegalArgumentException(namedClass.toString())
     }
 }
 
 fun NullabilityAnnotation.suffix(): String = if (this == NullabilityAnnotation.NULLABLE) "?" else ""
+fun MutabilityAnnotation.prefix(): String = if (this == MutabilityAnnotation.MUTABLE) "Mutable" else ""
 
