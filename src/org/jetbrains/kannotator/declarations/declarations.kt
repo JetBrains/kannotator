@@ -94,12 +94,18 @@ fun Method.isConstructor(): Boolean = name == "<init>"
 
 fun Method.isInnerClassConstructor(): Boolean {
     if (!isConstructor()) return false
+
     val parameterTypes = getArgumentTypes()
     if (parameterTypes.size == 0) return false
+
+    val firstParameter = parameterTypes[0]
+    if (firstParameter.getSort() != Type.OBJECT) return false
+
     val dollarIndex = declaringClass.internal.lastIndexOf('$')
     if (dollarIndex < 0) return false
     val outerClass = declaringClass.internal.substring(0, dollarIndex)
-    return parameterTypes[0].getInternalName() == outerClass
+
+    return firstParameter.getInternalName() == outerClass
 }
 
 val ClassMember.visibility: Visibility get() = when {
@@ -157,6 +163,16 @@ fun String.toCanonical(): String = replace('$', '.')
 
 fun ClassName.toType(): Type {
     return Type.getType(typeDescriptor)
+}
+
+fun ClassName.isAnonymous(): Boolean {
+    // simple name consist of digits only
+    for (c in simple) {
+        if (!c.isDigit()) {
+            return false
+        }
+    }
+    return true
 }
 
 data class FieldId(val fieldName: String) {

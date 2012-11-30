@@ -468,4 +468,18 @@ public abstract class KotlinSignatureTestData {
         Inner(String s) {}
     }
 
+    public static class NamedParametersLongTypes {
+        @KotlinSignature("fun longTypes(i : Int, l : Long, o : Any?, d : Double, f : Float?) : Unit")
+        void longTypes(int i, long l, Object o, double d, Float f) {}
+
+        @KotlinSignature("fun staticLongTypes(i : Int, l : Long, o : Any?, d : Double, f : Float?) : Unit")
+        static void staticLongTypes(int i, long l, Object o, double d, Float f) {}
+    }
+
+    public enum Enum {
+        A("");
+
+        @KotlinSignature("fun Enum(p0 : String?)")
+        Enum(String p0) {}
+    }
 }

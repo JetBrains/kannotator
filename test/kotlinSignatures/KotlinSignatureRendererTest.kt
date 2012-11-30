@@ -169,6 +169,16 @@ class KotlinSignatureRendererTest : TestCase() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Inner>())
         doMultipleDeclarationsTest(classReader)
     }
+
+    fun testNamedParametersLongTypes() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.NamedParametersLongTypes>())
+        doMultipleDeclarationsTest(classReader)
+    }
+
+    fun testEnum() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Enum>())
+        doMultipleDeclarationsTest(classReader)
+    }
 }
 
 fun main(args: Array<String>) {
