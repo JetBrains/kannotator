@@ -9,7 +9,7 @@ import org.objectweb.asm.ClassReader
 
 public class AnnotateJarAction: AnAction() {
     public override fun actionPerformed(e: AnActionEvent?) {
-        val dlg = InferAnnotationDialog(e?.getProject())
+        val dlg = InferAnnotationDialog(e?.getProject()!!)
         if (dlg.showAndGet()) {
             val fakeClassSource = object : ClassSource {
                 override fun forEach(body: (ClassReader) -> Unit) {
@@ -18,7 +18,6 @@ public class AnnotateJarAction: AnAction() {
             }
 
             inferAnnotations<String>(fakeClassSource, arrayList(), hashMap("test" to (org.jetbrains.kannotator.main.MUTABILITY_INFERRER as AnnotationInferrer<Any>)))
-            return
         }
     }
 }
