@@ -1,4 +1,4 @@
-package org.jetbrains.annotator.actions.dialog
+package org.jetbrains.kannotator.plugin.actions.dialog
 
 import com.intellij.ui.CheckboxTree.CheckboxTreeCellRenderer
 import com.intellij.ui.SimpleTextAttributes

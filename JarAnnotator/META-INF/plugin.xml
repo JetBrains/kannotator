@@ -26,7 +26,7 @@ Automatic inferrer nullability and kotlin annotations for the set of jar files
     </project-components>
 
     <actions>
-        <action id="annotate.jar" class="org.jetbrains.annotator.actions.AnnotateJarAction" text="Annotate Jar Files..."
+        <action id="annotate.jar" class="org.jetbrains.kannotator.plugin.actions.AnnotateJarAction" text="Annotate Jar Files..."
                 description="Infer nullability and Kotlin annotation for jar files">
             <add-to-group group-id="AnalyzeActions" anchor="last"/>
         </action>
