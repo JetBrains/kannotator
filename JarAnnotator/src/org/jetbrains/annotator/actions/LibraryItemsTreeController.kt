@@ -17,7 +17,15 @@ public class LibraryItemsTreeController() {
         val libraryTables = ChooseLibrariesFromTablesDialog.getLibraryTables(project, true)
         for (table in libraryTables) {
             for (library in table.getLibraries()) {
-                root.add(LibraryCheckTreeNode(library));
+                val libraryNode = LibraryCheckTreeNode(library)
+                root.add(libraryNode);
+
+                val classFileRoots = library.getRootProvider().getFiles(OrderRootType.CLASSES)
+                for (classFileRoot in classFileRoots) {
+                    if (classFileRoot.getExtension() == "jar") {
+                        libraryNode.add(JarFileCheckTreeNode(classFileRoot));
+                    }
+                }
             }
         }
 
