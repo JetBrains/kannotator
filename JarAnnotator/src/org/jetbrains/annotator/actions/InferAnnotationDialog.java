@@ -4,7 +4,9 @@ import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
+import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.refactoring.RefactoringBundle;
+import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.TitledSeparator;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.uiDesigner.core.GridConstraints;
@@ -12,6 +14,9 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.DocumentEvent;
 import java.awt.*;
 
 public class InferAnnotationDialog extends DialogWrapper {
@@ -20,6 +25,8 @@ public class InferAnnotationDialog extends DialogWrapper {
     JCheckBox kotlinSignaturesCheckBox;
     TextFieldWithBrowseButton outputDirectory;
     JBScrollPane jarsTreeScrollPane;
+    JLabel outputDirectoryLabel;
+    JLabel jarsTreeLabel;
 
     // Non from gui
     LibraryCheckboxTree libraryTree;
@@ -32,19 +39,44 @@ public class InferAnnotationDialog extends DialogWrapper {
         $$$setupUI$$$();
 
         this.project = project;
+
+        init();
+
+        updateControls();
+    }
+
+    @Override
+    protected void init() {
         setTitle("Annotate Jar Files");
+
+        contentPanel.setPreferredSize(new Dimension(440, 500));
 
         outputDirectory.addBrowseFolderListener(
                 RefactoringBundle.message("select.target.directory"),
                 "Inferred annotation will be written to this folder",
                 null, FileChooserDescriptorFactory.createSingleFolderDescriptor());
 
-        init();
-    }
+        outputDirectory.getTextField().getDocument().addDocumentListener(new DocumentAdapter() {
+            protected void textChanged(final DocumentEvent e) {
+                updateControls();
+            }
+        });
 
-    @Override
-    protected void init() {
-        contentPanel.setPreferredSize(new Dimension(440, 500));
+        outputDirectoryLabel.setLabelFor(outputDirectory.getTextField());
+
+        nullabilityCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                updateControls();
+            }
+        });
+
+        kotlinSignaturesCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                updateControls();
+            }
+        });
 
         LibraryItemsTreeController libraryItemsTreeController = new LibraryItemsTreeController();
         libraryTree = new LibraryCheckboxTree(libraryItemsTreeController);
@@ -52,7 +84,31 @@ public class InferAnnotationDialog extends DialogWrapper {
 
         jarsTreeScrollPane.setViewportView(libraryTree);
 
+        jarsTreeLabel.setLabelFor(libraryTree);
+
         super.init();
+    }
+
+    @Nullable
+    public String getConfiguredOutputPath() {
+        String outputPath = FileUtil.toSystemIndependentName(outputDirectory.getText().trim());
+        if (outputPath.length() == 0) {
+            outputPath = null;
+        }
+        return outputPath;
+    }
+
+    public boolean shouldInferNullabilityAnnotations() {
+        return nullabilityCheckBox.isSelected();
+    }
+
+    public boolean shouldInferKotlinAnnotations() {
+        return kotlinSignaturesCheckBox.isSelected();
+    }
+
+    protected void updateControls() {
+        boolean someAnnotationTypeSelected = shouldInferNullabilityAnnotations() || shouldInferKotlinAnnotations();
+        setOKActionEnabled(getConfiguredOutputPath() != null && someAnnotationTypeSelected);
     }
 
     @Nullable
@@ -87,9 +143,11 @@ public class InferAnnotationDialog extends DialogWrapper {
         kotlinSignaturesCheckBox.setMnemonic('K');
         kotlinSignaturesCheckBox.setDisplayedMnemonicIndex(0);
         contentPanel.add(kotlinSignaturesCheckBox, new GridConstraints(4, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        final JLabel label1 = new JLabel();
-        label1.setText("Output directory:");
-        contentPanel.add(label1, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(90, 14), null, 0, false));
+        outputDirectoryLabel = new JLabel();
+        outputDirectoryLabel.setText("Output directory:");
+        outputDirectoryLabel.setDisplayedMnemonic('D');
+        outputDirectoryLabel.setDisplayedMnemonicIndex(7);
+        contentPanel.add(outputDirectoryLabel, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(90, 14), null, 0, false));
         outputDirectory = new TextFieldWithBrowseButton();
         contentPanel.add(outputDirectory, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final TitledSeparator titledSeparator1 = new TitledSeparator();
@@ -98,9 +156,11 @@ public class InferAnnotationDialog extends DialogWrapper {
         final TitledSeparator titledSeparator2 = new TitledSeparator();
         titledSeparator2.setText("Output");
         contentPanel.add(titledSeparator2, new GridConstraints(5, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
-        final JLabel label2 = new JLabel();
-        label2.setText("Select jar files for annotation inferring: ");
-        contentPanel.add(label2, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        jarsTreeLabel = new JLabel();
+        jarsTreeLabel.setText("Select jar files for annotation inferring: ");
+        jarsTreeLabel.setDisplayedMnemonic('J');
+        jarsTreeLabel.setDisplayedMnemonicIndex(7);
+        contentPanel.add(jarsTreeLabel, new GridConstraints(0, 0, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         jarsTreeScrollPane = new JBScrollPane();
         contentPanel.add(jarsTreeScrollPane, new GridConstraints(1, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
     }

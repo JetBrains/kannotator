@@ -24,14 +24,14 @@
           <text value="&amp;Kotlin Signatures"/>
         </properties>
       </component>
-      <component id="19b21" class="javax.swing.JLabel">
+      <component id="19b21" class="javax.swing.JLabel" binding="outputDirectoryLabel">
         <constraints>
           <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="90" height="14"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Output directory:"/>
+          <text value="Output &amp;directory:"/>
         </properties>
       </component>
       <component id="95a5f" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="outputDirectory">
@@ -56,12 +56,12 @@
           <text value="Output"/>
         </properties>
       </component>
-      <component id="7cd1c" class="javax.swing.JLabel">
+      <component id="7cd1c" class="javax.swing.JLabel" binding="jarsTreeLabel">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Select jar files for annotation inferring: "/>
+          <text value="Select &amp;jar files for annotation inferring: "/>
         </properties>
       </component>
       <scrollpane id="711c2" class="com.intellij.ui.components.JBScrollPane" binding="jarsTreeScrollPane">
