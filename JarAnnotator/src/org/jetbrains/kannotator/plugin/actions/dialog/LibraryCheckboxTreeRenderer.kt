@@ -12,10 +12,6 @@ class LibraryCheckboxTreeRenderer: CheckboxTreeCellRenderer() {
             is LibraryCheckTreeNode -> {
                 getTextRenderer().setIcon(PlatformIcons.LIBRARY_ICON)
                 getTextRenderer().append(value.library.getName() ?: "<no name>")
-
-                if (value.getChildCount() == 0) {
-                    value.setEnabled(false)
-                }
             }
             is JarFileCheckTreeNode -> {
                 getTextRenderer().setIcon(value.jarFile.getFileType().getIcon())
