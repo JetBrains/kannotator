@@ -1,4 +1,4 @@
-package org.jetbrains.annotator.actions
+package org.jetbrains.annotator.actions.dialog
 
 import com.intellij.ui.CheckedTreeNode
 import javax.swing.JTree

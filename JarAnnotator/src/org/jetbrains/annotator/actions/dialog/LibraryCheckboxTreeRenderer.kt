@@ -1,9 +1,9 @@
-package org.jetbrains.annotator.actions
+package org.jetbrains.annotator.actions.dialog
 
 import com.intellij.ui.CheckboxTree.CheckboxTreeCellRenderer
-import javax.swing.JTree
-import com.intellij.util.PlatformIcons
 import com.intellij.ui.SimpleTextAttributes
+import com.intellij.util.PlatformIcons
+import javax.swing.JTree
 
 class LibraryCheckboxTreeRenderer: CheckboxTreeCellRenderer() {
     override fun customizeRenderer(tree: JTree?, value: Any?,

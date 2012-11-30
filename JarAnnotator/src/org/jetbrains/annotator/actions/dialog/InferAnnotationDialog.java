@@ -1,4 +1,4 @@
-package org.jetbrains.annotator.actions;
+package org.jetbrains.annotator.actions.dialog;
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.project.Project;
@@ -7,10 +7,7 @@ import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.refactoring.RefactoringBundle;
 import com.intellij.ui.DocumentAdapter;
-import com.intellij.ui.TitledSeparator;
 import com.intellij.ui.components.JBScrollPane;
-import com.intellij.uiDesigner.core.GridConstraints;
-import com.intellij.uiDesigner.core.GridLayoutManager;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

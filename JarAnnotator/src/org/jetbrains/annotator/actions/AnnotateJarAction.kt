@@ -2,6 +2,7 @@ package org.jetbrains.annotator.actions
 
 import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
+import org.jetbrains.annotator.actions.dialog.InferAnnotationDialog
 import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.inferAnnotations
