@@ -42,7 +42,7 @@ import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnota
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.index.loadMethodParameterNames
 
-class KotlinSignatureRendererTest: TestCase() {
+class KotlinSignatureRendererTest : TestCase() {
 
     fun checkSignature(
             expectedSignature: String,
@@ -92,8 +92,8 @@ class KotlinSignatureRendererTest: TestCase() {
             if (annotations != null) {
                 for (annotation in annotations) {
                     if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
-                        val nullability = fieldAnnotations["nullability"] as Annotations<NullabilityAnnotation>
-                        val mutability = fieldAnnotations["mutability"] as Annotations<MutabilityAnnotation>
+                        val nullability = fieldAnnotations[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
+                        val mutability = fieldAnnotations[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
                         errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), field, nullability, mutability))
                     }
                 }
@@ -107,8 +107,8 @@ class KotlinSignatureRendererTest: TestCase() {
             if (annotations != null) {
                 for (annotation in annotations) {
                     if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
-                        val nullability = methodAnnotations["nullability"] as Annotations<NullabilityAnnotation>
-                        val mutability = methodAnnotations["mutability"] as Annotations<MutabilityAnnotation>
+                        val nullability = methodAnnotations[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
+                        val mutability = methodAnnotations[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
                         errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), method, nullability, mutability))
                     }
                 }
@@ -164,9 +164,16 @@ class KotlinSignatureRendererTest: TestCase() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Mutability>())
         doMultipleDeclarationsTest(classReader)
     }
+
+    fun testConstructorOfInner() {
+        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Inner>())
+        doMultipleDeclarationsTest(classReader)
+    }
 }
 
 fun main(args: Array<String>) {
+
+
     val dir = File("/Users/abreslav/work/kannotator/testData/kotlinSignatures")
     val str = buildString {
         sb ->

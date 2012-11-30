@@ -78,18 +78,22 @@ class IntegratedInferenceTest : TestCase() {
         println("start: $jar")
 
         val annotationsMap = try {
-            inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false)
-        }
-        catch (e: Throwable) {
-            throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
-        }
+                                 inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false)
+                             }
+                             catch (e: Throwable) {
+                                 throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
+                             }
 
-        for ((testName, annotations) in annotationsMap) {
+        val nullability = annotationsMap[InferrerKey.NULLABILITY]!!
+        val mutability = annotationsMap[InferrerKey.MUTABILITY]!!
+
+        for ((inferrerKey, annotations) in annotationsMap) {
+            val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()
 
-            reportConflicts(testName, File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations, INFERRERS[testName]!!)
+            reportConflicts(testName, File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations, INFERRERS[inferrerKey]!!)
 
             val map = TreeMap<String, Any>()
             annotations forEach {

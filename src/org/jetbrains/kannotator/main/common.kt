@@ -36,6 +36,7 @@ import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.index.ClassSource
 import java.io.BufferedReader
 import org.objectweb.asm.tree.FieldNode
+import org.jetbrains.kannotator.index.loadMethodParameterNames
 
 open class ProgressMonitor {
     open fun totalFields(fieldCount: Int) {}
@@ -242,6 +243,10 @@ fun <K> inferAnnotations(
         }
 
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
+
+        for (method in methods.keySet()) {
+            loadMethodParameterNames(method, methodNodes[method]!!)
+        }
 
         for ((key, inferrer) in inferrers) {
             inferAnnotationsOnMutuallyRecursiveMethods(

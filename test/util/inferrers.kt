@@ -4,7 +4,12 @@ import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
 
-public val INFERRERS: Map<String, AnnotationInferrer<Any>> = hashMap(
-        Pair("nullability", NullabilityInferrer() as AnnotationInferrer<Any>),
-        Pair("mutability", MUTABILITY_INFERRER as AnnotationInferrer<Any>)
+enum class InferrerKey {
+    NULLABILITY
+    MUTABILITY
+}
+
+public val INFERRERS: Map<InferrerKey, AnnotationInferrer<Any>> = hashMap(
+        Pair(InferrerKey.NULLABILITY, NullabilityInferrer() as AnnotationInferrer<Any>),
+        Pair(InferrerKey.MUTABILITY, MUTABILITY_INFERRER as AnnotationInferrer<Any>)
 )
