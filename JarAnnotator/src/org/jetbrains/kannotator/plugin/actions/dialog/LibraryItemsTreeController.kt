@@ -7,6 +7,7 @@ import com.intellij.openapi.roots.OrderRootType
 import javax.swing.tree.DefaultTreeModel
 import com.intellij.openapi.project.Project
 import com.intellij.util.ui.classpath.ChooseLibrariesFromTablesDialog
+import com.intellij.util.ui.tree.TreeUtil
 
 public class LibraryItemsTreeController() {
     public val root: CheckedTreeNode = CheckedTreeNode("libraries")
@@ -29,7 +30,7 @@ public class LibraryItemsTreeController() {
             }
         }
 
-        initializedTreeView.setShowsRootHandles(true)
         (initializedTreeView.getModel() as DefaultTreeModel).nodeStructureChanged(root)
+        TreeUtil.expandAll(initializedTreeView);
     }
 }
