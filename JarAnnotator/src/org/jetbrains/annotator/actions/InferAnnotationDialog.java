@@ -11,6 +11,7 @@ import com.intellij.ui.TitledSeparator;
 import com.intellij.ui.components.JBScrollPane;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
@@ -18,6 +19,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import java.awt.*;
+import java.io.File;
 
 public class InferAnnotationDialog extends DialogWrapper {
     JPanel contentPanel;
@@ -31,14 +33,15 @@ public class InferAnnotationDialog extends DialogWrapper {
     // Non from gui
     LibraryCheckboxTree libraryTree;
 
-    @Nullable
+    @NotNull
     private Project project;
 
-    public InferAnnotationDialog(@Nullable Project project) {
+    public InferAnnotationDialog(@NotNull Project project) {
         super(project);
         $$$setupUI$$$();
 
         this.project = project;
+        setDefaultValues();
 
         init();
 
@@ -87,6 +90,12 @@ public class InferAnnotationDialog extends DialogWrapper {
         jarsTreeLabel.setLabelFor(libraryTree);
 
         super.init();
+    }
+
+    protected void setDefaultValues() {
+        nullabilityCheckBox.setSelected(true);
+        kotlinSignaturesCheckBox.setSelected(true);
+        outputDirectory.getTextField().setText(new File(FileUtil.toSystemDependentName(project.getBaseDir().getPath()), "annotations").getAbsolutePath());
     }
 
     @Nullable
