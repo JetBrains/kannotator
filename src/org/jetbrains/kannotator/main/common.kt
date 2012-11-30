@@ -34,6 +34,7 @@ import org.objectweb.asm.Type
 import org.jetbrains.kannotator.declarations.FieldTypePosition
 import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.index.ClassSource
+import java.io.BufferedReader
 
 open class ProgressMonitor {
     open fun totalFields(fieldCount: Int) {}
@@ -208,9 +209,7 @@ fun <K> inferAnnotations(
         progressMonitor.processingStarted(methods.keySet())
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
-            // Add itself as inferred annotation can produce more annotations
-            // intersect methods.getOrThrow(method).map { e -> e.from.method } plus method
-            methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.method}).plus<Method>(method)
+            methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.method}).plus(method)
         }
 
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
@@ -274,11 +273,22 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
     }
 }
 
+fun loadConflictExceptions(exceptionFile: File): Set<String> {
+    return if (exceptionFile.exists() && exceptionFile.canRead()) {
+        BufferedReader(FileReader(exceptionFile)) use {br ->
+            br.lineIterator().toSet()
+        }
+    } else {
+        Collections.emptySet<String>()
+    }
+}
+
 data class AnnotationsConflict<out V>(val position: AnnotationPosition, val expectedValue: V, val actualValue: V)
 
 fun <A: Any> findAnnotationInferenceConflicts(
         inferredAnnotations: Annotations<A>,
-        inferrer: AnnotationInferrer<A>
+        inferrer: AnnotationInferrer<A>,
+        conflictExceptions: Set<String> = Collections.emptySet()
 ): List<AnnotationsConflict<A>> {
     val existingAnnotations = (inferredAnnotations as AnnotationsImpl<A>).delegate
     if (existingAnnotations != null) {
@@ -293,7 +303,7 @@ fun <A: Any> findAnnotationInferenceConflicts(
             if (inferred == existing) {
                 continue
             }
-            if (!inferrer.subsumes(position, existing, inferred)) {
+            if (!(inferrer.subsumes(position, existing, inferred) || conflictExceptions.contains(position.toAnnotationKey()))) {
                 conflicts.add(AnnotationsConflict(position, existing, inferred))
             }
         }

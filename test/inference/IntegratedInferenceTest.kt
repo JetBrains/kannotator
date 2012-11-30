@@ -30,11 +30,13 @@ import org.junit.Assert
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
+            testName: String,
             conflictFile: File,
             inferredAnnotations: Annotations<A>,
             inferrer: AnnotationInferrer<A>
     ) {
-        val conflicts = findAnnotationInferenceConflicts(inferredAnnotations, inferrer)
+        val conflictExceptions = loadConflictExceptions(File("testData/inferenceData/integrated/$testName/exceptions.txt"))
+        val conflicts = findAnnotationInferenceConflicts(inferredAnnotations, inferrer, conflictExceptions)
         if (!conflicts.isEmpty()) {
             PrintStream(FileOutputStream(conflictFile)) use {
                 p ->
@@ -55,8 +57,17 @@ class IntegratedInferenceTest : TestCase() {
     private fun doInferenceTest(testedJarSubstring: String) {
         val progressMonitor = object : ProgressMonitor() {
             var currentMethod: Method? = null
+
+            override fun totalFields(fieldCount: Int) {
+                println("Total fields: $fieldCount")
+            }
+
+            override fun totalMethods(methodCount: Int) {
+                println("Total methods: $methodCount")
+            }
+
             override fun processingStepStarted(method: Method) {
-                //println(method)
+                println(method)
                 currentMethod = method
             }
         }
@@ -82,7 +93,7 @@ class IntegratedInferenceTest : TestCase() {
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()
 
-            reportConflicts(File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations, INFERRERS[testName]!!)
+            reportConflicts(testName, File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations, INFERRERS[testName]!!)
 
             val map = TreeMap<String, Any>()
             annotations forEach {
@@ -125,4 +136,5 @@ class IntegratedInferenceTest : TestCase() {
     fun testStaxApi() = doInferenceTest("stax-api-1.0.1.jar")
     fun testVecmath() = doInferenceTest("vecmath-1.3.1.jar")
     fun testWstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
+    fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jdk_1_7_0_09_rt")
 }
