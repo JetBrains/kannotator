@@ -23,6 +23,8 @@ import org.jetbrains.kannotator.declarations.isStatic
 import org.objectweb.asm.signature.SignatureVisitor
 import org.objectweb.asm.signature.SignatureReader
 import java.util.ArrayList
+import org.jetbrains.kannotator.declarations.isInnerClassConstructor
+import org.jetbrains.kannotator.declarations.isConstructor
 
 fun renderKotlinSignature(kotlinSignatureString: String): AnnotationData? {
     return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
@@ -42,12 +44,12 @@ fun renderMethodSignature(
         mutability: Annotations<MutabilityAnnotation>
 ): String {
     val signature = parseGenericMethodSignature(method.genericSignature ?: method.id.methodDesc)
-    val isConstructor = method.name == "<init>"
 
     val typeParametersByName = signature.typeParameters.toMap {
         param -> param.name to param
     }
 
+    val isConstructor = method.isConstructor()
     fun substituteIfNeeded(genericType: GenericType): GenericType {
         if (isConstructor) {
             return substitute(genericType) {
@@ -91,10 +93,14 @@ fun renderMethodSignature(
     sb.append(method.getMethodNameAccountingForConstructor())
     sb.append("(")
 
+    val isInnerClassConstructor = method.isInnerClassConstructor()
     for (param in signature.valueParameters) {
-        sb.appendParameter(method, param.index) {
+        val index = param.index
+        if (isInnerClassConstructor && index == 0) continue
+        val firstParameter = if (isInnerClassConstructor) 1 else 0
+        sb.appendParameter(method, index - firstParameter, index != firstParameter) {
             vararg ->
-            val annotations = method.getAnnotationsForParameter(nullability, mutability, param.index, NULLABLE_READONLY)
+            val annotations = method.getAnnotationsForParameter(nullability, mutability, index, NULLABLE_READONLY)
             if (vararg) {
                 sb.append(renderType(substituteIfNeeded(param.genericType.arrayElementType), Position.VARARG, annotations))
             }
@@ -179,8 +185,8 @@ fun <A> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A
     return this[annotationPosition] ?: default
 }
 
-fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, forType: (isVararg: Boolean) -> Unit) {
-    if (parameterIndex != 0) {
+fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, commaBefore: Boolean, forType: (isVararg: Boolean) -> Unit) {
+    if (commaBefore) {
         append(", ")
     }
 

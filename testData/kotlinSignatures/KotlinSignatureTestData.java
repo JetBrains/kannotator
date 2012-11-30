@@ -76,6 +76,9 @@ public abstract class KotlinSignatureTestData {
         @KotlinSignature("fun NoAnnotations()")
         NoAnnotations() {}
 
+        @KotlinSignature("fun NoAnnotations(named : String?)")
+        NoAnnotations(String named) {}
+
         @KotlinSignature("fun voidNoArgs() : Unit")
         abstract void voidNoArgs();
 
@@ -455,6 +458,14 @@ public abstract class KotlinSignatureTestData {
         @KotlinSignature("fun notNullReadonlyIterator() : Iterator<String?>")
         abstract @NotNull @ReadOnly Iterator<String> notNullReadonlyIterator();
 
+    }
+
+    public class Inner {
+        @KotlinSignature("fun Inner()")
+        Inner() {}
+
+        @KotlinSignature("fun Inner(s : String?)")
+        Inner(String s) {}
     }
 
 }

@@ -57,7 +57,7 @@ data class Method(
         if (_parameterNames != null) {
             throw IllegalStateException("Parameter names already initialized: $parameterNames")
         }
-        val arity = getArgumentTypes().size
+        val arity = getArgumentTypes().size - if (isInnerClassConstructor()) 1 else 0
         if (names.size != arity) {
             throw IllegalArgumentException("Incorrect number of parameter names: $names, must be $arity")
         }
@@ -89,6 +89,18 @@ fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
 fun ClassMember.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
 
 fun ClassMember.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
+
+fun Method.isConstructor(): Boolean = name == "<init>"
+
+fun Method.isInnerClassConstructor(): Boolean {
+    if (!isConstructor()) return false
+    val parameterTypes = getArgumentTypes()
+    if (parameterTypes.size == 0) return false
+    val dollarIndex = declaringClass.internal.lastIndexOf('$')
+    if (dollarIndex < 0) return false
+    val outerClass = declaringClass.internal.substring(0, dollarIndex)
+    return parameterTypes[0].getInternalName() == outerClass
+}
 
 val ClassMember.visibility: Visibility get() = when {
     access.has(Opcodes.ACC_PUBLIC) -> Visibility.PUBLIC
