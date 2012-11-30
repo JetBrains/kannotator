@@ -1410,6 +1410,14 @@ org.objectweb.asm.tree.LineNumberNode start
 NOT_NULL
 org.objectweb.asm.tree.LineNumberNode void accept(org.objectweb.asm.MethodVisitor) 0
 NOT_NULL
+org.objectweb.asm.tree.LocalVariableNode desc
+NOT_NULL
+org.objectweb.asm.tree.LocalVariableNode end
+NOT_NULL
+org.objectweb.asm.tree.LocalVariableNode name
+NOT_NULL
+org.objectweb.asm.tree.LocalVariableNode start
+NOT_NULL
 org.objectweb.asm.tree.LocalVariableNode void accept(org.objectweb.asm.MethodVisitor) 0
 NOT_NULL
 org.objectweb.asm.tree.LookupSwitchInsnNode LookupSwitchInsnNode(org.objectweb.asm.tree.LabelNode, int[], org.objectweb.asm.tree.LabelNode[]) 1
