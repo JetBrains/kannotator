@@ -18,7 +18,7 @@ public class LibraryItemsTreeController() {
 
     public fun buildTree(initializedTreeView: CheckboxTree, project: Project) {
         root.removeAllChildren();
-        initializedTree.value = initializedTreeView
+        initializedTree.set(initializedTreeView)
 
         val libraryTables = ChooseLibrariesFromTablesDialog.getLibraryTables(project, true)
         for (table in libraryTables) {
@@ -45,6 +45,6 @@ public class LibraryItemsTreeController() {
     }
 
     public fun getCheckedJarFiles(): Collection<VirtualFile> {
-        return initializedTree.value!!.getCheckedNodes(javaClass<VirtualFile>(), null as NodeFilter<VirtualFile>?).toList()
+        return initializedTree.get().getCheckedNodes(javaClass<VirtualFile>(), null as NodeFilter<VirtualFile>?).toList()
     }
 }
