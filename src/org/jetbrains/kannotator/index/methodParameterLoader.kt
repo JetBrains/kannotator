@@ -56,5 +56,4 @@ fun loadMethodParameterNames(method: Method, node: MethodNode) {
     }
 
     method.setParameterNames(names)
-    System.err?.println(names)
 }

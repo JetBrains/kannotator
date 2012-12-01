@@ -94,10 +94,12 @@ fun renderMethodSignature(
     sb.append(method.getMethodNameAccountingForConstructor())
     sb.append("(")
 
+    val paramShift = if (method.genericSignature == null) 0 else method.getArgumentTypes().size - signature.valueParameters.size
+
     val isInnerClassConstructor = method.isInnerClassConstructor()
     var commaBefore = false
     for (param in signature.valueParameters) {
-        val index = param.index
+        val index = param.index + paramShift
         if (isInnerClassConstructor && index == 0) continue
         sb.appendParameter(method, index, commaBefore) {
             vararg ->
