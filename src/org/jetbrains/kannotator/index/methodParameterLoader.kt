@@ -12,6 +12,8 @@ import org.jetbrains.kannotator.declarations.isAnonymous
 import kotlinlib.toMap
 import org.objectweb.asm.Type
 
+val NO_PARAMETER_NAME: String = "<no name>"
+
 fun loadMethodParameterNames(method: Method, node: MethodNode) {
     // inner class constructors take the closure in the form of parameters
     // the corresponding variable table may have some funny relation to these parameters
@@ -32,22 +34,27 @@ fun loadMethodParameterNames(method: Method, node: MethodNode) {
     }
 
     val shiftForThis = if (method.isStatic()) 0 else 1
-    val shiftForInner = if (method.isInnerClassConstructor()) 1 else 0
 
     val locals = localVariables.toMap { a -> a.index to a }
 
     val names = ArrayList<String>()
-    for (index in 0..parameterSlotsInLocalVariableTable) {
-        if (index < shiftForThis) continue
-//        if (names.size == parameterCount - shiftForInner) break
+    var index = shiftForThis
+    for (paramType in parameterTypes) {
         val local = locals[index]
         if (local != null) {
             names.add(local.name)
         }
+        else {
+            names.add(NO_PARAMETER_NAME)
+        }
+
+        index += when (paramType.getSort()) {
+            Type.LONG,
+            Type.DOUBLE -> 2
+            else -> 1
+        }
     }
 
-    // enums have constructors of (String, int), and local variable table mentioning only 'this'
-    if (names.size < parameterCount - shiftForInner) return
-
     method.setParameterNames(names)
+    System.err?.println(names)
 }

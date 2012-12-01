@@ -57,7 +57,7 @@ data class Method(
         if (_parameterNames != null) {
             throw IllegalStateException("Parameter names already initialized: $parameterNames")
         }
-        val arity = getArgumentTypes().size - if (isInnerClassConstructor()) 1 else 0
+        val arity = getArgumentTypes().size
         if (names.size != arity) {
             throw IllegalArgumentException("Incorrect number of parameter names: $names, must be $arity")
         }

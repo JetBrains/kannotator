@@ -479,7 +479,7 @@ public abstract class KotlinSignatureTestData {
     public enum Enum {
         A("");
 
-        @KotlinSignature("fun Enum(p0 : String?)")
-        Enum(String p0) {}
+        @KotlinSignature("fun Enum(s : String?)")
+        Enum(String s) {}
     }
 }

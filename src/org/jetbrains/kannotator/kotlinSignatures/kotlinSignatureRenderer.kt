@@ -25,6 +25,7 @@ import org.objectweb.asm.signature.SignatureReader
 import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.isInnerClassConstructor
 import org.jetbrains.kannotator.declarations.isConstructor
+import org.jetbrains.kannotator.index.NO_PARAMETER_NAME
 
 fun renderKotlinSignature(kotlinSignatureString: String): AnnotationData? {
     return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
@@ -94,11 +95,11 @@ fun renderMethodSignature(
     sb.append("(")
 
     val isInnerClassConstructor = method.isInnerClassConstructor()
+    var commaBefore = false
     for (param in signature.valueParameters) {
         val index = param.index
         if (isInnerClassConstructor && index == 0) continue
-        val firstParameter = if (isInnerClassConstructor) 1 else 0
-        sb.appendParameter(method, index - firstParameter, index != firstParameter) {
+        sb.appendParameter(method, index, commaBefore) {
             vararg ->
             val annotations = method.getAnnotationsForParameter(nullability, mutability, index, NULLABLE_READONLY)
             if (vararg) {
@@ -107,6 +108,7 @@ fun renderMethodSignature(
             else {
                 sb.append(renderType(substituteIfNeeded(param.genericType), Position.METHOD_PARAMETER, annotations))
             }
+            commaBefore = true
         }
     }
 
@@ -186,6 +188,9 @@ fun <A> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A
 }
 
 fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, commaBefore: Boolean, forType: (isVararg: Boolean) -> Unit) {
+    val name = method.parameterNames[parameterIndex]
+    if (name == NO_PARAMETER_NAME) return
+
     if (commaBefore) {
         append(", ")
     }
@@ -195,7 +200,7 @@ fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, commaBefo
     if (vararg) {
         append("vararg ")
     }
-    append(method.parameterNames[parameterIndex])
+    append(name)
     append(" : ")
     forType(vararg)
 }
