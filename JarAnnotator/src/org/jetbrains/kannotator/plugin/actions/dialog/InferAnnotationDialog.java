@@ -5,6 +5,7 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.refactoring.RefactoringBundle;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.components.JBScrollPane;
@@ -17,6 +18,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import java.awt.*;
 import java.io.File;
+import java.util.Collection;
 
 public class InferAnnotationDialog extends DialogWrapper {
     JPanel contentPanel;
@@ -101,6 +103,10 @@ public class InferAnnotationDialog extends DialogWrapper {
             outputPath = null;
         }
         return outputPath;
+    }
+
+    public Collection<VirtualFile> getCheckedJarFiles() {
+        return libraryTree.getController().getCheckedJarFiles();
     }
 
     public boolean shouldInferNullabilityAnnotations() {
