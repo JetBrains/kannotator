@@ -9,6 +9,7 @@ import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.refactoring.RefactoringBundle;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.components.JBScrollPane;
+import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -97,7 +98,7 @@ public class InferAnnotationDialog extends DialogWrapper {
     }
 
     @Nullable
-    public String getConfiguredOutputPath() {
+    private String getConfiguringOutputPath() {
         String outputPath = FileUtil.toSystemIndependentName(outputDirectory.getText().trim());
         if (outputPath.length() == 0) {
             outputPath = null;
@@ -105,6 +106,17 @@ public class InferAnnotationDialog extends DialogWrapper {
         return outputPath;
     }
 
+    @NotNull
+    public String getConfiguredOutputPath() {
+        String configuredOutputPath = getConfiguringOutputPath();
+        if (configuredOutputPath == null) {
+            throw new IllegalStateException("Output path wasn't properly configured");
+        }
+
+        return configuredOutputPath;
+    }
+
+    @KotlinSignature("fun getCheckedJarFiles() : Collection<VirtualFile>")
     public Collection<VirtualFile> getCheckedJarFiles() {
         return libraryTree.getController().getCheckedJarFiles();
     }
@@ -119,7 +131,7 @@ public class InferAnnotationDialog extends DialogWrapper {
 
     protected void updateControls() {
         boolean someAnnotationTypeSelected = shouldInferNullabilityAnnotations() || shouldInferKotlinAnnotations();
-        setOKActionEnabled(getConfiguredOutputPath() != null && someAnnotationTypeSelected);
+        setOKActionEnabled(getConfiguringOutputPath() != null && someAnnotationTypeSelected);
     }
 
     @Nullable

@@ -7,18 +7,25 @@ import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.inferAnnotations
 import org.jetbrains.kannotator.plugin.actions.dialog.InferAnnotationDialog
 import org.objectweb.asm.ClassReader
+import java.util.HashMap
+import org.jetbrains.kannotator.main.NullabilityInferrer
+import com.intellij.openapi.vfs.VfsUtilCore
+import com.intellij.openapi.progress.ProgressManager
 
 public class AnnotateJarAction: AnAction() {
     public override fun actionPerformed(e: AnActionEvent?) {
-        val dlg = InferAnnotationDialog(e?.getProject()!!)
-        if (dlg.showAndGet()) {
-            val fakeClassSource = object : ClassSource {
-                override fun forEach(body: (ClassReader) -> Unit) {
-                    println("Hello from kannotator")
-                }
-            }
+        val project = e?.getProject()!!
 
-            inferAnnotations<String>(fakeClassSource, arrayList(), hashMap("test" to (org.jetbrains.kannotator.main.MUTABILITY_INFERRER as AnnotationInferrer<Any>)))
+        val dlg = InferAnnotationDialog(project)
+        if (dlg.showAndGet()) {
+            val params = InferringTaskParams(
+                    inferNullabilityAnnotations = dlg.shouldInferNullabilityAnnotations(),
+                    inferKotlinAnnotations = dlg.shouldInferKotlinAnnotations(),
+                    outputPath = dlg.getConfiguredOutputPath(),
+                    jarFiles = dlg.getCheckedJarFiles().map { virtualFile -> VfsUtilCore.virtualToIoFile(virtualFile) }
+            )
+
+            ProgressManager.getInstance().run(InferringTask(project, params))
         }
     }
 }
