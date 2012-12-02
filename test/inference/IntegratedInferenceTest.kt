@@ -28,6 +28,17 @@ import util.findJarsInLibFolder
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.junit.Assert
 import util.*
+import java.util.Set
+import java.util.HashSet
+import org.jetbrains.kannotator.annotations.io.writeAnnotations
+import java.io.FileWriter
+import org.jetbrains.kannotator.declarations.PositionsForMethod
+import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
+import org.jetbrains.kannotator.kotlinSignatures.renderMethodSignature
+import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
+import java.io.StringWriter
+import kotlinlib.sortByToString
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -84,8 +95,12 @@ class IntegratedInferenceTest : TestCase() {
                                  throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
                              }
 
-        val nullability = annotationsMap[InferrerKey.NULLABILITY]!!
-        val mutability = annotationsMap[InferrerKey.MUTABILITY]!!
+        val nullability = annotationsMap[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
+        val mutability = annotationsMap[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
+
+        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
+
+        writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
 
         for ((inferrerKey, annotations) in annotationsMap) {
             val testName = inferrerKey.toString().toLowerCase()
@@ -112,6 +127,40 @@ class IntegratedInferenceTest : TestCase() {
 
             outFile.delete()
         }
+    }
+
+    fun writeKotlinSignatureAnnotationsToFile(
+            expectedFile: File,
+            nullability: Annotations<NullabilityAnnotation>,
+            mutability: Annotations<MutabilityAnnotation>
+    ) {
+        val methods = HashSet<Method>()
+        nullability.forEach {
+            pos, ann ->
+            if (pos.member is Method) {
+                methods.add(pos.member as Method)
+            }
+        }
+
+        mutability.forEach {
+            pos, ann ->
+            if (pos.member is Method) {
+                methods.add(pos.member as Method)
+            }
+        }
+
+        val stringWriter = StringWriter()
+        writeAnnotations(stringWriter,
+                methods.sortByToString().map {
+                    m ->
+                    PositionsForMethod(m).forReturnType().position to kotlinSignatureToAnnotationData(
+                            renderMethodSignature(m, nullability , mutability)
+                    )
+                }
+        )
+
+        val actual = stringWriter.toString()
+        assertEqualsOrCreate(expectedFile, actual, true)
     }
 
     fun testAsmDebugAll() = doInferenceTest("asm-debug-all-4.0.jar")

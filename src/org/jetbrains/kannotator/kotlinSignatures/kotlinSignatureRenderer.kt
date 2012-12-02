@@ -27,7 +27,7 @@ import org.jetbrains.kannotator.declarations.isInnerClassConstructor
 import org.jetbrains.kannotator.declarations.isConstructor
 import org.jetbrains.kannotator.index.NO_PARAMETER_NAME
 
-fun renderKotlinSignature(kotlinSignatureString: String): AnnotationData? {
+fun kotlinSignatureToAnnotationData(kotlinSignatureString: String): AnnotationData {
     return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
 }
 

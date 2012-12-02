@@ -15,7 +15,7 @@ import util.getClassReader
 import org.jetbrains.kannotator.asm.util.*
 import org.jetbrains.kannotator.declarations.*
 import java.util.ArrayList
-import org.jetbrains.kannotator.kotlinSignatures.renderKotlinSignature
+import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
 import org.jetbrains.kannotator.kotlinSignatures.renderMethodSignature
 import org.jetbrains.kannotator.kotlinSignatures.renderFieldSignature
 import org.objectweb.asm.ClassVisitor
