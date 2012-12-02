@@ -94,13 +94,13 @@ fun renderMethodSignature(
     sb.append(method.getMethodNameAccountingForConstructor())
     sb.append("(")
 
+    // Enum constructors have two extra parameters in the desc: (Ljava/lang/String;I)
+    // and, of course, these parameters have no names
     val paramShift = if (method.genericSignature == null) 0 else method.getArgumentTypes().size - signature.valueParameters.size
 
-    val isInnerClassConstructor = method.isInnerClassConstructor()
     var commaBefore = false
     for (param in signature.valueParameters) {
         val index = param.index + paramShift
-        if (isInnerClassConstructor && index == 0) continue
         sb.appendParameter(method, index, commaBefore) {
             vararg ->
             val annotations = method.getAnnotationsForParameter(nullability, mutability, index, NULLABLE_READONLY)
