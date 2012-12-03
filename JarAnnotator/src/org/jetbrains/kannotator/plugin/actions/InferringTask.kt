@@ -18,7 +18,7 @@ import java.io.File
 import java.util.ArrayList
 import java.util.HashMap
 import javax.swing.JPanel
-import kotlinlib.LazyValue
+import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.MUTABILITY_INFERRER_OBJECT
@@ -32,14 +32,46 @@ data class InferringTaskParams(
         val outputPath: String,
         val jarFiles: Collection<File>)
 
-class InferringTask(project: Project, val taskParams: InferringTaskParams) : Backgroundable(project, "Infer Annotations", true) {
+public class InferringTask(project: Project, val taskParams: InferringTaskParams) : Backgroundable(project, "Infer Annotations", true) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
-    private var inferException = LazyValue<Exception>()
 
-    private val progressMonitor = object: ProgressMonitor() {
-        // TODO: Notify about progress
+    public class InferringError(params : InferringTaskParams, cause: Throwable?):
+            Throwable("Exception during inferrence in task ${params}", cause)
+
+    class InferringProgressIndicator(val indicator: ProgressIndicator, params: InferringTaskParams): ProgressMonitor() {
+        var numberOfMethods = 0
+        var numberOfProcessedMethods = 0
+
+        {
+            fun generateProgressMessage(jarFiles: Collection<File>): String {
+                if (jarFiles.size == 1) {
+                    return "Inferring annotation for ${jarFiles.first().getName()}"
+                }
+
+                return "Inferring annotation for ${jarFiles.size} jar fiels"
+            }
+
+            indicator.setText(generateProgressMessage(params.jarFiles));
+        }
+
+        override fun totalMethods(methodCount: Int) {
+            numberOfMethods = methodCount
+            indicator.setText2("Inferring: 0%");
+        }
+
+        override fun processingFinished(methods: Collection<Method>) {
+            numberOfProcessedMethods += methods.size
+
+            if (numberOfMethods != 0) {
+                val progressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()
+                indicator.setText2("Inferring: $progressPercent%");
+            }
+            else {
+                indicator.setText2("Inferring: 100%");
+            }
+        }
     }
 
     override fun run(indicator: ProgressIndicator) {
@@ -53,15 +85,18 @@ class InferringTask(project: Project, val taskParams: InferringTaskParams) : Bac
 
         try {
             // TODO: Add existing annotations
-            inferAnnotations(FileBasedClassSource(taskParams.jarFiles), ArrayList<File>(), inferrerMap, progressMonitor, false)
+            inferAnnotations(
+                    FileBasedClassSource(taskParams.jarFiles), ArrayList<File>(),
+                    inferrerMap,
+                    InferringProgressIndicator(indicator, taskParams),
+                    false)
 
             // TODO: Store collected annotations
 
             val fileNames = taskParams.jarFiles.map { it.getName() }
             successMessage = "Inferring was successfully fineshed for files: $fileNames."
-        } catch (e: Exception) {
-            inferException.set(e)
-            // TODO: Rethrow and check it's in EA
+        } catch (e: Throwable) {
+            throw InferringError(taskParams, e)
         }
     }
 
@@ -91,14 +126,8 @@ class InferringTask(project: Project, val taskParams: InferringTaskParams) : Bac
             return ActionManager.getInstance()!!.createActionToolbar(ActionPlaces.UNKNOWN, group, false)
         }
 
-        val text = if (!inferException.isInitialized()) {
-            successMessage
-        } else {
-            "Exception was thrown during inferring\n${inferException.get()}"
-        }
-
         val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
-        simpleToolWindowPanel.add(PanelWithText(text))
+        simpleToolWindowPanel.add(PanelWithText(successMessage))
         simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
 
         return simpleToolWindowPanel
