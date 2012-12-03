@@ -45,6 +45,6 @@ public class LibraryItemsTreeController() {
     }
 
     public fun getCheckedJarFiles(): Collection<VirtualFile> {
-        return initializedTree.get().getCheckedNodes(javaClass<VirtualFile>(), null as NodeFilter<VirtualFile>?).toList()
+        return initializedTree.get().getCheckedNodes(javaClass<VirtualFile>(), null : NodeFilter<VirtualFile>?).toList()
     }
 }
