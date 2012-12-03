@@ -21,7 +21,7 @@ import javax.swing.JPanel
 import kotlinlib.LazyValue
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.AnnotationInferrer
-import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
+import org.jetbrains.kannotator.main.MUTABILITY_INFERRER_OBJECT
 import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.main.inferAnnotations
@@ -48,7 +48,7 @@ class InferringTask(project: Project, val taskParams: InferringTaskParams) : Bac
             inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any>
         }
         if (taskParams.inferKotlinAnnotations) {
-            inferrerMap["kotlin"] = MUTABILITY_INFERRER as AnnotationInferrer<Any>
+            inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any>
         }
 
         try {
