@@ -4,6 +4,45 @@ import java.util.ArrayList
 import java.util.LinkedHashSet
 import java.util.HashMap
 import org.jetbrains.kannotator.util.DataHolderImpl
+import java.util.HashMap
+import java.util.HashSet
+import org.jetbrains.kannotator.annotationsInference.forInterestingValue
+import org.jetbrains.kannotator.annotationsInference.traverseInstructions
+import org.jetbrains.kannotator.asm.util.getAsmInstructionNode
+import org.jetbrains.kannotator.asm.util.getOpcode
+import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
+import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
+import org.jetbrains.kannotator.controlFlow.Instruction
+import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
+import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.index.FieldDependencyInfo
+import org.objectweb.asm.Opcodes.*
+import org.objectweb.asm.tree.FieldInsnNode
+import java.util.LinkedHashSet
+import org.jetbrains.kannotator.controlFlow.InstructionMetadata
+import org.jetbrains.kannotator.util.DataKey
+import java.util.ArrayList
+import java.util.Collections
+import kotlinlib.removeLast
+import java.util.ArrayDeque
+
+private class InstructionOutcomeMapImpl: HashMap<Instruction, MethodOutcome>(), InstructionOutcomeMap {
+    public override fun get(key: Any?): MethodOutcome {
+        if (key !is Instruction) {
+            throw IllegalArgumentException("Instruction is null")
+        }
+
+        val storedValue = super<HashMap>.get(key)
+        if (storedValue != null) {
+            return storedValue
+        }
+        val newValue = key.computeOutcome()
+        super<HashMap>.put(key, newValue)
+        return newValue
+    }
+}
 
 public class ControlFlowGraphBuilder<L: Any> {
     private var result: ControlFlowGraph? = null
@@ -54,6 +93,7 @@ public class ControlFlowGraphBuilder<L: Any> {
         result = object : ControlFlowGraph {
             override val instructions: Collection<Instruction> = this@ControlFlowGraphBuilder.instructions
             override val entryPoint: Instruction = this@ControlFlowGraphBuilder.entryPoint!!
+            override val instructionOutcomes: Map<Instruction, MethodOutcome> = InstructionOutcomeMapImpl()
 
             public fun toString(): String = "entryPoint=${entryPoint.metadata}, instructions=$instructions"
         }
@@ -61,9 +101,47 @@ public class ControlFlowGraphBuilder<L: Any> {
     }
 }
 
+public fun MethodOutcome?.merge(other: MethodOutcome): MethodOutcome {
+    return if (this == null)
+        other
+    else if (this == other)
+        this
+    else
+        MethodOutcome.RETURNS_AND_THROWS
+}
+
+private val RETURN_OPCODES = hashSet(ARETURN, RETURN, IRETURN, LRETURN, DRETURN, FRETURN)
+
+private fun Instruction.computeOutcome(): MethodOutcome {
+    var result: MethodOutcome? = null
+
+    val visited = HashSet<Instruction>()
+    val stack = ArrayDeque<Instruction>()
+
+    stack.push(this);
+    while (!(result == MethodOutcome.RETURNS_AND_THROWS || stack.isEmpty())) {
+        val insn = stack.pop()
+        if (RETURN_OPCODES.contains(insn.getOpcode())) {
+            result = result merge MethodOutcome.ONLY_RETURNS
+        } else if (insn.getOpcode() == ATHROW) {
+            result = result merge MethodOutcome.ONLY_THROWS
+        }
+        visited.add(insn)
+        for (e in insn.outgoingEdges) {
+            val nextInsn = e.to
+            if (!visited.contains(nextInsn)) {
+                stack.push(nextInsn);
+            }
+        }
+    }
+
+    return if (result != null) result!! else MethodOutcome.ONLY_RETURNS
+}
+
 private class ControlFlowGraphImpl(
         override val entryPoint: Instruction,
-        override val instructions: Collection<Instruction>
+        override val instructions: Collection<Instruction>,
+        override val instructionOutcomes: InstructionOutcomeMap
 ) : ControlFlowGraph {}
 
 private class InstructionImpl(

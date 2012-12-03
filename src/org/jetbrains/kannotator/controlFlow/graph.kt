@@ -5,7 +5,16 @@ import org.jetbrains.kannotator.util.DataHolder
 public trait ControlFlowGraph {
     val instructions: Collection<Instruction>
     val entryPoint: Instruction
+    val instructionOutcomes: Map<Instruction, MethodOutcome>
 }
+
+public enum class MethodOutcome {
+    ONLY_RETURNS
+    ONLY_THROWS
+    RETURNS_AND_THROWS
+}
+
+public trait InstructionOutcomeMap: Map<Instruction, MethodOutcome>
 
 public trait ControlFlowEdge {
     val from: Instruction
