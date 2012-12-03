@@ -1,5 +1,6 @@
 package org.jetbrains.kannotator.plugin.actions
 
+import com.google.common.collect.Multimap
 import com.intellij.openapi.actionSystem.ActionManager
 import com.intellij.openapi.actionSystem.ActionPlaces
 import com.intellij.openapi.actionSystem.ActionToolbar
@@ -7,6 +8,7 @@ import com.intellij.openapi.actionSystem.DefaultActionGroup
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task.Backgroundable
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.roots.libraries.Library
 import com.intellij.openapi.ui.PanelWithText
 import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.openapi.wm.ToolWindowId
@@ -56,7 +58,11 @@ public class InferringTask(project: Project, val taskParams: InferringTaskParams
             indicator.setText(generateProgressMessage(params.jarFiles));
         }
 
-        override fun totalMethods(methodCount: Int) {
+        override fun processingStarted() {
+            indicator.setText2("Initializing...");
+        }
+
+        override fun methodsProcessingStarted(methodCount: Int) {
             numberOfMethods = methodCount
             indicator.setText2("Inferring: 0%");
         }

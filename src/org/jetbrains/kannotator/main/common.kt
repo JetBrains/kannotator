@@ -36,15 +36,13 @@ import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.index.ClassSource
 
 open class ProgressMonitor {
-    open fun totalFields(fieldCount: Int) {}
-    open fun valueFieldsProcessingStarted() {}
-    open fun valueFieldsProcessingFinished() {}
-
-    open fun totalMethods(methodCount: Int) {}
+    open fun processingStarted() {}
+    open fun methodsProcessingStarted(methodCount: Int) {}
     open fun processingStarted(methods: Collection<Method>) {}
     open fun processingStepStarted(method: Method) {}
     open fun processingStepFinished(method: Method) {}
     open fun processingFinished(methods: Collection<Method>) {}
+    open fun processingFinished() {}
 }
 
 private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<String>) {
@@ -168,6 +166,8 @@ fun <K> inferAnnotations(
         showErrors: Boolean = true,
         existingAnnotations: Map<K, Annotations<Any>> = hashMap()
 ): Map<K, Annotations<Any>> {
+    progressMonitor.processingStarted()
+
     val methodNodes = HashMap<Method, MethodNode>()
     val declarationIndex = DeclarationIndexImpl(classSource) {
         method ->
@@ -189,19 +189,13 @@ fun <K> inferAnnotations(
     val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
     val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
 
-    progressMonitor.totalFields(fieldToDependencyInfosMap.size)
-
-    progressMonitor.valueFieldsProcessingStarted()
-
     for ((key, inferrer) in inferrers) {
         for (fieldInfo in fieldToDependencyInfosMap.values()) {
             resultingAnnotationsMap[key]!!.copyAllChanged(inferrer.inferAnnotationsFromFieldValue(fieldInfo.field))
         }
     }
 
-    progressMonitor.valueFieldsProcessingFinished()
-
-    progressMonitor.totalMethods(methodNodes.size)
+    progressMonitor.methodsProcessingStarted(methodNodes.size)
 
     for (component in components) {
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
@@ -235,6 +229,8 @@ fun <K> inferAnnotations(
             methodNodes.remove(functionNode.method)
         }
     }
+
+    progressMonitor.processingFinished()
 
     return resultingAnnotationsMap
 }
