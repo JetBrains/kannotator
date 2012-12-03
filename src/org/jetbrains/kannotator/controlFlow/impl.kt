@@ -28,19 +28,11 @@ import java.util.Collections
 import kotlinlib.removeLast
 import java.util.ArrayDeque
 
-private class InstructionOutcomeMapImpl: HashMap<Instruction, MethodOutcome>(), InstructionOutcomeMap {
-    public override fun get(key: Any?): MethodOutcome {
-        if (key !is Instruction) {
-            throw IllegalArgumentException("Instruction is null")
-        }
+private class InstructionOutcomeDataImpl: InstructionOutcomeData {
+    val map = HashMap<Instruction, MethodOutcome>()
 
-        val storedValue = super<HashMap>.get(key)
-        if (storedValue != null) {
-            return storedValue
-        }
-        val newValue = key.computeOutcome()
-        super<HashMap>.put(key, newValue)
-        return newValue
+    override fun get(insn: Instruction): MethodOutcome {
+        return map.getOrPut(insn, {insn.computeOutcome()})
     }
 }
 
@@ -93,7 +85,7 @@ public class ControlFlowGraphBuilder<L: Any> {
         result = object : ControlFlowGraph {
             override val instructions: Collection<Instruction> = this@ControlFlowGraphBuilder.instructions
             override val entryPoint: Instruction = this@ControlFlowGraphBuilder.entryPoint!!
-            override val instructionOutcomes: Map<Instruction, MethodOutcome> = InstructionOutcomeMapImpl()
+            override val instructionOutcomes: InstructionOutcomeData = InstructionOutcomeDataImpl()
 
             public fun toString(): String = "entryPoint=${entryPoint.metadata}, instructions=$instructions"
         }
@@ -101,18 +93,18 @@ public class ControlFlowGraphBuilder<L: Any> {
     }
 }
 
-public fun MethodOutcome?.merge(other: MethodOutcome): MethodOutcome {
-    return if (this == null)
-        other
-    else if (this == other)
-        this
-    else
-        MethodOutcome.RETURNS_AND_THROWS
-}
-
 private val RETURN_OPCODES = hashSet(ARETURN, RETURN, IRETURN, LRETURN, DRETURN, FRETURN)
 
 private fun Instruction.computeOutcome(): MethodOutcome {
+    fun MethodOutcome?.merge(other: MethodOutcome): MethodOutcome {
+        return if (this == null)
+            other
+        else if (this == other)
+            this
+        else
+            MethodOutcome.RETURNS_AND_THROWS
+    }
+
     var result: MethodOutcome? = null
 
     val visited = HashSet<Instruction>()
@@ -141,7 +133,7 @@ private fun Instruction.computeOutcome(): MethodOutcome {
 private class ControlFlowGraphImpl(
         override val entryPoint: Instruction,
         override val instructions: Collection<Instruction>,
-        override val instructionOutcomes: InstructionOutcomeMap
+        override val instructionOutcomes: InstructionOutcomeData
 ) : ControlFlowGraph {}
 
 private class InstructionImpl(

@@ -24,6 +24,7 @@ import java.util.Collections
 import kotlinlib.removeLast
 import java.util.ArrayDeque
 import org.jetbrains.kannotator.controlFlow.MethodOutcome
+import org.jetbrains.kannotator.controlFlow.InstructionOutcomeData
 
 class AnnotationsBuildingResult(
         val inferredAnnotations: Annotations<NullabilityAnnotation>,
@@ -134,9 +135,9 @@ fun buildMethodNullabilityAnnotations(
     )
 }
 
-data class InferenceContext(
+class InferenceContext(
         val overridingNullabilityMap: ValueNullabilityMap,
-        val instructionOutcomes: Map<Instruction, MethodOutcome>
+        val instructionOutcomes: InstructionOutcomeData
 )
 
 fun findFieldsWithChangedNullabilityInfo(previous: Map<Field, NullabilityValueInfo>?,
