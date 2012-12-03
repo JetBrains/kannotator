@@ -36,7 +36,7 @@ class IntegratedInferenceTest : TestCase() {
             inferrer: AnnotationInferrer<A>
     ) {
         val conflictExceptions = loadConflictExceptions(File("testData/inferenceData/integrated/$testName/exceptions.txt"))
-        val conflicts = findAnnotationInferenceConflicts(inferredAnnotations, inferrer, conflictExceptions)
+        val conflicts = processAnnotationInferenceConflicts(inferredAnnotations, inferrer, conflictExceptions)
         if (!conflicts.isEmpty()) {
             PrintStream(FileOutputStream(conflictFile)) use {
                 p ->

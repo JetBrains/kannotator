@@ -285,7 +285,7 @@ fun loadConflictExceptions(exceptionFile: File): Set<String> {
 
 data class AnnotationsConflict<out V>(val position: AnnotationPosition, val expectedValue: V, val actualValue: V)
 
-fun <A: Any> findAnnotationInferenceConflicts(
+fun <A: Any> processAnnotationInferenceConflicts(
         inferredAnnotations: Annotations<A>,
         inferrer: AnnotationInferrer<A>,
         conflictExceptions: Set<String> = Collections.emptySet()
@@ -303,8 +303,12 @@ fun <A: Any> findAnnotationInferenceConflicts(
             if (inferred == existing) {
                 continue
             }
-            if (!(inferrer.subsumes(position, existing, inferred) || conflictExceptions.contains(position.toAnnotationKey()))) {
-                conflicts.add(AnnotationsConflict(position, existing, inferred))
+            if (!inferrer.subsumes(position, existing, inferred)) {
+                if (conflictExceptions.contains(position.toAnnotationKey())) {
+                    inferredAnnotations[position] = existing
+                } else {
+                    conflicts.add(AnnotationsConflict(position, existing, inferred))
+                }
             }
         }
         return conflicts
