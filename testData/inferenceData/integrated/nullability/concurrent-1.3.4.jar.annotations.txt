@@ -1,10 +1,14 @@
 EDU.oswego.cs.dl.util.concurrent.BoundedBuffer array_
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.BoundedBuffer boolean offer(java.lang.Object, long) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.BoundedBuffer java.lang.Object peek()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.BoundedBuffer java.lang.Object poll(long)
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.BoundedBuffer putMonitor_
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.BoundedBuffer void put(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.BoundedLinkedQueue boolean offer(java.lang.Object, long) 0
 NOT_NULL
@@ -50,18 +54,34 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap ConcurrentHashMap(java.util.M
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Entry[] newTable(int)
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap boolean contains(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap boolean containsKey(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap boolean containsValue(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap boolean eq(java.lang.Object, java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap int hash(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object clone()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object get(java.lang.Object)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object get(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object put(java.lang.Object, java.lang.Object) 1
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object remove(java.lang.Object)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object remove(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object remove(java.lang.Object, java.lang.Object)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object remove(java.lang.Object, java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object remove(java.lang.Object, java.lang.Object) 1
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.util.Collection values()
@@ -76,6 +96,8 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.util.Set keySet()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap segments
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap void putAll(java.util.Map) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap void writeObject(java.io.ObjectOutputStream) 0
@@ -88,7 +110,13 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.HashIterator HashIterator(EDU
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.HashIterator this$0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeySet boolean contains(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeySet boolean remove(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeySet java.util.Iterator iterator()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Values boolean contains(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Values java.util.Iterator iterator()
 NOT_NULL
@@ -96,7 +124,13 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap ConcurrentReaderHashMap
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap barrierLock
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean contains(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean containsKey(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean containsValue(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean eq(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean findAndRemoveEntry(java.util.Map.Entry) 0
 NOT_NULL
@@ -108,8 +142,12 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object get(ja
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object put(java.lang.Object, java.lang.Object) 1
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object remove(java.lang.Object)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object remove(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object sput(java.lang.Object, java.lang.Object, int)
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object sremove(java.lang.Object, int)
@@ -124,7 +162,11 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.util.Set entrySet(
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.util.Set keySet()
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap void putAll(java.util.Map) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap void readObject(java.io.ObjectInputStream) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.Entry java.lang.Object setValue(java.lang.Object) 0
 NOT_NULL
@@ -136,29 +178,47 @@ EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.HashIterator this$0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.KeySet boolean contains(java.lang.Object) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.KeySet boolean remove(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.KeySet java.util.Iterator iterator()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.Values boolean contains(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.Values java.util.Iterator iterator()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList CopyOnWriteArrayList(java.lang.Object[]) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList CopyOnWriteArrayList(java.util.Collection) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean addAll(java.util.Collection) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean addIfAbsent(java.lang.Object) 0
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean remove(java.lang.Object) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int addAllAbsent(java.util.Collection) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, int) 0
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, java.lang.Object[], int) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, java.lang.Object[], int) 1
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int lastIndexOf(java.lang.Object, int) 0
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int lastIndexOf(java.lang.Object, java.lang.Object[], int) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int lastIndexOf(java.lang.Object, java.lang.Object[], int) 1
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object clone()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object set(int, java.lang.Object) 1
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object[] toArray()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object[] toArray(java.lang.Object[])
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object[] toArray(java.lang.Object[]) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.util.Iterator iterator()
 NOT_NULL
@@ -184,9 +244,17 @@ EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList.COWSubList.COWSubListItera
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList.COWSubList.COWSubListIterator this$0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet CopyOnWriteArraySet(java.util.Collection) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet al
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet boolean addAll(java.util.Collection) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet java.lang.Object[] toArray()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet java.lang.Object[] toArray(java.lang.Object[])
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet java.lang.Object[] toArray(java.lang.Object[]) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet java.util.Iterator iterator()
 NOT_NULL
@@ -214,6 +282,8 @@ EDU.oswego.cs.dl.util.concurrent.FJTask EDU.oswego.cs.dl.util.concurrent.FJTask 
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTask EDU.oswego.cs.dl.util.concurrent.FJTask seq(EDU.oswego.cs.dl.util.concurrent.FJTask[])
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.FJTask void coInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask[]) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTask void invoke(EDU.oswego.cs.dl.util.concurrent.FJTask) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunner EDU.oswego.cs.dl.util.concurrent.FJTask confirmPop(int)
@@ -227,6 +297,8 @@ NULLABLE
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunner barrier
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunner victimRNG
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void coInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask[]) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void scan(EDU.oswego.cs.dl.util.concurrent.FJTask) 0
 NULLABLE
@@ -322,6 +394,8 @@ EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore EDU.oswego.cs.dl.util.concurren
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode boolean doTimedWait(EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore, long) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode void doWait(EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ReentrantWriterPreferenceReadWriteLock EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock.Signaller endRead()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.ReentrantWriterPreferenceReadWriteLock EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock.Signaller endWrite()
@@ -380,30 +454,40 @@ EDU.oswego.cs.dl.util.concurrent.SyncSortedSet java.util.SortedSet tailSet(java.
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean boolean equals(java.lang.Object) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean boolean swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean int compareTo(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedByte boolean equals(java.lang.Object) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SynchronizedByte byte swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedByte) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedByte int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedByte) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedByte int compareTo(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedChar boolean equals(java.lang.Object) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SynchronizedChar char swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedChar) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedChar int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedChar) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedChar int compareTo(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble boolean equals(java.lang.Object) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble double swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble int compareTo(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat boolean equals(java.lang.Object) 0
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat float swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat int compareTo(java.lang.Object) 0
@@ -414,17 +498,25 @@ EDU.oswego.cs.dl.util.concurrent.SynchronizedInt int compareTo(EDU.oswego.cs.dl.
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedInt int compareTo(java.lang.Object) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.SynchronizedInt int swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedInt) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedLong boolean equals(java.lang.Object) 0
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.SynchronizedLong int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedLong) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedLong int compareTo(java.lang.Object) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.SynchronizedLong long swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedLong) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.SynchronizedRef java.lang.Object swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedRef) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedShort boolean equals(java.lang.Object) 0
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.SynchronizedShort int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedShort) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedShort int compareTo(java.lang.Object) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.SynchronizedShort short swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedShort) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronizedVariable void execute(java.lang.Runnable) 0
 NOT_NULL
@@ -436,6 +528,8 @@ EDU.oswego.cs.dl.util.concurrent.SynchronousChannel java.lang.Object peek()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.SynchronousChannel java.lang.Object poll(long)
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SynchronousChannel void put(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronousChannel waitingPuts
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronousChannel waitingTakes

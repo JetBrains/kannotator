@@ -6,8 +6,10 @@ junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, jav
 NULLABLE
 junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object) 2
 NULLABLE
+junit.framework.Assert void assertEquals(java.lang.String, java.lang.String) 0
+NOT_NULL
 junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String) 1
-NULLABLE
+NOT_NULL
 junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String) 2
 NULLABLE
 junit.framework.Assert void assertNotNull(java.lang.String, java.lang.Object) 1
@@ -35,6 +37,8 @@ NOT_NULL
 junit.framework.JUnit4TestAdapter org.junit.runner.Description getDescription()
 NOT_NULL
 junit.framework.JUnit4TestAdapter org.junit.runner.Description removeIgnored(org.junit.runner.Description)
+NOT_NULL
+junit.framework.JUnit4TestAdapter org.junit.runner.Description removeIgnored(org.junit.runner.Description) 0
 NOT_NULL
 junit.framework.JUnit4TestAdapter void filter(org.junit.runner.manipulation.Filter) 0
 NOT_NULL
@@ -70,9 +74,13 @@ junit.framework.TestResult java.util.List<junit.framework.TestListener> cloneLis
 NOT_NULL
 junit.framework.TestResult void run(junit.framework.TestCase) 0
 NOT_NULL
+junit.framework.TestResult void runProtected(junit.framework.Test, junit.framework.Protectable) 1
+NOT_NULL
 junit.framework.TestResult void startTest(junit.framework.Test) 0
 NOT_NULL
 junit.framework.TestSuite TestSuite(java.lang.Class<?>...) 0
+NOT_NULL
+junit.framework.TestSuite boolean isPublicTestMethod(java.lang.reflect.Method) 0
 NOT_NULL
 junit.framework.TestSuite boolean isTestMethod(java.lang.reflect.Method) 0
 NOT_NULL
@@ -107,6 +115,8 @@ NOT_NULL
 junit.runner.BaseTestRunner java.lang.String processArguments(java.lang.String[])
 NULLABLE
 junit.runner.BaseTestRunner java.lang.String processArguments(java.lang.String[]) 0
+NOT_NULL
+junit.runner.BaseTestRunner java.lang.String truncate(java.lang.String) 0
 NOT_NULL
 junit.runner.BaseTestRunner junit.framework.Test getTest(java.lang.String)
 NULLABLE
@@ -151,6 +161,8 @@ NOT_NULL
 junit.textui.TestRunner junit.framework.TestResult start(java.lang.String[])
 NOT_NULL
 junit.textui.TestRunner junit.framework.TestResult start(java.lang.String[]) 0
+NOT_NULL
+junit.textui.TestRunner void main(java.lang.String[]) 0
 NOT_NULL
 junit.textui.TestRunner void runAndWait(junit.framework.Test) 0
 NOT_NULL
@@ -362,6 +374,8 @@ org.junit.experimental.categories.Categories void assertNoCategorizedDescendents
 NOT_NULL
 org.junit.experimental.categories.Categories void assertNoDescendantsHaveCategoryAnnotations(org.junit.runner.Description) 0
 NOT_NULL
+org.junit.experimental.categories.Categories.CategoryFilter boolean shouldRun(org.junit.runner.Description) 0
+NOT_NULL
 org.junit.experimental.categories.Categories.CategoryFilter java.lang.Class<?>[] directCategories(org.junit.runner.Description) 0
 NULLABLE
 org.junit.experimental.categories.Categories.CategoryFilter java.util.List<java.lang.Class<?>> categories(org.junit.runner.Description)
@@ -378,6 +392,8 @@ org.junit.experimental.max.MaxCore MaxCore(java.io.File) 0
 NOT_NULL
 org.junit.experimental.max.MaxCore java.lang.Class<?> getMalformedTestClass(org.junit.runner.Description)
 NULLABLE
+org.junit.experimental.max.MaxCore java.lang.Class<?> getMalformedTestClass(org.junit.runner.Description) 0
+NOT_NULL
 org.junit.experimental.max.MaxCore java.util.List<org.junit.runner.Description> findLeaves(org.junit.runner.Request)
 NOT_NULL
 org.junit.experimental.max.MaxCore java.util.List<org.junit.runner.Description> findLeaves(org.junit.runner.Request) 0
@@ -474,6 +490,8 @@ org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lan
 NULLABLE
 org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lang.annotation.Annotation[], java.lang.Class<T>, int)
 NULLABLE
+org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lang.annotation.Annotation[], java.lang.Class<T>, int) 0
+NOT_NULL
 org.junit.experimental.theories.ParameterSignature T getAnnotation(java.lang.Class<T>)
 NULLABLE
 org.junit.experimental.theories.ParameterSignature boolean canAcceptArrayType(java.lang.Class<?>) 0
@@ -604,8 +622,12 @@ org.junit.internal.builders.JUnit4Builder org.junit.runner.Runner runnerForClass
 NOT_NULL
 org.junit.internal.builders.NullBuilder org.junit.runner.Runner runnerForClass(java.lang.Class<?>)
 NULLABLE
+org.junit.internal.builders.SuiteMethodBuilder boolean hasSuiteMethod(java.lang.Class<?>) 0
+NOT_NULL
 org.junit.internal.builders.SuiteMethodBuilder org.junit.runner.Runner runnerForClass(java.lang.Class<?>)
 NULLABLE
+org.junit.internal.builders.SuiteMethodBuilder org.junit.runner.Runner runnerForClass(java.lang.Class<?>) 0
+NOT_NULL
 org.junit.internal.matchers.CombinableMatcher org.junit.internal.matchers.CombinableMatcher<T> and(org.hamcrest.Matcher<? extends T>)
 NOT_NULL
 org.junit.internal.matchers.CombinableMatcher org.junit.internal.matchers.CombinableMatcher<T> or(org.hamcrest.Matcher<? extends T>)
@@ -693,6 +715,8 @@ NOT_NULL
 org.junit.internal.runners.JUnit4ClassRunner.2 int compare(java.lang.reflect.Method, java.lang.reflect.Method) 0
 NOT_NULL
 org.junit.internal.runners.JUnit4ClassRunner.2 int compare(java.lang.reflect.Method, java.lang.reflect.Method) 1
+NOT_NULL
+org.junit.internal.runners.MethodRoadie void runBeforesThenTestThenAfters(java.lang.Runnable) 0
 NOT_NULL
 org.junit.internal.runners.MethodRoadie.1.1 java.lang.Object call()
 NULLABLE
@@ -782,6 +806,8 @@ org.junit.matchers.JUnitMatchers org.junit.internal.matchers.CombinableMatcher<T
 NOT_NULL
 org.junit.rules.ErrorCollector java.lang.Object checkSucceeds(java.util.concurrent.Callable<java.lang.Object>)
 NULLABLE
+org.junit.rules.ErrorCollector java.lang.Object checkSucceeds(java.util.concurrent.Callable<java.lang.Object>) 0
+NOT_NULL
 org.junit.rules.ExpectedException org.hamcrest.Matcher access$000(org.junit.rules.ExpectedException) 0
 NOT_NULL
 org.junit.rules.ExpectedException org.hamcrest.Matcher<java.lang.Throwable> hasMessage(org.hamcrest.Matcher<java.lang.String>)
@@ -998,9 +1024,15 @@ org.junit.runners.BlockJUnit4ClassRunner org.junit.runners.model.Statement possi
 NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner org.junit.runners.model.Statement withPotentialTimeout(org.junit.runners.model.FrameworkMethod, java.lang.Object, org.junit.runners.model.Statement) 0
 NOT_NULL
+org.junit.runners.BlockJUnit4ClassRunner void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
+NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner void runChild(java.lang.Object, org.junit.runner.notification.RunNotifier) 0
 NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner void runChild(org.junit.runners.model.FrameworkMethod, org.junit.runner.notification.RunNotifier) 0
+NOT_NULL
+org.junit.runners.BlockJUnit4ClassRunner void validateConstructor(java.util.List<java.lang.Throwable>) 0
+NOT_NULL
+org.junit.runners.BlockJUnit4ClassRunner void validateOnlyOneConstructor(java.util.List<java.lang.Throwable>) 0
 NOT_NULL
 org.junit.runners.Parameterized java.util.List<org.junit.runner.Runner> getChildren()
 NOT_NULL

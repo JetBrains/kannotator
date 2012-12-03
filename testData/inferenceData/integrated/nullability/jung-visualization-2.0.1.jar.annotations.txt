@@ -28,6 +28,8 @@ edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu
 NOT_NULL
 edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 1
+NULLABLE
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage)
 NOT_NULL
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage) 0
@@ -54,6 +56,8 @@ edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape topEdge(java.a
 NOT_NULL
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape topEdge(java.awt.image.BufferedImage) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath) 1
+NULLABLE
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath) 3
 NOT_NULL
 edu.uci.ics.jung.visualization.GraphZoomScrollPane GraphZoomScrollPane(edu.uci.ics.jung.visualization.VisualizationViewer) 0
@@ -106,6 +110,8 @@ edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape topEdge(java.a
 NOT_NULL
 edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape topEdge(java.awt.image.BufferedImage, java.awt.geom.GeneralPath, int) 1
 NOT_NULL
+edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath) 1
+NULLABLE
 edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath) 3
 NOT_NULL
 edu.uci.ics.jung.visualization.PluggableRenderContext void setScreenDevice(javax.swing.JComponent) 0
@@ -522,9 +528,13 @@ edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape)
 NOT_NULL
+edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape)
+NOT_NULL
+edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
@@ -545,6 +555,8 @@ NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 1
+NOT_NULL
+edu.uci.ics.jung.visualization.renderers.BasicRenderer void render(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicRenderer void renderEdgeLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
@@ -586,11 +598,15 @@ edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.aw
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
 NOT_NULL
+edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
+NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape, boolean)
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
+NOT_NULL
+edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport void subdivide(java.awt.geom.Line2D, java.awt.geom.Line2D, java.awt.geom.Line2D) 0
 NOT_NULL
@@ -768,6 +784,8 @@ edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void setScale(
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void shear(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
+edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator MutableTransformerDecorator(edu.uci.ics.jung.visualization.transform.MutableTransformer) 0
+NULLABLE
 edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(java.awt.Component, javax.swing.CellRendererPane, int, int, int, int, boolean) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(java.awt.Component, javax.swing.CellRendererPane, int, int, int, int, boolean) 1
@@ -796,6 +814,8 @@ edu.uci.ics.jung.visualization.transform.shape.Intersector Intersector(java.awt.
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.Intersector void intersectLine(java.awt.geom.Line2D) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 2
+NULLABLE
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 1

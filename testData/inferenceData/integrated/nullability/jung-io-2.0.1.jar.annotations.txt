@@ -132,6 +132,8 @@ edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, 
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 0
 NOT_NULL
+edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 3
+NULLABLE
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String) 0
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>) 0
@@ -324,12 +326,20 @@ edu.uci.ics.jung.io.graphml.parser.AbstractElementParser void verifyMatch(javax.
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.DataElementParser edu.uci.ics.jung.io.graphml.DataMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.DataElementParser edu.uci.ics.jung.io.graphml.DataMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.DataElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.DataElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml.EdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml.EdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getUnknownElementParser()
@@ -340,14 +350,22 @@ edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry unknownElementParser
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser edu.uci.ics.jung.io.graphml.EndpointMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.EndpointElementParser edu.uci.ics.jung.io.graphml.EndpointMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser endpointTypeMap
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.EndpointElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.GraphElementParser edu.uci.ics.jung.io.graphml.GraphMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.GraphElementParser edu.uci.ics.jung.io.graphml.GraphMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.GraphElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.GraphElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.GraphElementParser void addEdgesToGraph(G, java.util.Collection<edu.uci.ics.jung.io.graphml.EdgeMetadata>, java.util.Map<java.lang.String,V>) 1
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.GraphElementParser void addHyperEdgesToGraph(G, java.util.Collection<edu.uci.ics.jung.io.graphml.HyperEdgeMetadata>, java.util.Map<java.lang.String,V>) 1
@@ -358,27 +376,49 @@ edu.uci.ics.jung.io.graphml.parser.GraphMLEventFilter boolean accept(javax.xml.s
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser edu.uci.ics.jung.io.graphml.HyperEdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser edu.uci.ics.jung.io.graphml.HyperEdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key.ForType convertFor(java.lang.String)
 NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key.ForType convertFor(java.lang.String) 0
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.KeyElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.KeyElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.NodeElementParser edu.uci.ics.jung.io.graphml.NodeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.NodeElementParser edu.uci.ics.jung.io.graphml.NodeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.NodeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.NodeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.PortElementParser edu.uci.ics.jung.io.graphml.PortMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.PortElementParser edu.uci.ics.jung.io.graphml.PortMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.PortElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.PortElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 0
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.String parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.String parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 0
+NOT_NULL
 edu.uci.ics.jung.io.graphml.parser.UnknownElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
+edu.uci.ics.jung.io.graphml.parser.UnknownElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement) 1
+NOT_NULL

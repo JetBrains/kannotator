@@ -24,6 +24,9 @@ import org.jetbrains.kannotator.annotationsInference.findFieldByFieldInsnNode
 import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 import org.jetbrains.kannotator.controlFlow.builder.AsmInstructionMetadata
 import org.objectweb.asm.tree.VarInsnNode
+import java.util.HashSet
+import kotlinlib.intersect
+import kotlinlib.subtract
 
 class FramesNullabilityManager(
         val positions: PositionsForMethod,
@@ -37,17 +40,21 @@ class FramesNullabilityManager(
         nullabilityInfosForEdges[edge] = infos.copyWithUpdatedState(edge.state)
     }
 
-    private fun mergeInfosFromIncomingEdges(instruction: Instruction) : ValueNullabilityMap {
+    private fun mergeInfosFromIncomingEdges(instruction: Instruction) : MergeInfo {
         val incomingEdgesMaps = instruction.incomingEdges.map { e -> nullabilityInfosForEdges[e] }.filterNotNull()
         return mergeValueNullabilityMaps(positions, annotations, declarationIndex, incomingEdgesMaps)
     }
 
     data class BranchingInstructionEdges (val falseEdge: ControlFlowEdge, val trueEdge: ControlFlowEdge, val exceptionEdges: Collection<ControlFlowEdge>)
 
-    fun computeNullabilityInfosForInstruction(instruction: Instruction) : ValueNullabilityMap {
+    fun computeNullabilityInfosForInstruction(
+            instruction: Instruction,
+            inferenceContext: InferenceContext
+    ) : ValueNullabilityMap {
         val state = instruction[STATE_BEFORE]!!
 
-        val infosForInstruction = mergeInfosFromIncomingEdges(instruction)
+        val (infosForInstruction, mergedValues) = mergeInfosFromIncomingEdges(instruction)
+        val inheritedValues = infosForInstruction.keySet().subtract(mergedValues)
 
         fun getFalseTrueEdges(): BranchingInstructionEdges {
             // first outgoing edge is 'false', second is 'true', remaining (if any) are exceptions-related
@@ -75,12 +82,31 @@ class FramesNullabilityManager(
                 return
             }
 
-            val infosForEdge = ValueNullabilityMap(positions, annotations, declarationIndex, outgoingEdge.state, infosForInstruction)
+            val infosForEdge = ValueNullabilityMap(positions, annotations, declarationIndex, outgoingEdge.state, infosForInstruction, infosForInstruction.spoiledValues)
             val conditionSubjects = state.stack[0]
             for (value in conditionSubjects) {
                 infosForEdge[value] = transform(infosForInstruction[value])
             }
             setValueInfosForEdge(outgoingEdge, infosForEdge)
+        }
+
+        fun overrideNullabilityForValueSet(values: Set<Value>, nullability: NullabilityValueInfo) {
+            for (value in values) {
+                inferenceContext.overridingNullabilityMap[value] = nullability
+            }
+        }
+
+        fun tryInferAnnotationsForNullableBranch(
+                nullableEdge: ControlFlowEdge,
+                state: State
+        ) {
+            val conditionSubjects = state.stack[0]
+            val insn = nullableEdge.to
+            when (inferenceContext.instructionOutcomes[insn]) {
+                MethodOutcome.ONLY_THROWS -> overrideNullabilityForValueSet(conditionSubjects, NOT_NULL)
+                // todo: maybe NULLABLE
+                else -> {}
+            }
         }
 
         // Note: propagator is used in the case of distinct 'false' (1st argument) and 'true' edges (2nd argument)
@@ -98,7 +124,7 @@ class FramesNullabilityManager(
             remainingEdges.forEach { edge -> setValueInfosForEdge(edge, infosForInstruction) }
         }
 
-        addInfoForDereferencingInstruction(instruction, infosForInstruction)
+        addInfoForDereferencingInstruction(instruction, infosForInstruction, inheritedValues, inferenceContext)
 
         val opcode = instruction.getOpcode()
         when (opcode) {
@@ -114,6 +140,8 @@ class FramesNullabilityManager(
 
                             propagateConditionInfo(notNullEdge, state) { wasInfo ->
                                 if (wasInfo == CONFLICT || wasInfo == NULL) CONFLICT else NOT_NULL }
+
+                            tryInferAnnotationsForNullableBranch(nullEdge, state)
                         }
                 )
                 return infosForInstruction
@@ -147,14 +175,26 @@ class FramesNullabilityManager(
         return infosForInstruction
     }
 
-    private fun addInfoForDereferencingInstruction(instruction: Instruction, infosForInstruction: ValueNullabilityMap) {
+    private fun addInfoForDereferencingInstruction(
+            instruction: Instruction,
+            infosForInstruction: ValueNullabilityMap,
+            inheritedValues: Set<Value>,
+            inferenceContext: InferenceContext
+    ) {
         val state = instruction[STATE_BEFORE]!!
 
         fun markStackValueAsNotNull(indexFromTop: Int) {
             val valueSet = state.stack[indexFromTop]
             for (value in valueSet) {
-                val wasInfo = infosForInstruction[value]
-                infosForInstruction[value] = if (wasInfo == CONFLICT || wasInfo == NULL) wasInfo else NOT_NULL
+                val wasInfo = infosForInstruction.getStored(value)
+                if (wasInfo != CONFLICT && wasInfo != NULL) {
+                    infosForInstruction[value] = NOT_NULL
+                    if (value.interesting
+                            && (inheritedValues.isEmpty())
+                            && !infosForInstruction.spoiledValues.contains(value)) {
+                        inferenceContext.overridingNullabilityMap[value] = NOT_NULL
+                    }
+                }
             }
         }
 
@@ -186,9 +226,25 @@ public class ValueNullabilityMap(
         val annotations: Annotations<NullabilityAnnotation>,
         val declarationIndex: DeclarationIndex,
         val state: State? = null,
-        m: Map<Value, NullabilityValueInfo> = Collections.emptyMap()): HashMap<Value, NullabilityValueInfo>(m) {
+        m: Map<Value, NullabilityValueInfo> = Collections.emptyMap(),
+        spoiledValues: Set<Value> = Collections.emptySet()): HashMap<Value, NullabilityValueInfo>(m) {
+
+    val spoiledValues = HashSet<Value>(spoiledValues)
+
+    fun lostValue(value: Value): Boolean {
+        return state != null && !state.containsValue(value)
+    }
+
+    fun getStored(key: Any?): NullabilityValueInfo {
+        val fromSuper = super.get(key)
+        return if (fromSuper != null) fromSuper else UNKNOWN
+    }
 
     override fun get(key: Any?): NullabilityValueInfo {
+        if (key is Value && lostValue(key)) {
+            return CONFLICT
+        }
+
         val fromSuper = super.get(key)
         if (fromSuper != null) return fromSuper
 
@@ -242,30 +298,37 @@ public class ValueNullabilityMap(
 }
 
 fun ValueNullabilityMap.copyWithUpdatedState(state: State): ValueNullabilityMap {
-    return ValueNullabilityMap(positions, annotations, declarationIndex, state, this)
+    return ValueNullabilityMap(positions, annotations, declarationIndex, state, this, this.spoiledValues)
 }
+
+data class MergeInfo(val resultMap: ValueNullabilityMap, val mergedValues: Set<Value>)
 
 fun mergeValueNullabilityMaps(
         positions: PositionsForMethod,
         annotations: Annotations<NullabilityAnnotation>,
         declarationIndex: DeclarationIndex,
         maps: Collection<ValueNullabilityMap>
-): ValueNullabilityMap {
+): MergeInfo {
     val result = ValueNullabilityMap(positions, annotations, declarationIndex)
     val affectedValues = maps.flatMap {m -> m.keySet()}.toSet()
+    val mergedValues = HashSet<Value>()
 
-    for (value in affectedValues) {
-        for (m in maps) {
-            val state = m.state
-
-            if (state != null && !state.containsValue(value)) {
-                result[value] = CONFLICT
-                break;
+    for (m in maps) {
+        result.spoiledValues.addAll(m.spoiledValues)
+        for (value in affectedValues) {
+            if (result.containsKey(value)) {
+                if (result[value] != m[value]) {
+                    mergedValues.add(value)
+                }
+                result[value] = m[value] merge result[value]
+            } else {
+                result[value] =  m[value]
             }
-
-            result[value] = if (result.containsKey(value)) m[value] merge result[value] else m[value]
+            if (m.lostValue(value) && m.getStored(value) != NOT_NULL) {
+                result.spoiledValues.add(value)
+            }
         }
     }
 
-    return result
+    return MergeInfo(result, mergedValues)
 }

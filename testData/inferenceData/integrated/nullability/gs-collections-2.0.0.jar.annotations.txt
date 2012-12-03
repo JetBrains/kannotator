@@ -1790,6 +1790,10 @@ com.gs.collections.impl.block.factory.StringPredicates.IsAlphanumeric boolean ac
 NOT_NULL
 com.gs.collections.impl.block.factory.StringPredicates.IsAlphanumeric java.lang.String toString()
 NOT_NULL
+com.gs.collections.impl.block.factory.StringPredicates.IsBlank boolean accept(java.lang.Object) 0
+NOT_NULL
+com.gs.collections.impl.block.factory.StringPredicates.IsBlank boolean accept(java.lang.String) 0
+NOT_NULL
 com.gs.collections.impl.block.factory.StringPredicates.IsBlank java.lang.String toString()
 NOT_NULL
 com.gs.collections.impl.block.factory.StringPredicates.IsNumeric boolean accept(java.lang.Object) 0
@@ -1804,6 +1808,10 @@ com.gs.collections.impl.block.factory.StringPredicates.LessThanOrEqualTo boolean
 NULLABLE
 com.gs.collections.impl.block.factory.StringPredicates.MatchesRegex boolean accept(java.lang.String) 0
 NULLABLE
+com.gs.collections.impl.block.factory.StringPredicates.NotBlank boolean accept(java.lang.Object) 0
+NOT_NULL
+com.gs.collections.impl.block.factory.StringPredicates.NotBlank boolean accept(java.lang.String) 0
+NOT_NULL
 com.gs.collections.impl.block.factory.StringPredicates.NotBlank java.lang.String toString()
 NOT_NULL
 com.gs.collections.impl.block.factory.StringPredicates.NotEmpty boolean accept(java.lang.String) 0
@@ -3118,6 +3126,8 @@ com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.collectio
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList clone()
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
@@ -3129,6 +3139,8 @@ NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList without(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.impl.list.fixed.ArrayAdapter<E> adapt(E[])
 NOT_NULL
@@ -3171,6 +3183,8 @@ NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.impl.list.fixed.ArrayAdapter<T> without(T)
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.impl.list.fixed.ArrayAdapter<T> withoutAll(java.lang.Iterable<? extends T>)
+NOT_NULL
+com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.impl.list.fixed.ArrayAdapter<T> withoutAll(java.lang.Iterable<? extends T>) 0
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter java.lang.Object clone()
 NOT_NULL
@@ -3449,6 +3463,10 @@ NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList java.util.ListIterator<T> listIterator()
 NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableArrayList E[] toArray(E[])
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableArrayList E[] toArray(E[]) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableArrayList T detect(com.gs.collections.api.block.predicate.Predicate<? super T>)
 NULLABLE
@@ -3997,6 +4015,10 @@ NOT_NULL
 com.gs.collections.impl.list.mutable.CompositeFastList.ProcedureToInnerListObjectIntProcedure void value(java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList DEFAULT_SIZED_EMPTY_ARRAY
+NOT_NULL
+com.gs.collections.impl.list.mutable.FastList E[] toArray(E[])
+NOT_NULL
+com.gs.collections.impl.list.mutable.FastList E[] toArray(E[]) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList FastList(T[]) 0
 NOT_NULL
@@ -4999,7 +5021,7 @@ NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> createReplacementChainForRemoval(com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>, com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>)
 NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> createReplacementChainForRemoval(com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>, com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>) 0
-NULLABLE
+NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> getEntry(java.lang.Object)
 NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap<K,V> newMap()
@@ -5049,6 +5071,8 @@ NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap void putAllInParallel(java.util.Map<K,V>, int, java.util.concurrent.Executor) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap void readExternal(java.io.ObjectInput) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.ConcurrentHashMap void rescanUntilDone(java.util.concurrent.atomic.AtomicReferenceArray<java.lang.Object>, int, int) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap void resize(java.util.concurrent.atomic.AtomicReferenceArray<java.lang.Object>) 0
 NOT_NULL
@@ -5326,6 +5350,10 @@ com.gs.collections.impl.map.mutable.UnifiedMap void writeExternal(java.io.Object
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap void writeExternalChain(java.io.ObjectOutput, java.lang.Object[]) 1
 NOT_NULL
+com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet T[] toArray(T[])
+NOT_NULL
+com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet T[] toArray(T[]) 0
+NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object) 2
@@ -5354,6 +5382,10 @@ com.gs.collections.impl.map.mutable.UnifiedMap.EntrySetIterator java.util.Map.En
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySetIterator java.util.Map.Entry<K,V> nextFromChain()
 NOT_NULL
+com.gs.collections.impl.map.mutable.UnifiedMap.KeySet T[] toArray(T[])
+NOT_NULL
+com.gs.collections.impl.map.mutable.UnifiedMap.KeySet T[] toArray(T[]) 0
+NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet boolean removeAll(java.util.Collection<?>) 0
@@ -5375,6 +5407,10 @@ NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySetIterator K nextFromChain()
 NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.PositionalIterator void removeLastFromChain(java.lang.Object[], int) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection T[] toArray(T[])
+NOT_NULL
+com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection T[] toArray(T[]) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
@@ -5948,6 +5984,10 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void 
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void writeExternalChain(java.io.ObjectOutput, java.lang.Object[]) 1
 NOT_NULL
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet T[] toArray(T[])
+NOT_NULL
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet T[] toArray(T[]) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object) 2
@@ -5976,6 +6016,10 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.Entry
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySetIterator java.util.Map.Entry<K,V> nextFromChain()
 NOT_NULL
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet T[] toArray(T[])
+NOT_NULL
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet T[] toArray(T[]) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet boolean removeAll(java.util.Collection<?>) 0
@@ -5997,6 +6041,10 @@ NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySetIterator K nextFromChain()
 NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.PositionalIterator void removeLastFromChain(java.lang.Object[], int) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection T[] toArray(T[])
+NOT_NULL
+com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection T[] toArray(T[]) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
@@ -6659,6 +6707,10 @@ NOT_NULL
 com.gs.collections.impl.parallel.ParallelArrayIterate void combineSingleProcedure(com.gs.collections.impl.parallel.Combiner<BT>, BT) 0
 NOT_NULL
 com.gs.collections.impl.parallel.ParallelArrayIterate void forEach(T[], com.gs.collections.impl.parallel.ProcedureFactory<BT>, com.gs.collections.impl.parallel.Combiner<BT>) 0
+NOT_NULL
+com.gs.collections.impl.parallel.ParallelArrayIterate void forEach(T[], com.gs.collections.impl.parallel.ProcedureFactory<BT>, com.gs.collections.impl.parallel.Combiner<BT>, int, int) 0
+NOT_NULL
+com.gs.collections.impl.parallel.ParallelArrayIterate void forEachOn(T[], com.gs.collections.impl.parallel.ProcedureFactory<BT>, com.gs.collections.impl.parallel.Combiner<BT>, int, int, java.util.concurrent.Executor) 0
 NOT_NULL
 com.gs.collections.impl.parallel.ParallelIterate EXECUTOR_SERVICE
 NOT_NULL
@@ -7670,6 +7722,10 @@ com.gs.collections.impl.set.mutable.UnifiedSet UnifiedSet(com.gs.collections.imp
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet UnifiedSet(java.util.Collection<? extends K>) 0
 NOT_NULL
+com.gs.collections.impl.set.mutable.UnifiedSet boolean addAll(java.util.Collection<? extends K>) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.UnifiedSet boolean addAllIterable(java.lang.Iterable<? extends K>) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet boolean chainContains(com.gs.collections.impl.set.mutable.UnifiedSet.ChainedBucket, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet boolean containsAll(java.util.Collection<?>) 0
@@ -7681,6 +7737,8 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet boolean copyChain(com.gs.collections.impl.set.mutable.UnifiedSet.ChainedBucket) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet boolean copySet(com.gs.collections.impl.set.mutable.UnifiedSet<?>) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.UnifiedSet boolean eq(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet boolean isProperSubsetOf(com.gs.collections.api.set.SetIterable<? extends K>) 0
 NOT_NULL
@@ -7718,6 +7776,8 @@ com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.collection
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.collection.MutableCollection withAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.collection.MutableCollection withAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.collection.MutableCollection without(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
@@ -7747,6 +7807,8 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.set.MutableSet with(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.set.MutableSet withAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.set.MutableSet withAll(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.set.MutableSet without(java.lang.Object)
 NOT_NULL
@@ -7823,6 +7885,8 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.impl.set.mutable.UnifiedSet<K> with(K...)
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.impl.set.mutable.UnifiedSet<K> withAll(java.lang.Iterable<? extends K>)
+NOT_NULL
+com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.impl.set.mutable.UnifiedSet<K> withAll(java.lang.Iterable<? extends K>) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.impl.set.mutable.UnifiedSet<K> without(K)
 NOT_NULL
@@ -8739,7 +8803,7 @@ NOT_NULL
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy int chainedForEachWithIndex(com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy.ChainedBucket, com.gs.collections.api.block.procedure.ObjectIntProcedure<? super K>, int) 1
 NOT_NULL
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy int chainedHashCode(com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy.ChainedBucket) 0
-NOT_NULL
+NULLABLE
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy int copyBucketToArray(java.lang.Object[], com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy.ChainedBucket, int) 0
 NOT_NULL
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy int copyBucketToArray(java.lang.Object[], com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy.ChainedBucket, int) 1
@@ -9078,8 +9142,12 @@ com.gs.collections.impl.utility.ArrayIterate T detectWithIfNone(T[], com.gs.coll
 NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate T getFirst(T[])
 NULLABLE
+com.gs.collections.impl.utility.ArrayIterate T getFirst(T[]) 0
+NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate T getLast(T[])
 NULLABLE
+com.gs.collections.impl.utility.ArrayIterate T getLast(T[]) 0
+NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate T max(T[]) 0
 NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate T max(T[], java.util.Comparator<? super T>) 0
@@ -9155,6 +9223,10 @@ NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate com.gs.collections.impl.multimap.list.FastListMultimap<V,T> groupByEach(T[], com.gs.collections.api.block.function.Function<? super T,? extends java.lang.Iterable<V>>) 0
 NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate double injectInto(double, T[], com.gs.collections.api.block.function.primitive.DoubleObjectToDoubleFunction<? super T>) 1
+NOT_NULL
+com.gs.collections.impl.utility.ArrayIterate int count(T[], com.gs.collections.api.block.predicate.Predicate<? super T>) 0
+NOT_NULL
+com.gs.collections.impl.utility.ArrayIterate int countWith(T[], com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P) 0
 NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate int detectIndex(T[], com.gs.collections.api.block.predicate.Predicate<? super T>) 0
 NOT_NULL
@@ -9648,8 +9720,12 @@ com.gs.collections.impl.utility.ListIterate T detectWithIfNone(java.util.List<T>
 NOT_NULL
 com.gs.collections.impl.utility.ListIterate T getFirst(java.util.List<T>)
 NULLABLE
+com.gs.collections.impl.utility.ListIterate T getFirst(java.util.List<T>) 0
+NOT_NULL
 com.gs.collections.impl.utility.ListIterate T getLast(java.util.List<T>)
 NULLABLE
+com.gs.collections.impl.utility.ListIterate T getLast(java.util.List<T>) 0
+NOT_NULL
 com.gs.collections.impl.utility.ListIterate T max(java.util.List<T>) 0
 NOT_NULL
 com.gs.collections.impl.utility.ListIterate T max(java.util.List<T>, java.util.Comparator<? super T>) 0
@@ -9765,6 +9841,8 @@ NOT_NULL
 com.gs.collections.impl.utility.ListIterate void forEachWithIndex(java.util.List<T>, int, int, com.gs.collections.api.block.procedure.ObjectIntProcedure<? super T>) 0
 NOT_NULL
 com.gs.collections.impl.utility.ListIterate void reverseForEach(java.util.List<T>, com.gs.collections.api.block.procedure.Procedure<? super T>) 0
+NOT_NULL
+com.gs.collections.impl.utility.ListIterate void toArray(java.util.List<T>, T[], int, int) 0
 NOT_NULL
 com.gs.collections.impl.utility.MapIterate A ifPresentApply(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function<? super V,? extends A>)
 NULLABLE
@@ -9900,7 +9978,11 @@ com.gs.collections.impl.utility.StringIterate boolean anySatisfy(java.lang.Strin
 NOT_NULL
 com.gs.collections.impl.utility.StringIterate boolean isEmpty(java.lang.String) 0
 NULLABLE
+com.gs.collections.impl.utility.StringIterate boolean isEmptyOrWhitespace(java.lang.String) 0
+NOT_NULL
 com.gs.collections.impl.utility.StringIterate boolean isWhitespace(java.lang.String) 0
+NOT_NULL
+com.gs.collections.impl.utility.StringIterate boolean notEmptyOrWhitespace(java.lang.String) 0
 NOT_NULL
 com.gs.collections.impl.utility.StringIterate com.gs.collections.api.list.MutableList<java.lang.String> csvTrimmedTokensToList(java.lang.String)
 NOT_NULL
@@ -9967,11 +10049,11 @@ NOT_NULL
 com.gs.collections.impl.utility.StringIterate java.lang.String getFirstToken(java.lang.String, java.lang.String)
 NULLABLE
 com.gs.collections.impl.utility.StringIterate java.lang.String getFirstToken(java.lang.String, java.lang.String) 0
-NULLABLE
+NOT_NULL
 com.gs.collections.impl.utility.StringIterate java.lang.String getLastToken(java.lang.String, java.lang.String)
 NULLABLE
 com.gs.collections.impl.utility.StringIterate java.lang.String getLastToken(java.lang.String, java.lang.String) 0
-NULLABLE
+NOT_NULL
 com.gs.collections.impl.utility.StringIterate java.lang.String padOrTrim(java.lang.String, int) 0
 NOT_NULL
 com.gs.collections.impl.utility.StringIterate java.lang.String reject(java.lang.String, com.gs.collections.impl.block.predicate.CodePointPredicate) 0
@@ -10246,6 +10328,8 @@ com.gs.collections.impl.utility.internal.IteratorIterate int detectIndexWith(jav
 NOT_NULL
 com.gs.collections.impl.utility.internal.IteratorIterate int injectInto(int, java.util.Iterator<T>, com.gs.collections.api.block.function.primitive.IntObjectToIntFunction<? super T>) 1
 NOT_NULL
+com.gs.collections.impl.utility.internal.IteratorIterate java.util.Iterator<T> advanceIteratorTo(java.util.Iterator<T>, int)
+NOT_NULL
 com.gs.collections.impl.utility.internal.IteratorIterate java.util.Iterator<T> removeIf(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>)
 NOT_NULL
 com.gs.collections.impl.utility.internal.IteratorIterate java.util.Iterator<T> removeIf(java.util.Iterator<T>, com.gs.collections.api.block.predicate.Predicate<? super T>) 0
@@ -10320,6 +10404,8 @@ com.gs.collections.impl.utility.internal.RandomAccessListIterate T detectWith(ja
 NOT_NULL
 com.gs.collections.impl.utility.internal.RandomAccessListIterate T getLast(java.util.List<T>)
 NULLABLE
+com.gs.collections.impl.utility.internal.RandomAccessListIterate T getLast(java.util.List<T>) 0
+NOT_NULL
 com.gs.collections.impl.utility.internal.RandomAccessListIterate T max(java.util.List<T>) 0
 NOT_NULL
 com.gs.collections.impl.utility.internal.RandomAccessListIterate T max(java.util.List<T>, java.util.Comparator<? super T>) 0
@@ -10431,6 +10517,8 @@ NOT_NULL
 com.gs.collections.impl.utility.internal.ReflectionHelper T newInstance(java.lang.Class<T>) 0
 NOT_NULL
 com.gs.collections.impl.utility.internal.ReflectionHelper T newInstance(java.lang.reflect.Constructor<T>, java.lang.Object...) 0
+NOT_NULL
+com.gs.collections.impl.utility.internal.ReflectionHelper boolean hasDefaultConstructor(java.lang.Class<?>) 0
 NOT_NULL
 com.gs.collections.impl.utility.internal.ReflectionHelper boolean parameterTypesMatch(java.lang.Class<?>[], java.lang.Class<?>...) 0
 NOT_NULL

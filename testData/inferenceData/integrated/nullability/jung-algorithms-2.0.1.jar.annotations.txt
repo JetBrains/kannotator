@@ -334,6 +334,8 @@ edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.S
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 1
+NULLABLE
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>)
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 0
@@ -605,4 +607,8 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(java.lang.Object) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map<T,? extends java.lang.Number>, java.util.Random, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.WeightedChoice void enqueueItem(T, double, double, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>) 3
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.WeightedChoice void enqueueItem(T, double, double, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>) 4
 NOT_NULL

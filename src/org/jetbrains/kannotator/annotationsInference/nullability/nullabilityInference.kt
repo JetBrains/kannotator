@@ -9,12 +9,21 @@ import org.jetbrains.kannotator.asm.util.getOpcode
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
+import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import org.jetbrains.kannotator.controlFlow.builder.STATE_BEFORE
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.FieldInsnNode
+import java.util.LinkedHashSet
+import org.jetbrains.kannotator.controlFlow.InstructionMetadata
+import org.jetbrains.kannotator.util.DataKey
+import java.util.ArrayList
+import java.util.Collections
+import kotlinlib.removeLast
+import java.util.ArrayDeque
+import org.jetbrains.kannotator.controlFlow.MethodOutcome
 
 class AnnotationsBuildingResult(
         val inferredAnnotations: Annotations<NullabilityAnnotation>,
@@ -35,12 +44,15 @@ fun buildMethodNullabilityAnnotations(
 
     fun collectValueInfoForReturnInstruction(
             instruction: Instruction,
-            nullabilityInfos: ValueNullabilityMap
+            nullabilityInfos: ValueNullabilityMap,
+            overridingMap: ValueNullabilityMap
     ) {
         if (instruction.getOpcode() == ARETURN) {
             val state = instruction[STATE_BEFORE]!!
             val returnValues = state.stack[0]
-            val nullabilityValueInfo = returnValues.map { it -> nullabilityInfos[it] }.merge()
+            val nullabilityValueInfo = returnValues.map{ it ->
+                if (overridingMap.containsKey(it)) overridingMap[it] else nullabilityInfos[it]
+            }.merge()
             returnValueInfo = nullabilityValueInfo.mergeWithNullable(returnValueInfo)
         }
         valueNullabilityMapsOnReturn.add(nullabilityInfos)
@@ -66,15 +78,28 @@ fun buildMethodNullabilityAnnotations(
         }
     }
 
-    fun createAnnotations(): Annotations<NullabilityAnnotation> {
+    fun createAnnotations(overridingMap: ValueNullabilityMap): Annotations<NullabilityAnnotation> {
         val result = AnnotationsImpl<NullabilityAnnotation>()
         result.setIfNotNull(positions.forReturnType().position, returnValueInfo?.toAnnotation())
 
-        val mapOnReturn = mergeValueNullabilityMaps(positions, result, declarationIndex, valueNullabilityMapsOnReturn)
+        val (mapOnReturn) = mergeValueNullabilityMaps(positions, result, declarationIndex, valueNullabilityMapsOnReturn)
         for ((value, valueInfo) in mapOnReturn) {
-            if (value.interesting) {
-                result.setIfNotNull(positions.forInterestingValue(value), valueInfo.toAnnotation())
+            if (!value.interesting) {
+                continue
             }
+
+            val valuePosition = positions.forInterestingValue(value)
+
+            val nullability = if (overridingMap.containsKey(value)) {
+                overridingMap.getStored(value)
+            } else {
+                if (mapOnReturn.spoiledValues.contains(value))
+                    NullabilityValueInfo.NULLABLE
+                else
+                    valueInfo
+            }
+
+            result.setIfNotNull(valuePosition, nullability.toAnnotation())
         }
 
         val updatedFieldInfoProvider = {(m: Method) -> if (m == method) fieldNullabilityInfoMap else methodFieldsNullabilityInfoProvider(m) }
@@ -89,19 +114,30 @@ fun buildMethodNullabilityAnnotations(
         return result
     }
 
-    cfGraph.traverseInstructions {
-        instruction ->
-        val valueNullabilityMap = framesManager.computeNullabilityInfosForInstruction(instruction)
+    val overridingNullabilityMap = ValueNullabilityMap(positions, annotations, declarationIndex)
+    val inferenceContext = InferenceContext(overridingNullabilityMap, cfGraph.instructionOutcomes)
+
+    cfGraph.traverseInstructions {instruction ->
+        val valueNullabilityMap =
+                framesManager.computeNullabilityInfosForInstruction(instruction, inferenceContext)
 
         if (instruction.getOpcode() in RETURN_OPCODES) {
-            collectValueInfoForReturnInstruction(instruction, valueNullabilityMap)
+            collectValueInfoForReturnInstruction(instruction, valueNullabilityMap, overridingNullabilityMap)
         }
 
         collectValueInfoForFieldInitInstruction(instruction, valueNullabilityMap)
     }
 
-    return AnnotationsBuildingResult(createAnnotations(), fieldNullabilityInfoMap)
+    return AnnotationsBuildingResult(
+            createAnnotations(overridingNullabilityMap),
+            fieldNullabilityInfoMap
+    )
 }
+
+data class InferenceContext(
+        val overridingNullabilityMap: ValueNullabilityMap,
+        val instructionOutcomes: Map<Instruction, MethodOutcome>
+)
 
 fun findFieldsWithChangedNullabilityInfo(previous: Map<Field, NullabilityValueInfo>?,
                                          new: Map<Field, NullabilityValueInfo>) : Collection<Field> {

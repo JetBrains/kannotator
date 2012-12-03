@@ -1116,6 +1116,8 @@ com.google.common.base.Stopwatch.1 $SwitchMap$java$util$concurrent$TimeUnit
 NOT_NULL
 com.google.common.base.Strings boolean isNullOrEmpty(java.lang.String) 0
 NULLABLE
+com.google.common.base.Strings boolean validSurrogatePairAt(java.lang.CharSequence, int) 0
+NOT_NULL
 com.google.common.base.Strings java.lang.String commonPrefix(java.lang.CharSequence, java.lang.CharSequence) 0
 NOT_NULL
 com.google.common.base.Strings java.lang.String commonPrefix(java.lang.CharSequence, java.lang.CharSequence) 1
@@ -1192,6 +1194,8 @@ com.google.common.base.Throwables java.lang.Throwable getRootCause(java.lang.Thr
 NOT_NULL
 com.google.common.base.Throwables java.lang.Throwable getRootCause(java.lang.Throwable) 0
 NOT_NULL
+com.google.common.base.Throwables java.util.List<java.lang.Throwable> getCausalChain(java.lang.Throwable) 0
+NOT_NULL
 com.google.common.base.Throwables void propagateIfInstanceOf(java.lang.Throwable, java.lang.Class<X>) 0
 NULLABLE
 com.google.common.base.Throwables void propagateIfPossible(java.lang.Throwable) 0
@@ -1221,6 +1225,8 @@ NOT_NULL
 com.google.common.base.internal.Finalizer java.lang.reflect.Field getInheritableThreadLocalsField()
 NULLABLE
 com.google.common.base.internal.Finalizer queue
+NOT_NULL
+com.google.common.base.internal.Finalizer void cleanUp(java.lang.ref.Reference<?>) 0
 NOT_NULL
 com.google.common.cache.AbstractCache com.google.common.collect.ImmutableMap<K,V> getAllPresent(java.lang.Iterable<?>)
 NOT_NULL
@@ -1738,6 +1744,8 @@ com.google.common.cache.LocalCache.LoadingValueReference V get()
 NULLABLE
 com.google.common.cache.LocalCache.LoadingValueReference boolean set(V) 0
 NULLABLE
+com.google.common.cache.LocalCache.LoadingValueReference boolean setException(com.google.common.util.concurrent.SettableFuture<?>, java.lang.Throwable) 0
+NOT_NULL
 com.google.common.cache.LocalCache.LoadingValueReference com.google.common.cache.LocalCache.ReferenceEntry<K,V> getEntry()
 NULLABLE
 com.google.common.cache.LocalCache.LoadingValueReference com.google.common.cache.LocalCache.ValueReference<K,V> copyFor(java.lang.ref.ReferenceQueue<V>, V, com.google.common.cache.LocalCache.ReferenceEntry<K,V>)
@@ -2746,6 +2754,8 @@ com.google.common.collect.Collections2 boolean isPermutation(java.util.List<?>, 
 NOT_NULL
 com.google.common.collect.Collections2 boolean isPermutation(java.util.List<?>, java.util.List<?>) 1
 NOT_NULL
+com.google.common.collect.Collections2 boolean safeContains(java.util.Collection<?>, java.lang.Object) 0
+NOT_NULL
 com.google.common.collect.Collections2 java.lang.String toStringImpl(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.Collections2 java.lang.StringBuilder newStringBuilderForCollection(int)
@@ -3238,6 +3248,8 @@ com.google.common.collect.Cut.BelowAll com.google.common.collect.Cut.BelowAll ac
 NOT_NULL
 com.google.common.collect.Cut.BelowAll com.google.common.collect.Cut<java.lang.Comparable<?>> canonical(com.google.common.collect.DiscreteDomain<java.lang.Comparable<?>>)
 NOT_NULL
+com.google.common.collect.Cut.BelowAll com.google.common.collect.Cut<java.lang.Comparable<?>> canonical(com.google.common.collect.DiscreteDomain<java.lang.Comparable<?>>) 0
+NOT_NULL
 com.google.common.collect.Cut.BelowAll java.lang.Comparable<?> leastValueAbove(com.google.common.collect.DiscreteDomain<java.lang.Comparable<?>>) 0
 NOT_NULL
 com.google.common.collect.Cut.BelowAll java.lang.Object readResolve()
@@ -3270,12 +3282,18 @@ com.google.common.collect.DescendingImmutableSortedMultiset com.google.common.co
 NOT_NULL
 com.google.common.collect.DescendingImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> tailMultiset(E, com.google.common.collect.BoundType)
 NOT_NULL
+com.google.common.collect.DescendingImmutableSortedMultiset com.google.common.collect.ImmutableSortedSet<E> elementSet()
+NOT_NULL
 com.google.common.collect.DescendingImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType)
 NOT_NULL
 com.google.common.collect.DescendingImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType)
 NOT_NULL
 com.google.common.collect.DescendingImmutableSortedMultiset int count(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.DescendingImmutableSortedMultiset java.util.Set elementSet()
+NOT_NULL
+com.google.common.collect.DescendingImmutableSortedMultiset java.util.SortedSet elementSet()
+NOT_NULL
 com.google.common.collect.DescendingImmutableSortedMultiset.1 com.google.common.collect.ImmutableList<com.google.common.collect.Multiset.Entry<E>> createAsList()
 NOT_NULL
 com.google.common.collect.DescendingImmutableSortedMultiset.1 com.google.common.collect.UnmodifiableIterator<com.google.common.collect.Multiset.Entry<E>> iterator()
@@ -3854,6 +3872,10 @@ com.google.common.collect.FluentIterable com.google.common.collect.ImmutableSort
 NOT_NULL
 com.google.common.collect.FluentIterable iterable
 NOT_NULL
+com.google.common.collect.ForwardingCollection T[] standardToArray(T[])
+NOT_NULL
+com.google.common.collect.ForwardingCollection T[] standardToArray(T[]) 0
+NOT_NULL
 com.google.common.collect.ForwardingCollection boolean standardAddAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 com.google.common.collect.ForwardingCollection boolean standardContains(java.lang.Object) 0
@@ -4329,6 +4351,10 @@ NOT_NULL
 com.google.common.collect.ImmutableClassToInstanceMap.Builder mapBuilder
 NOT_NULL
 com.google.common.collect.ImmutableCollection EMPTY_IMMUTABLE_COLLECTION
+NOT_NULL
+com.google.common.collect.ImmutableCollection T[] toArray(T[])
+NOT_NULL
+com.google.common.collect.ImmutableCollection T[] toArray(T[]) 0
 NOT_NULL
 com.google.common.collect.ImmutableCollection boolean contains(java.lang.Object) 0
 NULLABLE
@@ -4996,6 +5022,8 @@ com.google.common.collect.ImmutableMultiset.Builder com.google.common.collect.Im
 NOT_NULL
 com.google.common.collect.ImmutableMultiset.Builder com.google.common.collect.ImmutableMultiset<E> build()
 NOT_NULL
+com.google.common.collect.ImmutableMultiset.EntrySet T[] toArray(T[]) 0
+NULLABLE
 com.google.common.collect.ImmutableMultiset.EntrySet java.lang.Object writeReplace()
 NOT_NULL
 com.google.common.collect.ImmutableMultiset.EntrySetSerializedForm java.lang.Object readResolve()
@@ -5010,7 +5038,11 @@ com.google.common.collect.ImmutableMultiset.SerializedForm java.lang.Object read
 NOT_NULL
 com.google.common.collect.ImmutableSet boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.ImmutableSet com.google.common.collect.ImmutableSet access$000(int, java.lang.Object[]) 1
+NOT_NULL
 com.google.common.collect.ImmutableSet com.google.common.collect.ImmutableSet.Builder<E> builder()
+NOT_NULL
+com.google.common.collect.ImmutableSet com.google.common.collect.ImmutableSet<E> construct(int, java.lang.Object...) 1
 NOT_NULL
 com.google.common.collect.ImmutableSet com.google.common.collect.ImmutableSet<E> copyFromCollection(java.util.Collection<? extends E>) 0
 NOT_NULL
@@ -5388,6 +5420,8 @@ com.google.common.collect.ImmutableSortedMap com.google.common.collect.Immutable
 NOT_NULL
 com.google.common.collect.ImmutableSortedMap com.google.common.collect.ImmutableSortedMap<K,V> subMap(K, boolean, K, boolean) 2
 NOT_NULL
+com.google.common.collect.ImmutableSortedMap com.google.common.collect.ImmutableSortedSet<K> descendingKeySet()
+NOT_NULL
 com.google.common.collect.ImmutableSortedMap java.lang.Object writeReplace()
 NOT_NULL
 com.google.common.collect.ImmutableSortedMap java.util.Map.Entry<K,V> ceilingEntry(K)
@@ -5405,6 +5439,8 @@ NULLABLE
 com.google.common.collect.ImmutableSortedMap java.util.NavigableMap subMap(java.lang.Object, boolean, java.lang.Object, boolean) 0
 NOT_NULL
 com.google.common.collect.ImmutableSortedMap java.util.NavigableMap subMap(java.lang.Object, boolean, java.lang.Object, boolean) 2
+NOT_NULL
+com.google.common.collect.ImmutableSortedMap java.util.NavigableSet descendingKeySet()
 NOT_NULL
 com.google.common.collect.ImmutableSortedMap java.util.SortedMap subMap(java.lang.Object, java.lang.Object) 0
 NOT_NULL
@@ -5474,6 +5510,8 @@ com.google.common.collect.ImmutableSortedMultiset com.google.common.collect.Immu
 NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> copyOf(java.util.Comparator<? super E>, java.lang.Iterable<? extends E>) 0
 NOT_NULL
+com.google.common.collect.ImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> copyOf(java.util.Comparator<? super E>, java.lang.Iterable<? extends E>) 1
+NULLABLE
 com.google.common.collect.ImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> copyOf(java.util.Comparator<? super E>, java.util.Iterator<? extends E>)
 NOT_NULL
 com.google.common.collect.ImmutableSortedMultiset com.google.common.collect.ImmutableSortedMultiset<E> copyOf(java.util.Comparator<? super E>, java.util.Iterator<? extends E>) 0
@@ -5586,6 +5624,8 @@ com.google.common.collect.ImmutableSortedSet com.google.common.collect.Immutable
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> construct(java.util.Comparator<? super E>, int, E...)
 NOT_NULL
+com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> construct(java.util.Comparator<? super E>, int, E...) 2
+NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> copyOf(E[])
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> copyOf(java.lang.Iterable<? extends E>)
@@ -5621,6 +5661,8 @@ NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> copyOfSorted(java.util.SortedSet<E>)
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> copyOfSorted(java.util.SortedSet<E>) 0
+NOT_NULL
+com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> descendingSet()
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet com.google.common.collect.ImmutableSortedSet<E> emptySet()
 NOT_NULL
@@ -5663,6 +5705,8 @@ NULLABLE
 com.google.common.collect.ImmutableSortedSet int unsafeCompare(java.util.Comparator<?>, java.lang.Object, java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet java.lang.Object writeReplace()
+NOT_NULL
+com.google.common.collect.ImmutableSortedSet java.util.NavigableSet descendingSet()
 NOT_NULL
 com.google.common.collect.ImmutableSortedSet java.util.NavigableSet headSet(java.lang.Object, boolean) 0
 NOT_NULL
@@ -6044,6 +6088,8 @@ com.google.common.collect.Iterators T find(java.util.Iterator<T>, com.google.com
 NOT_NULL
 com.google.common.collect.Iterators T get(java.util.Iterator<? extends T>, int, T)
 NULLABLE
+com.google.common.collect.Iterators T get(java.util.Iterator<? extends T>, int, T) 0
+NOT_NULL
 com.google.common.collect.Iterators T get(java.util.Iterator<? extends T>, int, T) 2
 NULLABLE
 com.google.common.collect.Iterators T get(java.util.Iterator<T>, int) 0
@@ -7554,6 +7600,8 @@ com.google.common.collect.Maps STANDARD_JOINER
 NOT_NULL
 com.google.common.collect.Maps V safeGet(java.util.Map<?,V>, java.lang.Object)
 NULLABLE
+com.google.common.collect.Maps V safeGet(java.util.Map<?,V>, java.lang.Object) 0
+NOT_NULL
 com.google.common.collect.Maps boolean containsKeyImpl(java.util.Map<?,?>, java.lang.Object) 0
 NOT_NULL
 com.google.common.collect.Maps boolean containsKeyImpl(java.util.Map<?,?>, java.lang.Object) 1
@@ -7562,6 +7610,8 @@ com.google.common.collect.Maps boolean containsValueImpl(java.util.Map<?,?>, jav
 NOT_NULL
 com.google.common.collect.Maps boolean containsValueImpl(java.util.Map<?,?>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Maps boolean safeContainsKey(java.util.Map<?,?>, java.lang.Object) 0
+NOT_NULL
 com.google.common.collect.Maps com.google.common.collect.BiMap<K,V> synchronizedBiMap(com.google.common.collect.BiMap<K,V>)
 NOT_NULL
 com.google.common.collect.Maps com.google.common.collect.BiMap<K,V> unmodifiableBiMap(com.google.common.collect.BiMap<? extends K,? extends V>)
@@ -8000,6 +8050,8 @@ com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.Map.Entry<K,V>
 NULLABLE
 com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.Map.Entry<K,V> lowerEntry(K)
 NULLABLE
+com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.NavigableMap<K,V> descendingMap()
+NOT_NULL
 com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.NavigableMap<K,V> headMap(K, boolean)
 NOT_NULL
 com.google.common.collect.Maps.UnmodifiableNavigableMap java.util.NavigableMap<K,V> subMap(K, boolean, K, boolean)
@@ -8040,6 +8092,10 @@ com.google.common.collect.Maps.ValueDifferenceImpl right
 NULLABLE
 com.google.common.collect.Maps.Values boolean contains(java.lang.Object) 0
 NULLABLE
+com.google.common.collect.Maps.Values boolean removeAll(java.util.Collection<?>) 0
+NOT_NULL
+com.google.common.collect.Maps.Values boolean retainAll(java.util.Collection<?>) 0
+NOT_NULL
 com.google.common.collect.Maps.Values java.util.Iterator<V> iterator()
 NOT_NULL
 com.google.common.collect.MinMaxPriorityQueue E peek()
@@ -8336,6 +8392,8 @@ com.google.common.collect.Multimaps.FilteredMultimap.AsMap java.lang.Object remo
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.AsMap java.util.Collection<V> remove(java.lang.Object)
 NULLABLE
+com.google.common.collect.Multimaps.FilteredMultimap.AsMap.EntrySet boolean removeAll(java.util.Collection<?>) 0
+NOT_NULL
 com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet.1 boolean apply(java.lang.Object) 0
@@ -8768,7 +8826,11 @@ com.google.common.collect.ObjectArrays T[] concat(T[], T[], java.lang.Class<T>) 
 NOT_NULL
 com.google.common.collect.ObjectArrays T[] newArray(T[], int) 0
 NOT_NULL
+com.google.common.collect.ObjectArrays T[] toArrayImpl(java.util.Collection<?>, T[])
+NOT_NULL
 com.google.common.collect.ObjectArrays T[] toArrayImpl(java.util.Collection<?>, T[]) 0
+NOT_NULL
+com.google.common.collect.ObjectArrays T[] toArrayImpl(java.util.Collection<?>, T[]) 1
 NOT_NULL
 com.google.common.collect.ObjectArrays java.lang.Object checkElementNotNull(java.lang.Object, int)
 NOT_NULL
@@ -9094,6 +9156,10 @@ com.google.common.collect.Ranges com.google.common.collect.Range<C> upTo(C, com.
 NOT_NULL
 com.google.common.collect.Ranges.1 $SwitchMap$com$google$common$collect$BoundType
 NOT_NULL
+com.google.common.collect.RegularContiguousSet T[] toArray(T[])
+NOT_NULL
+com.google.common.collect.RegularContiguousSet T[] toArray(T[]) 0
+NOT_NULL
 com.google.common.collect.RegularContiguousSet boolean contains(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.RegularContiguousSet boolean containsAll(java.util.Collection<?>) 0
@@ -9163,6 +9229,8 @@ NOT_NULL
 com.google.common.collect.RegularImmutableBiMap RegularImmutableBiMap(com.google.common.collect.ImmutableMap<K,V>) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableList RegularImmutableList(java.lang.Object[]) 0
+NOT_NULL
+com.google.common.collect.RegularImmutableList T[] toArray(T[]) 0
 NOT_NULL
 com.google.common.collect.RegularImmutableList boolean equals(java.lang.Object) 0
 NULLABLE
@@ -9676,6 +9744,8 @@ com.google.common.collect.SetMultimap java.util.Set<V> removeAll(java.lang.Objec
 NULLABLE
 com.google.common.collect.Sets boolean equalsImpl(java.util.Set<?>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Collection<?>) 1
+NOT_NULL
 com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Iterator<?>) 1
 NOT_NULL
 com.google.common.collect.Sets com.google.common.collect.ImmutableSet<E> immutableEnumSet(E, E...)
@@ -9832,6 +9902,8 @@ com.google.common.collect.Sets.FilteredSortedSet java.util.SortedSet<E> subSet(E
 NOT_NULL
 com.google.common.collect.Sets.FilteredSortedSet java.util.SortedSet<E> tailSet(E)
 NOT_NULL
+com.google.common.collect.Sets.ImprovedAbstractSet boolean removeAll(java.util.Collection<?>) 0
+NOT_NULL
 com.google.common.collect.Sets.ImprovedAbstractSet boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.Sets.PowerSet PowerSet(com.google.common.collect.ImmutableSet<E>) 0
@@ -9868,6 +9940,8 @@ com.google.common.collect.Sets.UnmodifiableNavigableSet delegate
 NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.Iterator<E> descendingIterator()
 NOT_NULL
+com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.NavigableSet<E> descendingSet()
+NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.NavigableSet<E> headSet(E, boolean)
 NOT_NULL
 com.google.common.collect.Sets.UnmodifiableNavigableSet java.util.NavigableSet<E> subSet(E, boolean, E, boolean)
@@ -9877,6 +9951,10 @@ NOT_NULL
 com.google.common.collect.SingletonImmutableList E get(int)
 NOT_NULL
 com.google.common.collect.SingletonImmutableList SingletonImmutableList(E) 0
+NOT_NULL
+com.google.common.collect.SingletonImmutableList T[] toArray(T[])
+NOT_NULL
+com.google.common.collect.SingletonImmutableList T[] toArray(T[]) 0
 NOT_NULL
 com.google.common.collect.SingletonImmutableList boolean contains(java.lang.Object) 0
 NULLABLE
@@ -9917,6 +9995,10 @@ NOT_NULL
 com.google.common.collect.SingletonImmutableMap com.google.common.collect.ImmutableSet<java.util.Map.Entry<K,V>> createEntrySet()
 NOT_NULL
 com.google.common.collect.SingletonImmutableSet SingletonImmutableSet(E) 0
+NOT_NULL
+com.google.common.collect.SingletonImmutableSet T[] toArray(T[])
+NOT_NULL
+com.google.common.collect.SingletonImmutableSet T[] toArray(T[]) 0
 NOT_NULL
 com.google.common.collect.SingletonImmutableSet boolean equals(java.lang.Object) 0
 NULLABLE
@@ -10006,11 +10088,15 @@ com.google.common.collect.SortedIterables java.util.Comparator<? super E> compar
 NOT_NULL
 com.google.common.collect.SortedIterables java.util.Comparator<? super E> comparator(java.util.SortedSet<E>) 0
 NOT_NULL
+com.google.common.collect.SortedLists int binarySearch(java.util.List<? extends E>, E, com.google.common.collect.SortedLists.KeyPresentBehavior, com.google.common.collect.SortedLists.KeyAbsentBehavior) 0
+NOT_NULL
 com.google.common.collect.SortedLists int binarySearch(java.util.List<? extends E>, E, com.google.common.collect.SortedLists.KeyPresentBehavior, com.google.common.collect.SortedLists.KeyAbsentBehavior) 1
 NOT_NULL
 com.google.common.collect.SortedLists int binarySearch(java.util.List<? extends E>, E, com.google.common.collect.SortedLists.KeyPresentBehavior, com.google.common.collect.SortedLists.KeyAbsentBehavior) 2
 NOT_NULL
 com.google.common.collect.SortedLists int binarySearch(java.util.List<? extends E>, E, com.google.common.collect.SortedLists.KeyPresentBehavior, com.google.common.collect.SortedLists.KeyAbsentBehavior) 3
+NOT_NULL
+com.google.common.collect.SortedLists int binarySearch(java.util.List<? extends E>, E, java.util.Comparator<? super E>, com.google.common.collect.SortedLists.KeyPresentBehavior, com.google.common.collect.SortedLists.KeyAbsentBehavior) 0
 NOT_NULL
 com.google.common.collect.SortedLists int binarySearch(java.util.List<? extends E>, E, java.util.Comparator<? super E>, com.google.common.collect.SortedLists.KeyPresentBehavior, com.google.common.collect.SortedLists.KeyAbsentBehavior) 1
 NULLABLE
@@ -10422,6 +10508,10 @@ com.google.common.collect.Synchronized.SynchronizedAsMap java.util.Collection<V>
 NULLABLE
 com.google.common.collect.Synchronized.SynchronizedAsMapEntries SynchronizedAsMapEntries(java.util.Set<java.util.Map.Entry<K,java.util.Collection<V>>>, java.lang.Object) 1
 NULLABLE
+com.google.common.collect.Synchronized.SynchronizedAsMapEntries T[] toArray(T[])
+NOT_NULL
+com.google.common.collect.Synchronized.SynchronizedAsMapEntries T[] toArray(T[]) 0
+NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedAsMapEntries boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 com.google.common.collect.Synchronized.SynchronizedAsMapEntries boolean removeAll(java.util.Collection<?>) 0
@@ -10836,7 +10926,13 @@ com.google.common.collect.Tables.UnmodifiableTable java.util.Map<C,V> row(R) 0
 NULLABLE
 com.google.common.collect.Tables.UnmodifiableTable java.util.Map<R,V> column(C) 0
 NULLABLE
+com.google.common.collect.TransformedImmutableSet T[] toArray(T[])
+NOT_NULL
+com.google.common.collect.TransformedImmutableSet T[] toArray(T[]) 0
+NOT_NULL
 com.google.common.collect.TransformedImmutableSet com.google.common.collect.UnmodifiableIterator<E> iterator()
+NOT_NULL
+com.google.common.collect.TransformedImmutableSet java.lang.Object[] toArray()
 NOT_NULL
 com.google.common.collect.TransformedImmutableSet java.util.Iterator iterator()
 NOT_NULL
@@ -11231,6 +11327,8 @@ NOT_NULL
 com.google.common.eventbus.EventBus isDispatching
 NOT_NULL
 com.google.common.eventbus.EventBus java.util.Set<com.google.common.eventbus.EventHandler> newHandlerSet()
+NOT_NULL
+com.google.common.eventbus.EventBus void dispatch(java.lang.Object, com.google.common.eventbus.EventHandler) 1
 NOT_NULL
 com.google.common.eventbus.EventBus void post(java.lang.Object) 0
 NOT_NULL
@@ -11738,6 +11836,8 @@ com.google.common.io.ByteStreams com.google.common.io.InputSupplier<java.io.Inpu
 NOT_NULL
 com.google.common.io.ByteStreams com.google.common.io.InputSupplier<java.io.InputStream> slice(com.google.common.io.InputSupplier<? extends java.io.InputStream>, long, long) 0
 NOT_NULL
+com.google.common.io.ByteStreams int read(java.io.InputStream, byte[], int, int) 0
+NOT_NULL
 com.google.common.io.ByteStreams long copy(com.google.common.io.InputSupplier<? extends java.io.InputStream>, com.google.common.io.OutputSupplier<? extends java.io.OutputStream>) 0
 NOT_NULL
 com.google.common.io.ByteStreams long copy(com.google.common.io.InputSupplier<? extends java.io.InputStream>, com.google.common.io.OutputSupplier<? extends java.io.OutputStream>) 1
@@ -11756,7 +11856,11 @@ com.google.common.io.ByteStreams long getChecksum(com.google.common.io.InputSupp
 NOT_NULL
 com.google.common.io.ByteStreams long length(com.google.common.io.InputSupplier<? extends java.io.InputStream>) 0
 NOT_NULL
+com.google.common.io.ByteStreams void readFully(java.io.InputStream, byte[]) 0
+NOT_NULL
 com.google.common.io.ByteStreams void readFully(java.io.InputStream, byte[]) 1
+NOT_NULL
+com.google.common.io.ByteStreams void readFully(java.io.InputStream, byte[], int, int) 0
 NOT_NULL
 com.google.common.io.ByteStreams void write(byte[], com.google.common.io.OutputSupplier<? extends java.io.OutputStream>) 0
 NOT_NULL
@@ -11885,6 +11989,8 @@ NOT_NULL
 com.google.common.io.Files T readLines(java.io.File, java.nio.charset.Charset, com.google.common.io.LineProcessor<T>) 1
 NOT_NULL
 com.google.common.io.Files T readLines(java.io.File, java.nio.charset.Charset, com.google.common.io.LineProcessor<T>) 2
+NOT_NULL
+com.google.common.io.Files boolean equal(java.io.File, java.io.File) 0
 NOT_NULL
 com.google.common.io.Files byte[] toByteArray(java.io.File) 0
 NOT_NULL
@@ -12026,6 +12132,10 @@ com.google.common.io.Files.2 java.io.FileOutputStream getOutput()
 NOT_NULL
 com.google.common.io.Files.2 java.lang.Object getOutput()
 NOT_NULL
+com.google.common.io.Flushables void flush(java.io.Flushable, boolean) 0
+NOT_NULL
+com.google.common.io.Flushables void flushQuietly(java.io.Flushable) 0
+NOT_NULL
 com.google.common.io.LimitInputStream LimitInputStream(java.io.InputStream, long) 0
 NOT_NULL
 com.google.common.io.LineReader LineReader(java.lang.Readable) 0
@@ -12110,6 +12220,8 @@ com.google.common.math.BigIntegerMath int log2(java.math.BigInteger, java.math.R
 NOT_NULL
 com.google.common.math.BigIntegerMath java.math.BigInteger listProduct(java.util.List<java.math.BigInteger>) 0
 NOT_NULL
+com.google.common.math.BigIntegerMath java.math.BigInteger listProduct(java.util.List<java.math.BigInteger>, int, int) 0
+NOT_NULL
 com.google.common.math.BigIntegerMath java.math.BigInteger sqrt(java.math.BigInteger, java.math.RoundingMode) 0
 NOT_NULL
 com.google.common.math.BigIntegerMath java.math.BigInteger sqrt(java.math.BigInteger, java.math.RoundingMode) 1
@@ -12125,6 +12237,8 @@ NOT_NULL
 com.google.common.math.DoubleMath EVERY_SIXTEENTH_FACTORIAL
 NOT_NULL
 com.google.common.math.DoubleMath double roundIntermediate(double, java.math.RoundingMode) 1
+NOT_NULL
+com.google.common.math.DoubleMath int log2(double, java.math.RoundingMode) 1
 NOT_NULL
 com.google.common.math.DoubleMath int roundToInt(double, java.math.RoundingMode) 1
 NOT_NULL
@@ -12198,6 +12312,8 @@ com.google.common.net.HostAndPort com.google.common.net.HostAndPort withDefaultP
 NOT_NULL
 com.google.common.net.HostSpecifier boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.net.HostSpecifier boolean isValid(java.lang.String) 0
+NOT_NULL
 com.google.common.net.HostSpecifier com.google.common.net.HostSpecifier from(java.lang.String)
 NOT_NULL
 com.google.common.net.HostSpecifier com.google.common.net.HostSpecifier from(java.lang.String) 0
@@ -12370,6 +12486,8 @@ com.google.common.net.InetAddresses boolean isMaximum(java.net.InetAddress) 0
 NOT_NULL
 com.google.common.net.InetAddresses boolean isTeredoAddress(java.net.Inet6Address) 0
 NOT_NULL
+com.google.common.net.InetAddresses boolean isUriInetAddress(java.lang.String) 0
+NOT_NULL
 com.google.common.net.InetAddresses byte parseOctet(java.lang.String) 0
 NOT_NULL
 com.google.common.net.InetAddresses byte[] ipStringToBytes(java.lang.String)
@@ -12446,10 +12564,16 @@ com.google.common.net.InternetDomainName DOT_REGEX
 NOT_NULL
 com.google.common.net.InternetDomainName DOT_SPLITTER
 NOT_NULL
+com.google.common.net.InternetDomainName InternetDomainName(java.lang.String) 0
+NOT_NULL
 com.google.common.net.InternetDomainName PART_CHAR_MATCHER
 NOT_NULL
 com.google.common.net.InternetDomainName boolean equals(java.lang.Object) 0
 NULLABLE
+com.google.common.net.InternetDomainName boolean isValid(java.lang.String) 0
+NOT_NULL
+com.google.common.net.InternetDomainName boolean isValidLenient(java.lang.String) 0
+NOT_NULL
 com.google.common.net.InternetDomainName boolean matchesWildcardPublicSuffix(java.lang.String) 0
 NOT_NULL
 com.google.common.net.InternetDomainName boolean validatePart(java.lang.String, boolean) 0
@@ -12477,6 +12601,10 @@ NOT_NULL
 com.google.common.net.InternetDomainName com.google.common.net.InternetDomainName publicSuffix()
 NULLABLE
 com.google.common.net.InternetDomainName com.google.common.net.InternetDomainName topPrivateDomain()
+NOT_NULL
+com.google.common.net.InternetDomainName java.lang.String name()
+NOT_NULL
+com.google.common.net.InternetDomainName name
 NOT_NULL
 com.google.common.net.InternetDomainName parts
 NOT_NULL
@@ -12754,13 +12882,21 @@ com.google.common.primitives.Booleans boolean[] toArray(java.util.Collection<jav
 NOT_NULL
 com.google.common.primitives.Booleans boolean[] toArray(java.util.Collection<java.lang.Boolean>) 0
 NOT_NULL
+com.google.common.primitives.Booleans int access$000(boolean[], boolean, int, int) 0
+NOT_NULL
+com.google.common.primitives.Booleans int access$100(boolean[], boolean, int, int) 0
+NOT_NULL
 com.google.common.primitives.Booleans int indexOf(boolean[], boolean) 0
+NOT_NULL
+com.google.common.primitives.Booleans int indexOf(boolean[], boolean, int, int) 0
 NOT_NULL
 com.google.common.primitives.Booleans int indexOf(boolean[], boolean[]) 0
 NOT_NULL
 com.google.common.primitives.Booleans int indexOf(boolean[], boolean[]) 1
 NOT_NULL
 com.google.common.primitives.Booleans int lastIndexOf(boolean[], boolean) 0
+NOT_NULL
+com.google.common.primitives.Booleans int lastIndexOf(boolean[], boolean, int, int) 0
 NOT_NULL
 com.google.common.primitives.Booleans java.lang.String join(java.lang.String, boolean...) 0
 NOT_NULL
@@ -12808,13 +12944,21 @@ com.google.common.primitives.Bytes byte[] toArray(java.util.Collection<? extends
 NOT_NULL
 com.google.common.primitives.Bytes byte[] toArray(java.util.Collection<? extends java.lang.Number>) 0
 NOT_NULL
+com.google.common.primitives.Bytes int access$000(byte[], byte, int, int) 0
+NOT_NULL
+com.google.common.primitives.Bytes int access$100(byte[], byte, int, int) 0
+NOT_NULL
 com.google.common.primitives.Bytes int indexOf(byte[], byte) 0
+NOT_NULL
+com.google.common.primitives.Bytes int indexOf(byte[], byte, int, int) 0
 NOT_NULL
 com.google.common.primitives.Bytes int indexOf(byte[], byte[]) 0
 NOT_NULL
 com.google.common.primitives.Bytes int indexOf(byte[], byte[]) 1
 NOT_NULL
 com.google.common.primitives.Bytes int lastIndexOf(byte[], byte) 0
+NOT_NULL
+com.google.common.primitives.Bytes int lastIndexOf(byte[], byte, int, int) 0
 NOT_NULL
 com.google.common.primitives.Bytes java.util.List<java.lang.Byte> asList(byte...) 0
 NOT_NULL
@@ -12852,13 +12996,21 @@ com.google.common.primitives.Chars char[] toArray(java.util.Collection<java.lang
 NOT_NULL
 com.google.common.primitives.Chars char[] toArray(java.util.Collection<java.lang.Character>) 0
 NOT_NULL
+com.google.common.primitives.Chars int access$000(char[], char, int, int) 0
+NOT_NULL
+com.google.common.primitives.Chars int access$100(char[], char, int, int) 0
+NOT_NULL
 com.google.common.primitives.Chars int indexOf(char[], char) 0
+NOT_NULL
+com.google.common.primitives.Chars int indexOf(char[], char, int, int) 0
 NOT_NULL
 com.google.common.primitives.Chars int indexOf(char[], char[]) 0
 NOT_NULL
 com.google.common.primitives.Chars int indexOf(char[], char[]) 1
 NOT_NULL
 com.google.common.primitives.Chars int lastIndexOf(char[], char) 0
+NOT_NULL
+com.google.common.primitives.Chars int lastIndexOf(char[], char, int, int) 0
 NOT_NULL
 com.google.common.primitives.Chars java.lang.String join(java.lang.String, char...) 0
 NOT_NULL
@@ -12910,13 +13062,21 @@ com.google.common.primitives.Doubles double[] toArray(java.util.Collection<? ext
 NOT_NULL
 com.google.common.primitives.Doubles double[] toArray(java.util.Collection<? extends java.lang.Number>) 0
 NOT_NULL
+com.google.common.primitives.Doubles int access$000(double[], double, int, int) 0
+NOT_NULL
+com.google.common.primitives.Doubles int access$100(double[], double, int, int) 0
+NOT_NULL
 com.google.common.primitives.Doubles int indexOf(double[], double) 0
+NOT_NULL
+com.google.common.primitives.Doubles int indexOf(double[], double, int, int) 0
 NOT_NULL
 com.google.common.primitives.Doubles int indexOf(double[], double[]) 0
 NOT_NULL
 com.google.common.primitives.Doubles int indexOf(double[], double[]) 1
 NOT_NULL
 com.google.common.primitives.Doubles int lastIndexOf(double[], double) 0
+NOT_NULL
+com.google.common.primitives.Doubles int lastIndexOf(double[], double, int, int) 0
 NOT_NULL
 com.google.common.primitives.Doubles java.lang.String join(java.lang.String, double...) 0
 NOT_NULL
@@ -12968,13 +13128,21 @@ com.google.common.primitives.Floats float[] toArray(java.util.Collection<? exten
 NOT_NULL
 com.google.common.primitives.Floats float[] toArray(java.util.Collection<? extends java.lang.Number>) 0
 NOT_NULL
+com.google.common.primitives.Floats int access$000(float[], float, int, int) 0
+NOT_NULL
+com.google.common.primitives.Floats int access$100(float[], float, int, int) 0
+NOT_NULL
 com.google.common.primitives.Floats int indexOf(float[], float) 0
+NOT_NULL
+com.google.common.primitives.Floats int indexOf(float[], float, int, int) 0
 NOT_NULL
 com.google.common.primitives.Floats int indexOf(float[], float[]) 0
 NOT_NULL
 com.google.common.primitives.Floats int indexOf(float[], float[]) 1
 NOT_NULL
 com.google.common.primitives.Floats int lastIndexOf(float[], float) 0
+NOT_NULL
+com.google.common.primitives.Floats int lastIndexOf(float[], float, int, int) 0
 NOT_NULL
 com.google.common.primitives.Floats java.lang.String join(java.lang.String, float...) 0
 NOT_NULL
@@ -13008,15 +13176,23 @@ com.google.common.primitives.Ints boolean contains(int[], int) 0
 NOT_NULL
 com.google.common.primitives.Ints byte[] toByteArray(int)
 NOT_NULL
+com.google.common.primitives.Ints int access$000(int[], int, int, int) 0
+NOT_NULL
+com.google.common.primitives.Ints int access$100(int[], int, int, int) 0
+NOT_NULL
 com.google.common.primitives.Ints int fromByteArray(byte[]) 0
 NOT_NULL
 com.google.common.primitives.Ints int indexOf(int[], int) 0
+NOT_NULL
+com.google.common.primitives.Ints int indexOf(int[], int, int, int) 0
 NOT_NULL
 com.google.common.primitives.Ints int indexOf(int[], int[]) 0
 NOT_NULL
 com.google.common.primitives.Ints int indexOf(int[], int[]) 1
 NOT_NULL
 com.google.common.primitives.Ints int lastIndexOf(int[], int) 0
+NOT_NULL
+com.google.common.primitives.Ints int lastIndexOf(int[], int, int, int) 0
 NOT_NULL
 com.google.common.primitives.Ints int max(int...) 0
 NOT_NULL
@@ -13074,13 +13250,21 @@ com.google.common.primitives.Longs boolean contains(long[], long) 0
 NOT_NULL
 com.google.common.primitives.Longs byte[] toByteArray(long)
 NOT_NULL
+com.google.common.primitives.Longs int access$000(long[], long, int, int) 0
+NOT_NULL
+com.google.common.primitives.Longs int access$100(long[], long, int, int) 0
+NOT_NULL
 com.google.common.primitives.Longs int indexOf(long[], long) 0
+NOT_NULL
+com.google.common.primitives.Longs int indexOf(long[], long, int, int) 0
 NOT_NULL
 com.google.common.primitives.Longs int indexOf(long[], long[]) 0
 NOT_NULL
 com.google.common.primitives.Longs int indexOf(long[], long[]) 1
 NOT_NULL
 com.google.common.primitives.Longs int lastIndexOf(long[], long) 0
+NOT_NULL
+com.google.common.primitives.Longs int lastIndexOf(long[], long, int, int) 0
 NOT_NULL
 com.google.common.primitives.Longs java.lang.String join(java.lang.String, long...) 0
 NOT_NULL
@@ -13154,13 +13338,21 @@ com.google.common.primitives.Shorts boolean contains(short[], short) 0
 NOT_NULL
 com.google.common.primitives.Shorts byte[] toByteArray(short)
 NOT_NULL
+com.google.common.primitives.Shorts int access$000(short[], short, int, int) 0
+NOT_NULL
+com.google.common.primitives.Shorts int access$100(short[], short, int, int) 0
+NOT_NULL
 com.google.common.primitives.Shorts int indexOf(short[], short) 0
+NOT_NULL
+com.google.common.primitives.Shorts int indexOf(short[], short, int, int) 0
 NOT_NULL
 com.google.common.primitives.Shorts int indexOf(short[], short[]) 0
 NOT_NULL
 com.google.common.primitives.Shorts int indexOf(short[], short[]) 1
 NOT_NULL
 com.google.common.primitives.Shorts int lastIndexOf(short[], short) 0
+NOT_NULL
+com.google.common.primitives.Shorts int lastIndexOf(short[], short, int, int) 0
 NOT_NULL
 com.google.common.primitives.Shorts java.lang.String join(java.lang.String, short...) 0
 NOT_NULL

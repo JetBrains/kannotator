@@ -310,7 +310,11 @@ org.objectweb.asm.Frame boolean merge(org.objectweb.asm.ClassWriter, int, int[],
 NOT_NULL
 org.objectweb.asm.Frame boolean merge(org.objectweb.asm.ClassWriter, org.objectweb.asm.Frame, int) 1
 NOT_NULL
+org.objectweb.asm.Frame int init(org.objectweb.asm.ClassWriter, int) 0
+NOT_NULL
 org.objectweb.asm.Frame int type(org.objectweb.asm.ClassWriter, java.lang.String) 1
+NOT_NULL
+org.objectweb.asm.Frame void execute(int, int, org.objectweb.asm.ClassWriter, org.objectweb.asm.Item) 3
 NOT_NULL
 org.objectweb.asm.Frame void initInputFrame(org.objectweb.asm.ClassWriter, int, org.objectweb.asm.Type[], int) 2
 NOT_NULL
@@ -1141,6 +1145,10 @@ NULLABLE
 org.objectweb.asm.commons.RemappingFieldAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)
 NULLABLE
 org.objectweb.asm.commons.RemappingFieldAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean) 0
+NOT_NULL
+org.objectweb.asm.commons.RemappingMethodAdapter java.lang.Object[] remapEntries(int, java.lang.Object[])
+NOT_NULL
+org.objectweb.asm.commons.RemappingMethodAdapter java.lang.Object[] remapEntries(int, java.lang.Object[]) 1
 NOT_NULL
 org.objectweb.asm.commons.RemappingMethodAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)
 NULLABLE
@@ -2016,6 +2024,8 @@ org.objectweb.asm.util.CheckAnnotationAdapter org.objectweb.asm.AnnotationVisito
 NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
+org.objectweb.asm.util.CheckAnnotationAdapter void checkName(java.lang.String) 0
+NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
@@ -2163,6 +2173,10 @@ NOT_NULL
 org.objectweb.asm.util.CheckMethodAdapter void visitFieldInsn(int, java.lang.String, java.lang.String, java.lang.String) 2
 NOT_NULL
 org.objectweb.asm.util.CheckMethodAdapter void visitFieldInsn(int, java.lang.String, java.lang.String, java.lang.String) 3
+NOT_NULL
+org.objectweb.asm.util.CheckMethodAdapter void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[]) 2
+NOT_NULL
+org.objectweb.asm.util.CheckMethodAdapter void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[]) 4
 NOT_NULL
 org.objectweb.asm.util.CheckMethodAdapter void visitInvokeDynamicInsn(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...) 0
 NOT_NULL
@@ -2554,6 +2568,8 @@ org.objectweb.asm.xml.SAXClassAdapter org.objectweb.asm.MethodVisitor visitMetho
 NULLABLE
 org.objectweb.asm.xml.SAXClassAdapter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4
 NULLABLE
+org.objectweb.asm.xml.SAXClassAdapter void appendAccess(int, java.lang.StringBuffer) 1
+NOT_NULL
 org.objectweb.asm.xml.SAXClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
 NULLABLE
 org.objectweb.asm.xml.SAXClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3
