@@ -24,18 +24,22 @@ public class LibraryItemsTreeController() {
         for (table in libraryTables) {
             for (library in table.getLibraries()) {
                 val libraryNode = LibraryCheckTreeNode(library)
+                libraryNode.setChecked(false)
+
                 root.add(libraryNode)
 
                 val classFileRoots = library.getRootProvider().getFiles(OrderRootType.CLASSES)
                 for (classFileRoot in classFileRoots) {
                     if (classFileRoot.getExtension() == "jar") {
-                        libraryNode.add(JarFileCheckTreeNode(classFileRoot));
+                        val jarFileCheckTreeNode = JarFileCheckTreeNode(classFileRoot)
+                        jarFileCheckTreeNode.setChecked(false);
+
+                        libraryNode.add(jarFileCheckTreeNode);
                     }
                 }
 
                 if (libraryNode.getChildCount() == 0) {
                     libraryNode.setEnabled(false)
-                    libraryNode.setChecked(false)
                 }
             }
         }
