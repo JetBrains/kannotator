@@ -39,16 +39,22 @@ import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnota
 import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
 import java.io.StringWriter
 import kotlinlib.sortByToString
+import org.jetbrains.kannotator.index.AnnotationKeyIndex
+import org.jetbrains.kannotator.declarations.MutableAnnotations
+import org.jetbrains.kannotator.index.DeclarationIndex
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
             testName: String,
             conflictFile: File,
+            keyIndex: AnnotationKeyIndex,
             inferredAnnotations: Annotations<A>,
             inferrer: AnnotationInferrer<A>
     ) {
-        val conflictExceptions = loadConflictExceptions(File("testData/inferenceData/integrated/$testName/exceptions.txt"))
-        val conflicts = processAnnotationInferenceConflicts(inferredAnnotations, inferrer, conflictExceptions)
+        val conflictExceptions = loadPositionsOfConflictExceptions(keyIndex, File("testData/inferenceData/integrated/$testName/exceptions.txt"))
+        val conflicts = processAnnotationInferenceConflicts(
+                inferredAnnotations as MutableAnnotations<A>, (inferredAnnotations as AnnotationsImpl<A>).delegate, inferrer, conflictExceptions
+        )
         if (!conflicts.isEmpty()) {
             PrintStream(FileOutputStream(conflictFile)) use {
                 p ->
@@ -62,8 +68,14 @@ class IntegratedInferenceTest : TestCase() {
     }
 
     private fun doInferenceTest(testedJarSubstring: String) {
+        var annotationIndex: AnnotationKeyIndex? = null
+
         val progressMonitor = object : ProgressMonitor() {
             var currentMethod: Method? = null
+
+            override fun annotationIndexLoaded(index: AnnotationKeyIndex) {
+                annotationIndex = index
+            }
 
             override fun totalFields(fieldCount: Int) {
                 println("Total fields: $fieldCount")
@@ -108,7 +120,7 @@ class IntegratedInferenceTest : TestCase() {
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()
 
-            reportConflicts(testName, File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotations, INFERRERS[inferrerKey]!!)
+            reportConflicts(testName, File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotationIndex!!, annotations, INFERRERS[inferrerKey]!!)
 
             val map = TreeMap<String, Any>()
             annotations forEach {

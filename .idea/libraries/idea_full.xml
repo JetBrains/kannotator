@@ -1,8 +1,7 @@
 <component name="libraryTable">
-  <library name="idea">
+  <library name="idea_full">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ideaSDK/lib/openapi.jar!/" />
-      <root url="jar://$PROJECT_DIR$/ideaSDK/lib/util.jar!/" />
+      <root url="file://$PROJECT_DIR$/ideaSDK/lib" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
@@ -209,5 +208,6 @@
       <root url="jar://$PROJECT_DIR$/ideaSDK/sources/sources.zip!/jps/model-impl/testSrc" />
       <root url="jar://$PROJECT_DIR$/ideaSDK/sources/sources.zip!/jps/model-impl/src" />
     </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/ideaSDK/lib" recursive="false" />
   </library>
 </component>

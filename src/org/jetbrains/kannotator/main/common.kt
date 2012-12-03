@@ -39,6 +39,8 @@ import org.objectweb.asm.tree.FieldNode
 import org.jetbrains.kannotator.index.loadMethodParameterNames
 
 open class ProgressMonitor {
+    open fun annotationIndexLoaded(index: AnnotationKeyIndex) {}
+
     open fun totalFields(fieldCount: Int) {}
     open fun valueFieldsProcessingStarted() {}
     open fun valueFieldsProcessingFinished() {}
@@ -207,6 +209,8 @@ fun <K> inferAnnotations(
         methodNode
     }
 
+    progressMonitor.annotationIndexLoaded(declarationIndex)
+
     val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
     val resultingAnnotationsMap = loadedAnnotationsMap.mapValues {entry -> AnnotationsImpl<Any>(entry.value)}
     for (key in inferrers.keySet()) {
@@ -239,6 +243,7 @@ fun <K> inferAnnotations(
         progressMonitor.processingStarted(methods.keySet())
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
+            // Add itself as inferred annotation can produce more annotations
             methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.method}).plus(method)
         }
 
@@ -307,47 +312,57 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
     }
 }
 
-fun loadConflictExceptions(exceptionFile: File): Set<String> {
+fun loadPositionsOfConflictExceptions(
+        keyIndex: AnnotationKeyIndex,
+        exceptionFile: File): Set<AnnotationPosition> {
     return if (exceptionFile.exists() && exceptionFile.canRead()) {
         BufferedReader(FileReader(exceptionFile)) use {br ->
-            br.lineIterator().toSet()
+            val positions = HashSet<AnnotationPosition>()
+            for (key in br.lineIterator()) {
+                val pos = keyIndex.findPositionByAnnotationKeyString(key)
+                if (pos != null) {
+                    positions.add(pos)
+                }
+            }
+            positions
         }
     } else {
-        Collections.emptySet<String>()
+        Collections.emptySet<AnnotationPosition>()
     }
 }
 
 data class AnnotationsConflict<out V>(val position: AnnotationPosition, val expectedValue: V, val actualValue: V)
 
 fun <A: Any> processAnnotationInferenceConflicts(
-        inferredAnnotations: Annotations<A>,
+        inferredAnnotations: MutableAnnotations<A>,
+        existingAnnotations: Annotations<A>?,
         inferrer: AnnotationInferrer<A>,
-        conflictExceptions: Set<String> = Collections.emptySet()
+        positionsOfConflictExceptions: Set<AnnotationPosition> = Collections.emptySet()
 ): List<AnnotationsConflict<A>> {
-    val existingAnnotations = (inferredAnnotations as AnnotationsImpl<A>).delegate
-    if (existingAnnotations != null) {
-        val conflicts = ArrayList<AnnotationsConflict<A>>()
-        val positions = HashSet<AnnotationPosition>()
-        existingAnnotations forEach {
-            position, ann -> positions.add(position)
-        }
-        for (position in positions) {
-            val inferred = inferredAnnotations[position]!!
-            val existing = existingAnnotations[position]!!
-            if (inferred == existing) {
-                continue
-            }
-            if (!inferrer.subsumes(position, existing, inferred)) {
-                if (conflictExceptions.contains(position.toAnnotationKey())) {
-                    inferredAnnotations[position] = existing
-                } else {
-                    conflicts.add(AnnotationsConflict(position, existing, inferred))
-                }
-            }
-        }
-        return conflicts
+    if (existingAnnotations == null) {
+        return Collections.emptyList()
     }
-    return Collections.emptyList()
+
+    val conflicts = ArrayList<AnnotationsConflict<A>>()
+    val positions = HashSet<AnnotationPosition>()
+    existingAnnotations forEach {
+        position, ann -> positions.add(position)
+    }
+    for (position in positions) {
+        val inferred = inferredAnnotations[position]!!
+        val existing = existingAnnotations[position]!!
+        if (inferred == existing) {
+            continue
+        }
+        if (!inferrer.subsumes(position, existing, inferred)) {
+            if (positionsOfConflictExceptions.contains(position)) {
+                inferredAnnotations[position] = existing
+            } else {
+                conflicts.add(AnnotationsConflict(position, existing, inferred))
+            }
+        }
+    }
+    return conflicts
 }
 
 fun buildControlFlowGraphs(methods: Collection<Method>, node: (Method) -> MethodNode): Map<Method, ControlFlowGraph> {
