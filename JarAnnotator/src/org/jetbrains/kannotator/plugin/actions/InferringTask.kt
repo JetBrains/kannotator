@@ -63,7 +63,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
             indicator.setText2("Inferring: 0%");
         }
 
-        override fun processingFinished(methods: Collection<Method>) {
+        override fun processingComponentFinished(methods: Collection<Method>) {
             numberOfProcessedMethods += methods.size
 
             if (numberOfMethods != 0) {

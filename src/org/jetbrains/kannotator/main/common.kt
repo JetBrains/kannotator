@@ -38,10 +38,10 @@ import org.jetbrains.kannotator.index.ClassSource
 open class ProgressMonitor {
     open fun processingStarted() {}
     open fun methodsProcessingStarted(methodCount: Int) {}
-    open fun processingStarted(methods: Collection<Method>) {}
+    open fun processingComponentStarted(methods: Collection<Method>) {}
     open fun processingStepStarted(method: Method) {}
     open fun processingStepFinished(method: Method) {}
-    open fun processingFinished(methods: Collection<Method>) {}
+    open fun processingComponentFinished(methods: Collection<Method>) {}
     open fun processingFinished() {}
 }
 
@@ -199,7 +199,7 @@ fun <K> inferAnnotations(
 
     for (component in components) {
         val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
-        progressMonitor.processingStarted(methods.keySet())
+        progressMonitor.processingComponentStarted(methods.keySet())
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
             // Add itself as inferred annotation can produce more annotations
@@ -222,7 +222,7 @@ fun <K> inferAnnotations(
             )
         }
 
-        progressMonitor.processingFinished(methods.keySet())
+        progressMonitor.processingComponentFinished(methods.keySet())
 
         // We don't need to occupy that memory any more
         for (functionNode in component) {
