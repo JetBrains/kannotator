@@ -39,7 +39,7 @@ class FunDependencyGraphTest {
     }
 
     Test fun dependOnConstructorBecauseOfFields() {
-        doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "funDependency.dependOnConstructorBecauseOfFields.dependOnConstructorBecauseOfFields")
+        doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
     }
 
     fun doTest(expectedResultPath: String, vararg canonicalNames: String) {
