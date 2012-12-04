@@ -22,32 +22,32 @@ class TopologicalSortTest {
 
     Test fun callDependencyForNonAnnotativeMethod() {
         doTest("callDependencyForNonAnnotativeMethod/callDependencyForNonAnnotativeMethod.sorted.txt",
-                "fundependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod")
+                "funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod")
     }
 
     Test fun dependOnConstructorBecauseOfFields() {
         doTest("dependOnConstructorBecauseOfFields/DependOnConstructorBecauseOfFields.sorted.txt",
-                "fundependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
+                "funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
     }
 
     Test fun funInDifferentClassesTest() {
-        doTest("funInDifferentClasses/funInDifferentClasses.sorted.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
+        doTest("funInDifferentClasses/funInDifferentClasses.sorted.txt", "funDependency.funInDifferentClasses.First", "funDependency.funInDifferentClasses.Second")
     }
 
     Test fun multiplyInvokeOfMethod() {
-        doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.sorted.txt", "fundependency.multiplyInvokeOfMethod.First", "fundependency.multiplyInvokeOfMethod.Second")
+        doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.sorted.txt", "funDependency.multiplyInvokeOfMethod.First", "funDependency.multiplyInvokeOfMethod.Second")
     }
 
     Test fun noAnnotatedMethods() {
-        doTest("noAnnotatedMethods/noAnnotatedMethods.sorted.txt", "fundependency.noAnnotatedMethods.First")
+        doTest("noAnnotatedMethods/noAnnotatedMethods.sorted.txt", "funDependency.noAnnotatedMethods.First")
     }
 
     Test fun recursiveFunTest() {
-        doTest("recursiveFun/recursiveFun.sorted.txt", "fundependency.recursiveFun.First", "fundependency.recursiveFun.Second")
+        doTest("recursiveFun/recursiveFun.sorted.txt", "funDependency.recursiveFun.First", "funDependency.recursiveFun.Second")
     }
 
     Test fun simpleTest() {
-        doTest("simple/simple.sorted.txt", "fundependency.simple.Simple")
+        doTest("simple/simple.sorted.txt", "funDependency.simple.Simple")
     }
 
     Test fun multipleComponents() {
