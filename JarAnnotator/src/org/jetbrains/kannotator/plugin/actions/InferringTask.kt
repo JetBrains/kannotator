@@ -27,6 +27,9 @@ import org.jetbrains.kannotator.main.MUTABILITY_INFERRER_OBJECT
 import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.main.inferAnnotations
+import com.intellij.ide.actions.CloseTabToolbarAction
+import com.intellij.openapi.actionSystem.AnActionEvent
+import com.intellij.ui.content.tabs.PinToolwindowTabAction
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -131,13 +134,28 @@ public class InferringTask(project: Project, val taskParams: InferringTaskParams
     }
 
     private fun createMessageOutput() : JPanel {
+        val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
+
         fun createToolbar() : ActionToolbar {
             val group = DefaultActionGroup()
-            // TODO: Add close and pin action to toolbar
+            group.add(object: CloseTabToolbarAction() {
+                public override fun actionPerformed(e: AnActionEvent?) {
+                    val messageView = MessageView.SERVICE.getInstance(getProject())!!
+                    val contents = messageView.getContentManager()!!.getContents()
+                    for (content in contents) {
+                        if (content.getComponent() == simpleToolWindowPanel) {
+                            messageView.getContentManager()!!.removeContent(content, true)
+                            return
+                        }
+                    }
+                }
+            })
+
+            group.add(PinToolwindowTabAction.getPinAction())
+
             return ActionManager.getInstance()!!.createActionToolbar(ActionPlaces.UNKNOWN, group, false)
         }
 
-        val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
         simpleToolWindowPanel.add(PanelWithText(successMessage))
         simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
 
