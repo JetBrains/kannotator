@@ -1,11 +1,16 @@
 package org.jetbrains.kannotator.plugin.actions.dialog;
 
+import com.intellij.ide.util.projectWizard.ProjectWizardUtil;
+import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.roots.libraries.Library;
 import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.Messages;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
+import com.intellij.openapi.util.Computable;
 import com.intellij.openapi.util.io.FileUtil;
+import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.refactoring.RefactoringBundle;
 import com.intellij.ui.DocumentAdapter;
@@ -115,6 +120,34 @@ public class InferAnnotationDialog extends DialogWrapper {
         }
 
         return configuredOutputPath;
+    }
+
+    @Override
+    protected void doOKAction() {
+        if (ProjectWizardUtil.createDirectoryIfNotExists("Output directory", getConfiguredOutputPath(), true)
+                && notifyAboutNonEmptyOutput()) {
+            super.doOKAction();
+        }
+    }
+
+    protected boolean notifyAboutNonEmptyOutput() {
+        final VirtualFile baseDir = ApplicationManager.getApplication().runWriteAction(new Computable<VirtualFile>() {
+            public VirtualFile compute() {
+                return LocalFileSystem.getInstance().refreshAndFindFileByPath(getConfiguredOutputPath());
+            }
+        });
+
+        baseDir.refresh(false, true);
+
+        if (baseDir.getChildren().length > 0) {
+            int rc = Messages.showYesNoDialog(project,
+                    "The directory '" + getConfiguredOutputPath() + "' is not empty.\n" +
+                            "Inferrer will rewrite existing files in conflict situation. Do you want to proceed?",
+                    "Output Directory Is Not Empty", Messages.getWarningIcon());
+            return (rc == 0);
+        }
+
+        return true;
     }
 
     @KotlinSignature("fun getCheckedLibToJarFiles() : Map<Library, Set<VirtualFile>>")
