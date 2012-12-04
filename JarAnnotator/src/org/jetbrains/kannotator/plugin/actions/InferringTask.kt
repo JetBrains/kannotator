@@ -1,20 +1,22 @@
 package org.jetbrains.kannotator.plugin.actions
 
-import com.google.common.collect.Multimap
-import com.intellij.openapi.actionSystem.ActionManager
-import com.intellij.openapi.actionSystem.ActionPlaces
-import com.intellij.openapi.actionSystem.ActionToolbar
-import com.intellij.openapi.actionSystem.DefaultActionGroup
+import com.intellij.ide.actions.CloseTabToolbarAction
+import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task.Backgroundable
 import com.intellij.openapi.project.Project
+import com.intellij.openapi.roots.AnnotationOrderRootType
 import com.intellij.openapi.roots.libraries.Library
 import com.intellij.openapi.ui.PanelWithText
 import com.intellij.openapi.ui.SimpleToolWindowPanel
+import com.intellij.openapi.util.Disposer
+import com.intellij.openapi.vfs.LocalFileSystem
+import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.wm.ToolWindowId
 import com.intellij.openapi.wm.ToolWindowManager
 import com.intellij.ui.content.ContentFactory
 import com.intellij.ui.content.MessageView
+import com.intellij.ui.content.tabs.PinToolwindowTabAction
 import com.intellij.util.ContentsUtil
 import java.io.File
 import java.util.ArrayList
@@ -22,14 +24,9 @@ import java.util.HashMap
 import javax.swing.JPanel
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.main.AnnotationInferrer
-import org.jetbrains.kannotator.main.MUTABILITY_INFERRER_OBJECT
-import org.jetbrains.kannotator.main.NullabilityInferrer
-import org.jetbrains.kannotator.main.ProgressMonitor
-import org.jetbrains.kannotator.main.inferAnnotations
-import com.intellij.ide.actions.CloseTabToolbarAction
-import com.intellij.openapi.actionSystem.AnActionEvent
-import com.intellij.ui.content.tabs.PinToolwindowTabAction
+import org.jetbrains.kannotator.main.*
+import org.jetbrains.kannotator.plugin.ideaUtils.runComputableInsideWriteAction
+import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -37,7 +34,7 @@ data class InferringTaskParams(
         val outputPath: String,
         val libJarFiles: Map<Library, Set<File>>)
 
-public class InferringTask(project: Project, val taskParams: InferringTaskParams) : Backgroundable(project, "Infer Annotations", true) {
+public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) : Backgroundable(taskProject, "Infer Annotations", true) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
@@ -87,6 +84,8 @@ public class InferringTask(project: Project, val taskParams: InferringTaskParams
         val inferringProgressIndicator = InferringProgressIndicator(indicator, taskParams)
 
         for ((lib, files) in taskParams.libJarFiles) {
+            val libOutputDir = createOutputDirectory(lib)
+
             for (file in files) {
                 inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
 
@@ -107,10 +106,15 @@ public class InferringTask(project: Project, val taskParams: InferringTaskParams
                             false)
 
                     // TODO: Store collected annotations
+                } catch (e: OutOfMemoryError) {
+                    // Don't wrap OutOfMemoryError
+                    throw e
                 } catch (e: Throwable) {
                     throw InferringError(file, e)
                 }
             }
+
+            assignAnnotationsToLibrary(lib, libOutputDir)
         }
     }
 
@@ -160,5 +164,37 @@ public class InferringTask(project: Project, val taskParams: InferringTaskParams
         simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
 
         return simpleToolWindowPanel
+    }
+
+    private fun createOutputDirectory(library: Library): VirtualFile {
+        return runComputableInsideWriteAction {
+            val outputDirectory = checkNotNull(LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(taskParams.outputPath),
+                    "Output folder ${taskParams.outputPath} is expected to be created before activating task")
+
+            val libraryDirName = library.getName() ?: "no-name"
+
+            // Drop directory if it already exist
+            outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+
+            outputDirectory.createChildDirectory(this@InferringTask, libraryDirName)
+        }
+    }
+
+    private fun assignAnnotationsToLibrary(library: Library, annotationRootDir: VirtualFile) {
+        runInsideWriteAction {
+            val modifiableModel = library.getModifiableModel()
+            try {
+                for (annotationRoot in modifiableModel.getFiles(AnnotationOrderRootType.getInstance())) {
+                    modifiableModel.removeRoot(annotationRoot.getUrl(), AnnotationOrderRootType.getInstance())
+                }
+
+                modifiableModel.addRoot(annotationRootDir, AnnotationOrderRootType.getInstance())
+                modifiableModel.commit()
+            }
+            catch (error: Throwable) {
+                Disposer.dispose(modifiableModel)
+                throw error
+            }
+        }
     }
 }
