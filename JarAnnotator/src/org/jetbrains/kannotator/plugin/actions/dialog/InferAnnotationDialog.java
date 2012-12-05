@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.plugin.actions.dialog;
 
 import com.intellij.openapi.fileChooser.FileChooserDescriptorFactory;
 import com.intellij.openapi.project.Project;
+import com.intellij.openapi.roots.libraries.Library;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.ui.TextFieldWithBrowseButton;
 import com.intellij.openapi.util.io.FileUtil;
@@ -19,7 +20,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import java.awt.*;
 import java.io.File;
-import java.util.Collection;
+import java.util.*;
 
 public class InferAnnotationDialog extends DialogWrapper {
     JPanel contentPanel;
@@ -116,9 +117,10 @@ public class InferAnnotationDialog extends DialogWrapper {
         return configuredOutputPath;
     }
 
-    @KotlinSignature("fun getCheckedJarFiles() : Collection<VirtualFile>")
-    public Collection<VirtualFile> getCheckedJarFiles() {
-        return libraryTree.getController().getCheckedJarFiles();
+    @KotlinSignature("fun getCheckedLibToJarFiles() : Map<Library, Set<VirtualFile>>")
+    public Map<Library, Set<VirtualFile>> getCheckedLibToJarFiles() {
+        //noinspection unchecked
+        return (Map) libraryTree.getController().getCheckedLibToJarFiles();
     }
 
     public boolean shouldInferNullabilityAnnotations() {

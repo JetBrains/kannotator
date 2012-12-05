@@ -32,34 +32,30 @@ data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
         val inferKotlinAnnotations: Boolean,
         val outputPath: String,
-        val jarFiles: Collection<File>)
+        val libJarFiles: Map<Library, Set<File>>)
 
 public class InferringTask(project: Project, val taskParams: InferringTaskParams) : Backgroundable(project, "Infer Annotations", true) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
 
-    public class InferringError(params : InferringTaskParams, cause: Throwable?):
-            Throwable("Exception during inferrence in task ${params}", cause)
+    public class InferringError(file: File, cause: Throwable?):
+            Throwable("Exception during inferrence on file ${file.getName()}", cause)
 
     class InferringProgressIndicator(val indicator: ProgressIndicator, params: InferringTaskParams): ProgressMonitor() {
+        val totalAmountOfJars: Int = params.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
+        var numberOfJarsFinished: Int = 0
         var numberOfMethods = 0
         var numberOfProcessedMethods = 0
 
-        {
-            fun generateProgressMessage(jarFiles: Collection<File>): String {
-                if (jarFiles.size == 1) {
-                    return "Inferring annotation for ${jarFiles.first().getName()}"
-                }
-
-                return "Inferring annotation for ${jarFiles.size} jar fiels"
-            }
-
-            indicator.setText(generateProgressMessage(params.jarFiles));
+        fun startJarProcessing(fileName: String, libraryName: String) {
+            indicator.setText("Inferring for $fileName in $libraryName library. File: ${numberOfJarsFinished + 1} / $totalAmountOfJars.");
         }
 
         override fun processingStarted() {
             indicator.setText2("Initializing...");
+            numberOfMethods = 0
+            numberOfProcessedMethods = 0
         }
 
         override fun methodsProcessingStarted(methodCount: Int) {
@@ -78,31 +74,40 @@ public class InferringTask(project: Project, val taskParams: InferringTaskParams
                 indicator.setText2("Inferring: 100%");
             }
         }
+
+        override fun processingFinished() {
+            numberOfJarsFinished++
+        }
     }
 
     override fun run(indicator: ProgressIndicator) {
-        val inferrerMap = HashMap<String, AnnotationInferrer<Any>>()
-        if (taskParams.inferNullabilityAnnotations) {
-            inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any>
-        }
-        if (taskParams.inferKotlinAnnotations) {
-            inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any>
-        }
+        val inferringProgressIndicator = InferringProgressIndicator(indicator, taskParams)
 
-        try {
-            // TODO: Add existing annotations
-            inferAnnotations(
-                    FileBasedClassSource(taskParams.jarFiles), ArrayList<File>(),
-                    inferrerMap,
-                    InferringProgressIndicator(indicator, taskParams),
-                    false)
+        for ((lib, files) in taskParams.libJarFiles) {
+            for (file in files) {
+                inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
 
-            // TODO: Store collected annotations
+                try {
+                    val inferrerMap = HashMap<String, AnnotationInferrer<Any>>()
+                    if (taskParams.inferNullabilityAnnotations) {
+                        inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any>
+                    }
+                    if (taskParams.inferKotlinAnnotations) {
+                        inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any>
+                    }
 
-            val fileNames = taskParams.jarFiles.map { it.getName() }
-            successMessage = "Inferring was successfully fineshed for files: $fileNames."
-        } catch (e: Throwable) {
-            throw InferringError(taskParams, e)
+                    // TODO: Add existing annotations from dependent libraries
+                    inferAnnotations(
+                            FileBasedClassSource(arrayList(file)), ArrayList<File>(),
+                            inferrerMap,
+                            inferringProgressIndicator,
+                            false)
+
+                    // TODO: Store collected annotations
+                } catch (e: Throwable) {
+                    throw InferringError(file, e)
+                }
+            }
         }
     }
 

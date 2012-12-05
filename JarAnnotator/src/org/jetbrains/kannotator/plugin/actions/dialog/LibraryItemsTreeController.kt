@@ -2,12 +2,14 @@ package org.jetbrains.kannotator.plugin.actions.dialog
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.OrderRootType
+import com.intellij.openapi.roots.libraries.Library
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.ui.CheckboxTree
 import com.intellij.ui.CheckedTreeNode
-import com.intellij.ui.treeStructure.Tree.NodeFilter
 import com.intellij.util.ui.classpath.ChooseLibrariesFromTablesDialog
 import com.intellij.util.ui.tree.TreeUtil
+import java.util.HashMap
+import java.util.LinkedHashSet
 import javax.swing.tree.DefaultTreeModel
 import kotlinlib.LazyValue
 
@@ -48,7 +50,16 @@ public class LibraryItemsTreeController() {
         TreeUtil.expandAll(initializedTreeView);
     }
 
-    public fun getCheckedJarFiles(): Collection<VirtualFile> {
-        return initializedTree.get().getCheckedNodes(javaClass<VirtualFile>(), null : NodeFilter<VirtualFile>?).toList()
+    public fun getCheckedLibToJarFiles(): Map<Library, Set<VirtualFile>> {
+        val checkedJarNodes = initializedTree.get().getCheckedNodesByNodeType(javaClass<JarFileCheckTreeNode>())
+
+        val resultLibToJars = HashMap<Library, MutableSet<VirtualFile>>()
+
+        for (jarNode in checkedJarNodes) {
+            val libraryCheckTreeNode = jarNode.getParent()!! as LibraryCheckTreeNode
+            resultLibToJars.getOrPut(libraryCheckTreeNode.library, { LinkedHashSet() }).add(jarNode.jarFile)
+        }
+
+        return resultLibToJars
     }
 }
