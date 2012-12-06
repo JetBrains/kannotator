@@ -6,27 +6,29 @@ import kotlinlib.buildString
 import kotlinlib.println
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 
-fun writeAnnotations(writer: Writer, annotations: Collection<Pair<AnnotationPosition, AnnotationData>>) {
+fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
     val printer = XmlPrinter(sb)
     printer.openTag("root")
     printer.pushIndent()
-    for ((typePosition, annotationData) in annotations) {
+    for ((typePosition, annotationDatas) in annotations) {
         printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
         printer.pushIndent()
-        if (annotationData.attributes.size() < 1) {
-            printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
-        } else {
-            printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
-            for ((name, value) in annotationData.attributes) {
-                val attributesMap = LinkedHashMap<String, String>()
-                attributesMap.put("name", name)
-                attributesMap.put("val", value)
-                printer.pushIndent()
-                printer.openTag("val", attributesMap, true, '"')
-                printer.popIndent()
+        for (annotationData in annotationDatas) {
+            if (annotationData.attributes.size() < 1) {
+                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
+            } else {
+                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
+                for ((name, value) in annotationData.attributes) {
+                    val attributesMap = LinkedHashMap<String, String>()
+                    attributesMap.put("name", name)
+                    attributesMap.put("val", value)
+                    printer.pushIndent()
+                    printer.openTag("val", attributesMap, true, '"')
+                    printer.popIndent()
+                }
+                printer.closeTag("annotation")
             }
-            printer.closeTag("annotation")
         }
         printer.popIndent()
         printer.closeTag("item")
