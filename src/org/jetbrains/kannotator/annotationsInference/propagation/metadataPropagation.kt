@@ -35,7 +35,10 @@ fun propagateMetadata<A>(
         }
     }
 
-    val leafMethods = classifiedMethods.getOrThrow("leaf", "No leaf methods. Can't be: no loops are possible")
+    val leafMethods = classifiedMethods["leaf"]
+    if (leafMethods == null) {
+        return result
+    }
 
     val allMethods = graph.nodes.map{ n -> n.method }.toSet()
     fun assertAllVisited(visitedMethods: Collection<Method>) {
