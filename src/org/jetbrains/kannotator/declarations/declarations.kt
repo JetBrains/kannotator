@@ -86,9 +86,19 @@ private fun defaultMethodParameterNames(method: Method): List<String>
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
 
-fun ClassMember.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
+fun Access.isStatic(): Boolean = has(Opcodes.ACC_STATIC)
+fun Access.isFinal(): Boolean = has(Opcodes.ACC_FINAL)
+fun Access.isPrivate(): Boolean = has(Opcodes.ACC_PRIVATE)
+fun Access.isProtected(): Boolean = has(Opcodes.ACC_PROTECTED)
+fun Access.isPublic(): Boolean = has(Opcodes.ACC_PUBLIC)
+fun Access.isPublicOrProtected(): Boolean = isPublic() || isProtected()
 
-fun ClassMember.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
+fun ClassMember.isStatic(): Boolean = access.isStatic()
+fun ClassMember.isFinal(): Boolean = access.isFinal()
+fun ClassMember.isPublicOrProtected(): Boolean = access.isPublicOrProtected()
+fun ClassMember.isPrivate(): Boolean = access.isPrivate()
+
+fun ClassDeclaration.isPublic(): Boolean = access.isPublic()
 
 fun Method.isConstructor(): Boolean = name == "<init>"
 
@@ -154,6 +164,8 @@ data class ClassName private (val internal: String) {
     }
 }
 
+data class ClassDeclaration(val className: ClassName, val access: Access)
+
 val ClassName.canonicalName: String
     get() = internal.internalNameToCanonical()
 
@@ -205,3 +217,9 @@ data class Field(
 }
 
 fun Field.getType(): Type = Type.getReturnType(desc)
+
+fun ClassMember.getInternalPackageName(): String {
+    val className = declaringClass.internal
+    val delimiter = className.lastIndexOf('/')
+    return if (delimiter >= 0) className.substring(0, delimiter) else ""
+}
