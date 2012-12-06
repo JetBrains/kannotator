@@ -5,7 +5,7 @@ import java.util.LinkedList
 import java.util.HashSet
 import kotlinlib.topologicallySort
 
-fun FunDependencyGraph.getTopologicallySortedStronglyConnectedComponents(): List<Set<FunctionNode>> {
+fun <A> FunDependencyGraph<A>.getTopologicallySortedStronglyConnectedComponents(): List<Set<FunctionNode<A>>> {
     val sccFinder = SCCFinder(this, { g -> g.functions }, { m -> m.outgoingEdges.map{ it.to } })
     val components = sccFinder.getAllComponents()
 

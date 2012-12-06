@@ -9,6 +9,7 @@ import org.junit.Test
 import util.ClassPathDeclarationIndex
 import util.ClassesFromClassPath
 import util.assertEqualsOrCreate
+import org.jetbrains.kannotator.declarations.Method
 
 private val PATH = "testData/funDependency/"
 
@@ -46,9 +47,9 @@ class FunDependencyGraphTest {
         val classSource = ClassesFromClassPath(*canonicalNames)
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
 
-        val functionNodeComparator = object : Comparator<FunctionNode> {
-            public override fun compare(o1: FunctionNode?, o2: FunctionNode?): Int {
-                return o1?.method.toString().compareTo(o2?.method.toString())
+        val functionNodeComparator = object : Comparator<FunctionNode<Method>> {
+            public override fun compare(o1: FunctionNode<Method>?, o2: FunctionNode<Method>?): Int {
+                return o1?.data.toString().compareTo(o2?.data.toString())
             }
 
             public override fun equals(obj: Any?): Boolean {
@@ -74,8 +75,8 @@ class FunDependencyGraphTest {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
-    fun printFunctionNode(sb: StringBuilder, node: FunctionNode) {
-        sb.println(node.method)
+    fun printFunctionNode(sb: StringBuilder, node: FunctionNode<Method>) {
+        sb.println(node.data)
         if (node.outgoingEdges.size() > 0) sb.println("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {
             sb.println("        $edge")

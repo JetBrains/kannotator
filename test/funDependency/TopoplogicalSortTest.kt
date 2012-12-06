@@ -14,7 +14,7 @@ class TopologicalSortTest {
     fun doTest(expectedFileName: String, vararg canonicalNames: String) {
         val methodGraph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, ClassesFromClassPath(*canonicalNames))
         val components = methodGraph.getTopologicallySortedStronglyConnectedComponents()
-        val actual = components.map { it.map {n -> n.method.toString()}.toSortedList().join("\n", "", "\n===========\n") }.join("\n")
+        val actual = components.map { it.map {n -> n.data.toString()}.toSortedList().join("\n", "", "\n===========\n") }.join("\n")
         val expectedFile = File("testData/funDependency/" + expectedFileName)
 
         assertEqualsOrCreate(expectedFile, actual)

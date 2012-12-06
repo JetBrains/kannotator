@@ -14,9 +14,10 @@ import org.jetbrains.kannotator.util.processJar
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
+import org.jetbrains.kannotator.declarations.Method
 
-fun FunDependencyGraph.toJungGraph(): DirectedSparseMultigraph<FunctionNode, FunDependencyEdge> {
-    val jungGraph = DirectedSparseMultigraph<FunctionNode, FunDependencyEdge>()
+fun <A> FunDependencyGraph<A>.toJungGraph(): DirectedSparseMultigraph<FunctionNode<A>, FunDependencyEdge<A>> {
+    val jungGraph = DirectedSparseMultigraph<FunctionNode<A>, FunDependencyEdge<A>>()
     for (i in this.functions) {
         for (e in i.outgoingEdges) {
             jungGraph.addEdge(e, e.from, e.to, EdgeType.DIRECTED)
@@ -30,10 +31,10 @@ fun main(args: Array<String>) {
 
     val classSource = FileBasedClassSource(arrayList(file))
     val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
-    displayJungGraph<FunctionNode, FunDependencyEdge>(
+    displayJungGraph<FunctionNode<Method>, FunDependencyEdge<Method>>(
             graph.toJungGraph(),
-            object : Transformer<FunctionNode, String> {
-                public override fun transform(functionNode: FunctionNode): String = functionNode.method.toString()
+            object : Transformer<FunctionNode<Method>, String> {
+                public override fun transform(functionNode: FunctionNode<Method>): String = functionNode.data.toString()
             },
             null
     )

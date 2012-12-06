@@ -5,38 +5,38 @@ import org.jetbrains.kannotator.declarations.Method
 import java.util.LinkedHashSet
 import java.util.LinkedHashMap
 
-public trait FunDependencyGraph {
-    val functions: List<FunctionNode>
-    val noOutgoingNodes: List<FunctionNode>
+public trait FunDependencyGraph<A> {
+    val functions: List<FunctionNode<A>>
+    val noOutgoingNodes: List<FunctionNode<A>>
 }
 
-public trait FunDependencyEdge {
-    val from: FunctionNode
-    val to: FunctionNode
+public trait FunDependencyEdge<A> {
+    val from: FunctionNode<A>
+    val to: FunctionNode<A>
 }
 
-public trait FunctionNode {
-    val incomingEdges: Collection<FunDependencyEdge>
-    val outgoingEdges: Collection<FunDependencyEdge>
-    val method: Method
+public trait FunctionNode<A> {
+    val incomingEdges: Collection<FunDependencyEdge<A>>
+    val outgoingEdges: Collection<FunDependencyEdge<A>>
+    val data: A
 }
 
-class FunDependencyGraphImpl : FunDependencyGraph {
-    override val noOutgoingNodes: List<FunctionNode> get() = noOutgoingNodesSet.toList()
-    override val functions: List<FunctionNode> get() = nodes.values().toList()
+class FunDependencyGraphImpl<A> : FunDependencyGraph<A> {
+    override val noOutgoingNodes: List<FunctionNode<A>> get() = noOutgoingNodesSet.toList()
+    override val functions: List<FunctionNode<A>> get() = nodes.values().toList()
 
-    private val noOutgoingNodesSet = LinkedHashSet<FunctionNode>()
-    private val nodes = LinkedHashMap<Method, FunctionNodeImpl>()
+    private val noOutgoingNodesSet = LinkedHashSet<FunctionNode<A>>()
+    private val nodes = LinkedHashMap<A, FunctionNodeImpl<A>>()
 
-    fun getOrCreateNode(method : Method) : FunctionNodeImpl {
+    fun getOrCreateNode(method : A) : FunctionNodeImpl<A> {
         return nodes.getOrPut(method, {
-            val funNode = FunctionNodeImpl(method)
+            val funNode = FunctionNodeImpl<A>(method)
             noOutgoingNodesSet.add(funNode)
             funNode
         })
     }
 
-    fun createEdge(from: FunctionNodeImpl, to: FunctionNodeImpl, debugName: String? = null) : FunDependencyEdgeImpl {
+    fun createEdge(from: FunctionNodeImpl<A>, to: FunctionNodeImpl<A>, debugName: String? = null) : FunDependencyEdgeImpl<A> {
         val edge = FunDependencyEdgeImpl(from, to, debugName)
 
         from.outgoingEdges.add(edge)
@@ -48,13 +48,13 @@ class FunDependencyGraphImpl : FunDependencyGraph {
     }
 }
 
-class FunDependencyEdgeImpl(override val from: FunctionNode,
-                            override val to: FunctionNode,
-                            val debugName: String? = null): FunDependencyEdge {
+class FunDependencyEdgeImpl<A>(override val from: FunctionNode<A>,
+                            override val to: FunctionNode<A>,
+                            val debugName: String? = null): FunDependencyEdge<A> {
 
     fun toString(): String {
         val prefix = if (debugName != null) debugName + " " else ""
-        return "${prefix}${from.method} -> ${to.method}"
+        return "${prefix}${from.data} -> ${to.data}"
     }
 
     fun hashCode(): Int {
@@ -62,18 +62,18 @@ class FunDependencyEdgeImpl(override val from: FunctionNode,
     }
 
     public fun equals(obj: Any?): Boolean {
-        if (obj is FunDependencyEdge) {
+        if (obj is FunDependencyEdge<*>) {
             return from == obj.from && to == obj.to
         }
         return false
     }
 }
 
-class FunctionNodeImpl(override val method: Method): FunctionNode {
-    override val outgoingEdges: MutableCollection<FunDependencyEdge> = LinkedHashSet()
-    override val incomingEdges: MutableCollection<FunDependencyEdge> = LinkedHashSet()
+class FunctionNodeImpl<A>(override val data: A): FunctionNode<A> {
+    override val outgoingEdges: MutableCollection<FunDependencyEdge<A>> = LinkedHashSet()
+    override val incomingEdges: MutableCollection<FunDependencyEdge<A>> = LinkedHashSet()
 
     fun toString(): String {
-        return "${method} in$incomingEdges out$outgoingEdges"
+        return "${data} in$incomingEdges out$outgoingEdges"
     }
 }
