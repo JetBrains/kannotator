@@ -290,8 +290,7 @@ public class ValueNullabilityMap(
         }
         return when (key) {
             builder.NULL_VALUE -> NULL
-            builder.PRIMITIVE_VALUE_SIZE_1, builder.PRIMITIVE_VALUE_SIZE_2 ->
-                throw IllegalStateException("trying to get nullabilty info for primitive")
+            builder.PRIMITIVE_VALUE_SIZE_1, builder.PRIMITIVE_VALUE_SIZE_2 -> CONFLICT
             else -> NOT_NULL // this is either "this" or caught exception
         }
     }
