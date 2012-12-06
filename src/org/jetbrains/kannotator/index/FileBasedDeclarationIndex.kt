@@ -25,7 +25,7 @@ trait ClassSource {
 
 class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
-        val className: ClassName,
+        val classDecl: ClassDeclaration,
         val methodsById: Map<MethodId, Method>,
         val methodsByName: Map<String, Collection<Method>>,
         val fieldsById: Map<FieldId, Field>
@@ -60,10 +60,14 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
                 }
             }, 0);
 
-            val classData = ClassData(className, methodsById, methodsByNameForAnnotationKey, fieldsById)
+            val classData = ClassData(ClassDeclaration(className, Access(reader.getAccess())), methodsById, methodsByNameForAnnotationKey, fieldsById)
             classes[className] = classData
             classesByCanonicalName.getOrPut(className.canonicalName, { HashSet() }).add(classData)
         }
+    }
+
+    override fun findClass(className: ClassName): ClassDeclaration? {
+        return classes[className]?.classDecl
     }
 
     override fun findMethod(owner: ClassName, name: String, desc: String): Method? {
