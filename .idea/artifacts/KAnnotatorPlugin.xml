@@ -3,10 +3,10 @@
     <output-path>$PROJECT_DIR$/out/artifacts/KAnnotatorPlugin</output-path>
     <root id="root">
       <element id="directory" name="lib">
-        <element id="archive" name="jar-annotator-plugin.jar">
-          <element id="module-output" name="JarAnnotator" />
+        <element id="archive" name="kannotator-plugin.jar">
+          <element id="module-output" name="plugin" />
           <element id="directory" name="META-INF">
-            <element id="dir-copy" path="$PROJECT_DIR$/JarAnnotator/META-INF" />
+            <element id="dir-copy" path="$PROJECT_DIR$/plugin/META-INF" />
           </element>
           <element id="module-output" name="kannotator" />
         </element>
