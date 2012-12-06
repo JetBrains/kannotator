@@ -10,7 +10,7 @@ import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabiltyLattice
+import org.jetbrains.kannotator.annotationsInference.mutability.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 
 class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation> {
@@ -42,13 +42,7 @@ class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation> {
         return inferResult.inferredAnnotations
     }
 
-
-    override fun subsumes(
-            position: AnnotationPosition,
-            parentValue: NullabilityAnnotation,
-            childValue: NullabilityAnnotation): Boolean {
-        return NullabiltyLattice.subsumes(position.relativePosition, parentValue, childValue)
-    }
+    override val lattice: AnnotationLattice<NullabilityAnnotation> = NullabiltyLattice
 }
 
 object MUTABILITY_INFERRER: AnnotationInferrer<MutabilityAnnotation> {
@@ -68,8 +62,5 @@ object MUTABILITY_INFERRER: AnnotationInferrer<MutabilityAnnotation> {
         return buildMutabilityAnnotations(cfGraph, PositionsForMethod(method), declarationIndex, annotations)
     }
 
-
-    override fun subsumes(position: AnnotationPosition, parentValue: MutabilityAnnotation, childValue: MutabilityAnnotation): Boolean {
-        return MutabiltyLattice.subsumes(position.relativePosition, parentValue, childValue)
-    }
+    override val lattice: AnnotationLattice<MutabilityAnnotation> = MutabiltyLattice
 }

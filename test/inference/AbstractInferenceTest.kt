@@ -35,7 +35,8 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
                 hashMap(Pair("inferrer", getInferrer() as AnnotationInferrer<Any>)),
                 ProgressMonitor(),
                 false,
-                hashMap(Pair("inferrer", annotations)))["inferrer"]!!
+                true,
+                hashMap(Pair("inferrer", annotations))).inferredAnnotationsMap["inferrer"]!!
     }
 
     protected fun doFieldTest() {

@@ -37,6 +37,9 @@ import org.jetbrains.kannotator.index.ClassSource
 import java.io.BufferedReader
 import org.objectweb.asm.tree.FieldNode
 import org.jetbrains.kannotator.index.loadMethodParameterNames
+import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
+import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
+import org.jetbrains.kannotator.annotationsInference.propagation.*
 
 open class ProgressMonitor {
     open fun annotationIndexLoaded(index: AnnotationKeyIndex) {}
@@ -190,8 +193,13 @@ trait AnnotationInferrer<A: Any> {
             declarationIndex: DeclarationIndex,
             annotations: Annotations<A>): Annotations<A>
 
-    fun subsumes(position: AnnotationPosition, parentValue: A, childValue: A): Boolean
+    val lattice: AnnotationLattice<A>
 }
+
+data class InferenceResult<K>(
+        val existingAnnotationsMap: Map<K, Annotations<Any>>,
+        val inferredAnnotationsMap: Map<K, Annotations<Any>>
+)
 
 fun <K> inferAnnotations(
         classSource: ClassSource,
@@ -199,8 +207,9 @@ fun <K> inferAnnotations(
         inferrers: Map<K, AnnotationInferrer<Any>>,
         progressMonitor: ProgressMonitor = ProgressMonitor(),
         showErrors: Boolean = true,
+        loadOnly: Boolean = false,
         existingAnnotations: Map<K, Annotations<Any>> = hashMap()
-): Map<K, Annotations<Any>> {
+): InferenceResult<K> {
     val methodNodes = HashMap<Method, MethodNode>()
     val declarationIndex = DeclarationIndexImpl(classSource) {
         method ->
@@ -218,6 +227,12 @@ fun <K> inferAnnotations(
         if (inferrerExistingAnnotations != null) {
             resultingAnnotationsMap[key]!!.copyAllChanged(inferrerExistingAnnotations)
         }
+    }
+
+    val inferenceResult = InferenceResult(loadedAnnotationsMap, resultingAnnotationsMap)
+
+    if (loadOnly) {
+        return inferenceResult
     }
 
     val fieldToDependencyInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
@@ -239,12 +254,12 @@ fun <K> inferAnnotations(
     progressMonitor.totalMethods(methodNodes.size)
 
     for (component in components) {
-        val methods = component.map { Pair(it.method, it.incomingEdges) }.toMap()
+        val methods = component.map { Pair(it.data, it.incomingEdges) }.toMap()
         progressMonitor.processingStarted(methods.keySet())
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
             // Add itself as inferred annotation can produce more annotations
-            methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.method}).plus(method)
+            methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.data}).plus(method)
         }
 
         val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
@@ -270,11 +285,27 @@ fun <K> inferAnnotations(
 
         // We don't need to occupy that memory any more
         for (functionNode in component) {
-            methodNodes.remove(functionNode.method)
+            methodNodes.remove(functionNode.data)
         }
     }
 
-    return resultingAnnotationsMap
+    return propagateAnnotations(classSource, inferrers, inferenceResult)
+}
+
+private fun <K> propagateAnnotations(
+        classSource: ClassSource,
+        inferrers: Map<K, AnnotationInferrer<Any>>,
+        inferenceResult: InferenceResult<K>
+): InferenceResult<K> {
+    val classHierarchy = buildClassHierarchyGraph(classSource)
+    val methodHierarchy = buildMethodHierarchy(classHierarchy)
+
+    val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { e ->
+        val (key, annotations) = e
+        propagateMetadata(methodHierarchy, inferrers[key]!!.lattice, annotations)
+    }
+
+    return inferenceResult.copy(inferredAnnotationsMap = propagatedAnnotations)
 }
 
 private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
@@ -319,6 +350,9 @@ fun loadPositionsOfConflictExceptions(
         BufferedReader(FileReader(exceptionFile)) use {br ->
             val positions = HashSet<AnnotationPosition>()
             for (key in br.lineIterator()) {
+                if (key.startsWith('#')) {
+                    continue
+                }
                 val pos = keyIndex.findPositionByAnnotationKeyString(key)
                 if (pos != null) {
                     positions.add(pos)
@@ -354,7 +388,7 @@ fun <A: Any> processAnnotationInferenceConflicts(
         if (inferred == existing) {
             continue
         }
-        if (!inferrer.subsumes(position, existing, inferred)) {
+        if (!inferrer.lattice.subsumes(position.relativePosition, existing, inferred)) {
             if (positionsOfConflictExceptions.contains(position)) {
                 inferredAnnotations[position] = existing
             } else {
