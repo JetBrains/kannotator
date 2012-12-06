@@ -1,0 +1,26 @@
+<project name="KAnnotator TeamCity build" default="none">
+    <property name="build.number" value="@snapshot@"/>
+    <property name="plugin.dir" value="${basedir}/plugin/META-INF" />
+    <property name="plugin.backup.dir" value="${basedir}/build_temp" />
+
+    <target name="ReplaceVersionInPluginXml">
+        <delete dir="${plugin.backup.dir}" failonerror="true"/>
+        <mkdir dir="${plugin.backup.dir}" />
+        <copy file="${plugin.dir}/plugin.xml" tofile="${plugin.backup.dir}/plugin.xml" />
+
+        <replace file="${plugin.dir}/plugin.xml" token="@snapshot@" value="${build.number}"/>
+    </target>
+
+    <target name="RestoreVersionInPluginXml">
+        <copy file="${plugin.backup.dir}/plugin.xml" tofile="${plugin.dir}/plugin.xml" overwrite="true" />
+        <delete dir="${plugin.backup.dir}" />
+    </target>
+
+    <target name="pre_build" depends="ReplaceVersionInPluginXml" />
+
+    <target name="post_build" depends="RestoreVersionInPluginXml" />
+
+    <target name="none">
+        <fail message="Either specify pre_build or post_build"/>
+    </target>
+</project>
