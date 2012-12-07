@@ -31,4 +31,8 @@ Automatic inference of nullability and kotlin annotations from the set of jar fi
             <add-to-group group-id="AnalyzeActions" anchor="last"/>
         </action>
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <errorHandler implementation="org.jetbrains.kannotator.plugin.KannotatorReportSubmitter"/>
+    </extensions>
 </idea-plugin>
