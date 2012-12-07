@@ -16,7 +16,7 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
 
-public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : FunDependencyGraph<Method> =
+public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : DependencyGraph<Method> =
         FunDependencyGraphBuilder(declarationIndex, classSource, buildFieldsDependencyInfos(declarationIndex, classSource)).build()
 
 private class FunDependencyGraphBuilder(
@@ -24,10 +24,10 @@ private class FunDependencyGraphBuilder(
         private val classSource: ClassSource,
         private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
 ) {
-    private var currentFromNode : FunctionNodeImpl<Method>? = null
+    private var currentFromNode : DependencyNodeImpl<Method>? = null
     private var currentClassName : ClassName? = null
 
-    private val dependencyGraph = FunDependencyGraphImpl<Method>()
+    private val dependencyGraph = DependencyGraphImpl<Method>()
 
     private val classVisitor = object : ClassVisitor(ASM4) {
         public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
@@ -50,7 +50,7 @@ private class FunDependencyGraphBuilder(
         }
     }
 
-    public fun build(): FunDependencyGraph<Method> {
+    public fun build(): DependencyGraph<Method> {
         classSource.forEach {
             reader ->
             reader.accept(classVisitor, flags(SKIP_DEBUG, SKIP_FRAMES))

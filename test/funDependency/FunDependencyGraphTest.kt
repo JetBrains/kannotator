@@ -3,7 +3,7 @@ package funDependency
 import java.io.File
 import java.util.Comparator
 import kotlinlib.*
-import org.jetbrains.kannotator.funDependecy.FunctionNode
+import org.jetbrains.kannotator.funDependecy.DependencyNode
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.junit.Test
 import util.ClassPathDeclarationIndex
@@ -47,8 +47,8 @@ class FunDependencyGraphTest {
         val classSource = ClassesFromClassPath(*canonicalNames)
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
 
-        val functionNodeComparator = object : Comparator<FunctionNode<Method>> {
-            public override fun compare(o1: FunctionNode<Method>?, o2: FunctionNode<Method>?): Int {
+        val functionNodeComparator = object : Comparator<DependencyNode<Method>> {
+            public override fun compare(o1: DependencyNode<Method>?, o2: DependencyNode<Method>?): Int {
                 return o1?.data.toString().compareTo(o2?.data.toString())
             }
 
@@ -59,7 +59,7 @@ class FunDependencyGraphTest {
 
         val actual = buildString { sb ->
             sb.println("== All Nodes == ")
-            for (node in graph.functions.sort(functionNodeComparator)) {
+            for (node in graph.allNodes.sort(functionNodeComparator)) {
                 printFunctionNode(sb, node)
             }
 
@@ -75,7 +75,7 @@ class FunDependencyGraphTest {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
-    fun printFunctionNode(sb: StringBuilder, node: FunctionNode<Method>) {
+    fun printFunctionNode(sb: StringBuilder, node: DependencyNode<Method>) {
         sb.println(node.data)
         if (node.outgoingEdges.size() > 0) sb.println("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {

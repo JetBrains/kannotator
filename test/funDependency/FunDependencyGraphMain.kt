@@ -5,9 +5,9 @@ import edu.uci.ics.jung.graph.util.EdgeType
 import java.io.File
 import java.util.ArrayList
 import org.apache.commons.collections15.Transformer
-import org.jetbrains.kannotator.funDependecy.FunDependencyEdge
-import org.jetbrains.kannotator.funDependecy.FunDependencyGraph
-import org.jetbrains.kannotator.funDependecy.FunctionNode
+import org.jetbrains.kannotator.funDependecy.DependencyEdge
+import org.jetbrains.kannotator.funDependecy.DependencyGraph
+import org.jetbrains.kannotator.funDependecy.DependencyNode
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.util.processJar
@@ -16,9 +16,9 @@ import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.declarations.Method
 
-fun <A> FunDependencyGraph<A>.toJungGraph(): DirectedSparseMultigraph<FunctionNode<A>, FunDependencyEdge<A>> {
-    val jungGraph = DirectedSparseMultigraph<FunctionNode<A>, FunDependencyEdge<A>>()
-    for (i in this.functions) {
+fun <A> DependencyGraph<A>.toJungGraph(): DirectedSparseMultigraph<DependencyNode<A>, DependencyEdge<A>> {
+    val jungGraph = DirectedSparseMultigraph<DependencyNode<A>, DependencyEdge<A>>()
+    for (i in this.allNodes) {
         for (e in i.outgoingEdges) {
             jungGraph.addEdge(e, e.from, e.to, EdgeType.DIRECTED)
         }
@@ -31,10 +31,10 @@ fun main(args: Array<String>) {
 
     val classSource = FileBasedClassSource(arrayList(file))
     val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
-    displayJungGraph<FunctionNode<Method>, FunDependencyEdge<Method>>(
+    displayJungGraph<DependencyNode<Method>, DependencyEdge<Method>>(
             graph.toJungGraph(),
-            object : Transformer<FunctionNode<Method>, String> {
-                public override fun transform(functionNode: FunctionNode<Method>): String = functionNode.data.toString()
+            object : Transformer<DependencyNode<Method>, String> {
+                public override fun transform(functionNode: DependencyNode<Method>): String = functionNode.data.toString()
             },
             null
     )
