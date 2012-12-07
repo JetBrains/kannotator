@@ -80,21 +80,28 @@ class MethodHierarchyTest: TestCase() {
         for (methodNode in methodHierarchy.nodes) {
             methodNodes.add(methodNode)
         }
-        val sortedMethodNodes = methodNodes.sortByToString()
+        val sortedMethodNodes = methodNodes.sortBy {it.data.toString()}
 
         PrintStream(FileOutputStream(outFile)) use {
             p ->
             for (methodNode in sortedMethodNodes) {
                 p.println(methodNode.data)
-                p.println("\tParents: ")
-                for (node in methodNode.parentNodes().sortByToString()) {
-                    p.println("\t\t${node.data}")
-                }
-                p.println("\tChildren: ")
-                for (node in methodNode.childNodes().sortByToString()) {
-                    p.println("\t\t${node.data}")
+                val parentNodes = methodNode.parentNodes().sortByToString()
+                val childNodes = methodNode.childNodes().sortByToString()
+
+                if (!parentNodes.isEmpty()) {
+                    p.println("\tParents: ")
+                    for (node in parentNodes) {
+                        p.println("\t\t${node.data}")
+                    }
                 }
 
+                if (!childNodes.isEmpty()) {
+                    p.println("\tChildren: ")
+                    for (node in childNodes) {
+                        p.println("\t\t${node.data}")
+                    }
+                }
             }
         }
 
