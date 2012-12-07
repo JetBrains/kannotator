@@ -10,6 +10,12 @@ com.gs.collections.impl.UnmodifiableMap UnmodifiableMap(java.util.Map<K,V>) 0
 NOT_NULL
 com.gs.collections.impl.UnmodifiableMap delegate
 NOT_NULL
+com.gs.collections.impl.UnmodifiableMap java.util.Collection values()
+NOT_NULL
+com.gs.collections.impl.UnmodifiableMap java.util.Set entrySet()
+NOT_NULL
+com.gs.collections.impl.UnmodifiableMap java.util.Set keySet()
+NOT_NULL
 com.gs.collections.impl.UnmodifiableRichIterable com.gs.collections.impl.UnmodifiableRichIterable<E> of(RI)
 NOT_NULL
 com.gs.collections.impl.UnmodifiableRichIterable com.gs.collections.impl.UnmodifiableRichIterable<E> of(RI) 0
@@ -274,6 +280,8 @@ com.gs.collections.impl.bag.immutable.ImmutableHashBag ImmutableHashBag(com.gs.c
 NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableHashBag ImmutableHashBag(java.lang.Iterable<? extends T>) 0
 NOT_NULL
+com.gs.collections.impl.bag.immutable.ImmutableHashBag boolean containsAllArguments(java.lang.Object...) 0
+NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableHashBag com.gs.collections.api.bag.ImmutableBag<T> newWithAll(java.lang.Iterable<? extends T>) 0
 NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableHashBag com.gs.collections.api.bag.ImmutableBag<T> toImmutable()
@@ -291,6 +299,12 @@ NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableHashBag java.lang.Object writeReplace()
 NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableHashBag java.util.Iterator<T> iterator()
+NOT_NULL
+com.gs.collections.impl.bag.immutable.ImmutableHashBag void appendString(java.lang.Appendable) 0
+NOT_NULL
+com.gs.collections.impl.bag.immutable.ImmutableHashBag void appendString(java.lang.Appendable, java.lang.String) 0
+NOT_NULL
+com.gs.collections.impl.bag.immutable.ImmutableHashBag void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
 com.gs.collections.impl.bag.immutable.ImmutableSingletonBag IV injectInto(IV, com.gs.collections.api.block.function.Function2<? super IV,? super T,? extends IV>) 1
 NOT_NULL
@@ -580,6 +594,8 @@ com.gs.collections.impl.bag.mutable.MutableBagFactoryImpl com.gs.collections.api
 NOT_NULL
 com.gs.collections.impl.bag.mutable.MutableBagFactoryImpl com.gs.collections.api.bag.MutableBag<T> of(T...)
 NOT_NULL
+com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.bag.MutableBag<E> asSynchronized()
 NOT_NULL
 com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.bag.MutableBag<E> asUnmodifiable()
@@ -604,7 +620,13 @@ com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.colle
 NOT_NULL
 com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.bag.mutable.SynchronizedBag com.gs.collections.impl.bag.mutable.SynchronizedBag<E> of(B)
+NOT_NULL
+com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.api.bag.MutableBag<T> asSynchronized()
 NOT_NULL
@@ -613,6 +635,10 @@ NOT_NULL
 com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.bag.mutable.UnmodifiableBag com.gs.collections.impl.bag.mutable.UnmodifiableBag<E> of(B)
 NOT_NULL
@@ -1217,6 +1243,8 @@ NOT_NULL
 com.gs.collections.impl.block.factory.Predicates void failIfDifferentTypes(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.block.factory.Predicates void failIfDifferentTypes(java.lang.Object, java.lang.Object) 1
+NOT_NULL
+com.gs.collections.impl.block.factory.Predicates.AbstractIterablePredicate java.lang.String getTypeName()
 NOT_NULL
 com.gs.collections.impl.block.factory.Predicates.AllSatisfy boolean accept(java.lang.Iterable<T>) 0
 NOT_NULL
@@ -2208,6 +2236,8 @@ com.gs.collections.impl.block.procedure.MultimapPutProcedure com.gs.collections.
 NOT_NULL
 com.gs.collections.impl.block.procedure.ZipWithIndexProcedure com.gs.collections.impl.block.procedure.ZipWithIndexProcedure<TT,RR> create(RR)
 NOT_NULL
+com.gs.collections.impl.block.procedure.checked.CheckedProcedure2 void safeValue(java.lang.Object, java.lang.Object) 1
+NOT_NULL
 com.gs.collections.impl.block.procedure.checked.MultimapKeyValuesSerializingProcedure java.io.ObjectOutput access$000(com.gs.collections.impl.block.procedure.checked.MultimapKeyValuesSerializingProcedure) 0
 NOT_NULL
 com.gs.collections.impl.block.procedure.checked.MultimapKeyValuesSerializingProcedure void safeValue(K, com.gs.collections.api.RichIterable<V>) 1
@@ -2245,6 +2275,12 @@ NOT_NULL
 com.gs.collections.impl.collection.immutable.AbstractImmutableCollection com.gs.collections.api.set.sorted.MutableSortedSet<T> toSortedSetBy(com.gs.collections.api.block.function.Function<? super T,? extends V>)
 NOT_NULL
 com.gs.collections.impl.collection.immutable.AbstractImmutableCollection java.lang.Object[] toArray()
+NOT_NULL
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection java.lang.String makeString()
+NOT_NULL
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection java.lang.String makeString(java.lang.String)
+NOT_NULL
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection java.lang.String toString()
 NOT_NULL
 com.gs.collections.impl.collection.immutable.AbstractImmutableCollection void appendString(java.lang.Appendable) 0
 NOT_NULL
@@ -2292,9 +2328,31 @@ com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.coll
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.RichIterable zip(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.RichIterable zipWithIndex()
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.bag.MutableBag<T> toBag()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection collectIf(com.gs.collections.api.block.predicate.Predicate, com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection collectWith(com.gs.collections.api.block.function.Function2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection flatCollect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection rejectWith(com.gs.collections.api.block.predicate.Predicate2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection selectWith(com.gs.collections.api.block.predicate.Predicate2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.collection.MutableCollection<E> wrap(java.util.Collection<E>)
 NOT_NULL
@@ -2322,6 +2380,10 @@ com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.coll
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.map.MutableMap<K,V> toMap(com.gs.collections.api.block.function.Function<? super T,? extends K>, com.gs.collections.api.block.function.Function<? super T,? extends V>)
 NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.partition.PartitionIterable partition(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.partition.PartitionMutableCollection partition(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.set.MutableSet<T> toSet()
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.set.sorted.MutableSortedSet<T> toSortedSet()
@@ -2329,6 +2391,8 @@ NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.set.sorted.MutableSortedSet<T> toSortedSet(java.util.Comparator<? super T>)
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter com.gs.collections.api.set.sorted.MutableSortedSet<T> toSortedSetBy(com.gs.collections.api.block.function.Function<? super T,? extends V>)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter java.util.Collection getDelegate()
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter void appendString(java.lang.Appendable) 0
 NOT_NULL
@@ -2364,11 +2428,35 @@ com.gs.collections.impl.collection.mutable.AbstractMutableCollection boolean ret
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.LazyIterable<T> asLazy()
 NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.RichIterable collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.RichIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.RichIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.bag.MutableBag<T> toBag()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection asSynchronized()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection newEmpty()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection select(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection<T> asSynchronized()
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.collection.MutableCollection<T> asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.list.MutableList toList()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.list.MutableList toSortedList()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.list.MutableList toSortedList(java.util.Comparator)
 NOT_NULL
 com.gs.collections.impl.collection.mutable.AbstractMutableCollection com.gs.collections.api.list.MutableList<T> toList()
 NOT_NULL
@@ -2442,6 +2530,24 @@ com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection collect
 NOT_NULL
 com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.LazyIterable<E> asLazy()
 NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection asSynchronized()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection with(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection withAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection without(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection<E> asSynchronized()
 NOT_NULL
 com.gs.collections.impl.collection.mutable.SynchronizedMutableCollection com.gs.collections.api.collection.MutableCollection<E> asUnmodifiable()
@@ -2481,6 +2587,16 @@ NOT_NULL
 com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection collection
 NOT_NULL
 com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.LazyIterable<T> asLazy()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.collection.MutableCollection asSynchronized()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection com.gs.collections.api.collection.MutableCollection<T> asSynchronized()
 NOT_NULL
@@ -2707,6 +2823,8 @@ NOT_NULL
 com.gs.collections.impl.lazy.AbstractLazyIterable com.gs.collections.api.FloatIterable collectFloat(com.gs.collections.api.block.function.primitive.FloatFunction<? super T>)
 NOT_NULL
 com.gs.collections.impl.lazy.AbstractLazyIterable com.gs.collections.api.IntIterable collectInt(com.gs.collections.api.block.function.primitive.IntFunction<? super T>)
+NOT_NULL
+com.gs.collections.impl.lazy.AbstractLazyIterable com.gs.collections.api.LazyIterable take(int)
 NOT_NULL
 com.gs.collections.impl.lazy.AbstractLazyIterable com.gs.collections.api.LazyIterable<S> selectInstancesOf(java.lang.Class<S>)
 NOT_NULL
@@ -3108,11 +3226,25 @@ com.gs.collections.impl.list.fixed.AbstractArrayAdapter com.gs.collections.api.l
 NOT_NULL
 com.gs.collections.impl.list.fixed.AbstractArrayAdapter com.gs.collections.api.tuple.Twin<com.gs.collections.api.list.MutableList<T>> selectAndRejectWith(com.gs.collections.api.block.predicate.Predicate2<? super T,? super P>, P)
 NOT_NULL
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter int indexOf(java.lang.Object) 0
+NULLABLE
+com.gs.collections.impl.list.fixed.AbstractArrayAdapter int lastIndexOf(java.lang.Object) 0
+NULLABLE
 com.gs.collections.impl.list.fixed.AbstractArrayAdapter java.util.List subList(int, int)
 NOT_NULL
 com.gs.collections.impl.list.fixed.AbstractArrayAdapter void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
+com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList com.gs.collections.api.list.FixedSizeList clone()
+NOT_NULL
+com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList com.gs.collections.api.list.MutableList clone()
+NOT_NULL
+com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList com.gs.collections.api.list.MutableList<T> subList(int, int)
+NOT_NULL
+com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList java.lang.Object clone()
 NOT_NULL
 com.gs.collections.impl.list.fixed.AbstractMemoryEfficientMutableList java.util.List subList(int, int)
 NOT_NULL
@@ -3220,15 +3352,23 @@ com.gs.collections.impl.list.fixed.EmptyList T getFirst()
 NULLABLE
 com.gs.collections.impl.list.fixed.EmptyList T getLast()
 NULLABLE
+com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.collection.MutableCollection with(java.lang.Object)
 NOT_NULL
+com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.FixedSizeList clone()
+NOT_NULL
+com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.ListIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList clone()
 NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
 NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList with(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList<T> sortThisBy(com.gs.collections.api.block.function.Function<? super T,? extends V>)
 NOT_NULL
@@ -3428,11 +3568,35 @@ com.gs.collections.impl.list.immutable.AbstractImmutableList boolean randomAcces
 NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList boolean regularListEquals(java.util.List<?>) 0
 NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.RichIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.RichIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.ImmutableCollection newWithAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.ImmutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.ImmutableCollection select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.ImmutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.collection.MutableCollection<T> newMutable(int)
 NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.list.ImmutableList zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.list.ImmutableList<T> newWithAll(java.lang.Iterable<? extends T>) 0
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.list.ListIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.list.ListIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.list.ListIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.AbstractImmutableList com.gs.collections.api.multimap.ImmutableMultimap groupBy(com.gs.collections.api.block.function.Function)
 NOT_NULL
@@ -3494,6 +3658,10 @@ com.gs.collections.impl.list.immutable.ImmutableArrayList com.gs.collections.imp
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableArrayList com.gs.collections.impl.list.immutable.ImmutableArrayList<E> newListWith(E...) 0
 NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableArrayList int indexOf(java.lang.Object) 0
+NULLABLE
+com.gs.collections.impl.list.immutable.ImmutableArrayList int lastIndexOf(java.lang.Object) 0
+NULLABLE
 com.gs.collections.impl.list.immutable.ImmutableDecapletonList void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableDoubletonList void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
@@ -3512,6 +3680,8 @@ com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.RichIterable select(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
@@ -3519,6 +3689,10 @@ NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.collection.ImmutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.collection.ImmutableCollection select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.collection.ImmutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.list.ImmutableList zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.list.ImmutableList<T> newWithout(T)
 NOT_NULL
@@ -3532,6 +3706,10 @@ com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.list.ListIterable select(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList com.gs.collections.api.list.ListIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList int indexOf(java.lang.Object) 0
+NULLABLE
 com.gs.collections.impl.list.immutable.ImmutableEmptyList java.lang.Object readResolve()
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList java.lang.String makeString()
@@ -3539,6 +3717,10 @@ NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList java.lang.String makeString(java.lang.String)
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList java.lang.String toString()
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList void appendString(java.lang.Appendable) 0
+NOT_NULL
+com.gs.collections.impl.list.immutable.ImmutableEmptyList void appendString(java.lang.Appendable, java.lang.String) 0
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableEmptyList void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
@@ -3616,13 +3798,91 @@ com.gs.collections.impl.list.immutable.ImmutableSingletonList void forEach(com.g
 NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableTripletonList void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable collectIf(com.gs.collections.api.block.predicate.Predicate, com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable flatCollect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection collectIf(com.gs.collections.api.block.predicate.Predicate, com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection collectWith(com.gs.collections.api.block.function.Function2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection flatCollect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection rejectWith(com.gs.collections.api.block.predicate.Predicate2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection selectWith(com.gs.collections.api.block.predicate.Predicate2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable collectIf(com.gs.collections.api.block.predicate.Predicate, com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable flatCollect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.ListIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList clone()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList collect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList collectIf(com.gs.collections.api.block.predicate.Predicate, com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList collectWith(com.gs.collections.api.block.function.Function2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList flatCollect(com.gs.collections.api.block.function.Function)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList rejectWith(com.gs.collections.api.block.predicate.Predicate2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList selectWith(com.gs.collections.api.block.predicate.Predicate2, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList<T> reverseThis()
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList<T> subList(int, int)
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.list.MutableList<T> toReversed()
 NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.partition.PartitionIterable partition(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.partition.PartitionMutableCollection partition(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.partition.list.PartitionList partition(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractListAdapter com.gs.collections.api.stack.MutableStack<T> toStack()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter java.lang.Object clone()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractListAdapter java.util.Collection getDelegate()
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractListAdapter java.util.List subList(int, int)
 NOT_NULL
@@ -3662,11 +3922,41 @@ com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.ListIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.ListIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList clone()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList reverseThis()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList sortThis()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList toList()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList toSortedList()
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList toSortedList(java.util.Comparator)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList with(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList withAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList without(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList<S> selectInstancesOf(java.lang.Class<S>)
 NOT_NULL
@@ -3710,6 +4000,8 @@ com.gs.collections.impl.list.mutable.AbstractMutableList int indexOf(java.lang.O
 NULLABLE
 com.gs.collections.impl.list.mutable.AbstractMutableList int lastIndexOf(java.lang.Object) 0
 NULLABLE
+com.gs.collections.impl.list.mutable.AbstractMutableList java.lang.Object clone()
+NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList java.util.Iterator<T> iterator()
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList java.util.List subList(int, int)
@@ -3732,6 +4024,8 @@ com.gs.collections.impl.list.mutable.AbstractMutableList.SubList boolean addAll(
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -3746,7 +4040,13 @@ com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collecti
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.list.ListIterable selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.list.ListIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList.SubList com.gs.collections.api.list.MutableList access$100(com.gs.collections.impl.list.mutable.AbstractMutableList.SubList)
 NOT_NULL
@@ -3874,6 +4174,8 @@ com.gs.collections.impl.list.mutable.ArrayListAdapter com.gs.collections.api.lis
 NOT_NULL
 com.gs.collections.impl.list.mutable.ArrayListAdapter com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.list.mutable.ArrayListAdapter com.gs.collections.api.list.MutableList zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.ArrayListAdapter com.gs.collections.api.list.MutableList<S> selectInstancesOf(java.lang.Class<S>)
 NOT_NULL
 com.gs.collections.impl.list.mutable.ArrayListAdapter com.gs.collections.api.list.MutableList<T> asSynchronized()
@@ -3956,6 +4258,10 @@ com.gs.collections.impl.list.mutable.CompositeFastList com.gs.collections.api.li
 NOT_NULL
 com.gs.collections.impl.list.mutable.CompositeFastList com.gs.collections.impl.list.mutable.CompositeFastList<E> reverseThis()
 NOT_NULL
+com.gs.collections.impl.list.mutable.CompositeFastList int indexOf(java.lang.Object) 0
+NULLABLE
+com.gs.collections.impl.list.mutable.CompositeFastList int lastIndexOf(java.lang.Object) 0
+NULLABLE
 com.gs.collections.impl.list.mutable.CompositeFastList java.lang.Object[] toArray()
 NOT_NULL
 com.gs.collections.impl.list.mutable.CompositeFastList java.lang.Object[] toArray(java.lang.Object[])
@@ -4114,6 +4420,10 @@ com.gs.collections.impl.list.mutable.FastList com.gs.collections.impl.list.mutab
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList com.gs.collections.impl.list.mutable.FastList<T> withArrayCopy(T[], int, int)
 NOT_NULL
+com.gs.collections.impl.list.mutable.FastList int indexOf(java.lang.Object) 0
+NULLABLE
+com.gs.collections.impl.list.mutable.FastList int lastIndexOf(java.lang.Object) 0
+NULLABLE
 com.gs.collections.impl.list.mutable.FastList java.lang.IndexOutOfBoundsException newIndexOutOfBoundsException(int)
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList java.lang.Object[] copyItemsWithNewCapacity(int)
@@ -4177,6 +4487,8 @@ NOT_NULL
 com.gs.collections.impl.list.mutable.ListAdapter com.gs.collections.api.list.MutableList without(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.mutable.ListAdapter com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.list.mutable.ListAdapter com.gs.collections.api.list.MutableList zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.ListAdapter com.gs.collections.api.list.MutableList<E> adapt(java.util.List<E>)
 NOT_NULL
@@ -4392,6 +4704,8 @@ com.gs.collections.impl.list.mutable.RandomAccessListAdapter com.gs.collections.
 NOT_NULL
 com.gs.collections.impl.list.mutable.RandomAccessListAdapter com.gs.collections.api.list.MutableList withoutAll(java.lang.Iterable)
 NOT_NULL
+com.gs.collections.impl.list.mutable.RandomAccessListAdapter com.gs.collections.api.list.MutableList zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.RandomAccessListAdapter com.gs.collections.api.list.MutableList<E> adapt(java.util.List<E>)
 NOT_NULL
 com.gs.collections.impl.list.mutable.RandomAccessListAdapter com.gs.collections.api.list.MutableList<S> selectInstancesOf(java.lang.Class<S>)
@@ -4442,6 +4756,8 @@ com.gs.collections.impl.list.mutable.RandomAccessListAdapter java.util.Collectio
 NOT_NULL
 com.gs.collections.impl.list.mutable.RandomAccessListAdapter java.util.List<T> getDelegate()
 NOT_NULL
+com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -4453,6 +4769,10 @@ NOT_NULL
 com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.collection.MutableCollection without(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.SynchronizedMutableList com.gs.collections.api.list.MutableList<E> asSynchronized()
 NOT_NULL
@@ -4486,9 +4806,15 @@ com.gs.collections.impl.list.mutable.SynchronizedMutableList java.lang.Object cl
 NOT_NULL
 com.gs.collections.impl.list.mutable.SynchronizedMutableList java.util.List subList(int, int)
 NOT_NULL
+com.gs.collections.impl.list.mutable.UnmodifiableMutableList com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.list.mutable.UnmodifiableMutableList com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.list.mutable.UnmodifiableMutableList com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.list.mutable.UnmodifiableMutableList com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.list.mutable.UnmodifiableMutableList com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.UnmodifiableMutableList com.gs.collections.api.list.MutableList clone()
 NOT_NULL
@@ -4524,6 +4850,8 @@ com.gs.collections.impl.map.AbstractMapIterable boolean keyAndValueEquals(K, V, 
 NULLABLE
 com.gs.collections.impl.map.AbstractMapIterable boolean keyAndValueEquals(K, V, java.util.Map<K,V>) 2
 NOT_NULL
+com.gs.collections.impl.map.AbstractMapIterable com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.map.AbstractMapIterable int keyAndValueHashCode(K, V) 0
 NULLABLE
 com.gs.collections.impl.map.AbstractMapIterable int keyAndValueHashCode(K, V) 1
@@ -4538,6 +4866,32 @@ com.gs.collections.impl.map.SynchronizedMapIterable lock
 NULLABLE
 com.gs.collections.impl.map.SynchronizedMapIterable mapIterable
 NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.FixedSizeMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.FixedSizeMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.FixedSizeMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.FixedSizeMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap clone()
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap<K,V> newEmpty()
 NOT_NULL
 com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap<K,V> newEmpty(int)
@@ -4546,8 +4900,26 @@ com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.colle
 NOT_NULL
 com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.MutableMap<K,V> withoutAllKeys(java.lang.Iterable<? extends K>) 0
 NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.AbstractMemoryEfficientMutableMap java.lang.Object clone()
+NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.FixedSizeMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.FixedSizeMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.FixedSizeMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.FixedSizeMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.FixedSizeMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.FixedSizeMap<K,V> filter(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>) 0
@@ -4558,11 +4930,19 @@ com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MapIte
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MutableMap clone()
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MutableMap collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.MutableMap<K,V> withKeyValue(K, V)
 NOT_NULL
@@ -4571,6 +4951,10 @@ NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.DoubletonMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -4596,11 +4980,43 @@ com.gs.collections.impl.map.fixed.DoubletonMap void writeExternal(java.io.Object
 NOT_NULL
 com.gs.collections.impl.map.fixed.EmptyMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.FixedSizeMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.FixedSizeMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.FixedSizeMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.FixedSizeMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap clone()
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap<K,V> withKeyValue(K, V)
 NOT_NULL
 com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.MutableMap<K,V> withoutKey(K)
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.EmptyMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -4630,6 +5046,14 @@ com.gs.collections.impl.map.fixed.FixedSizeMapFactoryImpl com.gs.collections.api
 NOT_NULL
 com.gs.collections.impl.map.fixed.SingletonMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.fixed.SingletonMap com.gs.collections.api.map.FixedSizeMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.SingletonMap com.gs.collections.api.map.FixedSizeMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.SingletonMap com.gs.collections.api.map.FixedSizeMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.SingletonMap com.gs.collections.api.map.FixedSizeMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.SingletonMap com.gs.collections.api.map.FixedSizeMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.SingletonMap com.gs.collections.api.map.FixedSizeMap<K,V> reject(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>) 0
@@ -4692,6 +5116,14 @@ com.gs.collections.impl.map.fixed.SingletonMap void writeExternal(java.io.Object
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.FixedSizeMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.FixedSizeMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.FixedSizeMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.FixedSizeMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.FixedSizeMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.FixedSizeMap<K,V> filter(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>) 0
@@ -4702,11 +5134,19 @@ com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MapIte
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MutableMap clone()
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MutableMap collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.MutableMap<K,V> withKeyValue(K, V)
 NOT_NULL
@@ -4715,6 +5155,10 @@ NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -4738,13 +5182,51 @@ com.gs.collections.impl.map.fixed.TripletonMap void readExternal(java.io.ObjectI
 NOT_NULL
 com.gs.collections.impl.map.fixed.TripletonMap void writeExternal(java.io.ObjectOutput) 0
 NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap<K,V> newWithAllKeyValueArguments(com.gs.collections.api.tuple.Pair<? extends K,? extends V>...) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap<K,V> newWithAllKeyValues(java.lang.Iterable<? extends com.gs.collections.api.tuple.Pair<? extends K,? extends V>>) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.ImmutableMap<K,V> newWithoutAllKeys(java.lang.Iterable<? extends K>) 0
 NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.MutableMap<K,V> toMap()
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.AbstractImmutableMap com.gs.collections.api.multimap.ImmutableMultimap<VV,V> groupBy(com.gs.collections.api.block.function.Function<? super V,? extends VV>)
 NOT_NULL
@@ -4760,6 +5242,14 @@ com.gs.collections.impl.map.immutable.AbstractImmutableMap java.util.Map<K,V> ca
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.ImmutableMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.ImmutableMap<K,V> filter(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>) 0
@@ -4770,9 +5260,17 @@ com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.a
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableDoubletonMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -4798,17 +5296,41 @@ com.gs.collections.impl.map.immutable.ImmutableEmptyMap V getIfAbsent(K, com.gs.
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap V getIfAbsentWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 1
 NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.ImmutableMap<K,V> reject(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.ImmutableMap<K,V> select(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2)
 NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
 NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableEmptyMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -4842,6 +5364,14 @@ com.gs.collections.impl.map.immutable.ImmutableMapFactoryImpl com.gs.collections
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableSingletonMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.immutable.ImmutableSingletonMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableSingletonMap com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableSingletonMap com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableSingletonMap com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableSingletonMap com.gs.collections.api.map.ImmutableMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableSingletonMap com.gs.collections.api.map.ImmutableMap<K,V> reject(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>) 0
@@ -4882,6 +5412,14 @@ com.gs.collections.impl.map.immutable.ImmutableSingletonMap void forEachWithInde
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.ImmutableMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.ImmutableMap<K,V> filter(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>) 0
@@ -4892,9 +5430,17 @@ com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.a
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableTripletonMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -4920,6 +5466,8 @@ com.gs.collections.impl.map.immutable.ImmutableUnifiedMap java.util.Set<K> keySe
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.RichIterable<K> keysView()
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.RichIterable<V> valuesView()
@@ -4927,6 +5475,34 @@ NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.collection.MutableCollection selectInstancesOf(java.lang.Class)
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.list.MutableList<S> selectInstancesOf(java.lang.Class<S>)
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap clone()
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap withAllKeyValueArguments(com.gs.collections.api.tuple.Pair...)
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap withAllKeyValues(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap withKeyValue(java.lang.Object, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap withoutAllKeys(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap withoutKey(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap<K,V> asSynchronized()
 NOT_NULL
@@ -4946,9 +5522,19 @@ com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.ma
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.MutableMap<K,V> withoutKey(K)
 NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
 com.gs.collections.impl.map.mutable.AbstractMutableMap int chainedForEachValueWithIndex(java.lang.Object[], com.gs.collections.api.block.procedure.ObjectIntProcedure<? super V>, int) 0
+NOT_NULL
+com.gs.collections.impl.map.mutable.AbstractMutableMap java.lang.Object clone()
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap void chainedForEachValue(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure<? super V>) 0
 NOT_NULL
@@ -5448,6 +6034,28 @@ com.gs.collections.impl.map.mutable.UnmodifiableMutableMap java.lang.Object clon
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnmodifiableMutableMap java.util.Iterator<V> iterator()
 NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap<K,V> newWithAllKeyValueArguments(com.gs.collections.api.tuple.Pair<? extends K,? extends V>...) 0
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap<K,V> newWithAllKeyValues(java.lang.Iterable<? extends com.gs.collections.api.tuple.Pair<? extends K,? extends V>>) 0
@@ -5455,6 +6063,16 @@ NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap<K,V> newWithoutAllKeys(java.lang.Iterable<? extends K>) 0
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.MutableSortedMap<K,V> toSortedMap()
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.SortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.SortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.SortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.SortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.map.sorted.SortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.AbstractImmutableSortedMap com.gs.collections.api.multimap.Multimap groupBy(com.gs.collections.api.block.function.Function)
 NOT_NULL
@@ -5482,17 +6100,39 @@ com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap V getIfAbse
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap V getIfAbsentWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 1
 NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
 NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap<K,V> reject(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.ImmutableSortedMap<K,V> select(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.SortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.SortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
 NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.SortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.SortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.map.sorted.SortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.sorted.immutable.ImmutableEmptySortedMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -5532,6 +6172,8 @@ com.gs.collections.impl.map.sorted.immutable.ImmutableTreeMap java.util.Set<K> k
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
+com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.RichIterable<K> keysView()
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.RichIterable<V> valuesView()
@@ -5539,6 +6181,8 @@ NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.list.ListIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.list.MutableList<S> selectInstancesOf(java.lang.Class<S>)
+NOT_NULL
+com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.map.sorted.MutableSortedMap clone()
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.map.sorted.MutableSortedMap<K,V> asSynchronized()
 NOT_NULL
@@ -5550,6 +6194,8 @@ com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.colle
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
+com.gs.collections.impl.map.sorted.mutable.AbstractMutableSortedMap java.lang.Object clone()
+NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.MutableSortedMapFactoryImpl com.gs.collections.api.map.sorted.MutableSortedMap<K,V> of()
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.MutableSortedMapFactoryImpl com.gs.collections.api.map.sorted.MutableSortedMap<K,V> of(K, V)
@@ -5736,6 +6382,12 @@ com.gs.collections.impl.map.sorted.mutable.TreeSortedMap void readExternal(java.
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.TreeSortedMap void writeExternal(java.io.ObjectOutput) 0
 NOT_NULL
+com.gs.collections.impl.map.sorted.mutable.UnmodifiableSortedMap java.util.SortedMap headMap(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.map.sorted.mutable.UnmodifiableSortedMap java.util.SortedMap subMap(java.lang.Object, java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.map.sorted.mutable.UnmodifiableSortedMap java.util.SortedMap tailMap(java.lang.Object)
+NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.UnmodifiableSortedMap java.util.SortedMap<K,V> headMap(K)
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.UnmodifiableSortedMap java.util.SortedMap<K,V> subMap(K, K)
@@ -5794,23 +6446,47 @@ com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrat
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy V getIfAbsentWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 1
 NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap<K,R> collectValues(com.gs.collections.api.block.function.Function2<? super K,? super V,? extends R>)
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap<K,V> reject(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap<K,V> select(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable collect(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2)
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
 NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable collect(com.gs.collections.api.block.function.Function2) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2)
 NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2)
 NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2)
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableEmptyMapWithHashingStrategy com.gs.collections.api.tuple.Pair<K,V> detect(com.gs.collections.api.block.predicate.Predicate2<? super K,? super V>)
 NULLABLE
@@ -5834,11 +6510,29 @@ com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStr
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy V get(java.lang.Object)
 NULLABLE
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap<K,V> newWithAllKeyValueArguments(com.gs.collections.api.tuple.Pair<? extends K,? extends V>...) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap<K,V> newWithAllKeyValues(java.lang.Iterable<? extends com.gs.collections.api.tuple.Pair<? extends K,? extends V>>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap<K,V> newWithoutAllKeys(java.lang.Iterable<? extends K>) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.MapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.MapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.MapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable collectValues(com.gs.collections.api.block.function.Function2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable reject(com.gs.collections.api.block.predicate.Predicate2) 0
+NOT_NULL
+com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.UnsortedMapIterable select(com.gs.collections.api.block.predicate.Predicate2) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy delegate
 NOT_NULL
@@ -6064,6 +6758,8 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.WeakB
 NULLABLE
 com.gs.collections.impl.multimap.AbstractImmutableMultimap AbstractImmutableMultimap(com.gs.collections.api.map.MutableMap<K,C>) 0
 NOT_NULL
+com.gs.collections.impl.multimap.AbstractImmutableMultimap com.gs.collections.api.multimap.ImmutableMultimap toImmutable()
+NOT_NULL
 com.gs.collections.impl.multimap.AbstractImmutableMultimap com.gs.collections.api.multimap.ImmutableMultimap<K,V> toImmutable()
 NOT_NULL
 com.gs.collections.impl.multimap.AbstractImmutableMultimap.1CountProcedure void value(C) 0
@@ -6071,6 +6767,8 @@ NOT_NULL
 com.gs.collections.impl.multimap.AbstractImmutableMultimap.1CountProcedure void value(java.lang.Object) 0
 NOT_NULL
 com.gs.collections.impl.multimap.AbstractMultimap CREATE_COLLECTION_BLOCK
+NOT_NULL
+com.gs.collections.impl.multimap.AbstractMultimap com.gs.collections.api.RichIterable createCollection()
 NOT_NULL
 com.gs.collections.impl.multimap.AbstractMultimap com.gs.collections.api.block.function.Function<com.gs.collections.impl.multimap.AbstractMultimap<K,V,C>,C> createCollectionBlock()
 NOT_NULL
@@ -6636,6 +7334,8 @@ com.gs.collections.impl.parallel.CollectionsThreadFactory java.lang.Thread newTh
 NOT_NULL
 com.gs.collections.impl.parallel.CollectionsThreadFactory threadNumber
 NOT_NULL
+com.gs.collections.impl.parallel.Combiner void combineOne(java.lang.Object) 0
+NOT_NULL
 com.gs.collections.impl.parallel.Combiners com.gs.collections.impl.parallel.Combiner<T> passThru()
 NOT_NULL
 com.gs.collections.impl.parallel.CountCombiner void combineOne(com.gs.collections.impl.block.procedure.CountProcedure<T>) 0
@@ -6818,6 +7518,8 @@ com.gs.collections.impl.parallel.ParallelMapIterate.PairProcedure void value(com
 NOT_NULL
 com.gs.collections.impl.parallel.ParallelMapIterate.PairProcedure void value(java.lang.Object) 0
 NOT_NULL
+com.gs.collections.impl.parallel.PassThruCombiner void combineOne(java.lang.Object) 0
+NOT_NULL
 com.gs.collections.impl.parallel.ProcedureFJTaskRunner latch
 NULLABLE
 com.gs.collections.impl.parallel.ProcedureFJTaskRunner outputQueue
@@ -6829,6 +7531,8 @@ NOT_NULL
 com.gs.collections.impl.parallel.ProcedureFJTaskRunner.ProcedureExtractor BT valueOf(com.gs.collections.impl.parallel.ProcedureFJTask<T,BT>) 0
 NOT_NULL
 com.gs.collections.impl.parallel.ProcedureFJTaskRunner.ProcedureExtractor java.lang.Object valueOf(java.lang.Object) 0
+NOT_NULL
+com.gs.collections.impl.parallel.ProcedureFactory com.gs.collections.api.block.procedure.Procedure create()
 NOT_NULL
 com.gs.collections.impl.parallel.RejectProcedureCombiner void combineOne(com.gs.collections.impl.block.procedure.RejectProcedure<T>) 0
 NOT_NULL
@@ -7050,15 +7754,25 @@ com.gs.collections.impl.set.fixed.EmptySet T getFirst()
 NULLABLE
 com.gs.collections.impl.set.fixed.EmptySet T getLast()
 NULLABLE
+com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.collection.MutableCollection with(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.collection.MutableCollection without(java.lang.Object)
 NOT_NULL
+com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.set.MutableSet clone()
+NOT_NULL
+com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.set.MutableSet zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.set.MutableSet<T> with(T)
 NOT_NULL
 com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.set.MutableSet<T> without(T)
+NOT_NULL
+com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.set.SetIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.api.set.UnsortedSetIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.fixed.EmptySet com.gs.collections.impl.set.fixed.EmptySet<T> clone()
 NOT_NULL
@@ -7206,7 +7920,23 @@ com.gs.collections.impl.set.immutable.AbstractImmutableSet boolean isSubsetOf(co
 NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.LazyIterable<com.gs.collections.api.tuple.Pair<T,B>> cartesianProduct(com.gs.collections.api.set.SetIterable<B>)
 NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.RichIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.RichIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.ImmutableCollection newWithAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.ImmutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.ImmutableCollection select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.ImmutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.collection.MutableCollection<T> newMutable(int)
 NOT_NULL
@@ -7226,13 +7956,29 @@ com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.ap
 NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.multimap.set.SetMultimap groupByEach(com.gs.collections.api.block.function.Function)
 NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.ImmutableSet newWithAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.ImmutableSet zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.ImmutableSet<T> newWithAll(java.lang.Iterable<? extends T>) 0
 NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.ImmutableSet<T> union(com.gs.collections.api.set.SetIterable<? extends T>) 0
 NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.SetIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.SetIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.SetIterable union(com.gs.collections.api.set.SetIterable) 0
 NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.SetIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.UnsortedSetIterable reject(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.UnsortedSetIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.UnsortedSetIterable union(com.gs.collections.api.set.SetIterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.AbstractImmutableSet com.gs.collections.api.set.UnsortedSetIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.immutable.AbstractImmutableSet int nullSafeHashCode(java.lang.Object) 0
 NULLABLE
@@ -7264,6 +8010,10 @@ com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.R
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.RichIterable select(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.collection.ImmutableCollection newWithAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
@@ -7271,6 +8021,12 @@ NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.collection.ImmutableCollection reject(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.collection.ImmutableCollection select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.collection.ImmutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.ImmutableSet newWithAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.ImmutableSet zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.ImmutableSet<T> newWithout(T)
 NOT_NULL
@@ -7284,9 +8040,13 @@ com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.s
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.SetIterable select(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.SetIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.UnsortedSetIterable reject(com.gs.collections.api.block.predicate.Predicate)
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.UnsortedSetIterable select(com.gs.collections.api.block.predicate.Predicate)
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet com.gs.collections.api.set.UnsortedSetIterable zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet java.lang.Object readResolve()
 NOT_NULL
@@ -7297,6 +8057,10 @@ NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet java.lang.String toString()
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet java.util.Iterator<T> iterator()
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet void appendString(java.lang.Appendable) 0
+NOT_NULL
+com.gs.collections.impl.set.immutable.ImmutableEmptySet void appendString(java.lang.Appendable, java.lang.String) 0
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableEmptySet void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
@@ -7408,6 +8172,8 @@ com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.La
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -7415,6 +8181,12 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.collection.MutableCollection newEmpty()
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.collection.MutableCollection selectInstancesOf(java.lang.Class)
+NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.MutableSet clone()
+NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.MutableSet zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.MutableSet<K> newEmptySameSize()
 NOT_NULL
@@ -7440,6 +8212,8 @@ com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.se
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.SetIterable union(com.gs.collections.api.set.SetIterable) 0
 NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.SetIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.UnsortedSetIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.UnsortedSetIterable symmetricDifference(com.gs.collections.api.set.SetIterable)
@@ -7447,6 +8221,10 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.UnsortedSetIterable union(com.gs.collections.api.set.SetIterable)
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.UnsortedSetIterable union(com.gs.collections.api.set.SetIterable) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet com.gs.collections.api.set.UnsortedSetIterable zip(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.AbstractMutableSet java.lang.Object clone()
 NOT_NULL
 com.gs.collections.impl.set.mutable.MultiReaderUnifiedSet com.gs.collections.api.collection.MutableCollection newEmpty()
 NOT_NULL
@@ -7560,6 +8338,8 @@ com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.LazyIterab
 NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
+com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -7577,6 +8357,8 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
 NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter com.gs.collections.api.set.MutableSet with(java.lang.Object)
 NOT_NULL
@@ -7648,6 +8430,8 @@ com.gs.collections.impl.set.mutable.SetAdapter java.util.Collection getDelegate(
 NOT_NULL
 com.gs.collections.impl.set.mutable.SetAdapter java.util.Set<T> getDelegate()
 NOT_NULL
+com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -7659,6 +8443,10 @@ NOT_NULL
 com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.collection.MutableCollection without(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.SynchronizedMutableSet com.gs.collections.api.set.MutableSet<E> asSynchronized()
 NOT_NULL
@@ -7988,9 +8776,15 @@ com.gs.collections.impl.set.mutable.UnifiedSet.PositionalIterator K nextFromChai
 NULLABLE
 com.gs.collections.impl.set.mutable.UnifiedSet.PositionalIterator void removeLastFromChain(com.gs.collections.impl.set.mutable.UnifiedSet.ChainedBucket, int) 0
 NOT_NULL
+com.gs.collections.impl.set.mutable.UnmodifiableMutableSet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.mutable.UnmodifiableMutableSet com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnmodifiableMutableSet com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.set.mutable.UnmodifiableMutableSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.mutable.UnmodifiableMutableSet com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnmodifiableMutableSet com.gs.collections.api.set.MutableSet clone()
 NOT_NULL
@@ -8022,6 +8816,12 @@ com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet boolean 
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.LazyIterable<com.gs.collections.api.tuple.Pair<T,B>> cartesianProduct(com.gs.collections.api.set.SetIterable<B>)
 NOT_NULL
+com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.collection.ImmutableCollection newWithAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
+NOT_NULL
+com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
+NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.collection.MutableCollection<T> newMutable(int)
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.multimap.ImmutableMultimap groupBy(com.gs.collections.api.block.function.Function)
@@ -8042,6 +8842,8 @@ com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.c
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.set.SetIterable union(com.gs.collections.api.set.SetIterable) 0
 NOT_NULL
+com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.set.sorted.ImmutableSortedSet newWithAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.set.sorted.ImmutableSortedSet<T> union(com.gs.collections.api.set.SetIterable<? extends T>) 0
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet com.gs.collections.api.set.sorted.SortedSetIterable union(com.gs.collections.api.set.SetIterable) 0
@@ -8050,9 +8852,13 @@ com.gs.collections.impl.set.sorted.immutable.AbstractImmutableSortedSet java.uti
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.ImmutableEmptySortedSet INSTANCE
 NOT_NULL
+com.gs.collections.impl.set.sorted.immutable.ImmutableEmptySortedSet com.gs.collections.api.collection.ImmutableCollection newWithAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.ImmutableEmptySortedSet com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.ImmutableEmptySortedSet com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.set.sorted.immutable.ImmutableEmptySortedSet com.gs.collections.api.set.sorted.ImmutableSortedSet newWithAll(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.ImmutableEmptySortedSet com.gs.collections.api.set.sorted.ImmutableSortedSet<T> newWithout(T)
 NOT_NULL
@@ -8192,6 +8998,8 @@ com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.a
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -8209,6 +9017,8 @@ NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter com.gs.collections.api.set.SetIterable selectInstancesOf(java.lang.Class)
 NOT_NULL
@@ -8296,6 +9106,8 @@ com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter java.util.SortedSet 
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SortedSetAdapter java.util.SortedSet<T> getDelegate()
 NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.collection.MutableCollection asUnmodifiable()
@@ -8307,6 +9119,10 @@ NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.collection.MutableCollection without(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.SynchronizedSortedSet com.gs.collections.api.set.sorted.MutableSortedSet<E> asSynchronized()
 NOT_NULL
@@ -8488,9 +9304,15 @@ com.gs.collections.impl.set.sorted.mutable.TreeSortedSet void readExternal(java.
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.TreeSortedSet void writeExternal(java.io.ObjectOutput) 0
 NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.UnmodifiableSortedSet com.gs.collections.api.RichIterable zip(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.UnmodifiableSortedSet com.gs.collections.api.collection.MutableCollection asSynchronized()
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.UnmodifiableSortedSet com.gs.collections.api.collection.MutableCollection asUnmodifiable()
+NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.UnmodifiableSortedSet com.gs.collections.api.collection.MutableCollection withoutAll(java.lang.Iterable) 0
+NOT_NULL
+com.gs.collections.impl.set.sorted.mutable.UnmodifiableSortedSet com.gs.collections.api.collection.MutableCollection zip(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.sorted.mutable.UnmodifiableSortedSet com.gs.collections.api.set.sorted.MutableSortedSet clone()
 NOT_NULL
@@ -8510,9 +9332,13 @@ com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrat
 NULLABLE
 com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrategy T getLast()
 NULLABLE
+com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrategy com.gs.collections.api.collection.ImmutableCollection newWithAll(java.lang.Iterable) 0
+NOT_NULL
 com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrategy com.gs.collections.api.collection.ImmutableCollection newWithout(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrategy com.gs.collections.api.collection.ImmutableCollection newWithoutAll(java.lang.Iterable)
+NOT_NULL
+com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrategy com.gs.collections.api.set.ImmutableSet newWithAll(java.lang.Iterable) 0
 NOT_NULL
 com.gs.collections.impl.set.strategy.immutable.ImmutableEmptySetWithHashingStrategy com.gs.collections.api.set.ImmutableSet<T> newWithout(T)
 NOT_NULL

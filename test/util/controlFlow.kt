@@ -50,7 +50,7 @@ public fun buildGraphsForAllMethods(
 
             val ownerClassName = ClassName.fromInternalName(owner)
             val builder = ControlFlowGraphBuilder<Label>()
-            result.add(MethodAndGraph(Method(ownerClassName, access, name, desc), builder))
+            result.add(MethodAndGraph(Method(ownerClassName, access, name, desc, signature), builder))
 
             val methodNode = MethodNode(access, name, desc, signature, exceptions)
             return GraphBuilderMethodVisitor(

@@ -1,0 +1,1162 @@
+<root>
+    <item name='edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent java.util.Set&lt;edu.uci.ics.jung.graph.util.Pair&lt;V&gt;&gt; getEquivalentPairs(edu.uci.ics.jung.graph.Graph&lt;V,?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEquivalentPairs(g : Graph&lt;V, *&gt;) : MutableSet&lt;Pair&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent boolean isStructurallyEquivalent(edu.uci.ics.jung.graph.Graph&lt;V,?&gt;, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun isStructurallyEquivalent(g : Graph&lt;V, *&gt;, v1 : V?, v2 : V?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent edu.uci.ics.jung.algorithms.blockmodel.VertexPartition&lt;V,E&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(g : Graph&lt;V, E&gt;) : VertexPartition&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.blockmodel.StructurallyEquivalent java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer void findBiconnectedComponents(edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;, V, java.util.Set&lt;java.util.Set&lt;V&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findBiconnectedComponents(g : UndirectedGraph&lt;V, E&gt;, v : V?, bicomponents : MutableSet&lt;Set&lt;V&gt;?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer java.util.Set&lt;java.util.Set&lt;V&gt;&gt; transform(edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(theGraph : UndirectedGraph&lt;V, E&gt;) : MutableSet&lt;Set&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.BicomponentClusterer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.util.List&lt;E&gt; getEdgesRemoved()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgesRemoved() : MutableList&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.util.Set&lt;java.util.Set&lt;V&gt;&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(graph : Graph&lt;V, E&gt;) : MutableSet&lt;Set&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.EdgeBetweennessClusterer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection&lt;java.util.Set&lt;V&gt;&gt; cluster(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cluster(num_clusters : Int) : MutableCollection&lt;Set&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection&lt;java.util.Set&lt;V&gt;&gt; cluster_internal(V, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cluster_internal(origin : V?, num_clusters : Int) : MutableCollection&lt;Set&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection&lt;java.util.Set&lt;V&gt;&gt; getCommunity(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getCommunity(v : V?) : MutableCollection&lt;Set&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map&lt;V,double[]&gt; getObjectCounts(java.util.Collection&lt;java.util.Set&lt;V&gt;&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getObjectCounts(candidates : Collection&lt;Set&lt;V&gt;?&gt;, seed : V?) : MutableMap&lt;V, DoubleArray?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.List&lt;V&gt; getSeedCandidates(java.util.Collection&lt;java.util.Set&lt;V&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSeedCandidates(candidates : Collection&lt;Set&lt;V&gt;?&gt;) : MutableList&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.util.Set&lt;java.util.Set&lt;V&gt;&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(graph : Graph&lt;V, E&gt;) : MutableSet&lt;Set&lt;V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.EdgePredicateFilter edu.uci.ics.jung.graph.Graph&lt;V,E&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(g : Graph&lt;V, E&gt;) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.EdgePredicateFilter java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.FilterUtils java.util.Collection&lt;G&gt; createAllInducedSubgraphs(java.util.Collection&lt;? extends java.util.Collection&lt;V&gt;&gt;, G)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E, G : Hypergraph&lt;V, E&gt;?&gt; createAllInducedSubgraphs(vertex_collections : Collection&lt;out Collection&lt;V&gt;?&gt;, graph : G?) : MutableCollection&lt;G&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.FilterUtils G createInducedSubgraph(java.util.Collection&lt;V&gt;, G)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E, G : Hypergraph&lt;V, E&gt;?&gt; createInducedSubgraph(vertices : Collection&lt;V&gt;, graph : G) : G?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter edu.uci.ics.jung.graph.Graph&lt;V,E&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(graph : Graph&lt;V, E&gt;) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.KNeighborhoodFilter java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.VertexPredicateFilter edu.uci.ics.jung.graph.Graph&lt;V,E&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(g : Graph&lt;V, E&gt;) : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.filters.VertexPredicateFilter java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.flows.EdmondsKarpMaxFlow EdmondsKarpMaxFlow(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, V, V, org.apache.commons.collections15.Transformer&lt;E,java.lang.Number&gt;, java.util.Map&lt;E,java.lang.Number&gt;, org.apache.commons.collections15.Factory&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun EdmondsKarpMaxFlow(directedGraph : DirectedGraph&lt;V, E&gt;, source : V, sink : V?, edgeCapacityTransformer : Transformer&lt;E, Number?&gt;?, edgeFlowMap : Map&lt;E, Number?&gt;?, edgeFactory : Factory&lt;E&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator Lattice2DGenerator(org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, int, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Lattice2DGenerator(graph_factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertex_factory : Factory&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?, row_count : Int, col_count : Int, isToroidal : Boolean)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator BarabasiAlbertGenerator(org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, int, int, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BarabasiAlbertGenerator(graphFactory : Factory&lt;Graph&lt;V, E&gt;?&gt;?, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, init_vertices : Int, numEdgesToAttach : Int, seed : Int, seedVertices : MutableSet&lt;V&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator BarabasiAlbertGenerator(org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, int, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BarabasiAlbertGenerator(graphFactory : Factory&lt;Graph&lt;V, E&gt;?&gt;?, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, init_vertices : Int, numEdgesToAttach : Int, seedVertices : MutableSet&lt;V&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator void createRandomEdge(java.util.Collection&lt;V&gt;, V, java.util.Set&lt;edu.uci.ics.jung.graph.util.Pair&lt;V&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createRandomEdge(preexistingNodes : Collection&lt;V&gt;?, newVertex : V?, added_pairs : MutableSet&lt;Pair&lt;V&gt;?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.BarabasiAlbertGenerator void initialize(java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initialize(seedVertices : MutableSet&lt;V&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.EppsteinPowerLawGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.EppsteinPowerLawGenerator java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.EppsteinPowerLawGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; initializeGraph()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initializeGraph() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; generateMixedRandomGraph(org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, java.util.Map&lt;E,java.lang.Number&gt;, int, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; generateMixedRandomGraph(graphFactory : Factory&lt;Graph&lt;V, E&gt;?&gt;, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, edge_weight : MutableMap&lt;E, Number?&gt;?, num_vertices : Int, seedVertices : MutableSet&lt;V&gt;?) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.MixedRandomGraphGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; generateMixedRandomGraph(org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, java.util.Map&lt;E,java.lang.Number&gt;, int, boolean, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; generateMixedRandomGraph(graphFactory : Factory&lt;Graph&lt;V, E&gt;?&gt;, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, edge_weights : MutableMap&lt;E, Number?&gt;?, num_vertices : Int, parallel : Boolean, seedVertices : MutableSet&lt;V&gt;?) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.AbstractRanker.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.AbstractRanker.1 java.util.Map&lt;V,java.lang.Number&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : MutableMap&lt;V, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.AbstractRanker.2 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.AbstractRanker.2 java.util.Map&lt;E,java.lang.Number&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : MutableMap&lt;E, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.AbstractRanker java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.AbstractRanker java.util.List&lt;java.lang.Double&gt; getRankScores(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScores(topKRankings : Int) : MutableList&lt;Double?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void computeBetweenness(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun computeBetweenness(graph : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.BetweennessCentrality java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.BetweennessCentrality java.lang.String getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void initializeData(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;V,edu.uci.ics.jung.algorithms.importance.BetweennessCentrality&lt;V,E&gt;.BetweennessData&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initializeData(g : Graph&lt;V, E&gt;, decorator : MutableMap&lt;V, BetweennessCentrality&lt;V, E&gt;.BetweennessData?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, java.util.Set&lt;V&gt;, int, java.util.Map&lt;E,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KStepMarkov(graph : DirectedGraph&lt;V, E&gt;?, priors : Set&lt;V&gt;?, k : Int, edgeWeights : Map&lt;E, Number?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.String getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, java.util.Set&lt;V&gt;, java.util.Map&lt;E,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MarkovCentrality(graph : DirectedGraph&lt;V, E&gt;, rootNodes : Set&lt;V&gt;?, edgeWeightKey : Map&lt;E, Number?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.String getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.MarkovCentrality cern.colt.matrix.DoubleMatrix1D getStationaryDistribution()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getStationaryDistribution() : DoubleMatrix1D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.RandomWalkBetweenness java.lang.String getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness java.lang.String getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.Ranking int compareTo(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun compareTo(o : Any) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.WeightedNIPaths WeightedNIPaths(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, double, int, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WeightedNIPaths(graph : DirectedGraph&lt;V, E&gt;, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, alpha : Double, maxDepth : Int, priors : Set&lt;V&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.WeightedNIPaths java.lang.Object getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.WeightedNIPaths java.lang.String getRankScoreKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout.1 java.awt.geom.Point2D transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(arg0 : V?) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout.1 java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout AbstractLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AbstractLayout(graph : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout void adjustLocations(java.awt.Dimension, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun adjustLocations(oldSize : Dimension, size : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(graph : Graph&lt;V, E&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(size : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AggregateLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AggregateLayout java.awt.geom.Point2D transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AggregateLayout java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout.1 edu.uci.ics.jung.algorithms.layout.PolarPoint transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(arg0 : V?) : PolarPoint&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout.1 java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(v : V?, location : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout void setPolars(java.util.List&lt;V&gt;, java.awt.geom.Point2D, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setPolars(kids : List&lt;V&gt;, parentLocation : Point2D?, parentRadius : Double) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.CircleLayout.1 edu.uci.ics.jung.algorithms.layout.CircleLayout.CircleVertexData create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : CircleLayout.CircleVertexData&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.CircleLayout.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.CircleLayout void setVertexOrder(java.util.List&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setVertexOrder(vertex_list : List&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initializeLocation(v : V?, coord : Point2D, d : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout void setRoot(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setRoot(g : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout.1 edu.uci.ics.jung.algorithms.layout.FRLayout.FRVertexData create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : FRLayout.FRVertexData&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2.1 java.awt.geom.Point2D create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2 FRLayout2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun FRLayout2(g : Graph&lt;V, E&gt;?, d : Dimension)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2 void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(size : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout FRLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun FRLayout(g : Graph&lt;V, E&gt;?, d : Dimension)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(size : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout.ISOMLayout.ISOMVertexData create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : ISOMLayout.ISOMVertexData&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.KKLayout double[] calcDeltaXY(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun calcDeltaXY(m : Int) : DoubleArray&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.KKLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.Layout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.PolarPoint edu.uci.ics.jung.algorithms.layout.PolarPoint cartesianToPolar(double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cartesianToPolar(x : Double, y : Double) : PolarPoint&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.PolarPoint edu.uci.ics.jung.algorithms.layout.PolarPoint cartesianToPolar(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cartesianToPolar(point : Point2D) : PolarPoint&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.PolarPoint java.awt.geom.Point2D polarToCartesian(double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun polarToCartesian(theta : Double, radius : Double) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.PolarPoint java.awt.geom.Point2D polarToCartesian(edu.uci.ics.jung.algorithms.layout.PolarPoint)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun polarToCartesian(polar : PolarPoint) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.PolarPoint void setLocation(edu.uci.ics.jung.algorithms.layout.PolarPoint)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p : PolarPoint) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D getMaxXY()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMaxXY() : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(v : V?, location : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V?) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(layout : Layout&lt;V, E&gt;, x : Double, y : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(layout : Layout&lt;V, E&gt;, x : Double, y : Double, maxDistance : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(layout : Layout&lt;V, E&gt;, x : Double, y : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(layout : Layout&lt;V, E&gt;, x : Double, y : Double, maxDistance : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor java.util.Collection&lt;V&gt; getVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertices(layout : Layout&lt;V, E&gt;, rectangle : Shape?) : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout.1 edu.uci.ics.jung.algorithms.layout.SpringLayout.SpringVertexData create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : SpringLayout.SpringVertexData&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout.SpringDimensionChecker void componentResized(java.awt.event.ComponentEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun componentResized(e : ComponentEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout.1 java.awt.geom.Point2D transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(arg0 : V?) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout.1 java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TreeLayout(g : Forest&lt;V, E&gt;, distx : Int, disty : Int)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout int calculateDimensionX(java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun calculateDimensionX(roots : Collection&lt;V&gt;) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout java.awt.geom.Point2D getCenter()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getCenter() : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(graph : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout void setSize(java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.util.RandomLocationTransformer java.awt.geom.Point2D transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V?) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.util.RandomLocationTransformer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;E,java.lang.Number&gt;, cern.colt.matrix.DoubleMatrix1D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; computeMeanFirstPassageMatrix(G : Graph&lt;V, E&gt;, edgeWeights : Map&lt;E, Number?&gt;?, stationaryDistribution : DoubleMatrix1D) : DoubleMatrix2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; computeVoltagePotentialMatrix(graph : UndirectedGraph&lt;V, E&gt;) : DoubleMatrix2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D createVertexDegreeDiagonalMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; createVertexDegreeDiagonalMatrix(graph : Graph&lt;V, E&gt;) : SparseDoubleMatrix2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; graphToSparseMatrix(g : Graph&lt;V, E&gt;) : SparseDoubleMatrix2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;E,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; graphToSparseMatrix(g : Graph&lt;V, E&gt;, nev : Map&lt;E, Number?&gt;?) : SparseDoubleMatrix2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix1D mapTo1DMatrix(java.util.Map&lt;V,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V&gt; mapTo1DMatrix(map : Map&lt;V, Number?&gt;) : DoubleMatrix1D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph&lt;V,E&gt; matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; matrixToGraph(matrix : DoubleMatrix2D, graphFactory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?) : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph&lt;V,E&gt; matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, java.util.Map&lt;E,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; matrixToGraph(matrix : DoubleMatrix2D, graphFactory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, nev : MutableMap&lt;E, Number?&gt;?) : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph&lt;V,E&gt; square(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; square(g : Graph&lt;V, E&gt;, edgeFactory : Factory&lt;E&gt;?, meo : MatrixElementOperations&lt;E&gt;?) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.metrics.Metrics java.util.Map&lt;V,java.lang.Double&gt; clusteringCoefficients(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; clusteringCoefficients(graph : Graph&lt;V, E&gt;) : MutableMap&lt;V, Double?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.metrics.TriadicCensus long[] getCounts(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getCounts(g : DirectedGraph&lt;V, E&gt;) : LongArray&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.metrics.TriadicCensus boolean link(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; link(g : Graph&lt;V, E&gt;, a : V?, b : V?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.metrics.TriadicCensus boolean shouldCount(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.List&lt;V&gt;, V, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; shouldCount(g : Graph&lt;V, E&gt;?, id : List&lt;V&gt;, u : V?, v : V?, w : V?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.metrics.TriadicCensus int triCode(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, V, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; triCode(g : Graph&lt;V, E&gt;, u : V?, v : V?, w : V?) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BetweennessCentrality(graph : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,? extends java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BetweennessCentrality(graph : Graph&lt;V, E&gt;, edge_weights : Transformer&lt;E, out Number?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality void initialize(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initialize(graph : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Double getVertexScore(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertexScore(v : V?) : Double?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Object getVertexScore(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertexScore(x0 : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun HITS(g : Graph&lt;V, E&gt;, alpha : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Double&gt;, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun HITS(g : Graph&lt;V, E&gt;, edge_weights : Transformer&lt;E, Double?&gt;?, alpha : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KStepMarkov(graph : Hypergraph&lt;V, E&gt;, steps : Int)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.PageRank PageRank(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun PageRank(graph : Hypergraph&lt;V, E&gt;, alpha : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.PageRank PageRank(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,? extends java.lang.Number&gt;, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun PageRank(graph : Hypergraph&lt;V, E&gt;, edge_weight : Transformer&lt;E, out Number?&gt;?, alpha : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.VertexScorer java.lang.Object getVertexScore(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertexScore(p0 : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.VoltageScorer VoltageScorer(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.util.Collection&lt;V&gt;, java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun VoltageScorer(g : Hypergraph&lt;V, E&gt;?, sources : Collection&lt;V&gt;, sinks : Collection&lt;V&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.VoltageScorer VoltageScorer(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,? extends java.lang.Number&gt;, java.util.Collection&lt;V&gt;, java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun VoltageScorer(g : Hypergraph&lt;V, E&gt;?, edge_weights : Transformer&lt;E, out Number?&gt;?, sources : Collection&lt;V&gt;, sinks : Collection&lt;V&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.DelegateToEdgeTransformer java.lang.Number transform(edu.uci.ics.jung.algorithms.scoring.util.VEPair&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(arg0 : VEPair&lt;V, E&gt;) : Number?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.DelegateToEdgeTransformer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils.2 edu.uci.ics.jung.algorithms.scoring.HITS.Scores transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(input : V?) : HITS.Scores&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils.2 java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils org.apache.commons.collections15.Transformer&lt;V,edu.uci.ics.jung.algorithms.scoring.HITS.Scores&gt; getHITSUniformRootPrior(java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V&gt; getHITSUniformRootPrior(roots : Collection&lt;V&gt;?) : Transformer&lt;V, HITS.Scores?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.ScoringUtils org.apache.commons.collections15.Transformer&lt;V,java.lang.Double&gt; getUniformRootPrior(java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V&gt; getUniformRootPrior(roots : Collection&lt;V&gt;?) : Transformer&lt;V, Double?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.UniformDegreeWeight java.lang.Double transform(edu.uci.ics.jung.algorithms.scoring.util.VEPair&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(ve_pair : VEPair&lt;V, E&gt;) : Double?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.UniformDegreeWeight java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.UniformInOut java.lang.Double transform(edu.uci.ics.jung.algorithms.scoring.util.VEPair&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(ve_pair : VEPair&lt;V, E&gt;) : Double?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.UniformInOut java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.util.VEPair VEPair(V, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun VEPair(v : V, e : E)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler int getDistance(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDistance(g : Hypergraph&lt;V, E&gt;, v : V?) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void initialize(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initialize(g : Hypergraph&lt;V, E&gt;, rootSet : Set&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun labelDistances(graph : Hypergraph&lt;V, E&gt;, root : V?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun labelDistances(graph : Hypergraph&lt;V, E&gt;, rootSet : Set&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void visitNewVertex(V, V, int, java.util.List&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun visitNewVertex(predecessor : V?, neighbor : V?, distance : Int, newList : MutableList&lt;V&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData SourceData(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SourceData(source : V?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData java.util.Map.Entry&lt;V,java.lang.Number&gt; getNextVertex()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNextVertex() : MutableMap.MutableEntry&lt;V, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.Map&lt;V,java.lang.Number&gt; getDistanceMap(V, java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDistanceMap(source : V?, targets : Collection&lt;V&gt;) : MutableMap&lt;V, Number?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance&lt;V,E&gt;.SourceData getSourceData(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSourceData(source : V?) : DijkstraDistance&lt;V, E&gt;.SourceData&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.LinkedHashMap&lt;V,java.lang.Number&gt; singleSourceShortestPath(V, java.util.Collection&lt;V&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun singleSourceShortestPath(source : V?, targets : Collection&lt;V&gt;?, numDests : Int) : LinkedHashMap&lt;V, Number?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData java.util.Map.Entry&lt;V,java.lang.Number&gt; getNextVertex()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNextVertex() : MutableMap.MutableEntry&lt;V, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath java.util.List&lt;E&gt; getPath(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPath(source : V?, target : V?) : MutableList&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance&lt;V,E&gt;.SourceData getSourceData(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSourceData(source : V?) : DijkstraDistance&lt;V, E&gt;.SourceData&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics org.apache.commons.collections15.Transformer&lt;V,java.lang.Double&gt; averageDistances(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; averageDistances(g : Hypergraph&lt;V, E&gt;?) : Transformer&lt;V, Double?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics org.apache.commons.collections15.Transformer&lt;V,java.lang.Double&gt; averageDistances(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, edu.uci.ics.jung.algorithms.shortestpath.Distance&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; averageDistances(graph : Hypergraph&lt;V, E&gt;?, d : Distance&lt;V&gt;?) : Transformer&lt;V, Double?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; diameter(g : Hypergraph&lt;V, E&gt;) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, edu.uci.ics.jung.algorithms.shortestpath.Distance&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; diameter(g : Hypergraph&lt;V, E&gt;, d : Distance&lt;V&gt;?) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, edu.uci.ics.jung.algorithms.shortestpath.Distance&lt;V&gt;, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; diameter(g : Hypergraph&lt;V, E&gt;, d : Distance&lt;V&gt;?, use_max : Boolean) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Double&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MinimumSpanningForest2(graph : Graph&lt;V, E&gt;, forest : Forest&lt;V, E&gt;, treeFactory : Factory&lt;out Graph&lt;V, E&gt;?&gt;?, weights : Transformer&lt;E, Double?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Forest&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Double&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MinimumSpanningForest2(graph : Graph&lt;V, E&gt;?, factory : Factory&lt;Forest&lt;V, E&gt;?&gt;, treeFactory : Factory&lt;out Graph&lt;V, E&gt;?&gt;?, weights : Transformer&lt;E, Double?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MinimumSpanningForest(graph : Graph&lt;V, E&gt;, forest : Forest&lt;V, E&gt;, root : V?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, V, java.util.Map&lt;E,java.lang.Double&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MinimumSpanningForest(graph : Graph&lt;V, E&gt;, forest : Forest&lt;V, E&gt;, root : V?, weights : Map&lt;E, Double?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Forest&lt;V,E&gt;&gt;, V, java.util.Map&lt;E,java.lang.Double&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MinimumSpanningForest(graph : Graph&lt;V, E&gt;?, factory : Factory&lt;Forest&lt;V, E&gt;?&gt;, root : V?, weights : Map&lt;E, Double?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest void updateForest(java.util.Collection&lt;V&gt;, java.util.Collection&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun updateForest(tv : Collection&lt;V&gt;?, unfinishedEdges : MutableCollection&lt;E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree PrimMinimumSpanningTree(org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Double&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun PrimMinimumSpanningTree(factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;?, weights : Transformer&lt;E, Double?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree V findRoot(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findRoot(graph : Graph&lt;V, E&gt;) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree edu.uci.ics.jung.graph.Graph&lt;V,E&gt; transform(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(graph : Graph&lt;V, E&gt;) : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree void updateTree(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Collection&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun updateTree(tree : Graph&lt;V, E&gt;, graph : Graph&lt;V, E&gt;?, unfinishedEdges : MutableCollection&lt;E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.ShortestPathUtils java.util.List&lt;E&gt; getPath(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.algorithms.shortestpath.ShortestPath&lt;V,E&gt;, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getPath(graph : Graph&lt;V, E&gt;?, sp : ShortestPath&lt;V, E&gt;, source : V?, target : V?) : MutableList&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.Graph&lt;V,E&gt; toDirected(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; toDirected(graph : Graph&lt;V, E&gt;, graph_factory : Factory&lt;DirectedGraph&lt;V, E&gt;?&gt;, edge_factory : Factory&lt;E&gt;?, create_new : Boolean) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.DirectionTransformer edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt; toUndirected(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; toUndirected(graph : Graph&lt;V, E&gt;, graph_factory : Factory&lt;UndirectedGraph&lt;V, E&gt;?&gt;, edge_factory : Factory&lt;E&gt;?, create_new : Boolean) : UndirectedGraph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph&lt;V,java.util.Collection&lt;E&gt;&gt; foldHypergraphEdges(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,java.util.Collection&lt;E&gt;&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; foldHypergraphEdges(h : Hypergraph&lt;V, E&gt;, graph_factory : Factory&lt;Graph&lt;V, Collection&lt;E&gt;?&gt;?&gt;) : Graph&lt;V, Collection&lt;E&gt;?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph&lt;V,E&gt; foldHypergraphEdges(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; foldHypergraphEdges(h : Hypergraph&lt;V, E&gt;, graph_factory : Factory&lt;Graph&lt;V, E&gt;?&gt;, edge_factory : Factory&lt;E&gt;?) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph&lt;E,java.util.Collection&lt;V&gt;&gt; foldHypergraphVertices(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;E,java.util.Collection&lt;V&gt;&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun foldHypergraphVertices(h : Hypergraph&lt;V, E&gt;, graph_factory : Factory&lt;Graph&lt;E, Collection&lt;V&gt;?&gt;?&gt;) : Graph&lt;E, Collection&lt;V&gt;?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph&lt;E,F&gt; foldHypergraphVertices(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;E,F&gt;&gt;, org.apache.commons.collections15.Factory&lt;F&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E, F&gt; foldHypergraphVertices(h : Hypergraph&lt;V, E&gt;, graph_factory : Factory&lt;Graph&lt;E, F&gt;?&gt;, edge_factory : Factory&lt;F&gt;?) : Graph&lt;E, F&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph&lt;V,java.util.Collection&lt;V&gt;&gt; foldKPartiteGraph(edu.uci.ics.jung.graph.KPartiteGraph&lt;V,E&gt;, org.apache.commons.collections15.Predicate&lt;V&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,java.util.Collection&lt;V&gt;&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; foldKPartiteGraph(g : KPartiteGraph&lt;V, E&gt;, p : Predicate&lt;V&gt;?, graph_factory : Factory&lt;Graph&lt;V, Collection&lt;V&gt;?&gt;?&gt;) : Graph&lt;V, Collection&lt;V&gt;?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer edu.uci.ics.jung.graph.Graph&lt;V,E&gt; foldKPartiteGraph(edu.uci.ics.jung.graph.KPartiteGraph&lt;V,E&gt;, org.apache.commons.collections15.Predicate&lt;V&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; foldKPartiteGraph(g : KPartiteGraph&lt;V, E&gt;, p : Predicate&lt;V&gt;?, graph_factory : Factory&lt;Graph&lt;V, E&gt;?&gt;, edge_factory : Factory&lt;E&gt;?) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.FoldingTransformer void populateTarget(edu.uci.ics.jung.graph.Graph&lt;S,java.util.Collection&lt;T&gt;&gt;, T, java.util.ArrayList&lt;S&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;S, T&gt; populateTarget(target : Graph&lt;S, Collection&lt;T&gt;?&gt;?, e : T?, incident : ArrayList&lt;S&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.transformation.VertexPartitionCollapser edu.uci.ics.jung.graph.Graph&lt;CV,CE&gt; collapseVertexPartitions(edu.uci.ics.jung.algorithms.blockmodel.VertexPartition&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun collapseVertexPartitions(partitioning : VertexPartition&lt;V, E&gt;) : Graph&lt;CV, CE&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double KullbackLeibler(double[], double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KullbackLeibler(dist : DoubleArray, reference : DoubleArray) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution void checkLengths(double[], double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkLengths(dist : DoubleArray, reference : DoubleArray) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double cosine(double[], double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cosine(dist : DoubleArray, reference : DoubleArray) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double entropy(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun entropy(dist : DoubleArray) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double[] mean(java.util.Collection&lt;double[]&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mean(distributions : Collection&lt;DoubleArray?&gt;) : DoubleArray&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double[] mean(double[][])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mean(distributions : Array&lt;out DoubleArray?&gt;) : DoubleArray&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution void normalize(double[], double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun normalize(counts : DoubleArray, alpha : Double) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double squaredError(double[], double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun squaredError(dist : DoubleArray, reference : DoubleArray) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double symmetricKL(double[], double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun symmetricKL(dist : DoubleArray, reference : DoubleArray) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.Indexer org.apache.commons.collections15.BidiMap&lt;T,java.lang.Integer&gt; create(java.util.Collection&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; create(collection : Collection&lt;T&gt;) : BidiMap&lt;T, Int?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.Indexer org.apache.commons.collections15.BidiMap&lt;T,java.lang.Integer&gt; create(java.util.Collection&lt;T&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; create(collection : Collection&lt;T&gt;, start : Int) : BidiMap&lt;T, Int?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.KMeansClusterer.NotEnoughClustersException java.lang.String getMessage()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMessage() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.KMeansClusterer java.util.Map&lt;double[],java.util.Map&lt;T,double[]&gt;&gt; assignToClusters(java.util.Map&lt;T,double[]&gt;, java.util.Set&lt;double[]&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun assignToClusters(object_locations : Map&lt;T, DoubleArray?&gt;, centroids : Set&lt;DoubleArray?&gt;) : MutableMap&lt;DoubleArray?, Map&lt;T, DoubleArray?&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.KMeansClusterer java.util.Collection&lt;java.util.Map&lt;T,double[]&gt;&gt; cluster(java.util.Map&lt;T,double[]&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cluster(object_locations : Map&lt;T, DoubleArray?&gt;, num_clusters : Int) : MutableCollection&lt;Map&lt;T, DoubleArray?&gt;?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.MapBinaryHeap.ComparableComparator int compare(T, T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun compare(arg0 : T, arg1 : T) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.MapBinaryHeap T element()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun element() : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.MapBinaryHeap T peek()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun peek() : T?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.MapBinaryHeap T poll()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun poll() : T?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.MapBinaryHeap T pop()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun pop() : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.MapBinaryHeap T remove()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove() : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(x0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map&lt;T,? extends java.lang.Number&gt;, java.util.Random, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WeightedChoice(item_weights : Map&lt;T, out Number?&gt;, random : Random?, threshold : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice void enqueueItem(T, double, double, java.util.Queue&lt;edu.uci.ics.jung.algorithms.util.WeightedChoice&lt;T&gt;.ItemPair&gt;, java.util.Queue&lt;edu.uci.ics.jung.algorithms.util.WeightedChoice&lt;T&gt;.ItemPair&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun enqueueItem(key : T?, value : Double, threshold : Double, light_weights : Queue&lt;WeightedChoice&lt;T&gt;.ItemPair?&gt;, heavy_weights : Queue&lt;WeightedChoice&lt;T&gt;.ItemPair?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+</root>

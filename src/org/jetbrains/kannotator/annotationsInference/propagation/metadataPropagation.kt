@@ -68,7 +68,17 @@ private fun propagateParameterAnnotations<A>(
             val declPos = position.relativePosition
             if (declPos !is ParameterPosition)
                 continue
-            val annotations = positionsForMethods.map{ annotationsToFix[it[declPos].position] }.filterNotNull()
+            val annotations = arrayList<A>()
+            for (positionsForMethod in positionsForMethods) {
+                val annotatedType = positionsForMethod[declPos]
+                val annotationPosition = annotatedType.position
+                val annotationValue = annotationsToFix[annotationPosition]
+                if (annotationValue != null) {
+                    annotations.add(annotationValue)
+                }
+            }
+
+            //val annotations = positionsForMethods.map{ annotationsToFix[it[declPos].position] }.filterNotNull()
 
             if (!annotations.isEmpty()) {
                 val unifiedAnnotation = lattice.unify<A>(declPos, annotations)

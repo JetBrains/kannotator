@@ -834,7 +834,7 @@
   <item name='java.lang.Class java.lang.reflect.Method[] getMethods()'>
       <annotation name='org.jetbrains.annotations.NotNull'/>
       <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-          <val name="value" val="&quot;fun getMethods() : Array&lt;Method&gt;&quot;"/>
+          <val name="value" val="&quot;fun getMethods() : Array&lt;out Method&gt;&quot;"/>
       </annotation>
   </item>
   <item name='java.lang.Class java.lang.reflect.Constructor&lt;?&gt;[] getConstructors()'>

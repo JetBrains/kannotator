@@ -32,6 +32,18 @@ EDU.oswego.cs.dl.util.concurrent.BoundedPriorityQueue java.lang.Object extract()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.BoundedPriorityQueue java.lang.Object peek()
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.Callable java.lang.Object call()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Channel boolean offer(java.lang.Object, long) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Channel java.lang.Object peek()
+NULLABLE
+EDU.oswego.cs.dl.util.concurrent.Channel java.lang.Object poll(long)
+NULLABLE
+EDU.oswego.cs.dl.util.concurrent.Channel java.lang.Object take()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Channel void put(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ClockDaemon EDU.oswego.cs.dl.util.concurrent.ClockDaemon.TaskNode nextTask()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.ClockDaemon heap_
@@ -262,6 +274,8 @@ EDU.oswego.cs.dl.util.concurrent.DefaultChannelCapacity defaultCapacity_
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.DirectExecutor void execute(java.lang.Runnable) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Executor void execute(java.lang.Runnable) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FIFOReadWriteLock EDU.oswego.cs.dl.util.concurrent.Sync readLock()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FIFOReadWriteLock EDU.oswego.cs.dl.util.concurrent.Sync writeLock()
@@ -320,6 +334,8 @@ EDU.oswego.cs.dl.util.concurrent.FJTaskRunnerGroup threads
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunnerGroup void checkActive(EDU.oswego.cs.dl.util.concurrent.FJTaskRunner, long) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.FJTaskRunnerGroup void execute(java.lang.Runnable) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunnerGroup void setActive(EDU.oswego.cs.dl.util.concurrent.FJTaskRunner) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.FJTaskRunnerGroup void setInactive(EDU.oswego.cs.dl.util.concurrent.FJTaskRunner) 0
@@ -344,6 +360,8 @@ EDU.oswego.cs.dl.util.concurrent.LinkedQueue putLock_
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.LinkedQueue void put(java.lang.Object) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.LockedExecutor void execute(java.lang.Runnable) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ObservableSync java.util.Iterator observers()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ObservableSync observers_
@@ -354,7 +372,19 @@ EDU.oswego.cs.dl.util.concurrent.PooledExecutor java.util.List drain()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.PooledExecutor threads_
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.PooledExecutor void execute(java.lang.Runnable) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.PooledExecutor.AbortWhenBlocked boolean blockedAction(java.lang.Runnable) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.PooledExecutor.BlockedExecutionHandler boolean blockedAction(java.lang.Runnable) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.PooledExecutor.DiscardOldestWhenBlocked boolean blockedAction(java.lang.Runnable) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.PooledExecutor.DiscardWhenBlocked boolean blockedAction(java.lang.Runnable) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.PooledExecutor.RunWhenBlocked boolean blockedAction(java.lang.Runnable) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.PooledExecutor.WaitWhenBlocked boolean blockedAction(java.lang.Runnable) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.PrioritySemaphore.PriorityWaitQueue EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode extract()
 NULLABLE
@@ -388,13 +418,25 @@ EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster void removePropertyCh
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Puttable boolean offer(java.lang.Object, long) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Puttable void put(java.lang.Object) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.QueuedExecutor runLoop_
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.QueuedExecutor void execute(java.lang.Runnable) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode getSignallee()
+NULLABLE
+EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode extract()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode boolean doTimedWait(EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore, long) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore.WaitQueue.WaitNode void doWait(EDU.oswego.cs.dl.util.concurrent.QueuedSemaphore) 0
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ReadWriteLock EDU.oswego.cs.dl.util.concurrent.Sync readLock()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ReadWriteLock EDU.oswego.cs.dl.util.concurrent.Sync writeLock()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ReentrantWriterPreferenceReadWriteLock EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock.Signaller endRead()
 NULLABLE
@@ -406,12 +448,18 @@ EDU.oswego.cs.dl.util.concurrent.Rendezvous entryGate_
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.Rendezvous slots_
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.Rendezvous.RendezvousFunction void rendezvousFunction(java.lang.Object[]) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.Rendezvous.Rotator void rendezvousFunction(java.lang.Object[]) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SemaphoreControlledChannel SemaphoreControlledChannel(int, java.lang.Class) 1
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SemaphoreControlledChannel boolean offer(java.lang.Object, long) 0
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.SemaphoreControlledChannel java.lang.Object extract()
+NULLABLE
+EDU.oswego.cs.dl.util.concurrent.SemaphoreControlledChannel java.lang.Object peek()
+NULLABLE
 EDU.oswego.cs.dl.util.concurrent.SemaphoreControlledChannel java.lang.Object poll(long)
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.SemaphoreControlledChannel void put(java.lang.Object) 0
@@ -536,7 +584,15 @@ EDU.oswego.cs.dl.util.concurrent.SynchronousChannel waitingTakes
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.SynchronousChannel.Queue EDU.oswego.cs.dl.util.concurrent.LinkedNode deq()
 NULLABLE
+EDU.oswego.cs.dl.util.concurrent.Takable java.lang.Object poll(long)
+NULLABLE
+EDU.oswego.cs.dl.util.concurrent.Takable java.lang.Object take()
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ThreadFactory java.lang.Thread newThread(java.lang.Runnable)
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.ThreadFactoryUser.DefaultThreadFactory java.lang.Thread newThread(java.lang.Runnable)
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.ThreadedExecutor void execute(java.lang.Runnable) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster getChild(java.lang.String)
 NULLABLE
@@ -696,6 +752,8 @@ EDU.oswego.cs.dl.util.concurrent.misc.AClongRNG acurrent_
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer array
 NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer boolean offer(java.lang.Object, long) 0
+NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer java.lang.Object peek()
 NULLABLE
 EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer java.lang.Object poll(long)
@@ -705,6 +763,8 @@ NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer notEmpty
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer notFull
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.misc.CVBuffer void put(java.lang.Object) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.ChanRNG long producerNext(EDU.oswego.cs.dl.util.concurrent.Channel) 0
 NOT_NULL
@@ -719,6 +779,8 @@ NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.ForcedStartRunnable EDU.oswego.cs.dl.util.concurrent.Latch started()
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.ForcedStartRunnable latch_
+NOT_NULL
+EDU.oswego.cs.dl.util.concurrent.misc.ForcedStartThreadedExecutor void execute(java.lang.Runnable) 0
 NOT_NULL
 EDU.oswego.cs.dl.util.concurrent.misc.Fraction EDU.oswego.cs.dl.util.concurrent.misc.Fraction dividedBy(EDU.oswego.cs.dl.util.concurrent.misc.Fraction)
 NOT_NULL

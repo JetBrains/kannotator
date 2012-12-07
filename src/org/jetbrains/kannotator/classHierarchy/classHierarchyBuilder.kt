@@ -97,7 +97,7 @@ private fun processClass(reader: ClassReader): MethodsAndSuperClasses {
                 }
 
                 public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                    val method = Method(thisClassName, access, name, desc)
+                    val method = Method(thisClassName, access, name, desc, signature)
                     methods.add(method)
                     return null
                 }

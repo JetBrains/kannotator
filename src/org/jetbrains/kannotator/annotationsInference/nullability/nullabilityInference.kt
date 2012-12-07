@@ -147,7 +147,6 @@ fun findFieldsWithChangedNullabilityInfo(previous: Map<Field, NullabilityValueIn
     }
 
     val changedInFields = HashSet<Field>()
-    assert(previous.keySet() == new.keySet())
 
     for (key in previous.keySet()) {
         if (previous[key] != new[key]) {

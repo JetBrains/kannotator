@@ -70,19 +70,19 @@
     </annotation>
   </item>
   <item name='java.io.File java.io.File[] listFiles()'>
-    <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-      <val name="value" val="&quot;fun listFiles() : Array&lt;File&gt;?&quot;"/>
-    </annotation>
+      <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+          <val name="value" val="&quot;fun listFiles() : Array&lt;out File&gt;&quot;"/>
+      </annotation>
   </item>
   <item name='java.io.File java.io.File[] listFiles(java.io.FilenameFilter)'>
-    <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-      <val name="value" val="&quot;fun listFiles(filter : FilenameFilter?) : Array&lt;File&gt;?&quot;"/>
-    </annotation>
+      <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+          <val name="value" val="&quot;fun listFiles(filter : FilenameFilter?) : Array&lt;out File&gt;&quot;"/>
+      </annotation>
   </item>
   <item name='java.io.File java.io.File[] listFiles(java.io.FileFilter)'>
-    <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-      <val name="value" val="&quot;fun listFiles(filter : FileFilter?) : Array&lt;File&gt;?&quot;"/>
-    </annotation>
+      <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+          <val name="value" val="&quot;fun listFiles(filter : FileFilter?) : Array&lt;out File&gt;&quot;"/>
+      </annotation>
   </item>
   <item name='java.io.File boolean renameTo(java.io.File) 0'>
     <annotation name='org.jetbrains.annotations.NotNull'/>
