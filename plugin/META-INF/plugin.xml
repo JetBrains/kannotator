@@ -34,5 +34,7 @@ Automatic inference of nullability and kotlin annotations from the set of jar fi
 
     <extensions defaultExtensionNs="com.intellij">
         <errorHandler implementation="org.jetbrains.kannotator.plugin.KannotatorReportSubmitter"/>
+
+        <editorNotificationProvider implementation="org.jetbrains.kannotator.plugin.notifications.AnnotateKotlinLibNotification"/>
     </extensions>
 </idea-plugin>
