@@ -36,5 +36,8 @@ Automatic inference of nullability and kotlin annotations from the set of jar fi
         <errorHandler implementation="org.jetbrains.kannotator.plugin.KannotatorReportSubmitter"/>
 
         <editorNotificationProvider implementation="org.jetbrains.kannotator.plugin.notifications.AnnotateKotlinLibNotification"/>
+
+        <projectService serviceInterface="org.jetbrains.kannotator.plugin.persistentState.KannotatorSettings"
+                        serviceImplementation="org.jetbrains.kannotator.plugin.persistentState.KannotatorSettings"/>
     </extensions>
 </idea-plugin>
