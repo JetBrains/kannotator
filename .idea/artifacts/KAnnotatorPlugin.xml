@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact name="KAnnotatorPlugin">
+    <output-path>$PROJECT_DIR$/out/artifacts/KAnnotatorPlugin</output-path>
+    <root id="root">
+      <element id="directory" name="lib">
+        <element id="archive" name="kannotator-plugin.jar">
+          <element id="module-output" name="plugin" />
+          <element id="directory" name="META-INF">
+            <element id="dir-copy" path="$PROJECT_DIR$/plugin/META-INF" />
+          </element>
+          <element id="module-output" name="kannotator" />
+        </element>
+        <element id="library" level="project" name="KotlinRuntime" />
+        <element id="library" level="project" name="asm-debug-all-4.0" />
+        <element id="library" level="project" name="gs-collections-2.0" />
+      </element>
+    </root>
+  </artifact>
+</component>

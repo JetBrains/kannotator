@@ -45,6 +45,8 @@ class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation> {
     override val lattice: AnnotationLattice<NullabilityAnnotation> = NullabiltyLattice
 }
 
+public val MUTABILITY_INFERRER_OBJECT: AnnotationInferrer<MutabilityAnnotation> = MUTABILITY_INFERRER
+
 object MUTABILITY_INFERRER: AnnotationInferrer<MutabilityAnnotation> {
     override fun resolveAnnotation(classNames: Set<String>) =
             classNamesToMutabilityAnnotation(classNames)

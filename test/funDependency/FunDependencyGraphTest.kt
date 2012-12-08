@@ -20,27 +20,27 @@ class FunDependencyGraphTest {
     }
 
     Test fun funInDifferentClassesTest() {
-        doTest("funInDifferentClasses/funInDifferentClasses.txt", "fundependency.funInDifferentClasses.First", "fundependency.funInDifferentClasses.Second")
+        doTest("funInDifferentClasses/funInDifferentClasses.txt", "funDependency.funInDifferentClasses.First", "funDependency.funInDifferentClasses.Second")
     }
 
     Test fun multiplyInvokeOfMethod() {
-        doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.txt", "fundependency.multiplyInvokeOfMethod.First", "fundependency.multiplyInvokeOfMethod.Second")
+        doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.txt", "funDependency.multiplyInvokeOfMethod.First", "funDependency.multiplyInvokeOfMethod.Second")
     }
 
     Test fun noAnnotatedMethods() {
-        doTest("noAnnotatedMethods/noAnnotatedMethods.txt", "fundependency.noAnnotatedMethods.First")
+        doTest("noAnnotatedMethods/noAnnotatedMethods.txt", "funDependency.noAnnotatedMethods.First")
     }
 
     Test fun recursiveFunTest() {
-        doTest("recursiveFun/recursiveFun.txt", "fundependency.recursiveFun.First", "fundependency.recursiveFun.Second")
+        doTest("recursiveFun/recursiveFun.txt", "funDependency.recursiveFun.First", "funDependency.recursiveFun.Second")
     }
 
     Test fun simpleTest() {
-        doTest("simple/simple.txt", "fundependency.simple.Simple")
+        doTest("simple/simple.txt", "funDependency.simple.Simple")
     }
 
     Test fun dependOnConstructorBecauseOfFields() {
-        doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "fundependency.dependOnConstructorBecauseOfFields.dependOnConstructorBecauseOfFields")
+        doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
     }
 
     fun doTest(expectedResultPath: String, vararg canonicalNames: String) {

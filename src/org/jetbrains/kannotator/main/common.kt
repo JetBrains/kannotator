@@ -42,17 +42,14 @@ import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 
 open class ProgressMonitor {
+    open fun processingStarted() {}
     open fun annotationIndexLoaded(index: AnnotationKeyIndex) {}
-
-    open fun totalFields(fieldCount: Int) {}
-    open fun valueFieldsProcessingStarted() {}
-    open fun valueFieldsProcessingFinished() {}
-
-    open fun totalMethods(methodCount: Int) {}
-    open fun processingStarted(methods: Collection<Method>) {}
+    open fun methodsProcessingStarted(methodCount: Int) {}
+    open fun processingComponentStarted(methods: Collection<Method>) {}
     open fun processingStepStarted(method: Method) {}
     open fun processingStepFinished(method: Method) {}
-    open fun processingFinished(methods: Collection<Method>) {}
+    open fun processingComponentFinished(methods: Collection<Method>) {}
+    open fun processingFinished() {}
 }
 
 private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<String>) {
@@ -210,6 +207,8 @@ fun <K> inferAnnotations(
         loadOnly: Boolean = false,
         existingAnnotations: Map<K, Annotations<Any>> = hashMap()
 ): InferenceResult<K> {
+    progressMonitor.processingStarted()
+    
     val methodNodes = HashMap<Method, MethodNode>()
     val declarationIndex = DeclarationIndexImpl(classSource) {
         method ->
@@ -239,23 +238,17 @@ fun <K> inferAnnotations(
     val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
     val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
 
-    progressMonitor.totalFields(fieldToDependencyInfosMap.size)
-
-    progressMonitor.valueFieldsProcessingStarted()
-
     for ((key, inferrer) in inferrers) {
         for (fieldInfo in fieldToDependencyInfosMap.values()) {
             resultingAnnotationsMap[key]!!.copyAllChanged(inferrer.inferAnnotationsFromFieldValue(fieldInfo.field))
         }
     }
 
-    progressMonitor.valueFieldsProcessingFinished()
-
-    progressMonitor.totalMethods(methodNodes.size)
+    progressMonitor.methodsProcessingStarted(methodNodes.size)
 
     for (component in components) {
         val methods = component.map { Pair(it.data, it.incomingEdges) }.toMap()
-        progressMonitor.processingStarted(methods.keySet())
+        progressMonitor.processingComponentStarted(methods.keySet())
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
             // Add itself as inferred annotation can produce more annotations
@@ -281,13 +274,15 @@ fun <K> inferAnnotations(
             )
         }
 
-        progressMonitor.processingFinished(methods.keySet())
+        progressMonitor.processingComponentFinished(methods.keySet())
 
         // We don't need to occupy that memory any more
         for (functionNode in component) {
             methodNodes.remove(functionNode.data)
         }
     }
+
+    progressMonitor.processingFinished()
 
     return propagateAnnotations(classSource, inferrers, inferenceResult)
 }

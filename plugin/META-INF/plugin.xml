@@ -1,11 +1,11 @@
 <idea-plugin version="2">
-    <id>org.jetbrains.jarannotator</id>
-    <name>JarAnnotator</name>
-    <version>1.0</version>
+    <id>org.jetbrains.kannotator</id>
+    <name>KAnnotator</name>
+    <version>@snapshot@</version>
     <vendor url="http://www.jetbrains.com">JetBrains Inc.</vendor>
     <description>
         <![CDATA[
-Automatic inferrer nullability and kotlin annotations for the set of jar files
+Automatic inference of nullability and kotlin annotations from the set of jar files
 ]]>
     </description>
     <idea-version since-build="123.4" until-build="123.9999"/>
@@ -26,7 +26,7 @@ Automatic inferrer nullability and kotlin annotations for the set of jar files
     </project-components>
 
     <actions>
-        <action id="annotate.jar" class="org.jetbrains.annotator.actions.AnnotateJarAction" text="Annotate Jar Files..."
+        <action id="annotate.jar" class="org.jetbrains.kannotator.plugin.actions.AnnotateJarAction" text="Annotate Jar Files..."
                 description="Infer nullability and Kotlin annotation for jar files">
             <add-to-group group-id="AnalyzeActions" anchor="last"/>
         </action>

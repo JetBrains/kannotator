@@ -77,11 +77,7 @@ class IntegratedInferenceTest : TestCase() {
                 annotationIndex = index
             }
 
-            override fun totalFields(fieldCount: Int) {
-                println("Total fields: $fieldCount")
-            }
-
-            override fun totalMethods(methodCount: Int) {
+            override fun methodsProcessingStarted(methodCount: Int) {
                 println("Total methods: $methodCount")
             }
 
