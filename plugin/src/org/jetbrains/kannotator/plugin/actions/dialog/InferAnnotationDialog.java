@@ -12,7 +12,6 @@ import com.intellij.openapi.util.Computable;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.refactoring.RefactoringBundle;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.components.JBScrollPane;
 import jet.runtime.typeinfo.KotlinSignature;
@@ -60,7 +59,7 @@ public class InferAnnotationDialog extends DialogWrapper {
         contentPanel.setPreferredSize(new Dimension(440, 500));
 
         outputDirectory.addBrowseFolderListener(
-                RefactoringBundle.message("select.target.directory"),
+                "Select output directory",
                 "Inferred annotation will be written to this folder",
                 null, FileChooserDescriptorFactory.createSingleFolderDescriptor());
 

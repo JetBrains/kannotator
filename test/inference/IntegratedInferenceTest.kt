@@ -28,7 +28,6 @@ import util.findJarsInLibFolder
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.junit.Assert
 import util.*
-import java.util.Set
 import java.util.HashSet
 import org.jetbrains.kannotator.annotations.io.writeAnnotations
 import java.io.FileWriter
@@ -42,6 +41,8 @@ import kotlinlib.sortByToString
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.declarations.MutableAnnotations
 import org.jetbrains.kannotator.index.DeclarationIndex
+import org.jetbrains.kannotator.annotations.io.AnnotationData
+import kotlinlib.toMap
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -97,7 +98,7 @@ class IntegratedInferenceTest : TestCase() {
         println("start: $jar")
 
         val annotationsMap = try {
-                                 inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false)
+                                 inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false).inferredAnnotationsMap
                              }
                              catch (e: Throwable) {
                                  throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
@@ -159,12 +160,11 @@ class IntegratedInferenceTest : TestCase() {
 
         val stringWriter = StringWriter()
         writeAnnotations(stringWriter,
-                methods.sortByToString().map {
+                (methods.sortByToString().map {
                     m ->
-                    PositionsForMethod(m).forReturnType().position to kotlinSignatureToAnnotationData(
-                            renderMethodSignature(m, nullability , mutability)
-                    )
-                }
+                    PositionsForMethod(m).forReturnType().position to
+                        arrayList(kotlinSignatureToAnnotationData(renderMethodSignature(m, nullability , mutability)))
+                }).toMap()
         )
 
         val actual = stringWriter.toString()
