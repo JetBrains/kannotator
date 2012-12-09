@@ -1,30 +1,22 @@
 package org.jetbrains.kannotator.plugin.actions
 
-import com.intellij.ide.actions.CloseTabToolbarAction
-import com.intellij.openapi.actionSystem.*
+import com.intellij.notification.Notification
+import com.intellij.notification.NotificationType
+import com.intellij.notification.Notifications
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task.Backgroundable
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.AnnotationOrderRootType
 import com.intellij.openapi.roots.ex.ProjectRootManagerEx
 import com.intellij.openapi.roots.libraries.Library
-import com.intellij.openapi.ui.PanelWithText
-import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.openapi.util.Disposer
 import com.intellij.openapi.util.EmptyRunnable
 import com.intellij.openapi.vfs.LocalFileSystem
 import com.intellij.openapi.vfs.VfsUtilCore
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.openapi.wm.ToolWindowId
-import com.intellij.openapi.wm.ToolWindowManager
-import com.intellij.ui.content.ContentFactory
-import com.intellij.ui.content.MessageView
-import com.intellij.ui.content.tabs.PinToolwindowTabAction
-import com.intellij.util.ContentsUtil
 import java.io.File
 import java.util.ArrayList
 import java.util.HashMap
-import javax.swing.JPanel
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
@@ -172,46 +164,52 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
             return
         }
 
-        val messageView = MessageView.SERVICE.getInstance(myProject)!!
-        val messageViewContentManager = messageView.getContentManager()!!
-        val contentFactory = ContentFactory.SERVICE.getInstance()!!
-        val toolWindowManager = ToolWindowManager.getInstance(project)!!
+//        val messageView = MessageView.SERVICE.getInstance(myProject)!!
+//        val messageViewContentManager = messageView.getContentManager()!!
+//        val contentFactory = ContentFactory.SERVICE.getInstance()!!
+//        val toolWindowManager = ToolWindowManager.getInstance(project)!!
+//
+//        val content = contentFactory.createContent(createMessageOutput(), INFERRING_RESULT_TAB_TITLE, true)
+//
+//        ContentsUtil.addOrReplaceContent(messageViewContentManager, content, true)
+//
+//        toolWindowManager.getToolWindow(ToolWindowId.MESSAGES_WINDOW)!!.activate(null)
 
-        val content = contentFactory.createContent(createMessageOutput(), INFERRING_RESULT_TAB_TITLE, true)
+        val numberOfFiles = taskParams.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
 
-        ContentsUtil.addOrReplaceContent(messageViewContentManager, content, true)
-
-        toolWindowManager.getToolWindow(ToolWindowId.MESSAGES_WINDOW)!!.activate(null)
+        Notifications.Bus.notify(Notification(
+                "KAnnotator", "Annotating finished successfully", "$numberOfFiles file(s) were annotated",
+                NotificationType.INFORMATION), project)
     }
 
-    private fun createMessageOutput() : JPanel {
-        val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
-
-        fun createToolbar() : ActionToolbar {
-            val group = DefaultActionGroup()
-            group.add(object: CloseTabToolbarAction() {
-                public override fun actionPerformed(e: AnActionEvent?) {
-                    val messageView = MessageView.SERVICE.getInstance(getProject())!!
-                    val contents = messageView.getContentManager()!!.getContents()
-                    for (content in contents) {
-                        if (content.getComponent() == simpleToolWindowPanel) {
-                            messageView.getContentManager()!!.removeContent(content, true)
-                            return
-                        }
-                    }
-                }
-            })
-
-            group.add(PinToolwindowTabAction.getPinAction())
-
-            return ActionManager.getInstance()!!.createActionToolbar(ActionPlaces.UNKNOWN, group, false)
-        }
-
-        simpleToolWindowPanel.add(PanelWithText(successMessage))
-        simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
-
-        return simpleToolWindowPanel
-    }
+//    private fun createMessageOutput() : JPanel {
+//        val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
+//
+//        fun createToolbar() : ActionToolbar {
+//            val group = DefaultActionGroup()
+//            group.add(object: CloseTabToolbarAction() {
+//                public override fun actionPerformed(e: AnActionEvent?) {
+//                    val messageView = MessageView.SERVICE.getInstance(getProject())!!
+//                    val contents = messageView.getContentManager()!!.getContents()
+//                    for (content in contents) {
+//                        if (content.getComponent() == simpleToolWindowPanel) {
+//                            messageView.getContentManager()!!.removeContent(content, true)
+//                            return
+//                        }
+//                    }
+//                }
+//            })
+//
+//            group.add(PinToolwindowTabAction.getPinAction())
+//
+//            return ActionManager.getInstance()!!.createActionToolbar(ActionPlaces.UNKNOWN, group, false)
+//        }
+//
+//        simpleToolWindowPanel.add(PanelWithText(successMessage))
+//        simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
+//
+//        return simpleToolWindowPanel
+//    }
 
     private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
         return runComputableInsideWriteAction {
