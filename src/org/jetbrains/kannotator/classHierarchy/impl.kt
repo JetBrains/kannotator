@@ -6,8 +6,11 @@ import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 
 class HierarchyGraphImpl<D>(
-        override val nodes: Collection<HierarchyNode<D>>
-): HierarchyGraph<D>
+        override val nodes: Collection<HierarchyNode<D>>,
+        private val nodeMap: Map<D, HierarchyNode<D>>? = null
+): HierarchyGraph<D> {
+    override fun findNode(data: D): HierarchyNode<D>? = nodeMap?.get(data)
+}
 
 abstract class HierarchyNodeImpl<D> : HierarchyNode<D> {
     private val _children: MutableCollection<HierarchyEdge<D>> = ArrayList()

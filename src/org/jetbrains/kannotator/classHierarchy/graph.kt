@@ -5,6 +5,7 @@ import org.jetbrains.kannotator.declarations.Method
 
 trait HierarchyGraph<D> {
     val nodes: Collection<HierarchyNode<D>>
+    fun findNode(data: D): HierarchyNode<D>?
 }
 
 trait HierarchyEdge<D> {
