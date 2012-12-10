@@ -58,5 +58,5 @@ fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGr
         }
     }
 
-    return HierarchyGraphImpl(nodeByMethod.values())
+    return HierarchyGraphImpl(nodeByMethod.values(), nodeByMethod)
 }

@@ -7,6 +7,10 @@ import kotlinlib.*
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
+import java.io.BufferedReader
+import java.io.FileReader
+import java.util.Collections
+import org.jetbrains.kannotator.main.loadPositionsOfConflictExceptions
 
 fun main(args: Array<String>) {
     val jar = File("lib/jdk_1_7_0_09_rt.jar")
@@ -21,6 +25,12 @@ fun main(args: Array<String>) {
             declarationIndex
     )
 
+    val includedClassNames = BufferedReader(FileReader(File("testData/inferenceData/integrated/nullability/includedClassNames.txt"))) use { p ->
+        p.lineIterator().toSet()
+    }
+
+    val includedPositions = loadPositionsOfConflictExceptions(declarationIndex, File("testData/inferenceData/integrated/nullability/includedAnnotationKeys.txt"))
+
     val targetDir = File("testData/inferenceData/integrated/kotlinSignatures/root")
     if (targetDir.exists()) {
         targetDir.deleteRecursively()
@@ -31,6 +41,15 @@ fun main(args: Array<String>) {
             declarationIndex,
             File("lib/jdk-annotations"),
             targetDir,
-            annotations
+            annotations,
+            hashSet(
+                    "java/beans/beancontext",
+                    "javax/management/openmbean",
+                    "javax/management/remote/rmi/_RMIConnection_Stub",
+                    "javax/management/remote/rmi/RMIConnectionImpl_Stub",
+                    "org/omg/stub/javax/management/remote/rmi/_RMIConnection_Stub"
+            ),
+            includedClassNames,
+            includedPositions
     )
 }

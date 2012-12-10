@@ -6,11 +6,10 @@ import java.io.File
 import java.util.Collections
 import java.io.PrintStream
 import java.io.FileOutputStream
-import kotlinlib.println
+import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.declarations.Method
-import kotlinlib.removeSuffix
 import java.io.FileInputStream
 import interpreter.readWithBuffer
 import java.util.TreeMap
@@ -18,7 +17,6 @@ import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.util.ArrayList
 import util.assertEqualsOrCreate
-import kotlinlib.recurseFiltered
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import kotlin.test.assertTrue
@@ -37,12 +35,30 @@ import org.jetbrains.kannotator.kotlinSignatures.renderMethodSignature
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
 import java.io.StringWriter
-import kotlinlib.sortByToString
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.declarations.MutableAnnotations
 import org.jetbrains.kannotator.index.DeclarationIndex
+import kotlinSignatures.KotlinSignatureTestData.MutabilityNoAnnotations
+import java.io.BufferedReader
+import java.io.FileReader
 import org.jetbrains.kannotator.annotations.io.AnnotationData
-import kotlinlib.toMap
+import org.jetbrains.kannotator.declarations.isPublicOrProtected
+import org.jetbrains.kannotator.declarations.isPublic
+import org.jetbrains.kannotator.annotations.io.parseAnnotations
+import java.util.HashMap
+import org.jetbrains.kannotator.declarations.forEachValidPosition
+import org.jetbrains.kannotator.annotationsInference.nullability.*
+import kotlin.dom.addClass
+import java.util.LinkedHashMap
+import org.jetbrains.kannotator.classHierarchy.*
+import org.jetbrains.kannotator.declarations.ClassMember
+import org.jetbrains.kannotator.declarations.getInternalPackageName
+import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
+import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
+import org.jetbrains.kannotator.annotations.io.methodsToAnnotationsMap
+import org.jetbrains.kannotator.annotations.io.getPackageName
+import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
+import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -50,11 +66,12 @@ class IntegratedInferenceTest : TestCase() {
             conflictFile: File,
             keyIndex: AnnotationKeyIndex,
             inferredAnnotations: Annotations<A>,
+            existingAnnotations: Annotations<A>,
             inferrer: AnnotationInferrer<A>
     ) {
         val conflictExceptions = loadPositionsOfConflictExceptions(keyIndex, File("testData/inferenceData/integrated/$testName/exceptions.txt"))
         val conflicts = processAnnotationInferenceConflicts(
-                inferredAnnotations as MutableAnnotations<A>, (inferredAnnotations as AnnotationsImpl<A>).delegate, inferrer, conflictExceptions
+                inferredAnnotations as MutableAnnotations<A>, existingAnnotations, inferrer, conflictExceptions
         )
         if (!conflicts.isEmpty()) {
             PrintStream(FileOutputStream(conflictFile)) use {
@@ -97,27 +114,47 @@ class IntegratedInferenceTest : TestCase() {
         val jar = jars.first()
         println("start: $jar")
 
-        val annotationsMap = try {
-                                 inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false).inferredAnnotationsMap
-                             }
-                             catch (e: Throwable) {
-                                 throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
-                             }
+        inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false, true)
 
-        val nullability = annotationsMap[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
-        val mutability = annotationsMap[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
+        val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
+        val propagationOverrides = loadAnnotationsFromLogs(arrayList(propagationOverridesFile), annotationIndex!!)
+
+        val inferenceResult = try {
+            inferAnnotations(
+                    FileBasedClassSource(arrayList(jar)),
+                    annotationFiles,
+                    INFERRERS,
+                    progressMonitor,
+                    false,
+                    false,
+                    hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>())
+            )
+        }
+        catch (e: Throwable) {
+            throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
+        }
+
+        val nullability = inferenceResult.inferredAnnotationsMap[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
+        val mutability = inferenceResult.inferredAnnotationsMap[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
 
         val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
 
         writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
 
-        for ((inferrerKey, annotations) in annotationsMap) {
+        for ((inferrerKey, annotations) in inferenceResult.inferredAnnotationsMap) {
             val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()
 
-            reportConflicts(testName, File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"), annotationIndex!!, annotations, INFERRERS[inferrerKey]!!)
+            reportConflicts(
+                    testName,
+                    File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"),
+                    annotationIndex!!,
+                    annotations,
+                    inferenceResult.existingAnnotationsMap[inferrerKey]!!,
+                    INFERRERS[inferrerKey]!!
+            )
 
             val map = TreeMap<String, Any>()
             annotations forEach {
@@ -160,11 +197,12 @@ class IntegratedInferenceTest : TestCase() {
 
         val stringWriter = StringWriter()
         writeAnnotations(stringWriter,
-                (methods.sortByToString().map {
+                methods.sortByToString().map {
                     m ->
-                    PositionsForMethod(m).forReturnType().position to
-                        arrayList(kotlinSignatureToAnnotationData(renderMethodSignature(m, nullability , mutability)))
-                }).toMap()
+                    PositionsForMethod(m).forReturnType().position to arrayList(kotlinSignatureToAnnotationData(
+                            renderMethodSignature(m, nullability , mutability)
+                    ))
+                }.toMap()
         )
 
         val actual = stringWriter.toString()
@@ -193,5 +231,6 @@ class IntegratedInferenceTest : TestCase() {
     fun testStaxApi() = doInferenceTest("stax-api-1.0.1.jar")
     fun testVecmath() = doInferenceTest("vecmath-1.3.1.jar")
     fun testWstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
-    fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jdk_1_7_0_09_rt")
+    fun testJpsServer() = doInferenceTest("jps-server.jar")
+    fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jdk_1_7_0_09_rt.jar")
 }

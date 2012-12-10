@@ -10,6 +10,8 @@ edu.uci.ics.jung.algorithms.layout3d.AbstractLayout.1 java.lang.Object transform
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.AbstractLayout.1 javax.vecmath.Point3f transform(V)
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout3d.FRLayout void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.FRLayout.1 java.lang.Object create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.FRLayout.1 javax.vecmath.Vector3f create()
@@ -18,6 +20,8 @@ edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 edu.uci.ics.jung.algorithms.la
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 java.lang.Object create()
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout3d.Layout void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f)
 NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f) 0
@@ -36,6 +40,8 @@ edu.uci.ics.jung.algorithms.layout3d.SpringLayout void calcEdgeLength(edu.uci.ic
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout void calcEdgeLength(edu.uci.ics.jung.algorithms.layout3d.SpringLayout.SpringEdgeData<E>, edu.uci.ics.jung.algorithms.layout3d.SpringLayout.LengthFunction<E>) 1
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout3d.SpringLayout void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout.1 edu.uci.ics.jung.algorithms.layout3d.SpringLayout.SpringEdgeData<E> transform(E)
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout.1 java.lang.Object transform(java.lang.Object)
@@ -94,3 +100,5 @@ edu.uci.ics.jung.visualization3d.control.PickZoomBehavior void setupCallback(com
 NULLABLE
 edu.uci.ics.jung.visualization3d.decorators.PickableVertexPaintTransformer PickableVertexPaintTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo<V>, java.awt.Paint, java.awt.Paint) 0
 NOT_NULL
+edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE

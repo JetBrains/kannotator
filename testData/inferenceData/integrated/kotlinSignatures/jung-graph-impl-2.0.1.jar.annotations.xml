@@ -1,0 +1,897 @@
+<root>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection&lt;? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(edge : E?, vertices : Collection&lt;out V&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(edge : E?, vertices : Collection&lt;out V&gt;, edgeType : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOpposite(vertex : V, edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair&lt;V&gt; getValidatedEndpoints(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getValidatedEndpoints(edge : E, endpoints : Pair&lt;out V&gt;) : Pair&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractTypedGraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeType(e : E?) : EdgeType?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest boolean addEdge(E, java.util.Collection&lt;? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(edge : E?, vertices : Collection&lt;out V&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest V getParent(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParent(child : V?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest E getParentEdge(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParentEdge(vertex : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest java.util.List&lt;V&gt; getPath(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPath(child : V?) : MutableList&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest V getRoot()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRoot() : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest java.util.Collection&lt;V&gt; getRoots()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRoots() : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateForest java.util.Collection&lt;edu.uci.ics.jung.graph.Tree&lt;V,E&gt;&gt; getTrees()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTrees() : MutableCollection&lt;Tree&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree.1 edu.uci.ics.jung.graph.Tree&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Tree&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree DelegateTree(org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun DelegateTree(graphFactory : Factory&lt;DirectedGraph&lt;V, E&gt;?&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree boolean addEdge(E, java.util.Collection&lt;? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(edge : E?, vertices : Collection&lt;out V&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree java.util.Collection&lt;V&gt; getChildren(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getChildren(parent : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Tree&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;Tree&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree V getParent(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParent(child : V?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DelegateTree java.util.List&lt;V&gt; getPath(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPath(vertex : V?) : MutableList&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph.1 edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : DirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;DirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph.1 edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : DirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;E&gt; findEdgeSet(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdgeSet(v1 : V?, v2 : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph edu.uci.ics.jung.graph.util.Pair&lt;V&gt; getEndpoints(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEndpoints(edge : E?) : Pair&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;DirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph.1 edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : DirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;DirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree.1 edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : DirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(edge : E, endpoints : Pair&lt;out V&gt;, edgeType : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(e : E, parent : V, child : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, V, V, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(e : E, parent : V, child : V, index : Int) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(e : E, v1 : V, v2 : V, edge_type : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, java.util.Collection&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(edge : E, vertices : Collection&lt;out V&gt;, edge_type : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree V getChild(V, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getChild(vertex : V?, index : Int) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree E getChildEdge(V, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getChildEdge(vertex : V?, index : Int) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;E&gt; getChildEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getChildEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;V&gt; getChildren(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getChildren(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree edu.uci.ics.jung.graph.util.Pair&lt;V&gt; getEndpoints(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEndpoints(edge : E?) : Pair&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;&gt; getFactory(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory(order : Int) : Factory&lt;DirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOpposite(vertex : V?, edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree V getParent(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParent(vertex : V?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree E getParentEdge(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParentEdge(vertex : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;edu.uci.ics.jung.graph.Tree&lt;V,E&gt;&gt; getTrees()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTrees() : MutableCollection&lt;Tree&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedKAryTree boolean isSuccessor(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun isSuccessor(v1 : V?, v2 : V?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph.1 edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;Graph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.OrderedSparseMultigraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph.1 edu.uci.ics.jung.graph.Hypergraph&lt;V,H&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Hypergraph&lt;V, H&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph boolean addEdge(H, java.util.Collection&lt;? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(hyperedge : H, to_attach : Collection&lt;out V&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph boolean addEdge(H, java.util.Collection&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(hyperedge : H, to_attach : Collection&lt;out V&gt;, edge_type : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph H findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : H?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph java.util.Collection&lt;H&gt; findEdgeSet(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdgeSet(v1 : V?, v2 : V?) : MutableCollection&lt;H&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph V getDest(H)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(directed_edge : H?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(H)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeType(edge : H?) : EdgeType?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph java.util.Collection&lt;H&gt; getEdges(edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdges(edge_type : EdgeType?) : MutableCollection&lt;H&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Hypergraph&lt;V,H&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, H&gt; getFactory() : Factory&lt;Hypergraph&lt;V, H&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph V getSource(H)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(directed_edge : H?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SetHypergraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SortedSparseMultigraph.1 edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SortedSparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SortedSparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SortedSparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;Graph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph.1 edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;E&gt; findEdgeSet(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdgeSet(v1 : V?, v2 : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeType(edge : E?) : EdgeType?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;E&gt; getEdges(edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdges(edgeType : EdgeType?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;Graph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph.1 edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;Graph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph.1 edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : UndirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;UndirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph.1 edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : UndirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;E&gt; findEdgeSet(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdgeSet(v1 : V?, v2 : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;UndirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph.1 edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt; create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : UndirectedGraph&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph.1 java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addVertex(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph E findEdge(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph V getDest(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDest(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;&gt; getFactory()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getFactory() : Factory&lt;UndirectedGraph&lt;V, E&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection&lt;E&gt; getInEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getInEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection&lt;E&gt; getIncidentEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIncidentEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection&lt;V&gt; getNeighbors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNeighbors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection&lt;E&gt; getOutEdges(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOutEdges(vertex : V?) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection&lt;V&gt; getPredecessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPredecessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph V getSource(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSource(directed_edge : E?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection&lt;V&gt; getSuccessors(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuccessors(vertex : V?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt; createChainPlusIsolates(int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createChainPlusIsolates(chain_length : Int, isolate_count : Int) : Graph&lt;String?, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt; createDirectedAcyclicGraph(int, int, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createDirectedAcyclicGraph(layers : Int, maxNodesPerLayer : Int, linkprob : Double) : Graph&lt;String?, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs void createEdge(edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt;, java.lang.String, java.lang.String, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createEdge(g : Graph&lt;String?, Number?&gt;, v1Label : String?, v2Label : String?, weight : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt; createTestGraph(boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createTestGraph(directed : Boolean) : Graph&lt;String?, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt; getDemoGraph()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDemoGraph() : Graph&lt;String?, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt; getOneComponentGraph()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOneComponentGraph() : Graph&lt;String?, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.util.TestGraphs edu.uci.ics.jung.graph.Graph&lt;java.lang.String,java.lang.Number&gt; getSmallGraph()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSmallGraph() : Graph&lt;String?, Number?&gt;&quot;"/>
+        </annotation>
+    </item>
+</root>

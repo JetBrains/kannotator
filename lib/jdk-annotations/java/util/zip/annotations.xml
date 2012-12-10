@@ -2,9 +2,6 @@
     <item name='java.util.zip.Checksum void update(byte[], int, int) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='java.util.zip.Checksum void update(byte[]) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='java.util.zip.Adler32 void update(byte[], int, int) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -185,9 +182,6 @@
     <item name='java.util.zip.ZipEntry ZipEntry(java.util.zip.ZipEntry) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
-    <item name='java.util.zip.ZipEntry ZipEntry(java.lang.String, long) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
     <item name='java.util.zip.ZipEntry java.lang.String getName()'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
@@ -223,12 +217,6 @@
     </item>
     <item name='java.util.zip.ZipFile java.io.InputStream getInputStream(java.util.zip.ZipEntry) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='java.util.zip.ZipFile java.io.InputStream getInputStream(java.lang.String) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='java.util.zip.ZipFile java.io.InputStream getInputStream(java.lang.String)'>
-        <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='java.util.zip.ZipFile java.io.InputStream getInputStream(java.util.zip.ZipEntry)'>
         <annotation name='org.jetbrains.annotations.Nullable'/>

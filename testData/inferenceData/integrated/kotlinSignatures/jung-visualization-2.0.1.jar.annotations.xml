@@ -1,0 +1,1867 @@
+<root>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer edu.uci.ics.jung.visualization.transform.MutableTransformer getTransformer(edu.uci.ics.jung.visualization.Layer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTransformer(layer : Layer?) : MutableTransformer?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(layer : Layer?, shape : Shape?) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(layer : Layer?, p : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Shape) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape transform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(layer : Layer?, shape : Shape?) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(layer : Layer?, p : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Shape) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.visualization.VisualizationModel&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BasicVisualizationServer(model : VisualizationModel&lt;V, E&gt;, preferredSize : Dimension?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer java.awt.geom.Point2D getCenter()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getCenter() : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt; getRenderContext()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRenderContext() : RenderContext&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer void paintComponent(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintComponent(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer void renderGraph(java.awt.Graphics2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun renderGraph(g2d : Graphics2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setPickedEdgeState(pickedEdgeState : PickedState&lt;E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.BasicVisualizationServer void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setPickedVertexState(pickedVertexState : PickedState&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.DefaultVisualizationModel DefaultVisualizationModel(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun DefaultVisualizationModel(layout : Layout&lt;V, E&gt;, d : Dimension?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraphLayout(layout : Layout&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraphLayout(layout : Layout&lt;V, E&gt;, viewSize : Dimension?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun bottomEdge(image : BufferedImage) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun detectLine(p1 : Point2D?, p2 : Point2D?, p : Point2D?, line : Line2D, path : GeneralPath?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape getShape(java.awt.Image)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : Image) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape getShape(java.awt.Image, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : Image, max : Int) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape getShape(java.awt.image.BufferedImage)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : BufferedImage) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape getShape(java.awt.image.BufferedImage, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : BufferedImage, max : Int) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape leftEdge(java.awt.image.BufferedImage)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun leftEdge(image : BufferedImage) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape rightEdge(java.awt.image.BufferedImage)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun rightEdge(image : BufferedImage) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape topEdge(java.awt.image.BufferedImage)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun topEdge(image : BufferedImage) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane.1 void stateChanged(javax.swing.event.ChangeEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun stateChanged(evt : ChangeEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane.HorizontalAdjustmentListenerImpl void adjustmentValueChanged(java.awt.event.AdjustmentEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun adjustmentValueChanged(e : AdjustmentEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane.VerticalAdjustmentListenerImpl void adjustmentValueChanged(java.awt.event.AdjustmentEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun adjustmentValueChanged(e : AdjustmentEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane GraphZoomScrollPane(edu.uci.ics.jung.visualization.VisualizationViewer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun GraphZoomScrollPane(vv : VisualizationViewer)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane void setCorner(javax.swing.JComponent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setCorner(corner : JComponent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane void setScrollBarValues(java.awt.Rectangle, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScrollBarValues(rectangle : Rectangle, h0 : Point2D?, h1 : Point2D?, v0 : Point2D?, v1 : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.GraphZoomScrollPane void setScrollBars(edu.uci.ics.jung.visualization.VisualizationViewer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScrollBars(vv : VisualizationViewer) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.MultiLayerTransformer edu.uci.ics.jung.visualization.transform.MutableTransformer getTransformer(edu.uci.ics.jung.visualization.Layer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTransformer(p0 : Layer?) : MutableTransformer?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.Shape inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Layer?, p1 : Shape?) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.geom.Point2D inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Layer?, p1 : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.Shape transform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Layer?, p1 : Shape?) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.geom.Point2D transform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Layer?, p1 : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage, java.awt.geom.GeneralPath, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun bottomEdge(image : BufferedImage, path : GeneralPath, start : Int) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun detectLine(p1 : Point2D?, p2 : Point2D?, p : Point2D?, line : Line2D, path : GeneralPath?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape getShape(java.awt.Image)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : Image) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape getShape(java.awt.Image, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : Image, max : Int) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape getShape(java.awt.image.BufferedImage)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : BufferedImage) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape getShape(java.awt.image.BufferedImage, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShape(image : BufferedImage, max : Int) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape leftEdge(java.awt.image.BufferedImage, java.awt.geom.GeneralPath)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun leftEdge(image : BufferedImage, path : GeneralPath) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape rightEdge(java.awt.image.BufferedImage, java.awt.geom.GeneralPath, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun rightEdge(image : BufferedImage?, path : GeneralPath, start : Int) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape topEdge(java.awt.image.BufferedImage, java.awt.geom.GeneralPath, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun topEdge(image : BufferedImage?, path : GeneralPath, start : Int) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.PluggableRenderContext void setScreenDevice(javax.swing.JComponent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScreenDevice(screenDevice : JComponent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext.DirectedEdgeArrowPredicate boolean evaluate(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(c : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext.DirectedEdgeArrowPredicate boolean evaluate(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(x0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext.UndirectedEdgeArrowPredicate boolean evaluate(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(c : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext.UndirectedEdgeArrowPredicate boolean evaluate(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(x0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext edu.uci.ics.jung.visualization.MultiLayerTransformer getMultiLayerTransformer()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMultiLayerTransformer() : MultiLayerTransformer&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext void setEdgeLabelTransformer(org.apache.commons.collections15.Transformer&lt;E,java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setEdgeLabelTransformer(p0 : Transformer&lt;E, String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext void setEdgeShapeTransformer(org.apache.commons.collections15.Transformer&lt;edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;,java.awt.Shape&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setEdgeShapeTransformer(p0 : Transformer&lt;Context&lt;Graph&lt;V, E&gt;?, E&gt;?, Shape?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.RenderContext void setScreenDevice(javax.swing.JComponent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScreenDevice(p0 : JComponent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.VisualizationImageServer java.awt.Image getImage(java.awt.geom.Point2D, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getImage(center : Point2D?, d : Dimension) : Image&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.VisualizationServer.Paintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(p0 : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.VisualizationServer java.awt.geom.Point2D getCenter()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getCenter() : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin.LensPaintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin AnnotatingGraphMousePlugin(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AnnotatingGraphMousePlugin(rc : RenderContext&lt;V, E&gt;, selectionModifiers : Int, additionalModifiers : Int)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin void mouseEntered(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseEntered(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin void mouseExited(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseExited(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse.1 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse.2 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse.3 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse.ModeKeyAdapter void keyTyped(java.awt.event.KeyEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun keyTyped(event : KeyEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse AnnotatingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin&lt;V,E&gt;, float, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AnnotatingModalGraphMouse(rc : RenderContext&lt;V, E&gt;, annotatingPlugin : AnnotatingGraphMousePlugin&lt;V, E&gt;?, in : Float, out : Float)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls.1 java.awt.Component getListCellRendererComponent(javax.swing.JList, java.lang.Object, int, boolean, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getListCellRendererComponent(list : JList?, value : Any, index : Int, isSelected : Boolean, hasFocus : Boolean) : Component?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls.2 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls.4 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls.5 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls javax.swing.JToolBar getAnnotationsToolBar()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAnnotationsToolBar() : JToolBar&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls javax.swing.JButton getColorChooserButton()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getColorChooserButton() : JButton&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls javax.swing.JToggleButton getFillButton()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getFillButton() : JToggleButton&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls javax.swing.JComboBox getLayerBox()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getLayerBox() : JComboBox&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationControls javax.swing.JComboBox getShapeBox()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getShapeBox() : JComboBox&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationManager AnnotationManager(edu.uci.ics.jung.visualization.RenderContext&lt;?,?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AnnotationManager(rc : RenderContext&lt;*, *&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationManager edu.uci.ics.jung.visualization.annotations.Annotation getAnnotation(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAnnotation(p : Point2D?) : Annotation?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationManager edu.uci.ics.jung.visualization.annotations.Annotation getAnnotation(java.awt.geom.Point2D, java.util.Collection&lt;edu.uci.ics.jung.visualization.annotations.Annotation&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAnnotation(p : Point2D?, annotations : Collection&lt;Annotation?&gt;) : Annotation?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationManager edu.uci.ics.jung.visualization.annotations.AnnotationPaintable getAnnotationPaintable(edu.uci.ics.jung.visualization.annotations.Annotation.Layer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAnnotationPaintable(layer : Annotation.Layer?) : AnnotationPaintable?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationManager java.awt.Component prepareRenderer(edu.uci.ics.jung.visualization.RenderContext&lt;?,?&gt;, edu.uci.ics.jung.visualization.annotations.AnnotationRenderer, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun prepareRenderer(rc : RenderContext&lt;*, *&gt;, annotationRenderer : AnnotationRenderer, value : Any?) : Component&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationPaintable AnnotationPaintable(edu.uci.ics.jung.visualization.RenderContext&lt;?,?&gt;, edu.uci.ics.jung.visualization.annotations.AnnotationRenderer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AnnotationPaintable(rc : RenderContext&lt;*, *&gt;, annotationRenderer : AnnotationRenderer?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationPaintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationPaintable java.awt.Component prepareRenderer(edu.uci.ics.jung.visualization.RenderContext&lt;?,?&gt;, edu.uci.ics.jung.visualization.annotations.AnnotationRenderer, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun prepareRenderer(rc : RenderContext&lt;*, *&gt;, annotationRenderer : AnnotationRenderer, value : Any?) : Component&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationRenderer java.awt.Component getAnnotationRendererComponent(javax.swing.JComponent, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAnnotationRendererComponent(vv : JComponent, value : Any?) : Component&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.annotations.AnnotationRenderer void setValue(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setValue(value : Any?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbsoluteCrossoverScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationViewer&lt;?,?&gt;, float, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(vv : VisualizationViewer&lt;*, *&gt;, amount : Float, at : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkModifiers(e : MouseEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse.1 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse.2 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse.3 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse.ModeListener void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse java.lang.Object[] getSelectedObjects()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSelectedObjects() : Array&lt;out Any?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin void handlePopup(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun handlePopup(p0 : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin void mouseEntered(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseEntered(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin void mouseExited(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseExited(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.CrossoverScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer, float, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(p0 : VisualizationServer, p1 : Float, p2 : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.CrossoverScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer&lt;?,?&gt;, float, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(vv : VisualizationServer&lt;*, *&gt;, amount : Float, at : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse.ModeKeyAdapter void keyTyped(java.awt.event.KeyEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun keyTyped(event : KeyEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.ArrowPaintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(p0 : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.EdgePaintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(p0 : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkModifiers(e : MouseEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void mouseEntered(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseEntered(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void mouseExited(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseExited(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void transformArrowShape(java.awt.geom.Point2D, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transformArrowShape(down : Point2D, out : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void transformEdgeShape(java.awt.geom.Point2D, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transformEdgeShape(down : Point2D, out : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingModalGraphMouse.1 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingModalGraphMouse.2 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingModalGraphMouse.3 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingModalGraphMouse.4 void itemStateChanged(java.awt.event.ItemEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun itemStateChanged(e : ItemEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingModalGraphMouse.ModeKeyAdapter void keyTyped(java.awt.event.KeyEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun keyTyped(event : KeyEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingModalGraphMouse EditingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, float, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun EditingModalGraphMouse(rc : RenderContext&lt;V, E&gt;, vertexFactory : Factory&lt;V&gt;?, edgeFactory : Factory&lt;E&gt;?, in : Float, out : Float)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.EditingPopupGraphMousePlugin void handlePopup(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun handlePopup(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.GraphMouseAdapter boolean checkModifiers(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkModifiers(e : MouseEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.GraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkModifiers(p0 : MouseEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LabelEditingGraphMousePlugin void mouseClicked(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseClicked(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LayoutScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer, float, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(vv : VisualizationServer, amount : Float, from : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkModifiers(e : MouseEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseWheelMoved(e : MouseWheelEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(p0 : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ModalLensGraphMouse.ModeKeyAdapter void keyTyped(java.awt.event.KeyEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun keyTyped(event : KeyEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.MouseListenerTranslator V getVertex(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(point : Point2D?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.MouseListenerTranslator void mouseClicked(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseClicked(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.MouseListenerTranslator void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.MouseListenerTranslator void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin.LensPaintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin boolean heyThatsTooClose(java.awt.geom.Point2D, java.awt.geom.Point2D, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun heyThatsTooClose(p : Point2D, q : Point2D, min : Double) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin void mouseEntered(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseEntered(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin void mouseExited(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseExited(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin void pickContainedVertices(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, java.awt.geom.Point2D, java.awt.geom.Point2D, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun pickContainedVertices(vv : VisualizationViewer&lt;V, E&gt;, down : Point2D?, out : Point2D?, clear : Boolean) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin double angleBetween(java.awt.geom.Point2D, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun angleBetween(v1 : Point2D, v2 : Point2D) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(p0 : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(p0 : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseWheelMoved(p0 : MouseWheelEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(p0 : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer.ViewLens void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SatelliteVisualizationViewer(master : VisualizationViewer&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.visualization.VisualizationModel&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SatelliteVisualizationViewer(master : VisualizationViewer&lt;V, E&gt;, model : VisualizationModel&lt;V, E&gt;?, preferredSize : Dimension?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SatelliteVisualizationViewer(master : VisualizationViewer&lt;V, E&gt;, preferredSize : Dimension?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer, float, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(p0 : VisualizationServer, p1 : Float, p2 : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun checkModifiers(e : MouseEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseWheelMoved(e : MouseWheelEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(p0 : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ViewScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer, float, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(vv : VisualizationServer, amount : Float, from : Point2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ViewTranslatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseDragged(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ViewTranslatingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mousePressed(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.control.ViewTranslatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mouseReleased(e : MouseEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.ConstantDirectionalEdgeValueTransformer java.lang.Number transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Number?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.ConstantDirectionalEdgeValueTransformer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.DirectionalEdgeArrowTransformer java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.DirectionalEdgeArrowTransformer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.BentLine java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.BentLine java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Box java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Box java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.CubicCurve java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.CubicCurve java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Line java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Line java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Loop java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Loop java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Orthogonal java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Orthogonal java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.QuadCurve java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.QuadCurve java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Wedge java.awt.Shape transform(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EdgeShape.Wedge java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer java.awt.Shape transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V?) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.GradientEdgePaintTransformer GradientEdgePaintTransformer(java.awt.Color, java.awt.Color, edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun GradientEdgePaintTransformer(c1 : Color?, c2 : Color?, vv : VisualizationViewer&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.GradientEdgePaintTransformer java.awt.Paint transform(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(e : E?) : Paint&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.GradientEdgePaintTransformer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.PickableEdgePaintTransformer PickableEdgePaintTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo&lt;E&gt;, java.awt.Paint, java.awt.Paint)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun PickableEdgePaintTransformer(pi : PickedInfo&lt;E&gt;, draw_paint : Paint?, picked_paint : Paint?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.PickableVertexIconTransformer PickableVertexIconTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo&lt;V&gt;, javax.swing.Icon, javax.swing.Icon)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun PickableVertexIconTransformer(pi : PickedInfo&lt;V&gt;, icon : Icon?, picked_icon : Icon?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.PickableVertexPaintTransformer PickableVertexPaintTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo&lt;V&gt;, java.awt.Paint, java.awt.Paint)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun PickableVertexPaintTransformer(pi : PickedInfo&lt;V&gt;, fill_paint : Paint?, picked_paint : Paint?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.ToStringLabeller java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.decorators.ToStringLabeller java.lang.String transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.BoundingRectangleCollector BoundingRectangleCollector(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BoundingRectangleCollector(rc : RenderContext&lt;V, E&gt;?, layout : Layout&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.BoundingRectanglePaintable BoundingRectanglePaintable(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BoundingRectanglePaintable(rc : RenderContext&lt;V, E&gt;?, layout : Layout&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.BoundingRectanglePaintable void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LayoutTransition(vv : VisualizationViewer&lt;V, E&gt;, startLayout : Layout&lt;V, E&gt;, endLayout : Layout&lt;V, E&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.PersistentLayout.Point Point(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point(p : Point2D)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl.RandomPointFactory edu.uci.ics.jung.visualization.layout.PersistentLayout.Point create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : PersistentLayout.Point&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl.RandomPointFactory java.lang.Object create()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun initializeLocation(v : V?, coord : Point2D, d : Dimension?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ClassicPickSupport E getEdge(double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(x : Double, y : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(layout : Layout&lt;V, E&gt;?, x : Double, y : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(layout : Layout&lt;V, E&gt;, x : Double, y : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport java.util.Collection&lt;V&gt; getVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertices(layout : Layout&lt;V, E&gt;?, rectangle : Shape?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(layout : Layout&lt;V, E&gt;?, x : Double, y : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(layout : Layout&lt;V, E&gt;?, x : Double, y : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport java.util.Collection&lt;V&gt; getVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertices(layout : Layout&lt;V, E&gt;?, rectangle : Shape?) : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(layout : Layout&lt;V, E&gt;, x : Double, y : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport java.util.Collection&lt;E&gt; getFilteredEdges(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getFilteredEdges(layout : Layout&lt;V, E&gt;) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport java.util.Collection&lt;V&gt; getFilteredVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getFilteredVertices(layout : Layout&lt;V, E&gt;) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport java.awt.Shape getTransformedEdgeShape(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTransformedEdgeShape(layout : Layout&lt;V, E&gt;, e : E?) : Shape?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(layout : Layout&lt;V, E&gt;, x : Double, y : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport java.util.Collection&lt;V&gt; getVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertices(layout : Layout&lt;V, E&gt;, shape : Shape?) : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ShapePickSupport boolean isEdgeRendered(edu.uci.ics.jung.graph.util.Context&lt;edu.uci.ics.jung.graph.Graph&lt;V,E&gt;,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun isEdgeRendered(context : Context&lt;Graph&lt;V, E&gt;?, E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(layout : Layout&lt;V, E&gt;?, x : Double, y : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(layout : Layout&lt;V, E&gt;?, x : Double, y : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport java.util.Collection&lt;V&gt; getVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertices(layout : Layout&lt;V, E&gt;?, rectangle : Shape?) : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Shape?, vertexShape : Shape?) : AffineTransform?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.geom.Line2D, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getArrowTransform(rc : RenderContext&lt;V, E&gt;, edgeShape : Line2D, vertexShape : Shape?) : AffineTransform?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getFirstOutsideSegment(line : Line2D, shape : Shape) : Line2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getLastOutsideSegment(line : Line2D, shape : Shape) : Line2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getReverseArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Shape?, vertexShape : Shape?) : AffineTransform?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape, java.awt.Shape, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getReverseArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Shape?, vertexShape : Shape?, passedGo : Boolean) : AffineTransform?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.geom.Line2D, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getReverseArrowTransform(rc : RenderContext&lt;V, E&gt;, edgeShape : Line2D, vertexShape : Shape?) : AffineTransform?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport void subdivide(java.awt.geom.Line2D, java.awt.geom.Line2D, java.awt.geom.Line2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun subdivide(src : Line2D, left : Line2D?, right : Line2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeLabelRenderer void labelEdge(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, E, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun labelEdge(rc : RenderContext&lt;V, E&gt;?, layout : Layout&lt;V, E&gt;?, e : E?, label : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeLabelRenderer java.awt.Component prepareRenderer(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer, java.lang.Object, boolean, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun prepareRenderer(rc : RenderContext&lt;V, E&gt;, graphLabelRenderer : EdgeLabelRenderer?, value : Any?, isSelected : Boolean, edge : E?) : Component?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer void drawSimpleEdge(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun drawSimpleEdge(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, e : E?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer void paintEdge(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintEdge(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, e : E?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicRenderer void render(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun render(renderContext : RenderContext&lt;V, E&gt;?, layout : Layout&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicRenderer void renderEdgeLabel(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun renderEdgeLabel(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;?, e : E?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicRenderer void renderVertexLabel(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun renderVertexLabel(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;?, v : V?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.InsidePositioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition(x : Float, y : Float, d : Dimension) : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer.OutsidePositioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition(x : Float, y : Float, d : Dimension) : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer java.awt.Point getAnchorPoint(java.awt.geom.Rectangle2D, java.awt.Dimension, edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAnchorPoint(vertexBounds : Rectangle2D?, labelSize : Dimension?, position : Renderer.VertexLabel.Position) : Point&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer void labelVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, V, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun labelVertex(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, v : V?, label : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer java.awt.Component prepareRenderer(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer, java.lang.Object, boolean, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun prepareRenderer(rc : RenderContext&lt;V, E&gt;, graphLabelRenderer : VertexLabelRenderer?, value : Any?, isSelected : Boolean, vertex : V?) : Component?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer void paintIconForVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, V, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintIconForVertex(rc : RenderContext&lt;V, E&gt;, v : V?, layout : Layout&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer void paintShapeForVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, V, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintShapeForVertex(rc : RenderContext&lt;V, E&gt;, v : V?, shape : Shape?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer void paintVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintVertex(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, v : V?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer boolean vertexHit(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun vertexHit(rc : RenderContext&lt;V, E&gt;, s : Shape?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Shape?, vertexShape : Shape?) : AffineTransform&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.geom.Line2D, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Line2D, vertexShape : Shape?) : AffineTransform&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getReverseArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Shape?, vertexShape : Shape?) : AffineTransform&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape, java.awt.Shape, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getReverseArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Shape?, vertexShape : Shape?, passedGo : Boolean) : AffineTransform&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.geom.Line2D, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getReverseArrowTransform(rc : RenderContext&lt;V, E&gt;?, edgeShape : Line2D, vertexShape : Shape?) : AffineTransform&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport void subdivide(java.awt.geom.Line2D, java.awt.geom.Line2D, java.awt.geom.Line2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun subdivide(src : Line2D, left : Line2D?, right : Line2D?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Checkmark void paintIcon(java.awt.Component, java.awt.Graphics, int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintIcon(c : Component?, g : Graphics, x : Int, y : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.DefaultEdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;E&gt; getEdgeLabelRendererComponent(vv : JComponent, value : Any?, font : Font?, isSelected : Boolean, edge : E?) : Component&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.DefaultEdgeLabelRenderer void setValue(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setValue(value : Any?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V&gt; getVertexLabelRendererComponent(vv : JComponent, value : Any?, font : Font?, isSelected : Boolean, vertex : V?) : Component&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer void setValue(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setValue(value : Any?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintShapeForVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, V, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintShapeForVertex(rc : RenderContext&lt;V, E&gt;, v : V?, shape : Shape) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paintVertex(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, v : V?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer boolean vertexHit(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun vertexHit(rc : RenderContext&lt;V, E&gt;, s : Shape?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport getEdgeArrowRenderingSupport()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeArrowRenderingSupport() : EdgeArrowRenderingSupport?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.Edge edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport getEdgeArrowRenderingSupport()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeArrowRenderingSupport() : EdgeArrowRenderingSupport?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition(x : Float, y : Float, d : Dimension) : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition() : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPositioner() : Renderer.VertexLabel.Positioner&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition(p0 : Float, p1 : Float, p2 : Dimension) : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition() : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPositioner() : Renderer.VertexLabel.Positioner&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer void drawSimpleEdge(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun drawSimpleEdge(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, e : E?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition(x : Float, y : Float, d : Dimension) : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPosition() : Renderer.VertexLabel.Position&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPositioner() : Renderer.VertexLabel.Positioner&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer void labelVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, V, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun labelVertex(rc : RenderContext&lt;V, E&gt;, layout : Layout&lt;V, E&gt;, v : V?, label : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer java.awt.Component prepareRenderer(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer, java.lang.Object, boolean, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun prepareRenderer(rc : RenderContext&lt;V, E&gt;, graphLabelRenderer : VertexLabelRenderer?, value : Any?, isSelected : Boolean, vertex : V?) : Component?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer java.awt.Shape transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V?) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.GraphCollapser edu.uci.ics.jung.graph.Graph collapse(edu.uci.ics.jung.graph.Graph, edu.uci.ics.jung.graph.Graph)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun collapse(inGraph : Graph?, clusterGraph : Graph) : Graph?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.GraphCollapser boolean contains(edu.uci.ics.jung.graph.Graph, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun contains(inGraph : Graph, vertex : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.GraphCollapser edu.uci.ics.jung.graph.Graph expand(edu.uci.ics.jung.graph.Graph, edu.uci.ics.jung.graph.Graph)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun expand(inGraph : Graph, clusterGraph : Graph) : Graph?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.GraphCollapser java.lang.Object findVertex(edu.uci.ics.jung.graph.Graph, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findVertex(inGraph : Graph, vertex : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.GraphCollapser edu.uci.ics.jung.graph.Graph getClusterGraph(edu.uci.ics.jung.graph.Graph, java.util.Collection)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getClusterGraph(inGraph : Graph?, picked : Collection?) : Graph?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.TreeCollapser void collapse(edu.uci.ics.jung.algorithms.layout.Layout, edu.uci.ics.jung.graph.Forest, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun collapse(layout : Layout, tree : Forest, subRoot : Any?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.subLayout.TreeCollapser void expand(edu.uci.ics.jung.graph.Forest, edu.uci.ics.jung.graph.Forest)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun expand(tree : Forest, subTree : Forest?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AbstractLensSupport.Lens Lens(edu.uci.ics.jung.visualization.transform.LensTransformer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Lens(lensTransformer : LensTransformer)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AbstractLensSupport.Lens void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AbstractLensSupport.LensControls LensControls(edu.uci.ics.jung.visualization.transform.LensTransformer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LensControls(lensTransformer : LensTransformer)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AbstractLensSupport.LensControls void paint(java.awt.Graphics)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun paint(g : Graphics) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AbstractLensSupport AbstractLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.visualization.control.ModalGraphMouse)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AbstractLensSupport(vv : VisualizationViewer&lt;V, E&gt;, lensGraphMouse : ModalGraphMouse?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AffineTransformer AffineTransformer(java.awt.geom.AffineTransform)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AffineTransformer(transform : AffineTransform?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.HyperbolicTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(viewPoint : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.HyperbolicTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(graphPoint : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LayoutLensSupport LayoutLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LayoutLensSupport(vv : VisualizationViewer&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LayoutLensSupport LayoutLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LayoutLensSupport(vv : VisualizationViewer&lt;V, E&gt;, lensTransformer : LensTransformer, lensGraphMouse : ModalGraphMouse?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer.ComponentListenerImpl void componentResized(java.awt.event.ComponentEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun componentResized(e : ComponentEvent) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer LensTransformer(java.awt.Component, edu.uci.ics.jung.visualization.transform.MutableTransformer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LensTransformer(component : Component, delegate : MutableTransformer?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer double getDistanceFromCenter(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDistanceFromCenter(p : Point2D) : Double&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D getViewCenter()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getViewCenter() : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer void setComponent(java.awt.Component)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setComponent(component : Component) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer void setViewCenter(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setViewCenter(viewCenter : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MagnifyTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(viewPoint : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MagnifyTransformer java.awt.geom.Point2D magnify(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun magnify(graphPoint : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MagnifyTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(graphPoint : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void rotate(double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun rotate(theta : Double, from : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void scale(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(scalex : Double, scaley : Double, from : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void setScale(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScale(scalex : Double, scaley : Double, from : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void shear(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun shear(shx : Double, shy : Double, from : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformer void rotate(double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun rotate(p0 : Double, p1 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformer void scale(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(p0 : Double, p1 : Double, p2 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformer void setScale(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScale(p0 : Double, p1 : Double, p2 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformer void shear(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun shear(p0 : Double, p1 : Double, p2 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator MutableTransformerDecorator(edu.uci.ics.jung.visualization.transform.MutableTransformer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MutableTransformerDecorator(delegate : MutableTransformer?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Point2D) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void rotate(double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun rotate(p0 : Double, p1 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void scale(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scale(p0 : Double, p1 : Double, p2 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void setScale(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setScale(p0 : Double, p1 : Double, p2 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void shear(double, double, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun shear(p0 : Double, p1 : Double, p2 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper boolean drawImage(java.awt.Image, java.awt.geom.AffineTransform, java.awt.image.ImageObserver)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun drawImage(p0 : Image?, p1 : AffineTransform, p2 : ImageObserver?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(java.awt.Component, javax.swing.CellRendererPane, int, int, int, int, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun draw(c : Component, rendererPane : CellRendererPane, x : Int, y : Int, w : Int, h : Int, shouldValidate : Boolean) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun draw(icon : Icon, c : Component?, clip : Shape?, x : Int, y : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.geom.Point2D _inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun _inverseTransform(viewPoint : Point2D?) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.geom.Point2D _transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun _transform(graphPoint : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.Shape transform(java.awt.Shape, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(shape : Shape, flatness : Float) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.Intersector Intersector(java.awt.Rectangle, java.awt.geom.Line2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Intersector(rectangle : Rectangle?, line : Line2D)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.Intersector void intersectLine(java.awt.geom.Line2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun intersectLine(line : Line2D) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun draw(icon : Icon, c : Component?, clip : Shape?, x : Int, y : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MagnifyImageLensSupport(vv : VisualizationViewer&lt;V, E&gt;, lensTransformer : LensTransformer, lensGraphMouse : ModalGraphMouse?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.geom.Point2D _inverseTransform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun _inverseTransform(viewPoint : Point2D?) : Point2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.geom.Point2D _transform(java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun _transform(graphPoint : Point2D?) : Point2D?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape magnify(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun magnify(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape magnify(java.awt.Shape, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun magnify(shape : Shape, flatness : Float) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(shape : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape transform(java.awt.Shape, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(shape : Shape, flatness : Float) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.ShapeFlatnessTransformer java.awt.Shape transform(java.awt.Shape, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Shape, p1 : Float) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun inverseTransform(p0 : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape transform(java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : Shape) : Shape&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics boolean drawImage(java.awt.Image, java.awt.geom.AffineTransform, java.awt.image.ImageObserver)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun drawImage(img : Image?, at : AffineTransform, observer : ImageObserver?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.transform.shape.ViewLensSupport ViewLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ViewLensSupport(vv : VisualizationViewer&lt;V, E&gt;, lensTransformer : LensTransformer, lensGraphMouse : ModalGraphMouse?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.ArrowFactory java.awt.geom.GeneralPath getNotchedArrow(float, float, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNotchedArrow(base : Float, height : Float, notch_height : Float) : GeneralPath&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.ArrowFactory java.awt.geom.GeneralPath getWedgeArrow(float, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getWedgeArrow(base : Float, height : Float) : GeneralPath&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.GeneralPathAsString java.lang.String toString(java.awt.geom.GeneralPath)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun toString(newPath : GeneralPath) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.LabelWrapper java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.LabelWrapper java.lang.String transform(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(str : String?) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, E, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIndex(graph : Graph&lt;V, E&gt;, e : E?, v : V?) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction int getIndex(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, E, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIndex(graph : Graph&lt;V, E&gt;, e : E?, v : V?, u : V?) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction&lt;V,E&gt; getInstance()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;V, E&gt; getInstance() : PredicatedParallelEdgeIndexFunction&lt;V, E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun reset(graph : Graph&lt;V, E&gt;, e : E?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.VertexShapeFactory java.awt.geom.Ellipse2D getEllipse(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEllipse(v : V?) : Ellipse2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.VertexShapeFactory java.awt.geom.Rectangle2D getRectangle(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRectangle(v : V?) : Rectangle2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization.util.VertexShapeFactory java.awt.geom.RoundRectangle2D getRoundRectangle(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRoundRectangle(v : V?) : RoundRectangle2D&quot;"/>
+        </annotation>
+    </item>
+</root>

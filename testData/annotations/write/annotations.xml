@@ -77,11 +77,6 @@
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitMethod(access : Int, name : String, desc : String, signature : String?, exceptions : Array&lt;out String&gt;?) : MethodVisitor?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
@@ -276,9 +271,6 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type getMethodType(org.objectweb.asm.Type, org.objectweb.asm.Type...)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type org.objectweb.asm.Type getMethodType(org.objectweb.asm.Type, org.objectweb.asm.Type...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getMethodType(returnType : Type, vararg argumentTypes : Type) : Type&quot;"/>
         </annotation>
@@ -290,17 +282,11 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type getType(java.lang.Class&lt;?&gt;)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type org.objectweb.asm.Type getType(java.lang.Class&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getType(c : Class&lt;out Any&gt;) : Type&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type getType(java.lang.Class&lt;?&gt;) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type org.objectweb.asm.Type getType(java.lang.reflect.Constructor&lt;?&gt;)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type getType(java.lang.reflect.Constructor&lt;?&gt;)'>
@@ -318,9 +304,6 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes(java.lang.String)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getArgumentTypes(methodDescriptor : String) : Array&lt;out Type&gt;&quot;"/>
         </annotation>
@@ -329,9 +312,6 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes(java.lang.reflect.Method) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes(java.lang.reflect.Method)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes(java.lang.reflect.Method)'>
@@ -364,9 +344,6 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes()'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type org.objectweb.asm.Type[] getArgumentTypes()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getArgumentTypes() : Array&lt;out Type&gt;&quot;"/>
         </annotation>
@@ -381,9 +358,6 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type java.lang.String getInternalName(java.lang.Class&lt;?&gt;)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type java.lang.String getInternalName(java.lang.Class&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getInternalName(c : Class&lt;out Any&gt;) : String&quot;"/>
         </annotation>
@@ -392,17 +366,11 @@
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type java.lang.String getDescriptor(java.lang.Class&lt;?&gt;)'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type java.lang.String getDescriptor(java.lang.Class&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getDescriptor(c : Class&lt;out Any&gt;) : String&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.Type java.lang.String getDescriptor(java.lang.Class&lt;?&gt;) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.Type java.lang.String getConstructorDescriptor(java.lang.reflect.Constructor&lt;?&gt;)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.Type java.lang.String getConstructorDescriptor(java.lang.reflect.Constructor&lt;?&gt;)'>

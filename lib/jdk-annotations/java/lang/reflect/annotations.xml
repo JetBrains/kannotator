@@ -162,4 +162,14 @@
           <val name="value" val="&quot;fun getParameterAnnotations() : Array&lt;Array&lt;Annotation&gt;&gt;&quot;"/>
       </annotation>
   </item>
+  <item name='java.lang.reflect.Constructor java.lang.Class&lt;T&gt; getDeclaringClass()'>
+      <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+          <val name="value" val="&quot;fun getDeclaringClass() : Class&lt;out T&gt;?&quot;"/>
+      </annotation>
+  </item>
+  <item name='java.lang.reflect.Member java.lang.Class&lt;?&gt; getDeclaringClass()'>
+      <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+          <val name="value" val="&quot;fun getDeclaringClass() : Class&lt;out Any&gt;?&quot;"/>
+      </annotation>
+  </item>
 </root>

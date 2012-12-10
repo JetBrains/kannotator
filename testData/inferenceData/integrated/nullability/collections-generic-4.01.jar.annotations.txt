@@ -1,5 +1,9 @@
 org.apache.commons.collections15.ArrayStack int search(E) 0
 NULLABLE
+org.apache.commons.collections15.Bag java.util.Iterator iterator()
+NOT_NULL
+org.apache.commons.collections15.Bag java.util.Set uniqueSet()
+NOT_NULL
 org.apache.commons.collections15.BagUtils EMPTY_BAG
 NOT_NULL
 org.apache.commons.collections15.BagUtils EMPTY_SORTED_BAG
@@ -81,6 +85,12 @@ NOT_NULL
 org.apache.commons.collections15.BeanMap.9 java.util.Iterator<java.util.Map.Entry<java.lang.String,java.lang.Object>> iterator()
 NOT_NULL
 org.apache.commons.collections15.BeanMap.MyMapEntry java.lang.Object setValue(java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.BidiMap java.lang.Object getKey(java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.BidiMap java.lang.Object put(java.lang.Object, java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.BidiMap java.lang.Object removeValue(java.lang.Object)
 NULLABLE
 org.apache.commons.collections15.BufferOverflowException java.lang.Throwable getCause()
 NULLABLE
@@ -430,6 +440,8 @@ org.apache.commons.collections15.FunctorException void printStackTrace(java.io.P
 NOT_NULL
 org.apache.commons.collections15.FunctorException void printStackTrace(java.io.PrintWriter) 0
 NOT_NULL
+org.apache.commons.collections15.IterableMap org.apache.commons.collections15.MapIterator mapIterator()
+NOT_NULL
 org.apache.commons.collections15.IteratorUtils EMPTY_ITERATOR
 NOT_NULL
 org.apache.commons.collections15.IteratorUtils EMPTY_LIST_ITERATOR
@@ -698,6 +710,22 @@ org.apache.commons.collections15.MapUtils void verbosePrintInternal(java.io.Prin
 NULLABLE
 org.apache.commons.collections15.MapUtils void verbosePrintInternal(java.io.PrintStream, java.lang.Object, java.util.Map, org.apache.commons.collections15.ArrayStack, boolean) 3
 NOT_NULL
+org.apache.commons.collections15.MultiMap boolean containsKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.MultiMap boolean containsValue(java.lang.Object) 0
+NULLABLE
+org.apache.commons.collections15.MultiMap void putAll(java.util.Map) 0
+NOT_NULL
+org.apache.commons.collections15.OrderedIterator java.lang.Object previous()
+NULLABLE
+org.apache.commons.collections15.OrderedMap java.lang.Object nextKey(java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.OrderedMap java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.OrderedMap java.lang.Object previousKey(java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.OrderedMap java.lang.Object previousKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate exceptionPredicate()
 NOT_NULL
 org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate instanceofPredicate(java.lang.Class)
@@ -836,6 +864,10 @@ org.apache.commons.collections15.SetUtils java.util.SortedSet<E> unmodifiableSor
 NOT_NULL
 org.apache.commons.collections15.SetUtils java.util.SortedSet<O> transformedSortedSet(java.util.SortedSet<I>, org.apache.commons.collections15.Transformer<? super I,? extends O>)
 NOT_NULL
+org.apache.commons.collections15.Transformer java.lang.Object transform(java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.Transformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer cloneTransformer()
 NOT_NULL
 org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer exceptionTransformer()
@@ -968,6 +1000,8 @@ org.apache.commons.collections15.bag.TypedSortedBag org.apache.commons.collectio
 NOT_NULL
 org.apache.commons.collections15.bag.TypedSortedBag org.apache.commons.collections15.SortedBag<E> decorate(org.apache.commons.collections15.SortedBag<E>, java.lang.Class<E>) 1
 NOT_NULL
+org.apache.commons.collections15.bag.UnmodifiableBag boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableBag java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableBag java.util.Set<E> uniqueSet()
@@ -978,6 +1012,8 @@ org.apache.commons.collections15.bag.UnmodifiableBag void readObject(java.io.Obj
 NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableBag void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
+org.apache.commons.collections15.bag.UnmodifiableSortedBag boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableSortedBag java.util.Iterator iterator()
 NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableSortedBag java.util.Set<E> uniqueSet()
@@ -987,6 +1023,8 @@ NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableSortedBag void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.bag.UnmodifiableSortedBag void writeObject(java.io.ObjectOutputStream) 0
+NOT_NULL
+org.apache.commons.collections15.bidimap.AbstractBidiMapDecorator java.util.Collection values()
 NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap K removeValue(java.lang.Object)
 NULLABLE
@@ -1014,11 +1052,19 @@ org.apache.commons.collections15.bidimap.AbstractDualBidiMap.EntrySet java.util.
 NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.KeySet KeySet(org.apache.commons.collections15.bidimap.AbstractDualBidiMap<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.bidimap.AbstractDualBidiMap.KeySet boolean contains(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.Values Values(org.apache.commons.collections15.bidimap.AbstractDualBidiMap<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.bidimap.AbstractDualBidiMap.Values boolean contains(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.bidimap.AbstractDualBidiMap.Values java.util.Iterator<V> iterator()
+NOT_NULL
+org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator java.lang.Object previousKey(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.bidimap.DualHashBidiMap org.apache.commons.collections15.BidiMap<K,V> createBidiMap(java.util.Map<K,V>, java.util.Map<V,K>, org.apache.commons.collections15.BidiMap<V,K>)
 NOT_NULL
@@ -1034,6 +1080,10 @@ org.apache.commons.collections15.bidimap.DualTreeBidiMap K previousKey(K)
 NULLABLE
 org.apache.commons.collections15.bidimap.DualTreeBidiMap comparator
 NULLABLE
+org.apache.commons.collections15.bidimap.DualTreeBidiMap java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.bidimap.DualTreeBidiMap java.lang.Object previousKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap java.util.SortedMap<K,V> headMap(K)
 NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap java.util.SortedMap<K,V> subMap(K, K)
@@ -1056,6 +1106,8 @@ org.apache.commons.collections15.bidimap.DualTreeBidiMap.BidiOrderedMapIterator 
 NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap.ViewMap ViewMap(org.apache.commons.collections15.bidimap.DualTreeBidiMap<K,V>, java.util.SortedMap<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.bidimap.DualTreeBidiMap.ViewMap boolean containsValue(java.lang.Object) 0
+NULLABLE
 org.apache.commons.collections15.bidimap.DualTreeBidiMap.ViewMap java.util.SortedMap<K,V> headMap(K)
 NOT_NULL
 org.apache.commons.collections15.bidimap.DualTreeBidiMap.ViewMap java.util.SortedMap<K,V> subMap(K, K)
@@ -1224,6 +1276,8 @@ org.apache.commons.collections15.bidimap.TreeBidiMap void makeRed(org.apache.com
 NULLABLE
 org.apache.commons.collections15.bidimap.TreeBidiMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
+org.apache.commons.collections15.bidimap.TreeBidiMap.EntryView boolean contains(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse K get(java.lang.Object)
 NULLABLE
 org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse K put(V, K)
@@ -1300,6 +1354,8 @@ org.apache.commons.collections15.bidimap.UnmodifiableBidiMap org.apache.commons.
 NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableBidiMap org.apache.commons.collections15.MapIterator<K,V> mapIterator()
 NOT_NULL
+org.apache.commons.collections15.bidimap.UnmodifiableBidiMap void putAll(java.util.Map) 0
+NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap java.util.Collection values()
 NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap java.util.Set<K> keySet()
@@ -1313,6 +1369,8 @@ NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap org.apache.commons.collections15.OrderedBidiMap<K,V> decorate(org.apache.commons.collections15.OrderedBidiMap<K,V>)
 NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap org.apache.commons.collections15.OrderedMapIterator<K,V> orderedMapIterator()
+NOT_NULL
+org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap void putAll(java.util.Map) 0
 NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap java.util.Collection values()
 NOT_NULL
@@ -1333,6 +1391,10 @@ NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap org.apache.commons.collections15.OrderedMapIterator<K,V> orderedMapIterator()
 NOT_NULL
 org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap org.apache.commons.collections15.SortedBidiMap<K,V> decorate(org.apache.commons.collections15.SortedBidiMap<K,V>)
+NOT_NULL
+org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap void putAll(java.util.Map) 0
+NOT_NULL
+org.apache.commons.collections15.buffer.BlockingBuffer boolean addAll(java.util.Collection) 0
 NOT_NULL
 org.apache.commons.collections15.buffer.BlockingBuffer org.apache.commons.collections15.Buffer<E> decorate(org.apache.commons.collections15.Buffer<E>)
 NOT_NULL
@@ -1378,6 +1440,8 @@ org.apache.commons.collections15.buffer.UnboundedFifoBuffer void readObject(java
 NOT_NULL
 org.apache.commons.collections15.buffer.UnboundedFifoBuffer void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
+org.apache.commons.collections15.buffer.UnmodifiableBuffer boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.buffer.UnmodifiableBuffer java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.buffer.UnmodifiableBuffer org.apache.commons.collections15.Buffer<E> decorate(org.apache.commons.collections15.Buffer<E>)
@@ -1387,6 +1451,14 @@ NOT_NULL
 org.apache.commons.collections15.buffer.UnmodifiableBuffer void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 org.apache.commons.collections15.collection.AbstractCollectionDecorator AbstractCollectionDecorator(java.util.Collection<E>) 0
+NOT_NULL
+org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean addAll(java.util.Collection) 0
+NOT_NULL
+org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean contains(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.collection.AbstractCollectionDecorator java.lang.Object[] toArray()
+NOT_NULL
+org.apache.commons.collections15.collection.AbstractCollectionDecorator java.util.Iterator iterator()
 NOT_NULL
 org.apache.commons.collections15.collection.AbstractSerializableCollectionDecorator void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
@@ -1412,6 +1484,8 @@ org.apache.commons.collections15.collection.PredicatedCollection PredicatedColle
 NOT_NULL
 org.apache.commons.collections15.collection.PredicatedCollection PredicatedCollection(java.util.Collection<E>, org.apache.commons.collections15.Predicate<? super E>) 1
 NOT_NULL
+org.apache.commons.collections15.collection.PredicatedCollection boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.collection.PredicatedCollection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 org.apache.commons.collections15.collection.PredicatedCollection java.util.Collection<E> decorate(java.util.Collection<E>, org.apache.commons.collections15.Predicate<? super E>)
@@ -1421,6 +1495,8 @@ NOT_NULL
 org.apache.commons.collections15.collection.SynchronizedCollection SynchronizedCollection(java.util.Collection<E>) 0
 NOT_NULL
 org.apache.commons.collections15.collection.SynchronizedCollection SynchronizedCollection(java.util.Collection<E>, java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.collection.SynchronizedCollection boolean addAll(java.util.Collection) 0
 NOT_NULL
 org.apache.commons.collections15.collection.SynchronizedCollection collection
 NOT_NULL
@@ -1444,6 +1520,8 @@ org.apache.commons.collections15.collection.TypedCollection java.util.Collection
 NOT_NULL
 org.apache.commons.collections15.collection.TypedCollection java.util.Collection decorate(java.util.Collection, java.lang.Class) 1
 NOT_NULL
+org.apache.commons.collections15.collection.UnmodifiableBoundedCollection boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.collection.UnmodifiableBoundedCollection java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.collection.UnmodifiableBoundedCollection org.apache.commons.collections15.BoundedCollection<E> decorate(org.apache.commons.collections15.BoundedCollection<E>)
@@ -1451,6 +1529,8 @@ NOT_NULL
 org.apache.commons.collections15.collection.UnmodifiableBoundedCollection org.apache.commons.collections15.BoundedCollection<E> decorateUsing(java.util.Collection<E>)
 NOT_NULL
 org.apache.commons.collections15.collection.UnmodifiableBoundedCollection org.apache.commons.collections15.BoundedCollection<E> decorateUsing(java.util.Collection<E>) 0
+NOT_NULL
+org.apache.commons.collections15.collection.UnmodifiableCollection boolean addAll(java.util.Collection) 0
 NOT_NULL
 org.apache.commons.collections15.collection.UnmodifiableCollection java.util.Collection<E> decorate(java.util.Collection<E>)
 NOT_NULL
@@ -1542,6 +1622,8 @@ org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.coll
 NOT_NULL
 org.apache.commons.collections15.functors.ChainedClosure org.apache.commons.collections15.Closure<T> getInstance(org.apache.commons.collections15.Closure<? super T>[]) 0
 NOT_NULL
+org.apache.commons.collections15.functors.ChainedTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Collection<org.apache.commons.collections15.Transformer>)
 NOT_NULL
 org.apache.commons.collections15.functors.ChainedTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Collection<org.apache.commons.collections15.Transformer>) 0
@@ -1562,7 +1644,11 @@ org.apache.commons.collections15.functors.CloneTransformer T transform(T)
 NULLABLE
 org.apache.commons.collections15.functors.CloneTransformer T transform(T) 0
 NULLABLE
+org.apache.commons.collections15.functors.CloneTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.CloneTransformer org.apache.commons.collections15.Transformer<T,T> getInstance()
+NOT_NULL
+org.apache.commons.collections15.functors.ClosureTransformer java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.functors.ClosureTransformer org.apache.commons.collections15.Transformer<T,T> getInstance(org.apache.commons.collections15.Closure<T>)
 NOT_NULL
@@ -1575,6 +1661,8 @@ NOT_NULL
 org.apache.commons.collections15.functors.ConstantFactory org.apache.commons.collections15.Factory<T> getInstance(T) 0
 NULLABLE
 org.apache.commons.collections15.functors.ConstantTransformer NULL_INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.ConstantTransformer java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.functors.ConstantTransformer org.apache.commons.collections15.Transformer<java.lang.Object,T> getInstance(T)
 NOT_NULL
@@ -1598,7 +1686,11 @@ org.apache.commons.collections15.functors.ExceptionPredicate org.apache.commons.
 NOT_NULL
 org.apache.commons.collections15.functors.ExceptionTransformer INSTANCE
 NOT_NULL
+org.apache.commons.collections15.functors.ExceptionTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.ExceptionTransformer org.apache.commons.collections15.Transformer<I,O> getInstance()
+NOT_NULL
+org.apache.commons.collections15.functors.FactoryTransformer java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.functors.FactoryTransformer org.apache.commons.collections15.Transformer<K,T> getInstance(org.apache.commons.collections15.Factory<T>)
 NOT_NULL
@@ -1687,7 +1779,7 @@ NULLABLE
 org.apache.commons.collections15.functors.InvokerTransformer java.lang.Object transform(java.lang.Object)
 NULLABLE
 org.apache.commons.collections15.functors.InvokerTransformer java.lang.Object transform(java.lang.Object) 0
-NULLABLE
+NOT_NULL
 org.apache.commons.collections15.functors.InvokerTransformer org.apache.commons.collections15.Transformer getInstance(java.lang.String)
 NOT_NULL
 org.apache.commons.collections15.functors.InvokerTransformer org.apache.commons.collections15.Transformer getInstance(java.lang.String) 0
@@ -1700,6 +1792,8 @@ org.apache.commons.collections15.functors.InvokerTransformer org.apache.commons.
 NULLABLE
 org.apache.commons.collections15.functors.InvokerTransformer org.apache.commons.collections15.Transformer getInstance(java.lang.String, java.lang.Class[], java.lang.Object[]) 2
 NOT_NULL
+org.apache.commons.collections15.functors.MapTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.MapTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Map<I,O>)
 NOT_NULL
 org.apache.commons.collections15.functors.MapTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Map<I,O>) 0
@@ -1709,6 +1803,8 @@ NOT_NULL
 org.apache.commons.collections15.functors.NOPClosure org.apache.commons.collections15.Closure<T> getInstance()
 NOT_NULL
 org.apache.commons.collections15.functors.NOPTransformer INSTANCE
+NOT_NULL
+org.apache.commons.collections15.functors.NOPTransformer java.lang.Object transform(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.functors.NOPTransformer org.apache.commons.collections15.Transformer<T,T> getInstance()
 NOT_NULL
@@ -1778,6 +1874,10 @@ org.apache.commons.collections15.functors.OrPredicate org.apache.commons.collect
 NOT_NULL
 org.apache.commons.collections15.functors.OrPredicate org.apache.commons.collections15.Predicate<T> getInstance(org.apache.commons.collections15.Predicate<? super T>, org.apache.commons.collections15.Predicate<? super T>) 1
 NOT_NULL
+org.apache.commons.collections15.functors.PredicateDecorator org.apache.commons.collections15.Predicate[] getPredicates()
+NOT_NULL
+org.apache.commons.collections15.functors.PredicateTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.PredicateTransformer org.apache.commons.collections15.Transformer<T,java.lang.Boolean> getInstance(org.apache.commons.collections15.Predicate<T>)
 NOT_NULL
 org.apache.commons.collections15.functors.PredicateTransformer org.apache.commons.collections15.Transformer<T,java.lang.Boolean> getInstance(org.apache.commons.collections15.Predicate<T>) 0
@@ -1786,6 +1886,8 @@ org.apache.commons.collections15.functors.PrototypeFactory org.apache.commons.co
 NOT_NULL
 org.apache.commons.collections15.functors.PrototypeFactory org.apache.commons.collections15.Factory<T> getInstance(T) 0
 NULLABLE
+org.apache.commons.collections15.functors.StringValueTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.StringValueTransformer org.apache.commons.collections15.Transformer<T,java.lang.String> getInstance()
 NOT_NULL
 org.apache.commons.collections15.functors.SwitchClosure SwitchClosure(org.apache.commons.collections15.Predicate<? super T>[], org.apache.commons.collections15.Closure<? super T>[], org.apache.commons.collections15.Closure<? super T>) 2
@@ -1810,6 +1912,8 @@ org.apache.commons.collections15.functors.SwitchTransformer SwitchTransformer(or
 NULLABLE
 org.apache.commons.collections15.functors.SwitchTransformer iDefault
 NULLABLE
+org.apache.commons.collections15.functors.SwitchTransformer java.lang.Object transform(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.functors.SwitchTransformer org.apache.commons.collections15.Transformer<? super I,? extends O> getDefaultTransformer()
 NULLABLE
 org.apache.commons.collections15.functors.SwitchTransformer org.apache.commons.collections15.Transformer<I,O> getInstance(java.util.Map<org.apache.commons.collections15.Predicate<? super I>,org.apache.commons.collections15.Transformer<? super I,? extends O>>)
@@ -1857,6 +1961,8 @@ NOT_NULL
 org.apache.commons.collections15.iterators.AbstractIteratorDecorator AbstractIteratorDecorator(java.util.Iterator<E>) 0
 NOT_NULL
 org.apache.commons.collections15.iterators.AbstractIteratorDecorator iterator
+NOT_NULL
+org.apache.commons.collections15.iterators.AbstractIteratorDecorator java.lang.Object next()
 NOT_NULL
 org.apache.commons.collections15.iterators.AbstractIteratorDecorator java.util.Iterator<E> getIterator()
 NOT_NULL
@@ -1970,6 +2076,8 @@ org.apache.commons.collections15.iterators.UnmodifiableOrderedMapIterator org.ap
 NOT_NULL
 org.apache.commons.collections15.iterators.UnmodifiableOrderedMapIterator org.apache.commons.collections15.OrderedMapIterator<K,V> decorate(org.apache.commons.collections15.OrderedMapIterator<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.keyvalue.AbstractMapEntry java.lang.Object setValue(java.lang.Object)
+NULLABLE
 org.apache.commons.collections15.keyvalue.AbstractMapEntryDecorator AbstractMapEntryDecorator(java.util.Map.Entry<K,V>) 0
 NOT_NULL
 org.apache.commons.collections15.keyvalue.AbstractMapEntryDecorator entry
@@ -2120,6 +2228,8 @@ org.apache.commons.collections15.list.FastArrayList.SubList.SubListIter SubListI
 NOT_NULL
 org.apache.commons.collections15.list.FastArrayList.SubList.SubListIter this$1
 NOT_NULL
+org.apache.commons.collections15.list.FixedSizeList boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.list.FixedSizeList java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.list.FixedSizeList java.util.List<E> decorate(java.util.List<E>)
@@ -2164,7 +2274,11 @@ org.apache.commons.collections15.list.SetUniqueList SetUniqueList(java.util.List
 NOT_NULL
 org.apache.commons.collections15.list.SetUniqueList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
+org.apache.commons.collections15.list.SetUniqueList boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.list.SetUniqueList boolean addAll(java.util.Collection<? extends E>) 0
+NOT_NULL
+org.apache.commons.collections15.list.SetUniqueList boolean contains(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.list.SetUniqueList java.util.Iterator<E> iterator()
 NOT_NULL
@@ -2262,6 +2376,8 @@ org.apache.commons.collections15.list.TypedList java.util.List decorate(java.uti
 NOT_NULL
 org.apache.commons.collections15.list.TypedList java.util.List decorate(java.util.List, java.lang.Class) 1
 NOT_NULL
+org.apache.commons.collections15.list.UnmodifiableList boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.list.UnmodifiableList java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.list.UnmodifiableList java.util.List<E> decorate(java.util.List<E>)
@@ -2309,7 +2425,7 @@ NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap boolean containsValue(java.lang.Object) 0
 NULLABLE
 org.apache.commons.collections15.map.AbstractHashedMap boolean isEqualKey(java.lang.Object, java.lang.Object) 0
-NULLABLE
+NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap boolean isEqualValue(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap int entryHashCode(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry<K,V>) 0
@@ -2318,6 +2434,10 @@ org.apache.commons.collections15.map.AbstractHashedMap int hash(java.lang.Object
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap java.lang.Object clone()
 NULLABLE
+org.apache.commons.collections15.map.AbstractHashedMap java.lang.Object put(java.lang.Object, java.lang.Object)
+NULLABLE
+org.apache.commons.collections15.map.AbstractHashedMap java.util.Iterator createKeySetIterator()
+NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap java.util.Iterator<K> createKeySetIterator()
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap java.util.Iterator<V> createValuesIterator()
@@ -2339,6 +2459,8 @@ NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap void doReadObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap void doWriteObject(java.io.ObjectOutputStream) 0
+NOT_NULL
+org.apache.commons.collections15.map.AbstractHashedMap void putAll(java.util.Map) 0
 NOT_NULL
 org.apache.commons.collections15.map.AbstractHashedMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
@@ -2400,6 +2522,10 @@ org.apache.commons.collections15.map.AbstractLinkedMap K previousKey(K)
 NULLABLE
 org.apache.commons.collections15.map.AbstractLinkedMap boolean containsValue(java.lang.Object) 0
 NULLABLE
+org.apache.commons.collections15.map.AbstractLinkedMap java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.AbstractLinkedMap java.lang.Object previousKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.map.AbstractLinkedMap java.util.Iterator createKeySetIterator()
 NOT_NULL
 org.apache.commons.collections15.map.AbstractLinkedMap java.util.Iterator<V> createValuesIterator()
@@ -2426,6 +2552,16 @@ org.apache.commons.collections15.map.AbstractLinkedMap.LinkIterator parent
 NOT_NULL
 org.apache.commons.collections15.map.AbstractMapDecorator AbstractMapDecorator(java.util.Map<K,V>) 0
 NOT_NULL
+org.apache.commons.collections15.map.AbstractMapDecorator boolean containsValue(java.lang.Object) 0
+NULLABLE
+org.apache.commons.collections15.map.AbstractMapDecorator java.util.Collection values()
+NOT_NULL
+org.apache.commons.collections15.map.AbstractMapDecorator void putAll(java.util.Map) 0
+NOT_NULL
+org.apache.commons.collections15.map.AbstractOrderedMapDecorator java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.AbstractOrderedMapDecorator java.lang.Object previousKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.map.AbstractReferenceMap V get(java.lang.Object)
 NULLABLE
 org.apache.commons.collections15.map.AbstractReferenceMap V put(K, V)
@@ -2438,6 +2574,8 @@ org.apache.commons.collections15.map.AbstractReferenceMap V remove(java.lang.Obj
 NULLABLE
 org.apache.commons.collections15.map.AbstractReferenceMap V remove(java.lang.Object) 0
 NULLABLE
+org.apache.commons.collections15.map.AbstractReferenceMap boolean containsKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.map.AbstractReferenceMap boolean containsValue(java.lang.Object) 0
 NULLABLE
 org.apache.commons.collections15.map.AbstractReferenceMap boolean isEqualKey(java.lang.Object, java.lang.Object) 0
@@ -2490,6 +2628,8 @@ org.apache.commons.collections15.map.CaseInsensitiveMap java.lang.String convert
 NULLABLE
 org.apache.commons.collections15.map.CaseInsensitiveMap java.lang.String convertKey(java.lang.String) 0
 NULLABLE
+org.apache.commons.collections15.map.CaseInsensitiveMap void putAll(java.util.Map) 0
+NOT_NULL
 org.apache.commons.collections15.map.CaseInsensitiveMap void putAll(java.util.Map<? extends java.lang.String,? extends V>) 0
 NOT_NULL
 org.apache.commons.collections15.map.CaseInsensitiveMap void readObject(java.io.ObjectInputStream) 0
@@ -2570,6 +2710,8 @@ org.apache.commons.collections15.map.FixedSizeMap java.util.Set<K> keySet()
 NOT_NULL
 org.apache.commons.collections15.map.FixedSizeMap java.util.Set<java.util.Map.Entry<K,V>> entrySet()
 NOT_NULL
+org.apache.commons.collections15.map.FixedSizeMap void putAll(java.util.Map) 0
+NOT_NULL
 org.apache.commons.collections15.map.FixedSizeMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
 org.apache.commons.collections15.map.FixedSizeMap void readObject(java.io.ObjectInputStream) 0
@@ -2589,6 +2731,8 @@ NOT_NULL
 org.apache.commons.collections15.map.FixedSizeSortedMap java.util.SortedMap<K,V> subMap(K, K)
 NOT_NULL
 org.apache.commons.collections15.map.FixedSizeSortedMap java.util.SortedMap<K,V> tailMap(K)
+NOT_NULL
+org.apache.commons.collections15.map.FixedSizeSortedMap void putAll(java.util.Map) 0
 NOT_NULL
 org.apache.commons.collections15.map.FixedSizeSortedMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
@@ -2655,6 +2799,12 @@ NULLABLE
 org.apache.commons.collections15.map.HashedMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.map.HashedMap void writeObject(java.io.ObjectOutputStream) 0
+NOT_NULL
+org.apache.commons.collections15.map.IdentityMap boolean isEqualKey(java.lang.Object, java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.IdentityMap boolean isEqualValue(java.lang.Object, java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.IdentityMap int hash(java.lang.Object) 0
 NOT_NULL
 org.apache.commons.collections15.map.IdentityMap java.lang.Object clone()
 NULLABLE
@@ -2726,6 +2876,10 @@ org.apache.commons.collections15.map.ListOrderedMap K previousKey(K)
 NULLABLE
 org.apache.commons.collections15.map.ListOrderedMap insertOrder
 NOT_NULL
+org.apache.commons.collections15.map.ListOrderedMap java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.ListOrderedMap java.lang.Object previousKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap java.util.Collection<V> values()
 NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap java.util.List<K> asList()
@@ -2739,6 +2893,8 @@ NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap org.apache.commons.collections15.OrderedMap<K,V> decorate(java.util.Map<K,V>)
 NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap org.apache.commons.collections15.OrderedMapIterator<K,V> orderedMapIterator()
+NOT_NULL
+org.apache.commons.collections15.map.ListOrderedMap void putAll(java.util.Map) 0
 NOT_NULL
 org.apache.commons.collections15.map.ListOrderedMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
@@ -2824,6 +2980,8 @@ org.apache.commons.collections15.map.PredicatedMap PredicatedMap(java.util.Map<K
 NOT_NULL
 org.apache.commons.collections15.map.PredicatedMap java.util.Map<K,V> decorate(java.util.Map<K,V>, org.apache.commons.collections15.Predicate<? super K>, org.apache.commons.collections15.Predicate<? super V>)
 NOT_NULL
+org.apache.commons.collections15.map.PredicatedMap void putAll(java.util.Map) 0
+NOT_NULL
 org.apache.commons.collections15.map.PredicatedMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
 org.apache.commons.collections15.map.PredicatedMap void readObject(java.io.ObjectInputStream) 0
@@ -2838,6 +2996,16 @@ org.apache.commons.collections15.map.PredicatedSortedMap java.util.SortedMap<K,V
 NOT_NULL
 org.apache.commons.collections15.map.PredicatedSortedMap java.util.SortedMap<K,V> tailMap(K)
 NOT_NULL
+org.apache.commons.collections15.map.ReferenceIdentityMap boolean isEqualKey(java.lang.Object, java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.ReferenceIdentityMap boolean isEqualValue(java.lang.Object, java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.ReferenceIdentityMap int hash(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.ReferenceIdentityMap int hashEntry(java.lang.Object, java.lang.Object) 0
+NULLABLE
+org.apache.commons.collections15.map.ReferenceIdentityMap int hashEntry(java.lang.Object, java.lang.Object) 1
+NULLABLE
 org.apache.commons.collections15.map.ReferenceIdentityMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.map.ReferenceIdentityMap void writeObject(java.io.ObjectOutputStream) 0
@@ -2868,6 +3036,10 @@ org.apache.commons.collections15.map.SingletonMap boolean isEqualKey(java.lang.O
 NULLABLE
 org.apache.commons.collections15.map.SingletonMap boolean isEqualValue(java.lang.Object) 0
 NULLABLE
+org.apache.commons.collections15.map.SingletonMap java.lang.Object nextKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.map.SingletonMap java.lang.Object previousKey(java.lang.Object) 0
+NOT_NULL
 org.apache.commons.collections15.map.SingletonMap java.util.Collection<V> values()
 NOT_NULL
 org.apache.commons.collections15.map.SingletonMap key
@@ -2952,6 +3124,8 @@ org.apache.commons.collections15.map.UnmodifiableEntrySet T[] toArray(T[])
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableEntrySet T[] toArray(T[]) 0
 NOT_NULL
+org.apache.commons.collections15.map.UnmodifiableEntrySet boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableEntrySet java.lang.Object[] toArray()
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableEntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
@@ -2972,6 +3146,8 @@ org.apache.commons.collections15.map.UnmodifiableMap java.util.Set<java.util.Map
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableMap org.apache.commons.collections15.MapIterator<K,V> mapIterator()
 NOT_NULL
+org.apache.commons.collections15.map.UnmodifiableMap void putAll(java.util.Map) 0
+NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableMap void writeObject(java.io.ObjectOutputStream) 0
@@ -2987,6 +3163,8 @@ NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableOrderedMap org.apache.commons.collections15.OrderedMap<K,V> decorate(org.apache.commons.collections15.OrderedMap<K,V>)
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableOrderedMap org.apache.commons.collections15.OrderedMapIterator<K,V> orderedMapIterator()
+NOT_NULL
+org.apache.commons.collections15.map.UnmodifiableOrderedMap void putAll(java.util.Map) 0
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableOrderedMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
@@ -3006,6 +3184,8 @@ org.apache.commons.collections15.map.UnmodifiableSortedMap java.util.SortedMap<K
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableSortedMap java.util.SortedMap<K,V> tailMap(K)
 NOT_NULL
+org.apache.commons.collections15.map.UnmodifiableSortedMap void putAll(java.util.Map) 0
+NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableSortedMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 org.apache.commons.collections15.map.UnmodifiableSortedMap void writeObject(java.io.ObjectOutputStream) 0
@@ -3018,6 +3198,10 @@ org.apache.commons.collections15.multimap.MultiHashMap V put(K, V)
 NULLABLE
 org.apache.commons.collections15.multimap.MultiHashMap V remove(java.lang.Object, java.lang.Object)
 NULLABLE
+org.apache.commons.collections15.multimap.MultiHashMap boolean containsKey(java.lang.Object) 0
+NOT_NULL
+org.apache.commons.collections15.multimap.MultiHashMap boolean containsValue(java.lang.Object) 0
+NULLABLE
 org.apache.commons.collections15.multimap.MultiHashMap boolean putAll(K, java.util.Collection<? extends V>) 1
 NULLABLE
 org.apache.commons.collections15.multimap.MultiHashMap java.lang.Object clone()
@@ -3029,6 +3213,8 @@ NULLABLE
 org.apache.commons.collections15.multimap.MultiHashMap java.util.Collection<V> values()
 NULLABLE
 org.apache.commons.collections15.multimap.MultiHashMap java.util.HashMap access$200(org.apache.commons.collections15.multimap.MultiHashMap) 0
+NOT_NULL
+org.apache.commons.collections15.multimap.MultiHashMap void putAll(java.util.Map) 0
 NOT_NULL
 org.apache.commons.collections15.multimap.MultiHashMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
@@ -3057,6 +3243,8 @@ NOT_NULL
 org.apache.commons.collections15.set.ListOrderedSet ListOrderedSet(java.util.Set<E>, java.util.List<E>) 1
 NOT_NULL
 org.apache.commons.collections15.set.ListOrderedSet boolean addAll(int, java.util.Collection<? extends E>) 1
+NOT_NULL
+org.apache.commons.collections15.set.ListOrderedSet boolean addAll(java.util.Collection) 0
 NOT_NULL
 org.apache.commons.collections15.set.ListOrderedSet boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
@@ -3128,9 +3316,13 @@ org.apache.commons.collections15.set.TypedSortedSet java.util.SortedSet decorate
 NOT_NULL
 org.apache.commons.collections15.set.TypedSortedSet java.util.SortedSet decorate(java.util.SortedSet, java.lang.Class) 1
 NOT_NULL
+org.apache.commons.collections15.set.UnmodifiableSet boolean addAll(java.util.Collection) 0
+NOT_NULL
 org.apache.commons.collections15.set.UnmodifiableSet java.util.Iterator<E> iterator()
 NOT_NULL
 org.apache.commons.collections15.set.UnmodifiableSet java.util.Set<E> decorate(java.util.Set<E>)
+NOT_NULL
+org.apache.commons.collections15.set.UnmodifiableSortedSet boolean addAll(java.util.Collection) 0
 NOT_NULL
 org.apache.commons.collections15.set.UnmodifiableSortedSet java.util.Iterator<E> iterator()
 NOT_NULL

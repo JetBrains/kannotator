@@ -19,11 +19,13 @@ import org.jetbrains.kannotator.declarations.AnnotationPosition
 import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.jetbrains.kannotator.classHierarchy.parentNodes
+import org.jetbrains.kannotator.declarations.MethodTypePosition
 
 fun propagateMetadata<A>(
         graph: HierarchyGraph<Method>,
         lattice: AnnotationLattice<A>,
-        annotations: Annotations<A>
+        annotations: Annotations<A>,
+        propagationOverrides: Annotations<A> = AnnotationsImpl<A>()
 ): Annotations<A> {
     val result = AnnotationsImpl(annotations)
 
@@ -51,8 +53,29 @@ fun propagateMetadata<A>(
     )
 
     propagateParameterAnnotations(allMethods, lattice, result)
+    propagateOverrides(graph, propagationOverrides, result)
 
     return result
+}
+
+private fun propagateOverrides<A>(
+        graph: HierarchyGraph<Method>,
+        propagationOverrides: Annotations<A>,
+        annotationsToFix: MutableAnnotations<A>
+) {
+    propagationOverrides forEach {(pos, ann) ->
+        if (pos is MethodTypePosition) {
+            val methodNode = graph.findNode(pos.method)
+            if (methodNode != null) {
+                bfs(arrayList(methodNode)) {node ->
+                    val method = node!!.data
+                    val currentPos = PositionsForMethod(method)[pos.relativePosition].position
+                    annotationsToFix[currentPos] = ann
+                    scheduleAll(node.childNodes())
+                }
+            }
+        }
+    }
 }
 
 private fun propagateParameterAnnotations<A>(
@@ -68,7 +91,17 @@ private fun propagateParameterAnnotations<A>(
             val declPos = position.relativePosition
             if (declPos !is ParameterPosition)
                 continue
-            val annotations = positionsForMethods.map{ annotationsToFix[it[declPos].position] }.filterNotNull()
+            val annotations = arrayList<A>()
+            for (positionsForMethod in positionsForMethods) {
+                val annotatedType = positionsForMethod[declPos]
+                val annotationPosition = annotatedType.position
+                val annotationValue = annotationsToFix[annotationPosition]
+                if (annotationValue != null) {
+                    annotations.add(annotationValue)
+                }
+            }
+
+            //val annotations = positionsForMethods.map{ annotationsToFix[it[declPos].position] }.filterNotNull()
 
             if (!annotations.isEmpty()) {
                 val unifiedAnnotation = lattice.unify<A>(declPos, annotations)
