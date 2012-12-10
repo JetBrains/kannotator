@@ -99,8 +99,6 @@ public class InferAnnotationDialog extends DialogWrapper {
     }
 
     protected void setDefaultValues() {
-        nullabilityCheckBox.setSelected(true);
-        kotlinSignaturesCheckBox.setSelected(true);
         outputDirectory.getTextField().setText(new File(FileUtil.toSystemDependentName(project.getBaseDir().getPath()), "annotations").getAbsolutePath());
     }
 
