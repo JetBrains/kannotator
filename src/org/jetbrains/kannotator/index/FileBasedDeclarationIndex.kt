@@ -18,12 +18,13 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.annotations.io.tryParseMethodAnnotationKey
 import org.jetbrains.kannotator.annotations.io.tryParseFieldAnnotationKey
+import kotlin.test.fail
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 
-class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
+class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}, failOnDuplicates: Boolean = true): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
         val classDecl: ClassDeclaration,
         val methodsById: Map<MethodId, Method>,
@@ -34,16 +35,16 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
     private val classes = HashMap<ClassName, ClassData>()
     private val classesByCanonicalName = HashMap<String, MutableCollection<ClassData>>();
 
-    { init(classSource, processMethodBody) }
+    { init(classSource, processMethodBody, failOnDuplicates) }
 
-    private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?) {
+    private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?, failOnDuplicates: Boolean) {
         classSource forEach { reader ->
             val className = ClassName.fromInternalName(reader.getClassName())
 
             val methodsById = HashMap<MethodId, Method>()
             val fieldsById = HashMap<FieldId, Field>()
             val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
-            assert (classes[className] == null) { "Class already visited: $className" }
+            assert (!failOnDuplicates || classes[className] == null) { "Class already visited: $className" }
 
             reader.accept(object: ClassVisitor(Opcodes.ASM4) {
                 public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {

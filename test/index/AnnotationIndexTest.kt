@@ -31,18 +31,16 @@ class AnnotationIndexTest : TestCase() {
         val jars = findJarFiles(jarDirs)
 
         val source = FileBasedClassSource(jars)
-        val index = DeclarationIndexImpl(source)
+        val index = DeclarationIndexImpl(source, {null}, false)
 
         for (key in keys) {
             if ("(" !in key) continue // no fields
             if ("@" in key) continue // bug in IDEA
             val position = index.findPositionByAnnotationKeyString(key)
             if (position == null) {
-                fail("Position not forund for $key")
-            }
-            else {
-                assertEquals(key, position.toAnnotationKey())
+                fail("Position not found for $key")
             }
         }
+
     }
 }
