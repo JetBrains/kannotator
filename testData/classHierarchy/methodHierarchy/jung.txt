@@ -42,12 +42,6 @@ edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator:creat
   It overrides
     edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator:create()Ljava/lang/Object;
 
-edu.uci.ics.jung.algorithms.importance.AbstractRanker:<init>()V
-  It overrides
-    edu.uci.ics.jung.algorithms.util.IterativeProcess:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.importance.RelativeAuthorityRanker:<init>()V
-
 edu.uci.ics.jung.algorithms.importance.AbstractRanker:finalizeIterations()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeProcess:finalizeIterations()V
@@ -132,10 +126,6 @@ edu.uci.ics.jung.algorithms.importance.RandomWalkSTBetweenness:step()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeProcess:step()V
 
-edu.uci.ics.jung.algorithms.importance.RelativeAuthorityRanker:<init>()V
-  It overrides
-    edu.uci.ics.jung.algorithms.importance.AbstractRanker:<init>()V
-
 edu.uci.ics.jung.algorithms.importance.RelativeAuthorityRanker:finalizeIterations()V
   It overrides
     edu.uci.ics.jung.algorithms.importance.AbstractRanker:finalizeIterations()V
@@ -151,35 +141,6 @@ edu.uci.ics.jung.algorithms.importance.WeightedNIPaths:onFinalize(Ljava/lang/Obj
 edu.uci.ics.jung.algorithms.importance.WeightedNIPaths:step()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeProcess:step()V
-
-edu.uci.ics.jung.algorithms.layout.AbstractLayout:<clinit>()V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.FRLayout2:<clinit>()V
-
-edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.CircleLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.FRLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.ISOMLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.KKLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.FRLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-    edu.uci.ics.jung.algorithms.layout.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-    edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-
-edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-    edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-
-edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;Ljava/awt/Dimension;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;Ljava/awt/Dimension;)V
 
 edu.uci.ics.jung.algorithms.layout.AbstractLayout:getGraph()Ledu/uci/ics/jung/graph/Graph;
   It overrides
@@ -272,10 +233,6 @@ edu.uci.ics.jung.algorithms.layout.AggregateLayout:step()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:step()V
 
-edu.uci.ics.jung.algorithms.layout.BalloonLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-
 edu.uci.ics.jung.algorithms.layout.BalloonLayout:setLocation(Ljava/lang/Object;Ljava/awt/geom/Point2D;)V
   It overrides
     edu.uci.ics.jung.algorithms.layout.TreeLayout:setLocation(Ljava/lang/Object;Ljava/awt/geom/Point2D;)V
@@ -292,10 +249,6 @@ edu.uci.ics.jung.algorithms.layout.BalloonLayout:transform(Ljava/lang/Object;)Lj
   It overrides
     edu.uci.ics.jung.algorithms.layout.TreeLayout:transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-edu.uci.ics.jung.algorithms.layout.CircleLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
 edu.uci.ics.jung.algorithms.layout.CircleLayout:initialize()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.Layout:initialize()V
@@ -303,10 +256,6 @@ edu.uci.ics.jung.algorithms.layout.CircleLayout:initialize()V
 edu.uci.ics.jung.algorithms.layout.CircleLayout:reset()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.Layout:reset()V
-
-edu.uci.ics.jung.algorithms.layout.DAGLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
 
 edu.uci.ics.jung.algorithms.layout.DAGLayout:done()Z
   It overrides
@@ -336,18 +285,6 @@ edu.uci.ics.jung.algorithms.layout.DAGLayout:setSize(Ljava/awt/Dimension;)V
   It overrides
     edu.uci.ics.jung.algorithms.layout.SpringLayout:setSize(Ljava/awt/Dimension;)V
 
-edu.uci.ics.jung.algorithms.layout.FRLayout2:<clinit>()V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<clinit>()V
-
-edu.uci.ics.jung.algorithms.layout.FRLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout.FRLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-
 edu.uci.ics.jung.algorithms.layout.FRLayout2:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:done()Z
@@ -367,14 +304,6 @@ edu.uci.ics.jung.algorithms.layout.FRLayout2:setSize(Ljava/awt/Dimension;)V
 edu.uci.ics.jung.algorithms.layout.FRLayout2:step()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:step()V
-
-edu.uci.ics.jung.algorithms.layout.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
 
 edu.uci.ics.jung.algorithms.layout.FRLayout:done()Z
   It overrides
@@ -422,10 +351,6 @@ edu.uci.ics.jung.algorithms.layout.GraphElementAccessor:getVertices(Ledu/uci/ics
     edu.uci.ics.jung.visualization.picking.ShapePickSupport:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
     edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
 
-edu.uci.ics.jung.algorithms.layout.ISOMLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
 edu.uci.ics.jung.algorithms.layout.ISOMLayout:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:done()Z
@@ -441,10 +366,6 @@ edu.uci.ics.jung.algorithms.layout.ISOMLayout:reset()V
 edu.uci.ics.jung.algorithms.layout.ISOMLayout:step()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:step()V
-
-edu.uci.ics.jung.algorithms.layout.KKLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
 
 edu.uci.ics.jung.algorithms.layout.KKLayout:done()Z
   It overrides
@@ -549,11 +470,6 @@ edu.uci.ics.jung.algorithms.layout.Layout:setSize(Ljava/awt/Dimension;)V
     edu.uci.ics.jung.algorithms.layout.LayoutDecorator:setSize(Ljava/awt/Dimension;)V
     edu.uci.ics.jung.algorithms.layout.TreeLayout:setSize(Ljava/awt/Dimension;)V
 
-edu.uci.ics.jung.algorithms.layout.LayoutDecorator:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.layout.CachingLayout:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-    edu.uci.ics.jung.visualization.layout.ObservableCachingLayout:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-
 edu.uci.ics.jung.algorithms.layout.LayoutDecorator:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:done()Z
@@ -625,18 +541,6 @@ edu.uci.ics.jung.algorithms.layout.LayoutDecorator:transform(Ljava/lang/Object;)
     edu.uci.ics.jung.visualization.layout.CachingLayout:transform(Ljava/lang/Object;)Ljava/lang/Object;
     edu.uci.ics.jung.visualization.layout.ObservableCachingLayout:transform(Ljava/lang/Object;)Ljava/lang/Object;
 
-edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-
-edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;I)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;I)V
-
-edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;II)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;II)V
-
 edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:buildTree()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.TreeLayout:buildTree()V
@@ -660,14 +564,6 @@ edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:transform(Ljava/lang/Object;
 edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:transform(Ljava/lang/Object;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.algorithms.layout.TreeLayout:transform(Ljava/lang/Object;)Ljava/lang/Object;
-
-edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.picking.RadiusPickSupport:<init>()V
-
-edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:<init>(D)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.picking.RadiusPickSupport:<init>(D)V
 
 edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
   It overrides
@@ -693,14 +589,6 @@ edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:getVertices(Ledu/u
   It overrides
     edu.uci.ics.jung.algorithms.layout.GraphElementAccessor:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
 
-edu.uci.ics.jung.algorithms.layout.SpringLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout.SpringLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-
 edu.uci.ics.jung.algorithms.layout.SpringLayout2:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.layout.SpringLayout:done()Z
@@ -712,19 +600,6 @@ edu.uci.ics.jung.algorithms.layout.SpringLayout2:moveNodes()V
 edu.uci.ics.jung.algorithms.layout.SpringLayout2:step()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.SpringLayout:step()V
-
-edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.DAGLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout.SpringLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.SpringLayout2:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
 
 edu.uci.ics.jung.algorithms.layout.SpringLayout:done()Z
   It overrides
@@ -764,22 +639,6 @@ edu.uci.ics.jung.algorithms.layout.SpringLayout:step()V
   It is overridden by
     edu.uci.ics.jung.algorithms.layout.SpringLayout2:step()V
 
-edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljava/awt/Dimension;)V
-
-edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;)V
-
-edu.uci.ics.jung.algorithms.layout.StaticLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Lorg/apache/commons/collections15/Transformer;Ljava/awt/Dimension;)V
-
 edu.uci.ics.jung.algorithms.layout.StaticLayout:initialize()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.Layout:initialize()V
@@ -787,19 +646,6 @@ edu.uci.ics.jung.algorithms.layout.StaticLayout:initialize()V
 edu.uci.ics.jung.algorithms.layout.StaticLayout:reset()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.Layout:reset()V
-
-edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.BalloonLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-    edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;)V
-
-edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;I)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;I)V
-
-edu.uci.ics.jung.algorithms.layout.TreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;II)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout.RadialTreeLayout:<init>(Ledu/uci/ics/jung/graph/Forest;II)V
 
 edu.uci.ics.jung.algorithms.layout.TreeLayout:buildTree()V
   It is overridden by
@@ -913,20 +759,6 @@ edu.uci.ics.jung.algorithms.layout.util.VisRunner:stop()V
   It overrides
     edu.uci.ics.jung.algorithms.layout.util.Relaxer:stop()V
 
-edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<clinit>()V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout3d.SpringLayout:<clinit>()V
-
-edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout3d.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout3d.ISOMLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-    edu.uci.ics.jung.algorithms.layout3d.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljavax/media/j3d/BoundingSphere;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.layout3d.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljavax/media/j3d/BoundingSphere;)V
-
 edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:getGraph()Ledu/uci/ics/jung/graph/Graph;
   It overrides
     edu.uci.ics.jung.algorithms.layout3d.Layout:getGraph()Ledu/uci/ics/jung/graph/Graph;
@@ -970,14 +802,6 @@ edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:setSize(Ljavax/media/j3d/Bou
     edu.uci.ics.jung.algorithms.layout3d.FRLayout:setSize(Ljavax/media/j3d/BoundingSphere;)V
     edu.uci.ics.jung.algorithms.layout3d.SpringLayout:setSize(Ljavax/media/j3d/BoundingSphere;)V
 
-edu.uci.ics.jung.algorithms.layout3d.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.layout3d.FRLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljavax/media/j3d/BoundingSphere;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;Ljavax/media/j3d/BoundingSphere;)V
-
 edu.uci.ics.jung.algorithms.layout3d.FRLayout:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:done()Z
@@ -1001,10 +825,6 @@ edu.uci.ics.jung.algorithms.layout3d.FRLayout:step()V
 edu.uci.ics.jung.algorithms.layout3d.GraphElementAccessor:getVertex(Ledu/uci/ics/jung/algorithms/layout3d/Layout;Ljavax/vecmath/Point3f;)Ljava/lang/Object;
   It is overridden by
     edu.uci.ics.jung.algorithms.layout3d.RadiusGraphElementAccessor:getVertex(Ledu/uci/ics/jung/algorithms/layout3d/Layout;Ljavax/vecmath/Point3f;)Ljava/lang/Object;
-
-edu.uci.ics.jung.algorithms.layout3d.ISOMLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
 
 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout:done()Z
   It overrides
@@ -1086,14 +906,6 @@ edu.uci.ics.jung.algorithms.layout3d.SpringLayout$UnitLengthFunction:getLength(L
   It overrides
     edu.uci.ics.jung.algorithms.layout3d.SpringLayout$LengthFunction:getLength(Ljava/lang/Object;)D
 
-edu.uci.ics.jung.algorithms.layout3d.SpringLayout:<clinit>()V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<clinit>()V
-
-edu.uci.ics.jung.algorithms.layout3d.SpringLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout3d.AbstractLayout:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:done()Z
@@ -1138,14 +950,6 @@ edu.uci.ics.jung.algorithms.matrix.RealMatrixElementOperations:mergePaths(Ljava/
   It overrides
     edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations:mergePaths(Ljava/lang/Object;Ljava/lang/Object;)V
 
-edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:<init>(Ledu/uci/ics/jung/graph/Hypergraph;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality:<init>(Ledu/uci/ics/jung/graph/Hypergraph;)V
-
-edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;)V
-
 edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:afterStep()V
   It is overridden by
     edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:afterStep()V
@@ -1179,16 +983,6 @@ edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:update(Ljava/lang/Ob
     edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:update(Ljava/lang/Object;)D
     edu.uci.ics.jung.algorithms.scoring.VoltageScorer:update(Ljava/lang/Object;)D
 
-edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-    edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-
-edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
-    edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
-
 edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:initialize()V
   It overrides
     edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:initialize()V
@@ -1213,22 +1007,6 @@ edu.uci.ics.jung.algorithms.scoring.EdgeScorer:getEdgeScore(Ljava/lang/Object;)L
   It is overridden by
     edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality:getEdgeScore(Ljava/lang/Object;)Ljava/lang/Object;
 
-edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality:<init>(Ledu/uci/ics/jung/graph/Hypergraph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:<init>(Ledu/uci/ics/jung/graph/Hypergraph;)V
-
-edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;)V
-
-edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-
-edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
-
 edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:afterStep()V
   It overrides
     edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer:afterStep()V
@@ -1244,20 +1022,6 @@ edu.uci.ics.jung.algorithms.scoring.HITSWithPriors:update(Ljava/lang/Object;)D
 edu.uci.ics.jung.algorithms.scoring.KStepMarkov:update(Ljava/lang/Object;)D
   It overrides
     edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:update(Ljava/lang/Object;)D
-
-edu.uci.ics.jung.algorithms.scoring.PageRank:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-
-edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.scoring.PageRank:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;D)V
-
-edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
-  It overrides
-    edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorerWithPriors:<init>(Ledu/uci/ics/jung/graph/Hypergraph;Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;D)V
 
 edu.uci.ics.jung.algorithms.scoring.PageRankWithPriors:afterStep()V
   It overrides
@@ -1304,14 +1068,6 @@ edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance$SourceData:update(Ljav
   It is overridden by
     edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath$SourcePathData:update(Ljava/lang/Object;Ljava/lang/Object;D)V
 
-edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance:<init>(Ledu/uci/ics/jung/graph/Graph;Z)V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath:<init>(Ledu/uci/ics/jung/graph/Graph;Z)V
-
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance:getDistance(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Number;
   It overrides
     edu.uci.ics.jung.algorithms.shortestpath.Distance:getDistance(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Number;
@@ -1339,14 +1095,6 @@ edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath$SourcePathData:res
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath$SourcePathData:update(Ljava/lang/Object;Ljava/lang/Object;D)V
   It overrides
     edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance$SourceData:update(Ljava/lang/Object;Ljava/lang/Object;D)V
-
-edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath:<init>(Ledu/uci/ics/jung/graph/Graph;Z)V
-  It overrides
-    edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance:<init>(Ledu/uci/ics/jung/graph/Graph;Z)V
 
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath:getIncomingEdgeMap(Ljava/lang/Object;)Ljava/util/Map;
   It overrides
@@ -1417,10 +1165,6 @@ edu.uci.ics.jung.algorithms.util.IterativeContext:step()V
     edu.uci.ics.jung.visualization.layout.LayoutTransition:step()V
     edu.uci.ics.jung.visualization3d.layout.LayoutDecorator:step()V
 
-edu.uci.ics.jung.algorithms.util.IterativeProcess:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.algorithms.importance.AbstractRanker:<init>()V
-
 edu.uci.ics.jung.algorithms.util.IterativeProcess:done()Z
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:done()Z
@@ -1456,15 +1200,6 @@ edu.uci.ics.jung.algorithms.util.MapSettableTransformer:set(Ljava/lang/Object;Lj
 edu.uci.ics.jung.algorithms.util.SettableTransformer:set(Ljava/lang/Object;Ljava/lang/Object;)V
   It is overridden by
     edu.uci.ics.jung.algorithms.util.MapSettableTransformer:set(Ljava/lang/Object;Ljava/lang/Object;)V
-
-edu.uci.ics.jung.graph.AbstractGraph:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.graph.DirectedSparseGraph:<init>()V
-    edu.uci.ics.jung.graph.DirectedSparseMultigraph:<init>()V
-    edu.uci.ics.jung.graph.SparseGraph:<init>()V
-    edu.uci.ics.jung.graph.SparseMultigraph:<init>()V
-    edu.uci.ics.jung.graph.UndirectedSparseGraph:<init>()V
-    edu.uci.ics.jung.graph.UndirectedSparseMultigraph:<init>()V
 
 edu.uci.ics.jung.graph.AbstractGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It is overridden by
@@ -1732,18 +1467,10 @@ edu.uci.ics.jung.graph.DelegateTree:removeVertex(Ljava/lang/Object;)Z
     edu.uci.ics.jung.graph.GraphDecorator:removeVertex(Ljava/lang/Object;)Z
     edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.DirectedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.DirectedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
     edu.uci.ics.jung.graph.Hypergraph:addVertex(Ljava/lang/Object;)Z
-
-edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It overrides
-    edu.uci.ics.jung.graph.DirectedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 
 edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
   It overrides
@@ -1764,10 +1491,6 @@ edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:getSuccessors(Ljava/lang/
   It overrides
     edu.uci.ics.jung.graph.DirectedSparseMultigraph:getSuccessors(Ljava/lang/Object;)Ljava/util/Collection;
     edu.uci.ics.jung.graph.Graph:getSuccessors(Ljava/lang/Object;)Ljava/util/Collection;
-
-edu.uci.ics.jung.graph.DirectedSparseGraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.AbstractGraph:<init>()V
 
 edu.uci.ics.jung.graph.DirectedSparseGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It overrides
@@ -1863,12 +1586,6 @@ edu.uci.ics.jung.graph.DirectedSparseGraph:removeVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.DirectedSparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.AbstractGraph:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It overrides
     edu.uci.ics.jung.graph.AbstractGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
@@ -1907,10 +1624,6 @@ edu.uci.ics.jung.graph.DirectedSparseMultigraph:getEdges()Ljava/util/Collection;
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
   It overrides
     edu.uci.ics.jung.graph.Graph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
-
-edu.uci.ics.jung.graph.DirectedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It is overridden by
-    edu.uci.ics.jung.graph.DirectedOrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 
 edu.uci.ics.jung.graph.DirectedSparseMultigraph:getInEdges(Ljava/lang/Object;)Ljava/util/Collection;
   It overrides
@@ -2239,10 +1952,6 @@ edu.uci.ics.jung.graph.Graph:outDegree(Ljava/lang/Object;)I
     edu.uci.ics.jung.graph.OrderedKAryTree:outDegree(Ljava/lang/Object;)I
     edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:outDegree(Ljava/lang/Object;)I
     edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:outDegree(Ljava/lang/Object;)I
-
-edu.uci.ics.jung.graph.GraphDecorator:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.graph.ObservableGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
 
 edu.uci.ics.jung.graph.GraphDecorator:addEdge(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
   It overrides
@@ -2785,10 +2494,6 @@ edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
     edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:removeVertex(Ljava/lang/Object;)Z
     edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.ObservableGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.graph.GraphDecorator:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
 edu.uci.ics.jung.graph.ObservableGraph:addEdge(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.GraphDecorator:addEdge(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -3018,23 +2723,11 @@ edu.uci.ics.jung.graph.OrderedKAryTree:removeVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.OrderedSparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.SparseMultigraph:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.graph.SortedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.SparseMultigraph:addVertex(Ljava/lang/Object;)Z
   It is overridden by
     edu.uci.ics.jung.graph.SortedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
-
-edu.uci.ics.jung.graph.OrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It overrides
-    edu.uci.ics.jung.graph.SparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It is overridden by
-    edu.uci.ics.jung.graph.SortedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 
 edu.uci.ics.jung.graph.OrderedSparseMultigraph:getIncidentEdges(Ljava/lang/Object;)Ljava/util/Collection;
   It overrides
@@ -3184,21 +2877,9 @@ edu.uci.ics.jung.graph.SetHypergraph:removeVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.SortedSparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.OrderedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.SortedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.OrderedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
-
-edu.uci.ics.jung.graph.SortedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It overrides
-    edu.uci.ics.jung.graph.OrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-
-edu.uci.ics.jung.graph.SparseGraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.AbstractGraph:<init>()V
 
 edu.uci.ics.jung.graph.SparseGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It overrides
@@ -3310,12 +2991,6 @@ edu.uci.ics.jung.graph.SparseGraph:removeVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.SparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.AbstractGraph:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.graph.OrderedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.SparseMultigraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It overrides
     edu.uci.ics.jung.graph.AbstractGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
@@ -3369,10 +3044,6 @@ edu.uci.ics.jung.graph.SparseMultigraph:getEdges(Ledu/uci/ics/jung/graph/util/Ed
 edu.uci.ics.jung.graph.SparseMultigraph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
   It overrides
     edu.uci.ics.jung.graph.Graph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
-
-edu.uci.ics.jung.graph.SparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It is overridden by
-    edu.uci.ics.jung.graph.OrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 
 edu.uci.ics.jung.graph.SparseMultigraph:getInEdges(Ljava/lang/Object;)Ljava/util/Collection;
   It overrides
@@ -3455,27 +3126,15 @@ edu.uci.ics.jung.graph.Tree:getRoot()Ljava/lang/Object;
     edu.uci.ics.jung.graph.util.Graphs$SynchronizedTree:getRoot()Ljava/lang/Object;
     edu.uci.ics.jung.graph.util.Graphs$UnmodifiableTree:getRoot()Ljava/lang/Object;
 
-edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.UndirectedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:addVertex(Ljava/lang/Object;)Z
     edu.uci.ics.jung.graph.UndirectedSparseMultigraph:addVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It overrides
-    edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-
 edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:getNeighbors(Ljava/lang/Object;)Ljava/util/Collection;
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:getNeighbors(Ljava/lang/Object;)Ljava/util/Collection;
     edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getNeighbors(Ljava/lang/Object;)Ljava/util/Collection;
-
-edu.uci.ics.jung.graph.UndirectedSparseGraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.AbstractGraph:<init>()V
 
 edu.uci.ics.jung.graph.UndirectedSparseGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It overrides
@@ -3571,12 +3230,6 @@ edu.uci.ics.jung.graph.UndirectedSparseGraph:removeVertex(Ljava/lang/Object;)Z
   It overrides
     edu.uci.ics.jung.graph.Hypergraph:removeVertex(Ljava/lang/Object;)Z
 
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph:<init>()V
-  It overrides
-    edu.uci.ics.jung.graph.AbstractGraph:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:<init>()V
-
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
   It overrides
     edu.uci.ics.jung.graph.AbstractGraph:addEdge(Ljava/lang/Object;Ledu/uci/ics/jung/graph/util/Pair;Ledu/uci/ics/jung/graph/util/EdgeType;)Z
@@ -3620,10 +3273,6 @@ edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getEdges()Ljava/util/Collectio
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
   It overrides
     edu.uci.ics.jung.graph.Graph:getEndpoints(Ljava/lang/Object;)Ledu/uci/ics/jung/graph/util/Pair;
-
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
-  It is overridden by
-    edu.uci.ics.jung.graph.UndirectedOrderedSparseMultigraph:getFactory()Lorg/apache/commons/collections15/Factory;
 
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph:getInEdges(Ljava/lang/Object;)Ljava/util/Collection;
   It overrides
@@ -3713,14 +3362,6 @@ edu.uci.ics.jung.graph.util.EdgeIndexFunction:reset(Ledu/uci/ics/jung/graph/Grap
     edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction:reset(Ledu/uci/ics/jung/graph/Graph;Ljava/lang/Object;)V
     edu.uci.ics.jung.graph.util.IncidentEdgeIndexFunction:reset(Ledu/uci/ics/jung/graph/Graph;Ljava/lang/Object;)V
     edu.uci.ics.jung.visualization.util.PredicatedParallelEdgeIndexFunction:reset(Ledu/uci/ics/jung/graph/Graph;Ljava/lang/Object;)V
-
-edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.graph.util.Graphs$SynchronizedGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
-  It is overridden by
-    edu.uci.ics.jung.graph.util.Graphs$SynchronizedGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
 
 edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:addEdge(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
   It overrides
@@ -3946,14 +3587,6 @@ edu.uci.ics.jung.graph.util.Graphs$SynchronizedForest:getTrees()Ljava/util/Colle
   It overrides
     edu.uci.ics.jung.graph.Forest:getTrees()Ljava/util/Collection;
 
-edu.uci.ics.jung.graph.util.Graphs$SynchronizedGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.graph.util.Graphs$SynchronizedGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
-  It overrides
-    edu.uci.ics.jung.graph.util.Graphs$SynchronizedAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
-
 edu.uci.ics.jung.graph.util.Graphs$SynchronizedTree:getDepth(Ljava/lang/Object;)I
   It overrides
     edu.uci.ics.jung.graph.Tree:getDepth(Ljava/lang/Object;)I
@@ -3965,14 +3598,6 @@ edu.uci.ics.jung.graph.util.Graphs$SynchronizedTree:getHeight()I
 edu.uci.ics.jung.graph.util.Graphs$SynchronizedTree:getRoot()Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.graph.Tree:getRoot()Ljava/lang/Object;
-
-edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It is overridden by
-    edu.uci.ics.jung.graph.util.Graphs$UnmodifiableGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
-  It is overridden by
-    edu.uci.ics.jung.graph.util.Graphs$UnmodifiableGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
 
 edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:addEdge(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z
   It overrides
@@ -4200,14 +3825,6 @@ edu.uci.ics.jung.graph.util.Graphs$UnmodifiableForest:getTrees()Ljava/util/Colle
   It is overridden by
     edu.uci.ics.jung.graph.util.Graphs$UnmodifiableTree:getTrees()Ljava/util/Collection;
 
-edu.uci.ics.jung.graph.util.Graphs$UnmodifiableGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-  It overrides
-    edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;)V
-
-edu.uci.ics.jung.graph.util.Graphs$UnmodifiableGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
-  It overrides
-    edu.uci.ics.jung.graph.util.Graphs$UnmodifiableAbstractGraph:<init>(Ledu/uci/ics/jung/graph/Graph;Ledu/uci/ics/jung/graph/util/Graphs$1;)V
-
 edu.uci.ics.jung.graph.util.Graphs$UnmodifiableTree:getDepth(Ljava/lang/Object;)I
   It overrides
     edu.uci.ics.jung.graph.Tree:getDepth(Ljava/lang/Object;)I
@@ -4261,30 +3878,13 @@ edu.uci.ics.jung.io.MatrixFile:save(Ledu/uci/ics/jung/graph/Graph;Ljava/lang/Str
   It overrides
     edu.uci.ics.jung.io.GraphFile:save(Ledu/uci/ics/jung/graph/Graph;Ljava/lang/String;)V
 
-edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.io.graphml.EdgeMetadata:<init>()V
-    edu.uci.ics.jung.io.graphml.EndpointMetadata:<init>()V
-    edu.uci.ics.jung.io.graphml.GraphMetadata:<init>()V
-    edu.uci.ics.jung.io.graphml.HyperEdgeMetadata:<init>()V
-    edu.uci.ics.jung.io.graphml.NodeMetadata:<init>()V
-    edu.uci.ics.jung.io.graphml.PortMetadata:<init>()V
-
 edu.uci.ics.jung.io.graphml.AbstractMetadata:getProperties()Ljava/util/Map;
   It overrides
     edu.uci.ics.jung.io.graphml.Metadata:getProperties()Ljava/util/Map;
 
-edu.uci.ics.jung.io.graphml.EdgeMetadata:<init>()V
-  It overrides
-    edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
-
 edu.uci.ics.jung.io.graphml.EdgeMetadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
   It overrides
     edu.uci.ics.jung.io.graphml.Metadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
-
-edu.uci.ics.jung.io.graphml.EndpointMetadata:<init>()V
-  It overrides
-    edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
 
 edu.uci.ics.jung.io.graphml.EndpointMetadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
   It overrides
@@ -4298,17 +3898,9 @@ edu.uci.ics.jung.io.graphml.GraphMLReader2:readGraph()Ledu/uci/ics/jung/graph/Hy
   It overrides
     edu.uci.ics.jung.io.GraphReader:readGraph()Ledu/uci/ics/jung/graph/Hypergraph;
 
-edu.uci.ics.jung.io.graphml.GraphMetadata:<init>()V
-  It overrides
-    edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
-
 edu.uci.ics.jung.io.graphml.GraphMetadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
   It overrides
     edu.uci.ics.jung.io.graphml.Metadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
-
-edu.uci.ics.jung.io.graphml.HyperEdgeMetadata:<init>()V
-  It overrides
-    edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
 
 edu.uci.ics.jung.io.graphml.HyperEdgeMetadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
   It overrides
@@ -4327,45 +3919,17 @@ edu.uci.ics.jung.io.graphml.Metadata:getProperties()Ljava/util/Map;
   It is overridden by
     edu.uci.ics.jung.io.graphml.AbstractMetadata:getProperties()Ljava/util/Map;
 
-edu.uci.ics.jung.io.graphml.NodeMetadata:<init>()V
-  It overrides
-    edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
-
 edu.uci.ics.jung.io.graphml.NodeMetadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
   It overrides
     edu.uci.ics.jung.io.graphml.Metadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
-
-edu.uci.ics.jung.io.graphml.PortMetadata:<init>()V
-  It overrides
-    edu.uci.ics.jung.io.graphml.AbstractMetadata:<init>()V
 
 edu.uci.ics.jung.io.graphml.PortMetadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
   It overrides
     edu.uci.ics.jung.io.graphml.Metadata:getMetadataType()Ledu/uci/ics/jung/io/graphml/Metadata$MetadataType;
 
-edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It is overridden by
-    edu.uci.ics.jung.io.graphml.parser.DataElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.EdgeElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.EndpointElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.GraphElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.KeyElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.NodeElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.PortElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-    edu.uci.ics.jung.io.graphml.parser.StringElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-
-edu.uci.ics.jung.io.graphml.parser.DataElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-
 edu.uci.ics.jung.io.graphml.parser.DataElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
-
-edu.uci.ics.jung.io.graphml.parser.EdgeElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
 
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
@@ -4384,57 +3948,29 @@ edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEven
     edu.uci.ics.jung.io.graphml.parser.StringElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
     edu.uci.ics.jung.io.graphml.parser.UnknownElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
 
-edu.uci.ics.jung.io.graphml.parser.EndpointElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-
 edu.uci.ics.jung.io.graphml.parser.EndpointElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
-
-edu.uci.ics.jung.io.graphml.parser.GraphElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
 
 edu.uci.ics.jung.io.graphml.parser.GraphElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
 
-edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-
 edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
-
-edu.uci.ics.jung.io.graphml.parser.KeyElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
 
 edu.uci.ics.jung.io.graphml.parser.KeyElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
 
-edu.uci.ics.jung.io.graphml.parser.NodeElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-
 edu.uci.ics.jung.io.graphml.parser.NodeElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
 
-edu.uci.ics.jung.io.graphml.parser.PortElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-
 edu.uci.ics.jung.io.graphml.parser.PortElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.io.graphml.parser.ElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
-
-edu.uci.ics.jung.io.graphml.parser.StringElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
-  It overrides
-    edu.uci.ics.jung.io.graphml.parser.AbstractElementParser:<init>(Ledu/uci/ics/jung/io/graphml/parser/ParserContext;)V
 
 edu.uci.ics.jung.io.graphml.parser.StringElementParser:parse(Ljavax/xml/stream/XMLEventReader;Ljavax/xml/stream/events/StartElement;)Ljava/lang/Object;
   It overrides
@@ -4656,10 +4192,6 @@ edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoRenderer:paintIconForVertex(L
   It overrides
     edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer:paintIconForVertex(Ledu/uci/ics/jung/visualization/RenderContext;Ljava/lang/Object;Ledu/uci/ics/jung/algorithms/layout/Layout;)V
 
-edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.VertexIconShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;)V
-
 edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconShapeTransformer:transform(Ljava/lang/Object;)Ljava/awt/Shape;
   It overrides
     edu.uci.ics.jung.visualization.decorators.VertexIconShapeTransformer:transform(Ljava/lang/Object;)Ljava/awt/Shape;
@@ -4667,10 +4199,6 @@ edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconShapeTransformer:tr
 edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconShapeTransformer:transform(Ljava/lang/Object;)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.visualization.decorators.VertexIconShapeTransformer:transform(Ljava/lang/Object;)Ljava/lang/Object;
-
-edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconTransformer:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.DefaultVertexIconTransformer:<init>()V
 
 edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconTransformer:transform(Ljava/lang/Object;)Ljava/lang/Object;
   It overrides
@@ -4749,23 +4277,6 @@ edu.uci.ics.jung.visualization.BasicTransformer:transform(Ljava/awt/Shape;)Ljava
 edu.uci.ics.jung.visualization.BasicTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
   It overrides
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
-
-edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-
-edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.VisualizationImageServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-    edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-
-edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;)V
-
-edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;Ljava/awt/Dimension;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;Ljava/awt/Dimension;)V
 
 edu.uci.ics.jung.visualization.BasicVisualizationServer:addChangeListener(Ljavax/swing/event/ChangeListener;)V
   It overrides
@@ -5478,10 +4989,6 @@ edu.uci.ics.jung.visualization.RenderContext:setVertexStrokeTransformer(Lorg/apa
   It is overridden by
     edu.uci.ics.jung.visualization.PluggableRenderContext:setVertexStrokeTransformer(Lorg/apache/commons/collections15/Transformer;)V
 
-edu.uci.ics.jung.visualization.VisualizationImageServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-
 edu.uci.ics.jung.visualization.VisualizationModel:addChangeListener(Ljavax/swing/event/ChangeListener;)V
   It overrides
     edu.uci.ics.jung.visualization.util.ChangeEventSupport:addChangeListener(Ljavax/swing/event/ChangeListener;)V
@@ -5688,22 +5195,6 @@ edu.uci.ics.jung.visualization.VisualizationServer:stateChanged(Ljavax/swing/eve
   It is overridden by
     edu.uci.ics.jung.visualization.BasicVisualizationServer:stateChanged(Ljavax/swing/event/ChangeEvent;)V
 
-edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It overrides
-    edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-
-edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Dimension;)V
-
-edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;)V
-  It overrides
-    edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;)V
-
-edu.uci.ics.jung.visualization.VisualizationViewer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;Ljava/awt/Dimension;)V
-  It overrides
-    edu.uci.ics.jung.visualization.BasicVisualizationServer:<init>(Ledu/uci/ics/jung/visualization/VisualizationModel;Ljava/awt/Dimension;)V
-
 edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin$LensPaintable:paint(Ljava/awt/Graphics;)V
   It overrides
     edu.uci.ics.jung.visualization.VisualizationServer$Paintable:paint(Ljava/awt/Graphics;)V
@@ -5745,21 +5236,6 @@ edu.uci.ics.jung.visualization.annotations.AnnotationPaintable:useTransform()Z
   It overrides
     edu.uci.ics.jung.visualization.VisualizationServer$Paintable:useTransform()Z
 
-edu.uci.ics.jung.visualization.control.AbsoluteCrossoverScalingControl:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.CrossoverScalingControl:<init>()V
-
-edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.LabelEditingGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.ViewTranslatingGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:checkModifiers(Ljava/awt/event/MouseEvent;)Z
   It overrides
     edu.uci.ics.jung.visualization.control.GraphMousePlugin:checkModifiers(Ljava/awt/event/MouseEvent;)Z
@@ -5775,11 +5251,6 @@ edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:getModifiers()I
 edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:setModifiers(I)V
   It overrides
     edu.uci.ics.jung.visualization.control.GraphMousePlugin:setModifiers(I)V
-
-edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:<init>(FF)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:<init>(FF)V
-    edu.uci.ics.jung.visualization.control.ModalLensGraphMouse:<init>(FF)V
 
 edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:getModeComboBox()Ljavax/swing/JComboBox;
   It is overridden by
@@ -5819,48 +5290,18 @@ edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:setTransformingMo
     edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse:setTransformingMode()V
     edu.uci.ics.jung.visualization.control.EditingModalGraphMouse:setTransformingMode()V
 
-edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin:handlePopup(Ljava/awt/event/MouseEvent;)V
   It is overridden by
     edu.uci.ics.jung.samples.PluggableRendererDemo$PopupGraphMousePlugin:handlePopup(Ljava/awt/event/MouseEvent;)V
     edu.uci.ics.jung.visualization.control.EditingPopupGraphMousePlugin:handlePopup(Ljava/awt/event/MouseEvent;)V
 
-edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:mouseReleased(Ljava/awt/event/MouseEvent;)V
   It is overridden by
     edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin:mouseReleased(Ljava/awt/event/MouseEvent;)V
 
-edu.uci.ics.jung.visualization.control.CrossoverScalingControl:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.AbsoluteCrossoverScalingControl:<init>()V
-
 edu.uci.ics.jung.visualization.control.CrossoverScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
   It overrides
     edu.uci.ics.jung.visualization.control.ScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
-
-edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.PluggableGraphMouse:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.ModalSatelliteGraphMouse:<init>()V
-
-edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:<init>(FF)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:<init>(FF)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.ModalSatelliteGraphMouse:<init>(FF)V
 
 edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:loadPlugins()V
   It overrides
@@ -5946,29 +5387,13 @@ edu.uci.ics.jung.visualization.control.GraphMousePlugin:setModifiers(I)V
   It is overridden by
     edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:setModifiers(I)V
 
-edu.uci.ics.jung.visualization.control.LabelEditingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.LayoutScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
   It overrides
     edu.uci.ics.jung.visualization.control.ScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
 
-edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin:checkModifiers(Ljava/awt/event/MouseEvent;)Z
   It overrides
     edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:checkModifiers(Ljava/awt/event/MouseEvent;)Z
-
-edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>(I)V
 
 edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It overrides
@@ -5992,25 +5417,9 @@ edu.uci.ics.jung.visualization.control.ModalGraphMouse:setMode(Ledu/uci/ics/jung
     edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:setMode(Ledu/uci/ics/jung/visualization/control/ModalGraphMouse$Mode;)V
     edu.uci.ics.jung.visualization.control.EditingModalGraphMouse:setMode(Ledu/uci/ics/jung/visualization/control/ModalGraphMouse$Mode;)V
 
-edu.uci.ics.jung.visualization.control.ModalLensGraphMouse:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.PluggableGraphMouse:<init>()V
-
-edu.uci.ics.jung.visualization.control.ModalLensGraphMouse:<init>(FF)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:<init>(FF)V
-
 edu.uci.ics.jung.visualization.control.ModalLensGraphMouse:loadPlugins()V
   It overrides
     edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse:loadPlugins()V
-
-edu.uci.ics.jung.visualization.control.ModalSatelliteGraphMouse:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:<init>()V
-
-edu.uci.ics.jung.visualization.control.ModalSatelliteGraphMouse:<init>(FF)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:<init>(FF)V
 
 edu.uci.ics.jung.visualization.control.ModalSatelliteGraphMouse:loadPlugins()V
   It overrides
@@ -6024,80 +5433,25 @@ edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin$LensPaintable:use
   It overrides
     edu.uci.ics.jung.visualization.VisualizationServer$Paintable:useTransform()Z
 
-edu.uci.ics.jung.visualization.control.PluggableGraphMouse:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.DefaultModalGraphMouse:<init>()V
-    edu.uci.ics.jung.visualization.control.ModalLensGraphMouse:<init>()V
-
-edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It is overridden by
     edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
-
-edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:<init>(I)V
 
 edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin:mouseReleased(Ljava/awt/event/MouseEvent;)V
   It overrides
     edu.uci.ics.jung.visualization.control.AnimatedPickingGraphMousePlugin:mouseReleased(Ljava/awt/event/MouseEvent;)V
 
-edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It overrides
     edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
-
-edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;I)V
-
-edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;IFF)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;IFF)V
 
 edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin:mouseWheelMoved(Ljava/awt/event/MouseWheelEvent;)V
   It overrides
     edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:mouseWheelMoved(Ljava/awt/event/MouseWheelEvent;)V
 
-edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It overrides
     edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
-
-edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>(I)V
 
 edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It overrides
@@ -6117,14 +5471,6 @@ edu.uci.ics.jung.visualization.control.ScalingControl:scale(Ledu/uci/ics/jung/vi
     edu.uci.ics.jung.visualization.control.LayoutScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
     edu.uci.ics.jung.visualization.control.ViewScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
 
-edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;I)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;I)V
-
-edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;IFF)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin:<init>(Ledu/uci/ics/jung/visualization/control/ScalingControl;IFF)V
-
 edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:checkModifiers(Ljava/awt/event/MouseEvent;)Z
   It overrides
     edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:checkModifiers(Ljava/awt/event/MouseEvent;)Z
@@ -6133,31 +5479,9 @@ edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin:mouseWheelMoved(L
   It is overridden by
     edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin:mouseWheelMoved(Ljava/awt/event/MouseWheelEvent;)V
 
-edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin:<init>(I)V
-
 edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It is overridden by
     edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
-
-edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin:<init>()V
-    edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin:<init>()V
-
-edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin:<init>(I)V
-    edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin:<init>(I)V
 
 edu.uci.ics.jung.visualization.control.TranslatingGraphMousePlugin:mouseDragged(Ljava/awt/event/MouseEvent;)V
   It is overridden by
@@ -6176,29 +5500,6 @@ edu.uci.ics.jung.visualization.control.ViewScalingControl:scale(Ledu/uci/ics/jun
   It overrides
     edu.uci.ics.jung.visualization.control.ScalingControl:scale(Ledu/uci/ics/jung/visualization/VisualizationServer;FLjava/awt/geom/Point2D;)V
 
-edu.uci.ics.jung.visualization.control.ViewTranslatingGraphMousePlugin:<init>(I)V
-  It overrides
-    edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin:<init>(I)V
-
-edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$BentLine:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$Box:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$CubicCurve:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$Line:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$Loop:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$Orthogonal:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$QuadCurve:<init>()V
-    edu.uci.ics.jung.visualization.decorators.EdgeShape$SimpleLoop:<init>()V
-
-edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer:<init>()V
-
-edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;)V
-
 edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:setAspectRatioTransformer(Lorg/apache/commons/collections15/Transformer;)V
   It overrides
     edu.uci.ics.jung.visualization.decorators.SettableVertexShapeTransformer:setAspectRatioTransformer(Lorg/apache/commons/collections15/Transformer;)V
@@ -6206,10 +5507,6 @@ edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:setAspe
 edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:setSizeTransformer(Lorg/apache/commons/collections15/Transformer;)V
   It overrides
     edu.uci.ics.jung.visualization.decorators.SettableVertexShapeTransformer:setSizeTransformer(Lorg/apache/commons/collections15/Transformer;)V
-
-edu.uci.ics.jung.visualization.decorators.DefaultVertexIconTransformer:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconTransformer:<init>()V
 
 edu.uci.ics.jung.visualization.decorators.DefaultVertexIconTransformer:transform(Ljava/lang/Object;)Ljava/lang/Object;
   It is overridden by
@@ -6219,10 +5516,6 @@ edu.uci.ics.jung.visualization.decorators.DefaultVertexIconTransformer:transform
   It is overridden by
     edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconTransformer:transform(Ljava/lang/Object;)Ljavax/swing/Icon;
 
-edu.uci.ics.jung.visualization.decorators.EdgeShape$BentLine:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-
 edu.uci.ics.jung.visualization.decorators.EdgeShape$BentLine:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
@@ -6231,10 +5524,6 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape$BentLine:setEdgeIndexFunctio
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
 
-edu.uci.ics.jung.visualization.decorators.EdgeShape$Box:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-
 edu.uci.ics.jung.visualization.decorators.EdgeShape$Box:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
@@ -6242,10 +5531,6 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape$Box:getEdgeIndexFunction()Le
 edu.uci.ics.jung.visualization.decorators.EdgeShape$Box:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
-
-edu.uci.ics.jung.visualization.decorators.EdgeShape$CubicCurve:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
 
 edu.uci.ics.jung.visualization.decorators.EdgeShape$CubicCurve:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
   It overrides
@@ -6273,14 +5558,6 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:setEdgeInde
     edu.uci.ics.jung.visualization.decorators.EdgeShape$Orthogonal:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
     edu.uci.ics.jung.visualization.decorators.EdgeShape$QuadCurve:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
 
-edu.uci.ics.jung.visualization.decorators.EdgeShape$Line:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-
-edu.uci.ics.jung.visualization.decorators.EdgeShape$Loop:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-
 edu.uci.ics.jung.visualization.decorators.EdgeShape$Loop:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
@@ -6288,10 +5565,6 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape$Loop:getEdgeIndexFunction()L
 edu.uci.ics.jung.visualization.decorators.EdgeShape$Loop:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
-
-edu.uci.ics.jung.visualization.decorators.EdgeShape$Orthogonal:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
 
 edu.uci.ics.jung.visualization.decorators.EdgeShape$Orthogonal:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
   It overrides
@@ -6301,10 +5574,6 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape$Orthogonal:setEdgeIndexFunct
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
 
-edu.uci.ics.jung.visualization.decorators.EdgeShape$QuadCurve:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-
 edu.uci.ics.jung.visualization.decorators.EdgeShape$QuadCurve:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:getEdgeIndexFunction()Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;
@@ -6312,18 +5581,6 @@ edu.uci.ics.jung.visualization.decorators.EdgeShape$QuadCurve:getEdgeIndexFuncti
 edu.uci.ics.jung.visualization.decorators.EdgeShape$QuadCurve:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
   It overrides
     edu.uci.ics.jung.visualization.decorators.EdgeShape$IndexedRendering:setEdgeIndexFunction(Ledu/uci/ics/jung/graph/util/EdgeIndexFunction;)V
-
-edu.uci.ics.jung.visualization.decorators.EdgeShape$SimpleLoop:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractEdgeShapeTransformer:<init>()V
-
-edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:<init>()V
-
-edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.decorators.AbstractVertexShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;Lorg/apache/commons/collections15/Transformer;)V
 
 edu.uci.ics.jung.visualization.decorators.EllipseVertexShapeTransformer:transform(Ljava/lang/Object;)Ljava/awt/Shape;
   It is overridden by
@@ -6367,10 +5624,6 @@ edu.uci.ics.jung.visualization.decorators.ToStringLabeller:transform(Ljava/lang/
     edu.uci.ics.jung.samples.VertexCollapseDemo$2:transform(Ljava/lang/Object;)Ljava/lang/String;
     edu.uci.ics.jung.samples.VertexCollapseDemoWithLayouts$2:transform(Ljava/lang/Object;)Ljava/lang/String;
 
-edu.uci.ics.jung.visualization.decorators.VertexIconShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;)V
-  It is overridden by
-    edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconShapeTransformer:<init>(Lorg/apache/commons/collections15/Transformer;)V
-
 edu.uci.ics.jung.visualization.decorators.VertexIconShapeTransformer:transform(Ljava/lang/Object;)Ljava/awt/Shape;
   It is overridden by
     edu.uci.ics.jung.samples.VertexImageShaperDemo$DemoVertexIconShapeTransformer:transform(Ljava/lang/Object;)Ljava/awt/Shape;
@@ -6386,12 +5639,6 @@ edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport$Lens:pain
 edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport$Lens:useTransform()Z
   It overrides
     edu.uci.ics.jung.visualization.VisualizationServer$Paintable:useTransform()Z
-
-edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.jai.PerspectiveImageLensSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-    edu.uci.ics.jung.visualization.jai.PerspectiveLayoutTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-    edu.uci.ics.jung.visualization.jai.PerspectiveViewTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
 
 edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport:activate(Z)V
   It overrides
@@ -6409,10 +5656,6 @@ edu.uci.ics.jung.visualization.jai.HyperbolicImageLensSupport:deactivate()V
   It overrides
     edu.uci.ics.jung.visualization.transform.LensSupport:deactivate()V
 
-edu.uci.ics.jung.visualization.jai.PerspectiveImageLensSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-
 edu.uci.ics.jung.visualization.jai.PerspectiveImageLensSupport:activate()V
   It overrides
     edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:activate()V
@@ -6421,10 +5664,6 @@ edu.uci.ics.jung.visualization.jai.PerspectiveImageLensSupport:deactivate()V
   It overrides
     edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:deactivate()V
 
-edu.uci.ics.jung.visualization.jai.PerspectiveLayoutTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-
 edu.uci.ics.jung.visualization.jai.PerspectiveLayoutTransformSupport:activate()V
   It overrides
     edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:activate()V
@@ -6432,14 +5671,6 @@ edu.uci.ics.jung.visualization.jai.PerspectiveLayoutTransformSupport:activate()V
 edu.uci.ics.jung.visualization.jai.PerspectiveLayoutTransformSupport:deactivate()V
   It overrides
     edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:deactivate()V
-
-edu.uci.ics.jung.visualization.jai.PerspectiveShapeTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;)V
-  It overrides
-    edu.uci.ics.jung.visualization.jai.PerspectiveTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;)V
-
-edu.uci.ics.jung.visualization.jai.PerspectiveShapeTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.jai.PerspectiveTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
 
 edu.uci.ics.jung.visualization.jai.PerspectiveShapeTransformer:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
   It overrides
@@ -6471,14 +5702,6 @@ edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:getPerspectiveTra
   It is overridden by
     edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport:getPerspectiveTransformer()Ledu/uci/ics/jung/visualization/jai/PerspectiveShapeTransformer;
 
-edu.uci.ics.jung.visualization.jai.PerspectiveTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.jai.PerspectiveShapeTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;)V
-
-edu.uci.ics.jung.visualization.jai.PerspectiveTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.jai.PerspectiveShapeTransformer:<init>(Ljavax/media/jai/PerspectiveTransform;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-
 edu.uci.ics.jung.visualization.jai.PerspectiveTransformer:inverseTransform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
   It overrides
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:inverseTransform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
@@ -6494,10 +5717,6 @@ edu.uci.ics.jung.visualization.jai.PerspectiveTransformer:transform(Ljava/awt/ge
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
     edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
 
-edu.uci.ics.jung.visualization.jai.PerspectiveViewTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationViewer;)V
-
 edu.uci.ics.jung.visualization.jai.PerspectiveViewTransformSupport:activate()V
   It overrides
     edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:activate()V
@@ -6505,10 +5724,6 @@ edu.uci.ics.jung.visualization.jai.PerspectiveViewTransformSupport:activate()V
 edu.uci.ics.jung.visualization.jai.PerspectiveViewTransformSupport:deactivate()V
   It overrides
     edu.uci.ics.jung.visualization.jai.PerspectiveTransformSupport:deactivate()V
-
-edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer:<init>()V
 
 edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer:paintIconForVertex(Ledu/uci/ics/jung/visualization/RenderContext;Ljava/lang/Object;Ledu/uci/ics/jung/algorithms/layout/Layout;)V
   It overrides
@@ -6521,10 +5736,6 @@ edu.uci.ics.jung.visualization.layout.BoundingRectanglePaintable:paint(Ljava/awt
 edu.uci.ics.jung.visualization.layout.BoundingRectanglePaintable:useTransform()Z
   It overrides
     edu.uci.ics.jung.visualization.VisualizationServer$Paintable:useTransform()Z
-
-edu.uci.ics.jung.visualization.layout.CachingLayout:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.LayoutDecorator:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
 
 edu.uci.ics.jung.visualization.layout.CachingLayout:clear()V
   It overrides
@@ -6553,12 +5764,6 @@ edu.uci.ics.jung.visualization.layout.LayoutTransition:done()Z
 edu.uci.ics.jung.visualization.layout.LayoutTransition:step()V
   It overrides
     edu.uci.ics.jung.algorithms.util.IterativeContext:step()V
-
-edu.uci.ics.jung.visualization.layout.ObservableCachingLayout:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.LayoutDecorator:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
 
 edu.uci.ics.jung.visualization.layout.ObservableCachingLayout:addChangeListener(Ljavax/swing/event/ChangeListener;)V
   It overrides
@@ -6626,10 +5831,6 @@ edu.uci.ics.jung.visualization.layout.PersistentLayout:restore(Ljava/lang/String
   It is overridden by
     edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl:restore(Ljava/lang/String;)V
 
-edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-  It overrides
-    edu.uci.ics.jung.visualization.layout.ObservableCachingLayout:<init>(Ledu/uci/ics/jung/algorithms/layout/Layout;)V
-
 edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl:done()Z
   It overrides
     edu.uci.ics.jung.visualization.layout.ObservableCachingLayout:done()Z
@@ -6651,14 +5852,6 @@ edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl:restore(Ljava/lang/St
   It overrides
     edu.uci.ics.jung.visualization.layout.PersistentLayout:restore(Ljava/lang/String;)V
 
-edu.uci.ics.jung.visualization.picking.AbstractPickedState:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.picking.MultiPickedState:<init>()V
-
-edu.uci.ics.jung.visualization.picking.ClassicPickSupport:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.picking.RadiusPickSupport:<init>()V
-
 edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.algorithms.layout.GraphElementAccessor:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
@@ -6670,14 +5863,6 @@ edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport:getVertex(Ledu/uc
 edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
   It overrides
     edu.uci.ics.jung.algorithms.layout.GraphElementAccessor:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
-
-edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.picking.ShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-
-edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
-  It overrides
-    edu.uci.ics.jung.visualization.picking.ShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
 
 edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
   It overrides
@@ -6693,10 +5878,6 @@ edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:getVertices(Le
   It overrides
     edu.uci.ics.jung.algorithms.layout.GraphElementAccessor:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
     edu.uci.ics.jung.visualization.picking.ShapePickSupport:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
-
-edu.uci.ics.jung.visualization.picking.MultiPickedState:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.picking.AbstractPickedState:<init>()V
 
 edu.uci.ics.jung.visualization.picking.MultiPickedState:clear()V
   It overrides
@@ -6736,16 +5917,6 @@ edu.uci.ics.jung.visualization.picking.PickedState:pick(Ljava/lang/Object;Z)Z
   It is overridden by
     edu.uci.ics.jung.visualization.picking.MultiPickedState:pick(Ljava/lang/Object;Z)Z
 
-edu.uci.ics.jung.visualization.picking.RadiusPickSupport:<init>()V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.picking.ClassicPickSupport:<init>()V
-
-edu.uci.ics.jung.visualization.picking.RadiusPickSupport:<init>(D)V
-  It overrides
-    edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:<init>(D)V
-
 edu.uci.ics.jung.visualization.picking.RadiusPickSupport:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.algorithms.layout.GraphElementAccessor:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
@@ -6763,16 +5934,6 @@ edu.uci.ics.jung.visualization.picking.RadiusPickSupport:getVertex(Ledu/uci/ics/
 edu.uci.ics.jung.visualization.picking.RadiusPickSupport:getVertex(Ledu/uci/ics/jung/algorithms/layout/Layout;DDD)Ljava/lang/Object;
   It overrides
     edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor:getVertex(Ledu/uci/ics/jung/algorithms/layout/Layout;DDD)Ljava/lang/Object;
-
-edu.uci.ics.jung.visualization.picking.ShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-    edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-
-edu.uci.ics.jung.visualization.picking.ShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
-    edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
 
 edu.uci.ics.jung.visualization.picking.ShapePickSupport:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
   It overrides
@@ -6794,14 +5955,6 @@ edu.uci.ics.jung.visualization.picking.ShapePickSupport:getVertices(Ledu/uci/ics
   It is overridden by
     edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
     edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:getVertices(Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/awt/Shape;)Ljava/util/Collection;
-
-edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.picking.ShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;)V
-
-edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
-  It overrides
-    edu.uci.ics.jung.visualization.picking.ShapePickSupport:<init>(Ledu/uci/ics/jung/visualization/VisualizationServer;F)V
 
 edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport:getEdge(Ledu/uci/ics/jung/algorithms/layout/Layout;DD)Ljava/lang/Object;
   It overrides
@@ -6837,10 +5990,6 @@ edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport:getRever
 edu.uci.ics.jung.visualization.renderers.BasicEdgeLabelRenderer:labelEdge(Ledu/uci/ics/jung/visualization/RenderContext;Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/lang/Object;Ljava/lang/String;)V
   It overrides
     edu.uci.ics.jung.visualization.renderers.Renderer$EdgeLabel:labelEdge(Ledu/uci/ics/jung/visualization/RenderContext;Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/lang/Object;Ljava/lang/String;)V
-
-edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer:<init>()V
 
 edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer:drawSimpleEdge(Ledu/uci/ics/jung/visualization/RenderContext;Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/lang/Object;)V
   It is overridden by
@@ -6937,10 +6086,6 @@ edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer:setPosition(Le
 edu.uci.ics.jung.visualization.renderers.BasicVertexLabelRenderer:setPositioner(Ledu/uci/ics/jung/visualization/renderers/Renderer$VertexLabel$Positioner;)V
   It overrides
     edu.uci.ics.jung.visualization.renderers.Renderer$VertexLabel:setPositioner(Ledu/uci/ics/jung/visualization/renderers/Renderer$VertexLabel$Positioner;)V
-
-edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer:<init>()V
 
 edu.uci.ics.jung.visualization.renderers.BasicVertexRenderer:paintIconForVertex(Ledu/uci/ics/jung/visualization/RenderContext;Ljava/lang/Object;Ledu/uci/ics/jung/algorithms/layout/Layout;)V
   It is overridden by
@@ -7178,10 +6323,6 @@ edu.uci.ics.jung.visualization.renderers.Renderer:setVertexRenderer(Ledu/uci/ics
   It is overridden by
     edu.uci.ics.jung.visualization.renderers.BasicRenderer:setVertexRenderer(Ledu/uci/ics/jung/visualization/renderers/Renderer$Vertex;)V
 
-edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer:<init>()V
-
 edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer:drawSimpleEdge(Ledu/uci/ics/jung/visualization/RenderContext;Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/lang/Object;)V
   It overrides
     edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer:drawSimpleEdge(Ledu/uci/ics/jung/visualization/RenderContext;Ledu/uci/ics/jung/algorithms/layout/Layout;Ljava/lang/Object;)V
@@ -7242,14 +6383,6 @@ edu.uci.ics.jung.visualization.transform.AbstractLensSupport:getLensTransformer(
   It overrides
     edu.uci.ics.jung.visualization.transform.LensSupport:getLensTransformer()Ledu/uci/ics/jung/visualization/transform/LensTransformer;
 
-edu.uci.ics.jung.visualization.transform.AffineTransformer:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.MutableAffineTransformer:<init>()V
-
-edu.uci.ics.jung.visualization.transform.AffineTransformer:<init>(Ljava/awt/geom/AffineTransform;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.MutableAffineTransformer:<init>(Ljava/awt/geom/AffineTransform;)V
-
 edu.uci.ics.jung.visualization.transform.AffineTransformer:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
   It overrides
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
@@ -7304,16 +6437,6 @@ edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:transform(Ljav
     edu.uci.ics.jung.visualization.transform.MagnifyTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
     edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
 
-edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:<init>(Ljava/awt/Component;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:<init>(Ljava/awt/Component;)V
-
-edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.LensTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-
 edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:inverseTransform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
   It overrides
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:inverseTransform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
@@ -7358,11 +6481,6 @@ edu.uci.ics.jung.visualization.transform.LensSupport:getLensTransformer()Ledu/uc
   It is overridden by
     edu.uci.ics.jung.visualization.transform.AbstractLensSupport:getLensTransformer()Ledu/uci/ics/jung/visualization/transform/LensTransformer;
 
-edu.uci.ics.jung.visualization.transform.LensTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-    edu.uci.ics.jung.visualization.transform.MagnifyTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-
 edu.uci.ics.jung.visualization.transform.LensTransformer:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
   It overrides
     edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
@@ -7400,16 +6518,6 @@ edu.uci.ics.jung.visualization.transform.LensTransformer:transform(Ljava/awt/geo
     edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
     edu.uci.ics.jung.visualization.transform.MagnifyTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
 
-edu.uci.ics.jung.visualization.transform.MagnifyTransformer:<init>(Ljava/awt/Component;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer:<init>(Ljava/awt/Component;)V
-
-edu.uci.ics.jung.visualization.transform.MagnifyTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.LensTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-
 edu.uci.ics.jung.visualization.transform.MagnifyTransformer:inverseTransform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
   It overrides
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:inverseTransform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
@@ -7419,14 +6527,6 @@ edu.uci.ics.jung.visualization.transform.MagnifyTransformer:transform(Ljava/awt/
   It overrides
     edu.uci.ics.jung.visualization.transform.BidirectionalTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
     edu.uci.ics.jung.visualization.transform.LensTransformer:transform(Ljava/awt/geom/Point2D;)Ljava/awt/geom/Point2D;
-
-edu.uci.ics.jung.visualization.transform.MutableAffineTransformer:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.AffineTransformer:<init>()V
-
-edu.uci.ics.jung.visualization.transform.MutableAffineTransformer:<init>(Ljava/awt/geom/AffineTransform;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.AffineTransformer:<init>(Ljava/awt/geom/AffineTransform;)V
 
 edu.uci.ics.jung.visualization.transform.MutableAffineTransformer:addChangeListener(Ljavax/swing/event/ChangeListener;)V
   It overrides
@@ -7699,14 +6799,6 @@ edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator:translate(D
   It overrides
     edu.uci.ics.jung.visualization.transform.MutableTransformer:translate(DD)V
 
-edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper:<init>()V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator:<init>()V
-
-edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper:<init>(Ljava/awt/Graphics2D;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator:<init>(Ljava/awt/Graphics2D;)V
-
 edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper:create()Ljava/awt/Graphics;
   It is overridden by
     edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:create()Ljava/awt/Graphics;
@@ -7735,25 +6827,9 @@ edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper:hit(Ljava/awt/R
   It is overridden by
     edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:hit(Ljava/awt/Rectangle;Ljava/awt/Shape;Z)Z
 
-edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator:<init>()V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper:<init>()V
-
-edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator:<init>(Ljava/awt/Graphics2D;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper:<init>(Ljava/awt/Graphics2D;)V
-
 edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator:draw(Ljavax/swing/Icon;Ljava/awt/Component;Ljava/awt/Shape;II)V
   It is overridden by
     edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics:draw(Ljavax/swing/Icon;Ljava/awt/Component;Ljava/awt/Shape;II)V
-
-edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:<init>(Ljava/awt/Component;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:<init>(Ljava/awt/Component;)V
-
-edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.HyperbolicTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
 
 edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
   It overrides
@@ -7769,14 +6845,6 @@ edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:transf
   It overrides
     edu.uci.ics.jung.visualization.transform.shape.ShapeFlatnessTransformer:transform(Ljava/awt/Shape;F)Ljava/awt/Shape;
 
-edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-
-edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
-
 edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics:draw(Ljavax/swing/Icon;Ljava/awt/Component;Ljava/awt/Shape;II)V
   It overrides
     edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator:draw(Ljavax/swing/Icon;Ljava/awt/Component;Ljava/awt/Shape;II)V
@@ -7788,14 +6856,6 @@ edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport:activate(
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport:deactivate()V
   It overrides
     edu.uci.ics.jung.visualization.transform.LensSupport:deactivate()V
-
-edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer:<init>(Ljava/awt/Component;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.MagnifyTransformer:<init>(Ljava/awt/Component;)V
-
-edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.MagnifyTransformer:<init>(Ljava/awt/Component;Ledu/uci/ics/jung/visualization/transform/MutableTransformer;)V
 
 edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer:inverseTransform(Ljava/awt/Shape;)Ljava/awt/Shape;
   It overrides
@@ -7840,18 +6900,6 @@ edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer:transform(Ljava/
     edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer:transform(Ljava/awt/Shape;)Ljava/awt/Shape;
     edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer:transform(Ljava/awt/Shape;)Ljava/awt/Shape;
 
-edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-
-edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
-  It overrides
-    edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
-
 edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:draw(Ljava/awt/Shape;F)V
   It overrides
     edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:draw(Ljava/awt/Shape;F)V
@@ -7859,14 +6907,6 @@ edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:draw
 edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:fill(Ljava/awt/Shape;F)V
   It overrides
     edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:fill(Ljava/awt/Shape;F)V
-
-edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;)V
-
-edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization.transform.shape.TransformingFlatnessGraphics:<init>(Ledu/uci/ics/jung/visualization/transform/BidirectionalTransformer;Ljava/awt/Graphics2D;)V
 
 edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics:create()Ljava/awt/Graphics;
   It overrides
@@ -8139,17 +7179,9 @@ edu.uci.ics.jung.visualization3d.control.PickRotateBehavior:updateScene(II)V
   It overrides
     edu.uci.ics.jung.visualization3d.control.PickMouseBehavior:updateScene(II)V
 
-edu.uci.ics.jung.visualization3d.control.PickSphereBehavior:<init>(Ljavax/media/j3d/BranchGroup;Ljavax/media/j3d/Canvas3D;Ljavax/media/j3d/Bounds;)V
-  It overrides
-    edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior:<init>(Ljavax/media/j3d/BranchGroup;Ljavax/media/j3d/Canvas3D;Ljavax/media/j3d/Bounds;)V
-
 edu.uci.ics.jung.visualization3d.control.PickSphereBehavior:updateScene(II)V
   It overrides
     edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior:updateScene(II)V
-
-edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior:<init>(Ljavax/media/j3d/BranchGroup;Ljavax/media/j3d/Canvas3D;Ljavax/media/j3d/Bounds;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization3d.control.PickSphereBehavior:<init>(Ljavax/media/j3d/BranchGroup;Ljavax/media/j3d/Canvas3D;Ljavax/media/j3d/Bounds;)V
 
 edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior:updateScene(II)V
   It overrides
@@ -8160,10 +7192,6 @@ edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior:updateScene(II)V
 edu.uci.ics.jung.visualization3d.control.PickZoomBehavior:updateScene(II)V
   It overrides
     edu.uci.ics.jung.visualization3d.control.PickMouseBehavior:updateScene(II)V
-
-edu.uci.ics.jung.visualization3d.layout.LayoutDecorator:<init>(Ledu/uci/ics/jung/algorithms/layout3d/Layout;)V
-  It is overridden by
-    edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster:<init>(Ledu/uci/ics/jung/algorithms/layout3d/Layout;)V
 
 edu.uci.ics.jung.visualization3d.layout.LayoutDecorator:done()Z
   It overrides
@@ -8220,10 +7248,6 @@ edu.uci.ics.jung.visualization3d.layout.LayoutDecorator:step()V
     edu.uci.ics.jung.algorithms.util.IterativeContext:step()V
   It is overridden by
     edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster:step()V
-
-edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster:<init>(Ledu/uci/ics/jung/algorithms/layout3d/Layout;)V
-  It overrides
-    edu.uci.ics.jung.visualization3d.layout.LayoutDecorator:<init>(Ledu/uci/ics/jung/algorithms/layout3d/Layout;)V
 
 edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster:addChangeListener(Ljavax/swing/event/ChangeListener;)V
   It overrides
