@@ -58,6 +58,7 @@ import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConne
 import org.jetbrains.kannotator.annotations.io.methodsToAnnotationsMap
 import org.jetbrains.kannotator.annotations.io.getPackageName
 import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
+import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -117,8 +118,21 @@ class IntegratedInferenceTest : TestCase() {
         val jar = jars.first()
         println("start: $jar")
 
+        inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false, true)
+
+        val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
+        val propagationOverrides = loadAnnotationsFromLogs(arrayList(propagationOverridesFile), annotationIndex!!)
+
         val inferenceResult = try {
-            inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false)
+            inferAnnotations(
+                    FileBasedClassSource(arrayList(jar)),
+                    annotationFiles,
+                    INFERRERS,
+                    progressMonitor,
+                    false,
+                    false,
+                    hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>())
+            )
         }
         catch (e: Throwable) {
             throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
@@ -223,5 +237,4 @@ class IntegratedInferenceTest : TestCase() {
     fun testWstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
     fun testJpsServer() = doInferenceTest("jps-server.jar")
     fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jdk_1_7_0_09_rt.jar")
-    fun testJDK1_7_0_09_rt_jar_XXX() = doInferenceTest("jdk_1_7_0_09_rt_unstableTest.jar")
 }

@@ -208,15 +208,16 @@ fun <K> inferAnnotations(
         progressMonitor: ProgressMonitor = ProgressMonitor(),
         showErrors: Boolean = true,
         loadOnly: Boolean = false,
+        propagationOverrides: Map<K, Annotations<Any>> = Collections.emptyMap(),
         existingAnnotations: Map<K, Annotations<Any>> = hashMap()
 ): InferenceResult<K> {
     val methodNodes = HashMap<Method, MethodNode>()
-    val declarationIndex = DeclarationIndexImpl(classSource) {
+    val declarationIndex = DeclarationIndexImpl(classSource, {
         method ->
         val methodNode = method.createMethodNodeStub()
         methodNodes[method] = methodNode
         methodNode
-    }
+    })
 
     progressMonitor.annotationIndexLoaded(declarationIndex)
 
@@ -289,20 +290,21 @@ fun <K> inferAnnotations(
         }
     }
 
-    return propagateAnnotations(classSource, inferrers, inferenceResult)
+    return propagateAnnotations(classSource, inferrers, inferenceResult, propagationOverrides)
 }
 
 private fun <K> propagateAnnotations(
         classSource: ClassSource,
         inferrers: Map<K, AnnotationInferrer<Any>>,
-        inferenceResult: InferenceResult<K>
+        inferenceResult: InferenceResult<K>,
+        propagationOverrides: Map<K, Annotations<Any>>
 ): InferenceResult<K> {
     val classHierarchy = buildClassHierarchyGraph(classSource)
     val methodHierarchy = buildMethodHierarchy(classHierarchy)
 
     val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { e ->
         val (key, annotations) = e
-        propagateMetadata(methodHierarchy, inferrers[key]!!.lattice, annotations)
+        propagateMetadata(methodHierarchy, inferrers[key]!!.lattice, annotations, propagationOverrides[key]!!)
     }
 
     return inferenceResult.copy(inferredAnnotationsMap = propagatedAnnotations)

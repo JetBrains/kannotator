@@ -203,7 +203,7 @@ NULLABLE
 java.awt.AWTEventMulticaster void windowClosing(java.awt.event.WindowEvent) 0
 NOT_NULL
 java.awt.AWTKeyStroke boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.AWTKeyStroke int getVKValue(java.lang.String) 0
 NOT_NULL
 java.awt.AWTKeyStroke java.awt.AWTKeyStroke getAWTKeyStroke(char)
@@ -269,7 +269,7 @@ NOT_NULL
 java.awt.AlphaComposite Xor
 NOT_NULL
 java.awt.AlphaComposite boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.AlphaComposite java.awt.AlphaComposite derive(float)
 NOT_NULL
 java.awt.AlphaComposite java.awt.AlphaComposite derive(int)
@@ -287,7 +287,7 @@ NULLABLE
 java.awt.BasicStroke BasicStroke(float, int, int, float, float[], float) 4
 NULLABLE
 java.awt.BasicStroke boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.BasicStroke float[] getDashArray()
 NULLABLE
 java.awt.BorderLayout AFTER_LAST_LINE
@@ -611,7 +611,7 @@ NOT_NULL
 java.awt.Color blue
 NOT_NULL
 java.awt.Color boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Color cyan
 NOT_NULL
 java.awt.Color darkGray
@@ -1575,7 +1575,7 @@ NOT_NULL
 java.awt.Dimension Dimension(java.awt.Dimension) 0
 NOT_NULL
 java.awt.Dimension boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Dimension java.awt.Dimension getSize()
 NOT_NULL
 java.awt.Dimension java.lang.String toString()
@@ -1585,7 +1585,7 @@ NOT_NULL
 java.awt.DisplayMode boolean equals(java.awt.DisplayMode) 0
 NULLABLE
 java.awt.DisplayMode boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Event actionKeyCodes
 NOT_NULL
 java.awt.Event int getOldEventKey(java.awt.event.KeyEvent) 0
@@ -1793,7 +1793,7 @@ NOT_NULL
 java.awt.Font boolean access$202(java.awt.Font, boolean) 0
 NOT_NULL
 java.awt.Font boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Font float getItalicAngle(java.awt.font.FontRenderContext) 0
 NULLABLE
 java.awt.Font identityTx
@@ -2223,7 +2223,7 @@ NOT_NULL
 java.awt.Image.1 void setSurfaceManager(java.awt.Image, sun.awt.image.SurfaceManager) 0
 NOT_NULL
 java.awt.Insets boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Insets java.lang.String toString()
 NOT_NULL
 java.awt.ItemSelectable java.lang.Object[] getSelectedObjects()
@@ -2247,7 +2247,7 @@ NOT_NULL
 java.awt.JobAttributes JobAttributes(java.awt.JobAttributes) 0
 NOT_NULL
 java.awt.JobAttributes boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.JobAttributes int[][] getPageRanges()
 NOT_NULL
 java.awt.JobAttributes java.lang.String toString()
@@ -2877,7 +2877,7 @@ NOT_NULL
 java.awt.MenuShortcut boolean equals(java.awt.MenuShortcut) 0
 NULLABLE
 java.awt.MenuShortcut boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.MenuShortcut java.lang.String paramString()
 NOT_NULL
 java.awt.MenuShortcut java.lang.String toString()
@@ -2999,7 +2999,7 @@ NOT_NULL
 java.awt.PageAttributes PageAttributes(java.awt.PageAttributes.ColorType, java.awt.PageAttributes.MediaType, java.awt.PageAttributes.OrientationRequestedType, java.awt.PageAttributes.OriginType, java.awt.PageAttributes.PrintQualityType, int[]) 5
 NOT_NULL
 java.awt.PageAttributes boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.PageAttributes int[] getPrinterResolution()
 NOT_NULL
 java.awt.PageAttributes java.lang.String toString()
@@ -3361,7 +3361,7 @@ NOT_NULL
 java.awt.Point Point(java.awt.Point) 0
 NOT_NULL
 java.awt.Point boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Point java.awt.Point getLocation()
 NOT_NULL
 java.awt.Point java.lang.String toString()
@@ -3451,7 +3451,7 @@ NOT_NULL
 java.awt.Rectangle boolean contains(java.awt.Rectangle) 0
 NOT_NULL
 java.awt.Rectangle boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.Rectangle boolean intersects(java.awt.Rectangle) 0
 NOT_NULL
 java.awt.Rectangle java.awt.Dimension getSize()
@@ -3491,15 +3491,15 @@ NOT_NULL
 java.awt.RenderingHints RenderingHints(java.util.Map<java.awt.RenderingHints.Key,?>) 0
 NULLABLE
 java.awt.RenderingHints boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints java.lang.Object get(java.lang.Object)
 NULLABLE
 java.awt.RenderingHints java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object) 0
@@ -3509,7 +3509,7 @@ NOT_NULL
 java.awt.RenderingHints java.lang.Object remove(java.lang.Object)
 NULLABLE
 java.awt.RenderingHints java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints java.util.Collection<java.lang.Object> values()
 NULLABLE
 java.awt.RenderingHints java.util.Set<java.lang.Object> keySet()
@@ -3519,7 +3519,7 @@ NOT_NULL
 java.awt.RenderingHints void putAll(java.util.Map<?,?>) 0
 NOT_NULL
 java.awt.RenderingHints.Key boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints.Key java.lang.String getIdentity()
 NOT_NULL
 java.awt.Robot java.awt.Color getPixelColor(int, int)
@@ -4313,7 +4313,7 @@ NOT_NULL
 java.awt.datatransfer.DataFlavor boolean equals(java.awt.datatransfer.DataFlavor) 0
 NULLABLE
 java.awt.datatransfer.DataFlavor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.datatransfer.DataFlavor boolean equals(java.lang.String) 0
 NULLABLE
 java.awt.datatransfer.DataFlavor boolean isMimeTypeEqual(java.awt.datatransfer.DataFlavor) 0
@@ -4415,7 +4415,7 @@ NOT_NULL
 java.awt.datatransfer.MimeType TSPECIALS
 NOT_NULL
 java.awt.datatransfer.MimeType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.datatransfer.MimeType boolean isValidToken(java.lang.String) 0
 NOT_NULL
 java.awt.datatransfer.MimeType boolean match(java.awt.datatransfer.MimeType) 0
@@ -4451,7 +4451,7 @@ NOT_NULL
 java.awt.datatransfer.MimeTypeParameterList TSPECIALS
 NOT_NULL
 java.awt.datatransfer.MimeTypeParameterList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.datatransfer.MimeTypeParameterList int skipWhiteSpace(java.lang.String, int) 0
 NOT_NULL
 java.awt.datatransfer.MimeTypeParameterList java.lang.Object clone()
@@ -4981,7 +4981,7 @@ NULLABLE
 java.awt.font.FontRenderContext boolean equals(java.awt.font.FontRenderContext) 0
 NULLABLE
 java.awt.font.FontRenderContext boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.FontRenderContext java.awt.geom.AffineTransform getTransform()
 NOT_NULL
 java.awt.font.GlyphMetrics GlyphMetrics(boolean, float, float, java.awt.geom.Rectangle2D, byte) 3
@@ -5015,7 +5015,7 @@ NOT_NULL
 java.awt.font.ImageGraphicAttribute boolean equals(java.awt.font.ImageGraphicAttribute) 0
 NULLABLE
 java.awt.font.ImageGraphicAttribute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.ImageGraphicAttribute java.awt.geom.Rectangle2D getBounds()
 NOT_NULL
 java.awt.font.ImageGraphicAttribute void draw(java.awt.Graphics2D, float, float) 0
@@ -5035,7 +5035,7 @@ NOT_NULL
 java.awt.font.NumericShaper bases
 NOT_NULL
 java.awt.font.NumericShaper boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.NumericShaper contexts
 NOT_NULL
 java.awt.font.NumericShaper int search(int, int[], int, int) 1
@@ -5173,7 +5173,7 @@ NOT_NULL
 java.awt.font.ShapeGraphicAttribute boolean equals(java.awt.font.ShapeGraphicAttribute) 0
 NULLABLE
 java.awt.font.ShapeGraphicAttribute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.ShapeGraphicAttribute java.awt.Shape getOutline(java.awt.geom.AffineTransform)
 NULLABLE
 java.awt.font.ShapeGraphicAttribute java.awt.Shape getOutline(java.awt.geom.AffineTransform) 0
@@ -5317,7 +5317,7 @@ NOT_NULL
 java.awt.font.TextHitInfo boolean equals(java.awt.font.TextHitInfo) 0
 NULLABLE
 java.awt.font.TextHitInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.TextHitInfo java.awt.font.TextHitInfo afterOffset(int)
 NOT_NULL
 java.awt.font.TextHitInfo java.awt.font.TextHitInfo beforeOffset(int)
@@ -5351,7 +5351,7 @@ NOT_NULL
 java.awt.font.TextLayout boolean equals(java.awt.font.TextLayout) 0
 NULLABLE
 java.awt.font.TextLayout boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.TextLayout byte getBaselineFromGraphic(java.awt.font.GraphicAttribute) 0
 NOT_NULL
 java.awt.font.TextLayout double[] getCaretPath(int, java.awt.geom.Rectangle2D, boolean)
@@ -5605,7 +5605,7 @@ NOT_NULL
 java.awt.font.TransformAttribute TransformAttribute(java.awt.geom.AffineTransform) 0
 NULLABLE
 java.awt.font.TransformAttribute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.font.TransformAttribute java.awt.geom.AffineTransform getTransform()
 NOT_NULL
 java.awt.font.TransformAttribute java.lang.Object readResolve()
@@ -5619,7 +5619,7 @@ NOT_NULL
 java.awt.geom.AffineTransform AffineTransform(java.awt.geom.AffineTransform) 0
 NOT_NULL
 java.awt.geom.AffineTransform boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.geom.AffineTransform java.awt.Shape createTransformedShape(java.awt.Shape)
 NULLABLE
 java.awt.geom.AffineTransform java.awt.Shape createTransformedShape(java.awt.Shape) 0
@@ -5683,7 +5683,7 @@ NULLABLE
 java.awt.geom.Arc2D boolean contains(java.awt.geom.Rectangle2D) 0
 NOT_NULL
 java.awt.geom.Arc2D boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.geom.Arc2D java.awt.geom.PathIterator getPathIterator(java.awt.geom.AffineTransform)
 NOT_NULL
 java.awt.geom.Arc2D java.awt.geom.PathIterator getPathIterator(java.awt.geom.AffineTransform) 0
@@ -5869,7 +5869,7 @@ NOT_NULL
 java.awt.geom.Dimension2D void setSize(java.awt.geom.Dimension2D) 0
 NOT_NULL
 java.awt.geom.Ellipse2D boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.geom.Ellipse2D java.awt.geom.PathIterator getPathIterator(java.awt.geom.AffineTransform)
 NOT_NULL
 java.awt.geom.Ellipse2D java.awt.geom.PathIterator getPathIterator(java.awt.geom.AffineTransform) 0
@@ -6069,7 +6069,7 @@ NOT_NULL
 java.awt.geom.PathIterator int currentSegment(float[]) 0
 NOT_NULL
 java.awt.geom.Point2D boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.geom.Point2D double distance(java.awt.geom.Point2D) 0
 NOT_NULL
 java.awt.geom.Point2D double distanceSq(java.awt.geom.Point2D) 0
@@ -6159,7 +6159,7 @@ NOT_NULL
 java.awt.geom.RectIterator int currentSegment(float[]) 0
 NOT_NULL
 java.awt.geom.Rectangle2D boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.geom.Rectangle2D boolean intersectsLine(java.awt.geom.Line2D) 0
 NOT_NULL
 java.awt.geom.Rectangle2D int outcode(java.awt.geom.Point2D) 0
@@ -6259,7 +6259,7 @@ NOT_NULL
 java.awt.geom.RoundRectIterator int currentSegment(float[]) 0
 NOT_NULL
 java.awt.geom.RoundRectangle2D boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.geom.RoundRectangle2D java.awt.geom.PathIterator getPathIterator(java.awt.geom.AffineTransform)
 NOT_NULL
 java.awt.geom.RoundRectangle2D java.awt.geom.PathIterator getPathIterator(java.awt.geom.AffineTransform) 0
@@ -6605,7 +6605,7 @@ NOT_NULL
 java.awt.image.ColorModel ColorModel(int, int[], java.awt.color.ColorSpace, boolean, boolean, int, int) 2
 NOT_NULL
 java.awt.image.ColorModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.image.ColorModel boolean isCompatibleRaster(java.awt.image.Raster) 0
 NOT_NULL
 java.awt.image.ColorModel byte[] getLinearGray16ToOtherGray8LUT(java.awt.color.ICC_ColorSpace)
@@ -6681,7 +6681,7 @@ NOT_NULL
 java.awt.image.ComponentColorModel ComponentColorModel(java.awt.color.ColorSpace, int[], boolean, boolean, int, int) 0
 NOT_NULL
 java.awt.image.ComponentColorModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.image.ComponentColorModel boolean isCompatibleRaster(java.awt.image.Raster) 0
 NOT_NULL
 java.awt.image.ComponentColorModel float[] getNormalizedComponents(int[], int, float[], int)
@@ -6763,7 +6763,7 @@ NOT_NULL
 java.awt.image.ComponentSampleModel ComponentSampleModel(int, int, int, int, int, int[], int[]) 6
 NOT_NULL
 java.awt.image.ComponentSampleModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.image.ComponentSampleModel double getSampleDouble(int, int, int, java.awt.image.DataBuffer) 3
 NOT_NULL
 java.awt.image.ComponentSampleModel float getSampleFloat(int, int, int, java.awt.image.DataBuffer) 3
@@ -7043,7 +7043,7 @@ NULLABLE
 java.awt.image.MemoryImageSource void initialize(int, int, java.awt.image.ColorModel, java.lang.Object, int, int, java.util.Hashtable) 6
 NULLABLE
 java.awt.image.MultiPixelPackedSampleModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.image.MultiPixelPackedSampleModel int getSample(int, int, int, java.awt.image.DataBuffer) 3
 NOT_NULL
 java.awt.image.MultiPixelPackedSampleModel int[] getPixel(int, int, int[], java.awt.image.DataBuffer)
@@ -7077,7 +7077,7 @@ NOT_NULL
 java.awt.image.PackedColorModel PackedColorModel(java.awt.color.ColorSpace, int, int[], int, boolean, int, int) 2
 NOT_NULL
 java.awt.image.PackedColorModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.image.PackedColorModel int[] createBitsArray(int, int, int, int)
 NOT_NULL
 java.awt.image.PackedColorModel int[] createBitsArray(int[], int)
@@ -7415,7 +7415,7 @@ NULLABLE
 java.awt.image.SinglePixelPackedSampleModel SinglePixelPackedSampleModel(int, int, int, int, int[]) 4
 NOT_NULL
 java.awt.image.SinglePixelPackedSampleModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.image.SinglePixelPackedSampleModel int getSample(int, int, int, java.awt.image.DataBuffer) 3
 NOT_NULL
 java.awt.image.SinglePixelPackedSampleModel int[] getPixel(int, int, int[], java.awt.image.DataBuffer)
@@ -7897,7 +7897,7 @@ NULLABLE
 java.beans.IndexedPropertyDescriptor IndexedPropertyDescriptor(java.lang.String, java.lang.Class<?>, java.lang.String, java.lang.String, java.lang.String, java.lang.String) 5
 NULLABLE
 java.beans.IndexedPropertyDescriptor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.beans.IndexedPropertyDescriptor java.lang.Class findIndexedPropertyType(java.lang.reflect.Method, java.lang.reflect.Method)
 NULLABLE
 java.beans.IndexedPropertyDescriptor java.lang.Class findIndexedPropertyType(java.lang.reflect.Method, java.lang.reflect.Method) 0
@@ -8193,7 +8193,7 @@ NULLABLE
 java.beans.PropertyDescriptor boolean compareMethods(java.lang.reflect.Method, java.lang.reflect.Method) 1
 NULLABLE
 java.beans.PropertyDescriptor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.beans.PropertyDescriptor boolean isAssignable(java.lang.reflect.Method, java.lang.reflect.Method) 0
 NULLABLE
 java.beans.PropertyDescriptor boolean isAssignable(java.lang.reflect.Method, java.lang.reflect.Method) 1
@@ -8583,17 +8583,17 @@ NOT_NULL
 java.beans.beancontext.BeanContextSupport BeanContextSupport(java.beans.beancontext.BeanContext, java.util.Locale, boolean, boolean) 1
 NULLABLE
 java.beans.beancontext.BeanContextSupport boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.beans.beancontext.BeanContextSupport boolean addAll(java.util.Collection) 0
 NOT_NULL
 java.beans.beancontext.BeanContextSupport boolean classEquals(java.lang.Class, java.lang.Class) 0
 NOT_NULL
 java.beans.beancontext.BeanContextSupport boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.beans.beancontext.BeanContextSupport boolean containsAll(java.util.Collection) 0
 NOT_NULL
 java.beans.beancontext.BeanContextSupport boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.beans.beancontext.BeanContextSupport boolean remove(java.lang.Object, boolean) 0
 NOT_NULL
 java.beans.beancontext.BeanContextSupport boolean removeAll(java.util.Collection) 0
@@ -9279,7 +9279,7 @@ NOT_NULL
 java.io.File File(java.net.URI) 0
 NOT_NULL
 java.io.File boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.io.File boolean renameTo(java.io.File) 0
 NOT_NULL
 java.io.File int compareTo(java.lang.Object) 0
@@ -9425,7 +9425,7 @@ NOT_NULL
 java.io.FileOutputStream void write(byte[], int, int) 0
 NOT_NULL
 java.io.FilePermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.io.FilePermission boolean implies(java.security.Permission) 0
 NULLABLE
 java.io.FilePermission boolean impliesIgnoreMask(java.io.FilePermission) 0
@@ -10109,7 +10109,7 @@ NULLABLE
 java.io.ObjectStreamClass.FieldReflectorKey FieldReflectorKey(java.lang.Class<?>, java.io.ObjectStreamField[], java.lang.ref.ReferenceQueue<java.lang.Class<?>>) 1
 NOT_NULL
 java.io.ObjectStreamClass.FieldReflectorKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.io.ObjectStreamClass.FieldReflectorKey sigs
 NOT_NULL
 java.io.ObjectStreamClass.MemberSignature MemberSignature(java.lang.reflect.Constructor) 0
@@ -10123,7 +10123,7 @@ NOT_NULL
 java.io.ObjectStreamClass.MemberSignature signature
 NOT_NULL
 java.io.ObjectStreamClass.WeakClassKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.io.ObjectStreamConstants SUBCLASS_IMPLEMENTATION_PERMISSION
 NOT_NULL
 java.io.ObjectStreamConstants SUBSTITUTION_PERMISSION
@@ -10683,7 +10683,7 @@ NOT_NULL
 java.lang.Boolean TRUE
 NOT_NULL
 java.lang.Boolean boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Boolean boolean getBoolean(java.lang.String) 0
 NOT_NULL
 java.lang.Boolean boolean toBoolean(java.lang.String) 0
@@ -10705,7 +10705,7 @@ NULLABLE
 java.lang.Byte Byte(java.lang.String) 0
 NOT_NULL
 java.lang.Byte boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Byte byte parseByte(java.lang.String) 0
 NOT_NULL
 java.lang.Byte byte parseByte(java.lang.String, int) 0
@@ -10731,7 +10731,7 @@ NOT_NULL
 java.lang.CharSequence java.lang.String toString()
 NOT_NULL
 java.lang.Character boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Character char[] toChars(int)
 NOT_NULL
 java.lang.Character char[] toUpperCaseCharArray(int)
@@ -10779,7 +10779,7 @@ NOT_NULL
 java.lang.Character.Subset Subset(java.lang.String) 0
 NOT_NULL
 java.lang.Character.Subset boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Character.UnicodeBlock AEGEAN_NUMBERS
 NOT_NULL
 java.lang.Character.UnicodeBlock ALCHEMICAL_SYMBOLS
@@ -11905,7 +11905,7 @@ NOT_NULL
 java.lang.ConditionalSpecialCasing int toUpperCaseEx(java.lang.String, int, java.util.Locale) 0
 NOT_NULL
 java.lang.Double boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Double int compareTo(java.lang.Double) 0
 NOT_NULL
 java.lang.Double int compareTo(java.lang.Object) 0
@@ -11919,7 +11919,7 @@ NOT_NULL
 java.lang.Enum T valueOf(java.lang.Class<T>, java.lang.String) 0
 NOT_NULL
 java.lang.Enum boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Enum int compareTo(E) 0
 NOT_NULL
 java.lang.Enum int compareTo(java.lang.Object) 0
@@ -11929,7 +11929,7 @@ NULLABLE
 java.lang.EnumConstantNotPresentException EnumConstantNotPresentException(java.lang.Class<? extends java.lang.Enum>, java.lang.String) 0
 NOT_NULL
 java.lang.Float boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Float int compareTo(java.lang.Float) 0
 NOT_NULL
 java.lang.Float int compareTo(java.lang.Object) 0
@@ -11949,7 +11949,7 @@ NOT_NULL
 java.lang.Integer Integer(java.lang.String) 0
 NOT_NULL
 java.lang.Integer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Integer digits
 NOT_NULL
 java.lang.Integer int compareTo(java.lang.Integer) 0
@@ -11999,7 +11999,7 @@ NOT_NULL
 java.lang.Long Long(java.lang.String) 0
 NOT_NULL
 java.lang.Long boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Long int compareTo(java.lang.Long) 0
 NOT_NULL
 java.lang.Long int compareTo(java.lang.Object) 0
@@ -12045,7 +12045,7 @@ NULLABLE
 java.lang.NumberFormatException java.lang.NumberFormatException forInputString(java.lang.String)
 NOT_NULL
 java.lang.Object boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Object java.lang.Class<?> getClass()
 NOT_NULL
 java.lang.Object java.lang.Object clone()
@@ -12165,7 +12165,7 @@ NOT_NULL
 java.lang.ProcessBuilder.Redirect PIPE
 NOT_NULL
 java.lang.ProcessBuilder.Redirect boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessBuilder.Redirect java.io.File file()
 NULLABLE
 java.lang.ProcessBuilder.Redirect java.lang.ProcessBuilder.Redirect appendTo(java.io.File)
@@ -12213,15 +12213,15 @@ NOT_NULL
 java.lang.ProcessBuilder.Redirect.Type java.lang.ProcessBuilder.Redirect.Type valueOf(java.lang.String)
 NOT_NULL
 java.lang.ProcessEnvironment boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment entryComparator
 NOT_NULL
 java.lang.ProcessEnvironment java.lang.Object get(java.lang.Object)
 NULLABLE
 java.lang.ProcessEnvironment java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 java.lang.ProcessEnvironment java.lang.Object put(java.lang.Object, java.lang.Object) 0
@@ -12231,7 +12231,7 @@ NOT_NULL
 java.lang.ProcessEnvironment java.lang.Object remove(java.lang.Object)
 NULLABLE
 java.lang.ProcessEnvironment java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment java.lang.ProcessEnvironment.NameComparator access$300()
 NOT_NULL
 java.lang.ProcessEnvironment java.lang.String access$000(java.lang.String)
@@ -12295,7 +12295,7 @@ NOT_NULL
 java.lang.ProcessEnvironment void addToEnv(java.lang.StringBuilder, java.lang.String, java.lang.String) 0
 NOT_NULL
 java.lang.ProcessEnvironment.CheckedEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.CheckedEntry java.lang.Object setValue(java.lang.Object) 0
 NOT_NULL
 java.lang.ProcessEnvironment.CheckedEntry java.lang.String setValue(java.lang.String) 0
@@ -12303,9 +12303,9 @@ NOT_NULL
 java.lang.ProcessEnvironment.CheckedEntry java.lang.String toString()
 NOT_NULL
 java.lang.ProcessEnvironment.CheckedEntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.CheckedEntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.CheckedEntrySet java.util.Iterator<java.util.Map.Entry<java.lang.String,java.lang.String>> iterator()
 NOT_NULL
 java.lang.ProcessEnvironment.CheckedEntrySet java.util.Map.Entry<java.lang.String,java.lang.String> checkedEntry(java.lang.Object)
@@ -12319,13 +12319,13 @@ NOT_NULL
 java.lang.ProcessEnvironment.CheckedEntrySet.1 java.util.Map.Entry<java.lang.String,java.lang.String> next()
 NOT_NULL
 java.lang.ProcessEnvironment.CheckedKeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.CheckedKeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.CheckedValues boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.CheckedValues boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment.EntryComparator int compare(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 java.lang.ProcessEnvironment.EntryComparator int compare(java.lang.Object, java.lang.Object) 1
@@ -12461,7 +12461,7 @@ NULLABLE
 java.lang.Short Short(java.lang.String) 0
 NOT_NULL
 java.lang.Short boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.Short int compareTo(java.lang.Object) 0
 NOT_NULL
 java.lang.Short int compareTo(java.lang.Short) 0
@@ -12489,7 +12489,7 @@ NOT_NULL
 java.lang.StackTraceElement StackTraceElement(java.lang.String, java.lang.String, java.lang.String, int) 1
 NOT_NULL
 java.lang.StackTraceElement boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.StackTraceElement java.lang.String toString()
 NOT_NULL
 java.lang.StrictMath java.util.Random initRNG()
@@ -13329,7 +13329,7 @@ NOT_NULL
 java.lang.Thread.UncaughtExceptionHandler void uncaughtException(java.lang.Thread, java.lang.Throwable) 1
 NOT_NULL
 java.lang.Thread.WeakClassKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ThreadGroup ThreadGroup(java.lang.ThreadGroup, java.lang.String) 0
 NOT_NULL
 java.lang.ThreadGroup ThreadGroup(java.lang.Void, java.lang.ThreadGroup, java.lang.String) 1
@@ -13431,7 +13431,7 @@ NOT_NULL
 java.lang.Throwable.SentinelHolder STACK_TRACE_SENTINEL
 NOT_NULL
 java.lang.annotation.Annotation boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.annotation.Annotation java.lang.Class<? extends java.lang.annotation.Annotation> annotationType()
 NOT_NULL
 java.lang.annotation.Annotation java.lang.String toString()
@@ -14789,7 +14789,7 @@ NOT_NULL
 java.lang.invoke.MethodType boolean canConvert(java.lang.Class<?>, java.lang.Class<?>) 0
 NOT_NULL
 java.lang.invoke.MethodType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.invoke.MethodType boolean equals(java.lang.invoke.MethodType) 0
 NOT_NULL
 java.lang.invoke.MethodType boolean isConvertibleTo(java.lang.invoke.MethodType) 0
@@ -15463,7 +15463,7 @@ NOT_NULL
 java.lang.reflect.Constructor T getAnnotation(java.lang.Class<T>) 0
 NOT_NULL
 java.lang.reflect.Constructor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.reflect.Constructor java.lang.String getName()
 NOT_NULL
 java.lang.reflect.Constructor java.lang.String toGenericString()
@@ -15477,7 +15477,7 @@ NOT_NULL
 java.lang.reflect.Field T getAnnotation(java.lang.Class<T>) 0
 NOT_NULL
 java.lang.reflect.Field boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.reflect.Field java.lang.String getTypeName(java.lang.Class<?>)
 NOT_NULL
 java.lang.reflect.Field java.lang.String getTypeName(java.lang.Class<?>) 0
@@ -15503,7 +15503,7 @@ NULLABLE
 java.lang.reflect.Method T getAnnotation(java.lang.Class<T>) 0
 NOT_NULL
 java.lang.reflect.Method boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.reflect.Method java.lang.Object getDefaultValue()
 NULLABLE
 java.lang.reflect.Method java.lang.String toGenericString()
@@ -16489,7 +16489,7 @@ NULLABLE
 java.net.HttpCookie boolean domainMatches(java.lang.String, java.lang.String) 1
 NULLABLE
 java.net.HttpCookie boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.HttpCookie boolean equalsIgnoreCase(java.lang.String, java.lang.String) 0
 NULLABLE
 java.net.HttpCookie boolean equalsIgnoreCase(java.lang.String, java.lang.String) 1
@@ -16673,7 +16673,7 @@ NOT_NULL
 java.net.Inet4Address Inet4Address(java.lang.String, byte[]) 1
 NULLABLE
 java.net.Inet4Address boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.Inet4Address byte[] getAddress()
 NOT_NULL
 java.net.Inet4Address java.lang.Object writeReplace()
@@ -16691,7 +16691,7 @@ NULLABLE
 java.net.Inet6Address Inet6Address(java.lang.String, byte[], int) 1
 NOT_NULL
 java.net.Inet6Address boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.Inet6Address int deriveNumericScope(java.net.NetworkInterface) 0
 NOT_NULL
 java.net.Inet6Address java.lang.String getHostAddress()
@@ -16725,7 +16725,7 @@ NOT_NULL
 java.net.Inet6AddressImpl boolean isReachable(java.net.InetAddress, int, java.net.NetworkInterface, int) 2
 NULLABLE
 java.net.InetAddress boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.InetAddress byte[] getAddress()
 NULLABLE
 java.net.InetAddress cacheLock
@@ -16807,7 +16807,7 @@ NOT_NULL
 java.net.InetSocketAddress InetSocketAddress(java.net.InetAddress, int) 0
 NULLABLE
 java.net.InetSocketAddress boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.InetSocketAddress java.lang.String getHostName()
 NULLABLE
 java.net.InetSocketAddress java.lang.String getHostString()
@@ -16821,7 +16821,7 @@ NOT_NULL
 java.net.InetSocketAddress void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 java.net.InterfaceAddress boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.InterfaceAddress java.lang.String toString()
 NOT_NULL
 java.net.JarURLConnection java.security.cert.Certificate[] getCertificates()
@@ -16851,7 +16851,7 @@ NOT_NULL
 java.net.MulticastSocket void send(java.net.DatagramPacket, byte) 0
 NOT_NULL
 java.net.NetworkInterface boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.NetworkInterface byte[] getHardwareAddress()
 NULLABLE
 java.net.NetworkInterface defaultInterface
@@ -16913,7 +16913,7 @@ NOT_NULL
 java.net.Proxy Proxy(java.net.Proxy.Type, java.net.SocketAddress) 1
 NOT_NULL
 java.net.Proxy boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.Proxy java.lang.String toString()
 NOT_NULL
 java.net.Proxy.Type $VALUES
@@ -17035,7 +17035,7 @@ NOT_NULL
 java.net.SocketPermission boolean compareHostnames(java.net.SocketPermission) 0
 NOT_NULL
 java.net.SocketPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.SocketPermission boolean implies(java.security.Permission) 0
 NULLABLE
 java.net.SocketPermission boolean impliesIgnoreMask(java.net.SocketPermission) 0
@@ -17187,7 +17187,7 @@ NULLABLE
 java.net.URI boolean equalIgnoringCase(java.lang.String, java.lang.String) 1
 NULLABLE
 java.net.URI boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.URI hexDigits
 NOT_NULL
 java.net.URI int access$2502(java.net.URI, int) 0
@@ -17363,7 +17363,7 @@ NOT_NULL
 java.net.URL URL(java.net.URL, java.lang.String, java.net.URLStreamHandler) 2
 NULLABLE
 java.net.URL boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.net.URL boolean isValidProtocol(java.lang.String) 0
 NOT_NULL
 java.net.URL boolean sameFile(java.net.URL) 0
@@ -17673,7 +17673,7 @@ NOT_NULL
 java.nio.Buffer java.nio.Buffer rewind()
 NOT_NULL
 java.nio.ByteBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.ByteBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.ByteBuffer int compareTo(java.nio.ByteBuffer) 0
@@ -18081,7 +18081,7 @@ NOT_NULL
 java.nio.ByteOrder java.nio.ByteOrder nativeOrder()
 NULLABLE
 java.nio.CharBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.CharBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.CharBuffer int compareTo(java.nio.CharBuffer) 0
@@ -18847,7 +18847,7 @@ NOT_NULL
 java.nio.DirectShortBufferU sun.misc.Cleaner cleaner()
 NULLABLE
 java.nio.DoubleBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.DoubleBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.DoubleBuffer int compareTo(java.nio.DoubleBuffer) 0
@@ -18897,7 +18897,7 @@ NOT_NULL
 java.nio.DoubleBuffer java.nio.DoubleBuffer wrap(double[], int, int)
 NOT_NULL
 java.nio.FloatBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.FloatBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.FloatBuffer int compareTo(java.nio.FloatBuffer) 0
@@ -19283,7 +19283,7 @@ NOT_NULL
 java.nio.HeapShortBufferR java.nio.ShortBuffer slice()
 NOT_NULL
 java.nio.IntBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.IntBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.IntBuffer int compareTo(java.nio.IntBuffer) 0
@@ -19333,7 +19333,7 @@ NOT_NULL
 java.nio.IntBuffer java.nio.IntBuffer wrap(int[], int, int)
 NOT_NULL
 java.nio.LongBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.LongBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.LongBuffer int compareTo(java.nio.LongBuffer) 0
@@ -19389,7 +19389,7 @@ NOT_NULL
 java.nio.MappedByteBuffer java.nio.MappedByteBuffer load()
 NOT_NULL
 java.nio.ShortBuffer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.ShortBuffer int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.ShortBuffer int compareTo(java.nio.ShortBuffer) 0
@@ -19647,7 +19647,7 @@ NOT_NULL
 java.nio.charset.Charset aliases
 NOT_NULL
 java.nio.charset.Charset boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.charset.Charset boolean isSupported(java.lang.String) 0
 NOT_NULL
 java.nio.charset.Charset int compareTo(java.lang.Object) 0
@@ -20121,7 +20121,7 @@ NULLABLE
 java.nio.file.LinkPermission void checkName(java.lang.String) 0
 NOT_NULL
 java.nio.file.Path boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.file.Paths java.nio.file.Path get(java.net.URI) 0
 NOT_NULL
 java.nio.file.SimpleFileVisitor java.nio.file.FileVisitResult postVisitDirectory(T, java.io.IOException)
@@ -20207,7 +20207,7 @@ NOT_NULL
 java.nio.file.TempFileHelper.PosixPermissions filePermissions
 NOT_NULL
 java.nio.file.attribute.AclEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.file.attribute.AclEntry int hash(int, java.lang.Object) 1
 NOT_NULL
 java.nio.file.attribute.AclEntry java.lang.String toString()
@@ -20323,7 +20323,7 @@ NOT_NULL
 java.nio.file.attribute.FileTime FileTime(long, java.util.concurrent.TimeUnit) 1
 NOT_NULL
 java.nio.file.attribute.FileTime boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.file.attribute.FileTime int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.file.attribute.FileTime int compareTo(java.nio.file.attribute.FileTime) 0
@@ -20343,7 +20343,7 @@ NOT_NULL
 java.nio.file.attribute.FileTime.DaysAndNanos DaysAndNanos(long, java.util.concurrent.TimeUnit) 1
 NOT_NULL
 java.nio.file.attribute.FileTime.DaysAndNanos boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.nio.file.attribute.FileTime.DaysAndNanos int compareTo(java.lang.Object) 0
 NOT_NULL
 java.nio.file.attribute.FileTime.DaysAndNanos int compareTo(java.nio.file.attribute.FileTime.DaysAndNanos) 0
@@ -20417,7 +20417,7 @@ NULLABLE
 java.rmi.MarshalledObject T get()
 NULLABLE
 java.rmi.MarshalledObject boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.MarshalledObject.MarshalledObjectInputStream MarshalledObjectInputStream(java.io.InputStream, java.io.InputStream) 1
 NULLABLE
 java.rmi.MarshalledObject.MarshalledObjectInputStream java.lang.Object readLocation()
@@ -20445,27 +20445,27 @@ NOT_NULL
 java.rmi.activation.ActivationDesc ActivationDesc(java.rmi.activation.ActivationGroupID, java.lang.String, java.lang.String, java.rmi.MarshalledObject<?>, boolean) 0
 NOT_NULL
 java.rmi.activation.ActivationDesc boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.activation.ActivationGroup java.rmi.activation.ActivationGroup createGroup(java.rmi.activation.ActivationGroupID, java.rmi.activation.ActivationGroupDesc, long) 0
 NOT_NULL
 java.rmi.activation.ActivationGroup java.rmi.activation.ActivationGroup createGroup(java.rmi.activation.ActivationGroupID, java.rmi.activation.ActivationGroupDesc, long) 1
 NOT_NULL
 java.rmi.activation.ActivationGroupDesc boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.activation.ActivationGroupDesc java.util.Properties getPropertyOverrides()
 NULLABLE
 java.rmi.activation.ActivationGroupDesc.CommandEnvironment CommandEnvironment(java.lang.String, java.lang.String[]) 1
 NULLABLE
 java.rmi.activation.ActivationGroupDesc.CommandEnvironment boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.activation.ActivationGroupDesc.CommandEnvironment void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 java.rmi.activation.ActivationGroupID boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.activation.ActivationGroup_Stub java.lang.Class class$(java.lang.String) 0
 NOT_NULL
 java.rmi.activation.ActivationID boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.activation.ActivationID java.rmi.Remote activate(boolean)
 NULLABLE
 java.rmi.activation.ActivationID void readObject(java.io.ObjectInputStream) 0
@@ -20473,7 +20473,7 @@ NOT_NULL
 java.rmi.activation.ActivationID void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 java.rmi.dgc.VMID boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.dgc.VMID byte[] computeAddressHash()
 NOT_NULL
 java.rmi.dgc.VMID java.lang.String toString()
@@ -20499,7 +20499,7 @@ NOT_NULL
 java.rmi.server.LogStream void write(byte[], int, int) 0
 NOT_NULL
 java.rmi.server.ObjID boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.server.ObjID java.lang.String toString()
 NOT_NULL
 java.rmi.server.ObjID java.rmi.server.ObjID read(java.io.ObjectInput)
@@ -20533,7 +20533,7 @@ NULLABLE
 java.rmi.server.RMIServerSocketFactory java.net.ServerSocket createServerSocket(int)
 NOT_NULL
 java.rmi.server.RemoteObject boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.server.RemoteObject java.rmi.Remote toStub(java.rmi.Remote) 0
 NULLABLE
 java.rmi.server.RemoteObject void readObject(java.io.ObjectInputStream) 0
@@ -20565,7 +20565,7 @@ NOT_NULL
 java.rmi.server.RemoteObjectInvocationHandler.MethodToHash_Maps java.util.Map<java.lang.reflect.Method,java.lang.Long> computeValue(java.lang.Class<?>)
 NOT_NULL
 java.rmi.server.RemoteObjectInvocationHandler.MethodToHash_Maps.1 java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.server.RemoteRef packagePrefix
 NOT_NULL
 java.rmi.server.RemoteServer java.io.PrintStream getLog()
@@ -20573,7 +20573,7 @@ NULLABLE
 java.rmi.server.RemoteServer void setLog(java.io.OutputStream) 0
 NULLABLE
 java.rmi.server.UID boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.rmi.server.UID java.lang.String toString()
 NOT_NULL
 java.rmi.server.UID java.rmi.server.UID read(java.io.DataInput)
@@ -20595,7 +20595,7 @@ NOT_NULL
 java.security.AccessControlContext AccessControlContext(java.security.ProtectionDomain[], java.security.DomainCombiner) 0
 NULLABLE
 java.security.AccessControlContext boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.AccessControlContext java.security.AccessControlContext goCombiner(java.security.ProtectionDomain[], java.security.AccessControlContext)
 NOT_NULL
 java.security.AccessControlContext java.security.AccessControlContext goCombiner(java.security.ProtectionDomain[], java.security.AccessControlContext) 1
@@ -20641,7 +20641,7 @@ NOT_NULL
 java.security.AlgorithmParameters java.security.AlgorithmParameters getInstance(java.lang.String, java.security.Provider) 1
 NOT_NULL
 java.security.AllPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.AllPermission boolean implies(java.security.Permission) 0
 NULLABLE
 java.security.AllPermission java.lang.String getActions()
@@ -20657,7 +20657,7 @@ NOT_NULL
 java.security.AllPermissionCollection void add(java.security.Permission) 0
 NOT_NULL
 java.security.BasicPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.BasicPermission boolean implies(java.security.Permission) 0
 NULLABLE
 java.security.BasicPermission java.lang.String getActions()
@@ -20683,7 +20683,7 @@ NOT_NULL
 java.security.CodeSigner CodeSigner(java.security.cert.CertPath, java.security.Timestamp) 0
 NOT_NULL
 java.security.CodeSigner boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.CodeSigner java.lang.String toString()
 NOT_NULL
 java.security.CodeSigner void readObject(java.io.ObjectInputStream) 0
@@ -20693,7 +20693,7 @@ NULLABLE
 java.security.CodeSource CodeSource(java.net.URL, java.security.cert.Certificate[]) 1
 NULLABLE
 java.security.CodeSource boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.CodeSource boolean implies(java.security.CodeSource) 0
 NULLABLE
 java.security.CodeSource boolean matchLocation(java.security.CodeSource) 0
@@ -20755,7 +20755,7 @@ NOT_NULL
 java.security.Identity Identity(java.lang.String, java.security.IdentityScope) 1
 NULLABLE
 java.security.Identity boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Identity boolean identityEquals(java.security.Identity) 0
 NOT_NULL
 java.security.Identity boolean keyEquals(java.security.Key, java.security.Key) 0
@@ -21031,7 +21031,7 @@ NOT_NULL
 java.security.MessageDigestSpi void engineUpdate(java.nio.ByteBuffer) 0
 NOT_NULL
 java.security.Permission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Permission boolean implies(java.security.Permission) 0
 NULLABLE
 java.security.Permission java.lang.String getActions()
@@ -21135,7 +21135,7 @@ NOT_NULL
 java.security.PolicySpi java.security.PermissionCollection engineGetPermissions(java.security.ProtectionDomain)
 NOT_NULL
 java.security.Principal boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Principal java.lang.String toString()
 NOT_NULL
 java.security.PrivilegedAction T run()
@@ -21177,7 +21177,7 @@ NOT_NULL
 java.security.Provider ALIAS_PREFIX_LOWER
 NOT_NULL
 java.security.Provider java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Provider java.lang.Object implPut(java.lang.Object, java.lang.Object)
 NULLABLE
 java.security.Provider java.lang.Object implRemove(java.lang.Object)
@@ -21191,7 +21191,7 @@ NOT_NULL
 java.security.Provider java.lang.Object remove(java.lang.Object)
 NULLABLE
 java.security.Provider java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Provider java.lang.String getProperty(java.lang.String)
 NULLABLE
 java.security.Provider java.lang.String getProperty(java.lang.String) 0
@@ -21279,13 +21279,13 @@ NULLABLE
 java.security.Provider.ServiceKey algorithm
 NOT_NULL
 java.security.Provider.ServiceKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Provider.ServiceKey originalAlgorithm
 NULLABLE
 java.security.Provider.UString UString(java.lang.String) 0
 NOT_NULL
 java.security.Provider.UString boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Provider.UString java.lang.String toString()
 NOT_NULL
 java.security.Provider.UString lowerString
@@ -21479,7 +21479,7 @@ NOT_NULL
 java.security.Timestamp Timestamp(java.util.Date, java.security.cert.CertPath) 1
 NOT_NULL
 java.security.Timestamp boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Timestamp java.lang.String toString()
 NOT_NULL
 java.security.Timestamp java.util.Date getTimestamp()
@@ -21499,7 +21499,7 @@ NOT_NULL
 java.security.UnresolvedPermission UnresolvedPermission(java.lang.String, java.lang.String, java.lang.String, java.security.cert.Certificate[]) 3
 NULLABLE
 java.security.UnresolvedPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.UnresolvedPermission boolean implies(java.security.Permission) 0
 NULLABLE
 java.security.UnresolvedPermission java.lang.String getActions()
@@ -21533,7 +21533,7 @@ NOT_NULL
 java.security.UnresolvedPermissionCollection void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 java.security.acl.Permission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.cert.CRLReason $VALUES
 NOT_NULL
 java.security.cert.CRLReason AA_COMPROMISE
@@ -21561,7 +21561,7 @@ NOT_NULL
 java.security.cert.CRLReason java.security.cert.CRLReason valueOf(java.lang.String)
 NOT_NULL
 java.security.cert.CertPath boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.cert.CertPath java.lang.Object writeReplace()
 NOT_NULL
 java.security.cert.CertPath java.lang.String toString()
@@ -21637,7 +21637,7 @@ NULLABLE
 java.security.cert.CertStore.1 java.lang.String run()
 NULLABLE
 java.security.cert.Certificate boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.cert.Certificate java.lang.Object writeReplace()
 NOT_NULL
 java.security.cert.CertificateFactory java.security.cert.CertificateFactory getInstance(java.lang.String)
@@ -21781,13 +21781,13 @@ NULLABLE
 java.security.cert.TrustAnchor void setNameConstraints(byte[]) 0
 NULLABLE
 java.security.cert.X509CRL boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.cert.X509CRL java.security.cert.X509CRLEntry getRevokedCertificate(java.security.cert.X509Certificate)
 NULLABLE
 java.security.cert.X509CRL java.security.cert.X509CRLEntry getRevokedCertificate(java.security.cert.X509Certificate) 0
 NOT_NULL
 java.security.cert.X509CRLEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.cert.X509CRLEntry java.security.cert.CRLReason getRevocationReason()
 NULLABLE
 java.security.cert.X509CRLEntry javax.security.auth.x500.X500Principal getCertificateIssuer()
@@ -21933,13 +21933,13 @@ NULLABLE
 java.security.spec.ECFieldF2m ECFieldF2m(int, int[]) 1
 NOT_NULL
 java.security.spec.ECFieldF2m boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.spec.ECFieldF2m int[] getMidTermsOfReductionPolynomial()
 NULLABLE
 java.security.spec.ECFieldFp ECFieldFp(java.math.BigInteger) 0
 NOT_NULL
 java.security.spec.ECFieldFp boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.spec.ECGenParameterSpec ECGenParameterSpec(java.lang.String) 0
 NOT_NULL
 java.security.spec.ECParameterSpec ECParameterSpec(java.security.spec.EllipticCurve, java.security.spec.ECPoint, java.math.BigInteger, int) 0
@@ -21967,7 +21967,7 @@ NOT_NULL
 java.security.spec.ECPoint POINT_INFINITY
 NOT_NULL
 java.security.spec.ECPoint boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.spec.ECPoint java.math.BigInteger getAffineX()
 NULLABLE
 java.security.spec.ECPoint java.math.BigInteger getAffineY()
@@ -21997,7 +21997,7 @@ NOT_NULL
 java.security.spec.EllipticCurve b
 NOT_NULL
 java.security.spec.EllipticCurve boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.spec.EllipticCurve byte[] getSeed()
 NULLABLE
 java.security.spec.EllipticCurve field
@@ -22149,7 +22149,7 @@ NOT_NULL
 java.sql.Date java.sql.Date valueOf(java.lang.String) 0
 NOT_NULL
 java.sql.DriverInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.sql.DriverInfo java.lang.String toString()
 NOT_NULL
 java.sql.DriverManager SET_LOG_PERMISSION
@@ -22221,7 +22221,7 @@ NOT_NULL
 java.sql.ResultSetMetaData java.lang.String getColumnClassName(int)
 NOT_NULL
 java.sql.RowId boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.sql.RowIdLifetime $VALUES
 NOT_NULL
 java.sql.RowIdLifetime ROWID_UNSUPPORTED
@@ -22299,7 +22299,7 @@ NOT_NULL
 java.sql.Timestamp boolean before(java.sql.Timestamp) 0
 NOT_NULL
 java.sql.Timestamp boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.sql.Timestamp int compareTo(java.lang.Object) 0
 NOT_NULL
 java.sql.Timestamp int compareTo(java.sql.Timestamp) 0
@@ -22321,7 +22321,7 @@ NOT_NULL
 java.text.Annotation java.lang.String toString()
 NOT_NULL
 java.text.AttributeEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.AttributeEntry java.lang.Object setValue(java.lang.Object) 0
 NOT_NULL
 java.text.AttributeEntry java.lang.String toString()
@@ -22343,7 +22343,7 @@ NOT_NULL
 java.text.AttributedCharacterIterator.Attribute READING
 NOT_NULL
 java.text.AttributedCharacterIterator.Attribute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.AttributedCharacterIterator.Attribute instanceMap
 NOT_NULL
 java.text.AttributedCharacterIterator.Attribute java.lang.Object readResolve()
@@ -22401,7 +22401,7 @@ NULLABLE
 java.text.AttributedString.AttributeMap java.lang.Object get(java.lang.Object)
 NULLABLE
 java.text.AttributedString.AttributeMap java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.AttributedString.AttributeMap java.util.Set entrySet()
 NOT_NULL
 java.text.AttributedString.AttributedStringIterator AttributedStringIterator(java.text.AttributedString, java.text.AttributedCharacterIterator.Attribute[], int, int) 0
@@ -22409,7 +22409,7 @@ NOT_NULL
 java.text.AttributedString.AttributedStringIterator AttributedStringIterator(java.text.AttributedString, java.text.AttributedCharacterIterator.Attribute[], int, int) 1
 NULLABLE
 java.text.AttributedString.AttributedStringIterator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.AttributedString.AttributedStringIterator int getRunLimit(java.util.Set<? extends java.text.AttributedCharacterIterator.Attribute>) 0
 NOT_NULL
 java.text.AttributedString.AttributedStringIterator int getRunStart(java.util.Set<? extends java.text.AttributedCharacterIterator.Attribute>) 0
@@ -22489,7 +22489,7 @@ NOT_NULL
 java.text.ChoiceFormat ChoiceFormat(java.lang.String) 0
 NOT_NULL
 java.text.ChoiceFormat boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.ChoiceFormat double[] doubleArraySize(double[])
 NOT_NULL
 java.text.ChoiceFormat double[] doubleArraySize(double[]) 0
@@ -22553,7 +22553,7 @@ NOT_NULL
 java.text.CollationRules DEFAULTRULES
 NOT_NULL
 java.text.Collator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.Collator int compare(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 java.text.Collator int compare(java.lang.Object, java.lang.Object) 1
@@ -22585,7 +22585,7 @@ NOT_NULL
 java.text.Collator.CollatorGetter java.text.Collator.CollatorGetter access$000()
 NOT_NULL
 java.text.DateFormat boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.DateFormat java.lang.Object clone()
 NOT_NULL
 java.text.DateFormat java.lang.String format(java.util.Date)
@@ -22681,7 +22681,7 @@ NOT_NULL
 java.text.DateFormat.Field java.lang.Object readResolve()
 NOT_NULL
 java.text.DateFormatSymbols boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.DateFormatSymbols cachedInstances
 NOT_NULL
 java.text.DateFormatSymbols java.lang.String[] getAmPmStrings()
@@ -22747,7 +22747,7 @@ NOT_NULL
 java.text.DecimalFormat PATTERN_EXPONENT
 NOT_NULL
 java.text.DecimalFormat boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.DecimalFormat boolean subparse(java.lang.String, java.text.ParsePosition, java.lang.String, java.lang.String, java.text.DigitList, boolean, boolean[]) 0
 NOT_NULL
 java.text.DecimalFormat boolean subparse(java.lang.String, java.text.ParsePosition, java.lang.String, java.lang.String, java.text.DigitList, boolean, boolean[]) 1
@@ -22845,7 +22845,7 @@ NOT_NULL
 java.text.DecimalFormat void setRoundingMode(java.math.RoundingMode) 0
 NOT_NULL
 java.text.DecimalFormatSymbols boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.DecimalFormatSymbols cachedLocaleData
 NOT_NULL
 java.text.DecimalFormatSymbols java.text.DecimalFormatSymbols getInstance()
@@ -22881,7 +22881,7 @@ NOT_NULL
 java.text.DigitList LONG_MIN_REP
 NOT_NULL
 java.text.DigitList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.DigitList int parseInt(char[], int, int) 0
 NOT_NULL
 java.text.DigitList java.lang.Object clone()
@@ -22903,7 +22903,7 @@ NOT_NULL
 java.text.DontCareFieldPosition noDelegate
 NOT_NULL
 java.text.FieldPosition boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.FieldPosition java.lang.String toString()
 NOT_NULL
 java.text.FieldPosition java.text.Format.FieldDelegate getFieldDelegate()
@@ -22963,7 +22963,7 @@ NOT_NULL
 java.text.MessageFormat TYPE_KEYWORDS
 NOT_NULL
 java.text.MessageFormat boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.MessageFormat int findKeyword(java.lang.String, java.lang.String[]) 0
 NOT_NULL
 java.text.MessageFormat int findKeyword(java.lang.String, java.lang.String[]) 1
@@ -23031,7 +23031,7 @@ NOT_NULL
 java.text.Normalizer.Form java.text.Normalizer.Form valueOf(java.lang.String)
 NOT_NULL
 java.text.NumberFormat boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.NumberFormat cachedLocaleData
 NOT_NULL
 java.text.NumberFormat java.lang.Number parse(java.lang.String, java.text.ParsePosition)
@@ -23133,7 +23133,7 @@ NOT_NULL
 java.text.NumberFormat.NumberFormatGetter java.text.NumberFormat.NumberFormatGetter access$000()
 NOT_NULL
 java.text.ParsePosition boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.ParsePosition java.lang.String toString()
 NOT_NULL
 java.text.PatternEntry PatternEntry(int, java.lang.StringBuffer, java.lang.StringBuffer) 1
@@ -23141,7 +23141,7 @@ NOT_NULL
 java.text.PatternEntry PatternEntry(int, java.lang.StringBuffer, java.lang.StringBuffer) 2
 NOT_NULL
 java.text.PatternEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.PatternEntry java.lang.String toString()
 NOT_NULL
 java.text.PatternEntry void addToBuffer(java.lang.StringBuffer, boolean, boolean, java.text.PatternEntry) 0
@@ -23199,7 +23199,7 @@ NOT_NULL
 java.text.RuleBasedBreakIterator LABEL
 NOT_NULL
 java.text.RuleBasedBreakIterator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.RuleBasedBreakIterator byte[] readFile(java.lang.String)
 NOT_NULL
 java.text.RuleBasedBreakIterator java.lang.String toString()
@@ -23215,7 +23215,7 @@ NOT_NULL
 java.text.RuleBasedBreakIterator.SafeCharIterator java.lang.Object clone()
 NOT_NULL
 java.text.RuleBasedCollationKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.RuleBasedCollationKey byte[] toByteArray()
 NOT_NULL
 java.text.RuleBasedCollationKey int compareTo(java.lang.Object) 0
@@ -23225,7 +23225,7 @@ NOT_NULL
 java.text.RuleBasedCollator RuleBasedCollator(java.text.RuleBasedCollator) 0
 NOT_NULL
 java.text.RuleBasedCollator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.RuleBasedCollator int compare(java.lang.String, java.lang.String) 0
 NOT_NULL
 java.text.RuleBasedCollator int compare(java.lang.String, java.lang.String) 1
@@ -23259,7 +23259,7 @@ NOT_NULL
 java.text.SimpleDateFormat SimpleDateFormat(java.lang.String, java.util.Locale) 1
 NOT_NULL
 java.text.SimpleDateFormat boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.SimpleDateFormat boolean matchDSTString(java.lang.String, int, int, int, java.lang.String[][]) 0
 NOT_NULL
 java.text.SimpleDateFormat boolean matchDSTString(java.lang.String, int, int, int, java.lang.String[][]) 4
@@ -23329,7 +23329,7 @@ NOT_NULL
 java.text.StringCharacterIterator StringCharacterIterator(java.lang.String, int, int, int) 0
 NOT_NULL
 java.text.StringCharacterIterator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.text.StringCharacterIterator void setText(java.lang.String) 0
 NOT_NULL
 java.util.AbstractCollection T[] finishToArray(T[], java.util.Iterator<?>)
@@ -23343,15 +23343,15 @@ NOT_NULL
 java.util.AbstractCollection T[] toArray(T[]) 0
 NOT_NULL
 java.util.AbstractCollection boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractCollection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.AbstractCollection boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.AbstractCollection boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractCollection boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.AbstractCollection java.lang.Object[] toArray()
@@ -23361,11 +23361,11 @@ NOT_NULL
 java.util.AbstractCollection java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.AbstractList boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.AbstractList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractList int indexOf(java.lang.Object) 0
 NULLABLE
 java.util.AbstractList int lastIndexOf(java.lang.Object) 0
@@ -23385,7 +23385,7 @@ NOT_NULL
 java.util.AbstractMap V get(java.lang.Object)
 NULLABLE
 java.util.AbstractMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap V put(K, V)
 NULLABLE
 java.util.AbstractMap V put(K, V) 0
@@ -23395,17 +23395,17 @@ NOT_NULL
 java.util.AbstractMap V remove(java.lang.Object)
 NULLABLE
 java.util.AbstractMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap boolean eq(java.lang.Object, java.lang.Object) 0
 NULLABLE
 java.util.AbstractMap boolean eq(java.lang.Object, java.lang.Object) 1
 NULLABLE
 java.util.AbstractMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap java.lang.Object clone()
 NOT_NULL
 java.util.AbstractMap java.lang.String toString()
@@ -23419,11 +23419,11 @@ NULLABLE
 java.util.AbstractMap void putAll(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
 java.util.AbstractMap.1 boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap.1 java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.AbstractMap.2 boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap.2 java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.AbstractMap.SimpleEntry SimpleEntry(java.util.Map.Entry<? extends K,? extends V>) 0
@@ -23431,7 +23431,7 @@ NOT_NULL
 java.util.AbstractMap.SimpleEntry V setValue(V) 0
 NOT_NULL
 java.util.AbstractMap.SimpleEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap.SimpleEntry java.lang.String toString()
 NOT_NULL
 java.util.AbstractMap.SimpleImmutableEntry SimpleImmutableEntry(java.util.Map.Entry<? extends K,? extends V>) 0
@@ -23439,7 +23439,7 @@ NOT_NULL
 java.util.AbstractMap.SimpleImmutableEntry V setValue(V) 0
 NOT_NULL
 java.util.AbstractMap.SimpleImmutableEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap.SimpleImmutableEntry java.lang.String toString()
 NOT_NULL
 java.util.AbstractQueue E element()
@@ -23447,7 +23447,7 @@ NOT_NULL
 java.util.AbstractQueue E remove()
 NOT_NULL
 java.util.AbstractQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractQueue boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.AbstractSequentialList boolean addAll(int, java.util.Collection<? extends E>) 1
@@ -23455,7 +23455,7 @@ NOT_NULL
 java.util.AbstractSequentialList java.util.ListIterator<E> listIterator(int)
 NOT_NULL
 java.util.AbstractSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractSet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.ArrayDeque ArrayDeque(java.util.Collection<? extends E>) 0
@@ -23485,9 +23485,9 @@ NOT_NULL
 java.util.ArrayDeque T[] toArray(T[]) 0
 NOT_NULL
 java.util.ArrayDeque boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.ArrayDeque boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.ArrayDeque boolean offer(E) 0
 NOT_NULL
 java.util.ArrayDeque boolean offerFirst(E) 0
@@ -23495,7 +23495,7 @@ NOT_NULL
 java.util.ArrayDeque boolean offerLast(E) 0
 NOT_NULL
 java.util.ArrayDeque boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.ArrayDeque boolean removeFirstOccurrence(java.lang.Object) 0
 NOT_NULL
 java.util.ArrayDeque boolean removeLastOccurrence(java.lang.Object) 0
@@ -23535,15 +23535,15 @@ NOT_NULL
 java.util.ArrayList T[] toArray(T[]) 0
 NOT_NULL
 java.util.ArrayList boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.ArrayList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.ArrayList boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.ArrayList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.ArrayList boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.ArrayList boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.ArrayList int access$100(java.util.ArrayList) 0
@@ -23939,7 +23939,7 @@ NOT_NULL
 java.util.Arrays.ArrayList a
 NOT_NULL
 java.util.Arrays.ArrayList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Arrays.ArrayList int indexOf(java.lang.Object) 0
 NULLABLE
 java.util.BitSet BitSet(long[]) 0
@@ -24081,17 +24081,17 @@ NOT_NULL
 java.util.Collection T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collection boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Collection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Collection boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collection boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collection boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collection boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collection java.lang.Object[] toArray()
@@ -24343,15 +24343,15 @@ NOT_NULL
 java.util.Collections.AsLIFOQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.AsLIFOQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.AsLIFOQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.AsLIFOQueue boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.AsLIFOQueue boolean offer(E) 0
 NOT_NULL
 java.util.Collections.AsLIFOQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.AsLIFOQueue boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.AsLIFOQueue java.lang.String toString()
@@ -24363,15 +24363,15 @@ NOT_NULL
 java.util.Collections.CheckedCollection T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.CheckedCollection boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedCollection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Collections.CheckedCollection boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.CheckedCollection boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedCollection boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.CheckedCollection c
@@ -24395,7 +24395,7 @@ NULLABLE
 java.util.Collections.CheckedList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.Collections.CheckedList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedList int indexOf(java.lang.Object) 0
 NULLABLE
 java.util.Collections.CheckedList int lastIndexOf(java.lang.Object) 0
@@ -24415,19 +24415,19 @@ NOT_NULL
 java.util.Collections.CheckedMap CheckedMap(java.util.Map<K,V>, java.lang.Class<K>, java.lang.Class<V>) 2
 NOT_NULL
 java.util.Collections.CheckedMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap V put(K, V) 0
 NOT_NULL
 java.util.Collections.CheckedMap V put(K, V) 1
 NOT_NULL
 java.util.Collections.CheckedMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap java.lang.String badKeyMsg(java.lang.Object)
 NOT_NULL
 java.util.Collections.CheckedMap java.lang.String badKeyMsg(java.lang.Object) 0
@@ -24455,17 +24455,17 @@ NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap.CheckedEntrySet boolean addAll(java.util.Collection<? extends java.util.Map.Entry<K,V>>) 0
 NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap.CheckedEntrySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap.CheckedEntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap.CheckedEntrySet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet java.lang.Object[] toArray()
@@ -24483,7 +24483,7 @@ NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet.CheckedEntry V setValue(V) 0
 NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet.CheckedEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap.CheckedEntrySet.CheckedEntry java.lang.String badValueMsg(java.lang.Object)
 NOT_NULL
 java.util.Collections.CheckedMap.CheckedEntrySet.CheckedEntry java.lang.String badValueMsg(java.lang.Object) 0
@@ -24493,7 +24493,7 @@ NOT_NULL
 java.util.Collections.CheckedRandomAccessList java.util.List<E> subList(int, int)
 NOT_NULL
 java.util.Collections.CheckedSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedSortedMap java.util.Comparator<? super K> comparator()
 NOT_NULL
 java.util.Collections.CheckedSortedMap java.util.SortedMap<K,V> headMap(K)
@@ -24523,7 +24523,7 @@ NOT_NULL
 java.util.Collections.CopiesList T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.CopiesList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CopiesList int indexOf(java.lang.Object) 0
 NULLABLE
 java.util.Collections.CopiesList int lastIndexOf(java.lang.Object) 0
@@ -24541,11 +24541,11 @@ NOT_NULL
 java.util.Collections.EmptyList T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.EmptyList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptyList boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.EmptyList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptyList java.lang.Object readResolve()
 NOT_NULL
 java.util.Collections.EmptyList java.lang.Object[] toArray()
@@ -24561,13 +24561,13 @@ NOT_NULL
 java.util.Collections.EmptyMap V get(java.lang.Object)
 NULLABLE
 java.util.Collections.EmptyMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptyMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptyMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptyMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptyMap java.lang.Object readResolve()
 NOT_NULL
 java.util.Collections.EmptyMap java.util.Collection<V> values()
@@ -24581,7 +24581,7 @@ NOT_NULL
 java.util.Collections.EmptySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.EmptySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.EmptySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.EmptySet java.lang.Object readResolve()
@@ -24603,7 +24603,7 @@ NOT_NULL
 java.util.Collections.ReverseComparator2 ReverseComparator2(java.util.Comparator<T>) 0
 NOT_NULL
 java.util.Collections.ReverseComparator2 boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.ReverseComparator2 cmp
 NOT_NULL
 java.util.Collections.ReverseComparator2 int compare(T, T) 0
@@ -24615,15 +24615,15 @@ NOT_NULL
 java.util.Collections.SetFromMap T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.SetFromMap boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SetFromMap boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SetFromMap boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.SetFromMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SetFromMap boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SetFromMap boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.SetFromMap java.lang.String toString()
@@ -24633,19 +24633,19 @@ NOT_NULL
 java.util.Collections.SetFromMap void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 java.util.Collections.SingletonList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SingletonList java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.Collections.SingletonMap V get(java.lang.Object)
 NULLABLE
 java.util.Collections.SingletonMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SingletonMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SingletonMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SingletonSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SingletonSet java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.Collections.SynchronizedCollection SynchronizedCollection(java.util.Collection<E>) 0
@@ -24653,15 +24653,15 @@ NOT_NULL
 java.util.Collections.SynchronizedCollection T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.SynchronizedCollection boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedCollection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Collections.SynchronizedCollection boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.SynchronizedCollection boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedCollection boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.SynchronizedCollection java.lang.String toString()
@@ -24671,7 +24671,7 @@ NOT_NULL
 java.util.Collections.SynchronizedList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.Collections.SynchronizedList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedList int indexOf(java.lang.Object) 0
 NULLABLE
 java.util.Collections.SynchronizedList int lastIndexOf(java.lang.Object) 0
@@ -24683,19 +24683,19 @@ NOT_NULL
 java.util.Collections.SynchronizedMap SynchronizedMap(java.util.Map<K,V>) 0
 NOT_NULL
 java.util.Collections.SynchronizedMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap V put(K, V) 0
 NOT_NULL
 java.util.Collections.SynchronizedMap V put(K, V) 1
 NOT_NULL
 java.util.Collections.SynchronizedMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap java.lang.String toString()
 NOT_NULL
 java.util.Collections.SynchronizedMap void putAll(java.util.Map<? extends K,? extends V>) 0
@@ -24707,7 +24707,7 @@ NOT_NULL
 java.util.Collections.SynchronizedRandomAccessList java.util.List<E> subList(int, int)
 NOT_NULL
 java.util.Collections.SynchronizedSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedSortedMap java.util.Comparator<? super K> comparator()
 NOT_NULL
 java.util.Collections.SynchronizedSortedMap java.util.SortedMap<K,V> headMap(K)
@@ -24739,15 +24739,15 @@ NOT_NULL
 java.util.Collections.UnmodifiableCollection UnmodifiableCollection(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Collections.UnmodifiableCollection boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableCollection boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Collections.UnmodifiableCollection boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableCollection boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.UnmodifiableCollection boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableCollection boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.UnmodifiableCollection c
@@ -24761,7 +24761,7 @@ NOT_NULL
 java.util.Collections.UnmodifiableList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.Collections.UnmodifiableList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableList int indexOf(java.lang.Object) 0
 NULLABLE
 java.util.Collections.UnmodifiableList int lastIndexOf(java.lang.Object) 0
@@ -24779,19 +24779,19 @@ NOT_NULL
 java.util.Collections.UnmodifiableMap UnmodifiableMap(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
 java.util.Collections.UnmodifiableMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap V put(K, V) 0
 NOT_NULL
 java.util.Collections.UnmodifiableMap V put(K, V) 1
 NOT_NULL
 java.util.Collections.UnmodifiableMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap java.lang.String toString()
 NOT_NULL
 java.util.Collections.UnmodifiableMap m
@@ -24803,11 +24803,11 @@ NOT_NULL
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet java.lang.Object[] toArray()
 NOT_NULL
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
@@ -24819,7 +24819,7 @@ NOT_NULL
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet.UnmodifiableEntry V setValue(V) 0
 NOT_NULL
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet.UnmodifiableEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap.UnmodifiableEntrySet.UnmodifiableEntry java.lang.String toString()
 NOT_NULL
 java.util.Collections.UnmodifiableRandomAccessList java.lang.Object writeReplace()
@@ -24827,7 +24827,7 @@ NOT_NULL
 java.util.Collections.UnmodifiableRandomAccessList java.util.List<E> subList(int, int)
 NOT_NULL
 java.util.Collections.UnmodifiableSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableSortedMap java.util.Comparator<? super K> comparator()
 NOT_NULL
 java.util.Collections.UnmodifiableSortedMap java.util.SortedMap<K,V> headMap(K)
@@ -24875,7 +24875,7 @@ NOT_NULL
 java.util.ComparableTimSort void sort(java.lang.Object[], int, int) 0
 NOT_NULL
 java.util.Comparator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Comparator int compare(T, T) 0
 NOT_NULL
 java.util.Comparator int compare(T, T) 1
@@ -24941,7 +24941,7 @@ NOT_NULL
 java.util.Date boolean before(java.util.Date) 0
 NOT_NULL
 java.util.Date boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Date int compareTo(java.lang.Object) 0
 NOT_NULL
 java.util.Date int compareTo(java.util.Date) 0
@@ -25001,9 +25001,9 @@ NOT_NULL
 java.util.Deque E removeLast()
 NOT_NULL
 java.util.Deque boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Deque boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Deque boolean offer(E) 0
 NOT_NULL
 java.util.Deque boolean offerFirst(E) 0
@@ -25011,7 +25011,7 @@ NOT_NULL
 java.util.Deque boolean offerLast(E) 0
 NOT_NULL
 java.util.Deque boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Deque boolean removeFirstOccurrence(java.lang.Object) 0
 NOT_NULL
 java.util.Deque boolean removeLastOccurrence(java.lang.Object) 0
@@ -25029,7 +25029,7 @@ NOT_NULL
 java.util.Dictionary V get(java.lang.Object)
 NULLABLE
 java.util.Dictionary V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Dictionary V put(K, V)
 NULLABLE
 java.util.Dictionary V put(K, V) 0
@@ -25039,7 +25039,7 @@ NOT_NULL
 java.util.Dictionary V remove(java.lang.Object)
 NULLABLE
 java.util.Dictionary V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Dictionary java.util.Enumeration<K> keys()
 NOT_NULL
 java.util.Dictionary java.util.Enumeration<V> elements()
@@ -25103,7 +25103,7 @@ NOT_NULL
 java.util.EnumMap V get(java.lang.Object)
 NULLABLE
 java.util.EnumMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap V put(K, V)
 NULLABLE
 java.util.EnumMap V put(K, V) 0
@@ -25111,17 +25111,17 @@ NOT_NULL
 java.util.EnumMap V remove(java.lang.Object)
 NULLABLE
 java.util.EnumMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap V unmaskNull(java.lang.Object)
 NULLABLE
 java.util.EnumMap ZERO_LENGTH_ENUM_ARRAY
 NOT_NULL
 java.util.EnumMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap boolean equals(java.util.EnumMap) 0
 NOT_NULL
 java.util.EnumMap boolean isValidKey(java.lang.Object) 0
@@ -25179,7 +25179,7 @@ NULLABLE
 java.util.EnumMap.EntryIterator.Entry V setValue(V) 0
 NOT_NULL
 java.util.EnumMap.EntryIterator.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.EntryIterator.Entry int access$1500(java.util.EnumMap.EntryIterator.Entry) 0
 NOT_NULL
 java.util.EnumMap.EntryIterator.Entry int access$1502(java.util.EnumMap.EntryIterator.Entry, int) 0
@@ -25189,23 +25189,23 @@ NOT_NULL
 java.util.EnumMap.EntrySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.EnumMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 java.util.EnumMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.EnumMap.ValueIterator V next()
 NULLABLE
 java.util.EnumMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.Values boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.EnumSet java.lang.Object clone()
@@ -25505,7 +25505,7 @@ NOT_NULL
 java.util.HashMap V get(java.lang.Object)
 NULLABLE
 java.util.HashMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap V getForNullKey()
 NULLABLE
 java.util.HashMap V put(K, V)
@@ -25519,11 +25519,11 @@ NULLABLE
 java.util.HashMap V remove(java.lang.Object)
 NULLABLE
 java.util.HashMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap int hash(java.lang.Object) 0
 NOT_NULL
 java.util.HashMap java.lang.Object clone()
@@ -25567,15 +25567,15 @@ NOT_NULL
 java.util.HashMap.Entry V setValue(V) 0
 NOT_NULL
 java.util.HashMap.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap.Entry java.lang.String toString()
 NOT_NULL
 java.util.HashMap.Entry void recordAccess(java.util.HashMap<K,V>) 0
 NOT_NULL
 java.util.HashMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 java.util.HashMap.HashIterator HashIterator(java.util.HashMap) 0
@@ -25585,13 +25585,13 @@ NOT_NULL
 java.util.HashMap.HashIterator this$0
 NOT_NULL
 java.util.HashMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.HashMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.HashSet HashSet(java.util.Collection<? extends E>) 0
@@ -25599,11 +25599,11 @@ NOT_NULL
 java.util.HashSet PRESENT
 NOT_NULL
 java.util.HashSet boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.HashSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.HashSet java.lang.Object clone()
 NOT_NULL
 java.util.HashSet void readObject(java.io.ObjectInputStream) 0
@@ -25615,7 +25615,7 @@ NOT_NULL
 java.util.Hashtable V get(java.lang.Object)
 NULLABLE
 java.util.Hashtable V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable V put(K, V)
 NULLABLE
 java.util.Hashtable V put(K, V) 0
@@ -25625,15 +25625,15 @@ NOT_NULL
 java.util.Hashtable V remove(java.lang.Object)
 NULLABLE
 java.util.Hashtable V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable boolean contains(java.lang.Object) 0
 NOT_NULL
 java.util.Hashtable boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable int access$200(java.util.Hashtable) 0
 NOT_NULL
 java.util.Hashtable int access$210(java.util.Hashtable) 0
@@ -25677,27 +25677,27 @@ NOT_NULL
 java.util.Hashtable.Entry V setValue(V) 0
 NOT_NULL
 java.util.Hashtable.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.Entry java.lang.Object clone()
 NOT_NULL
 java.util.Hashtable.Entry java.lang.String toString()
 NOT_NULL
 java.util.Hashtable.EntrySet boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 java.util.Hashtable.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.Hashtable.ValueCollection boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable.ValueCollection java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.IdentityHashMap IdentityHashMap(java.util.Map<? extends K,? extends V>) 0
@@ -25707,7 +25707,7 @@ NOT_NULL
 java.util.IdentityHashMap V get(java.lang.Object)
 NULLABLE
 java.util.IdentityHashMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap V put(K, V)
 NULLABLE
 java.util.IdentityHashMap V put(K, V) 0
@@ -25717,13 +25717,13 @@ NOT_NULL
 java.util.IdentityHashMap V remove(java.lang.Object)
 NULLABLE
 java.util.IdentityHashMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap int access$000(java.util.IdentityHashMap) 0
 NOT_NULL
 java.util.IdentityHashMap int access$010(java.util.IdentityHashMap) 0
@@ -25761,7 +25761,7 @@ NULLABLE
 java.util.IdentityHashMap.EntryIterator.Entry V setValue(V) 0
 NOT_NULL
 java.util.IdentityHashMap.EntryIterator.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.EntryIterator.Entry int access$800(java.util.IdentityHashMap.EntryIterator.Entry) 0
 NOT_NULL
 java.util.IdentityHashMap.EntryIterator.Entry int access$802(java.util.IdentityHashMap.EntryIterator.Entry, int) 0
@@ -25773,9 +25773,9 @@ NOT_NULL
 java.util.IdentityHashMap.EntrySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.IdentityHashMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.EntrySet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.IdentityHashMap.EntrySet java.lang.Object[] toArray()
@@ -25785,17 +25785,17 @@ NOT_NULL
 java.util.IdentityHashMap.KeyIterator K next()
 NULLABLE
 java.util.IdentityHashMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.KeySet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.IdentityHashMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.IdentityHashMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.Values boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.IllegalFormatCodePointException java.lang.String getMessage()
@@ -25825,7 +25825,7 @@ NOT_NULL
 java.util.JapaneseImperialCalendar MIN_VALUES
 NOT_NULL
 java.util.JapaneseImperialCalendar boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.JapaneseImperialCalendar eras
 NOT_NULL
 java.util.JapaneseImperialCalendar int getEraIndex(sun.util.calendar.LocalGregorianCalendar.Date) 0
@@ -25869,17 +25869,17 @@ NOT_NULL
 java.util.JumboEnumSet boolean add(E) 0
 NOT_NULL
 java.util.JumboEnumSet boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.JumboEnumSet boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.JumboEnumSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.JumboEnumSet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.JumboEnumSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.JumboEnumSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.JumboEnumSet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.JumboEnumSet int access$110(java.util.JumboEnumSet) 0
@@ -25903,11 +25903,11 @@ NOT_NULL
 java.util.LinkedHashMap V get(java.lang.Object)
 NULLABLE
 java.util.LinkedHashMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.LinkedHashMap boolean access$000(java.util.LinkedHashMap) 0
 NOT_NULL
 java.util.LinkedHashMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.LinkedHashMap java.util.Iterator<K> newKeyIterator()
 NOT_NULL
 java.util.LinkedHashMap java.util.Iterator<V> newValueIterator()
@@ -25951,13 +25951,13 @@ NOT_NULL
 java.util.LinkedList T[] toArray(T[]) 0
 NOT_NULL
 java.util.LinkedList boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.LinkedList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.LinkedList boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.LinkedList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.LinkedList boolean offer(E) 0
 NOT_NULL
 java.util.LinkedList boolean offerFirst(E) 0
@@ -25965,7 +25965,7 @@ NOT_NULL
 java.util.LinkedList boolean offerLast(E) 0
 NOT_NULL
 java.util.LinkedList boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.LinkedList boolean removeFirstOccurrence(java.lang.Object) 0
 NOT_NULL
 java.util.LinkedList boolean removeLastOccurrence(java.lang.Object) 0
@@ -26009,19 +26009,19 @@ NOT_NULL
 java.util.List T[] toArray(T[]) 0
 NOT_NULL
 java.util.List boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.List boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.List boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.List boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.List boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.List boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.List boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.List boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.List int indexOf(java.lang.Object) 0
@@ -26279,7 +26279,7 @@ NOT_NULL
 java.util.Locale.Category java.util.Locale.Category valueOf(java.lang.String)
 NOT_NULL
 java.util.Locale.LocaleKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Locale.LocaleKey sun.util.locale.BaseLocale access$200(java.util.Locale.LocaleKey) 0
 NOT_NULL
 java.util.Locale.LocaleKey sun.util.locale.LocaleExtensions access$300(java.util.Locale.LocaleKey) 0
@@ -26303,7 +26303,7 @@ NOT_NULL
 java.util.Map V get(java.lang.Object)
 NULLABLE
 java.util.Map V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Map V put(K, V)
 NULLABLE
 java.util.Map V put(K, V) 0
@@ -26313,13 +26313,13 @@ NOT_NULL
 java.util.Map V remove(java.lang.Object)
 NULLABLE
 java.util.Map V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Map boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Map boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Map boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Map java.util.Collection<V> values()
 NULLABLE
 java.util.Map java.util.Set<K> keySet()
@@ -26337,7 +26337,7 @@ NULLABLE
 java.util.Map.Entry V setValue(V) 0
 NOT_NULL
 java.util.Map.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.MissingFormatArgumentException MissingFormatArgumentException(java.lang.String) 0
 NOT_NULL
 java.util.MissingFormatArgumentException java.lang.String getMessage()
@@ -26463,13 +26463,13 @@ NOT_NULL
 java.util.PriorityQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.PriorityQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.PriorityQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.PriorityQueue boolean offer(E) 0
 NOT_NULL
 java.util.PriorityQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.PriorityQueue comparator
 NULLABLE
 java.util.PriorityQueue int access$100(java.util.PriorityQueue) 0
@@ -26535,7 +26535,7 @@ NOT_NULL
 java.util.Properties void writeComments(java.io.BufferedWriter, java.lang.String) 1
 NOT_NULL
 java.util.PropertyPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.PropertyPermission boolean implies(java.security.Permission) 0
 NULLABLE
 java.util.PropertyPermission int getMask(java.lang.String) 0
@@ -26573,7 +26573,7 @@ NULLABLE
 java.util.Queue E remove()
 NOT_NULL
 java.util.Queue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Queue boolean offer(E) 0
 NOT_NULL
 java.util.Random seed
@@ -26593,17 +26593,17 @@ NOT_NULL
 java.util.RegularEnumSet boolean add(E) 0
 NOT_NULL
 java.util.RegularEnumSet boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.RegularEnumSet boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.RegularEnumSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.RegularEnumSet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.RegularEnumSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.RegularEnumSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.RegularEnumSet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.RegularEnumSet java.util.Iterator<E> iterator()
@@ -26725,7 +26725,7 @@ NULLABLE
 java.util.ResourceBundle.CacheKey CacheKey(java.lang.String, java.util.Locale, java.lang.ClassLoader) 2
 NULLABLE
 java.util.ResourceBundle.CacheKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.ResourceBundle.CacheKey java.lang.ClassLoader getLoader()
 NULLABLE
 java.util.ResourceBundle.CacheKey java.lang.Object clone()
@@ -27071,17 +27071,17 @@ NOT_NULL
 java.util.Set T[] toArray(T[]) 0
 NOT_NULL
 java.util.Set boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Set boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Set boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Set boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Set boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Set boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Set boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Set java.lang.Object[] toArray()
@@ -27089,7 +27089,7 @@ NOT_NULL
 java.util.Set java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.SimpleTimeZone boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.SimpleTimeZone boolean hasSameRules(java.util.TimeZone) 0
 NULLABLE
 java.util.SimpleTimeZone boolean inDaylightTime(java.util.Date) 0
@@ -27319,7 +27319,7 @@ NOT_NULL
 java.util.TreeMap V get(java.lang.Object)
 NULLABLE
 java.util.TreeMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap V put(K, V)
 NULLABLE
 java.util.TreeMap V put(K, V) 0
@@ -27329,13 +27329,13 @@ NOT_NULL
 java.util.TreeMap V remove(java.lang.Object)
 NULLABLE
 java.util.TreeMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap boolean colorOf(java.util.TreeMap.Entry<K,V>) 0
 NULLABLE
 java.util.TreeMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap boolean valEquals(java.lang.Object, java.lang.Object) 0
 NULLABLE
 java.util.TreeMap boolean valEquals(java.lang.Object, java.lang.Object) 1
@@ -27535,13 +27535,13 @@ NOT_NULL
 java.util.TreeMap.Entry V setValue(V) 0
 NOT_NULL
 java.util.TreeMap.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.Entry java.lang.String toString()
 NOT_NULL
 java.util.TreeMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 java.util.TreeMap.KeySet E pollFirst()
@@ -27549,9 +27549,9 @@ NULLABLE
 java.util.TreeMap.KeySet E pollLast()
 NULLABLE
 java.util.TreeMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.KeySet java.util.NavigableSet<E> descendingSet()
 NOT_NULL
 java.util.TreeMap.KeySet java.util.NavigableSet<E> headSet(E, boolean)
@@ -27577,7 +27577,7 @@ NULLABLE
 java.util.TreeMap.NavigableSubMap V get(java.lang.Object)
 NULLABLE
 java.util.TreeMap.NavigableSubMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap V put(K, V)
 NULLABLE
 java.util.TreeMap.NavigableSubMap V put(K, V) 0
@@ -27587,9 +27587,9 @@ NOT_NULL
 java.util.TreeMap.NavigableSubMap V remove(java.lang.Object)
 NULLABLE
 java.util.TreeMap.NavigableSubMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap java.util.Iterator<K> descendingKeyIterator()
 NOT_NULL
 java.util.TreeMap.NavigableSubMap java.util.Iterator<K> keyIterator()
@@ -27639,9 +27639,9 @@ NULLABLE
 java.util.TreeMap.NavigableSubMap java.util.TreeMap.Entry<K,V> absLowest()
 NULLABLE
 java.util.TreeMap.NavigableSubMap.EntrySetView boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap.EntrySetView boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap.SubMapIterator SubMapIterator(java.util.TreeMap.Entry<K,V>, java.util.TreeMap.Entry<K,V>) 0
 NOT_NULL
 java.util.TreeMap.NavigableSubMap.SubMapIterator SubMapIterator(java.util.TreeMap.Entry<K,V>, java.util.TreeMap.Entry<K,V>) 2
@@ -27671,9 +27671,9 @@ NOT_NULL
 java.util.TreeMap.SubMap java.util.SortedMap<K,V> tailMap(K) 0
 NOT_NULL
 java.util.TreeMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.Values boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.TreeSet E pollFirst()
@@ -27685,13 +27685,13 @@ NOT_NULL
 java.util.TreeSet TreeSet(java.util.SortedSet<E>) 0
 NOT_NULL
 java.util.TreeSet boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.TreeSet boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.TreeSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.TreeSet java.lang.Object clone()
 NOT_NULL
 java.util.TreeSet java.util.NavigableSet<E> descendingSet()
@@ -27715,7 +27715,7 @@ NOT_NULL
 java.util.UUID UUID(byte[]) 0
 NOT_NULL
 java.util.UUID boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.UUID int compareTo(java.lang.Object) 0
 NOT_NULL
 java.util.UUID int compareTo(java.util.UUID) 0
@@ -27751,19 +27751,19 @@ NOT_NULL
 java.util.Vector Vector(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Vector boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.Vector boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.Vector boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.Vector boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Vector boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Vector boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Vector boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.Vector boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.Vector int indexOf(java.lang.Object) 0
@@ -27797,7 +27797,7 @@ NOT_NULL
 java.util.WeakHashMap V get(java.lang.Object)
 NULLABLE
 java.util.WeakHashMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap V put(K, V)
 NULLABLE
 java.util.WeakHashMap V put(K, V) 0
@@ -27807,13 +27807,13 @@ NOT_NULL
 java.util.WeakHashMap V remove(java.lang.Object)
 NULLABLE
 java.util.WeakHashMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap WeakHashMap(java.util.Map<? extends K,? extends V>) 0
 NOT_NULL
 java.util.WeakHashMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap boolean eq(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 java.util.WeakHashMap int hash(java.lang.Object) 0
@@ -27845,15 +27845,15 @@ NULLABLE
 java.util.WeakHashMap.Entry V setValue(V) 0
 NOT_NULL
 java.util.WeakHashMap.Entry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap.Entry java.lang.String toString()
 NOT_NULL
 java.util.WeakHashMap.EntrySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.WeakHashMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 java.util.WeakHashMap.EntrySet java.util.List<java.util.Map.Entry<K,V>> deepCopy()
@@ -27865,13 +27865,13 @@ NOT_NULL
 java.util.WeakHashMap.KeyIterator K next()
 NULLABLE
 java.util.WeakHashMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.WeakHashMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.XMLUtils EXTERNAL_XML_VERSION
@@ -27943,9 +27943,9 @@ NOT_NULL
 java.util.concurrent.ArrayBlockingQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.ArrayBlockingQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ArrayBlockingQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ArrayBlockingQueue boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.ArrayBlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -27953,7 +27953,7 @@ NOT_NULL
 java.util.concurrent.ArrayBlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.ArrayBlockingQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ArrayBlockingQueue int drainTo(java.util.Collection<? super E>) 0
 NOT_NULL
 java.util.concurrent.ArrayBlockingQueue int drainTo(java.util.Collection<? super E>, int) 0
@@ -28007,9 +28007,9 @@ NOT_NULL
 java.util.concurrent.BlockingDeque E takeLast()
 NOT_NULL
 java.util.concurrent.BlockingDeque boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.BlockingDeque boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.BlockingDeque boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.BlockingDeque boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -28029,7 +28029,7 @@ NOT_NULL
 java.util.concurrent.BlockingDeque boolean offerLast(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.BlockingDeque boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.BlockingDeque boolean removeFirstOccurrence(java.lang.Object) 0
 NOT_NULL
 java.util.concurrent.BlockingDeque boolean removeLastOccurrence(java.lang.Object) 0
@@ -28055,9 +28055,9 @@ NOT_NULL
 java.util.concurrent.BlockingQueue E take()
 NULLABLE
 java.util.concurrent.BlockingQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.BlockingQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.BlockingQueue boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.BlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -28065,7 +28065,7 @@ NOT_NULL
 java.util.concurrent.BlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.BlockingQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.BlockingQueue int drainTo(java.util.Collection<? super E>) 0
 NOT_NULL
 java.util.concurrent.BlockingQueue int drainTo(java.util.Collection<? super E>, int) 0
@@ -28091,7 +28091,7 @@ NOT_NULL
 java.util.concurrent.ConcurrentHashMap V get(java.lang.Object)
 NULLABLE
 java.util.concurrent.ConcurrentHashMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap V put(K, V) 0
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap V put(K, V) 1
@@ -28101,7 +28101,7 @@ NOT_NULL
 java.util.concurrent.ConcurrentHashMap V remove(java.lang.Object)
 NULLABLE
 java.util.concurrent.ConcurrentHashMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap V replace(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentHashMap V replace(K, V) 1
@@ -28109,9 +28109,9 @@ NOT_NULL
 java.util.concurrent.ConcurrentHashMap boolean contains(java.lang.Object) 0
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap boolean remove(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap boolean remove(java.lang.Object, java.lang.Object) 1
@@ -28159,9 +28159,9 @@ NOT_NULL
 java.util.concurrent.ConcurrentHashMap.EntryIterator java.util.Map.Entry<K,V> next()
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap.HashIterator HashIterator(java.util.concurrent.ConcurrentHashMap) 0
@@ -28171,9 +28171,9 @@ NOT_NULL
 java.util.concurrent.ConcurrentHashMap.HashIterator this$0
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap.Segment V remove(java.lang.Object, int, java.lang.Object)
@@ -28187,7 +28187,7 @@ NULLABLE
 java.util.concurrent.ConcurrentHashMap.Segment void rehash(java.util.concurrent.ConcurrentHashMap.HashEntry<K,V>) 0
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap.Values java.util.Iterator<V> iterator()
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap.WriteThroughEntry V setValue(V) 0
@@ -28233,11 +28233,11 @@ NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentLinkedDeque boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentLinkedDeque boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque boolean offerFirst(E) 0
@@ -28245,7 +28245,7 @@ NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque boolean offerLast(E) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentLinkedDeque boolean removeFirstOccurrence(java.lang.Object) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedDeque boolean removeLastOccurrence(java.lang.Object) 0
@@ -28335,15 +28335,15 @@ NOT_NULL
 java.util.concurrent.ConcurrentLinkedQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentLinkedQueue boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentLinkedQueue boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentLinkedQueue java.lang.Object[] toArray()
 NOT_NULL
 java.util.concurrent.ConcurrentLinkedQueue java.util.Iterator<E> iterator()
@@ -28439,7 +28439,7 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V get(java.lang.Object)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V put(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V put(K, V) 0
@@ -28453,17 +28453,17 @@ NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap V remove(java.lang.Object)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V replace(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V replace(K, V) 1
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap boolean inHalfOpenRange(K, K, K) 0
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap boolean inHalfOpenRange(K, K, K) 1
@@ -28631,11 +28631,11 @@ NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.EntrySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.EntrySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.EntrySet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.EntrySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.EntrySet java.util.Iterator<java.util.Map.Entry<K1,V1>> iterator()
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.Index boolean link(java.util.concurrent.ConcurrentSkipListMap.Index<K,V>, java.util.concurrent.ConcurrentSkipListMap.Index<K,V>) 1
@@ -28653,11 +28653,11 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.KeySet T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.KeySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.KeySet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.KeySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.KeySet java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.KeySet java.util.NavigableSet<E> descendingSet()
@@ -28713,7 +28713,7 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V get(java.lang.Object)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V put(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V put(K, V) 0
@@ -28727,7 +28727,7 @@ NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.SubMap V remove(java.lang.Object)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V replace(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V replace(K, V) 1
@@ -28735,9 +28735,9 @@ NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.SubMap boolean access$100(java.util.concurrent.ConcurrentSkipListMap.SubMap) 0
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.SubMap boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap boolean isBeforeEnd(java.util.concurrent.ConcurrentSkipListMap.Node<K,V>) 0
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap boolean remove(java.lang.Object, java.lang.Object) 0
@@ -28919,7 +28919,7 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.Values T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListMap.Values boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.Values java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListSet ConcurrentSkipListSet(java.util.SortedSet<E>) 0
@@ -28929,13 +28929,13 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListSet E pollLast()
 NULLABLE
 java.util.concurrent.ConcurrentSkipListSet boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListSet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.ConcurrentSkipListSet java.util.NavigableSet<E> descendingSet()
@@ -28969,13 +28969,13 @@ NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArrayList boolean addAll(int, java.util.Collection<? extends E>) 1
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArrayList boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList boolean eq(java.lang.Object, java.lang.Object) 0
@@ -28983,9 +28983,9 @@ NULLABLE
 java.util.concurrent.CopyOnWriteArrayList boolean eq(java.lang.Object, java.lang.Object) 1
 NULLABLE
 java.util.concurrent.CopyOnWriteArrayList boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArrayList boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArrayList boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList int addAllAbsent(java.util.Collection<? extends E>) 0
@@ -29019,7 +29019,7 @@ NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList.COWIterator void add(E) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList.COWSubList boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArrayList.COWSubList java.util.Iterator<E> iterator()
 NOT_NULL
 java.util.concurrent.CopyOnWriteArrayList.COWSubList java.util.List<E> subList(int, int)
@@ -29039,11 +29039,11 @@ NOT_NULL
 java.util.concurrent.CopyOnWriteArraySet al
 NOT_NULL
 java.util.concurrent.CopyOnWriteArraySet boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArraySet boolean addAll(java.util.Collection<? extends E>) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArraySet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArraySet boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArraySet boolean eq(java.lang.Object, java.lang.Object) 0
@@ -29051,9 +29051,9 @@ NULLABLE
 java.util.concurrent.CopyOnWriteArraySet boolean eq(java.lang.Object, java.lang.Object) 1
 NULLABLE
 java.util.concurrent.CopyOnWriteArraySet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArraySet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.CopyOnWriteArraySet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.CopyOnWriteArraySet java.lang.Object[] toArray()
@@ -29091,7 +29091,7 @@ NOT_NULL
 java.util.concurrent.DelayQueue boolean add(E) 0
 NOT_NULL
 java.util.concurrent.DelayQueue boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.DelayQueue boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.DelayQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -29103,7 +29103,7 @@ NOT_NULL
 java.util.concurrent.DelayQueue boolean offer(java.lang.Object, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.DelayQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.DelayQueue int drainTo(java.util.Collection<? super E>) 0
 NOT_NULL
 java.util.concurrent.DelayQueue int drainTo(java.util.Collection<? super E>, int) 0
@@ -29639,9 +29639,9 @@ NOT_NULL
 java.util.concurrent.LinkedBlockingDeque T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.LinkedBlockingDeque boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedBlockingDeque boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedBlockingDeque boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.LinkedBlockingDeque boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -29661,7 +29661,7 @@ NOT_NULL
 java.util.concurrent.LinkedBlockingDeque boolean offerLast(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.LinkedBlockingDeque boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedBlockingDeque boolean removeFirstOccurrence(java.lang.Object) 0
 NOT_NULL
 java.util.concurrent.LinkedBlockingDeque boolean removeLastOccurrence(java.lang.Object) 0
@@ -29729,7 +29729,7 @@ NOT_NULL
 java.util.concurrent.LinkedBlockingQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.LinkedBlockingQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedBlockingQueue boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.LinkedBlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -29737,7 +29737,7 @@ NOT_NULL
 java.util.concurrent.LinkedBlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.LinkedBlockingQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedBlockingQueue count
 NOT_NULL
 java.util.concurrent.LinkedBlockingQueue int drainTo(java.util.Collection<? super E>) 0
@@ -29791,9 +29791,9 @@ NOT_NULL
 java.util.concurrent.LinkedTransferQueue E xfer(E, boolean, int, long) 0
 NOT_NULL
 java.util.concurrent.LinkedTransferQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedTransferQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedTransferQueue boolean findAndRemove(java.lang.Object) 0
 NULLABLE
 java.util.concurrent.LinkedTransferQueue boolean offer(E) 0
@@ -29803,7 +29803,7 @@ NOT_NULL
 java.util.concurrent.LinkedTransferQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.LinkedTransferQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.LinkedTransferQueue boolean tryTransfer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.LinkedTransferQueue int drainTo(java.util.Collection<? super E>) 0
@@ -29867,9 +29867,9 @@ NOT_NULL
 java.util.concurrent.PriorityBlockingQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.PriorityBlockingQueue boolean add(E) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.PriorityBlockingQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.PriorityBlockingQueue boolean offer(E) 0
 NOT_NULL
 java.util.concurrent.PriorityBlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 0
@@ -29877,7 +29877,7 @@ NOT_NULL
 java.util.concurrent.PriorityBlockingQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.PriorityBlockingQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.PriorityBlockingQueue int drainTo(java.util.Collection<? super E>) 0
 NOT_NULL
 java.util.concurrent.PriorityBlockingQueue int drainTo(java.util.Collection<? super E>, int) 0
@@ -29973,11 +29973,11 @@ NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue available
 NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean add(java.lang.Runnable) 0
 NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean offer(java.lang.Object) 0
 NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean offer(java.lang.Object, long, java.util.concurrent.TimeUnit) 0
@@ -29989,7 +29989,7 @@ NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean offer(java.lang.Runnable, long, java.util.concurrent.TimeUnit) 0
 NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue int drainTo(java.util.Collection<? super java.lang.Runnable>) 0
 NOT_NULL
 java.util.concurrent.ScheduledThreadPoolExecutor.DelayedWorkQueue int drainTo(java.util.Collection<? super java.lang.Runnable>, int) 0
@@ -30045,7 +30045,7 @@ NOT_NULL
 java.util.concurrent.SynchronousQueue T[] toArray(T[]) 0
 NOT_NULL
 java.util.concurrent.SynchronousQueue boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.SynchronousQueue boolean containsAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.SynchronousQueue boolean offer(E) 0
@@ -30055,7 +30055,7 @@ NOT_NULL
 java.util.concurrent.SynchronousQueue boolean offer(E, long, java.util.concurrent.TimeUnit) 2
 NOT_NULL
 java.util.concurrent.SynchronousQueue boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.SynchronousQueue boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 java.util.concurrent.SynchronousQueue int drainTo(java.util.Collection<? super E>) 0
@@ -30593,21 +30593,21 @@ NOT_NULL
 java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock sync
 NOT_NULL
 java.util.jar.Attributes boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes java.lang.Object clone()
 NOT_NULL
 java.util.jar.Attributes java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes java.lang.Object put(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 java.util.jar.Attributes java.lang.Object put(java.lang.Object, java.lang.Object) 1
 NOT_NULL
 java.util.jar.Attributes java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes void putAll(java.util.Map<?,?>) 0
 NOT_NULL
 java.util.jar.Attributes void read(java.util.jar.Manifest.FastInputStream, byte[]) 0
@@ -30655,7 +30655,7 @@ NOT_NULL
 java.util.jar.Attributes.Name SPECIFICATION_VERSION
 NOT_NULL
 java.util.jar.Attributes.Name boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes.Name boolean isValid(java.lang.String) 0
 NOT_NULL
 java.util.jar.JarEntry JarEntry(java.util.jar.JarEntry) 0
@@ -30799,7 +30799,7 @@ NOT_NULL
 java.util.jar.JarVerifier.2 java.util.jar.JarEntry nextElement()
 NOT_NULL
 java.util.jar.JarVerifier.VerifierCodeSource boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.JarVerifier.VerifierStream VerifierStream(java.util.jar.Manifest, java.util.jar.JarEntry, java.io.InputStream, java.util.jar.JarVerifier) 1
 NOT_NULL
 java.util.jar.JarVerifier.VerifierStream int read(byte[], int, int) 0
@@ -30833,7 +30833,7 @@ NOT_NULL
 java.util.jar.Manifest Manifest(java.util.jar.Manifest) 0
 NOT_NULL
 java.util.jar.Manifest boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Manifest java.lang.Object clone()
 NOT_NULL
 java.util.jar.Manifest java.lang.String parseName(byte[], int)
@@ -30975,7 +30975,7 @@ NOT_NULL
 java.util.logging.Level WARNING
 NOT_NULL
 java.util.logging.Level boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.logging.Level java.lang.Object readResolve()
 NOT_NULL
 java.util.logging.Level java.lang.String getLocalizedName()
@@ -33251,7 +33251,7 @@ NOT_NULL
 javax.imageio.ImageTypeSpecifier ImageTypeSpecifier(java.awt.image.RenderedImage) 0
 NOT_NULL
 javax.imageio.ImageTypeSpecifier boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.imageio.ImageTypeSpecifier java.awt.image.BufferedImage createBufferedImage(int, int)
 NOT_NULL
 javax.imageio.ImageTypeSpecifier java.awt.image.ColorModel createComponentCM(java.awt.color.ColorSpace, int, int, boolean, boolean)
@@ -33279,7 +33279,7 @@ NOT_NULL
 javax.imageio.ImageTypeSpecifier.Banded Banded(java.awt.color.ColorSpace, int[], int[], int, boolean, boolean) 2
 NOT_NULL
 javax.imageio.ImageTypeSpecifier.Banded boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.imageio.ImageTypeSpecifier.Indexed Indexed(byte[], byte[], byte[], byte[], int, int) 0
 NOT_NULL
 javax.imageio.ImageTypeSpecifier.Indexed Indexed(byte[], byte[], byte[], byte[], int, int) 1
@@ -33293,7 +33293,7 @@ NOT_NULL
 javax.imageio.ImageTypeSpecifier.Interleaved Interleaved(java.awt.color.ColorSpace, int[], int, boolean, boolean) 1
 NOT_NULL
 javax.imageio.ImageTypeSpecifier.Interleaved boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.imageio.ImageTypeSpecifier.Packed Packed(java.awt.color.ColorSpace, int, int, int, int, int, boolean) 0
 NOT_NULL
 javax.imageio.ImageWriteParam float[] getCompressionQualityValues()
@@ -33639,11 +33639,11 @@ NULLABLE
 javax.imageio.spi.PartialOrderIterator PartialOrderIterator(java.util.Iterator) 0
 NOT_NULL
 javax.imageio.spi.PartiallyOrderedSet boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.imageio.spi.PartiallyOrderedSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.imageio.spi.PartiallyOrderedSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.imageio.spi.PartiallyOrderedSet java.util.Iterator iterator()
 NOT_NULL
 javax.imageio.spi.ServiceRegistry ServiceRegistry(java.util.Iterator<java.lang.Class<?>>) 0
@@ -33949,7 +33949,7 @@ NULLABLE
 javax.lang.model.element.AnnotationValueVisitor R visitType(javax.lang.model.type.TypeMirror, P)
 NULLABLE
 javax.lang.model.element.Element boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.lang.model.element.ElementKind $VALUES
 NOT_NULL
 javax.lang.model.element.ElementKind ANNOTATION_TYPE
@@ -34039,7 +34039,7 @@ NOT_NULL
 javax.lang.model.element.Modifier javax.lang.model.element.Modifier valueOf(java.lang.String)
 NOT_NULL
 javax.lang.model.element.Name boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.lang.model.element.NestingKind $VALUES
 NOT_NULL
 javax.lang.model.element.NestingKind ANONYMOUS
@@ -34105,7 +34105,7 @@ NOT_NULL
 javax.lang.model.type.TypeKind.1 $SwitchMap$javax$lang$model$type$TypeKind
 NOT_NULL
 javax.lang.model.type.TypeMirror boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.lang.model.type.TypeVisitor R visit(javax.lang.model.type.TypeMirror) 0
 NOT_NULL
 javax.lang.model.type.TypeVisitor R visit(javax.lang.model.type.TypeMirror, P) 0
@@ -34331,7 +34331,7 @@ NOT_NULL
 javax.management.Attribute Attribute(java.lang.String, java.lang.Object) 0
 NOT_NULL
 javax.management.Attribute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.Attribute java.lang.String toString()
 NOT_NULL
 javax.management.AttributeChangeNotification ATTRIBUTE_CHANGE
@@ -34343,7 +34343,7 @@ NOT_NULL
 javax.management.AttributeList AttributeList(java.util.List<javax.management.Attribute>) 0
 NOT_NULL
 javax.management.AttributeList boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.AttributeList boolean addAll(int, java.util.Collection<?>) 1
 NOT_NULL
 javax.management.AttributeList boolean addAll(java.util.Collection<?>) 0
@@ -34403,7 +34403,7 @@ NOT_NULL
 javax.management.ClassAttributeValueExp javax.management.ValueExp apply(javax.management.ObjectName) 0
 NOT_NULL
 javax.management.Descriptor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.Descriptor java.lang.Object clone()
 NOT_NULL
 javax.management.Descriptor java.lang.Object getFieldValue(java.lang.String)
@@ -34459,7 +34459,7 @@ NOT_NULL
 javax.management.ImmutableDescriptor ImmutableDescriptor(java.util.Map<java.lang.String,?>) 0
 NOT_NULL
 javax.management.ImmutableDescriptor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.ImmutableDescriptor boolean isEmpty(javax.management.Descriptor) 0
 NULLABLE
 javax.management.ImmutableDescriptor int findNonEmpty(javax.management.Descriptor[], int) 0
@@ -34565,7 +34565,7 @@ NULLABLE
 javax.management.MBeanAttributeInfo NO_ATTRIBUTES
 NOT_NULL
 javax.management.MBeanAttributeInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanAttributeInfo boolean isIs(java.lang.reflect.Method) 0
 NULLABLE
 javax.management.MBeanAttributeInfo java.lang.Object clone()
@@ -34585,7 +34585,7 @@ NOT_NULL
 javax.management.MBeanConstructorInfo NO_CONSTRUCTORS
 NOT_NULL
 javax.management.MBeanConstructorInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanConstructorInfo java.lang.Object clone()
 NULLABLE
 javax.management.MBeanConstructorInfo java.lang.String toString()
@@ -34595,7 +34595,7 @@ NOT_NULL
 javax.management.MBeanConstructorInfo javax.management.MBeanParameterInfo[] constructorSignature(java.lang.reflect.Constructor<?>) 0
 NOT_NULL
 javax.management.MBeanFeatureInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanFeatureInfo void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 javax.management.MBeanFeatureInfo void writeObject(java.io.ObjectOutputStream) 0
@@ -34615,7 +34615,7 @@ NOT_NULL
 javax.management.MBeanInfo attributes
 NOT_NULL
 javax.management.MBeanInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanInfo boolean isEqual(java.lang.String, java.lang.String) 0
 NULLABLE
 javax.management.MBeanInfo boolean isEqual(java.lang.String, java.lang.String) 1
@@ -34655,7 +34655,7 @@ NOT_NULL
 javax.management.MBeanNotificationInfo NO_TYPES
 NOT_NULL
 javax.management.MBeanNotificationInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanNotificationInfo java.lang.Object clone()
 NULLABLE
 javax.management.MBeanNotificationInfo java.lang.String toString()
@@ -34669,7 +34669,7 @@ NOT_NULL
 javax.management.MBeanOperationInfo NO_OPERATIONS
 NOT_NULL
 javax.management.MBeanOperationInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanOperationInfo java.lang.Object clone()
 NULLABLE
 javax.management.MBeanOperationInfo java.lang.String toString()
@@ -34685,13 +34685,13 @@ NOT_NULL
 javax.management.MBeanParameterInfo NO_PARAMS
 NOT_NULL
 javax.management.MBeanParameterInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanParameterInfo java.lang.Object clone()
 NULLABLE
 javax.management.MBeanParameterInfo java.lang.String toString()
 NOT_NULL
 javax.management.MBeanPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanPermission boolean implies(java.security.Permission) 0
 NULLABLE
 javax.management.MBeanPermission int getMask(java.lang.String) 0
@@ -34831,7 +34831,7 @@ NOT_NULL
 javax.management.MBeanServerPermission MBeanServerPermission(java.lang.String, java.lang.String) 1
 NULLABLE
 javax.management.MBeanServerPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.MBeanServerPermission boolean implies(java.security.Permission) 0
 NULLABLE
 javax.management.MBeanServerPermission canonicalNames
@@ -34917,9 +34917,9 @@ NULLABLE
 javax.management.NotificationBroadcasterSupport.1 void execute(java.lang.Runnable) 0
 NOT_NULL
 javax.management.NotificationBroadcasterSupport.ListenerInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.NotificationBroadcasterSupport.WildcardListenerInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.NotificationEmitter void removeNotificationListener(javax.management.NotificationListener, javax.management.NotificationFilter, java.lang.Object) 0
 NOT_NULL
 javax.management.NotificationFilter boolean isNotificationEnabled(javax.management.Notification) 0
@@ -34947,7 +34947,7 @@ NOT_NULL
 javax.management.ObjectInstance ObjectInstance(javax.management.ObjectName, java.lang.String) 0
 NOT_NULL
 javax.management.ObjectInstance boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.ObjectInstance java.lang.String toString()
 NOT_NULL
 javax.management.ObjectName _Empty_property_array
@@ -34957,7 +34957,7 @@ NOT_NULL
 javax.management.ObjectName boolean checkValue(java.lang.String) 0
 NOT_NULL
 javax.management.ObjectName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.ObjectName boolean isDomain(java.lang.String) 0
 NULLABLE
 javax.management.ObjectName boolean isPropertyValuePattern(java.lang.String) 0
@@ -35341,7 +35341,7 @@ NOT_NULL
 javax.management.modelmbean.DescriptorSupport DescriptorSupport(javax.management.modelmbean.DescriptorSupport) 0
 NULLABLE
 javax.management.modelmbean.DescriptorSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.modelmbean.DescriptorSupport boolean validateField(java.lang.String, java.lang.Object) 0
 NULLABLE
 javax.management.modelmbean.DescriptorSupport boolean validateField(java.lang.String, java.lang.Object) 1
@@ -36053,7 +36053,7 @@ NOT_NULL
 javax.management.openmbean.ArrayType boolean checkElementsType(java.lang.Object[], int) 0
 NOT_NULL
 javax.management.openmbean.ArrayType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.ArrayType boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.ArrayType java.lang.Object readResolve()
@@ -36097,7 +36097,7 @@ NULLABLE
 javax.management.openmbean.CompositeData boolean containsValue(java.lang.Object) 0
 NOT_NULL
 javax.management.openmbean.CompositeData boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.CompositeData java.lang.Object get(java.lang.String) 0
 NOT_NULL
 javax.management.openmbean.CompositeData java.lang.Object[] getAll(java.lang.String[])
@@ -36137,7 +36137,7 @@ NULLABLE
 javax.management.openmbean.CompositeDataSupport boolean containsValue(java.lang.Object) 0
 NOT_NULL
 javax.management.openmbean.CompositeDataSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.CompositeDataSupport compositeType
 NOT_NULL
 javax.management.openmbean.CompositeDataSupport contents
@@ -36175,7 +36175,7 @@ NOT_NULL
 javax.management.openmbean.CompositeType boolean containsKey(java.lang.String) 0
 NULLABLE
 javax.management.openmbean.CompositeType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.CompositeType boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.CompositeType java.lang.String getDescription(java.lang.String)
@@ -36191,7 +36191,7 @@ NOT_NULL
 javax.management.openmbean.CompositeType void checkForNullElement(java.lang.Object[], java.lang.String) 0
 NOT_NULL
 javax.management.openmbean.OpenMBeanAttributeInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanAttributeInfoSupport OpenMBeanAttributeInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenType<?>, boolean, boolean, boolean, javax.management.Descriptor) 2
 NULLABLE
 javax.management.openmbean.OpenMBeanAttributeInfoSupport OpenMBeanAttributeInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenType<T>, boolean, boolean, boolean, T, T[], java.lang.Comparable<T>, java.lang.Comparable<T>) 2
@@ -36219,7 +36219,7 @@ NULLABLE
 javax.management.openmbean.OpenMBeanAttributeInfoSupport T valueFrom(javax.management.Descriptor, java.lang.String, javax.management.openmbean.OpenType<T>) 0
 NOT_NULL
 javax.management.openmbean.OpenMBeanAttributeInfoSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanAttributeInfoSupport boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.OpenMBeanAttributeInfoSupport boolean isValue(javax.management.openmbean.OpenMBeanParameterInfo, java.lang.Object) 0
@@ -36273,23 +36273,23 @@ NULLABLE
 javax.management.openmbean.OpenMBeanAttributeInfoSupport void check(javax.management.openmbean.OpenMBeanParameterInfo) 0
 NOT_NULL
 javax.management.openmbean.OpenMBeanConstructorInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanConstructorInfoSupport OpenMBeanConstructorInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenMBeanParameterInfo[], javax.management.Descriptor) 0
 NOT_NULL
 javax.management.openmbean.OpenMBeanConstructorInfoSupport OpenMBeanConstructorInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenMBeanParameterInfo[], javax.management.Descriptor) 1
 NOT_NULL
 javax.management.openmbean.OpenMBeanConstructorInfoSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanConstructorInfoSupport javax.management.MBeanParameterInfo[] arrayCopyCast(javax.management.openmbean.OpenMBeanParameterInfo[])
 NULLABLE
 javax.management.openmbean.OpenMBeanConstructorInfoSupport javax.management.MBeanParameterInfo[] arrayCopyCast(javax.management.openmbean.OpenMBeanParameterInfo[]) 0
 NULLABLE
 javax.management.openmbean.OpenMBeanInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanInfoSupport OpenMBeanInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenMBeanAttributeInfo[], javax.management.openmbean.OpenMBeanConstructorInfo[], javax.management.openmbean.OpenMBeanOperationInfo[], javax.management.MBeanNotificationInfo[], javax.management.Descriptor) 5
 NULLABLE
 javax.management.openmbean.OpenMBeanInfoSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanInfoSupport javax.management.MBeanAttributeInfo[] attributeArray(javax.management.openmbean.OpenMBeanAttributeInfo[])
 NULLABLE
 javax.management.openmbean.OpenMBeanInfoSupport javax.management.MBeanAttributeInfo[] attributeArray(javax.management.openmbean.OpenMBeanAttributeInfo[]) 0
@@ -36303,7 +36303,7 @@ NULLABLE
 javax.management.openmbean.OpenMBeanInfoSupport javax.management.MBeanOperationInfo[] operationArray(javax.management.openmbean.OpenMBeanOperationInfo[]) 0
 NULLABLE
 javax.management.openmbean.OpenMBeanOperationInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanOperationInfoSupport OpenMBeanOperationInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenMBeanParameterInfo[], javax.management.openmbean.OpenType<?>, int, javax.management.Descriptor) 0
 NOT_NULL
 javax.management.openmbean.OpenMBeanOperationInfoSupport OpenMBeanOperationInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenMBeanParameterInfo[], javax.management.openmbean.OpenType<?>, int, javax.management.Descriptor) 1
@@ -36311,7 +36311,7 @@ NOT_NULL
 javax.management.openmbean.OpenMBeanOperationInfoSupport OpenMBeanOperationInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenMBeanParameterInfo[], javax.management.openmbean.OpenType<?>, int, javax.management.Descriptor) 3
 NOT_NULL
 javax.management.openmbean.OpenMBeanOperationInfoSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanOperationInfoSupport java.lang.Object readResolve()
 NOT_NULL
 javax.management.openmbean.OpenMBeanOperationInfoSupport javax.management.MBeanParameterInfo[] arrayCopyCast(javax.management.openmbean.OpenMBeanParameterInfo[])
@@ -36323,7 +36323,7 @@ NULLABLE
 javax.management.openmbean.OpenMBeanOperationInfoSupport javax.management.openmbean.OpenMBeanParameterInfo[] arrayCopyCast(javax.management.MBeanParameterInfo[]) 0
 NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfo boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfo java.lang.Comparable<?> getMaxValue()
@@ -36339,7 +36339,7 @@ NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfoSupport OpenMBeanParameterInfoSupport(java.lang.String, java.lang.String, javax.management.openmbean.OpenType<T>, T, T[], java.lang.Comparable<T>, java.lang.Comparable<T>) 2
 NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfoSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfoSupport boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.OpenMBeanParameterInfoSupport java.lang.Object readResolve()
@@ -36359,7 +36359,7 @@ NOT_NULL
 javax.management.openmbean.OpenType OpenType(java.lang.String, java.lang.String, java.lang.String, boolean) 2
 NOT_NULL
 javax.management.openmbean.OpenType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.OpenType boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.OpenType java.lang.String valid(java.lang.String, java.lang.String)
@@ -36407,7 +36407,7 @@ NOT_NULL
 javax.management.openmbean.SimpleType VOID
 NOT_NULL
 javax.management.openmbean.SimpleType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.SimpleType boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.SimpleType canonicalTypes
@@ -36419,7 +36419,7 @@ NOT_NULL
 javax.management.openmbean.TabularData boolean containsKey(java.lang.Object[]) 0
 NULLABLE
 javax.management.openmbean.TabularData boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularData java.lang.String toString()
 NOT_NULL
 javax.management.openmbean.TabularData javax.management.openmbean.TabularType getTabularType()
@@ -36429,23 +36429,23 @@ NULLABLE
 javax.management.openmbean.TabularDataSupport TabularDataSupport(javax.management.openmbean.TabularType, int, float) 0
 NOT_NULL
 javax.management.openmbean.TabularDataSupport boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport boolean containsKey(java.lang.Object[]) 0
 NULLABLE
 javax.management.openmbean.TabularDataSupport boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.Object clone()
 NOT_NULL
 javax.management.openmbean.TabularDataSupport java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.Object put(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 javax.management.openmbean.TabularDataSupport java.lang.Object put(java.lang.Object, java.lang.Object) 1
 NOT_NULL
 javax.management.openmbean.TabularDataSupport java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.String toString()
 NOT_NULL
 javax.management.openmbean.TabularDataSupport java.util.List<?> checkValueAndIndex(javax.management.openmbean.CompositeData)
@@ -36473,7 +36473,7 @@ NOT_NULL
 javax.management.openmbean.TabularType TabularType(java.lang.String, java.lang.String, javax.management.openmbean.CompositeType, java.lang.String[]) 3
 NOT_NULL
 javax.management.openmbean.TabularType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularType boolean isValue(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.TabularType void checkForEmptyString(java.lang.String[], java.lang.String) 0
@@ -37059,7 +37059,7 @@ NOT_NULL
 javax.management.relation.RoleList RoleList(java.util.List<javax.management.relation.Role>) 0
 NOT_NULL
 javax.management.relation.RoleList boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.relation.RoleList boolean addAll(int, java.util.Collection<?>) 1
 NOT_NULL
 javax.management.relation.RoleList boolean addAll(int, javax.management.relation.RoleList) 1
@@ -37115,7 +37115,7 @@ NOT_NULL
 javax.management.relation.RoleUnresolvedList RoleUnresolvedList(java.util.List<javax.management.relation.RoleUnresolved>) 0
 NOT_NULL
 javax.management.relation.RoleUnresolvedList boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.relation.RoleUnresolvedList boolean addAll(int, java.util.Collection<?>) 1
 NOT_NULL
 javax.management.relation.RoleUnresolvedList boolean addAll(int, javax.management.relation.RoleUnresolvedList) 1
@@ -37285,7 +37285,7 @@ NOT_NULL
 javax.management.remote.JMXPrincipal JMXPrincipal(java.lang.String) 0
 NOT_NULL
 javax.management.remote.JMXPrincipal boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.remote.JMXPrincipal java.lang.String toString()
 NOT_NULL
 javax.management.remote.JMXServiceURL JMXServiceURL(java.lang.String) 0
@@ -37301,7 +37301,7 @@ NOT_NULL
 javax.management.remote.JMXServiceURL alphaNumericBitSet
 NOT_NULL
 javax.management.remote.JMXServiceURL boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.remote.JMXServiceURL boolean isNumericIPv6Address(java.lang.String) 0
 NOT_NULL
 javax.management.remote.JMXServiceURL host
@@ -38069,7 +38069,7 @@ NOT_NULL
 javax.naming.BinaryRefAddr BinaryRefAddr(java.lang.String, byte[]) 1
 NOT_NULL
 javax.naming.BinaryRefAddr boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.BinaryRefAddr java.lang.String toString()
 NOT_NULL
 javax.naming.Binding java.lang.String getClassName()
@@ -38081,7 +38081,7 @@ NULLABLE
 javax.naming.CompositeName boolean endsWith(javax.naming.Name) 0
 NULLABLE
 javax.naming.CompositeName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.CompositeName boolean startsWith(javax.naming.Name) 0
 NULLABLE
 javax.naming.CompositeName int compareTo(java.lang.Object) 0
@@ -38119,7 +38119,7 @@ NOT_NULL
 javax.naming.CompoundName boolean endsWith(javax.naming.Name) 0
 NULLABLE
 javax.naming.CompoundName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.CompoundName boolean startsWith(javax.naming.Name) 0
 NULLABLE
 javax.naming.CompoundName int compareTo(java.lang.Object) 0
@@ -38349,7 +38349,7 @@ NOT_NULL
 javax.naming.NameImpl boolean addAll(java.util.Enumeration) 0
 NOT_NULL
 javax.naming.NameImpl boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.NameImpl boolean getBoolean(java.util.Properties, java.lang.String) 0
 NOT_NULL
 javax.naming.NameImpl boolean isA(java.lang.String, int, java.lang.String) 2
@@ -38387,11 +38387,11 @@ NULLABLE
 javax.naming.NamingException void setResolvedName(javax.naming.Name) 0
 NULLABLE
 javax.naming.RefAddr boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.RefAddr java.lang.String toString()
 NOT_NULL
 javax.naming.Reference boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.Reference java.lang.Object clone()
 NOT_NULL
 javax.naming.Reference java.lang.String toString()
@@ -38437,7 +38437,7 @@ NOT_NULL
 javax.naming.directory.BasicAttribute boolean contains(java.lang.Object) 0
 NOT_NULL
 javax.naming.directory.BasicAttribute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.directory.BasicAttribute boolean remove(java.lang.Object) 0
 NOT_NULL
 javax.naming.directory.BasicAttribute boolean valueEquals(java.lang.Object, java.lang.Object) 0
@@ -38459,7 +38459,7 @@ NOT_NULL
 javax.naming.directory.BasicAttribute.ValuesEnumImpl this$0
 NOT_NULL
 javax.naming.directory.BasicAttributes boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.directory.BasicAttributes java.lang.Object clone()
 NOT_NULL
 javax.naming.directory.BasicAttributes java.lang.String toString()
@@ -38537,7 +38537,7 @@ NULLABLE
 javax.naming.ldap.LdapName boolean endsWith(javax.naming.Name) 0
 NULLABLE
 javax.naming.ldap.LdapName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.ldap.LdapName boolean matches(int, int, javax.naming.Name) 2
 NOT_NULL
 javax.naming.ldap.LdapName boolean startsWith(java.util.List<javax.naming.ldap.Rdn>) 0
@@ -38621,7 +38621,7 @@ NOT_NULL
 javax.naming.ldap.Rdn Rdn(javax.naming.ldap.Rdn) 0
 NOT_NULL
 javax.naming.ldap.Rdn boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.ldap.Rdn byte[] decodeHexPairs(char[], int, int)
 NOT_NULL
 javax.naming.ldap.Rdn byte[] decodeHexPairs(char[], int, int) 0
@@ -38665,7 +38665,7 @@ NOT_NULL
 javax.naming.ldap.Rdn void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 javax.naming.ldap.Rdn.RdnEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.naming.ldap.Rdn.RdnEntry int compareTo(java.lang.Object) 0
 NOT_NULL
 javax.naming.ldap.Rdn.RdnEntry java.lang.Object access$202(javax.naming.ldap.Rdn.RdnEntry, java.lang.Object) 0
@@ -39035,7 +39035,7 @@ NULLABLE
 javax.print.DocFlavor DocFlavor(java.lang.String, java.lang.String) 1
 NOT_NULL
 javax.print.DocFlavor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.DocFlavor java.lang.String getParameter(java.lang.String) 0
 NOT_NULL
 javax.print.DocFlavor void readObject(java.io.ObjectInputStream) 0
@@ -39175,7 +39175,7 @@ NOT_NULL
 javax.print.DocFlavor.URL TEXT_PLAIN_UTF_8
 NOT_NULL
 javax.print.MimeType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.MimeType java.lang.String addQuotes(java.lang.String)
 NOT_NULL
 javax.print.MimeType java.lang.String addQuotes(java.lang.String) 0
@@ -39201,7 +39201,7 @@ NOT_NULL
 javax.print.MimeType.LexicalAnalyzer java.lang.String getLexeme()
 NULLABLE
 javax.print.MimeType.ParameterMapEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.MimeType.ParameterMapEntry java.lang.Object setValue(java.lang.Object) 0
 NOT_NULL
 javax.print.MimeType.ParameterMapEntrySet java.util.Iterator iterator()
@@ -39209,7 +39209,7 @@ NOT_NULL
 javax.print.MimeType.ParameterMapEntrySetIterator java.lang.Object next()
 NOT_NULL
 javax.print.PrintService boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.PrintServiceLookup java.util.ArrayList getAllLookupServices()
 NOT_NULL
 javax.print.PrintServiceLookup java.util.ArrayList getMultiDocServices(javax.print.DocFlavor[], javax.print.attribute.AttributeSet)
@@ -39297,7 +39297,7 @@ NULLABLE
 javax.print.attribute.AttributeSet boolean containsValue(javax.print.attribute.Attribute) 0
 NULLABLE
 javax.print.attribute.AttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.AttributeSet boolean remove(java.lang.Class<?>) 0
 NULLABLE
 javax.print.attribute.AttributeSet boolean remove(javax.print.attribute.Attribute) 0
@@ -39373,7 +39373,7 @@ NULLABLE
 javax.print.attribute.AttributeSetUtilities.SynchronizedAttributeSet boolean containsValue(javax.print.attribute.Attribute) 0
 NULLABLE
 javax.print.attribute.AttributeSetUtilities.SynchronizedAttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.AttributeSetUtilities.SynchronizedAttributeSet boolean remove(java.lang.Class<?>) 0
 NULLABLE
 javax.print.attribute.AttributeSetUtilities.SynchronizedAttributeSet boolean remove(javax.print.attribute.Attribute) 0
@@ -39389,7 +39389,7 @@ NULLABLE
 javax.print.attribute.AttributeSetUtilities.UnmodifiableAttributeSet boolean containsValue(javax.print.attribute.Attribute) 0
 NULLABLE
 javax.print.attribute.AttributeSetUtilities.UnmodifiableAttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.AttributeSetUtilities.UnmodifiableAttributeSet boolean remove(java.lang.Class<?>) 0
 NULLABLE
 javax.print.attribute.AttributeSetUtilities.UnmodifiableAttributeSet boolean remove(javax.print.attribute.Attribute) 0
@@ -39399,7 +39399,7 @@ NOT_NULL
 javax.print.attribute.DateTimeSyntax DateTimeSyntax(java.util.Date) 0
 NOT_NULL
 javax.print.attribute.DateTimeSyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.DateTimeSyntax java.lang.String toString()
 NOT_NULL
 javax.print.attribute.DateTimeSyntax java.util.Date getValue()
@@ -39437,7 +39437,7 @@ NULLABLE
 javax.print.attribute.HashAttributeSet boolean containsValue(javax.print.attribute.Attribute) 0
 NULLABLE
 javax.print.attribute.HashAttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.HashAttributeSet boolean remove(java.lang.Class<?>) 0
 NULLABLE
 javax.print.attribute.HashAttributeSet boolean remove(javax.print.attribute.Attribute) 0
@@ -39453,7 +39453,7 @@ NOT_NULL
 javax.print.attribute.HashAttributeSet void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 javax.print.attribute.IntegerSyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.IntegerSyntax java.lang.String toString()
 NOT_NULL
 javax.print.attribute.PrintJobAttributeSet boolean add(javax.print.attribute.Attribute) 0
@@ -39469,7 +39469,7 @@ NOT_NULL
 javax.print.attribute.PrintServiceAttributeSet boolean addAll(javax.print.attribute.AttributeSet) 0
 NOT_NULL
 javax.print.attribute.ResolutionSyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.ResolutionSyntax boolean lessThanOrEquals(javax.print.attribute.ResolutionSyntax) 0
 NOT_NULL
 javax.print.attribute.ResolutionSyntax int[] getResolution(int)
@@ -39483,7 +39483,7 @@ NULLABLE
 javax.print.attribute.SetOfIntegerSyntax boolean contains(javax.print.attribute.IntegerSyntax) 0
 NOT_NULL
 javax.print.attribute.SetOfIntegerSyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.SetOfIntegerSyntax int[][] canonicalArrayForm(java.util.Vector)
 NOT_NULL
 javax.print.attribute.SetOfIntegerSyntax int[][] canonicalArrayForm(java.util.Vector) 0
@@ -39501,7 +39501,7 @@ NULLABLE
 javax.print.attribute.SetOfIntegerSyntax java.lang.String toString()
 NOT_NULL
 javax.print.attribute.Size2DSyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.Size2DSyntax float[] getSize(int)
 NOT_NULL
 javax.print.attribute.Size2DSyntax java.lang.String toString()
@@ -39513,7 +39513,7 @@ NULLABLE
 javax.print.attribute.TextSyntax TextSyntax(java.lang.String, java.util.Locale) 0
 NOT_NULL
 javax.print.attribute.TextSyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.TextSyntax java.lang.String verify(java.lang.String)
 NOT_NULL
 javax.print.attribute.TextSyntax java.lang.String verify(java.lang.String) 0
@@ -39525,7 +39525,7 @@ NULLABLE
 javax.print.attribute.URISyntax URISyntax(java.net.URI) 0
 NOT_NULL
 javax.print.attribute.URISyntax boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.URISyntax java.net.URI verify(java.net.URI)
 NOT_NULL
 javax.print.attribute.URISyntax java.net.URI verify(java.net.URI) 0
@@ -39579,37 +39579,37 @@ NOT_NULL
 javax.print.attribute.standard.Compression myStringTable
 NOT_NULL
 javax.print.attribute.standard.Copies boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.Copies java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.Copies java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.CopiesSupported boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.CopiesSupported java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.CopiesSupported java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.DateTimeAtCompleted boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.DateTimeAtCompleted java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.DateTimeAtCompleted java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.DateTimeAtCreation boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.DateTimeAtCreation java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.DateTimeAtCreation java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.DateTimeAtProcessing boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.DateTimeAtProcessing java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.DateTimeAtProcessing java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.Destination boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.Destination java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.Destination java.lang.String getName()
@@ -39631,7 +39631,7 @@ NOT_NULL
 javax.print.attribute.standard.DialogTypeSelection myStringTable
 NOT_NULL
 javax.print.attribute.standard.DocumentName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.DocumentName java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.DocumentName java.lang.String getName()
@@ -39697,91 +39697,91 @@ NOT_NULL
 javax.print.attribute.standard.Finishings myStringTable
 NOT_NULL
 javax.print.attribute.standard.JobHoldUntil boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobHoldUntil java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobHoldUntil java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobImpressions boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobImpressions java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobImpressions java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobImpressionsCompleted boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobImpressionsCompleted java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobImpressionsCompleted java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobImpressionsSupported boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobImpressionsSupported java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobImpressionsSupported java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobKOctets boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobKOctets java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobKOctets java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobKOctetsProcessed boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobKOctetsProcessed java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobKOctetsProcessed java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobKOctetsSupported boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobKOctetsSupported java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobKOctetsSupported java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobMediaSheets boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobMediaSheets java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobMediaSheets java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobMediaSheetsCompleted boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobMediaSheetsCompleted java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobMediaSheetsCompleted java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobMediaSheetsSupported boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobMediaSheetsSupported java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobMediaSheetsSupported java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobMessageFromOperator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobMessageFromOperator java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobMessageFromOperator java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobName java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobName java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobOriginatingUserName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobOriginatingUserName java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobOriginatingUserName java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobPriority boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobPriority java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobPriority java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.JobPrioritySupported boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobPrioritySupported java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.JobPrioritySupported java.lang.String getName()
@@ -39893,7 +39893,7 @@ NOT_NULL
 javax.print.attribute.standard.JobStateReason myStringTable
 NOT_NULL
 javax.print.attribute.standard.JobStateReasons boolean add(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.JobStateReasons boolean add(javax.print.attribute.standard.JobStateReason) 0
 NOT_NULL
 javax.print.attribute.standard.JobStateReasons java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
@@ -39901,7 +39901,7 @@ NOT_NULL
 javax.print.attribute.standard.JobStateReasons java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.Media boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.Media java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.Media java.lang.String getName()
@@ -39919,7 +39919,7 @@ NOT_NULL
 javax.print.attribute.standard.MediaName myStringTable
 NOT_NULL
 javax.print.attribute.standard.MediaPrintableArea boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.MediaPrintableArea float[] getPrintableArea(int)
 NOT_NULL
 javax.print.attribute.standard.MediaPrintableArea java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
@@ -39937,7 +39937,7 @@ NULLABLE
 javax.print.attribute.standard.MediaSize MediaSize(int, int, int, javax.print.attribute.standard.MediaSizeName) 3
 NULLABLE
 javax.print.attribute.standard.MediaSize boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.MediaSize java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.MediaSize java.lang.String getName()
@@ -40319,19 +40319,19 @@ NOT_NULL
 javax.print.attribute.standard.MultipleDocumentHandling myStringTable
 NOT_NULL
 javax.print.attribute.standard.NumberOfDocuments boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.NumberOfDocuments java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.NumberOfDocuments java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.NumberOfInterveningJobs boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.NumberOfInterveningJobs java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.NumberOfInterveningJobs java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.NumberUp boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.NumberUp java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.NumberUp java.lang.String getName()
@@ -40339,7 +40339,7 @@ NOT_NULL
 javax.print.attribute.standard.NumberUpSupported NumberUpSupported(int[][]) 0
 NOT_NULL
 javax.print.attribute.standard.NumberUpSupported boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.NumberUpSupported java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.NumberUpSupported java.lang.String getName()
@@ -40365,7 +40365,7 @@ NOT_NULL
 javax.print.attribute.standard.OrientationRequested myStringTable
 NOT_NULL
 javax.print.attribute.standard.OutputDeviceAssigned boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.OutputDeviceAssigned java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.OutputDeviceAssigned java.lang.String getName()
@@ -40387,19 +40387,19 @@ NOT_NULL
 javax.print.attribute.standard.PageRanges PageRanges(java.lang.String) 0
 NOT_NULL
 javax.print.attribute.standard.PageRanges boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PageRanges java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PageRanges java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PagesPerMinute boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PagesPerMinute java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PagesPerMinute java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PagesPerMinuteColor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PagesPerMinuteColor java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PagesPerMinuteColor java.lang.String getName()
@@ -40447,7 +40447,7 @@ NOT_NULL
 javax.print.attribute.standard.PrintQuality myStringTable
 NOT_NULL
 javax.print.attribute.standard.PrinterInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterInfo java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterInfo java.lang.String getName()
@@ -40469,43 +40469,43 @@ NOT_NULL
 javax.print.attribute.standard.PrinterIsAcceptingJobs myStringTable
 NOT_NULL
 javax.print.attribute.standard.PrinterLocation boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterLocation java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterLocation java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterMakeAndModel boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterMakeAndModel java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterMakeAndModel java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterMessageFromOperator boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterMessageFromOperator java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterMessageFromOperator java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterMoreInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterMoreInfo java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterMoreInfo java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterMoreInfoManufacturer boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterMoreInfoManufacturer java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterMoreInfoManufacturer java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterName java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterName java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterResolution boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterResolution java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterResolution java.lang.String getName()
@@ -40629,13 +40629,13 @@ NOT_NULL
 javax.print.attribute.standard.PrinterStateReasons.PrinterStateReasonSet java.util.Iterator iterator()
 NOT_NULL
 javax.print.attribute.standard.PrinterURI boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterURI java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.PrinterURI java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.QueuedJobCount boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.QueuedJobCount java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.QueuedJobCount java.lang.String getName()
@@ -40665,7 +40665,7 @@ NOT_NULL
 javax.print.attribute.standard.ReferenceUriSchemesSupported myStringTable
 NOT_NULL
 javax.print.attribute.standard.RequestingUserName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.RequestingUserName java.lang.Class<? extends javax.print.attribute.Attribute> getCategory()
 NOT_NULL
 javax.print.attribute.standard.RequestingUserName java.lang.String getName()
@@ -40739,7 +40739,7 @@ NULLABLE
 javax.rmi.CORBA.Stub StubClassKey
 NOT_NULL
 javax.rmi.CORBA.Stub boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.rmi.CORBA.Stub defaultStubImplName
 NOT_NULL
 javax.rmi.CORBA.Stub java.lang.Object createDelegateIfSpecified(java.lang.String, java.lang.String)
@@ -40787,7 +40787,7 @@ NULLABLE
 javax.rmi.PortableRemoteObject java.rmi.Remote toStub(java.rmi.Remote)
 NULLABLE
 javax.rmi.ssl.SslRMIClientSocketFactory boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.rmi.ssl.SslRMIServerSocketFactory SslRMIServerSocketFactory(javax.net.ssl.SSLContext, java.lang.String[], java.lang.String[], boolean) 0
 NULLABLE
 javax.rmi.ssl.SslRMIServerSocketFactory SslRMIServerSocketFactory(javax.net.ssl.SSLContext, java.lang.String[], java.lang.String[], boolean) 1
@@ -40799,7 +40799,7 @@ NOT_NULL
 javax.rmi.ssl.SslRMIServerSocketFactory boolean checkParameters(javax.rmi.ssl.SslRMIServerSocketFactory) 0
 NOT_NULL
 javax.rmi.ssl.SslRMIServerSocketFactory boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.rmi.ssl.SslRMIServerSocketFactory enabledCipherSuites
 NULLABLE
 javax.rmi.ssl.SslRMIServerSocketFactory enabledProtocols
@@ -40839,11 +40839,11 @@ NOT_NULL
 javax.script.AbstractScriptEngine void setContext(javax.script.ScriptContext) 0
 NOT_NULL
 javax.script.Bindings boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.Bindings java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.Bindings java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.Bindings void putAll(java.util.Map<? extends java.lang.String,? extends java.lang.Object>) 0
 NOT_NULL
 javax.script.CompiledScript java.lang.Object eval(javax.script.Bindings) 0
@@ -40923,17 +40923,17 @@ NULLABLE
 javax.script.SimpleBindings SimpleBindings(java.util.Map<java.lang.String,java.lang.Object>) 0
 NOT_NULL
 javax.script.SimpleBindings boolean containsKey(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.SimpleBindings boolean containsValue(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.SimpleBindings java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.SimpleBindings java.lang.Object put(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 javax.script.SimpleBindings java.lang.Object put(java.lang.Object, java.lang.Object) 1
 NOT_NULL
 javax.script.SimpleBindings java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.SimpleBindings void checkKey(java.lang.Object) 0
 NOT_NULL
 javax.script.SimpleBindings void putAll(java.util.Map<? extends java.lang.String,? extends java.lang.Object>) 0
@@ -40973,7 +40973,7 @@ NOT_NULL
 javax.security.auth.PrivateCredentialPermission PrivateCredentialPermission(java.lang.String, java.util.Set<java.security.Principal>) 1
 NOT_NULL
 javax.security.auth.PrivateCredentialPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.PrivateCredentialPermission boolean implies(java.security.Permission) 0
 NULLABLE
 javax.security.auth.PrivateCredentialPermission boolean impliesCredentialClass(java.lang.String, java.lang.String) 0
@@ -41017,7 +41017,7 @@ NOT_NULL
 javax.security.auth.Subject T doAsPrivileged(javax.security.auth.Subject, java.security.PrivilegedExceptionAction<T>, java.security.AccessControlContext) 2
 NULLABLE
 javax.security.auth.Subject boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.Subject int getCredHashCode(java.lang.Object) 0
 NOT_NULL
 javax.security.auth.Subject java.lang.String toString()
@@ -41067,15 +41067,15 @@ NOT_NULL
 javax.security.auth.Subject.ClassSet ClassSet(int, java.lang.Class<T>) 0
 NOT_NULL
 javax.security.auth.Subject.ClassSet boolean add(T) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.Subject.ClassSet this$0
 NOT_NULL
 javax.security.auth.Subject.SecureSet boolean add(E) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.Subject.SecureSet boolean contains(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.Subject.SecureSet boolean remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.Subject.SecureSet boolean removeAll(java.util.Collection<?>) 0
 NOT_NULL
 javax.security.auth.Subject.SecureSet int access$000(javax.security.auth.Subject.SecureSet) 0
@@ -41165,7 +41165,7 @@ NOT_NULL
 javax.security.auth.callback.TextOutputCallback TextOutputCallback(int, java.lang.String) 1
 NOT_NULL
 javax.security.auth.kerberos.DelegationPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.DelegationPermission boolean implies(java.security.Permission) 0
 NULLABLE
 javax.security.auth.kerberos.DelegationPermission java.security.PermissionCollection newPermissionCollection()
@@ -41179,7 +41179,7 @@ NOT_NULL
 javax.security.auth.kerberos.JavaxSecurityAuthKerberosAccessImpl sun.security.krb5.EncryptionKey[] keyTabGetEncryptionKeys(javax.security.auth.kerberos.KeyTab, sun.security.krb5.PrincipalName) 0
 NOT_NULL
 javax.security.auth.kerberos.KerberosKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.KerberosKey java.lang.String getAlgorithm()
 NOT_NULL
 javax.security.auth.kerberos.KerberosKey java.lang.String getFormat()
@@ -41187,13 +41187,13 @@ NOT_NULL
 javax.security.auth.kerberos.KerberosKey java.lang.String toString()
 NOT_NULL
 javax.security.auth.kerberos.KerberosPrincipal boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.KerberosPrincipal void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 javax.security.auth.kerberos.KerberosPrincipal void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 javax.security.auth.kerberos.KerberosTicket boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.KerberosTicket boolean[] getFlags()
 NULLABLE
 javax.security.auth.kerberos.KerberosTicket java.lang.String toString()
@@ -41235,7 +41235,7 @@ NOT_NULL
 javax.security.auth.kerberos.KeyImpl KeyImpl(javax.security.auth.kerberos.KerberosPrincipal, char[], java.lang.String) 0
 NOT_NULL
 javax.security.auth.kerberos.KeyImpl boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.KeyImpl java.lang.String getAlgorithm()
 NOT_NULL
 javax.security.auth.kerberos.KeyImpl java.lang.String getAlgorithmName(int)
@@ -41249,7 +41249,7 @@ NOT_NULL
 javax.security.auth.kerberos.KeyImpl void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 javax.security.auth.kerberos.KeyTab boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.KeyTab java.lang.String toString()
 NOT_NULL
 javax.security.auth.kerberos.KeyTab javax.security.auth.kerberos.KerberosKey[] getKeys(javax.security.auth.kerberos.KerberosPrincipal)
@@ -41289,7 +41289,7 @@ NOT_NULL
 javax.security.auth.kerberos.ServicePermission ServicePermission(java.lang.String, java.lang.String) 1
 NOT_NULL
 javax.security.auth.kerberos.ServicePermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.kerberos.ServicePermission boolean implies(java.security.Permission) 0
 NULLABLE
 javax.security.auth.kerberos.ServicePermission int getMask(java.lang.String) 0
@@ -41407,7 +41407,7 @@ NOT_NULL
 javax.security.auth.x500.X500Principal X500Principal(java.lang.String, java.util.Map<java.lang.String,java.lang.String>) 1
 NOT_NULL
 javax.security.auth.x500.X500Principal boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.auth.x500.X500Principal java.lang.String getName(java.lang.String) 0
 NOT_NULL
 javax.security.auth.x500.X500Principal java.lang.String getName(java.lang.String, java.util.Map<java.lang.String,java.lang.String>) 0
@@ -41429,7 +41429,7 @@ NOT_NULL
 javax.security.auth.x500.X500PrivateCredential X500PrivateCredential(java.security.cert.X509Certificate, java.security.PrivateKey, java.lang.String) 2
 NOT_NULL
 javax.security.cert.Certificate boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.security.cert.X509Certificate X509_PROVIDER
 NOT_NULL
 javax.security.cert.X509Certificate javax.security.cert.X509Certificate getInst(java.lang.Object) 0
@@ -41499,7 +41499,7 @@ NOT_NULL
 javax.smartcardio.ATR ATR(byte[]) 0
 NOT_NULL
 javax.smartcardio.ATR boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.smartcardio.ATR byte[] getHistoricalBytes()
 NOT_NULL
 javax.smartcardio.ATR java.lang.String toString()
@@ -41529,7 +41529,7 @@ NOT_NULL
 javax.smartcardio.CardPermission S_TRANSMIT_CONTROL
 NOT_NULL
 javax.smartcardio.CardPermission boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.smartcardio.CardPermission boolean implies(java.security.Permission) 0
 NULLABLE
 javax.smartcardio.CardPermission int getMask(java.lang.String) 0
@@ -41567,7 +41567,7 @@ NOT_NULL
 javax.smartcardio.CommandAPDU CommandAPDU(java.nio.ByteBuffer) 0
 NOT_NULL
 javax.smartcardio.CommandAPDU boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.smartcardio.CommandAPDU byte[] getData()
 NOT_NULL
 javax.smartcardio.CommandAPDU int arrayLength(byte[]) 0
@@ -41581,7 +41581,7 @@ NOT_NULL
 javax.smartcardio.ResponseAPDU ResponseAPDU(byte[]) 0
 NOT_NULL
 javax.smartcardio.ResponseAPDU boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.smartcardio.ResponseAPDU byte[] getData()
 NOT_NULL
 javax.smartcardio.ResponseAPDU java.lang.String toString()
@@ -41635,7 +41635,7 @@ NOT_NULL
 javax.sound.midi.MetaMessage void writeVarInt(byte[], int, long) 0
 NOT_NULL
 javax.sound.midi.MidiDevice.Info boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.midi.MidiFileFormat java.lang.Object getProperty(java.lang.String)
 NULLABLE
 javax.sound.midi.MidiFileFormat java.util.Map<java.lang.String,java.lang.Object> properties()
@@ -41737,7 +41737,7 @@ NOT_NULL
 javax.sound.midi.Sequencer.SyncMode NO_SYNC
 NOT_NULL
 javax.sound.midi.Sequencer.SyncMode boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.midi.ShortMessage java.lang.Object clone()
 NOT_NULL
 javax.sound.midi.SysexMessage SysexMessage(byte[], int) 0
@@ -41773,7 +41773,7 @@ NOT_NULL
 javax.sound.sampled.AudioFileFormat.Type WAVE
 NOT_NULL
 javax.sound.sampled.AudioFileFormat.Type boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.AudioFormat boolean matches(javax.sound.sampled.AudioFormat) 0
 NOT_NULL
 javax.sound.sampled.AudioFormat java.lang.Object getProperty(java.lang.String)
@@ -41793,7 +41793,7 @@ NOT_NULL
 javax.sound.sampled.AudioFormat.Encoding ULAW
 NOT_NULL
 javax.sound.sampled.AudioFormat.Encoding boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.AudioInputStream AudioInputStream(java.io.InputStream, javax.sound.sampled.AudioFormat, long) 1
 NOT_NULL
 javax.sound.sampled.AudioInputStream AudioInputStream(javax.sound.sampled.TargetDataLine) 0
@@ -41883,7 +41883,7 @@ NOT_NULL
 javax.sound.sampled.Control java.lang.String toString()
 NOT_NULL
 javax.sound.sampled.Control.Type boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.DataLine.Info Info(java.lang.Class<?>, javax.sound.sampled.AudioFormat, int) 1
 NULLABLE
 javax.sound.sampled.DataLine.Info Info(java.lang.Class<?>, javax.sound.sampled.AudioFormat[], int, int) 1
@@ -41955,11 +41955,11 @@ NOT_NULL
 javax.sound.sampled.LineEvent.Type STOP
 NOT_NULL
 javax.sound.sampled.LineEvent.Type boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.LineListener void update(javax.sound.sampled.LineEvent) 0
 NOT_NULL
 javax.sound.sampled.Mixer.Info boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.Mixer.Info java.lang.String toString()
 NOT_NULL
 javax.sound.sampled.Port.Info COMPACT_DISC
@@ -41975,11 +41975,11 @@ NOT_NULL
 javax.sound.sampled.Port.Info SPEAKER
 NOT_NULL
 javax.sound.sampled.Port.Info boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.Port.Info java.lang.String toString()
 NOT_NULL
 javax.sound.sampled.ReverbType boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.sound.sampled.ReverbType java.lang.String toString()
 NOT_NULL
 javax.sound.sampled.spi.FormatConversionProvider boolean isConversionSupported(javax.sound.sampled.AudioFormat, javax.sound.sampled.AudioFormat) 0
@@ -46741,7 +46741,7 @@ NOT_NULL
 javax.swing.KeyboardManager void unregisterMenuBar(javax.swing.JMenuBar) 0
 NOT_NULL
 javax.swing.KeyboardManager.ComponentKeyStrokePair boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.LayoutComparator int compare(java.awt.Component, java.awt.Component) 0
 NOT_NULL
 javax.swing.LayoutComparator int compare(java.awt.Component, java.awt.Component) 1
@@ -46901,13 +46901,13 @@ NULLABLE
 javax.swing.MultiUIDefaults java.lang.Object get(java.lang.Object)
 NULLABLE
 javax.swing.MultiUIDefaults java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.MultiUIDefaults java.lang.Object get(java.lang.Object, java.util.Locale)
 NULLABLE
 javax.swing.MultiUIDefaults java.lang.Object remove(java.lang.Object)
 NULLABLE
 javax.swing.MultiUIDefaults java.lang.Object remove(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.MultiUIDefaults java.lang.String toString()
 NOT_NULL
 javax.swing.MultiUIDefaults java.util.Enumeration<java.lang.Object> elements()
@@ -47273,7 +47273,7 @@ NULLABLE
 javax.swing.RowSorter.SortKey SortKey(int, javax.swing.SortOrder) 1
 NOT_NULL
 javax.swing.RowSorter.SortKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.ScrollPaneConstants COLUMN_HEADER
 NOT_NULL
 javax.swing.ScrollPaneConstants HORIZONTAL_SCROLLBAR
@@ -48193,7 +48193,7 @@ NULLABLE
 javax.swing.UIDefaults java.lang.Object get(java.lang.Object)
 NULLABLE
 javax.swing.UIDefaults java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.UIDefaults java.lang.Object get(java.lang.Object, java.util.Locale)
 NULLABLE
 javax.swing.UIDefaults java.lang.Object getFromHashtable(java.lang.Object)
@@ -48273,7 +48273,7 @@ NOT_NULL
 javax.swing.UIDefaults.TextAndMnemonicHashMap java.lang.Object get(java.lang.Object)
 NULLABLE
 javax.swing.UIDefaults.TextAndMnemonicHashMap java.lang.Object get(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.UIDefaults.TextAndMnemonicHashMap java.lang.String composeKey(java.lang.String, int, java.lang.String)
 NOT_NULL
 javax.swing.UIDefaults.TextAndMnemonicHashMap java.lang.String composeKey(java.lang.String, int, java.lang.String) 0
@@ -56525,11 +56525,11 @@ NOT_NULL
 javax.swing.plaf.nimbus.ComboBoxTextFieldPainter void paintBackgroundSelected(java.awt.Graphics2D) 0
 NOT_NULL
 javax.swing.plaf.nimbus.DerivedColor boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.plaf.nimbus.DerivedColor java.lang.String toString()
 NOT_NULL
 javax.swing.plaf.nimbus.DerivedColor.UIResource boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.plaf.nimbus.DesktopIconPainter java.awt.Paint decodeGradient1(java.awt.Shape) 0
 NOT_NULL
 javax.swing.plaf.nimbus.DesktopIconPainter java.awt.Paint decodeGradient2(java.awt.Shape) 0
@@ -57277,7 +57277,7 @@ NOT_NULL
 javax.swing.plaf.nimbus.NimbusStyle.CacheKey CacheKey(java.lang.Object, int) 0
 NOT_NULL
 javax.swing.plaf.nimbus.NimbusStyle.CacheKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.plaf.nimbus.NimbusStyle.CacheKey void init(java.lang.Object, int) 0
 NOT_NULL
 javax.swing.plaf.nimbus.NimbusStyle.RuntimeState java.lang.Object clone()
@@ -62683,7 +62683,7 @@ NOT_NULL
 javax.swing.text.DefaultCaret boolean access$502(javax.swing.text.DefaultCaret, boolean) 0
 NOT_NULL
 javax.swing.text.DefaultCaret boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.DefaultCaret float access$402(javax.swing.text.DefaultCaret, float) 0
 NOT_NULL
 javax.swing.text.DefaultCaret int access$302(javax.swing.text.DefaultCaret, int) 0
@@ -64105,7 +64105,7 @@ NOT_NULL
 javax.swing.text.SimpleAttributeSet boolean containsAttributes(javax.swing.text.AttributeSet) 0
 NOT_NULL
 javax.swing.text.SimpleAttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.SimpleAttributeSet boolean isEqual(javax.swing.text.AttributeSet) 0
 NOT_NULL
 javax.swing.text.SimpleAttributeSet java.lang.Object clone()
@@ -64139,7 +64139,7 @@ NOT_NULL
 javax.swing.text.SimpleAttributeSet.EmptyAttributeSet boolean containsAttributes(javax.swing.text.AttributeSet) 0
 NOT_NULL
 javax.swing.text.SimpleAttributeSet.EmptyAttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.SimpleAttributeSet.EmptyAttributeSet boolean isEqual(javax.swing.text.AttributeSet) 0
 NOT_NULL
 javax.swing.text.SimpleAttributeSet.EmptyAttributeSet java.lang.Object getAttribute(java.lang.Object)
@@ -64421,7 +64421,7 @@ NOT_NULL
 javax.swing.text.StyleContext void writeObject(java.io.ObjectOutputStream) 0
 NOT_NULL
 javax.swing.text.StyleContext.FontKey boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.StyleContext.FontKey void setValue(java.lang.String, int, int) 0
 NULLABLE
 javax.swing.text.StyleContext.KeyBuilder java.lang.Object[] createTable()
@@ -64487,7 +64487,7 @@ NOT_NULL
 javax.swing.text.StyleContext.SmallAttributeSet boolean containsAttributes(javax.swing.text.AttributeSet) 0
 NOT_NULL
 javax.swing.text.StyleContext.SmallAttributeSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.StyleContext.SmallAttributeSet boolean isEqual(javax.swing.text.AttributeSet) 0
 NOT_NULL
 javax.swing.text.StyleContext.SmallAttributeSet java.lang.Object clone()
@@ -64589,13 +64589,13 @@ NOT_NULL
 javax.swing.text.TabSet TabSet(javax.swing.text.TabStop[]) 0
 NULLABLE
 javax.swing.text.TabSet boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.TabSet java.lang.String toString()
 NOT_NULL
 javax.swing.text.TabSet javax.swing.text.TabStop getTabAfter(float)
 NULLABLE
 javax.swing.text.TabStop boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.TabStop java.lang.String toString()
 NOT_NULL
 javax.swing.text.TableView EMPTY
@@ -66299,7 +66299,7 @@ NOT_NULL
 javax.swing.text.html.HTML.Tag allTags
 NOT_NULL
 javax.swing.text.html.HTML.UnknownTag boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.text.html.HTML.UnknownTag void readObject(java.io.ObjectInputStream) 0
 NOT_NULL
 javax.swing.text.html.HTML.UnknownTag void writeObject(java.io.ObjectOutputStream) 0
@@ -68291,7 +68291,7 @@ NOT_NULL
 javax.swing.tree.TreePath TreePath(javax.swing.tree.TreePath, java.lang.Object) 1
 NOT_NULL
 javax.swing.tree.TreePath boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.tree.TreePath boolean isDescendant(javax.swing.tree.TreePath) 0
 NULLABLE
 javax.swing.tree.TreePath java.lang.Object[] getPath()
@@ -69589,7 +69589,7 @@ NOT_NULL
 javax.xml.crypto.dsig.TransformService void marshalParams(javax.xml.crypto.XMLStructure, javax.xml.crypto.XMLCryptoContext) 1
 NULLABLE
 javax.xml.crypto.dsig.TransformService.MechanismMapEntry boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.xml.crypto.dsig.TransformService.MechanismMapEntry java.lang.Object getKey()
 NOT_NULL
 javax.xml.crypto.dsig.TransformService.MechanismMapEntry java.lang.Object setValue(java.lang.Object) 0
@@ -69917,7 +69917,7 @@ NOT_NULL
 javax.xml.datatype.DatatypeFactory javax.xml.datatype.Duration newDurationYearMonth(java.lang.String) 0
 NOT_NULL
 javax.xml.datatype.Duration boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.xml.datatype.Duration java.lang.String toString()
 NOT_NULL
 javax.xml.datatype.Duration java.lang.String toString(java.math.BigDecimal)
@@ -69957,7 +69957,7 @@ NULLABLE
 javax.xml.datatype.SecuritySupport.5 java.lang.Object run()
 NOT_NULL
 javax.xml.datatype.XMLGregorianCalendar boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String) 0
 NULLABLE
 javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String) 1
@@ -69965,7 +69965,7 @@ NOT_NULL
 javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String) 2
 NOT_NULL
 javax.xml.namespace.QName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.xml.namespace.QName java.lang.String getLocalPart()
 NOT_NULL
 javax.xml.namespace.QName java.lang.String getNamespaceURI()
@@ -70723,11 +70723,11 @@ NOT_NULL
 org.ietf.jgss.ChannelBinding ChannelBinding(java.net.InetAddress, java.net.InetAddress, byte[]) 2
 NULLABLE
 org.ietf.jgss.ChannelBinding boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.ietf.jgss.ChannelBinding byte[] getApplicationData()
 NULLABLE
 org.ietf.jgss.GSSCredential boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.ietf.jgss.GSSException java.lang.String toString()
 NOT_NULL
 org.ietf.jgss.GSSManager org.ietf.jgss.GSSManager getInstance()
@@ -70745,11 +70745,11 @@ NULLABLE
 org.ietf.jgss.GSSName NT_USER_NAME
 NULLABLE
 org.ietf.jgss.GSSName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.ietf.jgss.Oid boolean containedIn(org.ietf.jgss.Oid[]) 0
 NOT_NULL
 org.ietf.jgss.Oid boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.ietf.jgss.Oid org.ietf.jgss.Oid getInstance(java.lang.String)
 NULLABLE
 org.jcp.xml.dsig.internal.DigesterOutputStream java.io.InputStream getInputStream()
@@ -70837,7 +70837,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMCanonicalXMLC14NMethod void init(javax.xml.crypto.dsig.spec.TransformParameterSpec) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMCanonicalizationMethod boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMCryptoBinary DOMCryptoBinary(java.math.BigInteger) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMCryptoBinary DOMCryptoBinary(org.w3c.dom.Node) 0
@@ -70851,7 +70851,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMDigestMethod SHA384
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMDigestMethod boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMDigestMethod java.lang.String getMessageDigestAlgorithm()
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMDigestMethod javax.xml.crypto.dsig.DigestMethod unmarshal(org.w3c.dom.Element)
@@ -70939,7 +70939,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyInfo DOMKeyInfo(org.w3c.dom.Element, javax.xml.crypto.XMLCryptoContext, java.security.Provider) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMKeyInfo id
 NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMKeyInfo java.lang.String getId()
@@ -70995,7 +70995,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyName DOMKeyName(org.w3c.dom.Element) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyName boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMKeyName void marshal(org.w3c.dom.Node, java.lang.String, javax.xml.crypto.dom.DOMCryptoContext) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyValue DOMKeyValue(java.security.PublicKey) 0
@@ -71003,7 +71003,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyValue DOMKeyValue(org.w3c.dom.Element) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMKeyValue boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMKeyValue java.security.PublicKey generatePublicKey(java.security.KeyFactory, java.security.spec.KeySpec)
 NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMKeyValue java.security.PublicKey generatePublicKey(java.security.KeyFactory, java.security.spec.KeySpec) 0
@@ -71031,7 +71031,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMManifest DOMManifest(org.w3c.dom.Element, javax.xml.crypto.XMLCryptoContext, java.security.Provider) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMManifest boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMManifest id
 NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMManifest java.lang.String getId()
@@ -71085,7 +71085,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMReference appliedTransformData
 NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMReference boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMReference boolean validate(javax.xml.crypto.dsig.XMLValidateContext) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMReference byte[] getCalculatedDigestValue()
@@ -71133,7 +71133,7 @@ NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMRetrievalMethod DOMRetrievalMethod(org.w3c.dom.Element, javax.xml.crypto.XMLCryptoContext, java.security.Provider) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMRetrievalMethod boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMRetrievalMethod java.util.List getTransforms()
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMRetrievalMethod javax.xml.crypto.Data dereference(javax.xml.crypto.XMLCryptoContext) 0
@@ -71163,7 +71163,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureMethod RSA_SHA512
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureMethod boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMSignatureMethod boolean verify(java.security.Key, org.jcp.xml.dsig.internal.dom.DOMSignedInfo, byte[], javax.xml.crypto.dsig.XMLValidateContext) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureMethod boolean verify(java.security.Key, org.jcp.xml.dsig.internal.dom.DOMSignedInfo, byte[], javax.xml.crypto.dsig.XMLValidateContext) 1
@@ -71227,7 +71227,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperties DOMSignatureProperties(org.w3c.dom.Element) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperties boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperties id
 NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperties java.lang.String getId()
@@ -71245,7 +71245,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperty DOMSignatureProperty(org.w3c.dom.Element) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperty boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperty boolean equalsContent(java.util.List) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignatureProperty content
@@ -71271,7 +71271,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignedInfo DOMSignedInfo(org.w3c.dom.Element, javax.xml.crypto.XMLCryptoContext, java.security.Provider) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignedInfo boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMSignedInfo void canonicalize(javax.xml.crypto.XMLCryptoContext, java.io.ByteArrayOutputStream) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMSignedInfo void canonicalize(javax.xml.crypto.XMLCryptoContext, java.io.ByteArrayOutputStream) 1
@@ -71293,7 +71293,7 @@ NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMTransform DOMTransform(org.w3c.dom.Element, javax.xml.crypto.XMLCryptoContext, java.security.Provider) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMTransform boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMTransform javax.xml.crypto.Data transform(javax.xml.crypto.Data, javax.xml.crypto.XMLCryptoContext) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMTransform javax.xml.crypto.Data transform(javax.xml.crypto.Data, javax.xml.crypto.XMLCryptoContext, java.io.OutputStream) 0
@@ -71377,7 +71377,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMX509Data DOMX509Data(org.w3c.dom.Element) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMX509Data boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMX509Data content
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMX509Data java.io.ByteArrayInputStream unmarshalBase64Binary(org.w3c.dom.Element)
@@ -71413,7 +71413,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMX509IssuerSerial DOMX509IssuerSerial(org.w3c.dom.Element) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMX509IssuerSerial boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMX509IssuerSerial java.math.BigInteger getSerialNumber()
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMX509IssuerSerial serialNumber
@@ -71425,7 +71425,7 @@ NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMXMLObject DOMXMLObject(org.w3c.dom.Element, javax.xml.crypto.XMLCryptoContext, java.security.Provider) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLObject boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMXMLObject boolean equalsContent(java.util.List) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLObject content
@@ -71451,7 +71451,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature DOMXMLSignature(javax.xml.crypto.dsig.SignedInfo, javax.xml.crypto.dsig.keyinfo.KeyInfo, java.util.List, java.lang.String, java.lang.String) 2
 NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature boolean validate(javax.xml.crypto.dsig.XMLValidateContext) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature javax.xml.crypto.KeySelectorResult access$202(org.jcp.xml.dsig.internal.dom.DOMXMLSignature, javax.xml.crypto.KeySelectorResult) 0
@@ -71475,7 +71475,7 @@ NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature.DOMSignatureValue DOMSignatureValue(org.jcp.xml.dsig.internal.dom.DOMXMLSignature, org.w3c.dom.Element) 1
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature.DOMSignatureValue boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature.DOMSignatureValue boolean validate(javax.xml.crypto.dsig.XMLValidateContext) 0
 NOT_NULL
 org.jcp.xml.dsig.internal.dom.DOMXMLSignature.DOMSignatureValue byte[] getValue()
@@ -72555,7 +72555,7 @@ NOT_NULL
 org.omg.CORBA.portable.InvokeHandler org.omg.CORBA.portable.OutputStream _invoke(java.lang.String, org.omg.CORBA.portable.InputStream, org.omg.CORBA.portable.ResponseHandler) 2
 NOT_NULL
 org.omg.CORBA.portable.ObjectImpl boolean equals(java.lang.Object) 0
-NOT_NULL
+NULLABLE
 org.omg.CORBA.portable.ObjectImpl java.lang.String toString()
 NOT_NULL
 org.omg.CORBA.portable.ObjectImpl org.omg.CORBA.portable.ServantObject _servant_preinvoke(java.lang.String, java.lang.Class)
