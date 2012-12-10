@@ -23,26 +23,29 @@ public class LibraryItemsTreeController() {
         initializedTree.set(initializedTreeView)
 
         val libraryTables = ChooseLibrariesFromTablesDialog.getLibraryTables(project, true)
-        for (table in libraryTables) {
-            for (library in table.getLibraries()) {
-                val libraryNode = LibraryCheckTreeNode(library)
-                libraryNode.setChecked(false)
+        val allLibraries = libraryTables
+                .flatMap { it.getLibraries().toList() }
+                .sortBy { (it.getName() ?: "<no-name>").toLowerCase() }
 
-                root.add(libraryNode)
+        for (library in allLibraries) {
+            val libraryNode = LibraryCheckTreeNode(library)
+            libraryNode.setChecked(false)
 
-                val classFileRoots = library.getRootProvider().getFiles(OrderRootType.CLASSES)
-                for (classFileRoot in classFileRoots) {
-                    if (classFileRoot.getExtension() == "jar") {
-                        val jarFileCheckTreeNode = JarFileCheckTreeNode(classFileRoot)
-                        jarFileCheckTreeNode.setChecked(false);
+            root.add(libraryNode)
 
-                        libraryNode.add(jarFileCheckTreeNode);
-                    }
-                }
+            val jarFileRoots = library.getRootProvider().getFiles(OrderRootType.CLASSES)
+                    .filter { it.getExtension() == "jar" }
+                    .sortBy { it.getName().toLowerCase() }
 
-                if (libraryNode.getChildCount() == 0) {
-                    libraryNode.setEnabled(false)
-                }
+            for (classFileRoot in jarFileRoots) {
+                val jarFileCheckTreeNode = JarFileCheckTreeNode(classFileRoot)
+                jarFileCheckTreeNode.setChecked(false);
+
+                libraryNode.add(jarFileCheckTreeNode);
+            }
+
+            if (libraryNode.getChildCount() == 0) {
+                libraryNode.setEnabled(false)
             }
         }
 
