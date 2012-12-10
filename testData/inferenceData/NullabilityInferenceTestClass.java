@@ -152,7 +152,8 @@ public class NullabilityInferenceTestClass {
         if (a == null) throw new NullPointerException();
     }
 
-    public String testAssertAfterReturn(String a, boolean condition) {
+    @ExpectNotNull
+    public String testAssertAfterReturn(@ExpectNotNull String a, boolean condition) {
         if (condition) return a;
         a.getBytes();
         return "";

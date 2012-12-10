@@ -3503,9 +3503,9 @@ NULLABLE
 java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 java.awt.RenderingHints java.lang.Object remove(java.lang.Object)
 NULLABLE
 java.awt.RenderingHints java.lang.Object remove(java.lang.Object) 0
@@ -12225,9 +12225,9 @@ NULLABLE
 java.lang.ProcessEnvironment java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 java.lang.ProcessEnvironment java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 java.lang.ProcessEnvironment java.lang.Object remove(java.lang.Object)
 NULLABLE
 java.lang.ProcessEnvironment java.lang.Object remove(java.lang.Object) 0
@@ -21185,9 +21185,9 @@ NULLABLE
 java.security.Provider java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 java.security.Provider java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.security.Provider java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 java.security.Provider java.lang.Object remove(java.lang.Object)
 NULLABLE
 java.security.Provider java.lang.Object remove(java.lang.Object) 0
@@ -23389,9 +23389,9 @@ NULLABLE
 java.util.AbstractMap V put(K, V)
 NULLABLE
 java.util.AbstractMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.AbstractMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.AbstractMap V remove(java.lang.Object)
 NULLABLE
 java.util.AbstractMap V remove(java.lang.Object) 0
@@ -24417,9 +24417,9 @@ NOT_NULL
 java.util.Collections.CheckedMap V get(java.lang.Object) 0
 NULLABLE
 java.util.Collections.CheckedMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.Collections.CheckedMap V remove(java.lang.Object) 0
 NULLABLE
 java.util.Collections.CheckedMap boolean containsKey(java.lang.Object) 0
@@ -24685,9 +24685,9 @@ NOT_NULL
 java.util.Collections.SynchronizedMap V get(java.lang.Object) 0
 NULLABLE
 java.util.Collections.SynchronizedMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.Collections.SynchronizedMap V remove(java.lang.Object) 0
 NULLABLE
 java.util.Collections.SynchronizedMap boolean containsKey(java.lang.Object) 0
@@ -24781,9 +24781,9 @@ NOT_NULL
 java.util.Collections.UnmodifiableMap V get(java.lang.Object) 0
 NULLABLE
 java.util.Collections.UnmodifiableMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.Collections.UnmodifiableMap V remove(java.lang.Object) 0
 NULLABLE
 java.util.Collections.UnmodifiableMap boolean containsKey(java.lang.Object) 0
@@ -25147,9 +25147,9 @@ NULLABLE
 java.util.EnumMap java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 java.util.EnumMap java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.EnumMap java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 java.util.EnumMap java.lang.Object[] access$600(java.util.EnumMap) 0
 NOT_NULL
 java.util.EnumMap java.util.Collection<V> values()
@@ -25511,9 +25511,9 @@ NULLABLE
 java.util.HashMap V put(K, V)
 NULLABLE
 java.util.HashMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.HashMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.HashMap V putForNullKey(V)
 NULLABLE
 java.util.HashMap V remove(java.lang.Object)
@@ -25619,9 +25619,9 @@ NULLABLE
 java.util.Hashtable V put(K, V)
 NULLABLE
 java.util.Hashtable V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.Hashtable V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.Hashtable V remove(java.lang.Object)
 NULLABLE
 java.util.Hashtable V remove(java.lang.Object) 0
@@ -25711,9 +25711,9 @@ NULLABLE
 java.util.IdentityHashMap V put(K, V)
 NULLABLE
 java.util.IdentityHashMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.IdentityHashMap V remove(java.lang.Object)
 NULLABLE
 java.util.IdentityHashMap V remove(java.lang.Object) 0
@@ -26307,9 +26307,9 @@ NULLABLE
 java.util.Map V put(K, V)
 NULLABLE
 java.util.Map V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.Map V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.Map V remove(java.lang.Object)
 NULLABLE
 java.util.Map V remove(java.lang.Object) 0
@@ -27323,9 +27323,9 @@ NULLABLE
 java.util.TreeMap V put(K, V)
 NULLABLE
 java.util.TreeMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.TreeMap V remove(java.lang.Object)
 NULLABLE
 java.util.TreeMap V remove(java.lang.Object) 0
@@ -27581,9 +27581,9 @@ NULLABLE
 java.util.TreeMap.NavigableSubMap V put(K, V)
 NULLABLE
 java.util.TreeMap.NavigableSubMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.TreeMap.NavigableSubMap V remove(java.lang.Object)
 NULLABLE
 java.util.TreeMap.NavigableSubMap V remove(java.lang.Object) 0
@@ -27801,9 +27801,9 @@ NULLABLE
 java.util.WeakHashMap V put(K, V)
 NULLABLE
 java.util.WeakHashMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.WeakHashMap V remove(java.lang.Object)
 NULLABLE
 java.util.WeakHashMap V remove(java.lang.Object) 0
@@ -28093,9 +28093,9 @@ NULLABLE
 java.util.concurrent.ConcurrentHashMap V get(java.lang.Object) 0
 NULLABLE
 java.util.concurrent.ConcurrentHashMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentHashMap V putIfAbsent(K, V) 1
 NOT_NULL
 java.util.concurrent.ConcurrentHashMap V remove(java.lang.Object)
@@ -28443,9 +28443,9 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V put(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V putIfAbsent(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap V putIfAbsent(K, V) 1
@@ -28717,9 +28717,9 @@ NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V put(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V put(K, V) 0
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V put(K, V) 1
-NOT_NULL
+NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V putIfAbsent(K, V)
 NULLABLE
 java.util.concurrent.ConcurrentSkipListMap.SubMap V putIfAbsent(K, V) 1
@@ -30603,9 +30603,9 @@ NOT_NULL
 java.util.jar.Attributes java.lang.Object get(java.lang.Object) 0
 NULLABLE
 java.util.jar.Attributes java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 java.util.jar.Attributes java.lang.Object remove(java.lang.Object) 0
 NULLABLE
 java.util.jar.Attributes void putAll(java.util.Map<?,?>) 0
@@ -36441,9 +36441,9 @@ NOT_NULL
 javax.management.openmbean.TabularDataSupport java.lang.Object get(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.Object remove(java.lang.Object) 0
 NULLABLE
 javax.management.openmbean.TabularDataSupport java.lang.String toString()
@@ -40611,9 +40611,9 @@ NOT_NULL
 javax.print.attribute.standard.PrinterStateReasons java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 javax.print.attribute.standard.PrinterStateReasons java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterStateReasons java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 javax.print.attribute.standard.PrinterStateReasons java.lang.String getName()
 NOT_NULL
 javax.print.attribute.standard.PrinterStateReasons java.util.Set<javax.print.attribute.standard.PrinterStateReason> printerStateReasonSet(javax.print.attribute.standard.Severity)
@@ -40929,9 +40929,9 @@ NULLABLE
 javax.script.SimpleBindings java.lang.Object get(java.lang.Object) 0
 NULLABLE
 javax.script.SimpleBindings java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.script.SimpleBindings java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 javax.script.SimpleBindings java.lang.Object remove(java.lang.Object) 0
 NULLABLE
 javax.script.SimpleBindings void checkKey(java.lang.Object) 0
@@ -48205,9 +48205,9 @@ NULLABLE
 javax.swing.UIDefaults java.lang.Object put(java.lang.Object, java.lang.Object)
 NULLABLE
 javax.swing.UIDefaults java.lang.Object put(java.lang.Object, java.lang.Object) 0
-NOT_NULL
+NULLABLE
 javax.swing.UIDefaults java.lang.Object put(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 javax.swing.UIDefaults java.lang.String getString(java.lang.Object)
 NULLABLE
 javax.swing.UIDefaults java.lang.String getString(java.lang.Object, java.util.Locale)
@@ -68742,6 +68742,8 @@ javax.xml.bind.DatatypeConverterImpl java.lang.String _printInteger(java.math.Bi
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String _printLong(long)
 NOT_NULL
+javax.xml.bind.DatatypeConverterImpl java.lang.String _printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext)
+NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String _printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 0
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String _printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 1
@@ -68779,6 +68781,8 @@ NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String printInteger(java.math.BigInteger) 0
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String printLong(long)
+NOT_NULL
+javax.xml.bind.DatatypeConverterImpl java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext)
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 0
 NOT_NULL
@@ -68917,6 +68921,8 @@ NOT_NULL
 javax.xml.bind.DatatypeConverterInterface java.lang.String printInteger(java.math.BigInteger) 0
 NOT_NULL
 javax.xml.bind.DatatypeConverterInterface java.lang.String printLong(long)
+NOT_NULL
+javax.xml.bind.DatatypeConverterInterface java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext)
 NOT_NULL
 javax.xml.bind.DatatypeConverterInterface java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 0
 NOT_NULL
@@ -69960,9 +69966,23 @@ javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.St
 NOT_NULL
 javax.xml.namespace.QName boolean equals(java.lang.Object) 0
 NULLABLE
+javax.xml.namespace.QName java.lang.String getLocalPart()
+NOT_NULL
+javax.xml.namespace.QName java.lang.String getNamespaceURI()
+NOT_NULL
+javax.xml.namespace.QName java.lang.String getPrefix()
+NOT_NULL
+javax.xml.namespace.QName java.lang.String toString()
+NOT_NULL
 javax.xml.namespace.QName javax.xml.namespace.QName valueOf(java.lang.String)
 NOT_NULL
 javax.xml.namespace.QName javax.xml.namespace.QName valueOf(java.lang.String) 0
+NOT_NULL
+javax.xml.namespace.QName localPart
+NOT_NULL
+javax.xml.namespace.QName namespaceURI
+NOT_NULL
+javax.xml.namespace.QName prefix
 NOT_NULL
 javax.xml.namespace.QName.1 java.lang.Object run()
 NULLABLE
