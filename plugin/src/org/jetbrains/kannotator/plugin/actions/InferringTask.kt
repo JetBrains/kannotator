@@ -31,6 +31,8 @@ import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
         val inferKotlinAnnotations: Boolean,
+        val addAnnotationsRoots: Boolean,
+        val removeOtherRoots: Boolean,
         val outputPath: String,
         val libJarFiles: Map<Library, Set<File>>)
 
@@ -143,16 +145,23 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                 }
             }
 
-            assignAnnotationsToLibrary(lib, libOutputDir)
+            if (taskParams.addAnnotationsRoots) {
+                assignAnnotationsToLibrary(lib, libOutputDir)
+            }
         }
 
         if (!taskParams.libJarFiles.isEmpty()) {
             runInsideReadAction {
-                outputDirectory.refresh(true, true, runnable {
-                    runInsideWriteAction {
-                        ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
-                    }
-                })
+                if (taskParams.addAnnotationsRoots) {
+                    outputDirectory.refresh(true, true, runnable {
+                        runInsideWriteAction {
+                            ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
+                        }
+                    })
+                }
+                else {
+                    outputDirectory.refresh(true, true)
+                }
             }
         }
     }
@@ -226,8 +235,10 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         runInsideWriteAction {
             val modifiableModel = library.getModifiableModel()
             try {
-                for (annotationRoot in modifiableModel.getFiles(AnnotationOrderRootType.getInstance())) {
-                    modifiableModel.removeRoot(annotationRoot.getUrl(), AnnotationOrderRootType.getInstance())
+                if (taskParams.removeOtherRoots) {
+                    for (annotationRoot in modifiableModel.getFiles(AnnotationOrderRootType.getInstance())) {
+                        modifiableModel.removeRoot(annotationRoot.getUrl(), AnnotationOrderRootType.getInstance())
+                    }
                 }
 
                 modifiableModel.addRoot(annotationRootDir, AnnotationOrderRootType.getInstance())

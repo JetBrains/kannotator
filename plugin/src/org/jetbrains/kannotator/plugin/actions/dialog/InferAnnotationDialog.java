@@ -34,6 +34,8 @@ public class InferAnnotationDialog extends DialogWrapper {
     JBScrollPane jarsTreeScrollPane;
     JLabel outputDirectoryLabel;
     JLabel jarsTreeLabel;
+    JCheckBox addLibrariesRootAutomaticallyCheckbox;
+    JCheckBox removeAllOtherAnnotationsRootsCheckbox;
 
     // Not from gui designer
     LibraryCheckboxTree libraryTree;
@@ -161,6 +163,14 @@ public class InferAnnotationDialog extends DialogWrapper {
 
     public boolean shouldInferKotlinAnnotations() {
         return kotlinSignaturesCheckBox.isSelected();
+    }
+
+    public boolean shouldAddAnnotationsRoots() {
+        return addLibrariesRootAutomaticallyCheckbox.isSelected();
+    }
+
+    public boolean shouldRemoveAllOtherRoots() {
+        return removeAllOtherAnnotationsRootsCheckbox.isSelected();
     }
 
     protected void updateControls() {

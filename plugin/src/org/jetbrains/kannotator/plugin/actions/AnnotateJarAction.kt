@@ -22,7 +22,9 @@ public class AnnotateJarAction: AnAction() {
                     inferNullabilityAnnotations = dlg.shouldInferNullabilityAnnotations(),
                     inferKotlinAnnotations = dlg.shouldInferKotlinAnnotations(),
                     outputPath = dlg.getConfiguredOutputPath(),
-                    libJarFiles = dlg.getCheckedLibToJarFiles().map { it.key to it.value.map { file -> VfsUtilCore.virtualToIoFile(file) }.toSet() }.toMap()
+                    libJarFiles = dlg.getCheckedLibToJarFiles().map { it.key to it.value.map { file -> VfsUtilCore.virtualToIoFile(file) }.toSet() }.toMap(),
+                    addAnnotationsRoots = dlg.shouldAddAnnotationsRoots(),
+                    removeOtherRoots = dlg.shouldRemoveAllOtherRoots()
             )
 
             ProgressManager.getInstance().run(InferringTask(project, params))
