@@ -6,11 +6,14 @@ import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task.Backgroundable
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.AnnotationOrderRootType
+import com.intellij.openapi.roots.ex.ProjectRootManagerEx
 import com.intellij.openapi.roots.libraries.Library
 import com.intellij.openapi.ui.PanelWithText
 import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.openapi.util.Disposer
+import com.intellij.openapi.util.EmptyRunnable
 import com.intellij.openapi.vfs.LocalFileSystem
+import com.intellij.openapi.vfs.VfsUtilCore
 import com.intellij.openapi.vfs.VirtualFile
 import com.intellij.openapi.wm.ToolWindowId
 import com.intellij.openapi.wm.ToolWindowManager
@@ -22,10 +25,15 @@ import java.io.File
 import java.util.ArrayList
 import java.util.HashMap
 import javax.swing.JPanel
+import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.*
 import org.jetbrains.kannotator.plugin.ideaUtils.runComputableInsideWriteAction
+import org.jetbrains.kannotator.plugin.ideaUtils.runInsideReadAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
 
 data class InferringTaskParams(
@@ -78,13 +86,25 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         override fun processingFinished() {
             numberOfJarsFinished++
         }
+
+        fun savingStarted() {
+            indicator.setText2("Saving...")
+        }
+
+        fun savingFinished() {
+            indicator.setText2("")
+        }
     }
 
     override fun run(indicator: ProgressIndicator) {
         val inferringProgressIndicator = InferringProgressIndicator(indicator, taskParams)
 
+        val outputDirectory = checkNotNull(LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(taskParams.outputPath),
+                "Output folder ${taskParams.outputPath} is expected to be created before activating task")
+
         for ((lib, files) in taskParams.libJarFiles) {
-            val libOutputDir = createOutputDirectory(lib)
+            val libOutputDir = createOutputDirectory(lib, outputDirectory)
+            val libIoOutputDir = VfsUtilCore.virtualToIoFile(libOutputDir)
 
             for (file in files) {
                 inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
@@ -99,13 +119,30 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                     }
 
                     // TODO: Add existing annotations from dependent libraries
-                    inferAnnotations(
+                    val inferenceResult = inferAnnotations(
                             FileBasedClassSource(arrayList(file)), ArrayList<File>(),
                             inferrerMap,
                             inferringProgressIndicator,
                             false)
 
-                    // TODO: Store collected annotations
+                    inferringProgressIndicator.savingStarted()
+
+                    val inferredNullabilityAnnotations =
+                            checkNotNull(
+                                    inferenceResult.inferredAnnotationsMap["nullability"],
+                                    "Only nullability annotations are supported by now") as
+                            Annotations<NullabilityAnnotation>
+
+                    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayList(file)))
+
+                    writeAnnotationsToXMLByPackage(
+                            declarationIndex,
+                            declarationIndex,
+                            null,
+                            libIoOutputDir,
+                            inferredNullabilityAnnotations)
+
+                    inferringProgressIndicator.savingFinished()
                 } catch (e: OutOfMemoryError) {
                     // Don't wrap OutOfMemoryError
                     throw e
@@ -115,6 +152,16 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
             }
 
             assignAnnotationsToLibrary(lib, libOutputDir)
+        }
+
+        if (!taskParams.libJarFiles.isEmpty()) {
+            runInsideReadAction {
+                outputDirectory.refresh(true, true, runnable {
+                    runInsideWriteAction {
+                        ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
+                    }
+                })
+            }
         }
     }
 
@@ -166,11 +213,8 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         return simpleToolWindowPanel
     }
 
-    private fun createOutputDirectory(library: Library): VirtualFile {
+    private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
         return runComputableInsideWriteAction {
-            val outputDirectory = checkNotNull(LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(taskParams.outputPath),
-                    "Output folder ${taskParams.outputPath} is expected to be created before activating task")
-
             val libraryDirName = library.getName() ?: "no-name"
 
             // Drop directory if it already exist

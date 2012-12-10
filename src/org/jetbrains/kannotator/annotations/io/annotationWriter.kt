@@ -217,7 +217,7 @@ fun buildAnnotationsDataMap(
 fun writeAnnotationsToXMLByPackage(
         keyIndex: AnnotationKeyIndex,
         declIndex: DeclarationIndex,
-        srcRoot: File,
+        srcRoot: File?,
         destRoot: File,
         nullability: Annotations<NullabilityAnnotation>,
         packagesToOmit: Set<String> = Collections.emptySet()
@@ -238,22 +238,24 @@ fun writeAnnotationsToXMLByPackage(
         val destDir = if (path != "") File(destRoot, path) else destRoot
         destDir.mkdirs()
 
-        val srcDir = if (path != "") File(srcRoot, path) else srcRoot
-        val srcFile = File(srcDir, "annotations.xml")
+        if (srcRoot != null) {
+            val srcDir = if (path != "") File(srcRoot, path) else srcRoot
+            val srcFile = File(srcDir, "annotations.xml")
 
-        if (srcFile.exists()) {
-            FileReader(srcFile) use {
-                parseAnnotations(it, {
-                    key, annotations ->
-                    val position = keyIndex.findPositionByAnnotationKeyString(key)
-                    if (position != null) {
-                        for (ann in annotations) {
-                            if (ann.annotationClassFqn == "jet.runtime.typeinfo.KotlinSignature") {
-                                pathAnnotations.getOrPut(position!!, {arrayList()}).add(AnnotationDataImpl(ann.annotationClassFqn, HashMap(ann.attributes)))
+            if (srcFile.exists()) {
+                FileReader(srcFile) use {
+                    parseAnnotations(it, {
+                        key, annotations ->
+                        val position = keyIndex.findPositionByAnnotationKeyString(key)
+                        if (position != null) {
+                            for (ann in annotations) {
+                                if (ann.annotationClassFqn == "jet.runtime.typeinfo.KotlinSignature") {
+                                    pathAnnotations.getOrPut(position!!, { arrayList() }).add(AnnotationDataImpl(ann.annotationClassFqn, HashMap(ann.attributes)))
+                                }
                             }
                         }
-                    }
-                }, {error(it)})
+                    }, { error(it) })
+                }
             }
         }
 

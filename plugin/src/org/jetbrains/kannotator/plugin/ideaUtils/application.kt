@@ -38,4 +38,13 @@ public fun runInsideWriteAction(block: () -> Unit) {
     })
 }
 
+public fun runInsideReadAction(block: () -> Unit) {
+    ActionRunner.runInsideReadAction(object: InterruptibleRunnable {
+        override fun run() {
+            block()
+        }
+    })
+}
+
+
 

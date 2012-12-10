@@ -23,7 +23,7 @@ trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 
-class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
+public class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
         val classDecl: ClassDeclaration,
         val methodsById: Map<MethodId, Method>,
@@ -122,7 +122,7 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
     }
 }
 
-class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : ClassSource {
+public class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : ClassSource {
     override fun forEach(body: (ClassReader) -> Unit) {
         for (file in jarOrClassFiles) {
             if (file.isFile()) {
