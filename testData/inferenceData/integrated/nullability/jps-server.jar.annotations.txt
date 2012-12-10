@@ -2706,13 +2706,17 @@ org.jetbrains.jps.builders.AdditionalRootsProviderService java.util.List<R> getA
 NOT_NULL
 org.jetbrains.jps.builders.AdditionalRootsProviderService java.util.List<R> getAdditionalRoots(org.jetbrains.jps.builders.BuildTarget<R>, org.jetbrains.jps.builders.storage.BuildDataPaths) 0
 NOT_NULL
+org.jetbrains.jps.builders.BuildOutputConsumer void registerOutputFile(java.io.File, java.util.Collection<java.lang.String>) 0
+NOT_NULL
+org.jetbrains.jps.builders.BuildOutputConsumer void registerOutputFile(java.io.File, java.util.Collection<java.lang.String>) 1
+NOT_NULL
 org.jetbrains.jps.builders.BuildRootDescriptor java.io.File getRootFile()
 NOT_NULL
 org.jetbrains.jps.builders.BuildRootDescriptor java.io.FileFilter createFileFilter()
 NOT_NULL
 org.jetbrains.jps.builders.BuildRootDescriptor java.util.Set<java.io.File> getExcludedRoots()
 NOT_NULL
-org.jetbrains.jps.builders.BuildRootDescriptor org.jetbrains.jps.builders.BuildTarget getTarget()
+org.jetbrains.jps.builders.BuildRootDescriptor org.jetbrains.jps.builders.BuildTarget<?> getTarget()
 NOT_NULL
 org.jetbrains.jps.builders.BuildRootIndex R findParentDescriptor(java.io.File, java.util.Collection<? extends org.jetbrains.jps.builders.BuildTargetType<? extends org.jetbrains.jps.builders.BuildTarget<R>>>, org.jetbrains.jps.incremental.CompileContext)
 NULLABLE
@@ -2778,15 +2782,21 @@ org.jetbrains.jps.builders.BuildRootIndex void associateTempRoot(org.jetbrains.j
 NOT_NULL
 org.jetbrains.jps.builders.BuildTarget R findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex)
 NULLABLE
+org.jetbrains.jps.builders.BuildTarget R findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex) 1
+NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.lang.String getPresentableName()
 NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.lang.String toString()
 NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext)
 NOT_NULL
+org.jetbrains.jps.builders.BuildTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext) 0
+NOT_NULL
+org.jetbrains.jps.builders.BuildTarget java.util.Collection<org.jetbrains.jps.builders.BuildTarget<?>> computeDependencies(org.jetbrains.jps.builders.BuildTargetRegistry)
+NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.util.List<R> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
 NOT_NULL
-org.jetbrains.jps.builders.BuildTarget org.jetbrains.jps.builders.BuildRootDescriptor findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex) 1
+org.jetbrains.jps.builders.BuildTarget java.util.List<R> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
 org.jetbrains.jps.builders.BuildTarget void writeConfiguration(java.io.PrintWriter, org.jetbrains.jps.builders.storage.BuildDataPaths, org.jetbrains.jps.builders.BuildRootIndex) 0
 NOT_NULL
@@ -2796,13 +2806,13 @@ org.jetbrains.jps.builders.BuildTargetIndex java.util.Collection<org.jetbrains.j
 NOT_NULL
 org.jetbrains.jps.builders.BuildTargetIndex java.util.Collection<org.jetbrains.jps.builders.BuildTarget<?>> getDependencies(org.jetbrains.jps.builders.BuildTarget<?>) 0
 NOT_NULL
+org.jetbrains.jps.builders.BuildTargetIndex java.util.Set<org.jetbrains.jps.builders.BuildTarget<?>> getDependenciesRecursively(org.jetbrains.jps.builders.BuildTarget<?>)
+NOT_NULL
 org.jetbrains.jps.builders.BuildTargetLoader T createTarget(java.lang.String)
 NULLABLE
 org.jetbrains.jps.builders.BuildTargetLoader T createTarget(java.lang.String) 0
 NOT_NULL
-org.jetbrains.jps.builders.BuildTargetLoader org.jetbrains.jps.builders.BuildTarget createTarget(java.lang.String)
-NULLABLE
-org.jetbrains.jps.builders.BuildTargetLoader org.jetbrains.jps.builders.BuildTarget createTarget(java.lang.String) 0
+org.jetbrains.jps.builders.BuildTargetRegistry java.util.Collection<org.jetbrains.jps.builders.ModuleBasedTarget<?>> getModuleBasedTargets(org.jetbrains.jps.model.module.JpsModule, org.jetbrains.jps.builders.BuildTargetRegistry.ModuleTargetSelector)
 NOT_NULL
 org.jetbrains.jps.builders.BuildTargetRegistry java.util.Collection<org.jetbrains.jps.builders.ModuleBasedTarget<?>> getModuleBasedTargets(org.jetbrains.jps.model.module.JpsModule, org.jetbrains.jps.builders.BuildTargetRegistry.ModuleTargetSelector) 0
 NULLABLE
@@ -2824,10 +2834,6 @@ org.jetbrains.jps.builders.BuildTargetType java.util.List<T> computeAllTargets(o
 NOT_NULL
 org.jetbrains.jps.builders.BuildTargetType java.util.List<T> computeAllTargets(org.jetbrains.jps.model.JpsModel) 0
 NOT_NULL
-org.jetbrains.jps.builders.BuildTargetType org.jetbrains.jps.builders.BuildTargetLoader createLoader(org.jetbrains.jps.model.JpsModel)
-NOT_NULL
-org.jetbrains.jps.builders.BuildTargetType org.jetbrains.jps.builders.BuildTargetLoader createLoader(org.jetbrains.jps.model.JpsModel) 0
-NOT_NULL
 org.jetbrains.jps.builders.BuildTargetType org.jetbrains.jps.builders.BuildTargetLoader<T> createLoader(org.jetbrains.jps.model.JpsModel)
 NOT_NULL
 org.jetbrains.jps.builders.BuildTargetType org.jetbrains.jps.builders.BuildTargetLoader<T> createLoader(org.jetbrains.jps.model.JpsModel) 0
@@ -2838,9 +2844,9 @@ org.jetbrains.jps.builders.DirtyFilesHolder java.util.Collection<java.lang.Strin
 NOT_NULL
 org.jetbrains.jps.builders.DirtyFilesHolder void processDirtyFiles(org.jetbrains.jps.builders.FileProcessor<R,T>) 0
 NOT_NULL
-org.jetbrains.jps.builders.FileProcessor boolean apply(org.jetbrains.jps.builders.BuildTarget, java.io.File, org.jetbrains.jps.builders.BuildRootDescriptor) 1
+org.jetbrains.jps.builders.FileProcessor boolean apply(T, java.io.File, R) 1
 NOT_NULL
-org.jetbrains.jps.builders.FileProcessor boolean apply(org.jetbrains.jps.builders.BuildTarget, java.io.File, org.jetbrains.jps.builders.BuildRootDescriptor) 2
+org.jetbrains.jps.builders.FileProcessor boolean apply(T, java.io.File, R) 2
 NOT_NULL
 org.jetbrains.jps.builders.ModuleBasedTarget ModuleBasedTarget(org.jetbrains.jps.builders.BuildTargetType<?>, org.jetbrains.jps.model.module.JpsModule) 1
 NOT_NULL
@@ -3126,12 +3132,24 @@ org.jetbrains.jps.builders.java.ResourcesTargetType.Loader org.jetbrains.jps.inc
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Callbacks.Backend void associate(java.lang.String, java.lang.String, org.jetbrains.asm4.ClassReader) 2
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Callbacks.Backend void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Callbacks.Backend void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Callbacks.Backend void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 2
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection EMPTY
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection java.util.Collection<java.io.File> getAffectedFiles()
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection myAffectedFiles
 NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver java.util.concurrent.Future<org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection> request(java.lang.String, java.lang.String, int, boolean, boolean)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver java.util.concurrent.Future<org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection> request(java.lang.String, java.lang.String, int, boolean, boolean) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver java.util.concurrent.Future<org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection> request(java.lang.String, java.lang.String, int, boolean, boolean) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr ClassRepr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int, int, int, java.lang.String[], java.util.Set<org.jetbrains.jps.builders.java.dependencyView.FieldRepr>, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.MethodRepr>, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.ElemType>, java.lang.annotation.RetentionPolicy, int, boolean, boolean, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr ClassRepr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
@@ -3235,6 +3253,14 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr.5 int compare(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr.5 int compare(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier<org.jetbrains.jps.builders.java.dependencyView.ElemType> targets()
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier<org.jetbrains.jps.builders.java.dependencyView.FieldRepr> fields()
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier<org.jetbrains.jps.builders.java.dependencyView.MethodRepr> methods()
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType> interfaces()
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.ClassRepr,java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>> analyze(int, org.jetbrains.asm4.ClassReader)
 NOT_NULL
@@ -3350,7 +3376,7 @@ org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.An
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationTargetCrawler org.jetbrains.asm4.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
-org.jetbrains.jps.builders.java.dependencyView.CollectionFactory java.util.Collection create()
+org.jetbrains.jps.builders.java.dependencyView.CollectionFactory java.util.Collection<X> create()
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.DependencyContext DependencyContext(java.io.File) 0
 NOT_NULL
@@ -3528,9 +3554,21 @@ org.jetbrains.jps.builders.java.dependencyView.IntIntTransientMultiMaplet void r
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.IntIntTransientMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet V get(int)
+NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet<V>) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet java.util.Collection<V> get(int)
+NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet<V>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void replace(int, java.util.Collection<V>) 1
+NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet<V>) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 0
 NOT_NULL
@@ -3746,6 +3784,8 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings.1 java.util.Set<org.jetb
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.10 void associate(java.lang.String, java.lang.String, org.jetbrains.asm4.ClassReader) 2
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.10 void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.10 void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.10 void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 2
@@ -3932,7 +3972,15 @@ org.jetbrains.jps.builders.java.dependencyView.MethodRepr.4 int compare(org.jetb
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate boolean satisfy(org.jetbrains.jps.builders.java.dependencyView.MethodRepr) 0
 NOT_NULL
-org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void remove(java.lang.Object) 0
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet java.util.Collection<V> get(K)
+NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet<K,V>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void remove(K) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void replace(K, java.util.Collection<V>) 1
+NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet<K,V>) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 0
 NOT_NULL
@@ -3964,7 +4012,7 @@ org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet<K,V>) 0
 NOT_NULL
-org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void remove(java.lang.Object) 0
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void remove(K) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void replace(K, java.util.Collection<V>) 1
 NULLABLE
@@ -3990,7 +4038,7 @@ org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet 
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet<K,V>) 0
 NOT_NULL
-org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void remove(java.lang.Object) 0
+org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void remove(K) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void replace(K, java.util.Collection<V>) 1
 NULLABLE
@@ -4108,11 +4156,11 @@ org.jetbrains.jps.builders.java.dependencyView.RW.3 java.lang.Object read(java.i
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.RW.3 java.lang.String read(java.io.BufferedReader) 0
 NOT_NULL
-org.jetbrains.jps.builders.java.dependencyView.RW.Reader java.lang.Object read(java.io.BufferedReader) 0
+org.jetbrains.jps.builders.java.dependencyView.RW.Reader T read(java.io.BufferedReader) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.RW.Savable void save(java.io.DataOutput) 0
 NOT_NULL
-org.jetbrains.jps.builders.java.dependencyView.RW.ToWritable org.jetbrains.jps.builders.java.dependencyView.RW.Writable convert(java.lang.Object)
+org.jetbrains.jps.builders.java.dependencyView.RW.ToWritable org.jetbrains.jps.builders.java.dependencyView.RW.Writable convert(T)
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.RW.Writable void write(java.io.BufferedWriter) 0
 NOT_NULL
@@ -4154,11 +4202,19 @@ org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType java.lang.S
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void save(java.io.DataOutput) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType boolean equals(java.lang.Object) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType java.lang.String getDescr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void save(java.io.DataOutput) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType ClassType(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
 NOT_NULL
@@ -4181,6 +4237,10 @@ NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType java.lang.String getDescr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void save(java.io.DataOutput) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr com.intellij.util.io.DataExternalizer<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage> externalizer(org.jetbrains.jps.builders.java.dependencyView.DependencyContext)
 NOT_NULL
@@ -4335,6 +4395,20 @@ NOT_NULL
 org.jetbrains.jps.builders.logging.BuildLoggingManager myProjectLogger
 NOT_NULL
 org.jetbrains.jps.builders.logging.BuildLoggingManager org.jetbrains.jps.builders.logging.ProjectBuilderLogger getProjectBuilderLogger()
+NOT_NULL
+org.jetbrains.jps.builders.logging.ProjectBuilderLogger void logCompiledFiles(java.util.Collection<java.io.File>, java.lang.String, java.lang.String) 0
+NOT_NULL
+org.jetbrains.jps.builders.logging.ProjectBuilderLogger void logCompiledPaths(java.util.Collection<java.lang.String>, java.lang.String, java.lang.String) 0
+NOT_NULL
+org.jetbrains.jps.builders.logging.ProjectBuilderLogger void logDeletedFiles(java.util.Collection<java.lang.String>) 0
+NOT_NULL
+org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetDataRoot(org.jetbrains.jps.builders.BuildTarget<?>)
+NOT_NULL
+org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetDataRoot(org.jetbrains.jps.builders.BuildTarget<?>) 0
+NOT_NULL
+org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetTypeDataRoot(org.jetbrains.jps.builders.BuildTargetType<?>)
+NOT_NULL
+org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetTypeDataRoot(org.jetbrains.jps.builders.BuildTargetType<?>) 0
 NOT_NULL
 org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetsDataRoot()
 NOT_NULL
@@ -4528,6 +4602,10 @@ org.jetbrains.jps.cmdline.ProjectDescriptor myModel
 NOT_NULL
 org.jetbrains.jps.cmdline.ProjectDescriptor org.jetbrains.jps.model.JpsModel getModel()
 NOT_NULL
+org.jetbrains.jps.incremental.BuildListener void filesDeleted(java.util.Collection<java.lang.String>) 0
+NOT_NULL
+org.jetbrains.jps.incremental.BuildListener void filesGenerated(java.util.Collection<com.intellij.openapi.util.Pair<java.lang.String,java.lang.String>>) 0
+NOT_NULL
 org.jetbrains.jps.incremental.BuildOperations java.util.Map<T,java.util.Set<java.io.File>> cleanOutputsCorrespondingToChangedFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.DirtyFilesHolder<R,T>)
 NOT_NULL
 org.jetbrains.jps.incremental.BuildOperations java.util.Map<T,java.util.Set<java.io.File>> cleanOutputsCorrespondingToChangedFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.DirtyFilesHolder<R,T>) 0
@@ -4554,9 +4632,7 @@ org.jetbrains.jps.incremental.BuildOperations.1 void processDirtyFiles(org.jetbr
 NOT_NULL
 org.jetbrains.jps.incremental.BuildOperations.2 boolean apply(T, java.io.File, R) 1
 NOT_NULL
-org.jetbrains.jps.incremental.BuildOperations.2 boolean apply(org.jetbrains.jps.builders.BuildTarget, java.io.File, org.jetbrains.jps.builders.BuildRootDescriptor) 1
-NOT_NULL
-org.jetbrains.jps.incremental.BuildOperations.2 boolean apply(org.jetbrains.jps.builders.BuildTarget, java.io.File, org.jetbrains.jps.builders.BuildRootDescriptor) 2
+org.jetbrains.jps.incremental.BuildOperations.2 boolean apply(T, java.io.File, R) 2
 NOT_NULL
 org.jetbrains.jps.incremental.BuildOperations.2 mappingsCache
 NOT_NULL
@@ -4597,6 +4673,8 @@ NULLABLE
 org.jetbrains.jps.incremental.BuilderRegistry org.jetbrains.jps.incremental.BuilderRegistry getInstance()
 NOT_NULL
 org.jetbrains.jps.incremental.BuilderRegistry.Holder ourInstance
+NOT_NULL
+org.jetbrains.jps.incremental.BuilderService java.util.List<? extends org.jetbrains.jps.builders.BuildTargetType<?>> getTargetTypes()
 NOT_NULL
 org.jetbrains.jps.incremental.BuilderService java.util.List<? extends org.jetbrains.jps.incremental.ModuleLevelBuilder> createModuleLevelBuilders()
 NOT_NULL
@@ -4866,8 +4944,6 @@ org.jetbrains.jps.incremental.JVMModuleBuildTarget java.util.Set<java.io.File> c
 NOT_NULL
 org.jetbrains.jps.incremental.JVMModuleBuildTarget java.util.Set<java.io.File> computeRootExcludes(java.io.File, org.jetbrains.jps.indices.ModuleExcludeIndex) 1
 NOT_NULL
-org.jetbrains.jps.incremental.JVMModuleBuildTarget org.jetbrains.jps.builders.BuildRootDescriptor findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex) 1
-NOT_NULL
 org.jetbrains.jps.incremental.JavaBuilderService java.util.List<? extends org.jetbrains.jps.builders.BuildTargetType<?>> getTargetTypes()
 NOT_NULL
 org.jetbrains.jps.incremental.JavaBuilderService java.util.List<? extends org.jetbrains.jps.incremental.ModuleLevelBuilder> createModuleLevelBuilders()
@@ -4902,6 +4978,8 @@ org.jetbrains.jps.incremental.ModuleBuildTarget void writeConfiguration(java.io.
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleBuildTarget void writeConfiguration(java.io.PrintWriter, org.jetbrains.jps.builders.storage.BuildDataPaths, org.jetbrains.jps.builders.BuildRootIndex) 2
 NOT_NULL
+org.jetbrains.jps.incremental.ModuleLevelBuilder org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode build(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.DirtyFilesHolder<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget>, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer)
+NOT_NULL
 org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode $VALUES
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode ABORT
@@ -4918,6 +4996,12 @@ org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer java.util.Map<ja
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer org.jetbrains.jps.javac.BinaryContent lookupClassBytes(java.lang.String)
 NULLABLE
+org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer void registerCompiledClass(org.jetbrains.jps.builders.BuildTarget<?>, org.jetbrains.jps.incremental.CompiledClass) 1
+NOT_NULL
+org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer void registerOutputFile(org.jetbrains.jps.builders.BuildTarget<?>, java.io.File, java.util.Collection<java.lang.String>) 1
+NOT_NULL
+org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer void registerOutputFile(org.jetbrains.jps.builders.BuildTarget<?>, java.io.File, java.util.Collection<java.lang.String>) 2
+NOT_NULL
 org.jetbrains.jps.incremental.ProjectBuildException java.lang.Throwable fillInStackTrace()
 NOT_NULL
 org.jetbrains.jps.incremental.RebuildRequestedException java.lang.Throwable fillInStackTrace()
@@ -4950,7 +5034,11 @@ org.jetbrains.jps.incremental.ResourcesTarget java.lang.String getPresentableNam
 NOT_NULL
 org.jetbrains.jps.incremental.ResourcesTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext)
 NOT_NULL
+org.jetbrains.jps.incremental.ResourcesTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext) 0
+NOT_NULL
 org.jetbrains.jps.incremental.ResourcesTarget java.util.List<org.jetbrains.jps.builders.java.ResourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
+NOT_NULL
+org.jetbrains.jps.incremental.ResourcesTarget java.util.List<org.jetbrains.jps.builders.java.ResourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
 org.jetbrains.jps.incremental.ResourcesTarget org.jetbrains.jps.model.java.compiler.ProcessorConfigProfile findAnnotationProcessingProfile(org.jetbrains.jps.model.JpsModel)
 NULLABLE
@@ -4967,14 +5055,6 @@ NOT_NULL
 org.jetbrains.jps.incremental.TargetBuilder void build(T, org.jetbrains.jps.builders.DirtyFilesHolder<R,T>, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext) 2
 NOT_NULL
 org.jetbrains.jps.incremental.TargetBuilder void build(T, org.jetbrains.jps.builders.DirtyFilesHolder<R,T>, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext) 3
-NOT_NULL
-org.jetbrains.jps.incremental.TargetBuilder void build(org.jetbrains.jps.builders.BuildTarget, org.jetbrains.jps.builders.DirtyFilesHolder, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext) 0
-NOT_NULL
-org.jetbrains.jps.incremental.TargetBuilder void build(org.jetbrains.jps.builders.BuildTarget, org.jetbrains.jps.builders.DirtyFilesHolder, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext) 1
-NOT_NULL
-org.jetbrains.jps.incremental.TargetBuilder void build(org.jetbrains.jps.builders.BuildTarget, org.jetbrains.jps.builders.DirtyFilesHolder, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext) 2
-NOT_NULL
-org.jetbrains.jps.incremental.TargetBuilder void build(org.jetbrains.jps.builders.BuildTarget, org.jetbrains.jps.builders.DirtyFilesHolder, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext) 3
 NOT_NULL
 org.jetbrains.jps.incremental.Utils boolean intersects(java.util.Set<org.jetbrains.jps.model.module.JpsModule>, java.util.Set<org.jetbrains.jps.model.module.JpsModule>) 0
 NOT_NULL
@@ -5000,9 +5080,13 @@ org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.lang.String get
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext)
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext) 0
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.Collection<org.jetbrains.jps.builders.BuildTarget<?>> computeDependencies(org.jetbrains.jps.builders.BuildTargetRegistry)
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.List<org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.List<org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget myArtifact
 NOT_NULL
@@ -5112,19 +5196,19 @@ org.jetbrains.jps.incremental.artifacts.JarPathUtil java.io.File getLocalFile(ja
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.JarPathUtil java.io.File getLocalFile(java.lang.String) 0
 NOT_NULL
-org.jetbrains.jps.incremental.artifacts.JpsBuilderArtifactService java.util.Collection getSyntheticArtifacts(org.jetbrains.jps.model.JpsModel) 0
+org.jetbrains.jps.incremental.artifacts.JpsBuilderArtifactService java.util.Collection<org.jetbrains.jps.model.artifact.JpsArtifact> getArtifacts(org.jetbrains.jps.model.JpsModel, boolean) 0
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.JpsBuilderArtifactService java.util.Collection<org.jetbrains.jps.model.artifact.JpsArtifact> getSyntheticArtifacts(org.jetbrains.jps.model.JpsModel) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.JpsSyntheticArtifactProvider java.util.List<org.jetbrains.jps.model.artifact.JpsArtifact> createArtifacts(org.jetbrains.jps.model.JpsModel)
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.JpsSyntheticArtifactProvider java.util.List<org.jetbrains.jps.model.artifact.JpsArtifact> createArtifacts(org.jetbrains.jps.model.JpsModel) 0
 NOT_NULL
-org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService java.util.Collection getDependencies(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement) 0
-NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService java.util.Collection<? extends org.jetbrains.jps.builders.BuildTarget<?>> getDependencies(E) 0
 NOT_NULL
-org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(E, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
-org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(E, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService<?> getElementBuilder(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement)
 NULLABLE
@@ -5409,6 +5493,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.SourceFileFilterImpl myBaseFilter
 NULLABLE
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.SourceFileFilterImpl myRootsIndex
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilder java.util.List<org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor> getDescriptors()
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContextImpl myParentArtifacts
 NOT_NULL
@@ -5820,6 +5906,12 @@ org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink org.jetbrains.jps.
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void outputLineAvailable(java.lang.String) 0
 NOT_NULL
+org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 0
+NOT_NULL
+org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 1
+NOT_NULL
+org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 2
+NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void report(javax.tools.Diagnostic<? extends javax.tools.JavaFileObject>) 0
 NOT_NULL
 org.jetbrains.jps.incremental.java.OutputFilesSink mySuccessfullyCompiled
@@ -5898,28 +5990,24 @@ org.jetbrains.jps.incremental.resources.ResourcesBuilder.1 boolean apply(org.jet
 NOT_NULL
 org.jetbrains.jps.incremental.storage.AbstractStateStorage T getState(Key)
 NULLABLE
+org.jetbrains.jps.incremental.storage.AbstractStateStorage T getState(Key) 0
+NOT_NULL
 org.jetbrains.jps.incremental.storage.AbstractStateStorage com.intellij.util.io.DataExternalizer access$000(org.jetbrains.jps.incremental.storage.AbstractStateStorage) 0
 NOT_NULL
 org.jetbrains.jps.incremental.storage.AbstractStateStorage com.intellij.util.io.PersistentHashMap<Key,T> createMap(java.io.File)
 NOT_NULL
-org.jetbrains.jps.incremental.storage.AbstractStateStorage java.lang.Object getState(java.lang.Object)
-NULLABLE
-org.jetbrains.jps.incremental.storage.AbstractStateStorage java.lang.Object getState(java.lang.Object) 0
-NOT_NULL
 org.jetbrains.jps.incremental.storage.AbstractStateStorage myDataLock
 NOT_NULL
-org.jetbrains.jps.incremental.storage.AbstractStateStorage void appendData(java.lang.Object, java.lang.Object) 0
+org.jetbrains.jps.incremental.storage.AbstractStateStorage void appendData(Key, T) 0
 NOT_NULL
-org.jetbrains.jps.incremental.storage.AbstractStateStorage void appendData(java.lang.Object, java.lang.Object) 1
+org.jetbrains.jps.incremental.storage.AbstractStateStorage void appendData(Key, T) 1
 NOT_NULL
-org.jetbrains.jps.incremental.storage.AbstractStateStorage void remove(java.lang.Object) 0
+org.jetbrains.jps.incremental.storage.AbstractStateStorage void remove(Key) 0
+NOT_NULL
+org.jetbrains.jps.incremental.storage.AbstractStateStorage void update(Key, T) 0
 NOT_NULL
 org.jetbrains.jps.incremental.storage.AbstractStateStorage void update(Key, T) 1
 NULLABLE
-org.jetbrains.jps.incremental.storage.AbstractStateStorage void update(java.lang.Object, java.lang.Object) 0
-NOT_NULL
-org.jetbrains.jps.incremental.storage.AbstractStateStorage void update(java.lang.Object, java.lang.Object) 1
-NOT_NULL
 org.jetbrains.jps.incremental.storage.BuildDataManager MAPPINGS_STORAGE
 NOT_NULL
 org.jetbrains.jps.incremental.storage.BuildDataManager SRC_TO_FORM_STORAGE
@@ -6029,7 +6117,7 @@ NOT_NULL
 org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.Object, java.lang.Object) 0
 NOT_NULL
 org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.Object, java.lang.Object) 1
-NOT_NULL
+NULLABLE
 org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.String, java.lang.String) 0
 NOT_NULL
 org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.String, java.lang.String) 1
@@ -6112,6 +6200,8 @@ org.jetbrains.jps.incremental.storage.TimestampValidityState TimestampValiditySt
 NOT_NULL
 org.jetbrains.jps.incremental.storage.TimestampValidityState void save(java.io.DataOutput) 0
 NOT_NULL
+org.jetbrains.jps.incremental.storage.Timestamps void saveStamp(java.io.File, org.jetbrains.jps.builders.BuildTarget<?>, long) 1
+NOT_NULL
 org.jetbrains.jps.incremental.storage.ValidityState void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.indices.impl.IgnoredFileIndexImpl IgnoredFileIndexImpl(org.jetbrains.jps.model.JpsModel) 0
@@ -6129,6 +6219,12 @@ NOT_NULL
 org.jetbrains.jps.javac.CompilationCanceledException java.lang.Throwable fillInStackTrace()
 NOT_NULL
 org.jetbrains.jps.javac.DiagnosticOutputConsumer void outputLineAvailable(java.lang.String) 0
+NOT_NULL
+org.jetbrains.jps.javac.DiagnosticOutputConsumer void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 0
+NOT_NULL
+org.jetbrains.jps.javac.DiagnosticOutputConsumer void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 1
+NOT_NULL
+org.jetbrains.jps.javac.DiagnosticOutputConsumer void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 2
 NOT_NULL
 org.jetbrains.jps.javac.JavacASTAnalyser boolean process(java.util.Set<? extends javax.lang.model.element.TypeElement>, javax.annotation.processing.RoundEnvironment) 1
 NOT_NULL

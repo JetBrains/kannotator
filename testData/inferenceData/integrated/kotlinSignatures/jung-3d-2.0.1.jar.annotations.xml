@@ -39,6 +39,11 @@
             <val name="value" val="&quot;fun setSize(p0 : BoundingSphere?) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout3d.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout&lt;V,E&gt;, javax.vecmath.Point3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(p0 : Layout&lt;V, E&gt;, p1 : Point3f?) : V?&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.ISOMVertexData create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : ISOMLayout.ISOMVertexData&quot;"/>
@@ -47,6 +52,11 @@
     <item name='edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 java.lang.Object create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout3d.Layout void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(p0 : Graph&lt;V, E&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout3d.Layout void setSize(javax.media.j3d.BoundingSphere)'>
@@ -224,9 +234,19 @@
             <val name="value" val="&quot;fun PickableVertexPaintTransformer(pi : PickedInfo&lt;V&gt;, fill_paint : Paint?, picked_paint : Paint?)&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(p0 : Graph&lt;V, E&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setSize(javax.media.j3d.BoundingSphere)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setSize(p0 : BoundingSphere?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(p0 : Graph&lt;V, E&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
 </root>

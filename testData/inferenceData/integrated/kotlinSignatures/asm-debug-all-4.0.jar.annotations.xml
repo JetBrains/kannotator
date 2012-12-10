@@ -2149,6 +2149,11 @@
             <val name="value" val="&quot;fun clone(labels : List&lt;LabelNode?&gt;, map : Map&lt;LabelNode?, LabelNode?&gt;?) : Array&lt;out LabelNode?&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.tree.AbstractInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun clone(p0 : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.tree.AbstractInsnNode org.objectweb.asm.tree.LabelNode clone(org.objectweb.asm.tree.LabelNode, java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun clone(label : LabelNode?, map : Map&lt;LabelNode?, LabelNode?&gt;) : LabelNode?&quot;"/>
@@ -2236,7 +2241,7 @@
     </item>
     <item name='org.objectweb.asm.tree.FieldInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.FieldNode void accept(org.objectweb.asm.ClassVisitor)'>
@@ -2266,7 +2271,7 @@
     </item>
     <item name='org.objectweb.asm.tree.FrameNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.IincInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2276,7 +2281,7 @@
     </item>
     <item name='org.objectweb.asm.tree.IincInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.InnerClassNode void accept(org.objectweb.asm.ClassVisitor)'>
@@ -2391,7 +2396,7 @@
     </item>
     <item name='org.objectweb.asm.tree.InsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.IntInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2401,7 +2406,7 @@
     </item>
     <item name='org.objectweb.asm.tree.IntInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.InvokeDynamicInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2411,7 +2416,7 @@
     </item>
     <item name='org.objectweb.asm.tree.InvokeDynamicInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.JumpInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2421,7 +2426,7 @@
     </item>
     <item name='org.objectweb.asm.tree.JumpInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.LabelNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2446,7 +2451,7 @@
     </item>
     <item name='org.objectweb.asm.tree.LdcInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.LineNumberNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2456,7 +2461,7 @@
     </item>
     <item name='org.objectweb.asm.tree.LineNumberNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.LocalVariableNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2476,7 +2481,7 @@
     </item>
     <item name='org.objectweb.asm.tree.LookupSwitchInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2486,7 +2491,7 @@
     </item>
     <item name='org.objectweb.asm.tree.MethodInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode MethodNode(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -2546,7 +2551,7 @@
     </item>
     <item name='org.objectweb.asm.tree.MethodNode void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitFrame(p0 : Int, p1 : Int, p2 : Array&lt;out Any?&gt;, p3 : Int, p4 : Array&lt;out Any?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitFrame(p0 : Int, p1 : Int, p2 : Array&lt;out Any?&gt;?, p3 : Int, p4 : Array&lt;out Any?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.MethodNode void visitInvokeDynamicInsn(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...)'>
@@ -2621,7 +2626,7 @@
     </item>
     <item name='org.objectweb.asm.tree.MultiANewArrayInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.TableSwitchInsnNode TableSwitchInsnNode(int, int, org.objectweb.asm.tree.LabelNode, org.objectweb.asm.tree.LabelNode...)'>
@@ -2636,7 +2641,7 @@
     </item>
     <item name='org.objectweb.asm.tree.TableSwitchInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.TryCatchBlockNode TryCatchBlockNode(org.objectweb.asm.tree.LabelNode, org.objectweb.asm.tree.LabelNode, org.objectweb.asm.tree.LabelNode, java.lang.String)'>
@@ -2656,7 +2661,7 @@
     </item>
     <item name='org.objectweb.asm.tree.TypeInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.VarInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
@@ -2666,7 +2671,7 @@
     </item>
     <item name='org.objectweb.asm.tree.VarInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map&lt;org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;?) : AbstractInsnNode&quot;"/>
+            <val name="value" val="&quot;fun clone(labels : Map&lt;LabelNode?, LabelNode?&gt;) : AbstractInsnNode&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt;[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode)'>
@@ -2747,11 +2752,6 @@
     <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends org.objectweb.asm.tree.analysis.BasicValue&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun naryOperation(p0 : AbstractInsnNode, p1 : List&lt;out BasicValue?&gt;) : BasicValue?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun naryOperation(p0 : AbstractInsnNode, p1 : List) : BasicValue?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.Value naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List)'>
@@ -2849,11 +2849,6 @@
             <val name="value" val="&quot;fun isSubTypeOf(value : BasicValue, expected : BasicValue) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.tree.analysis.BasicVerifier org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun naryOperation(p0 : AbstractInsnNode, p1 : List) : BasicValue?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.tree.analysis.BasicVerifier org.objectweb.asm.tree.analysis.BasicValue naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends org.objectweb.asm.tree.analysis.BasicValue&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun naryOperation(insn : AbstractInsnNode, values : List&lt;out BasicValue?&gt;) : BasicValue?&quot;"/>
@@ -2916,52 +2911,27 @@
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun binaryOperation(p0 : AbstractInsnNode, p1 : V?, p2 : V?) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value, org.objectweb.asm.tree.analysis.Value)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun binaryOperation(p0 : AbstractInsnNode, p1 : Value, p2 : Value) : Value?&quot;"/>
+            <val name="value" val="&quot;fun binaryOperation(p0 : AbstractInsnNode, p1 : V, p2 : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V copyOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun copyOperation(p0 : AbstractInsnNode, p1 : V?) : V?&quot;"/>
+            <val name="value" val="&quot;fun copyOperation(p0 : AbstractInsnNode, p1 : V) : V?&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value copyOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value)'>
+    <item name='org.objectweb.asm.tree.analysis.Interpreter V merge(V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun copyOperation(p0 : AbstractInsnNode, p1 : Value) : Value&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value merge(org.objectweb.asm.tree.analysis.Value, org.objectweb.asm.tree.analysis.Value)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun merge(p0 : Value, p1 : Value) : Value&quot;"/>
+            <val name="value" val="&quot;fun merge(p0 : V, p1 : V) : V&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun naryOperation(p0 : AbstractInsnNode, p1 : List&lt;out V&gt;?) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value naryOperation(org.objectweb.asm.tree.AbstractInsnNode, java.util.List)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun naryOperation(p0 : AbstractInsnNode, p1 : List) : Value?&quot;"/>
+            <val name="value" val="&quot;fun naryOperation(p0 : AbstractInsnNode, p1 : List&lt;out V&gt;) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V newOperation(org.objectweb.asm.tree.AbstractInsnNode)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun newOperation(p0 : AbstractInsnNode) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value newOperation(org.objectweb.asm.tree.AbstractInsnNode)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun newOperation(p0 : AbstractInsnNode) : Value?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value newValue(org.objectweb.asm.Type)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun newValue(p0 : Type?) : Value?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V newValue(org.objectweb.asm.Type)'>
@@ -2971,32 +2941,17 @@
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun returnOperation(p0 : AbstractInsnNode, p1 : V?, p2 : V?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value, org.objectweb.asm.tree.analysis.Value)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun returnOperation(p0 : AbstractInsnNode, p1 : Value, p2 : Value) : Unit&quot;"/>
+            <val name="value" val="&quot;fun returnOperation(p0 : AbstractInsnNode, p1 : V, p2 : V) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V, V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun ternaryOperation(p0 : AbstractInsnNode, p1 : V?, p2 : V?, p3 : V?) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value ternaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value, org.objectweb.asm.tree.analysis.Value, org.objectweb.asm.tree.analysis.Value)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun ternaryOperation(p0 : AbstractInsnNode, p1 : Value, p2 : Value, p3 : Value) : Value?&quot;"/>
+            <val name="value" val="&quot;fun ternaryOperation(p0 : AbstractInsnNode, p1 : V, p2 : V, p3 : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Interpreter V unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun unaryOperation(p0 : AbstractInsnNode, p1 : V?) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.Interpreter org.objectweb.asm.tree.analysis.Value unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun unaryOperation(p0 : AbstractInsnNode, p1 : Value) : Value?&quot;"/>
+            <val name="value" val="&quot;fun unaryOperation(p0 : AbstractInsnNode, p1 : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.SimpleVerifier java.lang.Class&lt;?&gt; getClass(org.objectweb.asm.Type)'>

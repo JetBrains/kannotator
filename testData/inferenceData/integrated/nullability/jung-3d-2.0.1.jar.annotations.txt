@@ -16,10 +16,16 @@ edu.uci.ics.jung.algorithms.layout3d.FRLayout.1 java.lang.Object create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.FRLayout.1 javax.vecmath.Vector3f create()
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout3d.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout3d.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.ISOMVertexData create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 java.lang.Object create()
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout3d.Layout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.Layout void setSize(javax.media.j3d.BoundingSphere) 0
 NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f)
@@ -100,5 +106,9 @@ edu.uci.ics.jung.visualization3d.control.PickZoomBehavior void setupCallback(com
 NULLABLE
 edu.uci.ics.jung.visualization3d.decorators.PickableVertexPaintTransformer PickableVertexPaintTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo<V>, java.awt.Paint, java.awt.Paint) 0
 NOT_NULL
+edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NULLABLE
 edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
+edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
 NULLABLE

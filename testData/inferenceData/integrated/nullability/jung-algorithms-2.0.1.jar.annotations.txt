@@ -195,7 +195,9 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.layout.AbstractLayout void adjustLocations(java.awt.Dimension, java.awt.Dimension) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.AbstractLayout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
-NULLABLE
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AbstractLayout void setLocation(V, java.awt.geom.Point2D) 1
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.AbstractLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.AbstractLayout.1 java.awt.geom.Point2D transform(V)
@@ -206,6 +208,10 @@ edu.uci.ics.jung.algorithms.layout.AggregateLayout java.awt.geom.Point2D transfo
 NULLABLE
 edu.uci.ics.jung.algorithms.layout.AggregateLayout java.lang.Object transform(java.lang.Object)
 NULLABLE
+edu.uci.ics.jung.algorithms.layout.AggregateLayout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.AggregateLayout void setLocation(V, java.awt.geom.Point2D) 1
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.AggregateLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.BalloonLayout void setLocation(V, java.awt.geom.Point2D) 1
@@ -228,6 +234,8 @@ edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension) 2
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.DAGLayout void setLocation(V, java.awt.geom.Point2D) 1
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.DAGLayout void setRoot(edu.uci.ics.jung.graph.Graph<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.DAGLayout void setSize(java.awt.Dimension) 0
@@ -248,6 +256,18 @@ edu.uci.ics.jung.algorithms.layout.FRLayout2.1 java.awt.geom.Point2D create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.FRLayout2.1 java.lang.Object create()
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.GraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.GraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
+NULLABLE
+edu.uci.ics.jung.algorithms.layout.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.GraphElementAccessor java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape)
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.GraphElementAccessor java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout.ISOMLayout.ISOMVertexData create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 java.lang.Object create()
@@ -256,7 +276,15 @@ edu.uci.ics.jung.algorithms.layout.KKLayout double[] calcDeltaXY(int)
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.KKLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.Layout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.Layout void setLocation(V, java.awt.geom.Point2D) 1
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.Layout void setSize(java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setLocation(V, java.awt.geom.Point2D) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setSize(java.awt.Dimension) 0
 NOT_NULL
@@ -318,9 +346,13 @@ edu.uci.ics.jung.algorithms.layout.TreeLayout int calculateDimensionX(java.util.
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.TreeLayout java.awt.geom.Point2D getCenter()
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout java.awt.geom.Point2D transform(V)
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.TreeLayout java.lang.Object transform(java.lang.Object)
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.TreeLayout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout void setLocation(V, java.awt.geom.Point2D) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.TreeLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
@@ -412,7 +444,7 @@ edu.uci.ics.jung.algorithms.scoring.PageRank PageRank(edu.uci.ics.jung.graph.Hyp
 NOT_NULL
 edu.uci.ics.jung.algorithms.scoring.PageRank PageRank(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Transformer<E,? extends java.lang.Number>, double) 0
 NOT_NULL
-edu.uci.ics.jung.algorithms.scoring.VertexScorer java.lang.Object getVertexScore(java.lang.Object)
+edu.uci.ics.jung.algorithms.scoring.VertexScorer S getVertexScore(V)
 NULLABLE
 edu.uci.ics.jung.algorithms.scoring.VoltageScorer VoltageScorer(edu.uci.ics.jung.graph.Hypergraph<V,E>, java.util.Collection<V>, java.util.Collection<V>) 1
 NOT_NULL

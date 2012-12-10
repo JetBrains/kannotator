@@ -356,12 +356,27 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setGraph(graph : Graph&lt;V, E&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun setGraph(graph : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p0 : V?, p1 : Point2D) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.AbstractLayout void setSize(java.awt.Dimension)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setSize(size : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AggregateLayout void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(p0 : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.AggregateLayout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p0 : V?, p1 : Point2D) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.AggregateLayout void setSize(java.awt.Dimension)'>
@@ -424,6 +439,11 @@
             <val name="value" val="&quot;fun initializeLocation(v : V?, coord : Point2D, d : Dimension) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p0 : V?, p1 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout void setRoot(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setRoot(g : Graph&lt;V, E&gt;) : Unit&quot;"/>
@@ -474,6 +494,21 @@
             <val name="value" val="&quot;fun setSize(size : Dimension) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.GraphElementAccessor E getEdge(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdge(p0 : Layout&lt;V, E&gt;, p1 : Double, p2 : Double) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, double, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertex(p0 : Layout&lt;V, E&gt;, p1 : Double, p2 : Double) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.GraphElementAccessor java.util.Collection&lt;V&gt; getVertices(edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;, java.awt.Shape)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getVertices(p0 : Layout&lt;V, E&gt;, p1 : Shape?) : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout.ISOMLayout.ISOMVertexData create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : ISOMLayout.ISOMVertexData&quot;"/>
@@ -494,9 +529,29 @@
             <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.Layout void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(p0 : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.Layout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p0 : V?, p1 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.Layout void setSize(java.awt.Dimension)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setGraph(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setGraph(p0 : Graph&lt;V, E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p0 : V?, p1 : Point2D) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.LayoutDecorator void setSize(java.awt.Dimension)'>
@@ -629,9 +684,19 @@
             <val name="value" val="&quot;fun setGraph(graph : Graph&lt;V, E&gt;) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout void setLocation(V, java.awt.geom.Point2D)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLocation(p0 : V?, p1 : Point2D) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout void setSize(java.awt.Dimension)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout java.awt.geom.Point2D transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(p0 : V?) : Point2D&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout java.lang.Object transform(java.lang.Object)'>
@@ -769,9 +834,9 @@
             <val name="value" val="&quot;fun PageRank(graph : Hypergraph&lt;V, E&gt;, edge_weight : Transformer&lt;E, out Number?&gt;?, alpha : Double)&quot;"/>
         </annotation>
     </item>
-    <item name='edu.uci.ics.jung.algorithms.scoring.VertexScorer java.lang.Object getVertexScore(java.lang.Object)'>
+    <item name='edu.uci.ics.jung.algorithms.scoring.VertexScorer S getVertexScore(V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getVertexScore(p0 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun getVertexScore(p0 : V?) : S?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.scoring.VoltageScorer VoltageScorer(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.util.Collection&lt;V&gt;, java.util.Collection&lt;V&gt;)'>

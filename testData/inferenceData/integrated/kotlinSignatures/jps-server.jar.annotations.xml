@@ -5144,6 +5144,11 @@
             <val name="value" val="&quot;fun getAdditionalRoots(p0 : BuildTarget&lt;R&gt;, p1 : BuildDataPaths?) : MutableList&lt;R&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.builders.BuildOutputConsumer void registerOutputFile(java.io.File, java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerOutputFile(p0 : File, p1 : Collection&lt;String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.builders.BuildRootDescriptor java.io.FileFilter createFileFilter()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createFileFilter() : FileFilter&quot;"/>
@@ -5159,9 +5164,9 @@
             <val name="value" val="&quot;fun getRootFile() : File&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.BuildRootDescriptor org.jetbrains.jps.builders.BuildTarget getTarget()'>
+    <item name='org.jetbrains.jps.builders.BuildRootDescriptor org.jetbrains.jps.builders.BuildTarget&lt;?&gt; getTarget()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getTarget() : BuildTarget&quot;"/>
+            <val name="value" val="&quot;fun getTarget() : BuildTarget&lt;*&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.BuildRootIndex void associateTempRoot(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget&lt;R&gt;, R)'>
@@ -5214,24 +5219,24 @@
             <val name="value" val="&quot;fun &lt;R : BuildRootDescriptor?&gt; getTempTargetRoots(p0 : BuildTarget&lt;R&gt;, p1 : CompileContext) : MutableList&lt;R&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.builders.BuildTarget java.util.Collection&lt;org.jetbrains.jps.builders.BuildTarget&lt;?&gt;&gt; computeDependencies(org.jetbrains.jps.builders.BuildTargetRegistry)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun computeDependencies(p0 : BuildTargetRegistry?) : MutableCollection&lt;BuildTarget&lt;*&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.builders.BuildTarget java.util.List&lt;R&gt; computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun computeRootDescriptors(p0 : JpsModel?, p1 : ModuleExcludeIndex?, p2 : IgnoredFileIndex?, p3 : BuildDataPaths?) : MutableList&lt;R&gt;&quot;"/>
+            <val name="value" val="&quot;fun computeRootDescriptors(p0 : JpsModel?, p1 : ModuleExcludeIndex, p2 : IgnoredFileIndex?, p3 : BuildDataPaths?) : MutableList&lt;R&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.BuildTarget R findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findRootDescriptor(p0 : String?, p1 : BuildRootIndex?) : R?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.BuildTarget org.jetbrains.jps.builders.BuildRootDescriptor findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findRootDescriptor(p0 : String?, p1 : BuildRootIndex) : BuildRootDescriptor?&quot;"/>
+            <val name="value" val="&quot;fun findRootDescriptor(p0 : String?, p1 : BuildRootIndex) : R?&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.BuildTarget java.util.Collection&lt;java.io.File&gt; getOutputRoots(org.jetbrains.jps.incremental.CompileContext)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getOutputRoots(p0 : CompileContext?) : MutableCollection&lt;File?&gt;&quot;"/>
+            <val name="value" val="&quot;fun getOutputRoots(p0 : CompileContext) : MutableCollection&lt;File?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.BuildTarget java.lang.String getPresentableName()'>
@@ -5254,9 +5259,9 @@
             <val name="value" val="&quot;fun getDependencies(p0 : BuildTarget&lt;*&gt;) : MutableCollection&lt;BuildTarget&lt;*&gt;?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.BuildTargetLoader org.jetbrains.jps.builders.BuildTarget createTarget(java.lang.String)'>
+    <item name='org.jetbrains.jps.builders.BuildTargetIndex java.util.Set&lt;org.jetbrains.jps.builders.BuildTarget&lt;?&gt;&gt; getDependenciesRecursively(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createTarget(p0 : String) : BuildTarget?&quot;"/>
+            <val name="value" val="&quot;fun getDependenciesRecursively(p0 : BuildTarget&lt;*&gt;?) : MutableSet&lt;BuildTarget&lt;*&gt;?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.BuildTargetLoader T createTarget(java.lang.String)'>
@@ -5271,7 +5276,7 @@
     </item>
     <item name='org.jetbrains.jps.builders.BuildTargetRegistry java.util.Collection&lt;org.jetbrains.jps.builders.ModuleBasedTarget&lt;?&gt;&gt; getModuleBasedTargets(org.jetbrains.jps.model.module.JpsModule, org.jetbrains.jps.builders.BuildTargetRegistry.ModuleTargetSelector)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getModuleBasedTargets(p0 : JpsModule?, p1 : BuildTargetRegistry.ModuleTargetSelector) : MutableCollection&lt;ModuleBasedTarget&lt;*&gt;?&gt;?&quot;"/>
+            <val name="value" val="&quot;fun getModuleBasedTargets(p0 : JpsModule?, p1 : BuildTargetRegistry.ModuleTargetSelector) : MutableCollection&lt;ModuleBasedTarget&lt;*&gt;?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.BuildTargetType java.util.List&lt;T&gt; computeAllTargets(org.jetbrains.jps.model.JpsModel)'>
@@ -5284,11 +5289,6 @@
             <val name="value" val="&quot;fun createLoader(p0 : JpsModel) : BuildTargetLoader&lt;T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.BuildTargetType org.jetbrains.jps.builders.BuildTargetLoader createLoader(org.jetbrains.jps.model.JpsModel)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createLoader(p0 : JpsModel) : BuildTargetLoader&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.DirtyFilesHolder java.util.Collection&lt;java.lang.String&gt; getRemovedFiles(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getRemovedFiles(p0 : T) : MutableCollection&lt;String?&gt;&quot;"/>
@@ -5299,9 +5299,9 @@
             <val name="value" val="&quot;fun processDirtyFiles(p0 : FileProcessor&lt;R, T&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.FileProcessor boolean apply(org.jetbrains.jps.builders.BuildTarget, java.io.File, org.jetbrains.jps.builders.BuildRootDescriptor)'>
+    <item name='org.jetbrains.jps.builders.FileProcessor boolean apply(T, java.io.File, R)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun apply(p0 : BuildTarget?, p1 : File, p2 : BuildRootDescriptor) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun apply(p0 : T?, p1 : File, p2 : R) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.ModuleBasedTarget ModuleBasedTarget(org.jetbrains.jps.builders.BuildTargetType&lt;?&gt;, org.jetbrains.jps.model.module.JpsModule)'>
@@ -5664,9 +5664,19 @@
             <val name="value" val="&quot;fun associate(p0 : String?, p1 : String?, p2 : ClassReader) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.Callbacks.Backend void registerImports(java.lang.String, java.util.Collection&lt;java.lang.String&gt;, java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerImports(p0 : String, p1 : Collection&lt;String?&gt;, p2 : Collection&lt;String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection java.util.Collection&lt;java.io.File&gt; getAffectedFiles()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAffectedFiles() : MutableCollection&lt;File?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver java.util.concurrent.Future&lt;org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffection&gt; request(java.lang.String, java.lang.String, int, boolean, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun request(p0 : String, p1 : String, p2 : Int, p3 : Boolean, p4 : Boolean) : Future&lt;Callbacks.ConstantAffection?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr.1 org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier&lt;org.jetbrains.jps.builders.java.dependencyView.FieldRepr&gt; fields()'>
@@ -5737,6 +5747,26 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr.5 int compare(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compare(o1 : MethodRepr, o2 : MethodRepr) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier&lt;org.jetbrains.jps.builders.java.dependencyView.FieldRepr&gt; fields()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun fields() : Difference.Specifier&lt;FieldRepr?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier&lt;org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType&gt; interfaces()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun interfaces() : Difference.Specifier&lt;TypeRepr.AbstractType?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier&lt;org.jetbrains.jps.builders.java.dependencyView.MethodRepr&gt; methods()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun methods() : Difference.Specifier&lt;MethodRepr?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff org.jetbrains.jps.builders.java.dependencyView.Difference.Specifier&lt;org.jetbrains.jps.builders.java.dependencyView.ElemType&gt; targets()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun targets() : Difference.Specifier&lt;ElemType?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ClassRepr ClassRepr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int, int, int, java.lang.String[], java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.FieldRepr&gt;, java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.MethodRepr&gt;, java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.ElemType&gt;, java.lang.annotation.RetentionPolicy, int, boolean, boolean, java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage&gt;)'>
@@ -6044,9 +6074,9 @@
             <val name="value" val="&quot;fun analyze(fileName : Int, cr : ClassReader) : Pair&lt;ClassRepr?, Set&lt;UsageRepr.Usage?&gt;?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.CollectionFactory java.util.Collection create()'>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.CollectionFactory java.util.Collection&lt;X&gt; create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun create() : MutableCollection&quot;"/>
+            <val name="value" val="&quot;fun create() : MutableCollection&lt;X&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.DependencyContext DependencyContext(java.io.File)'>
@@ -6319,9 +6349,39 @@
             <val name="value" val="&quot;fun replaceAll(m : IntIntMultiMaplet) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet V get(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun get(p0 : Int) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : IntObjectMaplet&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun toStream(p0 : DependencyContext, p1 : PrintStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet java.util.Collection&lt;V&gt; get(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun get(p0 : Int) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : IntObjectMultiMaplet&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void replace(int, java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun replace(p0 : Int, p1 : Collection&lt;V&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun replaceAll(p0 : IntObjectMultiMaplet&lt;V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream)'>
@@ -6481,7 +6541,7 @@
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.Mappings.10 void registerImports(java.lang.String, java.util.Collection&lt;java.lang.String&gt;, java.util.Collection&lt;java.lang.String&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun registerImports(className : String?, imports : Collection&lt;String?&gt;, staticImports : Collection&lt;String?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun registerImports(className : String, imports : Collection&lt;String?&gt;, staticImports : Collection&lt;String?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.Mappings.1 java.util.Collection create()'>
@@ -7039,9 +7099,29 @@
             <val name="value" val="&quot;fun compare(x0 : Any, x1 : Any) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void remove(java.lang.Object)'>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet java.util.Collection&lt;V&gt; get(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(p0 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun get(p0 : K?) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet&lt;K,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : ObjectObjectMultiMaplet&lt;K, V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void remove(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : K) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void replace(K, java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun replace(p0 : K?, p1 : Collection&lt;V&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet&lt;K,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun replaceAll(p0 : ObjectObjectMultiMaplet&lt;K, V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream)'>
@@ -7099,9 +7179,9 @@
             <val name="value" val="&quot;fun putAll(m : ObjectObjectMultiMaplet&lt;K, V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void remove(java.lang.Object)'>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void remove(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(p0 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun remove(p0 : K) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void replace(K, java.util.Collection&lt;V&gt;)'>
@@ -7124,9 +7204,9 @@
             <val name="value" val="&quot;fun putAll(m : ObjectObjectMultiMaplet&lt;K, V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void remove(java.lang.Object)'>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void remove(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(p0 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun remove(p0 : K) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void replace(K, java.util.Collection&lt;V&gt;)'>
@@ -7239,9 +7319,9 @@
             <val name="value" val="&quot;fun read(r : BufferedReader) : String?&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.RW.Reader java.lang.Object read(java.io.BufferedReader)'>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.RW.Reader T read(java.io.BufferedReader)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun read(p0 : BufferedReader) : Any?&quot;"/>
+            <val name="value" val="&quot;fun read(p0 : BufferedReader) : T?&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.RW.Savable void save(java.io.DataOutput)'>
@@ -7249,9 +7329,9 @@
             <val name="value" val="&quot;fun save(p0 : DataOutput) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.RW.ToWritable org.jetbrains.jps.builders.java.dependencyView.RW.Writable convert(java.lang.Object)'>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.RW.ToWritable org.jetbrains.jps.builders.java.dependencyView.RW.Writable convert(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun convert(p0 : Any?) : RW.Writable&quot;"/>
+            <val name="value" val="&quot;fun convert(p0 : T?) : RW.Writable&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.RW.Writable void write(java.io.BufferedWriter)'>
@@ -7379,6 +7459,11 @@
             <val name="value" val="&quot;fun save(p0 : DataOutput) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun updateClassUsages(p0 : DependencyContext, p1 : Int, p2 : MutableSet&lt;UsageRepr.Usage?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
@@ -7392,6 +7477,11 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void save(java.io.DataOutput)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun save(out : DataOutput) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun updateClassUsages(p0 : DependencyContext, p1 : Int, p2 : MutableSet&lt;UsageRepr.Usage?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType ClassType(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput)'>
@@ -7437,6 +7527,11 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void save(java.io.DataOutput)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun save(out : DataOutput) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set&lt;org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun updateClassUsages(p0 : DependencyContext, p1 : Int, p2 : MutableSet&lt;UsageRepr.Usage?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.TypeRepr org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType createClassType(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int)'>
@@ -7769,6 +7864,31 @@
             <val name="value" val="&quot;fun getProjectBuilderLogger() : ProjectBuilderLogger&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.builders.logging.ProjectBuilderLogger void logCompiledFiles(java.util.Collection&lt;java.io.File&gt;, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun logCompiledFiles(p0 : Collection&lt;File?&gt;, p1 : String?, p2 : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.logging.ProjectBuilderLogger void logCompiledPaths(java.util.Collection&lt;java.lang.String&gt;, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun logCompiledPaths(p0 : Collection&lt;String?&gt;, p1 : String?, p2 : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.logging.ProjectBuilderLogger void logDeletedFiles(java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun logDeletedFiles(p0 : Collection&lt;String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetDataRoot(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTargetDataRoot(p0 : BuildTarget&lt;*&gt;) : File&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetTypeDataRoot(org.jetbrains.jps.builders.BuildTargetType&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTargetTypeDataRoot(p0 : BuildTargetType&lt;*&gt;) : File&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.builders.storage.BuildDataPaths java.io.File getTargetsDataRoot()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getTargetsDataRoot() : File&quot;"/>
@@ -8034,19 +8154,24 @@
             <val name="value" val="&quot;fun getModel() : JpsModel&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.incremental.BuildListener void filesDeleted(java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun filesDeleted(p0 : Collection&lt;String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.incremental.BuildListener void filesGenerated(java.util.Collection&lt;com.intellij.openapi.util.Pair&lt;java.lang.String,java.lang.String&gt;&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun filesGenerated(p0 : Collection&lt;Pair&lt;String?, String?&gt;?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.incremental.BuildOperations.1 void processDirtyFiles(org.jetbrains.jps.builders.FileProcessor&lt;R,T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun processDirtyFiles(p0 : FileProcessor&lt;R, T&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.incremental.BuildOperations.2 boolean apply(org.jetbrains.jps.builders.BuildTarget, java.io.File, org.jetbrains.jps.builders.BuildRootDescriptor)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun apply(p0 : BuildTarget?, p1 : File, p2 : BuildRootDescriptor) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.incremental.BuildOperations.2 boolean apply(T, java.io.File, R)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun apply(target : T?, file : File, sourceRoot : R?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun apply(target : T?, file : File, sourceRoot : R) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.BuildOperations void buildTarget(T, org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.incremental.TargetBuilder&lt;?,?&gt;)'>
@@ -8117,6 +8242,11 @@
     <item name='org.jetbrains.jps.incremental.BuilderService java.util.List&lt;? extends org.jetbrains.jps.incremental.ModuleLevelBuilder&gt; createModuleLevelBuilders()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createModuleLevelBuilders() : MutableList&lt;out ModuleLevelBuilder?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.incremental.BuilderService java.util.List&lt;? extends org.jetbrains.jps.builders.BuildTargetType&lt;?&gt;&gt; getTargetTypes()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getTargetTypes() : MutableList&lt;out BuildTargetType&lt;*&gt;?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.ChunkBuildOutputConsumerImpl java.util.Map&lt;java.lang.String,org.jetbrains.jps.incremental.CompiledClass&gt; getCompiledClasses()'>
@@ -8514,11 +8644,6 @@
             <val name="value" val="&quot;fun computeRootExcludes(p0 : File?, p1 : ModuleExcludeIndex) : MutableSet&lt;File?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.incremental.JVMModuleBuildTarget org.jetbrains.jps.builders.BuildRootDescriptor findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findRootDescriptor(p0 : String?, p1 : BuildRootIndex) : BuildRootDescriptor?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.incremental.JVMModuleBuildTarget R findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun findRootDescriptor(rootId : String?, rootIndex : BuildRootIndex) : R?&quot;"/>
@@ -8599,6 +8724,21 @@
             <val name="value" val="&quot;fun lookupClassBytes(p0 : String?) : BinaryContent?&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer void registerCompiledClass(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;, org.jetbrains.jps.incremental.CompiledClass)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerCompiledClass(p0 : BuildTarget&lt;*&gt;?, p1 : CompiledClass) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer void registerOutputFile(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;, java.io.File, java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerOutputFile(p0 : BuildTarget&lt;*&gt;?, p1 : File, p2 : Collection&lt;String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.incremental.ModuleLevelBuilder org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode build(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.DirtyFilesHolder&lt;org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget&gt;, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun build(p0 : CompileContext?, p1 : ModuleChunk?, p2 : DirtyFilesHolder&lt;JavaSourceRootDescriptor?, ModuleBuildTarget?&gt;?, p3 : ModuleLevelBuilder.OutputConsumer?) : ModuleLevelBuilder.ExitCode&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.incremental.ProjectBuildException java.lang.Throwable fillInStackTrace()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun fillInStackTrace() : Throwable&quot;"/>
@@ -8646,7 +8786,7 @@
     </item>
     <item name='org.jetbrains.jps.incremental.ResourcesTarget java.util.List&lt;org.jetbrains.jps.builders.java.ResourceRootDescriptor&gt; computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun computeRootDescriptors(p0 : JpsModel?, p1 : ModuleExcludeIndex?, p2 : IgnoredFileIndex?, p3 : BuildDataPaths?) : MutableList&lt;ResourceRootDescriptor?&gt;&quot;"/>
+            <val name="value" val="&quot;fun computeRootDescriptors(p0 : JpsModel?, p1 : ModuleExcludeIndex, p2 : IgnoredFileIndex?, p3 : BuildDataPaths?) : MutableList&lt;ResourceRootDescriptor?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.ResourcesTarget org.jetbrains.jps.model.java.compiler.ProcessorConfigProfile findAnnotationProcessingProfile(org.jetbrains.jps.model.JpsModel)'>
@@ -8661,7 +8801,7 @@
     </item>
     <item name='org.jetbrains.jps.incremental.ResourcesTarget java.util.Collection&lt;java.io.File&gt; getOutputRoots(org.jetbrains.jps.incremental.CompileContext)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getOutputRoots(p0 : CompileContext?) : MutableCollection&lt;File?&gt;&quot;"/>
+            <val name="value" val="&quot;fun getOutputRoots(p0 : CompileContext) : MutableCollection&lt;File?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.ResourcesTarget java.lang.String getPresentableName()'>
@@ -8677,11 +8817,6 @@
     <item name='org.jetbrains.jps.incremental.TargetBuilder void build(T, org.jetbrains.jps.builders.DirtyFilesHolder&lt;R,T&gt;, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun build(p0 : T, p1 : DirtyFilesHolder&lt;R, T&gt;, p2 : BuildOutputConsumer, p3 : CompileContext) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.incremental.TargetBuilder void build(org.jetbrains.jps.builders.BuildTarget, org.jetbrains.jps.builders.DirtyFilesHolder, org.jetbrains.jps.builders.BuildOutputConsumer, org.jetbrains.jps.incremental.CompileContext)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun build(p0 : BuildTarget, p1 : DirtyFilesHolder, p2 : BuildOutputConsumer, p3 : CompileContext) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.Utils java.io.File convertToFile(java.net.URI)'>
@@ -8731,7 +8866,7 @@
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.List&lt;org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor&gt; computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun computeRootDescriptors(p0 : JpsModel?, p1 : ModuleExcludeIndex?, p2 : IgnoredFileIndex?, p3 : BuildDataPaths?) : MutableList&lt;ArtifactRootDescriptor?&gt;&quot;"/>
+            <val name="value" val="&quot;fun computeRootDescriptors(p0 : JpsModel?, p1 : ModuleExcludeIndex, p2 : IgnoredFileIndex?, p3 : BuildDataPaths?) : MutableList&lt;ArtifactRootDescriptor?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget boolean equals(java.lang.Object)'>
@@ -8756,7 +8891,7 @@
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.Collection&lt;java.io.File&gt; getOutputRoots(org.jetbrains.jps.incremental.CompileContext)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getOutputRoots(p0 : CompileContext?) : MutableCollection&lt;File?&gt;&quot;"/>
+            <val name="value" val="&quot;fun getOutputRoots(p0 : CompileContext) : MutableCollection&lt;File?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.lang.String getPresentableName()'>
@@ -8894,9 +9029,14 @@
             <val name="value" val="&quot;fun getLocalFile(p0 : String) : File&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.incremental.artifacts.JpsBuilderArtifactService java.util.Collection getSyntheticArtifacts(org.jetbrains.jps.model.JpsModel)'>
+    <item name='org.jetbrains.jps.incremental.artifacts.JpsBuilderArtifactService java.util.Collection&lt;org.jetbrains.jps.model.artifact.JpsArtifact&gt; getArtifacts(org.jetbrains.jps.model.JpsModel, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getSyntheticArtifacts(p0 : JpsModel) : MutableCollection?&quot;"/>
+            <val name="value" val="&quot;fun getArtifacts(p0 : JpsModel, p1 : Boolean) : MutableCollection&lt;JpsArtifact?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.incremental.artifacts.JpsBuilderArtifactService java.util.Collection&lt;org.jetbrains.jps.model.artifact.JpsArtifact&gt; getSyntheticArtifacts(org.jetbrains.jps.model.JpsModel)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSyntheticArtifacts(p0 : JpsModel) : MutableCollection&lt;JpsArtifact?&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.JpsSyntheticArtifactProvider java.util.List&lt;org.jetbrains.jps.model.artifact.JpsArtifact&gt; createArtifacts(org.jetbrains.jps.model.JpsModel)'>
@@ -8904,14 +9044,9 @@
             <val name="value" val="&quot;fun createArtifacts(p0 : JpsModel) : MutableList&lt;JpsArtifact?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext)'>
+    <item name='org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(E, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun generateInstructions(p0 : JpsPackagingElement, p1 : ArtifactCompilerInstructionCreator, p2 : ArtifactInstructionsBuilderContext?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService java.util.Collection getDependencies(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getDependencies(p0 : JpsPackagingElement) : MutableCollection?&quot;"/>
+            <val name="value" val="&quot;fun generateInstructions(p0 : E, p1 : ArtifactCompilerInstructionCreator, p2 : ArtifactInstructionsBuilderContext?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService java.util.Collection&lt;? extends org.jetbrains.jps.builders.BuildTarget&lt;?&gt;&gt; getDependencies(E)'>
@@ -9352,6 +9487,11 @@
     <item name='org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator subFolderByRelativePath(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun subFolderByRelativePath(p0 : String) : ArtifactCompilerInstructionCreator?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilder java.util.List&lt;org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor&gt; getDescriptors()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDescriptors() : MutableList&lt;ArtifactRootDescriptor?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl boolean addDestination(org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor)'>
@@ -9854,6 +9994,11 @@
             <val name="value" val="&quot;fun outputLineAvailable(line : String) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void registerImports(java.lang.String, java.util.Collection&lt;java.lang.String&gt;, java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerImports(p0 : String, p1 : Collection&lt;String?&gt;, p2 : Collection&lt;String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.incremental.java.JavaBuilder.DiagnosticSink void report(javax.tools.Diagnostic&lt;? extends javax.tools.JavaFileObject&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun report(diagnostic : Diagnostic&lt;out JavaFileObject?&gt;) : Unit&quot;"/>
@@ -10049,9 +10194,9 @@
             <val name="value" val="&quot;fun access$000(x0 : AbstractStateStorage) : DataExternalizer?&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage void appendData(java.lang.Object, java.lang.Object)'>
+    <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage void appendData(Key, T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun appendData(p0 : Any, p1 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun appendData(p0 : Key, p1 : T) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage com.intellij.util.io.PersistentHashMap&lt;Key,T&gt; createMap(java.io.File)'>
@@ -10061,27 +10206,17 @@
     </item>
     <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage T getState(Key)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getState(p0 : Key?) : T?&quot;"/>
+            <val name="value" val="&quot;fun getState(p0 : Key) : T?&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage java.lang.Object getState(java.lang.Object)'>
+    <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage void remove(Key)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getState(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage void remove(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(p0 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun remove(p0 : Key) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage void update(Key, T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun update(p0 : Key?, p1 : T?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.incremental.storage.AbstractStateStorage void update(java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun update(p0 : Any, p1 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun update(p0 : Key, p1 : T?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.storage.BuildDataManager void closeSourceToOutputStorages(java.util.Collection&lt;org.jetbrains.jps.builders.impl.BuildTargetChunk&gt;)'>
@@ -10271,7 +10406,7 @@
     </item>
     <item name='org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun update(x0 : Any, x1 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun update(x0 : Any, x1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.String, java.lang.String)'>
@@ -10369,6 +10504,11 @@
             <val name="value" val="&quot;fun save(out : DataOutput) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.jetbrains.jps.incremental.storage.Timestamps void saveStamp(java.io.File, org.jetbrains.jps.builders.BuildTarget&lt;?&gt;, long)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun saveStamp(p0 : File?, p1 : BuildTarget&lt;*&gt;, p2 : Long) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.jetbrains.jps.incremental.storage.ValidityState void save(java.io.DataOutput)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun save(p0 : DataOutput) : Unit&quot;"/>
@@ -10402,6 +10542,11 @@
     <item name='org.jetbrains.jps.javac.DiagnosticOutputConsumer void outputLineAvailable(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun outputLineAvailable(p0 : String) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.jetbrains.jps.javac.DiagnosticOutputConsumer void registerImports(java.lang.String, java.util.Collection&lt;java.lang.String&gt;, java.util.Collection&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerImports(p0 : String, p1 : Collection&lt;String?&gt;, p2 : Collection&lt;String?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.javac.JavacASTAnalyser.ImportsCollector java.lang.Object visitClass(com.sun.source.tree.ClassTree, com.sun.source.util.Trees)'>

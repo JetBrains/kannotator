@@ -68742,8 +68742,6 @@ javax.xml.bind.DatatypeConverterImpl java.lang.String _printInteger(java.math.Bi
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String _printLong(long)
 NOT_NULL
-javax.xml.bind.DatatypeConverterImpl java.lang.String _printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext)
-NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String _printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 0
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String _printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 1
@@ -68781,8 +68779,6 @@ NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String printInteger(java.math.BigInteger) 0
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String printLong(long)
-NOT_NULL
-javax.xml.bind.DatatypeConverterImpl java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext)
 NOT_NULL
 javax.xml.bind.DatatypeConverterImpl java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 0
 NOT_NULL
@@ -68921,8 +68917,6 @@ NOT_NULL
 javax.xml.bind.DatatypeConverterInterface java.lang.String printInteger(java.math.BigInteger) 0
 NOT_NULL
 javax.xml.bind.DatatypeConverterInterface java.lang.String printLong(long)
-NOT_NULL
-javax.xml.bind.DatatypeConverterInterface java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext)
 NOT_NULL
 javax.xml.bind.DatatypeConverterInterface java.lang.String printQName(javax.xml.namespace.QName, javax.xml.namespace.NamespaceContext) 0
 NOT_NULL
@@ -69966,23 +69960,9 @@ javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.St
 NOT_NULL
 javax.xml.namespace.QName boolean equals(java.lang.Object) 0
 NULLABLE
-javax.xml.namespace.QName java.lang.String getLocalPart()
-NOT_NULL
-javax.xml.namespace.QName java.lang.String getNamespaceURI()
-NOT_NULL
-javax.xml.namespace.QName java.lang.String getPrefix()
-NOT_NULL
-javax.xml.namespace.QName java.lang.String toString()
-NOT_NULL
 javax.xml.namespace.QName javax.xml.namespace.QName valueOf(java.lang.String)
 NOT_NULL
 javax.xml.namespace.QName javax.xml.namespace.QName valueOf(java.lang.String) 0
-NOT_NULL
-javax.xml.namespace.QName localPart
-NOT_NULL
-javax.xml.namespace.QName namespaceURI
-NOT_NULL
-javax.xml.namespace.QName prefix
 NOT_NULL
 javax.xml.namespace.QName.1 java.lang.Object run()
 NULLABLE

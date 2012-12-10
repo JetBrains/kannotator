@@ -1,4 +1,19 @@
 <root>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : V, p2 : V) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : V, p2 : V, p3 : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addEdge(edge : E?, vertices : Collection&lt;out V&gt;) : Boolean&quot;"/>
@@ -6,12 +21,17 @@
     </item>
     <item name='edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addEdge(edge : E?, vertices : Collection&lt;out V&gt;, edgeType : EdgeType?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addEdge(edge : E, vertices : Collection&lt;out V&gt;, edgeType : EdgeType?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.AbstractGraph E findEdge(V, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun findEdge(v1 : V?, v2 : V?) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph java.util.Collection&lt;E&gt; findEdgeSet(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun findEdgeSet(p0 : V?, p1 : V?) : MutableCollection&lt;E&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E)'>
@@ -22,6 +42,11 @@
     <item name='edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair&lt;V&gt; getValidatedEndpoints(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getValidatedEndpoints(edge : E, endpoints : Pair&lt;out V&gt;) : Pair&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.AbstractGraph boolean isSuccessor(V, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun isSuccessor(p0 : V?, p1 : V?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.AbstractTypedGraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(E)'>
@@ -154,6 +179,11 @@
             <val name="value" val="&quot;fun create() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.graph.DirectedSparseGraph boolean addVertex(V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
@@ -227,6 +257,11 @@
     <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph.1 java.lang.Object create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addVertex(V)'>
@@ -376,7 +411,7 @@
     </item>
     <item name='edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getOpposite(vertex : V?, edge : E?) : V?&quot;"/>
+            <val name="value" val="&quot;fun getOpposite(vertex : V, edge : E?) : V?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection&lt;E&gt; getOutEdges(V)'>
@@ -564,6 +599,11 @@
             <val name="value" val="&quot;fun create() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.graph.SparseGraph boolean addVertex(V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
@@ -642,6 +682,11 @@
     <item name='edu.uci.ics.jung.graph.SparseMultigraph.1 java.lang.Object create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.SparseMultigraph boolean addVertex(V)'>
@@ -734,6 +779,11 @@
             <val name="value" val="&quot;fun create() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addVertex(V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addVertex(vertex : V) : Boolean&quot;"/>
@@ -802,6 +852,16 @@
     <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph.1 java.lang.Object create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair&lt;? extends V&gt;, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : Pair&lt;out V&gt;, p2 : EdgeType?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdge(p0 : E, p1 : V, p2 : V, p3 : EdgeType?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addVertex(V)'>

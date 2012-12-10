@@ -4,14 +4,24 @@
             <val name="value" val="&quot;fun search(object : E?) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.Bag java.util.Iterator iterator()'>
+    <item name='org.apache.commons.collections15.Bag java.util.Iterator&lt;E&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
+            <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.Bag java.util.Set uniqueSet()'>
+    <item name='org.apache.commons.collections15.Bag boolean remove(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun uniqueSet() : MutableSet&quot;"/>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.Bag boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.Bag java.util.Set&lt;E&gt; uniqueSet()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun uniqueSet() : MutableSet&lt;E&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.BagUtils org.apache.commons.collections15.Bag&lt;E&gt; predicatedBag(org.apache.commons.collections15.Bag&lt;E&gt;, org.apache.commons.collections15.Predicate&lt;? super E&gt;)'>
@@ -189,19 +199,29 @@
             <val name="value" val="&quot;fun values() : MutableCollection&lt;Any?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.BidiMap java.lang.Object getKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.BidiMap K getKey(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getKey(p0 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun getKey(p0 : Any?) : K?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.BidiMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
+    <item name='org.apache.commons.collections15.BidiMap org.apache.commons.collections15.MapIterator&lt;K,V&gt; mapIterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(p0 : Any?, p1 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.BidiMap java.lang.Object removeValue(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.BidiMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun removeValue(p0 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.BidiMap K removeValue(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeValue(p0 : Any?) : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.BidiMap java.util.Set&lt;V&gt; values()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun values() : MutableSet&lt;V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.BufferOverflowException java.lang.Throwable getCause()'>
@@ -729,9 +749,9 @@
             <val name="value" val="&quot;fun printStackTrace(out : PrintWriter) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.IterableMap org.apache.commons.collections15.MapIterator mapIterator()'>
+    <item name='org.apache.commons.collections15.IterableMap org.apache.commons.collections15.MapIterator&lt;K,V&gt; mapIterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mapIterator() : MapIterator&quot;"/>
+            <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.IteratorUtils org.apache.commons.collections15.ResettableIterator&lt;E&gt; arrayIterator(java.lang.Object)'>
@@ -944,6 +964,11 @@
             <val name="value" val="&quot;fun &lt;K, V&gt; unmodifiableMapIterator(mapIterator : MapIterator&lt;K, V&gt;) : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.KeyValue K getKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getKey() : K?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.ListUtils java.util.List&lt;E&gt; fixedSizeList(java.util.List&lt;E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;E&gt; fixedSizeList(list : List&lt;E&gt;?) : MutableList&lt;E&gt;&quot;"/>
@@ -1007,6 +1032,16 @@
     <item name='org.apache.commons.collections15.ListUtils java.util.List&lt;E&gt; unmodifiableList(java.util.List&lt;E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;E&gt; unmodifiableList(list : List&lt;E&gt;?) : MutableList&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.MapIterator K getKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getKey() : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.MapIterator K next()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun next() : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.MapUtils void debugPrint(java.io.PrintStream, java.lang.Object, java.util.Map)'>
@@ -1179,24 +1214,84 @@
             <val name="value" val="&quot;fun containsValue(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.MultiMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.MultiMap java.util.Collection&lt;V&gt; get(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun get(p0 : Any) : MutableCollection&lt;V&gt;?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.OrderedIterator java.lang.Object previous()'>
+    <item name='org.apache.commons.collections15.MultiMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previous() : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.OrderedMap java.lang.Object nextKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.MultiMap boolean putAll(K, java.util.Collection&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun putAll(p0 : K?, p1 : Collection&lt;out V&gt;?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.OrderedMap java.lang.Object previousKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.MultiMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.MultiMap void putAll(org.apache.commons.collections15.MultiMap&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : MultiMap&lt;out K, out V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.MultiMap java.util.Collection&lt;V&gt; remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.MultiMap V remove(java.lang.Object, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any?, p1 : Any?) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.MultiMap java.util.Collection&lt;V&gt; values()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun values() : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedIterator E previous()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun previous() : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedMap K firstKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun firstKey() : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedMap K lastKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun lastKey() : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedMap K nextKey(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun nextKey(p0 : K) : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedMap org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedMap K previousKey(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun previousKey(p0 : K) : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.OrderedMapIterator K previous()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun previous() : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.Predicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.PredicateUtils org.apache.commons.collections15.Predicate&lt;T&gt; allPredicate(java.util.Collection&lt;org.apache.commons.collections15.Predicate&lt;? super T&gt;&gt;)'>
@@ -1409,9 +1504,9 @@
             <val name="value" val="&quot;fun &lt;E&gt; unmodifiableSortedSet(set : SortedSet&lt;E&gt;?) : SortedSet&lt;E&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.Transformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.Transformer O transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : O?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.TransformerUtils org.apache.commons.collections15.Transformer&lt;T,T&gt; asTransformer(org.apache.commons.collections15.Closure&lt;T&gt;)'>
@@ -1524,6 +1619,11 @@
             <val name="value" val="&quot;fun &lt;I, O&gt; switchTransformer(predicates : Array&lt;out Predicate&lt;in I&gt;?&gt;, transformers : Array&lt;out Transformer&lt;in I, out O&gt;?&gt;?, defaultTransformer : Transformer&lt;in I, out O&gt;?) : Transformer&lt;I, O&gt;?&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bag.AbstractBagDecorator java.util.Set&lt;E&gt; uniqueSet()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun uniqueSet() : MutableSet&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bag.AbstractMapBag.BagIterator BagIterator(org.apache.commons.collections15.bag.AbstractMapBag&lt;E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun BagIterator(parent : AbstractMapBag&lt;E&gt;)&quot;"/>
@@ -1569,9 +1669,14 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bag.AbstractMapBag boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bag.AbstractMapBag boolean removeAll(java.util.Collection&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun removeAll(coll : Collection&lt;*&gt;?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun removeAll(coll : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bag.AbstractMapBag java.lang.Object[] toArray()'>
@@ -1654,9 +1759,9 @@
             <val name="value" val="&quot;fun &lt;E&gt; decorate(bag : SortedBag&lt;E&gt;?, type : Class&lt;E&gt;) : SortedBag&lt;E&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bag.UnmodifiableBag boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.bag.UnmodifiableBag boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bag.UnmodifiableBag org.apache.commons.collections15.Bag&lt;E&gt; decorate(org.apache.commons.collections15.Bag&lt;E&gt;)'>
@@ -1674,6 +1779,16 @@
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bag.UnmodifiableBag boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bag.UnmodifiableBag boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bag.UnmodifiableBag java.util.Set&lt;E&gt; uniqueSet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun uniqueSet() : MutableSet&lt;E&gt;&quot;"/>
@@ -1684,9 +1799,9 @@
             <val name="value" val="&quot;fun writeObject(out : ObjectOutputStream) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bag.UnmodifiableSortedBag boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.bag.UnmodifiableSortedBag boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bag.UnmodifiableSortedBag org.apache.commons.collections15.SortedBag&lt;E&gt; decorate(org.apache.commons.collections15.SortedBag&lt;E&gt;)'>
@@ -1704,6 +1819,16 @@
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bag.UnmodifiableSortedBag boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bag.UnmodifiableSortedBag boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bag.UnmodifiableSortedBag java.util.Set&lt;E&gt; uniqueSet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun uniqueSet() : MutableSet&lt;E&gt;&quot;"/>
@@ -1714,9 +1839,19 @@
             <val name="value" val="&quot;fun writeObject(out : ObjectOutputStream) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractBidiMapDecorator org.apache.commons.collections15.MapIterator&lt;K,V&gt; mapIterator()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bidimap.AbstractBidiMapDecorator java.util.Collection values()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun values() : MutableCollection&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractBidiMapDecorator java.util.Set&lt;V&gt; values()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun values() : MutableSet&lt;V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.BidiMapIterator BidiMapIterator(org.apache.commons.collections15.bidimap.AbstractDualBidiMap&lt;K,V&gt;)'>
@@ -1734,6 +1869,11 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;Map.Entry&lt;K, V&gt;?&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.EntrySet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.KeySet KeySet(org.apache.commons.collections15.bidimap.AbstractDualBidiMap&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun KeySet(parent : AbstractDualBidiMap&lt;K, V&gt;)&quot;"/>
@@ -1749,6 +1889,11 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;K&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.KeySet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.Values Values(org.apache.commons.collections15.bidimap.AbstractDualBidiMap&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Values(parent : AbstractDualBidiMap&lt;K, V&gt;)&quot;"/>
@@ -1762,6 +1907,21 @@
     <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.Values java.util.Iterator&lt;V&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.Values boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap.View boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap org.apache.commons.collections15.BidiMap&lt;K,V&gt; createBidiMap(java.util.Map&lt;K,V&gt;, java.util.Map&lt;V,K&gt;, org.apache.commons.collections15.BidiMap&lt;V,K&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;K, V&gt; createBidiMap(p0 : Map&lt;K, V&gt;?, p1 : Map&lt;V, K&gt;?, p2 : BidiMap&lt;V, K&gt;?) : BidiMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap java.util.Iterator&lt;java.util.Map.Entry&lt;K,V&gt;&gt; createEntrySetIterator(java.util.Iterator&lt;java.util.Map.Entry&lt;K,V&gt;&gt;)'>
@@ -1789,6 +1949,11 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap V put(K, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.bidimap.AbstractDualBidiMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(map : Map&lt;out K, out V&gt;) : Unit&quot;"/>
@@ -1804,14 +1969,34 @@
             <val name="value" val="&quot;fun removeValue(value : Any?) : K?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator java.lang.Object nextKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator K nextKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun nextKey(p0 : K) : K?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator java.lang.Object previousKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractOrderedBidiMapDecorator K previousKey(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun previousKey(p0 : K) : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractSortedBidiMapDecorator java.util.SortedMap&lt;K,V&gt; headMap(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun headMap(p0 : K?) : SortedMap&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractSortedBidiMapDecorator java.util.SortedMap&lt;K,V&gt; subMap(K, K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun subMap(p0 : K?, p1 : K?) : SortedMap&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.AbstractSortedBidiMapDecorator java.util.SortedMap&lt;K,V&gt; tailMap(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun tailMap(p0 : K?) : SortedMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.DualHashBidiMap org.apache.commons.collections15.BidiMap&lt;K,V&gt; createBidiMap(java.util.Map&lt;K,V&gt;, java.util.Map&lt;V,K&gt;, org.apache.commons.collections15.BidiMap&lt;V,K&gt;)'>
@@ -1879,14 +2064,9 @@
             <val name="value" val="&quot;fun headMap(toKey : K?) : SortedMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bidimap.DualTreeBidiMap java.lang.Object nextKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.bidimap.DualTreeBidiMap K nextKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun nextKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.DualTreeBidiMap org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
@@ -1896,12 +2076,7 @@
     </item>
     <item name='org.apache.commons.collections15.bidimap.DualTreeBidiMap K previousKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(key : K?) : K?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.apache.commons.collections15.bidimap.DualTreeBidiMap java.lang.Object previousKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun previousKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.DualTreeBidiMap void readObject(java.io.ObjectInputStream)'>
@@ -1927,6 +2102,11 @@
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.EntryView boolean contains(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun contains(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.EntryView boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse boolean containsKey(java.lang.Object)'>
@@ -1996,7 +2176,7 @@
     </item>
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse java.lang.Object put(java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(x0 : Any?, x1 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(x0 : Any, x1 : Any) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.Inverse void putAll(java.util.Map&lt;? extends V,? extends K&gt;)'>
@@ -2042,6 +2222,11 @@
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.View java.util.Iterator iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.View boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap.ViewIterator ViewIterator(org.apache.commons.collections15.bidimap.TreeBidiMap, int, int)'>
@@ -2341,7 +2526,7 @@
     </item>
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(x0 : Any?, x1 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(x0 : Any, x1 : Any) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.TreeBidiMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
@@ -2389,9 +2574,19 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bidimap.UnmodifiableBidiMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableBidiMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableBidiMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableBidiMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.UnmodifiableBidiMap java.util.Collection values()'>
@@ -2429,9 +2624,19 @@
             <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.UnmodifiableOrderedBidiMap java.util.Collection values()'>
@@ -2474,9 +2679,19 @@
             <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.bidimap.UnmodifiableSortedBidiMap java.util.SortedMap&lt;K,V&gt; subMap(K, K)'>
@@ -2499,9 +2714,9 @@
             <val name="value" val="&quot;fun values() : MutableSet&lt;V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.buffer.BlockingBuffer boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.buffer.BlockingBuffer boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.buffer.BlockingBuffer org.apache.commons.collections15.Buffer&lt;E&gt; decorate(org.apache.commons.collections15.Buffer&lt;E&gt;)'>
@@ -2609,9 +2824,9 @@
             <val name="value" val="&quot;fun writeObject(out : ObjectOutputStream) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.buffer.UnmodifiableBuffer boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.buffer.UnmodifiableBuffer boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.buffer.UnmodifiableBuffer org.apache.commons.collections15.Buffer&lt;E&gt; decorate(org.apache.commons.collections15.Buffer&lt;E&gt;)'>
@@ -2629,6 +2844,16 @@
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.buffer.UnmodifiableBuffer boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.buffer.UnmodifiableBuffer boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.buffer.UnmodifiableBuffer void writeObject(java.io.ObjectOutputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeObject(out : ObjectOutputStream) : Unit&quot;"/>
@@ -2639,9 +2864,9 @@
             <val name="value" val="&quot;fun AbstractCollectionDecorator(coll : Collection&lt;E&gt;)&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean contains(java.lang.Object)'>
@@ -2649,14 +2874,29 @@
             <val name="value" val="&quot;fun contains(p0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator java.util.Iterator iterator()'>
+    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator java.util.Iterator&lt;E&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
+            <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator java.lang.Object[] toArray()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun toArray() : Array&lt;out Any?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.AbstractCollectionDecorator T[] toArray(T[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; toArray(p0 : Array&lt;out T&gt;) : Array&lt;out T&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.AbstractSerializableCollectionDecorator void readObject(java.io.ObjectInputStream)'>
@@ -2667,6 +2907,21 @@
     <item name='org.apache.commons.collections15.collection.AbstractSerializableCollectionDecorator void writeObject(java.io.ObjectOutputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeObject(out : ObjectOutputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.CompositeCollection void addComposited(java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addComposited(p0 : Collection&lt;out E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.CompositeCollection void addComposited(java.util.Collection&lt;? extends E&gt;, java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addComposited(p0 : Collection&lt;out E&gt;, p1 : Collection&lt;out E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.CompositeCollection void addComposited(java.util.Collection&lt;? extends E&gt;...)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addComposited(vararg p0 : Collection&lt;out E&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.CompositeCollection boolean containsAll(java.util.Collection&lt;?&gt;)'>
@@ -2682,6 +2937,11 @@
     <item name='org.apache.commons.collections15.collection.CompositeCollection java.util.Iterator&lt;E&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.CompositeCollection boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.CompositeCollection boolean removeAll(java.util.Collection&lt;?&gt;)'>
@@ -2709,11 +2969,6 @@
             <val name="value" val="&quot;fun PredicatedCollection(coll : Collection&lt;E&gt;, predicate : Predicate&lt;in E&gt;)&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.collection.PredicatedCollection boolean addAll(java.util.Collection)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.collection.PredicatedCollection boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addAll(coll : Collection&lt;out E&gt;) : Boolean&quot;"/>
@@ -2734,9 +2989,9 @@
             <val name="value" val="&quot;fun SynchronizedCollection(collection : Collection&lt;E&gt;, lock : Any?)&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.collection.SynchronizedCollection boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.collection.SynchronizedCollection boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.SynchronizedCollection java.util.Collection&lt;E&gt; decorate(java.util.Collection&lt;E&gt;)'>
@@ -2774,9 +3029,9 @@
             <val name="value" val="&quot;fun decorate(coll : Collection?, type : Class) : MutableCollection&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.collection.UnmodifiableBoundedCollection boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.collection.UnmodifiableBoundedCollection boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.UnmodifiableBoundedCollection org.apache.commons.collections15.BoundedCollection&lt;E&gt; decorate(org.apache.commons.collections15.BoundedCollection&lt;E&gt;)'>
@@ -2794,9 +3049,19 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.collection.UnmodifiableCollection boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.collection.UnmodifiableBoundedCollection boolean remove(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.UnmodifiableBoundedCollection boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.UnmodifiableCollection boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.collection.UnmodifiableCollection java.util.Collection&lt;E&gt; decorate(java.util.Collection&lt;E&gt;)'>
@@ -2807,6 +3072,16 @@
     <item name='org.apache.commons.collections15.collection.UnmodifiableCollection java.util.Iterator&lt;E&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.UnmodifiableCollection boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.collection.UnmodifiableCollection boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.comparators.BooleanComparator int compare(java.lang.Boolean, java.lang.Boolean)'>
@@ -2894,6 +3169,11 @@
             <val name="value" val="&quot;fun equals(object : Any) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.AllPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.AllPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(java.util.Collection&lt;org.apache.commons.collections15.Predicate&lt;? super T&gt;&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(predicates : Collection&lt;Predicate&lt;in T&gt;?&gt;) : Predicate&lt;T&gt;&quot;"/>
@@ -2904,6 +3184,11 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(predicates : Array&lt;out Predicate&lt;in T&gt;?&gt;) : Predicate&lt;T&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.AndPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.AndPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(org.apache.commons.collections15.Predicate&lt;? super T&gt;, org.apache.commons.collections15.Predicate&lt;? super T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(predicate1 : Predicate&lt;in T&gt;, predicate2 : Predicate&lt;in T&gt;) : Predicate&lt;T&gt;&quot;"/>
@@ -2912,6 +3197,11 @@
     <item name='org.apache.commons.collections15.functors.AndPredicate org.apache.commons.collections15.Predicate&lt;? super T&gt;[] getPredicates()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getPredicates() : Array&lt;out Predicate&lt;in T&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.AnyPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.AnyPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(java.util.Collection&lt;org.apache.commons.collections15.Predicate&lt;? super T&gt;&gt;)'>
@@ -2954,9 +3244,9 @@
             <val name="value" val="&quot;fun &lt;I, O&gt; getInstance(transformers : Array&lt;out Transformer?&gt;) : Transformer&lt;I, O&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.ChainedTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.ChainedTransformer O transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : O?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.CloneTransformer org.apache.commons.collections15.Transformer&lt;T,T&gt; getInstance()'>
@@ -2964,14 +3254,9 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Transformer&lt;T, T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.CloneTransformer java.lang.Object transform(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.functors.CloneTransformer T transform(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(input : T?) : T?&quot;"/>
+            <val name="value" val="&quot;fun transform(input : T) : T?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.ClosureTransformer org.apache.commons.collections15.Transformer&lt;T,T&gt; getInstance(org.apache.commons.collections15.Closure&lt;T&gt;)'>
@@ -2979,9 +3264,9 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(closure : Closure&lt;T&gt;) : Transformer&lt;T, T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.ClosureTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.ClosureTransformer T transform(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : T) : T?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.ConstantFactory org.apache.commons.collections15.Factory&lt;T&gt; getInstance(T)'>
@@ -2994,9 +3279,14 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(constantToReturn : T?) : Transformer&lt;Any?, T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.ConstantTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.ConstantTransformer T transform(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : Any) : T?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.EqualPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.EqualPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(T)'>
@@ -3014,6 +3304,11 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Factory&lt;T&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.ExceptionPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.ExceptionPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Predicate&lt;T&gt;&quot;"/>
@@ -3024,9 +3319,9 @@
             <val name="value" val="&quot;fun &lt;I, O&gt; getInstance() : Transformer&lt;I, O&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.ExceptionTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.ExceptionTransformer O transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : O?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.FactoryTransformer org.apache.commons.collections15.Transformer&lt;K,T&gt; getInstance(org.apache.commons.collections15.Factory&lt;T&gt;)'>
@@ -3034,9 +3329,14 @@
             <val name="value" val="&quot;fun &lt;K, T&gt; getInstance(factory : Factory&lt;T&gt;) : Transformer&lt;K, T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.FactoryTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.FactoryTransformer T transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : T?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.FalsePredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.FalsePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance()'>
@@ -3089,6 +3389,11 @@
             <val name="value" val="&quot;fun &lt;T&gt; validateMin2(predicates : Array&lt;out Predicate&lt;in T&gt;?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.IdentityPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.IdentityPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(object : T?) : Predicate&lt;T&gt;&quot;"/>
@@ -3097,6 +3402,11 @@
     <item name='org.apache.commons.collections15.functors.IfClosure org.apache.commons.collections15.Closure&lt;T&gt; getInstance(org.apache.commons.collections15.Predicate&lt;? super T&gt;, org.apache.commons.collections15.Closure&lt;? super T&gt;, org.apache.commons.collections15.Closure&lt;? super T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(predicate : Predicate&lt;in T&gt;, trueClosure : Closure&lt;in T&gt;, falseClosure : Closure&lt;in T&gt;) : Closure&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.InstanceofPredicate boolean evaluate(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.InstanceofPredicate org.apache.commons.collections15.Predicate getInstance(java.lang.Class)'>
@@ -3144,9 +3454,9 @@
             <val name="value" val="&quot;fun &lt;I, O&gt; getInstance(map : Map&lt;I, O&gt;?) : Transformer&lt;I, O&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.MapTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.MapTransformer O transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : O?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NOPClosure org.apache.commons.collections15.Closure&lt;T&gt; getInstance()'>
@@ -3159,9 +3469,14 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Transformer&lt;T, T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.NOPTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.NOPTransformer I transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : I?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.NonePredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NonePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(java.util.Collection&lt;org.apache.commons.collections15.Predicate&lt;? super T&gt;&gt;)'>
@@ -3176,12 +3491,17 @@
     </item>
     <item name='org.apache.commons.collections15.functors.NotNullPredicate boolean evaluate(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun evaluate(object : T?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun evaluate(object : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NotNullPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Predicate&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.NotPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NotPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(org.apache.commons.collections15.Predicate&lt;T&gt;)'>
@@ -3211,7 +3531,7 @@
     </item>
     <item name='org.apache.commons.collections15.functors.NullIsFalsePredicate boolean evaluate(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun evaluate(object : T?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun evaluate(object : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NullIsFalsePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(org.apache.commons.collections15.Predicate&lt;T&gt;)'>
@@ -3226,7 +3546,7 @@
     </item>
     <item name='org.apache.commons.collections15.functors.NullIsTruePredicate boolean evaluate(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun evaluate(object : T?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun evaluate(object : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NullIsTruePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(org.apache.commons.collections15.Predicate&lt;T&gt;)'>
@@ -3241,12 +3561,17 @@
     </item>
     <item name='org.apache.commons.collections15.functors.NullPredicate boolean evaluate(T)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun evaluate(object : T?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun evaluate(object : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.NullPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Predicate&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.OnePredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.OnePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(java.util.Collection&lt;org.apache.commons.collections15.Predicate&lt;? super T&gt;&gt;)'>
@@ -3259,6 +3584,11 @@
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(predicates : Array&lt;out Predicate&lt;in T&gt;?&gt;) : Predicate&lt;T&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.OrPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.OrPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(org.apache.commons.collections15.Predicate&lt;? super T&gt;, org.apache.commons.collections15.Predicate&lt;? super T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(predicate1 : Predicate&lt;in T&gt;, predicate2 : Predicate&lt;in T&gt;) : Predicate&lt;T&gt;&quot;"/>
@@ -3269,9 +3599,9 @@
             <val name="value" val="&quot;fun getPredicates() : Array&lt;out Predicate&lt;in T&gt;?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.PredicateDecorator org.apache.commons.collections15.Predicate[] getPredicates()'>
+    <item name='org.apache.commons.collections15.functors.PredicateDecorator org.apache.commons.collections15.Predicate&lt;? super T&gt;[] getPredicates()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getPredicates() : Array&lt;out Predicate?&gt;&quot;"/>
+            <val name="value" val="&quot;fun getPredicates() : Array&lt;out Predicate&lt;in T&gt;?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.PredicateTransformer org.apache.commons.collections15.Transformer&lt;T,java.lang.Boolean&gt; getInstance(org.apache.commons.collections15.Predicate&lt;T&gt;)'>
@@ -3339,9 +3669,14 @@
             <val name="value" val="&quot;fun &lt;I, O&gt; getInstance(predicates : Array&lt;out Predicate&lt;in I&gt;?&gt;, transformers : Array&lt;out Transformer&lt;in I, out O&gt;?&gt;?, defaultTransformer : Transformer&lt;in I, out O&gt;?) : Transformer&lt;I, O&gt;?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.functors.SwitchTransformer java.lang.Object transform(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.functors.SwitchTransformer O transform(I)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transform(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun transform(p0 : I) : O?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.TransformedPredicate boolean evaluate(I)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : I) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.TransformedPredicate org.apache.commons.collections15.Predicate&lt;I&gt; getInstance(org.apache.commons.collections15.Transformer&lt;? super I,? extends O&gt;, org.apache.commons.collections15.Predicate&lt;? super O&gt;)'>
@@ -3359,14 +3694,29 @@
             <val name="value" val="&quot;fun &lt;I, O&gt; getInstance(transformer : Transformer&lt;in I, O&gt;?) : Closure&lt;I&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.TransformerPredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.TransformerPredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance(org.apache.commons.collections15.Transformer&lt;T,java.lang.Boolean&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance(transformer : Transformer&lt;T, Boolean?&gt;) : Predicate&lt;T&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.functors.TruePredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.functors.TruePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getInstance() : Predicate&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.functors.UniquePredicate boolean evaluate(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(p0 : T) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.functors.UniquePredicate org.apache.commons.collections15.Predicate&lt;T&gt; getInstance()'>
@@ -3389,9 +3739,9 @@
             <val name="value" val="&quot;fun getIterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.iterators.AbstractIteratorDecorator java.lang.Object next()'>
+    <item name='org.apache.commons.collections15.iterators.AbstractIteratorDecorator E next()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun next() : Any&quot;"/>
+            <val name="value" val="&quot;fun next() : E&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.iterators.AbstractListIteratorDecorator AbstractListIteratorDecorator(java.util.ListIterator&lt;E&gt;)'>
@@ -3559,9 +3909,9 @@
             <val name="value" val="&quot;fun &lt;K, V&gt; decorate(iterator : OrderedMapIterator&lt;K, V&gt;) : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.keyvalue.AbstractMapEntry java.lang.Object setValue(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.keyvalue.AbstractMapEntry V setValue(V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setValue(p0 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun setValue(p0 : V?) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.keyvalue.AbstractMapEntryDecorator AbstractMapEntryDecorator(java.util.Map.Entry&lt;K,V&gt;)'>
@@ -3794,6 +4144,26 @@
             <val name="value" val="&quot;fun updateNode(node : AbstractLinkedList.Node&lt;E&gt;, value : E?) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.list.AbstractListDecorator boolean addAll(int, java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addAll(p0 : Int, p1 : Collection&lt;out E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.AbstractListDecorator java.util.ListIterator&lt;E&gt; listIterator()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun listIterator() : MutableListIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.AbstractListDecorator java.util.ListIterator&lt;E&gt; listIterator(int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun listIterator(p0 : Int) : MutableListIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.AbstractListDecorator java.util.List&lt;E&gt; subList(int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun subList(p0 : Int, p1 : Int) : MutableList&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.list.AbstractSerializableListDecorator void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
@@ -3807,6 +4177,11 @@
     <item name='org.apache.commons.collections15.list.CursorableLinkedList.Cursor void nodeInserted(org.apache.commons.collections15.list.AbstractLinkedList.Node&lt;E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun nodeInserted(node : AbstractLinkedList.Node&lt;E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.CursorableLinkedList void addNode(org.apache.commons.collections15.list.AbstractLinkedList.Node&lt;E&gt;, org.apache.commons.collections15.list.AbstractLinkedList.Node&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addNode(p0 : AbstractLinkedList.Node&lt;E&gt;, p1 : AbstractLinkedList.Node&lt;E&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.CursorableLinkedList org.apache.commons.collections15.list.CursorableLinkedList.Cursor&lt;E&gt; cursor()'>
@@ -3837,6 +4212,16 @@
     <item name='org.apache.commons.collections15.list.CursorableLinkedList void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.CursorableLinkedList void removeNode(org.apache.commons.collections15.list.AbstractLinkedList.Node&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeNode(p0 : AbstractLinkedList.Node&lt;E&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.CursorableLinkedList void updateNode(org.apache.commons.collections15.list.AbstractLinkedList.Node&lt;E&gt;, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun updateNode(p0 : AbstractLinkedList.Node&lt;E&gt;, p1 : E?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.CursorableLinkedList void writeObject(java.io.ObjectOutputStream)'>
@@ -3899,9 +4284,14 @@
             <val name="value" val="&quot;fun clone() : Any&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.list.FixedSizeList boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.list.FixedSizeList boolean addAll(int, java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Int, p1 : Collection&lt;out E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.FixedSizeList boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.FixedSizeList java.util.List&lt;E&gt; decorate(java.util.List&lt;E&gt;)'>
@@ -3922,6 +4312,16 @@
     <item name='org.apache.commons.collections15.list.FixedSizeList java.util.ListIterator&lt;E&gt; listIterator(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun listIterator(index : Int) : MutableListIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.FixedSizeList boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.FixedSizeList boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.FixedSizeList java.util.List&lt;E&gt; subList(int, int)'>
@@ -3957,6 +4357,11 @@
     <item name='org.apache.commons.collections15.list.NodeCachingLinkedList void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.NodeCachingLinkedList void removeNode(org.apache.commons.collections15.list.AbstractLinkedList.Node&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeNode(p0 : AbstractLinkedList.Node&lt;E&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.NodeCachingLinkedList void writeObject(java.io.ObjectOutputStream)'>
@@ -4009,11 +4414,6 @@
             <val name="value" val="&quot;fun addAll(index : Int, coll : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.list.SetUniqueList boolean addAll(java.util.Collection)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.list.SetUniqueList boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addAll(coll : Collection&lt;out E&gt;) : Boolean&quot;"/>
@@ -4047,6 +4447,16 @@
     <item name='org.apache.commons.collections15.list.SetUniqueList java.util.ListIterator&lt;E&gt; listIterator(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun listIterator(index : Int) : MutableListIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.SetUniqueList boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.SetUniqueList boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.SetUniqueList java.util.List&lt;E&gt; subList(int, int)'>
@@ -4244,9 +4654,14 @@
             <val name="value" val="&quot;fun decorate(list : List?, type : Class) : MutableList&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.list.UnmodifiableList boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.list.UnmodifiableList boolean addAll(int, java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Int, p1 : Collection&lt;out E&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.UnmodifiableList boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.UnmodifiableList java.util.List&lt;E&gt; decorate(java.util.List&lt;E&gt;)'>
@@ -4267,6 +4682,16 @@
     <item name='org.apache.commons.collections15.list.UnmodifiableList java.util.ListIterator&lt;E&gt; listIterator(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun listIterator(index : Int) : MutableListIterator&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.UnmodifiableList boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.list.UnmodifiableList boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.list.UnmodifiableList java.util.List&lt;E&gt; subList(int, int)'>
@@ -4349,6 +4774,11 @@
             <val name="value" val="&quot;fun AbstractHashedMap(map : Map&lt;out K, out V&gt;)&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.AbstractHashedMap void addEntry(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry&lt;K,V&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEntry(p0 : AbstractHashedMap.HashEntry&lt;K, V&gt;, p1 : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.AbstractHashedMap java.lang.Object clone()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun clone() : Any?&quot;"/>
@@ -4377,11 +4807,6 @@
     <item name='org.apache.commons.collections15.map.AbstractHashedMap java.util.Iterator&lt;K&gt; createKeySetIterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createKeySetIterator() : MutableIterator&lt;K&gt;&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.apache.commons.collections15.map.AbstractHashedMap java.util.Iterator createKeySetIterator()'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createKeySetIterator() : MutableIterator&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractHashedMap java.util.Iterator&lt;V&gt; createValuesIterator()'>
@@ -4454,19 +4879,9 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractHashedMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(p0 : Any?, p1 : Any?) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.AbstractHashedMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(key : K, value : V?) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.apache.commons.collections15.map.AbstractHashedMap void putAll(java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(key : K, value : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractHashedMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
@@ -4574,14 +4989,9 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractLinkedMap java.lang.Object nextKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.AbstractLinkedMap K nextKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun nextKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractLinkedMap org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
@@ -4589,14 +4999,9 @@
             <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractLinkedMap java.lang.Object previousKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.AbstractLinkedMap K previousKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun previousKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractLinkedMap void removeEntry(org.apache.commons.collections15.map.AbstractHashedMap.HashEntry&lt;K,V&gt;, int, org.apache.commons.collections15.map.AbstractHashedMap.HashEntry&lt;K,V&gt;)'>
@@ -4614,24 +5019,59 @@
             <val name="value" val="&quot;fun containsValue(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractMapDecorator void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator java.util.Set&lt;java.util.Map.Entry&lt;K,V&gt;&gt; entrySet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun entrySet() : MutableSet&lt;Map.Entry&lt;K, V&gt;?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractMapDecorator java.util.Collection values()'>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator V get(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun values() : MutableCollection&quot;"/>
+            <val name="value" val="&quot;fun get(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractOrderedMapDecorator java.lang.Object nextKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator java.util.Set&lt;K&gt; keySet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun keySet() : MutableSet&lt;K&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.AbstractOrderedMapDecorator java.lang.Object previousKey(java.lang.Object)'>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractMapDecorator java.util.Collection&lt;V&gt; values()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun values() : MutableCollection&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractOrderedMapDecorator org.apache.commons.collections15.MapIterator&lt;K,V&gt; mapIterator()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractOrderedMapDecorator K nextKey(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun nextKey(p0 : K) : K?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractOrderedMapDecorator org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractOrderedMapDecorator K previousKey(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun previousKey(p0 : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractReferenceMap.ReferenceEntry ReferenceEntry(org.apache.commons.collections15.map.AbstractReferenceMap&lt;K,V&gt;, org.apache.commons.collections15.map.AbstractReferenceMap.ReferenceEntry&lt;K,V&gt;, int, K, V)'>
@@ -4696,12 +5136,12 @@
     </item>
     <item name='org.apache.commons.collections15.map.AbstractReferenceMap V get(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun get(key : Any?) : V?&quot;"/>
+            <val name="value" val="&quot;fun get(key : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractReferenceMap org.apache.commons.collections15.map.AbstractHashedMap.HashEntry&lt;K,V&gt; getEntry(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getEntry(key : Any?) : AbstractHashedMap.HashEntry&lt;K, V&gt;?&quot;"/>
+            <val name="value" val="&quot;fun getEntry(key : Any) : AbstractHashedMap.HashEntry&lt;K, V&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.AbstractReferenceMap int hashEntry(java.lang.Object, java.lang.Object)'>
@@ -4731,7 +5171,22 @@
     </item>
     <item name='org.apache.commons.collections15.map.AbstractReferenceMap V remove(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(key : Any?) : V?&quot;"/>
+            <val name="value" val="&quot;fun remove(key : Any) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractSortedMapDecorator java.util.SortedMap&lt;K,V&gt; headMap(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun headMap(p0 : K?) : SortedMap&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractSortedMapDecorator java.util.SortedMap&lt;K,V&gt; subMap(K, K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun subMap(p0 : K?, p1 : K?) : SortedMap&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.AbstractSortedMapDecorator java.util.SortedMap&lt;K,V&gt; tailMap(K)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun tailMap(p0 : K?) : SortedMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.CaseInsensitiveMap java.lang.Object clone()'>
@@ -4746,22 +5201,17 @@
     </item>
     <item name='org.apache.commons.collections15.map.CaseInsensitiveMap V get(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun get(key : Any?) : V?&quot;"/>
+            <val name="value" val="&quot;fun get(key : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.CaseInsensitiveMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(x0 : Any?, x1 : Any?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(x0 : Any, x1 : Any) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.CaseInsensitiveMap V put(java.lang.String, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun put(s : String?, v : V?) : V?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.apache.commons.collections15.map.CaseInsensitiveMap void putAll(java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.CaseInsensitiveMap void putAll(java.util.Map&lt;? extends java.lang.String,? extends V&gt;)'>
@@ -4819,14 +5269,29 @@
             <val name="value" val="&quot;fun CollectionViewIterator()&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.FastHashMap.CollectionView java.util.Collection&lt;E&gt; get(java.util.Map&lt;K,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun get(p0 : Map&lt;K, V&gt;) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.FastHashMap.CollectionView java.util.Iterator&lt;E&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.FastHashMap.CollectionView E iteratorNext(java.util.Map.Entry&lt;K,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun iteratorNext(p0 : Map.Entry&lt;K, V&gt;) : E?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.FastHashMap.EntrySet java.util.Collection get(java.util.Map&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun get(map : Map&lt;K, V&gt;) : MutableCollection?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.FastHashMap.EntrySet java.lang.Object iteratorNext(java.util.Map.Entry)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun iteratorNext(p0 : Map.Entry) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.FastHashMap.KeySet java.util.Collection get(java.util.Map&lt;K,V&gt;)'>
@@ -4879,14 +5344,29 @@
             <val name="value" val="&quot;fun CollectionViewIterator()&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.FastTreeMap.CollectionView java.util.Collection&lt;E&gt; get(java.util.Map&lt;K,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun get(p0 : Map&lt;K, V&gt;) : MutableCollection&lt;E&gt;?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.FastTreeMap.CollectionView java.util.Iterator&lt;E&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.FastTreeMap.CollectionView E iteratorNext(java.util.Map.Entry&lt;K,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun iteratorNext(p0 : Map.Entry&lt;K, V&gt;) : E?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.FastTreeMap.EntrySet java.util.Collection&lt;java.util.Map.Entry&lt;K,V&gt;&gt; get(java.util.Map&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun get(map : Map&lt;K, V&gt;) : MutableCollection&lt;Map.Entry&lt;K, V&gt;?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.FastTreeMap.EntrySet java.lang.Object iteratorNext(java.util.Map.Entry)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun iteratorNext(p0 : Map.Entry) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.FastTreeMap.KeySet java.util.Collection&lt;K&gt; get(java.util.Map&lt;K,V&gt;)'>
@@ -4949,19 +5429,24 @@
             <val name="value" val="&quot;fun keySet() : MutableSet&lt;K&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.FixedSizeMap V put(K, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.FixedSizeMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(mapToCopy : Map&lt;out K, out V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.FixedSizeMap void putAll(java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.FixedSizeMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.FixedSizeMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.FixedSizeMap java.util.Collection&lt;V&gt; values()'>
@@ -4994,19 +5479,24 @@
             <val name="value" val="&quot;fun keySet() : MutableSet&lt;K&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.FixedSizeSortedMap V put(K, V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.FixedSizeSortedMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(mapToCopy : Map&lt;out K, out V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.FixedSizeSortedMap void putAll(java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.FixedSizeSortedMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.FixedSizeSortedMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.FixedSizeSortedMap java.util.SortedMap&lt;K,V&gt; subMap(K, K)'>
@@ -5216,7 +5706,7 @@
     </item>
     <item name='org.apache.commons.collections15.map.LRUMap V get(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun get(key : Any?) : V?&quot;"/>
+            <val name="value" val="&quot;fun get(key : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.LRUMap void moveToMRU(org.apache.commons.collections15.map.AbstractLinkedMap.LinkEntry&lt;K,V&gt;)'>
@@ -5262,6 +5752,11 @@
     <item name='org.apache.commons.collections15.map.LazyMap java.util.Map&lt;K,V&gt; decorate(java.util.Map&lt;K,V&gt;, org.apache.commons.collections15.Transformer&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;K, V&gt; decorate(map : Map&lt;K, V&gt;?, transformer : Transformer&lt;K, V&gt;?) : MutableMap&lt;K, V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.LazyMap V get(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun get(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.LazyMap void readObject(java.io.ObjectInputStream)'>
@@ -5394,14 +5889,9 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.ListOrderedMap java.lang.Object nextKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.ListOrderedMap K nextKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun nextKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.ListOrderedMap org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
@@ -5409,19 +5899,14 @@
             <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.ListOrderedMap java.lang.Object previousKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.ListOrderedMap K previousKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun previousKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.ListOrderedMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.map.ListOrderedMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.ListOrderedMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
@@ -5432,6 +5917,11 @@
     <item name='org.apache.commons.collections15.map.ListOrderedMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.ListOrderedMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.ListOrderedMap java.util.Collection&lt;V&gt; values()'>
@@ -5554,9 +6044,9 @@
             <val name="value" val="&quot;fun &lt;K, V&gt; decorate(map : Map&lt;K, V&gt;?, keyPredicate : Predicate&lt;in K&gt;?, valuePredicate : Predicate&lt;in V&gt;?) : MutableMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.PredicatedMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.map.PredicatedMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.PredicatedMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
@@ -5704,14 +6194,9 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.SingletonMap java.lang.Object nextKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.SingletonMap K nextKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun nextKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun nextKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.SingletonMap org.apache.commons.collections15.OrderedMapIterator&lt;K,V&gt; orderedMapIterator()'>
@@ -5719,14 +6204,9 @@
             <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.SingletonMap java.lang.Object previousKey(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(p0 : Any) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.apache.commons.collections15.map.SingletonMap K previousKey(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun previousKey(key : K?) : K?&quot;"/>
+            <val name="value" val="&quot;fun previousKey(key : K) : K?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.SingletonMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
@@ -5819,6 +6299,11 @@
             <val name="value" val="&quot;fun decorate(map : Map?, keyTransformer : Transformer?, valueTransformer : Transformer?) : MutableMap&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.map.TransformedMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun put(p0 : Any, p1 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.map.TransformedMap void putAll(java.util.Map)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(mapToCopy : Map) : Unit&quot;"/>
@@ -5879,9 +6364,9 @@
             <val name="value" val="&quot;fun next() : MutableMap.MutableEntry&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet boolean addAll(java.util.Collection&lt;? extends java.util.Map.Entry&lt;K,V&gt;&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out Map.Entry&lt;K, V&gt;?&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet java.util.Set&lt;java.util.Map.Entry&lt;K,V&gt;&gt; decorate(java.util.Set&lt;java.util.Map.Entry&lt;K,V&gt;&gt;)'>
@@ -5892,6 +6377,16 @@
     <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet java.util.Iterator&lt;java.util.Map.Entry&lt;K,V&gt;&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;Map.Entry&lt;K, V&gt;?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableEntrySet java.lang.Object[] toArray()'>
@@ -5924,14 +6419,24 @@
             <val name="value" val="&quot;fun mapIterator() : MapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.UnmodifiableMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.map.UnmodifiableMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableMap java.util.Collection&lt;V&gt; values()'>
@@ -5969,14 +6474,24 @@
             <val name="value" val="&quot;fun orderedMapIterator() : OrderedMapIterator&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.UnmodifiableOrderedMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.map.UnmodifiableOrderedMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableOrderedMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableOrderedMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableOrderedMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableOrderedMap java.util.Collection&lt;V&gt; values()'>
@@ -6009,14 +6524,24 @@
             <val name="value" val="&quot;fun keySet() : MutableSet&lt;K&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.map.UnmodifiableSortedMap void putAll(java.util.Map)'>
+    <item name='org.apache.commons.collections15.map.UnmodifiableSortedMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : K, p1 : V) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableSortedMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putAll(p0 : Map&lt;out K, out V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableSortedMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.map.UnmodifiableSortedMap V remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.map.UnmodifiableSortedMap java.util.SortedMap&lt;K,V&gt; subMap(K, K)'>
@@ -6084,19 +6609,19 @@
             <val name="value" val="&quot;fun createCollection(coll : Collection&lt;out V&gt;?) : MutableCollection&lt;V&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.multimap.MultiHashMap java.util.Collection&lt;V&gt; get(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun get(p0 : Any) : MutableCollection&lt;V&gt;?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.multimap.MultiHashMap V put(K, V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(key : K?, value : V?) : V?&quot;"/>
+            <val name="value" val="&quot;fun put(key : K, value : V) : V?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.multimap.MultiHashMap boolean putAll(K, java.util.Collection&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(key : K?, values : Collection&lt;out V&gt;?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.apache.commons.collections15.multimap.MultiHashMap void putAll(java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun putAll(p0 : Map) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.multimap.MultiHashMap void putAll(java.util.Map&lt;? extends K,? extends V&gt;)'>
@@ -6112,6 +6637,11 @@
     <item name='org.apache.commons.collections15.multimap.MultiHashMap void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(s : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.multimap.MultiHashMap java.util.Collection&lt;V&gt; remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : MutableCollection&lt;V&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.multimap.MultiHashMap V remove(java.lang.Object, java.lang.Object)'>
@@ -6134,6 +6664,21 @@
             <val name="value" val="&quot;fun writeObject(out : ObjectOutputStream) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.set.AbstractSortedSetDecorator java.util.SortedSet&lt;E&gt; headSet(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun headSet(p0 : E?) : SortedSet&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.AbstractSortedSetDecorator java.util.SortedSet&lt;E&gt; subSet(E, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun subSet(p0 : E?, p1 : E?) : SortedSet&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.AbstractSortedSetDecorator java.util.SortedSet&lt;E&gt; tailSet(E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun tailSet(p0 : E?) : SortedSet&lt;E&gt;&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.set.CompositeSet void addComposited(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addComposited(c : Collection&lt;out E&gt;) : Unit&quot;"/>
@@ -6149,6 +6694,11 @@
             <val name="value" val="&quot;fun addComposited(vararg comps : Collection&lt;out E&gt;) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.set.CompositeSet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.set.ListOrderedSet ListOrderedSet(java.util.Set&lt;E&gt;, java.util.List&lt;E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun ListOrderedSet(set : Set&lt;E&gt;?, list : List&lt;E&gt;)&quot;"/>
@@ -6162,11 +6712,6 @@
     <item name='org.apache.commons.collections15.set.ListOrderedSet boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addAll(coll : Collection&lt;out E&gt;) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.apache.commons.collections15.set.ListOrderedSet boolean addAll(java.util.Collection)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.set.ListOrderedSet java.util.List&lt;E&gt; asList()'>
@@ -6194,9 +6739,19 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.apache.commons.collections15.set.ListOrderedSet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.apache.commons.collections15.set.ListOrderedSet boolean removeAll(java.util.Collection&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun removeAll(coll : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.ListOrderedSet T[] toArray(T[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; toArray(p0 : Array&lt;out T&gt;) : Array&lt;out T&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.set.MapBackedSet boolean addAll(java.util.Collection&lt;? extends K&gt;)'>
@@ -6299,9 +6854,9 @@
             <val name="value" val="&quot;fun decorate(set : SortedSet?, type : Class) : SortedSet&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.set.UnmodifiableSet boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.set.UnmodifiableSet boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.set.UnmodifiableSet java.util.Set&lt;E&gt; decorate(java.util.Set&lt;E&gt;)'>
@@ -6314,9 +6869,19 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;E&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet boolean addAll(java.util.Collection)'>
+    <item name='org.apache.commons.collections15.set.UnmodifiableSet boolean remove(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.UnmodifiableSet boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet boolean addAll(java.util.Collection&lt;? extends E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addAll(p0 : Collection&lt;out E&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet java.util.SortedSet&lt;E&gt; decorate(java.util.SortedSet&lt;E&gt;)'>
@@ -6337,6 +6902,16 @@
     <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(in : ObjectInputStream) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet boolean removeAll(java.util.Collection&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAll(p0 : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.apache.commons.collections15.set.UnmodifiableSortedSet java.util.SortedSet&lt;E&gt; subSet(E, E)'>
