@@ -134,13 +134,6 @@ class IntegratedInferenceTest : TestCase() {
             throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
         }
 
-        val nullability = inferenceResult.inferredAnnotationsMap[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
-        val mutability = inferenceResult.inferredAnnotationsMap[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
-
-        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
-
-        writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
-
         for ((inferrerKey, annotations) in inferenceResult.inferredAnnotationsMap) {
             val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
@@ -173,6 +166,13 @@ class IntegratedInferenceTest : TestCase() {
 
             outFile.delete()
         }
+
+        val nullability = inferenceResult.inferredAnnotationsMap[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
+        val mutability = inferenceResult.inferredAnnotationsMap[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
+
+        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
+
+        writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
     }
 
     fun writeKotlinSignatureAnnotationsToFile(
