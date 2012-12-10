@@ -52,8 +52,8 @@ class Graph {
 
 class SCCFinderTest {
     private val nodesComparator = object : Comparator<Node> {
-        public override fun compare(o1: Node?, o2: Node?): Int {
-            return o1?.name?.compareTo(o2?.name ?: "") ?: -1
+        public override fun compare(o1: Node, o2: Node): Int {
+            return o1.name?.compareTo(o2.name ?: "") ?: -1
         }
         public override fun equals(obj: Any?): Boolean {
             throw UnsupportedOperationException()

@@ -14,6 +14,7 @@ import org.apache.commons.collections15.Transformer
 import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.controlFlow.Instruction
+import java.awt.Component
 
 fun ControlFlowGraph.toJungGraph(): DirectedSparseMultigraph<Instruction, ControlFlowEdge> {
     val jungGraph = DirectedSparseMultigraph<Instruction, ControlFlowEdge>()
@@ -70,7 +71,7 @@ fun displayJungGraph<V, E>(
     val frame = JFrame("Simple Graph View");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.getContentPane()!!.add(vv, BorderLayout.CENTER);
-    frame.getContentPane()!!.add(gm.getModeComboBox(), BorderLayout.NORTH);
+    frame.getContentPane()!!.add(gm.getModeComboBox()!!, BorderLayout.NORTH);
 
     frame.pack();
     frame.setVisible(true);

@@ -48,8 +48,8 @@ class FunDependencyGraphTest {
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
 
         val functionNodeComparator = object : Comparator<DependencyNode<Method>> {
-            public override fun compare(o1: DependencyNode<Method>?, o2: DependencyNode<Method>?): Int {
-                return o1?.data.toString().compareTo(o2?.data.toString())
+            public override fun compare(o1: DependencyNode<Method>, o2: DependencyNode<Method>): Int {
+                return o1.data.toString().compareTo(o2.data.toString())
             }
 
             public override fun equals(obj: Any?): Boolean {
