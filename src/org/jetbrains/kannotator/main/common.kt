@@ -205,8 +205,8 @@ fun <K> inferAnnotations(
         progressMonitor: ProgressMonitor = ProgressMonitor(),
         showErrors: Boolean = true,
         loadOnly: Boolean = false,
-        propagationOverrides: Map<K, Annotations<Any>> = Collections.emptyMap(),
-        existingAnnotations: Map<K, Annotations<Any>> = hashMap()
+        propagationOverrides: Map<K, Annotations<Any>>,
+        existingAnnotations: Map<K, Annotations<Any>>
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
     

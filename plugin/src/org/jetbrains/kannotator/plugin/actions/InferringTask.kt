@@ -27,6 +27,9 @@ import org.jetbrains.kannotator.main.*
 import org.jetbrains.kannotator.plugin.ideaUtils.runComputableInsideWriteAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideReadAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.annotationsInference.nullability.*
+import org.jetbrains.kannotator.annotationsInference.mutability.*
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 
 data class InferringTaskParams(
@@ -115,13 +118,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
                     // TODO: Add existing annotations from dependent libraries
                     val inferenceResult = inferAnnotations(
-                            classSource = FileBasedClassSource(arrayList(file)),
-                            existingAnnotationFiles =  ArrayList<File>(),
-                            inferrers = inferrerMap,
-                            progressMonitor = inferringProgressIndicator,
-                            showErrors = false,
-                            propagationOverrides = hashMap("nullability" to AnnotationsImpl<NullabilityAnnotation>())
-                    )
+                            FileBasedClassSource(arrayList(file)), ArrayList<File>(),
+                            inferrerMap,
+                            inferringProgressIndicator,
+                            false,
+                            false,
+                            hashMap("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()),
+                            hashMap("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()))
 
                     inferringProgressIndicator.savingStarted()
 

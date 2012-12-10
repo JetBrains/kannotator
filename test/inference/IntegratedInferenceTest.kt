@@ -114,7 +114,9 @@ class IntegratedInferenceTest : TestCase() {
         val jar = jars.first()
         println("start: $jar")
 
-        inferAnnotations(FileBasedClassSource(arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false, true)
+        inferAnnotations(FileBasedClassSource(
+                arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false, true, Collections.emptyMap(), Collections.emptyMap()
+        )
 
         val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
         val propagationOverrides = loadAnnotationsFromLogs(arrayList(propagationOverridesFile), annotationIndex!!)
@@ -127,7 +129,8 @@ class IntegratedInferenceTest : TestCase() {
                     progressMonitor,
                     false,
                     false,
-                    hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>())
+                    hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
+                    hashMap(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>())
             )
         }
         catch (e: Throwable) {
