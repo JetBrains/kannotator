@@ -37,7 +37,7 @@ fun displayJungGraph<V, E>(
     val prim = MinimumSpanningForestMaker.minimumSpanningForest(graph)
     val tree = prim.getForest();
     val treeLayout = TreeLayout(tree)
-    val graphAsTree = StaticLayout(graph, treeLayout as Transformer<V, Point2D?>)
+    val graphAsTree = StaticLayout(graph, treeLayout as Transformer<V, Point2D>)
     //    treeLayout.setSize(Dimension(800, 800))
 
     val vv = VisualizationViewer(graphAsTree);

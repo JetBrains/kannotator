@@ -86,13 +86,13 @@ class SCCFinderTest {
         fun assertInComponent(component : String) {
             val split = component.split("\\-\\>")
             val requestNode = graph.getNode(split[0].trim())
-            val nodes = graph.getNodes(*(split[1].split("\\,") as Array<String>).map { it.trim() }.toArray(array<String>()))
+            val nodes = graph.getNodes(*(split[1].split("\\,")).map { it.trim() }.toArray(array<String>()))
 
             val componentNodes = finder.findComponent(requestNode)
 
             Assert.assertArrayEquals("Invalid component nodes set for ${requestNode} node",
-                    nodes.sort(nodesComparator).toArray(),
-                    componentNodes.sort(nodesComparator).toArray())
+                    nodes.sort(nodesComparator).toArray() as Array<Any>,
+                    componentNodes.sort(nodesComparator).toArray() as Array<Any>)
         }
 
         for (component in componentAssertion) {
