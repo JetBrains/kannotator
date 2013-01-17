@@ -92,7 +92,7 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
 
         private var currentItemElement: ItemElement? = null
 
-        private class ItemElement(val name: String, val annotations: MutableCollection<AnnotationDataImpl>)
+        private inner class ItemElement(val name: String, val annotations: MutableCollection<AnnotationDataImpl>)
 
         public override fun startElement(name: String?, attributes: AttributeList?) {
             if (attributes != null) {
