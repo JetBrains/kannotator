@@ -27,7 +27,6 @@ import java.util.HashSet
 import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
-import kotlin.nullable.all
 import org.jetbrains.kannotator.declarations.copyAllChanged
 import org.objectweb.asm.tree.AnnotationNode
 import org.objectweb.asm.Type
