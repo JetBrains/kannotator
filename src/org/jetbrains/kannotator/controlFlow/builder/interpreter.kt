@@ -3,7 +3,6 @@ package org.jetbrains.kannotator.controlFlow.builder
 import com.gs.collections.api.block.HashingStrategy
 import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
 import java.util.HashMap
-import kotlin.nullable.hashCodeOrDefault
 import org.jetbrains.kannotator.controlFlow.Value
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.getArgumentTypes
@@ -99,7 +98,7 @@ fun PossibleTypedValues.merge(other: PossibleTypedValues): PossibleTypedValues {
         public override fun computeHashCode(_object: TypedValue?): Int {
             if (_object == null) return 0
             val r1 = if (_object.interesting) 13 else 17
-            val r2 = _object.createdAtInsn.hashCodeOrDefault(0)
+            val r2 = _object.createdAtInsn?.hashCode() ?: 0
             return r1 * r2
         }
     })
