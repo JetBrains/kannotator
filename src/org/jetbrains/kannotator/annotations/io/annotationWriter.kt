@@ -253,7 +253,7 @@ fun writeAnnotationsToXMLByPackage(
                         if (position != null) {
                             for (ann in annotations) {
                                 if (ann.annotationClassFqn == "jet.runtime.typeinfo.KotlinSignature") {
-                                    pathAnnotations.getOrPut(position!!, { arrayList() }).add(AnnotationDataImpl(ann.annotationClassFqn, HashMap(ann.attributes)))
+                                    pathAnnotations.getOrPut(position!!, { arrayList() }).add(AnnotationDataImpl(ann.annotationClassFqn, HashMap<String, String>(ann.attributes)))
                                 }
                             }
                         }
