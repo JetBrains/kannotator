@@ -16,4 +16,4 @@ public fun <K, V> Iterable<Pair<K, V>>.toMap(): Map<K, V> = iterator().toMap()
 
 public fun <K, V> Iterable<Pair<K, V>>.toMutableMap(): Map<K, V> = iterator().toMutableMap()
 
-public fun <T, K, V> Iterable<T>.toMap(mapper: (T) -> Pair<K, V>): Map<K, V> = map(mapper).toMap()
+public fun <T, K, V> Iterable<T>.toMap(mapper: (T) -> Pair<K, V>): Map<K, V> = iterator().map(mapper).toMap()

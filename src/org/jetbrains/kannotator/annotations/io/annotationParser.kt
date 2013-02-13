@@ -121,7 +121,8 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
                         if (nameAttrValue != null) {
                             val valAttrValue = attributes.getValue("val")
                             if (valAttrValue != null) {
-                                currentItemElement!!.annotations.last().attributes.put(nameAttrValue, valAttrValue)
+                                currentItemElement!!.annotations.toList().
+                                last().attributes.put(nameAttrValue, valAttrValue)
                             }
                             else {
                                 errorHandler("VAL attribute for VAL element is null")

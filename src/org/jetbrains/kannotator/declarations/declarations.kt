@@ -34,7 +34,7 @@ enum class Visibility {
 }
 
 data class Access(val flags: Int) {
-    fun has(val flag: Int) = flags and flag != 0
+    fun has(flag: Int) = flags and flag != 0
     fun toString(): String = "" + Integer.toHexString(flags)
 }
 
@@ -81,7 +81,7 @@ data class Method(
 }
 
 private fun defaultMethodParameterNames(method: Method): List<String>
-        = (0..method.getArgumentTypes().size - 1).map { i -> "p$i" }
+        = (0..method.getArgumentTypes().size - 1).toList().map { i -> "p$i" }
 
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
