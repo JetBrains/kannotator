@@ -15,6 +15,8 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
+import org.jetbrains.kannotator.declarations.getType
+import org.objectweb.asm.Type
 
 public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : DependencyGraph<Method> =
         FunDependencyGraphBuilder(declarationIndex, classSource, buildFieldsDependencyInfos(declarationIndex, classSource)).build()
@@ -58,6 +60,10 @@ private class FunDependencyGraphBuilder(
 
         // Make all getter nodes depend on setters node
         for (fieldInfo in fieldsDependencyInfos.values()) {
+            val fieldType = fieldInfo.field.getType().getSort()
+            if (fieldType != Type.ARRAY && fieldType != Type.OBJECT) {
+                continue
+            }
             for (readerFun in fieldInfo.readers) {
                 val readerNode = dependencyGraph.getOrCreateNode(readerFun)
                 for (writerFun in fieldInfo.writers) {
