@@ -144,4 +144,11 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     // TODO
     fun todotestMonitorValueThroughField() = doTest()
+
+    fun testNotInstanceOf() = doTest()
+    fun testNotInstanceOfWithAssignment() = doTest()
+
+    fun testMultipleInstanceOf() = doTest()
+
+    fun testTrimStringList() = doTest()
 }

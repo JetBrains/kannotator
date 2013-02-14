@@ -57,4 +57,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
     fun testInvokeProcessMutable() = doTest()
 
     fun testInvokeProcessReadableAndMutable() = doTest()
+
+    fun testWalk() = doTest()
+
+    fun testScopeExit() = doTest()
 }
