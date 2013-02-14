@@ -39,10 +39,7 @@ import org.objectweb.asm.tree.analysis.Frame;
 import org.objectweb.asm.tree.analysis.Interpreter;
 import org.objectweb.asm.tree.analysis.Value;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A semantic bytecode analyzer. <i>This class does not fully check that JSR and
@@ -53,8 +50,11 @@ import java.util.Map;
  *  @author Eric Bruneton
  */
 public class Analyzer<V extends Value> implements Opcodes {
+    private MethodNode m;
 
     private final Interpreter<V> interpreter;
+
+    private final FrameTransformer<V> frameTransformer;
 
     private int n;
 
@@ -63,6 +63,10 @@ public class Analyzer<V extends Value> implements Opcodes {
     private List<TryCatchBlockNode>[] handlers;
 
     private Frame<V>[] frames;
+
+    List<ResultFrame<V>> errorResults;
+
+    List<ResultFrame<V>> returnedResults;
 
     private Subroutine[] subroutines;
 
@@ -77,16 +81,31 @@ public class Analyzer<V extends Value> implements Opcodes {
      *
      * @param interpreter the interpreter to be used to symbolically interpret
      *        the bytecode instructions.
+     * @param frameTransformer the frame transformer to be used to construct post-frames and pseudo-error frames
      */
-    public Analyzer(final Interpreter<V> interpreter) {
+    public Analyzer(
+            final Interpreter<V> interpreter,
+            final FrameTransformer<V> frameTransformer) {
         this.interpreter = interpreter;
+        this.frameTransformer = frameTransformer;
+    }
+
+    /**
+     * Constructs a new {@link Analyzer}.
+     *
+     * @param interpreter the interpreter to be used to symbolically interpret
+     *        the bytecode instructions.
+     */
+    public Analyzer(
+            final Interpreter<V> interpreter) {
+        this(interpreter, new DefaultFrameTransformer<V>());
     }
 
     /**
      * Analyzes the given method.
      *
      * @param owner the internal name of the class to which the method belongs.
-     * @param m the method to be analyzed.
+     * @param methodNode the method to be analyzed.
      * @return the symbolic state of the execution stack frame at each bytecode
      *         instruction of the method. The size of the returned array is
      *         equal to the number of instructions (and labels) of the method. A
@@ -95,19 +114,31 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @throws AnalyzerException if a problem occurs during the analysis.
      */
 
+
+    @KotlinSignature("fun analyze(owner : String, methodNode : MethodNode) : AnalysisResult<V>")
     @SuppressWarnings("unchecked")
-    public Frame<V>[] analyze(final String owner, final MethodNode m)
+    public AnalysisResult<V> analyze(final String owner, final MethodNode methodNode)
             throws AnalyzerException
     {
+        m = methodNode;
+        errorResults = new ArrayList<ResultFrame<V>>();
+        returnedResults = new ArrayList<ResultFrame<V>>();
+
         if ((m.access & (ACC_ABSTRACT | ACC_NATIVE)) != 0) {
             frames = (Frame<V>[])new Frame<?>[0];
-            return frames;
+            return new AnalysisResult<V>(
+                    frames, Collections.<ResultFrame<V>>emptyList(), Collections.<ResultFrame<V>>emptyList()
+            );
         }
+
         n = m.instructions.size();
-        insns = m.instructions;
-        handlers = (List<TryCatchBlockNode>[])new List<?>[n];
         frames = (Frame<V>[])new Frame<?>[n];
+
+        insns = m.instructions;
+
+        handlers = (List<TryCatchBlockNode>[])new List<?>[n];
         subroutines = new Subroutine[n];
+
         queued = new boolean[n];
         queue = new int[n];
         top = 0;
@@ -152,7 +183,8 @@ public class Analyzer<V extends Value> implements Opcodes {
         // initializes the data structures for the control flow analysis
         Frame<V> current = newFrame(m.maxLocals, m.maxStack);
         Frame<V> handler = newFrame(m.maxLocals, m.maxStack);
-        current.setReturn(interpreter.newValue(Type.getReturnType(m.desc)));
+        Type returnType = Type.getReturnType(m.desc);
+        current.setReturn(returnType != Type.VOID_TYPE ? interpreter.newValue(returnType) : null);
         Type[] args = Type.getArgumentTypes(m.desc);
         int local = 0;
         if ((m.access & ACC_STATIC) == 0) {
@@ -185,52 +217,84 @@ public class Analyzer<V extends Value> implements Opcodes {
                 int insnOpcode = insnNode.getOpcode();
                 int insnType = insnNode.getType();
 
+                int edgeIndex = 0;
+
                 if (insnType == AbstractInsnNode.LABEL
                         || insnType == AbstractInsnNode.LINE
                         || insnType == AbstractInsnNode.FRAME)
                 {
                     merge(insn + 1, f, subroutine);
                     newControlFlowEdge(insn, insn + 1, newFrame(current));
+                    edgeIndex++;
                 } else {
                     current.init(f).execute(insnNode, interpreter);
+                    for (ResultFrame<V> pseudoResult : frameTransformer.getPseudoResults(insnNode, f, current, this)) {
+                        if (pseudoResult.getInsnNode() instanceof PseudoErrorInsnNode) {
+                            errorResults.add(pseudoResult);
+                        }
+                    }
                     subroutine = subroutine == null ? null : subroutine.copy();
+
+                    Frame<V> postFrame;
 
                     if (insnNode instanceof JumpInsnNode) {
                         JumpInsnNode j = (JumpInsnNode) insnNode;
                         if (insnOpcode != GOTO && insnOpcode != JSR) {
-                            merge(insn + 1, current, subroutine);
-                            newControlFlowEdge(insn, insn + 1, newFrame(current));
+                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            merge(insn + 1, postFrame, subroutine);
+                            if (postFrame != null) {
+                                newControlFlowEdge(insn, insn + 1, newFrame(postFrame));
+                            }
                         }
+
                         int jump = insns.indexOf(j.label);
                         if (insnOpcode == JSR) {
-                            merge(jump, current, new Subroutine(j.label,
-                                    m.maxLocals,
-                                    j));
+                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            merge(
+                                    jump,
+                                    postFrame,
+                                    new Subroutine(j.label, m.maxLocals, j)
+                            );
                         } else {
-                            merge(jump, current, subroutine);
+                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            merge(jump, postFrame, subroutine);
                         }
-                        newControlFlowEdge(insn, jump, newFrame(current));
+                        if (postFrame != null) {
+                            newControlFlowEdge(insn, jump, newFrame(postFrame));
+                        }
                     } else if (insnNode instanceof LookupSwitchInsnNode) {
                         LookupSwitchInsnNode lsi = (LookupSwitchInsnNode) insnNode;
                         int jump = insns.indexOf(lsi.dflt);
-                        merge(jump, current, subroutine);
-                        newControlFlowEdge(insn, jump, newFrame(current));
+                        postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                        merge(jump, postFrame, subroutine);
+                        if (postFrame != null) {
+                            newControlFlowEdge(insn, jump, newFrame(postFrame));
+                        }
                         for (int j = 0; j < lsi.labels.size(); ++j) {
                             LabelNode label = lsi.labels.get(j);
                             jump = insns.indexOf(label);
-                            merge(jump, current, subroutine);
-                            newControlFlowEdge(insn, jump, newFrame(current));
+                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            merge(jump, postFrame, subroutine);
+                            if (postFrame != null) {
+                                newControlFlowEdge(insn, jump, newFrame(postFrame));
+                            }
                         }
                     } else if (insnNode instanceof TableSwitchInsnNode) {
                         TableSwitchInsnNode tsi = (TableSwitchInsnNode) insnNode;
                         int jump = insns.indexOf(tsi.dflt);
-                        merge(jump, current, subroutine);
-                        newControlFlowEdge(insn, jump, newFrame(current));
+                        postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                        merge(jump, postFrame, subroutine);
+                        if (postFrame != null) {
+                            newControlFlowEdge(insn, jump, newFrame(postFrame));
+                        }
                         for (int j = 0; j < tsi.labels.size(); ++j) {
                             LabelNode label = tsi.labels.get(j);
                             jump = insns.indexOf(label);
-                            merge(jump, current, subroutine);
-                            newControlFlowEdge(insn, jump, newFrame(current));
+                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            merge(jump, postFrame, subroutine);
+                            if (postFrame != null) {
+                                newControlFlowEdge(insn, jump, newFrame(postFrame));
+                            }
                         }
                     } else if (insnOpcode == RET) {
                         if (subroutine == null) {
@@ -240,12 +304,15 @@ public class Analyzer<V extends Value> implements Opcodes {
                             JumpInsnNode caller = subroutine.callers.get(i);
                             int call = insns.indexOf(caller);
                             if (frames[call] != null) {
+                                postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
                                 merge(call + 1,
                                         frames[call],
-                                        current,
+                                        postFrame,
                                         subroutines[call],
                                         subroutine.access);
-                                newControlFlowEdge(insn, call + 1, newFrame(current));
+                                if (postFrame != null) {
+                                    newControlFlowEdge(insn, call + 1, newFrame(postFrame));
+                                }
                             }
                         }
                     } else if (insnOpcode != ATHROW
@@ -266,8 +333,11 @@ public class Analyzer<V extends Value> implements Opcodes {
                                 subroutine.access[var] = true;
                             }
                         }
-                        merge(insn + 1, current, subroutine);
-                        newControlFlowEdge(insn, insn + 1, newFrame(current));
+                        postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                        merge(insn + 1, postFrame, subroutine);
+                        if (postFrame != null) {
+                            newControlFlowEdge(insn, insn + 1, newFrame(postFrame));
+                        }
                     }
                 }
 
@@ -287,7 +357,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                             handler.clearStack();
                             handler.push(interpreter.newValue(type));
                             newControlFlowExceptionEdge(insn, tcb, newFrame(handler));
-                            merge(jump, handler, subroutine);
+                            merge(jump, frameTransformer.getPostFrame(insnNode, edgeIndex++, f, handler, this), subroutine);
                         }
                     }
                 }
@@ -300,7 +370,22 @@ public class Analyzer<V extends Value> implements Opcodes {
             }
         }
 
-        return frames;
+        for (int i = 0; i < n; i++) {
+            if (frames[i] == null) {
+                continue;
+            }
+
+            AbstractInsnNode insnNode = m.instructions.get(i);
+            int opcode = insnNode.getOpcode();
+
+            if (opcode == ATHROW) {
+                errorResults.add(new ResultFrame<V>(frames[i], insnNode));
+            } else if (opcode >= IRETURN && opcode <= RETURN) {
+                returnedResults.add(new ResultFrame<V>(frames[i], insnNode));
+            }
+        }
+
+        return new AnalysisResult<V>(frames, returnedResults, errorResults);
     }
 
     private void findSubroutine(int insn, final Subroutine sub, final List<AbstractInsnNode> calls)
@@ -370,6 +455,14 @@ public class Analyzer<V extends Value> implements Opcodes {
     }
 
     /**
+     * Returns current method node
+     * @return Method node
+     */
+    public MethodNode getMethodNode() {
+        return m;
+    }
+
+    /**
      * Returns the symbolic stack frame for each instruction of the last
      * recently analyzed method.
      *
@@ -425,6 +518,7 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @param src a frame.
      * @return the created frame.
      */
+    @KotlinSignature("fun newFrame(src : Frame<out V>) : Frame<V>")
     protected Frame<V> newFrame(final Frame<? extends V> src) {
         return new Frame<V>(src);
     }
@@ -505,10 +599,14 @@ public class Analyzer<V extends Value> implements Opcodes {
     // -------------------------------------------------------------------------
 
     private void merge(
-        final int insn,
-        final Frame<V> frame,
-        final Subroutine subroutine) throws AnalyzerException
+            final int insn,
+            final Frame<V> frame,
+            final Subroutine subroutine) throws AnalyzerException
     {
+        if (frame == null) {
+            return;
+        }
+
         Frame<V> oldFrame = frames[insn];
         Subroutine oldSubroutine = subroutines[insn];
         boolean changes;
@@ -537,11 +635,11 @@ public class Analyzer<V extends Value> implements Opcodes {
     }
 
     private void merge(
-        final int insn,
-        final Frame<V> beforeJSR,
-        final Frame<V> afterRET,
-        final Subroutine subroutineBeforeJSR,
-        final boolean[] access) throws AnalyzerException
+            final int insn,
+            final Frame<V> beforeJSR,
+            final Frame<V> afterRET,
+            final Subroutine subroutineBeforeJSR,
+            final boolean[] access) throws AnalyzerException
     {
         Frame<V> oldFrame = frames[insn];
         Subroutine oldSubroutine = subroutines[insn];
