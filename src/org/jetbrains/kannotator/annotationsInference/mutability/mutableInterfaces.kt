@@ -1,6 +1,9 @@
 package org.jetbrains.kannotator.annotationsInference.mutability
 
 import org.objectweb.asm.tree.MethodInsnNode
+import kotlinlib.bfs
+import java.util.Collections
+import java.util.HashSet
 
 val mutableInterfaces: Map<String, List<String>> = hashMap(
         "java/util/Collection" to arrayList("add", "remove", "addAll", "removeAll", "retainAll", "clear"),
@@ -34,5 +37,37 @@ fun MethodInsnNode.isMutabilityPropagatingInvocation() : Boolean =
 private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsnNode) : Boolean {
     val className = instruction.owner!!
     val methodName = instruction.name!!
-    return this[className]?.contains(methodName) ?: false
+
+    var contains: Boolean = this@containsInvocation[className]?.contains(methodName) ?: false
+    if (contains) {
+        return true
+    }
+
+    // todo: Temporary solution which uses Reflection API to traverse inheritance graph
+
+    val dottedName = className.replace('/', '.')
+
+    val initialClasses = try {
+        Collections.singleton(Class.forName(dottedName) as Class<Any>)
+    } catch (e: Exception) {
+        return false
+    }
+
+    bfs(initialClasses) {currentClass ->
+        val superTypes = HashSet<Class<Any>>()
+        for (intf in currentClass.getInterfaces()) {
+            superTypes.add(intf as Class<Any>)
+        }
+        if (currentClass.getSuperclass() != null) {
+            superTypes.add(currentClass.getSuperclass())
+        }
+
+        for (superType in superTypes) {
+            contains = this@containsInvocation[superType.getName().replace('.', '/')]?.contains(methodName) ?: false
+            if (contains) break
+            this.schedule(superType)
+        }
+    }
+
+    return contains
 }
