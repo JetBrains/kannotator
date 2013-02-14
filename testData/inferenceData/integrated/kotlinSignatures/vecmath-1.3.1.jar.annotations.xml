@@ -164,6 +164,21 @@
             <val name="value" val="&quot;fun Color3b(p0 : Color)&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Color3b Color3b(javax.vecmath.Color3b)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3b(p0 : Color3b)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color3b Color3b(javax.vecmath.Tuple3b)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3b(p0 : Tuple3b)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color3b Color3b(byte[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3b(p0 : ByteArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Color3b java.awt.Color get()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun get() : Color&quot;"/>
@@ -177,6 +192,26 @@
     <item name='javax.vecmath.Color3f Color3f(java.awt.Color)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Color3f(p0 : Color)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color3f Color3f(javax.vecmath.Color3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3f(p0 : Color3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color3f Color3f(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3f(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color3f Color3f(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3f(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color3f Color3f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color3f(p0 : FloatArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Color3f java.awt.Color get()'>
@@ -194,6 +229,21 @@
             <val name="value" val="&quot;fun Color4b(p0 : Color)&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Color4b Color4b(javax.vecmath.Color4b)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4b(p0 : Color4b)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color4b Color4b(javax.vecmath.Tuple4b)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4b(p0 : Tuple4b)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color4b Color4b(byte[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4b(p0 : ByteArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Color4b java.awt.Color get()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun get() : Color&quot;"/>
@@ -207,6 +257,26 @@
     <item name='javax.vecmath.Color4f Color4f(java.awt.Color)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Color4f(p0 : Color)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color4f Color4f(javax.vecmath.Color4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4f(p0 : Color4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color4f Color4f(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4f(p0 : Tuple4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color4f Color4f(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4f(p0 : Tuple4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Color4f Color4f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Color4f(p0 : FloatArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Color4f java.awt.Color get()'>
@@ -234,9 +304,14 @@
             <val name="value" val="&quot;fun SVD(p0 : GMatrix, p1 : GMatrix, p2 : GMatrix) : Int&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.GMatrix void add(javax.vecmath.GMatrix)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun add(p0 : GMatrix) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.GMatrix void add(javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun add(p0 : GMatrix?, p1 : GMatrix) : Unit&quot;"/>
+            <val name="value" val="&quot;fun add(p0 : GMatrix, p1 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void chase_across(double[], double[], int, javax.vecmath.GMatrix)'>
@@ -252,6 +327,11 @@
     <item name='javax.vecmath.GMatrix void checkMatrix(javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun checkMatrix(p0 : GMatrix) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix java.lang.Object clone()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun clone() : Any&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix int computeSVD(javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
@@ -274,9 +354,14 @@
             <val name="value" val="&quot;fun compute_rot(p0 : Double, p1 : Double, p2 : DoubleArray, p3 : DoubleArray) : Double&quot;"/>
         </annotation>
     </item>
-    <item name='javax.vecmath.GMatrix void copySubMatrix(int, int, int, int, int, int, javax.vecmath.GMatrix)'>
+    <item name='javax.vecmath.GMatrix boolean epsilonEquals(javax.vecmath.GMatrix, double)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun copySubMatrix(p0 : Int, p1 : Int, p2 : Int, p3 : Int, p4 : Int, p5 : Int, p6 : GMatrix) : Unit&quot;"/>
+            <val name="value" val="&quot;fun epsilonEquals(p0 : GMatrix, p1 : Double) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix boolean epsilonEquals(javax.vecmath.GMatrix, float)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun epsilonEquals(p0 : GMatrix, p1 : Float) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void get(javax.vecmath.GMatrix)'>
@@ -324,14 +409,14 @@
             <val name="value" val="&quot;fun invertGeneral(p0 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.vecmath.GMatrix void luBacksubstitution(int, double[], int[], double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luBacksubstitution(p0 : Int, p1 : DoubleArray, p2 : IntArray, p3 : DoubleArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.vecmath.GMatrix boolean luDecomposition(int, double[], int[], int[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luDecomposition(p0 : Int, p1 : DoubleArray, p2 : IntArray?, p3 : IntArray) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun luDecomposition(p0 : Int, p1 : DoubleArray?, p2 : IntArray?, p3 : IntArray) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void mul(javax.vecmath.GMatrix)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mul(p0 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void mul(javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
@@ -346,17 +431,22 @@
     </item>
     <item name='javax.vecmath.GMatrix void mulTransposeBoth(javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mulTransposeBoth(p0 : GMatrix, p1 : GMatrix?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mulTransposeBoth(p0 : GMatrix, p1 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void mulTransposeLeft(javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mulTransposeLeft(p0 : GMatrix, p1 : GMatrix?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mulTransposeLeft(p0 : GMatrix, p1 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void mulTransposeRight(javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mulTransposeRight(p0 : GMatrix, p1 : GMatrix?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mulTransposeRight(p0 : GMatrix, p1 : GMatrix) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void negate(javax.vecmath.GMatrix)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun negate(p0 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void print_m(javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
@@ -371,7 +461,7 @@
     </item>
     <item name='javax.vecmath.GMatrix void print_svd(double[], double[], javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun print_svd(p0 : DoubleArray?, p1 : DoubleArray, p2 : GMatrix, p3 : GMatrix?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun print_svd(p0 : DoubleArray, p1 : DoubleArray, p2 : GMatrix, p3 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void set(javax.vecmath.GMatrix)'>
@@ -379,14 +469,44 @@
             <val name="value" val="&quot;fun set(p0 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.GMatrix void set(javax.vecmath.Matrix3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Matrix3d) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void set(javax.vecmath.Matrix3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Matrix3f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void set(javax.vecmath.Matrix4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Matrix4d) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void set(javax.vecmath.Matrix4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Matrix4f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void sub(javax.vecmath.GMatrix)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun sub(p0 : GMatrix) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.GMatrix void sub(javax.vecmath.GMatrix, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sub(p0 : GMatrix?, p1 : GMatrix) : Unit&quot;"/>
+            <val name="value" val="&quot;fun sub(p0 : GMatrix, p1 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix java.lang.String toString(javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun toString(p0 : GMatrix) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GMatrix void transpose(javax.vecmath.GMatrix)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transpose(p0 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GMatrix void update_u(int, javax.vecmath.GMatrix, double[], double[])'>
@@ -446,7 +566,7 @@
     </item>
     <item name='javax.vecmath.GVector void LUDBackSolve(javax.vecmath.GMatrix, javax.vecmath.GVector, javax.vecmath.GVector)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun LUDBackSolve(p0 : GMatrix, p1 : GVector?, p2 : GVector) : Unit&quot;"/>
+            <val name="value" val="&quot;fun LUDBackSolve(p0 : GMatrix, p1 : GVector, p2 : GVector) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GVector void SVDBackSolve(javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GVector)'>
@@ -506,12 +626,12 @@
     </item>
     <item name='javax.vecmath.GVector void mul(javax.vecmath.GMatrix, javax.vecmath.GVector)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mul(p0 : GMatrix, p1 : GVector?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mul(p0 : GMatrix, p1 : GVector) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GVector void mul(javax.vecmath.GVector, javax.vecmath.GMatrix)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mul(p0 : GVector?, p1 : GMatrix) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mul(p0 : GVector, p1 : GMatrix) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GVector void normalize(javax.vecmath.GVector)'>
@@ -527,6 +647,36 @@
     <item name='javax.vecmath.GVector void scaleAdd(double, javax.vecmath.GVector, javax.vecmath.GVector)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun scaleAdd(p0 : Double, p1 : GVector, p2 : GVector) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GVector void set(javax.vecmath.GVector)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : GVector) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GVector void set(javax.vecmath.Tuple2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Tuple2f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GVector void set(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Tuple3d) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GVector void set(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Tuple3f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GVector void set(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Tuple4d) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.GVector void set(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun set(p0 : Tuple4f) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.GVector void sub(javax.vecmath.GVector)'>
@@ -614,24 +764,19 @@
             <val name="value" val="&quot;fun getRow(p0 : Int, p1 : DoubleArray) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Matrix3d void invert(javax.vecmath.Matrix3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun invert(p0 : Matrix3d) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Matrix3d void invertGeneral(javax.vecmath.Matrix3d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun invertGeneral(p0 : Matrix3d) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.vecmath.Matrix3d void luBacksubstitution(double[], int[], double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luBacksubstitution(p0 : DoubleArray, p1 : IntArray, p2 : DoubleArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix3d boolean luDecomposition(double[], int[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luDecomposition(p0 : DoubleArray, p1 : IntArray?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.vecmath.Matrix3d void mat_mul(double[], double[], double[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mat_mul(p0 : DoubleArray, p1 : DoubleArray?, p2 : DoubleArray?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mat_mul(p0 : DoubleArray, p1 : DoubleArray, p2 : DoubleArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix3d double max3(double[])'>
@@ -697,11 +842,6 @@
     <item name='javax.vecmath.Matrix3d void print_det(double[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun print_det(p0 : DoubleArray) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix3d void print_mat(double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun print_mat(p0 : DoubleArray) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix3d void set(javax.vecmath.AxisAngle4d)'>
@@ -771,7 +911,7 @@
     </item>
     <item name='javax.vecmath.Matrix3d void svdReorder(double[], double[], double[], double[], double[], double[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun svdReorder(p0 : DoubleArray?, p1 : DoubleArray?, p2 : DoubleArray?, p3 : DoubleArray, p4 : DoubleArray?, p5 : DoubleArray?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun svdReorder(p0 : DoubleArray?, p1 : DoubleArray, p2 : DoubleArray, p3 : DoubleArray, p4 : DoubleArray?, p5 : DoubleArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix3d void transform(javax.vecmath.Tuple3d)'>
@@ -782,11 +922,6 @@
     <item name='javax.vecmath.Matrix3d void transform(javax.vecmath.Tuple3d, javax.vecmath.Tuple3d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun transform(p0 : Tuple3d, p1 : Tuple3d) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix3d void transpose(javax.vecmath.Matrix3d)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transpose(p0 : Matrix3d) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix3d void transpose_mat(double[], double[])'>
@@ -849,19 +984,14 @@
             <val name="value" val="&quot;fun getRow(p0 : Int, p1 : FloatArray) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Matrix3f void invert(javax.vecmath.Matrix3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun invert(p0 : Matrix3f) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Matrix3f void invertGeneral(javax.vecmath.Matrix3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun invertGeneral(p0 : Matrix3f) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix3f void luBacksubstitution(double[], int[], double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luBacksubstitution(p0 : DoubleArray, p1 : IntArray, p2 : DoubleArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix3f boolean luDecomposition(double[], int[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luDecomposition(p0 : DoubleArray, p1 : IntArray?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix3f void mul(float, javax.vecmath.Matrix3f)'>
@@ -992,11 +1122,6 @@
     <item name='javax.vecmath.Matrix3f void transform(javax.vecmath.Tuple3f, javax.vecmath.Tuple3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun transform(p0 : Tuple3f, p1 : Tuple3f) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix3f void transpose(javax.vecmath.Matrix3f)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transpose(p0 : Matrix3f) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix4d Matrix4d(javax.vecmath.Matrix3d, javax.vecmath.Vector3d, double)'>
@@ -1132,16 +1257,6 @@
     <item name='javax.vecmath.Matrix4d void invertGeneral(javax.vecmath.Matrix4d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun invertGeneral(p0 : Matrix4d) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix4d void luBacksubstitution(double[], int[], double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luBacksubstitution(p0 : DoubleArray, p1 : IntArray, p2 : DoubleArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix4d boolean luDecomposition(double[], int[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luDecomposition(p0 : DoubleArray, p1 : IntArray?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix4d void mul(double, javax.vecmath.Matrix4d)'>
@@ -1394,11 +1509,6 @@
             <val name="value" val="&quot;fun transform(p0 : Vector3f, p1 : Vector3f) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.vecmath.Matrix4d void transpose(javax.vecmath.Matrix4d)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transpose(p0 : Matrix4d) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.vecmath.Matrix4f Matrix4f(javax.vecmath.Matrix3f, javax.vecmath.Vector3f, float)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Matrix4f(p0 : Matrix3f, p1 : Vector3f, p2 : Float)&quot;"/>
@@ -1502,16 +1612,6 @@
     <item name='javax.vecmath.Matrix4f void invertGeneral(javax.vecmath.Matrix4f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun invertGeneral(p0 : Matrix4f) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix4f void luBacksubstitution(double[], int[], double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luBacksubstitution(p0 : DoubleArray, p1 : IntArray, p2 : DoubleArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.vecmath.Matrix4f boolean luDecomposition(double[], int[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun luDecomposition(p0 : DoubleArray, p1 : IntArray?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Matrix4f void mul(float, javax.vecmath.Matrix4f)'>
@@ -1724,9 +1824,29 @@
             <val name="value" val="&quot;fun transform(p0 : Vector3f, p1 : Vector3f) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.vecmath.Matrix4f void transpose(javax.vecmath.Matrix4f)'>
+    <item name='javax.vecmath.Point2d Point2d(javax.vecmath.Point2d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun transpose(p0 : Matrix4f) : Unit&quot;"/>
+            <val name="value" val="&quot;fun Point2d(p0 : Point2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2d Point2d(javax.vecmath.Point2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2d(p0 : Point2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2d Point2d(javax.vecmath.Tuple2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2d(p0 : Tuple2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2d Point2d(javax.vecmath.Tuple2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2d(p0 : Tuple2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2d Point2d(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2d(p0 : DoubleArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Point2d double distance(javax.vecmath.Point2d)'>
@@ -1749,6 +1869,31 @@
             <val name="value" val="&quot;fun distanceSquared(p0 : Point2d) : Double&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Point2f Point2f(javax.vecmath.Point2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2f(p0 : Point2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2f Point2f(javax.vecmath.Point2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2f(p0 : Point2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2f Point2f(javax.vecmath.Tuple2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2f(p0 : Tuple2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2f Point2f(javax.vecmath.Tuple2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2f(p0 : Tuple2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point2f Point2f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point2f(p0 : FloatArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Point2f float distance(javax.vecmath.Point2f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun distance(p0 : Point2f) : Float&quot;"/>
@@ -1767,6 +1912,31 @@
     <item name='javax.vecmath.Point2f float distanceSquared(javax.vecmath.Point2f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun distanceSquared(p0 : Point2f) : Float&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3d Point3d(javax.vecmath.Point3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3d(p0 : Point3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3d Point3d(javax.vecmath.Point3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3d(p0 : Point3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3d Point3d(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3d(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3d Point3d(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3d(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3d Point3d(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3d(p0 : DoubleArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Point3d double distance(javax.vecmath.Point3d)'>
@@ -1794,6 +1964,31 @@
             <val name="value" val="&quot;fun project(p0 : Point4d) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Point3f Point3f(javax.vecmath.Point3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3f(p0 : Point3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3f Point3f(javax.vecmath.Point3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3f(p0 : Point3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3f Point3f(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3f(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3f Point3f(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3f(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3f Point3f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3f(p0 : FloatArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Point3f float distance(javax.vecmath.Point3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun distance(p0 : Point3f) : Float&quot;"/>
@@ -1819,9 +2014,44 @@
             <val name="value" val="&quot;fun project(p0 : Point4f) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Point3i Point3i(javax.vecmath.Tuple3i)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3i(p0 : Tuple3i)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point3i Point3i(int[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point3i(p0 : IntArray)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4d Point4d(javax.vecmath.Point4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4d(p0 : Point4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4d Point4d(javax.vecmath.Point4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4d(p0 : Point4f)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Point4d Point4d(javax.vecmath.Tuple3d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Point4d(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4d Point4d(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4d(p0 : Tuple4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4d Point4d(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4d(p0 : Tuple4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4d Point4d(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4d(p0 : DoubleArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Point4d double distance(javax.vecmath.Point4d)'>
@@ -1854,9 +2084,34 @@
             <val name="value" val="&quot;fun set(p0 : Tuple3d) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Point4f Point4f(javax.vecmath.Point4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4f(p0 : Point4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4f Point4f(javax.vecmath.Point4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4f(p0 : Point4f)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Point4f Point4f(javax.vecmath.Tuple3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Point4f(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4f Point4f(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4f(p0 : Tuple4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4f Point4f(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4f(p0 : Tuple4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4f Point4f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4f(p0 : FloatArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Point4f float distance(javax.vecmath.Point4f)'>
@@ -1887,6 +2142,26 @@
     <item name='javax.vecmath.Point4f void set(javax.vecmath.Tuple3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : Tuple3f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4i Point4i(javax.vecmath.Tuple4i)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4i(p0 : Tuple4i)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Point4i Point4i(int[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Point4i(p0 : IntArray)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Quat4d Quat4d(javax.vecmath.Quat4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Quat4d(p0 : Quat4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Quat4d Quat4d(javax.vecmath.Quat4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Quat4d(p0 : Quat4f)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Quat4d Quat4d(javax.vecmath.Tuple4d)'>
@@ -1934,9 +2209,14 @@
             <val name="value" val="&quot;fun mul(p0 : Quat4d, p1 : Quat4d) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Quat4d void mulInverse(javax.vecmath.Quat4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mulInverse(p0 : Quat4d) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Quat4d void mulInverse(javax.vecmath.Quat4d, javax.vecmath.Quat4d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mulInverse(p0 : Quat4d, p1 : Quat4d?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mulInverse(p0 : Quat4d, p1 : Quat4d) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Quat4d void normalize(javax.vecmath.Quat4d)'>
@@ -1972,6 +2252,16 @@
     <item name='javax.vecmath.Quat4d void set(javax.vecmath.Matrix4f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : Matrix4f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Quat4f Quat4f(javax.vecmath.Quat4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Quat4f(p0 : Quat4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Quat4f Quat4f(javax.vecmath.Quat4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Quat4f(p0 : Quat4f)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Quat4f Quat4f(javax.vecmath.Tuple4d)'>
@@ -2019,9 +2309,14 @@
             <val name="value" val="&quot;fun mul(p0 : Quat4f, p1 : Quat4f) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Quat4f void mulInverse(javax.vecmath.Quat4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mulInverse(p0 : Quat4f) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Quat4f void mulInverse(javax.vecmath.Quat4f, javax.vecmath.Quat4f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mulInverse(p0 : Quat4f, p1 : Quat4f?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun mulInverse(p0 : Quat4f, p1 : Quat4f) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Quat4f void normalize(javax.vecmath.Quat4f)'>
@@ -2057,6 +2352,61 @@
     <item name='javax.vecmath.Quat4f void set(javax.vecmath.Matrix4f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : Matrix4f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord2f TexCoord2f(javax.vecmath.TexCoord2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord2f(p0 : TexCoord2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord2f TexCoord2f(javax.vecmath.Tuple2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord2f(p0 : Tuple2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord2f TexCoord2f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord2f(p0 : FloatArray)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord3f TexCoord3f(javax.vecmath.TexCoord3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord3f(p0 : TexCoord3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord3f TexCoord3f(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord3f(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord3f TexCoord3f(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord3f(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord3f TexCoord3f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord3f(p0 : FloatArray)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord4f TexCoord4f(javax.vecmath.TexCoord4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord4f(p0 : TexCoord4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord4f TexCoord4f(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord4f(p0 : Tuple4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord4f TexCoord4f(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord4f(p0 : Tuple4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.TexCoord4f TexCoord4f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TexCoord4f(p0 : FloatArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Tuple2d Tuple2d(javax.vecmath.Tuple2d)'>
@@ -2422,6 +2772,11 @@
     <item name='javax.vecmath.Tuple3d void scaleAdd(double, javax.vecmath.Tuple3d, javax.vecmath.Tuple3d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun scaleAdd(p0 : Double, p1 : Tuple3d, p2 : Tuple3d) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Tuple3d void scaleAdd(double, javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun scaleAdd(p0 : Double, p1 : Tuple3f) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Tuple3d void set(javax.vecmath.Tuple3d)'>
@@ -3034,6 +3389,31 @@
             <val name="value" val="&quot;fun sub(p0 : Tuple4i, p1 : Tuple4i) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Vector2d Vector2d(javax.vecmath.Tuple2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2d(p0 : Tuple2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2d Vector2d(javax.vecmath.Tuple2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2d(p0 : Tuple2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2d Vector2d(javax.vecmath.Vector2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2d(p0 : Vector2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2d Vector2d(javax.vecmath.Vector2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2d(p0 : Vector2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2d Vector2d(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2d(p0 : DoubleArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Vector2d double angle(javax.vecmath.Vector2d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun angle(p0 : Vector2d) : Double&quot;"/>
@@ -3049,6 +3429,31 @@
             <val name="value" val="&quot;fun normalize(p0 : Vector2d) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Vector2f Vector2f(javax.vecmath.Tuple2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2f(p0 : Tuple2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2f Vector2f(javax.vecmath.Tuple2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2f(p0 : Tuple2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2f Vector2f(javax.vecmath.Vector2d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2f(p0 : Vector2d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2f Vector2f(javax.vecmath.Vector2f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2f(p0 : Vector2f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector2f Vector2f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector2f(p0 : FloatArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Vector2f float angle(javax.vecmath.Vector2f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun angle(p0 : Vector2f) : Float&quot;"/>
@@ -3062,6 +3467,31 @@
     <item name='javax.vecmath.Vector2f void normalize(javax.vecmath.Vector2f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun normalize(p0 : Vector2f) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3d Vector3d(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3d(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3d Vector3d(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3d(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3d Vector3d(javax.vecmath.Vector3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3d(p0 : Vector3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3d Vector3d(javax.vecmath.Vector3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3d(p0 : Vector3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3d Vector3d(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3d(p0 : DoubleArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Vector3d double angle(javax.vecmath.Vector3d)'>
@@ -3082,6 +3512,31 @@
     <item name='javax.vecmath.Vector3d void normalize(javax.vecmath.Vector3d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun normalize(p0 : Vector3d) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3f Vector3f(javax.vecmath.Tuple3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3f(p0 : Tuple3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3f Vector3f(javax.vecmath.Tuple3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3f(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3f Vector3f(javax.vecmath.Vector3d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3f(p0 : Vector3d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3f Vector3f(javax.vecmath.Vector3f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3f(p0 : Vector3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector3f Vector3f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector3f(p0 : FloatArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Vector3f float angle(javax.vecmath.Vector3f)'>
@@ -3109,6 +3564,31 @@
             <val name="value" val="&quot;fun Vector4d(p0 : Tuple3d)&quot;"/>
         </annotation>
     </item>
+    <item name='javax.vecmath.Vector4d Vector4d(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4d(p0 : Tuple4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4d Vector4d(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4d(p0 : Tuple4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4d Vector4d(javax.vecmath.Vector4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4d(p0 : Vector4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4d Vector4d(javax.vecmath.Vector4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4d(p0 : Vector4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4d Vector4d(double[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4d(p0 : DoubleArray)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.vecmath.Vector4d double angle(javax.vecmath.Vector4d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun angle(p0 : Vector4d) : Double&quot;"/>
@@ -3132,6 +3612,31 @@
     <item name='javax.vecmath.Vector4f Vector4f(javax.vecmath.Tuple3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun Vector4f(p0 : Tuple3f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4f Vector4f(javax.vecmath.Tuple4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4f(p0 : Tuple4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4f Vector4f(javax.vecmath.Tuple4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4f(p0 : Tuple4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4f Vector4f(javax.vecmath.Vector4d)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4f(p0 : Vector4d)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4f Vector4f(javax.vecmath.Vector4f)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4f(p0 : Vector4f)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.vecmath.Vector4f Vector4f(float[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Vector4f(p0 : FloatArray)&quot;"/>
         </annotation>
     </item>
     <item name='javax.vecmath.Vector4f float angle(javax.vecmath.Vector4f)'>

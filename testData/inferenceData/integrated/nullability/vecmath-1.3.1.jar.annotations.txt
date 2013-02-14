@@ -62,25 +62,53 @@ javax.vecmath.AxisAngle4f void set(javax.vecmath.Quat4f) 0
 NOT_NULL
 javax.vecmath.AxisAngle4f void set(javax.vecmath.Vector3f, float) 0
 NOT_NULL
+javax.vecmath.Color3b Color3b(byte[]) 0
+NOT_NULL
 javax.vecmath.Color3b Color3b(java.awt.Color) 0
+NOT_NULL
+javax.vecmath.Color3b Color3b(javax.vecmath.Color3b) 0
+NOT_NULL
+javax.vecmath.Color3b Color3b(javax.vecmath.Tuple3b) 0
 NOT_NULL
 javax.vecmath.Color3b java.awt.Color get()
 NOT_NULL
 javax.vecmath.Color3b void set(java.awt.Color) 0
 NOT_NULL
+javax.vecmath.Color3f Color3f(float[]) 0
+NOT_NULL
 javax.vecmath.Color3f Color3f(java.awt.Color) 0
+NOT_NULL
+javax.vecmath.Color3f Color3f(javax.vecmath.Color3f) 0
+NOT_NULL
+javax.vecmath.Color3f Color3f(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Color3f Color3f(javax.vecmath.Tuple3f) 0
 NOT_NULL
 javax.vecmath.Color3f java.awt.Color get()
 NOT_NULL
 javax.vecmath.Color3f void set(java.awt.Color) 0
 NOT_NULL
+javax.vecmath.Color4b Color4b(byte[]) 0
+NOT_NULL
 javax.vecmath.Color4b Color4b(java.awt.Color) 0
+NOT_NULL
+javax.vecmath.Color4b Color4b(javax.vecmath.Color4b) 0
+NOT_NULL
+javax.vecmath.Color4b Color4b(javax.vecmath.Tuple4b) 0
 NOT_NULL
 javax.vecmath.Color4b java.awt.Color get()
 NOT_NULL
 javax.vecmath.Color4b void set(java.awt.Color) 0
 NOT_NULL
+javax.vecmath.Color4f Color4f(float[]) 0
+NOT_NULL
 javax.vecmath.Color4f Color4f(java.awt.Color) 0
+NOT_NULL
+javax.vecmath.Color4f Color4f(javax.vecmath.Color4f) 0
+NOT_NULL
+javax.vecmath.Color4f Color4f(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.Color4f Color4f(javax.vecmath.Tuple4f) 0
 NOT_NULL
 javax.vecmath.Color4f java.awt.Color get()
 NOT_NULL
@@ -88,7 +116,9 @@ javax.vecmath.Color4f void set(java.awt.Color) 0
 NOT_NULL
 javax.vecmath.GMatrix GMatrix(javax.vecmath.GMatrix) 0
 NOT_NULL
-javax.vecmath.GMatrix boolean luDecomposition(int, double[], int[], int[]) 1
+javax.vecmath.GMatrix boolean epsilonEquals(javax.vecmath.GMatrix, double) 0
+NOT_NULL
+javax.vecmath.GMatrix boolean epsilonEquals(javax.vecmath.GMatrix, float) 0
 NOT_NULL
 javax.vecmath.GMatrix boolean luDecomposition(int, double[], int[], int[]) 3
 NOT_NULL
@@ -114,7 +144,13 @@ javax.vecmath.GMatrix int computeSVD(javax.vecmath.GMatrix, javax.vecmath.GMatri
 NOT_NULL
 javax.vecmath.GMatrix int compute_2X2(double, double, double, double[], double[], double[], double[], double[], int) 3
 NOT_NULL
+javax.vecmath.GMatrix java.lang.Object clone()
+NOT_NULL
 javax.vecmath.GMatrix java.lang.String toString(javax.vecmath.GMatrix) 0
+NOT_NULL
+javax.vecmath.GMatrix void add(javax.vecmath.GMatrix) 0
+NOT_NULL
+javax.vecmath.GMatrix void add(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
 NOT_NULL
 javax.vecmath.GMatrix void add(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 1
 NOT_NULL
@@ -138,8 +174,6 @@ javax.vecmath.GMatrix void compute_qr(int, int, double[], double[], javax.vecmat
 NOT_NULL
 javax.vecmath.GMatrix void compute_qr(int, int, double[], double[], javax.vecmath.GMatrix, javax.vecmath.GMatrix) 5
 NOT_NULL
-javax.vecmath.GMatrix void copySubMatrix(int, int, int, int, int, int, javax.vecmath.GMatrix) 6
-NOT_NULL
 javax.vecmath.GMatrix void get(javax.vecmath.GMatrix) 0
 NOT_NULL
 javax.vecmath.GMatrix void get(javax.vecmath.Matrix3d) 0
@@ -158,9 +192,7 @@ javax.vecmath.GMatrix void invert(javax.vecmath.GMatrix) 0
 NOT_NULL
 javax.vecmath.GMatrix void invertGeneral(javax.vecmath.GMatrix) 0
 NOT_NULL
-javax.vecmath.GMatrix void luBacksubstitution(int, double[], int[], double[]) 1
-NOT_NULL
-javax.vecmath.GMatrix void luBacksubstitution(int, double[], int[], double[]) 2
+javax.vecmath.GMatrix void mul(javax.vecmath.GMatrix) 0
 NOT_NULL
 javax.vecmath.GMatrix void mul(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
 NOT_NULL
@@ -172,9 +204,17 @@ javax.vecmath.GMatrix void mul(javax.vecmath.GVector, javax.vecmath.GVector) 1
 NOT_NULL
 javax.vecmath.GMatrix void mulTransposeBoth(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
 NOT_NULL
+javax.vecmath.GMatrix void mulTransposeBoth(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 1
+NOT_NULL
 javax.vecmath.GMatrix void mulTransposeLeft(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
 NOT_NULL
+javax.vecmath.GMatrix void mulTransposeLeft(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 1
+NOT_NULL
 javax.vecmath.GMatrix void mulTransposeRight(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
+NOT_NULL
+javax.vecmath.GMatrix void mulTransposeRight(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 1
+NOT_NULL
+javax.vecmath.GMatrix void negate(javax.vecmath.GMatrix) 0
 NOT_NULL
 javax.vecmath.GMatrix void print_m(javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
 NOT_NULL
@@ -186,13 +226,31 @@ javax.vecmath.GMatrix void print_se(double[], double[]) 0
 NOT_NULL
 javax.vecmath.GMatrix void print_se(double[], double[]) 1
 NOT_NULL
+javax.vecmath.GMatrix void print_svd(double[], double[], javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
+NOT_NULL
 javax.vecmath.GMatrix void print_svd(double[], double[], javax.vecmath.GMatrix, javax.vecmath.GMatrix) 1
 NOT_NULL
 javax.vecmath.GMatrix void print_svd(double[], double[], javax.vecmath.GMatrix, javax.vecmath.GMatrix) 2
 NOT_NULL
+javax.vecmath.GMatrix void print_svd(double[], double[], javax.vecmath.GMatrix, javax.vecmath.GMatrix) 3
+NOT_NULL
 javax.vecmath.GMatrix void set(javax.vecmath.GMatrix) 0
 NOT_NULL
+javax.vecmath.GMatrix void set(javax.vecmath.Matrix3d) 0
+NOT_NULL
+javax.vecmath.GMatrix void set(javax.vecmath.Matrix3f) 0
+NOT_NULL
+javax.vecmath.GMatrix void set(javax.vecmath.Matrix4d) 0
+NOT_NULL
+javax.vecmath.GMatrix void set(javax.vecmath.Matrix4f) 0
+NOT_NULL
+javax.vecmath.GMatrix void sub(javax.vecmath.GMatrix) 0
+NOT_NULL
+javax.vecmath.GMatrix void sub(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 0
+NOT_NULL
 javax.vecmath.GMatrix void sub(javax.vecmath.GMatrix, javax.vecmath.GMatrix) 1
+NOT_NULL
+javax.vecmath.GMatrix void transpose(javax.vecmath.GMatrix) 0
 NOT_NULL
 javax.vecmath.GMatrix void update_u(int, javax.vecmath.GMatrix, double[], double[]) 1
 NOT_NULL
@@ -238,6 +296,8 @@ javax.vecmath.GVector java.lang.Object clone()
 NOT_NULL
 javax.vecmath.GVector void LUDBackSolve(javax.vecmath.GMatrix, javax.vecmath.GVector, javax.vecmath.GVector) 0
 NOT_NULL
+javax.vecmath.GVector void LUDBackSolve(javax.vecmath.GMatrix, javax.vecmath.GVector, javax.vecmath.GVector) 1
+NOT_NULL
 javax.vecmath.GVector void LUDBackSolve(javax.vecmath.GMatrix, javax.vecmath.GVector, javax.vecmath.GVector) 2
 NOT_NULL
 javax.vecmath.GVector void SVDBackSolve(javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GMatrix, javax.vecmath.GVector) 0
@@ -268,6 +328,10 @@ javax.vecmath.GVector void interpolate(javax.vecmath.GVector, javax.vecmath.GVec
 NOT_NULL
 javax.vecmath.GVector void mul(javax.vecmath.GMatrix, javax.vecmath.GVector) 0
 NOT_NULL
+javax.vecmath.GVector void mul(javax.vecmath.GMatrix, javax.vecmath.GVector) 1
+NOT_NULL
+javax.vecmath.GVector void mul(javax.vecmath.GVector, javax.vecmath.GMatrix) 0
+NOT_NULL
 javax.vecmath.GVector void mul(javax.vecmath.GVector, javax.vecmath.GMatrix) 1
 NOT_NULL
 javax.vecmath.GVector void normalize(javax.vecmath.GVector) 0
@@ -277,6 +341,18 @@ NOT_NULL
 javax.vecmath.GVector void scaleAdd(double, javax.vecmath.GVector, javax.vecmath.GVector) 1
 NOT_NULL
 javax.vecmath.GVector void scaleAdd(double, javax.vecmath.GVector, javax.vecmath.GVector) 2
+NOT_NULL
+javax.vecmath.GVector void set(javax.vecmath.GVector) 0
+NOT_NULL
+javax.vecmath.GVector void set(javax.vecmath.Tuple2f) 0
+NOT_NULL
+javax.vecmath.GVector void set(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.GVector void set(javax.vecmath.Tuple3f) 0
+NOT_NULL
+javax.vecmath.GVector void set(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.GVector void set(javax.vecmath.Tuple4f) 0
 NOT_NULL
 javax.vecmath.GVector void sub(javax.vecmath.GVector) 0
 NOT_NULL
@@ -291,8 +367,6 @@ NOT_NULL
 javax.vecmath.Matrix3d Matrix3d(javax.vecmath.Matrix3f) 0
 NOT_NULL
 javax.vecmath.Matrix3d boolean epsilonEquals(javax.vecmath.Matrix3d, double) 0
-NOT_NULL
-javax.vecmath.Matrix3d boolean luDecomposition(double[], int[]) 0
 NOT_NULL
 javax.vecmath.Matrix3d double compute_rot(double, double, double[], double[], int, int) 2
 NOT_NULL
@@ -328,13 +402,13 @@ javax.vecmath.Matrix3d void getRow(int, double[]) 1
 NOT_NULL
 javax.vecmath.Matrix3d void getRow(int, javax.vecmath.Vector3d) 1
 NOT_NULL
+javax.vecmath.Matrix3d void invert(javax.vecmath.Matrix3d) 0
+NOT_NULL
 javax.vecmath.Matrix3d void invertGeneral(javax.vecmath.Matrix3d) 0
 NOT_NULL
-javax.vecmath.Matrix3d void luBacksubstitution(double[], int[], double[]) 0
-NOT_NULL
-javax.vecmath.Matrix3d void luBacksubstitution(double[], int[], double[]) 1
-NOT_NULL
 javax.vecmath.Matrix3d void mat_mul(double[], double[], double[]) 0
+NOT_NULL
+javax.vecmath.Matrix3d void mat_mul(double[], double[], double[]) 1
 NOT_NULL
 javax.vecmath.Matrix3d void mul(double, javax.vecmath.Matrix3d) 1
 NOT_NULL
@@ -370,8 +444,6 @@ javax.vecmath.Matrix3d void normalizeCP(javax.vecmath.Matrix3d) 0
 NOT_NULL
 javax.vecmath.Matrix3d void print_det(double[]) 0
 NOT_NULL
-javax.vecmath.Matrix3d void print_mat(double[]) 0
-NOT_NULL
 javax.vecmath.Matrix3d void set(double[]) 0
 NOT_NULL
 javax.vecmath.Matrix3d void set(javax.vecmath.AxisAngle4d) 0
@@ -400,6 +472,10 @@ javax.vecmath.Matrix3d void sub(javax.vecmath.Matrix3d, javax.vecmath.Matrix3d) 
 NOT_NULL
 javax.vecmath.Matrix3d void sub(javax.vecmath.Matrix3d, javax.vecmath.Matrix3d) 1
 NOT_NULL
+javax.vecmath.Matrix3d void svdReorder(double[], double[], double[], double[], double[], double[]) 1
+NOT_NULL
+javax.vecmath.Matrix3d void svdReorder(double[], double[], double[], double[], double[], double[]) 2
+NOT_NULL
 javax.vecmath.Matrix3d void svdReorder(double[], double[], double[], double[], double[], double[]) 3
 NOT_NULL
 javax.vecmath.Matrix3d void transform(javax.vecmath.Tuple3d) 0
@@ -407,8 +483,6 @@ NOT_NULL
 javax.vecmath.Matrix3d void transform(javax.vecmath.Tuple3d, javax.vecmath.Tuple3d) 0
 NOT_NULL
 javax.vecmath.Matrix3d void transform(javax.vecmath.Tuple3d, javax.vecmath.Tuple3d) 1
-NOT_NULL
-javax.vecmath.Matrix3d void transpose(javax.vecmath.Matrix3d) 0
 NOT_NULL
 javax.vecmath.Matrix3d void transpose_mat(double[], double[]) 0
 NOT_NULL
@@ -421,8 +495,6 @@ NOT_NULL
 javax.vecmath.Matrix3f Matrix3f(javax.vecmath.Matrix3f) 0
 NOT_NULL
 javax.vecmath.Matrix3f boolean epsilonEquals(javax.vecmath.Matrix3f, float) 0
-NOT_NULL
-javax.vecmath.Matrix3f boolean luDecomposition(double[], int[]) 0
 NOT_NULL
 javax.vecmath.Matrix3f void add(float, javax.vecmath.Matrix3f) 1
 NOT_NULL
@@ -440,11 +512,9 @@ javax.vecmath.Matrix3f void getRow(int, float[]) 1
 NOT_NULL
 javax.vecmath.Matrix3f void getRow(int, javax.vecmath.Vector3f) 1
 NOT_NULL
+javax.vecmath.Matrix3f void invert(javax.vecmath.Matrix3f) 0
+NOT_NULL
 javax.vecmath.Matrix3f void invertGeneral(javax.vecmath.Matrix3f) 0
-NOT_NULL
-javax.vecmath.Matrix3f void luBacksubstitution(double[], int[], double[]) 0
-NOT_NULL
-javax.vecmath.Matrix3f void luBacksubstitution(double[], int[], double[]) 1
 NOT_NULL
 javax.vecmath.Matrix3f void mul(float, javax.vecmath.Matrix3f) 1
 NOT_NULL
@@ -512,8 +582,6 @@ javax.vecmath.Matrix3f void transform(javax.vecmath.Tuple3f, javax.vecmath.Tuple
 NOT_NULL
 javax.vecmath.Matrix3f void transform(javax.vecmath.Tuple3f, javax.vecmath.Tuple3f) 1
 NOT_NULL
-javax.vecmath.Matrix3f void transpose(javax.vecmath.Matrix3f) 0
-NOT_NULL
 javax.vecmath.Matrix4d Matrix4d(double[]) 0
 NOT_NULL
 javax.vecmath.Matrix4d Matrix4d(javax.vecmath.Matrix3d, javax.vecmath.Vector3d, double) 0
@@ -539,8 +607,6 @@ NOT_NULL
 javax.vecmath.Matrix4d boolean epsilonEquals(javax.vecmath.Matrix4d, double) 0
 NOT_NULL
 javax.vecmath.Matrix4d boolean epsilonEquals(javax.vecmath.Matrix4d, float) 0
-NOT_NULL
-javax.vecmath.Matrix4d boolean luDecomposition(double[], int[]) 0
 NOT_NULL
 javax.vecmath.Matrix4d double get(javax.vecmath.Matrix3d, javax.vecmath.Vector3d) 0
 NOT_NULL
@@ -583,10 +649,6 @@ NOT_NULL
 javax.vecmath.Matrix4d void invert(javax.vecmath.Matrix4d) 0
 NOT_NULL
 javax.vecmath.Matrix4d void invertGeneral(javax.vecmath.Matrix4d) 0
-NOT_NULL
-javax.vecmath.Matrix4d void luBacksubstitution(double[], int[], double[]) 0
-NOT_NULL
-javax.vecmath.Matrix4d void luBacksubstitution(double[], int[], double[]) 1
 NOT_NULL
 javax.vecmath.Matrix4d void mul(double, javax.vecmath.Matrix4d) 1
 NOT_NULL
@@ -720,8 +782,6 @@ javax.vecmath.Matrix4d void transform(javax.vecmath.Vector3f, javax.vecmath.Vect
 NOT_NULL
 javax.vecmath.Matrix4d void transform(javax.vecmath.Vector3f, javax.vecmath.Vector3f) 1
 NOT_NULL
-javax.vecmath.Matrix4d void transpose(javax.vecmath.Matrix4d) 0
-NOT_NULL
 javax.vecmath.Matrix4f Matrix4f(float[]) 0
 NOT_NULL
 javax.vecmath.Matrix4f Matrix4f(javax.vecmath.Matrix3f, javax.vecmath.Vector3f, float) 0
@@ -737,8 +797,6 @@ NOT_NULL
 javax.vecmath.Matrix4f Matrix4f(javax.vecmath.Quat4f, javax.vecmath.Vector3f, float) 1
 NOT_NULL
 javax.vecmath.Matrix4f boolean epsilonEquals(javax.vecmath.Matrix4f, float) 0
-NOT_NULL
-javax.vecmath.Matrix4f boolean luDecomposition(double[], int[]) 0
 NOT_NULL
 javax.vecmath.Matrix4f float get(javax.vecmath.Matrix3f, javax.vecmath.Vector3f) 0
 NOT_NULL
@@ -773,10 +831,6 @@ NOT_NULL
 javax.vecmath.Matrix4f void invert(javax.vecmath.Matrix4f) 0
 NOT_NULL
 javax.vecmath.Matrix4f void invertGeneral(javax.vecmath.Matrix4f) 0
-NOT_NULL
-javax.vecmath.Matrix4f void luBacksubstitution(double[], int[], double[]) 0
-NOT_NULL
-javax.vecmath.Matrix4f void luBacksubstitution(double[], int[], double[]) 1
 NOT_NULL
 javax.vecmath.Matrix4f void mul(float, javax.vecmath.Matrix4f) 1
 NOT_NULL
@@ -886,7 +940,15 @@ javax.vecmath.Matrix4f void transform(javax.vecmath.Vector3f, javax.vecmath.Vect
 NOT_NULL
 javax.vecmath.Matrix4f void transform(javax.vecmath.Vector3f, javax.vecmath.Vector3f) 1
 NOT_NULL
-javax.vecmath.Matrix4f void transpose(javax.vecmath.Matrix4f) 0
+javax.vecmath.Point2d Point2d(double[]) 0
+NOT_NULL
+javax.vecmath.Point2d Point2d(javax.vecmath.Point2d) 0
+NOT_NULL
+javax.vecmath.Point2d Point2d(javax.vecmath.Point2f) 0
+NOT_NULL
+javax.vecmath.Point2d Point2d(javax.vecmath.Tuple2d) 0
+NOT_NULL
+javax.vecmath.Point2d Point2d(javax.vecmath.Tuple2f) 0
 NOT_NULL
 javax.vecmath.Point2d double distance(javax.vecmath.Point2d) 0
 NOT_NULL
@@ -896,6 +958,16 @@ javax.vecmath.Point2d double distanceLinf(javax.vecmath.Point2d) 0
 NOT_NULL
 javax.vecmath.Point2d double distanceSquared(javax.vecmath.Point2d) 0
 NOT_NULL
+javax.vecmath.Point2f Point2f(float[]) 0
+NOT_NULL
+javax.vecmath.Point2f Point2f(javax.vecmath.Point2d) 0
+NOT_NULL
+javax.vecmath.Point2f Point2f(javax.vecmath.Point2f) 0
+NOT_NULL
+javax.vecmath.Point2f Point2f(javax.vecmath.Tuple2d) 0
+NOT_NULL
+javax.vecmath.Point2f Point2f(javax.vecmath.Tuple2f) 0
+NOT_NULL
 javax.vecmath.Point2f float distance(javax.vecmath.Point2f) 0
 NOT_NULL
 javax.vecmath.Point2f float distanceL1(javax.vecmath.Point2f) 0
@@ -903,6 +975,16 @@ NOT_NULL
 javax.vecmath.Point2f float distanceLinf(javax.vecmath.Point2f) 0
 NOT_NULL
 javax.vecmath.Point2f float distanceSquared(javax.vecmath.Point2f) 0
+NOT_NULL
+javax.vecmath.Point3d Point3d(double[]) 0
+NOT_NULL
+javax.vecmath.Point3d Point3d(javax.vecmath.Point3d) 0
+NOT_NULL
+javax.vecmath.Point3d Point3d(javax.vecmath.Point3f) 0
+NOT_NULL
+javax.vecmath.Point3d Point3d(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Point3d Point3d(javax.vecmath.Tuple3f) 0
 NOT_NULL
 javax.vecmath.Point3d double distance(javax.vecmath.Point3d) 0
 NOT_NULL
@@ -914,6 +996,16 @@ javax.vecmath.Point3d double distanceSquared(javax.vecmath.Point3d) 0
 NOT_NULL
 javax.vecmath.Point3d void project(javax.vecmath.Point4d) 0
 NOT_NULL
+javax.vecmath.Point3f Point3f(float[]) 0
+NOT_NULL
+javax.vecmath.Point3f Point3f(javax.vecmath.Point3d) 0
+NOT_NULL
+javax.vecmath.Point3f Point3f(javax.vecmath.Point3f) 0
+NOT_NULL
+javax.vecmath.Point3f Point3f(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Point3f Point3f(javax.vecmath.Tuple3f) 0
+NOT_NULL
 javax.vecmath.Point3f float distance(javax.vecmath.Point3f) 0
 NOT_NULL
 javax.vecmath.Point3f float distanceL1(javax.vecmath.Point3f) 0
@@ -924,7 +1016,21 @@ javax.vecmath.Point3f float distanceSquared(javax.vecmath.Point3f) 0
 NOT_NULL
 javax.vecmath.Point3f void project(javax.vecmath.Point4f) 0
 NOT_NULL
+javax.vecmath.Point3i Point3i(int[]) 0
+NOT_NULL
+javax.vecmath.Point3i Point3i(javax.vecmath.Tuple3i) 0
+NOT_NULL
+javax.vecmath.Point4d Point4d(double[]) 0
+NOT_NULL
+javax.vecmath.Point4d Point4d(javax.vecmath.Point4d) 0
+NOT_NULL
+javax.vecmath.Point4d Point4d(javax.vecmath.Point4f) 0
+NOT_NULL
 javax.vecmath.Point4d Point4d(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Point4d Point4d(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.Point4d Point4d(javax.vecmath.Tuple4f) 0
 NOT_NULL
 javax.vecmath.Point4d double distance(javax.vecmath.Point4d) 0
 NOT_NULL
@@ -938,7 +1044,17 @@ javax.vecmath.Point4d void project(javax.vecmath.Point4d) 0
 NOT_NULL
 javax.vecmath.Point4d void set(javax.vecmath.Tuple3d) 0
 NOT_NULL
+javax.vecmath.Point4f Point4f(float[]) 0
+NOT_NULL
+javax.vecmath.Point4f Point4f(javax.vecmath.Point4d) 0
+NOT_NULL
+javax.vecmath.Point4f Point4f(javax.vecmath.Point4f) 0
+NOT_NULL
 javax.vecmath.Point4f Point4f(javax.vecmath.Tuple3f) 0
+NOT_NULL
+javax.vecmath.Point4f Point4f(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.Point4f Point4f(javax.vecmath.Tuple4f) 0
 NOT_NULL
 javax.vecmath.Point4f float distance(javax.vecmath.Point4f) 0
 NOT_NULL
@@ -952,7 +1068,15 @@ javax.vecmath.Point4f void project(javax.vecmath.Point4f) 0
 NOT_NULL
 javax.vecmath.Point4f void set(javax.vecmath.Tuple3f) 0
 NOT_NULL
+javax.vecmath.Point4i Point4i(int[]) 0
+NOT_NULL
+javax.vecmath.Point4i Point4i(javax.vecmath.Tuple4i) 0
+NOT_NULL
 javax.vecmath.Quat4d Quat4d(double[]) 0
+NOT_NULL
+javax.vecmath.Quat4d Quat4d(javax.vecmath.Quat4d) 0
+NOT_NULL
+javax.vecmath.Quat4d Quat4d(javax.vecmath.Quat4f) 0
 NOT_NULL
 javax.vecmath.Quat4d Quat4d(javax.vecmath.Tuple4d) 0
 NOT_NULL
@@ -974,7 +1098,11 @@ javax.vecmath.Quat4d void mul(javax.vecmath.Quat4d, javax.vecmath.Quat4d) 0
 NOT_NULL
 javax.vecmath.Quat4d void mul(javax.vecmath.Quat4d, javax.vecmath.Quat4d) 1
 NOT_NULL
+javax.vecmath.Quat4d void mulInverse(javax.vecmath.Quat4d) 0
+NOT_NULL
 javax.vecmath.Quat4d void mulInverse(javax.vecmath.Quat4d, javax.vecmath.Quat4d) 0
+NOT_NULL
+javax.vecmath.Quat4d void mulInverse(javax.vecmath.Quat4d, javax.vecmath.Quat4d) 1
 NOT_NULL
 javax.vecmath.Quat4d void normalize(javax.vecmath.Quat4d) 0
 NOT_NULL
@@ -991,6 +1119,10 @@ NOT_NULL
 javax.vecmath.Quat4d void set(javax.vecmath.Matrix4f) 0
 NOT_NULL
 javax.vecmath.Quat4f Quat4f(float[]) 0
+NOT_NULL
+javax.vecmath.Quat4f Quat4f(javax.vecmath.Quat4d) 0
+NOT_NULL
+javax.vecmath.Quat4f Quat4f(javax.vecmath.Quat4f) 0
 NOT_NULL
 javax.vecmath.Quat4f Quat4f(javax.vecmath.Tuple4d) 0
 NOT_NULL
@@ -1012,7 +1144,11 @@ javax.vecmath.Quat4f void mul(javax.vecmath.Quat4f, javax.vecmath.Quat4f) 0
 NOT_NULL
 javax.vecmath.Quat4f void mul(javax.vecmath.Quat4f, javax.vecmath.Quat4f) 1
 NOT_NULL
+javax.vecmath.Quat4f void mulInverse(javax.vecmath.Quat4f) 0
+NOT_NULL
 javax.vecmath.Quat4f void mulInverse(javax.vecmath.Quat4f, javax.vecmath.Quat4f) 0
+NOT_NULL
+javax.vecmath.Quat4f void mulInverse(javax.vecmath.Quat4f, javax.vecmath.Quat4f) 1
 NOT_NULL
 javax.vecmath.Quat4f void normalize(javax.vecmath.Quat4f) 0
 NOT_NULL
@@ -1027,6 +1163,28 @@ NOT_NULL
 javax.vecmath.Quat4f void set(javax.vecmath.Matrix4d) 0
 NOT_NULL
 javax.vecmath.Quat4f void set(javax.vecmath.Matrix4f) 0
+NOT_NULL
+javax.vecmath.TexCoord2f TexCoord2f(float[]) 0
+NOT_NULL
+javax.vecmath.TexCoord2f TexCoord2f(javax.vecmath.TexCoord2f) 0
+NOT_NULL
+javax.vecmath.TexCoord2f TexCoord2f(javax.vecmath.Tuple2f) 0
+NOT_NULL
+javax.vecmath.TexCoord3f TexCoord3f(float[]) 0
+NOT_NULL
+javax.vecmath.TexCoord3f TexCoord3f(javax.vecmath.TexCoord3f) 0
+NOT_NULL
+javax.vecmath.TexCoord3f TexCoord3f(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.TexCoord3f TexCoord3f(javax.vecmath.Tuple3f) 0
+NOT_NULL
+javax.vecmath.TexCoord4f TexCoord4f(float[]) 0
+NOT_NULL
+javax.vecmath.TexCoord4f TexCoord4f(javax.vecmath.TexCoord4f) 0
+NOT_NULL
+javax.vecmath.TexCoord4f TexCoord4f(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.TexCoord4f TexCoord4f(javax.vecmath.Tuple4f) 0
 NOT_NULL
 javax.vecmath.Tuple2d Tuple2d(double[]) 0
 NOT_NULL
@@ -1197,6 +1355,8 @@ NOT_NULL
 javax.vecmath.Tuple3d void scaleAdd(double, javax.vecmath.Tuple3d, javax.vecmath.Tuple3d) 1
 NOT_NULL
 javax.vecmath.Tuple3d void scaleAdd(double, javax.vecmath.Tuple3d, javax.vecmath.Tuple3d) 2
+NOT_NULL
+javax.vecmath.Tuple3d void scaleAdd(double, javax.vecmath.Tuple3f) 1
 NOT_NULL
 javax.vecmath.Tuple3d void set(double[]) 0
 NOT_NULL
@@ -1482,17 +1642,47 @@ javax.vecmath.Tuple4i void sub(javax.vecmath.Tuple4i, javax.vecmath.Tuple4i) 0
 NOT_NULL
 javax.vecmath.Tuple4i void sub(javax.vecmath.Tuple4i, javax.vecmath.Tuple4i) 1
 NOT_NULL
+javax.vecmath.Vector2d Vector2d(double[]) 0
+NOT_NULL
+javax.vecmath.Vector2d Vector2d(javax.vecmath.Tuple2d) 0
+NOT_NULL
+javax.vecmath.Vector2d Vector2d(javax.vecmath.Tuple2f) 0
+NOT_NULL
+javax.vecmath.Vector2d Vector2d(javax.vecmath.Vector2d) 0
+NOT_NULL
+javax.vecmath.Vector2d Vector2d(javax.vecmath.Vector2f) 0
+NOT_NULL
 javax.vecmath.Vector2d double angle(javax.vecmath.Vector2d) 0
 NOT_NULL
 javax.vecmath.Vector2d double dot(javax.vecmath.Vector2d) 0
 NOT_NULL
 javax.vecmath.Vector2d void normalize(javax.vecmath.Vector2d) 0
 NOT_NULL
+javax.vecmath.Vector2f Vector2f(float[]) 0
+NOT_NULL
+javax.vecmath.Vector2f Vector2f(javax.vecmath.Tuple2d) 0
+NOT_NULL
+javax.vecmath.Vector2f Vector2f(javax.vecmath.Tuple2f) 0
+NOT_NULL
+javax.vecmath.Vector2f Vector2f(javax.vecmath.Vector2d) 0
+NOT_NULL
+javax.vecmath.Vector2f Vector2f(javax.vecmath.Vector2f) 0
+NOT_NULL
 javax.vecmath.Vector2f float angle(javax.vecmath.Vector2f) 0
 NOT_NULL
 javax.vecmath.Vector2f float dot(javax.vecmath.Vector2f) 0
 NOT_NULL
 javax.vecmath.Vector2f void normalize(javax.vecmath.Vector2f) 0
+NOT_NULL
+javax.vecmath.Vector3d Vector3d(double[]) 0
+NOT_NULL
+javax.vecmath.Vector3d Vector3d(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Vector3d Vector3d(javax.vecmath.Tuple3f) 0
+NOT_NULL
+javax.vecmath.Vector3d Vector3d(javax.vecmath.Vector3d) 0
+NOT_NULL
+javax.vecmath.Vector3d Vector3d(javax.vecmath.Vector3f) 0
 NOT_NULL
 javax.vecmath.Vector3d double angle(javax.vecmath.Vector3d) 0
 NOT_NULL
@@ -1504,6 +1694,16 @@ javax.vecmath.Vector3d void cross(javax.vecmath.Vector3d, javax.vecmath.Vector3d
 NOT_NULL
 javax.vecmath.Vector3d void normalize(javax.vecmath.Vector3d) 0
 NOT_NULL
+javax.vecmath.Vector3f Vector3f(float[]) 0
+NOT_NULL
+javax.vecmath.Vector3f Vector3f(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Vector3f Vector3f(javax.vecmath.Tuple3f) 0
+NOT_NULL
+javax.vecmath.Vector3f Vector3f(javax.vecmath.Vector3d) 0
+NOT_NULL
+javax.vecmath.Vector3f Vector3f(javax.vecmath.Vector3f) 0
+NOT_NULL
 javax.vecmath.Vector3f float angle(javax.vecmath.Vector3f) 0
 NOT_NULL
 javax.vecmath.Vector3f float dot(javax.vecmath.Vector3f) 0
@@ -1514,7 +1714,17 @@ javax.vecmath.Vector3f void cross(javax.vecmath.Vector3f, javax.vecmath.Vector3f
 NOT_NULL
 javax.vecmath.Vector3f void normalize(javax.vecmath.Vector3f) 0
 NOT_NULL
+javax.vecmath.Vector4d Vector4d(double[]) 0
+NOT_NULL
 javax.vecmath.Vector4d Vector4d(javax.vecmath.Tuple3d) 0
+NOT_NULL
+javax.vecmath.Vector4d Vector4d(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.Vector4d Vector4d(javax.vecmath.Tuple4f) 0
+NOT_NULL
+javax.vecmath.Vector4d Vector4d(javax.vecmath.Vector4d) 0
+NOT_NULL
+javax.vecmath.Vector4d Vector4d(javax.vecmath.Vector4f) 0
 NOT_NULL
 javax.vecmath.Vector4d double angle(javax.vecmath.Vector4d) 0
 NOT_NULL
@@ -1524,7 +1734,17 @@ javax.vecmath.Vector4d void normalize(javax.vecmath.Vector4d) 0
 NOT_NULL
 javax.vecmath.Vector4d void set(javax.vecmath.Tuple3d) 0
 NOT_NULL
+javax.vecmath.Vector4f Vector4f(float[]) 0
+NOT_NULL
 javax.vecmath.Vector4f Vector4f(javax.vecmath.Tuple3f) 0
+NOT_NULL
+javax.vecmath.Vector4f Vector4f(javax.vecmath.Tuple4d) 0
+NOT_NULL
+javax.vecmath.Vector4f Vector4f(javax.vecmath.Tuple4f) 0
+NOT_NULL
+javax.vecmath.Vector4f Vector4f(javax.vecmath.Vector4d) 0
+NOT_NULL
+javax.vecmath.Vector4f Vector4f(javax.vecmath.Vector4f) 0
 NOT_NULL
 javax.vecmath.Vector4f float angle(javax.vecmath.Vector4f) 0
 NOT_NULL

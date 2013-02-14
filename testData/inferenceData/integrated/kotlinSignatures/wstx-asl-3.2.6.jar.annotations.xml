@@ -4,11 +4,6 @@
             <val name="value" val="&quot;fun getProperty(p0 : Int) : Any?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.api.CommonConfig boolean setProperty(java.lang.String, int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setProperty(p0 : String?, p1 : Int, p2 : Any) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.api.ReaderConfig byte[] allocFullBBuffer(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun allocFullBBuffer(minSize : Int) : ByteArray&quot;"/>
@@ -74,11 +69,6 @@
             <val name="value" val="&quot;fun setCustomInternalEntities(m : Map?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.api.ReaderConfig boolean setProperty(java.lang.String, int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setProperty(p0 : String?, p1 : Int, p2 : Any) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.api.ValidatorConfig com.ctc.wstx.api.ValidatorConfig createDefaults()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createDefaults() : ValidatorConfig&quot;"/>
@@ -87,11 +77,6 @@
     <item name='com.ctc.wstx.api.ValidatorConfig java.lang.Object getProperty(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getProperty(id : Int) : Any?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.api.ValidatorConfig boolean setProperty(java.lang.String, int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setProperty(p0 : String?, p1 : Int, p2 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.api.WriterConfig byte[] allocFullBBuffer(int)'>
@@ -127,11 +112,6 @@
     <item name='com.ctc.wstx.api.WriterConfig com.ctc.wstx.io.BufferRecycler createRecycler()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createRecycler() : BufferRecycler&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.api.WriterConfig boolean setProperty(java.lang.String, int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setProperty(name : String?, id : Int, value : Any) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.compat.Jdk12Impl java.util.List getEmptyList()'>
@@ -241,7 +221,7 @@
     </item>
     <item name='com.ctc.wstx.dom.DOMWrappingReader com.ctc.wstx.dom.DOMWrappingReader createFrom(com.ctc.wstx.api.ReaderConfig, javax.xml.transform.dom.DOMSource)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createFrom(cfg : ReaderConfig?, src : DOMSource) : DOMWrappingReader&quot;"/>
+            <val name="value" val="&quot;fun createFrom(cfg : ReaderConfig, src : DOMSource) : DOMWrappingReader&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dom.DOMWrappingReader org.codehaus.stax2.AttributeInfo getAttributeInfo()'>
@@ -451,7 +431,7 @@
     </item>
     <item name='com.ctc.wstx.dom.DOMWrappingWriter com.ctc.wstx.dom.DOMWrappingWriter createFrom(com.ctc.wstx.api.WriterConfig, javax.xml.transform.dom.DOMResult)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createFrom(cfg : WriterConfig?, dst : DOMResult) : DOMWrappingWriter&quot;"/>
+            <val name="value" val="&quot;fun createFrom(cfg : WriterConfig, dst : DOMResult) : DOMWrappingWriter&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dom.DOMWrappingWriter void createStartElem(java.lang.String, java.lang.String, java.lang.String, boolean)'>
@@ -536,12 +516,12 @@
     </item>
     <item name='com.ctc.wstx.dtd.ChoiceContentSpec com.ctc.wstx.dtd.ChoiceContentSpec constructChoice(boolean, char, java.util.Collection)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructChoice(nsAware : Boolean, arity : Char, specs : Collection?) : ChoiceContentSpec&quot;"/>
+            <val name="value" val="&quot;fun constructChoice(nsAware : Boolean, arity : Char, specs : Collection) : ChoiceContentSpec&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.ChoiceContentSpec com.ctc.wstx.dtd.ChoiceContentSpec constructMixed(boolean, java.util.Collection)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructMixed(nsAware : Boolean, specs : Collection?) : ChoiceContentSpec&quot;"/>
+            <val name="value" val="&quot;fun constructMixed(nsAware : Boolean, specs : Collection) : ChoiceContentSpec&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.ChoiceContentSpec com.ctc.wstx.dtd.StructValidator getSimpleValidator()'>
@@ -581,7 +561,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.ChoiceModel void indexTokens(java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexTokens(p0 : MutableList) : Unit&quot;"/>
+            <val name="value" val="&quot;fun indexTokens(p0 : MutableList?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.ConcatModel void addFirstPos(java.util.BitSet)'>
@@ -601,7 +581,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.ConcatModel void indexTokens(java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexTokens(p0 : MutableList) : Unit&quot;"/>
+            <val name="value" val="&quot;fun indexTokens(p0 : MutableList?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.ContentSpec com.ctc.wstx.dtd.StructValidator getSimpleValidator()'>
@@ -666,7 +646,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDAttribute java.lang.String normalize(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun normalize(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int) : String?&quot;"/>
+            <val name="value" val="&quot;fun normalize(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDAttribute java.lang.String reportInvalidChar(com.ctc.wstx.dtd.DTDValidatorBase, char, java.lang.String)'>
@@ -691,7 +671,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDAttribute java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(p0 : DTDValidatorBase?, p1 : CharArray, p2 : Int, p3 : Int, p4 : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(p0 : DTDValidatorBase?, p1 : CharArray?, p2 : Int, p3 : Int, p4 : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDAttribute void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -711,7 +691,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDAttribute java.lang.String validateEnumValue(char[], int, int, boolean, com.ctc.wstx.util.WordResolver)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateEnumValue(cbuf : CharArray, start : Int, end : Int, normalize : Boolean, res : WordResolver?) : String?&quot;"/>
+            <val name="value" val="&quot;fun validateEnumValue(cbuf : CharArray?, start : Int, end : Int, normalize : Boolean, res : WordResolver?) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDCdataAttr com.ctc.wstx.dtd.DTDAttribute cloneWith(int)'>
@@ -721,12 +701,12 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDCdataAttr java.lang.String normalize(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun normalize(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int) : String?&quot;"/>
+            <val name="value" val="&quot;fun normalize(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDCdataAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDCdataAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -791,7 +771,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDEntitiesAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDEntitiesAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -806,7 +786,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDEntityAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDEntityAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -819,29 +799,14 @@
             <val name="value" val="&quot;fun cloneWith(specIndex : Int) : DTDAttribute&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.dtd.DTDEnumAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(p0 : DTDValidatorBase?, p1 : CharArray, p2 : Int, p3 : Int, p4 : Boolean) : String?&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.dtd.DTDEnumAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateDefault(p0 : InputProblemReporter, p1 : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.dtd.DTDEventListener void dtdNotationDecl(java.lang.String, java.lang.String, java.lang.String, java.net.URL)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun dtdNotationDecl(p0 : String?, p1 : String?, p2 : String?, p3 : URL?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.DTDEventListener void dtdUnparsedEntityDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.net.URL)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun dtdUnparsedEntityDecl(p0 : String?, p1 : String?, p2 : String?, p3 : String?, p4 : URL?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.dtd.DTDId com.ctc.wstx.dtd.DTDId construct(java.lang.String, java.net.URL, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun construct(publicId : String?, systemId : URL, configFlags : Int, xml11 : Boolean) : DTDId&quot;"/>
+            <val name="value" val="&quot;fun construct(publicId : String?, systemId : URL?, configFlags : Int, xml11 : Boolean) : DTDId&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDId com.ctc.wstx.dtd.DTDId constructFromPublicId(java.lang.String, int, boolean)'>
@@ -854,6 +819,11 @@
             <val name="value" val="&quot;fun constructFromSystemId(systemId : URL, configFlags : Int, xml11 : Boolean) : DTDId&quot;"/>
         </annotation>
     </item>
+    <item name='com.ctc.wstx.dtd.DTDId boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='com.ctc.wstx.dtd.DTDIdAttr com.ctc.wstx.dtd.DTDAttribute cloneWith(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneWith(specIndex : Int) : DTDAttribute&quot;"/>
@@ -861,7 +831,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDIdAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDIdAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -876,7 +846,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDIdRefAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDIdRefAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -891,7 +861,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDIdRefsAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDIdRefsAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -906,7 +876,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDNmTokenAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDNmTokenAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -921,7 +891,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDNmTokensAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
+            <val name="value" val="&quot;fun validate(v : DTDValidatorBase?, cbuf : CharArray?, start : Int, end : Int, normalize : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDNmTokensAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -932,11 +902,6 @@
     <item name='com.ctc.wstx.dtd.DTDNotationAttr com.ctc.wstx.dtd.DTDAttribute cloneWith(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneWith(specIndex : Int) : DTDAttribute&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.DTDNotationAttr java.lang.String validate(com.ctc.wstx.dtd.DTDValidatorBase, char[], int, int, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validate(p0 : DTDValidatorBase?, p1 : CharArray, p2 : Int, p3 : Int, p4 : Boolean) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDNotationAttr void validateDefault(com.ctc.wstx.sr.InputProblemReporter, boolean)'>
@@ -971,7 +936,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema doCreateSchema(com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper, java.lang.String, java.lang.String, java.net.URL)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doCreateSchema(rcfg : ReaderConfig?, bs : InputBootstrapper, publicId : String?, systemId : String?, ctxt : URL?) : XMLValidationSchema&quot;"/>
+            <val name="value" val="&quot;fun doCreateSchema(rcfg : ReaderConfig, bs : InputBootstrapper, publicId : String?, systemId : String?, ctxt : URL) : XMLValidationSchema&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDSchemaFactory java.lang.Object getProperty(java.lang.String)'>
@@ -1054,11 +1019,6 @@
             <val name="value" val="&quot;fun validateAttribute(localName : String?, uri : String?, prefix : String?, valueChars : CharArray?, valueStart : Int, valueEnd : Int) : String?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.dtd.DTDTypingNonValidator void validateElementStart(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateElementStart(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.dtd.DTDValidator java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateAttribute(localName : String?, uri : String?, prefix : String?, value : String?) : String?&quot;"/>
@@ -1067,11 +1027,6 @@
     <item name='com.ctc.wstx.dtd.DTDValidator java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateAttribute(localName : String?, uri : String?, prefix : String?, valueChars : CharArray?, valueStart : Int, valueEnd : Int) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.DTDValidator void validateElementStart(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateElementStart(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDValidatorBase DTDValidatorBase(com.ctc.wstx.dtd.DTDSubset, org.codehaus.stax2.validation.ValidationContext, boolean, java.util.Map, java.util.Map)'>
@@ -1102,11 +1057,6 @@
     <item name='com.ctc.wstx.dtd.DTDValidatorBase java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateAttribute(p0 : String?, p1 : String?, p2 : String?, p3 : CharArray?, p4 : Int, p5 : Int) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.DTDValidatorBase void validateElementStart(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateElementStart(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDValidatorBase void validateText(java.lang.String, boolean)'>
@@ -1147,6 +1097,11 @@
     <item name='com.ctc.wstx.dtd.DefaultAttrValue void reportUndeclared(org.codehaus.stax2.validation.ValidationContext)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun reportUndeclared(ctxt : ValidationContext) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.dtd.ElementIdMap com.ctc.wstx.dtd.ElementId addDefined(char[], int, int, int, javax.xml.stream.Location, com.ctc.wstx.dtd.NameKey, com.ctc.wstx.dtd.NameKey)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addDefined(buffer : CharArray?, start : Int, len : Int, hash : Int, loc : Location?, elemName : NameKey?, attrName : NameKey?) : ElementId&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.ElementIdMap com.ctc.wstx.dtd.ElementId addReferenced(char[], int, int, int, javax.xml.stream.Location, com.ctc.wstx.dtd.NameKey, com.ctc.wstx.dtd.NameKey)'>
@@ -1191,7 +1146,12 @@
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader FullDTDReader(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.dtd.DTDSubset, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun FullDTDReader(input : WstxInputSource, cfg : ReaderConfig?, intSubset : DTDSubset?, constructFully : Boolean, xmlVersion : Int)&quot;"/>
+            <val name="value" val="&quot;fun FullDTDReader(input : WstxInputSource, cfg : ReaderConfig, intSubset : DTDSubset?, constructFully : Boolean, xmlVersion : Int)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.dtd.FullDTDReader FullDTDReader(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, boolean, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun FullDTDReader(input : WstxInputSource?, cfg : ReaderConfig, constructFully : Boolean, xmlVersion : Int)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader FullDTDReader(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, boolean, com.ctc.wstx.dtd.DTDSubset, boolean, int)'>
@@ -1202,11 +1162,6 @@
     <item name='com.ctc.wstx.dtd.FullDTDReader java.lang.String checkDTDKeyword(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun checkDTDKeyword(exp : String) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.FullDTDReader void checkXmlSpaceAttr(int, com.ctc.wstx.util.WordResolver)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkXmlSpaceAttr(type : Int, enumValues : WordResolver) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader java.lang.String entityDesc(com.ctc.wstx.io.WstxInputSource)'>
@@ -1226,7 +1181,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.DTDSubset flattenExternalSubset(com.ctc.wstx.io.WstxInputSource, java.io.Writer, boolean, boolean, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun flattenExternalSubset(src : WstxInputSource?, flattenWriter : Writer, inclComments : Boolean, inclConditionals : Boolean, inclPEs : Boolean) : DTDSubset&quot;"/>
+            <val name="value" val="&quot;fun flattenExternalSubset(src : WstxInputSource, flattenWriter : Writer, inclComments : Boolean, inclConditionals : Boolean, inclPEs : Boolean) : DTDSubset&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.ent.EntityDecl handleExternalEntityDecl(com.ctc.wstx.io.WstxInputSource, boolean, java.lang.String, char, javax.xml.stream.Location)'>
@@ -1281,12 +1236,12 @@
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.DTDSubset readExternalSubset(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.dtd.DTDSubset, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun readExternalSubset(src : WstxInputSource?, cfg : ReaderConfig?, intSubset : DTDSubset?, constructFully : Boolean, xmlVersion : Int) : DTDSubset&quot;"/>
+            <val name="value" val="&quot;fun readExternalSubset(src : WstxInputSource, cfg : ReaderConfig, intSubset : DTDSubset?, constructFully : Boolean, xmlVersion : Int) : DTDSubset&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.DTDSubset readInternalSubset(com.ctc.wstx.io.WstxInputData, com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun readInternalSubset(srcData : WstxInputData, input : WstxInputSource?, cfg : ReaderConfig?, constructFully : Boolean, xmlVersion : Int) : DTDSubset&quot;"/>
+            <val name="value" val="&quot;fun readInternalSubset(srcData : WstxInputData, input : WstxInputSource?, cfg : ReaderConfig, constructFully : Boolean, xmlVersion : Int) : DTDSubset&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader com.ctc.wstx.dtd.StructValidator readMixedSpec(com.ctc.wstx.dtd.NameKey, boolean)'>
@@ -1294,19 +1249,9 @@
             <val name="value" val="&quot;fun readMixedSpec(elemName : NameKey?, construct : Boolean) : StructValidator?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.dtd.FullDTDReader java.lang.String readNotationEntry(char, com.ctc.wstx.dtd.NameKey)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun readNotationEntry(c : Char, attrName : NameKey?) : String?&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.dtd.FullDTDReader void reportWarning(javax.xml.stream.XMLReporter, java.lang.String, java.lang.String, javax.xml.stream.Location, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun reportWarning(rep : XMLReporter?, probType : String?, msg : String?, loc : Location?, extraArg : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.FullDTDReader void throwDTDUnexpectedChar(int, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun throwDTDUnexpectedChar(i : Int, extraMsg : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.LargeNameKeySet LargeNameKeySet(boolean, com.ctc.wstx.dtd.NameKey[])'>
@@ -1317,6 +1262,11 @@
     <item name='com.ctc.wstx.dtd.LargeNameKeySet boolean contains(com.ctc.wstx.dtd.NameKey)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun contains(name : NameKey) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.dtd.MinimalDTDReader MinimalDTDReader(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MinimalDTDReader(input : WstxInputSource?, cfg : ReaderConfig)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.MinimalDTDReader MinimalDTDReader(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, boolean)'>
@@ -1346,7 +1296,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.MinimalDTDReader void skipInternalSubset(com.ctc.wstx.io.WstxInputData, com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun skipInternalSubset(srcData : WstxInputData, input : WstxInputSource?, cfg : ReaderConfig?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun skipInternalSubset(srcData : WstxInputData, input : WstxInputSource?, cfg : ReaderConfig) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.ModelNode void addFirstPos(java.util.BitSet)'>
@@ -1366,7 +1316,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.ModelNode void indexTokens(java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexTokens(p0 : MutableList) : Unit&quot;"/>
+            <val name="value" val="&quot;fun indexTokens(p0 : MutableList?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.NameKey NameKey(java.lang.String, java.lang.String)'>
@@ -1377,6 +1327,11 @@
     <item name='com.ctc.wstx.dtd.NameKey int compareTo(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compareTo(o : Any) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.dtd.NameKey boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.NameKey com.ctc.wstx.dtd.NameKey reset(java.lang.String, java.lang.String)'>
@@ -1406,7 +1361,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.OptionalModel void indexTokens(java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexTokens(p0 : MutableList) : Unit&quot;"/>
+            <val name="value" val="&quot;fun indexTokens(p0 : MutableList?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.SeqContentSpec.Validator java.lang.String concatNames(com.ctc.wstx.dtd.NameKey[])'>
@@ -1446,7 +1401,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.SeqContentSpec com.ctc.wstx.dtd.ModelNode rewrite(com.ctc.wstx.dtd.ContentSpec[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun rewrite(specs : Array&lt;out ContentSpec?&gt;, first : Int, last : Int) : ModelNode&quot;"/>
+            <val name="value" val="&quot;fun rewrite(specs : Array&lt;out ContentSpec?&gt;?, first : Int, last : Int) : ModelNode&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.SmallNameKeySet SmallNameKeySet(boolean, com.ctc.wstx.dtd.NameKey[])'>
@@ -1476,7 +1431,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.StarModel void indexTokens(java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexTokens(p0 : MutableList) : Unit&quot;"/>
+            <val name="value" val="&quot;fun indexTokens(p0 : MutableList?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.StructValidator java.lang.String fullyValid()'>
@@ -1551,12 +1506,12 @@
     </item>
     <item name='com.ctc.wstx.dtd.TokenModel void indexTokens(java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexTokens(tokens : MutableList) : Unit&quot;"/>
+            <val name="value" val="&quot;fun indexTokens(tokens : MutableList?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.ent.EntityDecl com.ctc.wstx.io.WstxInputSource expand(com.ctc.wstx.io.WstxInputSource, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun expand(p0 : WstxInputSource?, p1 : XMLResolver?, p2 : ReaderConfig?, p3 : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun expand(p0 : WstxInputSource?, p1 : XMLResolver?, p2 : ReaderConfig, p3 : Int) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.ent.EntityDecl java.lang.String getNotationName()'>
@@ -1596,7 +1551,7 @@
     </item>
     <item name='com.ctc.wstx.ent.ExtEntity com.ctc.wstx.io.WstxInputSource expand(com.ctc.wstx.io.WstxInputSource, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun expand(p0 : WstxInputSource?, p1 : XMLResolver?, p2 : ReaderConfig?, p3 : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun expand(p0 : WstxInputSource?, p1 : XMLResolver?, p2 : ReaderConfig, p3 : Int) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.ent.ExtEntity java.lang.String getNotationName()'>
@@ -1636,7 +1591,7 @@
     </item>
     <item name='com.ctc.wstx.ent.IntEntity com.ctc.wstx.io.WstxInputSource expand(com.ctc.wstx.io.WstxInputSource, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun expand(parent : WstxInputSource?, res : XMLResolver?, cfg : ReaderConfig?, xmlVersion : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun expand(parent : WstxInputSource?, res : XMLResolver?, cfg : ReaderConfig, xmlVersion : Int) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.ent.IntEntity java.lang.String getNotationName()'>
@@ -1671,7 +1626,7 @@
     </item>
     <item name='com.ctc.wstx.ent.ParsedExtEntity com.ctc.wstx.io.WstxInputSource expand(com.ctc.wstx.io.WstxInputSource, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun expand(parent : WstxInputSource?, res : XMLResolver?, cfg : ReaderConfig?, xmlVersion : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun expand(parent : WstxInputSource?, res : XMLResolver?, cfg : ReaderConfig, xmlVersion : Int) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.ent.ParsedExtEntity java.lang.String getNotationName()'>
@@ -1682,6 +1637,11 @@
     <item name='com.ctc.wstx.ent.ParsedExtEntity void writeEnc(java.io.Writer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeEnc(w : Writer) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.ent.UnparsedExtEntity com.ctc.wstx.io.WstxInputSource expand(com.ctc.wstx.io.WstxInputSource, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun expand(p0 : WstxInputSource?, p1 : XMLResolver?, p2 : ReaderConfig, p3 : Int) : WstxInputSource?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.ent.UnparsedExtEntity void writeEnc(java.io.Writer)'>
@@ -1861,7 +1821,7 @@
     </item>
     <item name='com.ctc.wstx.evt.WComment void writeAsEncodedUnicode(java.io.Writer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAsEncodedUnicode(w : Writer) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAsEncodedUnicode(p0 : Writer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WComment void writeUsing(javax.xml.stream.XMLStreamWriter)'>
@@ -1906,7 +1866,7 @@
     </item>
     <item name='com.ctc.wstx.evt.WEndElement void writeAsEncodedUnicode(java.io.Writer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAsEncodedUnicode(w : Writer) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAsEncodedUnicode(p0 : Writer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WEndElement void writeUsing(javax.xml.stream.XMLStreamWriter)'>
@@ -1961,7 +1921,7 @@
     </item>
     <item name='com.ctc.wstx.evt.WEntityReference void writeAsEncodedUnicode(java.io.Writer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAsEncodedUnicode(w : Writer) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAsEncodedUnicode(p0 : Writer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WEntityReference void writeUsing(javax.xml.stream.XMLStreamWriter)'>
@@ -2021,7 +1981,7 @@
     </item>
     <item name='com.ctc.wstx.evt.WProcInstr void writeAsEncodedUnicode(java.io.Writer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAsEncodedUnicode(w : Writer) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAsEncodedUnicode(p0 : Writer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WProcInstr void writeUsing(javax.xml.stream.XMLStreamWriter)'>
@@ -2046,17 +2006,12 @@
     </item>
     <item name='com.ctc.wstx.evt.WStartDocument void writeAsEncodedUnicode(java.io.Writer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAsEncodedUnicode(w : Writer) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAsEncodedUnicode(p0 : Writer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WStartDocument void writeUsing(javax.xml.stream.XMLStreamWriter)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeUsing(w : XMLStreamWriter) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.evt.WstxEventReader java.lang.String getElementText()'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getElementText() : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WstxEventReader java.lang.Object next()'>
@@ -2072,6 +2027,11 @@
     <item name='com.ctc.wstx.evt.WstxEventReader javax.xml.stream.events.XMLEvent peek()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun peek() : XMLEvent?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.evt.WstxEventWriter WstxEventWriter(javax.xml.stream.XMLStreamWriter)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WstxEventWriter(sw : XMLStreamWriter?)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WstxEventWriter void add(javax.xml.stream.XMLEventReader)'>
@@ -2092,6 +2052,11 @@
     <item name='com.ctc.wstx.exc.WstxException java.lang.String getLocationDesc()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getLocationDesc() : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.exc.WstxIOException WstxIOException(java.io.IOException)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WstxIOException(ie : IOException)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.exc.WstxLazyException WstxLazyException(javax.xml.stream.XMLStreamException)'>
@@ -2142,6 +2107,11 @@
     <item name='com.ctc.wstx.io.BaseInputSource void saveContext(com.ctc.wstx.io.WstxInputData)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun saveContext(reader : WstxInputData) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.io.BranchingReaderSource BranchingReaderSource(com.ctc.wstx.api.ReaderConfig, java.lang.String, java.lang.String, java.net.URL, java.io.Reader, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BranchingReaderSource(cfg : ReaderConfig, pubId : String?, sysId : String?, src : URL?, r : Reader?, realClose : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.BranchingReaderSource boolean readMore(com.ctc.wstx.io.WstxInputData, int)'>
@@ -2201,17 +2171,17 @@
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource resolveEntity(com.ctc.wstx.io.WstxInputSource, java.net.URL, java.lang.String, java.lang.String, java.lang.String, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun resolveEntity(parent : WstxInputSource?, pathCtxt : URL?, entityName : String?, publicId : String?, systemId : String, customResolver : XMLResolver?, cfg : ReaderConfig?, xmlVersion : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun resolveEntity(parent : WstxInputSource?, pathCtxt : URL, entityName : String?, publicId : String?, systemId : String?, customResolver : XMLResolver?, cfg : ReaderConfig, xmlVersion : Int) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource resolveEntityUsing(com.ctc.wstx.io.WstxInputSource, java.lang.String, java.lang.String, java.lang.String, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun resolveEntityUsing(refCtxt : WstxInputSource?, entityName : String?, publicId : String?, systemId : String?, resolver : XMLResolver, cfg : ReaderConfig?, xmlVersion : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun resolveEntityUsing(refCtxt : WstxInputSource?, entityName : String?, publicId : String?, systemId : String?, resolver : XMLResolver, cfg : ReaderConfig?, xmlVersion : Int) : WstxInputSource?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource sourceFrom(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, java.lang.String, int, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sourceFrom(parent : WstxInputSource?, cfg : ReaderConfig?, refName : String?, xmlVersion : Int, o : Any) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun sourceFrom(parent : WstxInputSource?, cfg : ReaderConfig, refName : String?, xmlVersion : Int, o : Any) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource sourceFromIS(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, java.lang.String, int, java.io.InputStream, java.lang.String, java.lang.String)'>
@@ -2221,17 +2191,17 @@
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource sourceFromR(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, java.lang.String, int, java.io.Reader, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sourceFromR(parent : WstxInputSource?, cfg : ReaderConfig?, refName : String?, xmlVersion : Int, r : Reader?, pubId : String?, sysId : String?) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun sourceFromR(parent : WstxInputSource?, cfg : ReaderConfig, refName : String?, xmlVersion : Int, r : Reader?, pubId : String?, sysId : String?) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource sourceFromSS(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, java.lang.String, int, javax.xml.transform.stream.StreamSource)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sourceFromSS(parent : WstxInputSource?, cfg : ReaderConfig?, refName : String?, xmlVersion : Int, ssrc : StreamSource) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun sourceFromSS(parent : WstxInputSource?, cfg : ReaderConfig, refName : String?, xmlVersion : Int, ssrc : StreamSource) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource sourceFromString(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, java.lang.String, int, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sourceFromString(parent : WstxInputSource?, cfg : ReaderConfig?, refName : String?, xmlVersion : Int, refContent : String?) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun sourceFromString(parent : WstxInputSource?, cfg : ReaderConfig, refName : String?, xmlVersion : Int, refContent : String?) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource sourceFromURL(com.ctc.wstx.io.WstxInputSource, com.ctc.wstx.api.ReaderConfig, java.lang.String, int, java.net.URL, java.lang.String)'>
@@ -2246,7 +2216,7 @@
     </item>
     <item name='com.ctc.wstx.io.InputBootstrapper java.io.Reader bootstrapInput(com.ctc.wstx.api.ReaderConfig, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun bootstrapInput(p0 : ReaderConfig, p1 : Boolean, p2 : Int) : Reader&quot;"/>
+            <val name="value" val="&quot;fun bootstrapInput(p0 : ReaderConfig, p1 : Boolean, p2 : Int) : Reader?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.InputBootstrapper int checkKeyword(java.lang.String)'>
@@ -2281,17 +2251,17 @@
     </item>
     <item name='com.ctc.wstx.io.InputSourceFactory com.ctc.wstx.io.WstxInputSource constructCharArraySource(com.ctc.wstx.io.WstxInputSource, java.lang.String, char[], int, int, javax.xml.stream.Location, java.net.URL)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructCharArraySource(parent : WstxInputSource?, fromEntity : String?, text : CharArray?, offset : Int, len : Int, loc : Location?, src : URL?) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun constructCharArraySource(parent : WstxInputSource?, fromEntity : String?, text : CharArray?, offset : Int, len : Int, loc : Location, src : URL?) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.InputSourceFactory com.ctc.wstx.io.BranchingReaderSource constructDocumentSource(com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper, java.lang.String, java.lang.String, java.net.URL, java.io.Reader, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructDocumentSource(cfg : ReaderConfig?, bs : InputBootstrapper?, pubId : String?, sysId : String?, src : URL?, r : Reader?, realClose : Boolean) : BranchingReaderSource&quot;"/>
+            <val name="value" val="&quot;fun constructDocumentSource(cfg : ReaderConfig, bs : InputBootstrapper?, pubId : String?, sysId : String?, src : URL?, r : Reader?, realClose : Boolean) : BranchingReaderSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.InputSourceFactory com.ctc.wstx.io.ReaderSource constructEntitySource(com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.WstxInputSource, java.lang.String, com.ctc.wstx.io.InputBootstrapper, java.lang.String, java.lang.String, int, java.net.URL, java.io.Reader)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructEntitySource(cfg : ReaderConfig?, parent : WstxInputSource?, entityName : String?, bs : InputBootstrapper?, pubId : String?, sysId : String?, xmlVersion : Int, src : URL?, r : Reader?) : ReaderSource&quot;"/>
+            <val name="value" val="&quot;fun constructEntitySource(cfg : ReaderConfig, parent : WstxInputSource?, entityName : String?, bs : InputBootstrapper?, pubId : String?, sysId : String?, xmlVersion : Int, src : URL?, r : Reader?) : ReaderSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.MergedReader int read(char[])'>
@@ -2354,16 +2324,6 @@
             <val name="value" val="&quot;fun readMore(p0 : WstxInputData, p1 : Int) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.io.SingleByteTextWriter void write(java.lang.String, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun write(str : String, offset : Int, len : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.io.SingleByteTextWriter void write(char[], int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun write(cbuf : CharArray, offset : Int, len : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.io.StreamBootstrapper java.io.Reader bootstrapInput(com.ctc.wstx.api.ReaderConfig, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun bootstrapInput(cfg : ReaderConfig, mainDoc : Boolean, xmlVersion : Int) : Reader&quot;"/>
@@ -2424,11 +2384,6 @@
             <val name="value" val="&quot;fun guessEncodingBitSize(enc : String) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.io.TextEscaper void outputDTDText(java.io.Writer, char[], int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun outputDTDText(w : Writer?, ch : CharArray, offset : Int, len : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.io.TextEscaper void writeEscapedAttrValue(java.io.Writer, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeEscapedAttrValue(w : Writer?, value : String) : Unit&quot;"/>
@@ -2449,29 +2404,9 @@
             <val name="value" val="&quot;fun write(str : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.io.UTF8Writer void write(java.lang.String, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun write(str : String, off : Int, len : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.io.UTF8Writer void write(char[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun write(cbuf : CharArray) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.io.UTF8Writer void write(char[], int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun write(cbuf : CharArray, off : Int, len : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.io.UTFTextWriter void write(java.lang.String, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun write(str : String, offset : Int, len : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.io.UTFTextWriter void write(char[], int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun write(cbuf : CharArray, offset : Int, len : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.WriterBase java.lang.String getQuoteEntity(char)'>
@@ -2497,6 +2432,11 @@
     <item name='com.ctc.wstx.io.WstxInputLocation void appendDesc(java.lang.StringBuffer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun appendDesc(sb : StringBuffer) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.io.WstxInputLocation boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.WstxInputLocation com.ctc.wstx.io.WstxInputLocation getEmptyLocation()'>
@@ -2624,11 +2564,6 @@
             <val name="value" val="&quot;fun validateAttribute(localName : String?, uri : String?, prefix : String?, valueChars : CharArray?, valueStart : Int, valueEnd : Int) : String?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.msv.RelaxNGValidator void validateElementStart(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateElementStart(localName : String?, uri : String?, prefix : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.msv.RelaxNGValidator void validateText(java.lang.String, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateText(text : String, lastTextSegment : Boolean) : Unit&quot;"/>
@@ -2642,11 +2577,6 @@
     <item name='com.ctc.wstx.sax.SAXProperty com.ctc.wstx.sax.SAXProperty findByUri(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun findByUri(uri : String) : SAXProperty?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sax.WstxSAXParser.AttributesWrapper java.lang.String getName(int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getName(i : Int) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sax.WstxSAXParser.DocHandlerWrapper void endElement(java.lang.String, java.lang.String, java.lang.String)'>
@@ -2672,16 +2602,6 @@
     <item name='com.ctc.wstx.sax.WstxSAXParser org.xml.sax.EntityResolver access$000(com.ctc.wstx.sax.WstxSAXParser)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun access$000(x0 : WstxSAXParser) : EntityResolver?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sax.WstxSAXParser void dtdNotationDecl(java.lang.String, java.lang.String, java.lang.String, java.net.URL)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun dtdNotationDecl(name : String?, publicId : String?, systemId : String?, baseURL : URL?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sax.WstxSAXParser void dtdUnparsedEntityDecl(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.net.URL)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun dtdUnparsedEntityDecl(name : String?, publicId : String?, systemId : String?, notationName : String?, baseURL : URL?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sax.WstxSAXParser boolean getFeature(java.lang.String)'>
@@ -2757,6 +2677,11 @@
     <item name='com.ctc.wstx.sax.WstxSAXParser org.xml.sax.XMLReader getXMLReader()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getXMLReader() : XMLReader&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sax.WstxSAXParser void parse(org.xml.sax.InputSource)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(input : InputSource) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sax.WstxSAXParser void setFeature(java.lang.String, boolean)'>
@@ -2861,7 +2786,7 @@
     </item>
     <item name='com.ctc.wstx.sr.BasicStreamReader com.ctc.wstx.sr.BasicStreamReader createBasicStreamReader(com.ctc.wstx.io.BranchingReaderSource, com.ctc.wstx.sr.ReaderCreator, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createBasicStreamReader(input : BranchingReaderSource?, owner : ReaderCreator?, cfg : ReaderConfig, bs : InputBootstrapper?, forER : Boolean) : BasicStreamReader&quot;"/>
+            <val name="value" val="&quot;fun createBasicStreamReader(input : BranchingReaderSource, owner : ReaderCreator?, cfg : ReaderConfig, bs : InputBootstrapper, forER : Boolean) : BasicStreamReader&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.BasicStreamReader com.ctc.wstx.sr.InputElementStack createElementStack(com.ctc.wstx.api.ReaderConfig)'>
@@ -2936,7 +2861,7 @@
     </item>
     <item name='com.ctc.wstx.sr.BasicStreamReader java.lang.String getNamespaceURI(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getNamespaceURI(index : Int) : String?&quot;"/>
+            <val name="value" val="&quot;fun getNamespaceURI(index : Int) : String&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.BasicStreamReader java.lang.Object getProcessedDTD()'>
@@ -3189,6 +3114,11 @@
             <val name="value" val="&quot;fun reportValidationProblem(p0 : XMLValidationProblem) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='com.ctc.wstx.sr.NonNsAttributeCollector NonNsAttributeCollector(com.ctc.wstx.api.ReaderConfig)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun NonNsAttributeCollector(cfg : ReaderConfig)&quot;"/>
+        </annotation>
+    </item>
     <item name='com.ctc.wstx.sr.NonNsAttributeCollector int addDefaultAttribute(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addDefaultAttribute(localName : String, value : String?) : Int&quot;"/>
@@ -3252,6 +3182,11 @@
     <item name='com.ctc.wstx.sr.NonNsAttributeCollector void writeAttribute(int, com.ctc.wstx.sw.XmlWriter)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeAttribute(index : Int, xw : XmlWriter) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sr.NonNsInputElementStack NonNsInputElementStack(int, com.ctc.wstx.api.ReaderConfig)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun NonNsInputElementStack(initialSize : Int, cfg : ReaderConfig)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.NonNsInputElementStack int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
@@ -3334,6 +3269,11 @@
             <val name="value" val="&quot;fun matches(prefix : String?, localName : String?) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='com.ctc.wstx.sr.NsAttributeCollector NsAttributeCollector(com.ctc.wstx.api.ReaderConfig)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun NsAttributeCollector(cfg : ReaderConfig)&quot;"/>
+        </annotation>
+    </item>
     <item name='com.ctc.wstx.sr.NsAttributeCollector int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addDefaultAttribute(localName : String, uri : String, prefix : String?, value : String?) : Int&quot;"/>
@@ -3382,6 +3322,11 @@
     <item name='com.ctc.wstx.sr.NsAttributeCollector void writeAttribute(int, com.ctc.wstx.sw.XmlWriter)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeAttribute(index : Int, xw : XmlWriter) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sr.NsInputElementStack NsInputElementStack(int, com.ctc.wstx.api.ReaderConfig)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun NsInputElementStack(initialSize : Int, cfg : ReaderConfig)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.NsInputElementStack int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
@@ -3461,7 +3406,7 @@
     </item>
     <item name='com.ctc.wstx.sr.StreamScanner com.ctc.wstx.exc.WstxException constructFromIoe(java.io.IOException)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructFromIoe(ioe : IOException?) : WstxException&quot;"/>
+            <val name="value" val="&quot;fun constructFromIoe(ioe : IOException) : WstxException&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.StreamScanner com.ctc.wstx.exc.WstxException constructNullCharException()'>
@@ -3539,9 +3484,19 @@
             <val name="value" val="&quot;fun throwInvalidSpace(i : Int, deferErrors : Boolean) : WstxException&quot;"/>
         </annotation>
     </item>
+    <item name='com.ctc.wstx.sr.StreamScanner void throwLazyError(java.lang.Exception)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun throwLazyError(e : Exception?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='com.ctc.wstx.sr.StreamScanner com.ctc.wstx.exc.WstxException throwWfcException(java.lang.String, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun throwWfcException(msg : String?, deferErrors : Boolean) : WstxException&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sr.ValidatingStreamReader ValidatingStreamReader(com.ctc.wstx.io.InputBootstrapper, com.ctc.wstx.io.BranchingReaderSource, com.ctc.wstx.sr.ReaderCreator, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.sr.InputElementStack, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ValidatingStreamReader(bs : InputBootstrapper, input : BranchingReaderSource, owner : ReaderCreator?, cfg : ReaderConfig, elemStack : InputElementStack, forER : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.ValidatingStreamReader com.ctc.wstx.dtd.DTDId constructDtdId(java.lang.String, java.lang.String)'>
@@ -3556,7 +3511,7 @@
     </item>
     <item name='com.ctc.wstx.sr.ValidatingStreamReader com.ctc.wstx.sr.ValidatingStreamReader createValidatingStreamReader(com.ctc.wstx.io.BranchingReaderSource, com.ctc.wstx.sr.ReaderCreator, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createValidatingStreamReader(input : BranchingReaderSource?, owner : ReaderCreator?, cfg : ReaderConfig?, bs : InputBootstrapper?, forER : Boolean) : ValidatingStreamReader&quot;"/>
+            <val name="value" val="&quot;fun createValidatingStreamReader(input : BranchingReaderSource, owner : ReaderCreator?, cfg : ReaderConfig, bs : InputBootstrapper, forER : Boolean) : ValidatingStreamReader&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.ValidatingStreamReader com.ctc.wstx.dtd.DTDSubset findCachedSubset(com.ctc.wstx.dtd.DTDId, com.ctc.wstx.dtd.DTDSubset)'>
@@ -3636,12 +3591,12 @@
     </item>
     <item name='com.ctc.wstx.stax.MinimalInputFactory javax.xml.stream.XMLStreamReader createXMLStreamReader(javax.xml.transform.Source)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createXMLStreamReader(source : Source?) : XMLStreamReader&quot;"/>
+            <val name="value" val="&quot;fun createXMLStreamReader(source : Source) : XMLStreamReader&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.MinimalInputFactory javax.xml.stream.XMLStreamReader doCreateSR(com.ctc.wstx.io.BranchingReaderSource, com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doCreateSR(input : BranchingReaderSource?, cfg : ReaderConfig, bs : InputBootstrapper?) : XMLStreamReader&quot;"/>
+            <val name="value" val="&quot;fun doCreateSR(input : BranchingReaderSource, cfg : ReaderConfig, bs : InputBootstrapper) : XMLStreamReader&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.MinimalInputFactory com.ctc.wstx.dtd.DTDSubset findCachedDTD(com.ctc.wstx.dtd.DTDId)'>
@@ -3701,7 +3656,7 @@
     </item>
     <item name='com.ctc.wstx.stax.MinimalOutputFactory javax.xml.stream.XMLStreamWriter createXMLStreamWriter(javax.xml.transform.Result)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createXMLStreamWriter(result : Result?) : XMLStreamWriter&quot;"/>
+            <val name="value" val="&quot;fun createXMLStreamWriter(result : Result) : XMLStreamWriter&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.MinimalOutputFactory com.ctc.wstx.api.WriterConfig getConfig()'>
@@ -3871,17 +3826,17 @@
     </item>
     <item name='com.ctc.wstx.stax.WstxInputFactory org.codehaus.stax2.XMLStreamReader2 createSR(com.ctc.wstx.api.ReaderConfig, java.lang.String, com.ctc.wstx.io.InputBootstrapper, boolean, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createSR(cfg : ReaderConfig, systemId : String?, bs : InputBootstrapper?, forER : Boolean, autoCloseInput : Boolean) : XMLStreamReader2&quot;"/>
+            <val name="value" val="&quot;fun createSR(cfg : ReaderConfig, systemId : String?, bs : InputBootstrapper, forER : Boolean, autoCloseInput : Boolean) : XMLStreamReader2&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.WstxInputFactory org.codehaus.stax2.XMLStreamReader2 createSR(com.ctc.wstx.api.ReaderConfig, java.net.URL, java.io.InputStream, boolean, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createSR(cfg : ReaderConfig?, src : URL, in : InputStream?, forER : Boolean, autoCloseInput : Boolean) : XMLStreamReader2&quot;"/>
+            <val name="value" val="&quot;fun createSR(cfg : ReaderConfig, src : URL, in : InputStream?, forER : Boolean, autoCloseInput : Boolean) : XMLStreamReader2&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.WstxInputFactory org.codehaus.stax2.XMLStreamReader2 createSR(com.ctc.wstx.api.ReaderConfig, java.net.URL, boolean, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createSR(cfg : ReaderConfig?, src : URL, forER : Boolean, autoCloseInput : Boolean) : XMLStreamReader2&quot;"/>
+            <val name="value" val="&quot;fun createSR(cfg : ReaderConfig, src : URL, forER : Boolean, autoCloseInput : Boolean) : XMLStreamReader2&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.WstxInputFactory org.codehaus.stax2.XMLStreamReader2 createSR(java.io.File, boolean, boolean)'>
@@ -4051,7 +4006,7 @@
     </item>
     <item name='com.ctc.wstx.stax.WstxOutputFactory javax.xml.stream.XMLEventWriter createXMLEventWriter(javax.xml.transform.Result)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createXMLEventWriter(result : Result?) : XMLEventWriter&quot;"/>
+            <val name="value" val="&quot;fun createXMLEventWriter(result : Result) : XMLEventWriter&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.WstxOutputFactory javax.xml.stream.XMLStreamWriter createXMLStreamWriter(java.io.OutputStream)'>
@@ -4076,12 +4031,17 @@
     </item>
     <item name='com.ctc.wstx.stax.WstxOutputFactory javax.xml.stream.XMLStreamWriter createXMLStreamWriter(javax.xml.transform.Result)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createXMLStreamWriter(result : Result?) : XMLStreamWriter&quot;"/>
+            <val name="value" val="&quot;fun createXMLStreamWriter(result : Result) : XMLStreamWriter&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.stax.WstxOutputFactory com.ctc.wstx.api.WriterConfig getConfig()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getConfig() : WriterConfig&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.AsciiXmlWriter AsciiXmlWriter(java.io.OutputStream, com.ctc.wstx.api.WriterConfig, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AsciiXmlWriter(out : OutputStream?, cfg : WriterConfig, autoclose : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.AsciiXmlWriter void writeAttrValue(java.lang.String)'>
@@ -4107,6 +4067,11 @@
     <item name='com.ctc.wstx.sw.AsciiXmlWriter void writeTextContent(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeTextContent(data : String) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.BaseNsStreamWriter BaseNsStreamWriter(com.ctc.wstx.sw.XmlWriter, java.lang.String, com.ctc.wstx.api.WriterConfig, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BaseNsStreamWriter(xw : XmlWriter?, enc : String?, cfg : WriterConfig, repairing : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void checkStartElement(java.lang.String, java.lang.String)'>
@@ -4166,7 +4131,7 @@
     </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void setPrefix(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setPrefix(prefix : String, uri : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun setPrefix(prefix : String, uri : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void writeAttribute(java.lang.String, java.lang.String)'>
@@ -4187,11 +4152,6 @@
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void writeStartElement(javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeStartElement(p0 : StartElement) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.BaseNsStreamWriter void writeStartOrEmpty(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeStartOrEmpty(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseStreamWriter BaseStreamWriter(com.ctc.wstx.sw.XmlWriter, java.lang.String, com.ctc.wstx.api.WriterConfig)'>
@@ -4306,7 +4266,7 @@
     </item>
     <item name='com.ctc.wstx.sw.BaseStreamWriter void setPrefix(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setPrefix(p0 : String, p1 : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun setPrefix(p0 : String, p1 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseStreamWriter org.codehaus.stax2.validation.XMLValidator stopValidatingAgainst(org.codehaus.stax2.validation.XMLValidationSchema)'>
@@ -4446,12 +4406,17 @@
     </item>
     <item name='com.ctc.wstx.sw.BufferingXmlWriter void writeEntityReference(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeEntityReference(p0 : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeEntityReference(name : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BufferingXmlWriter int writePI(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writePI(target : String, data : String?) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.BufferingXmlWriter void writePIStart(java.lang.String, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writePIStart(target : String, addSpace : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BufferingXmlWriter void writeRaw(java.lang.String)'>
@@ -4482,6 +4447,11 @@
     <item name='com.ctc.wstx.sw.BufferingXmlWriter void writeXmlDeclaration(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeXmlDeclaration(version : String, encoding : String?, standalone : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.EncodingXmlWriter EncodingXmlWriter(java.io.OutputStream, com.ctc.wstx.api.WriterConfig, java.lang.String, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun EncodingXmlWriter(out : OutputStream?, cfg : WriterConfig, encoding : String?, autoclose : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.EncodingXmlWriter java.io.Writer getWriter()'>
@@ -4574,6 +4544,11 @@
             <val name="value" val="&quot;fun writePIData(p0 : String) : Int&quot;"/>
         </annotation>
     </item>
+    <item name='com.ctc.wstx.sw.EncodingXmlWriter void writePIStart(java.lang.String, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writePIStart(p0 : String, p1 : Boolean) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='com.ctc.wstx.sw.EncodingXmlWriter void writeStartTagStart(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeStartTagStart(localName : String) : Unit&quot;"/>
@@ -4592,6 +4567,11 @@
     <item name='com.ctc.wstx.sw.EncodingXmlWriter void writeXmlDeclaration(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeXmlDeclaration(version : String, encoding : String?, standalone : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.ISOLatin1XmlWriter ISOLatin1XmlWriter(java.io.OutputStream, com.ctc.wstx.api.WriterConfig, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ISOLatin1XmlWriter(out : OutputStream?, cfg : WriterConfig, autoclose : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.ISOLatin1XmlWriter void writeAttrValue(java.lang.String)'>
@@ -4617,6 +4597,11 @@
     <item name='com.ctc.wstx.sw.ISOLatin1XmlWriter void writeTextContent(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeTextContent(data : String) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.NonNsStreamWriter NonNsStreamWriter(com.ctc.wstx.sw.XmlWriter, java.lang.String, com.ctc.wstx.api.WriterConfig)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun NonNsStreamWriter(xw : XmlWriter?, enc : String?, cfg : WriterConfig)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.NonNsStreamWriter void copyStartElement(com.ctc.wstx.sr.InputElementStack, com.ctc.wstx.sr.AttributeCollector)'>
@@ -4656,7 +4641,7 @@
     </item>
     <item name='com.ctc.wstx.sw.NonNsStreamWriter void setPrefix(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setPrefix(p0 : String, p1 : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun setPrefix(p0 : String, p1 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.NonNsStreamWriter void writeAttribute(java.lang.String, java.lang.String)'>
@@ -4734,9 +4719,9 @@
             <val name="value" val="&quot;fun writeStartElement(elem : StartElement) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.RepairingNsStreamWriter void writeStartOrEmpty(java.lang.String, java.lang.String, java.lang.String)'>
+    <item name='com.ctc.wstx.sw.SimpleNsStreamWriter SimpleNsStreamWriter(com.ctc.wstx.sw.XmlWriter, java.lang.String, com.ctc.wstx.api.WriterConfig)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeStartOrEmpty(suggPrefix : String?, localName : String?, nsURI : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun SimpleNsStreamWriter(xw : XmlWriter?, enc : String?, cfg : WriterConfig)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.SimpleNsStreamWriter void copyStartElement(com.ctc.wstx.sr.InputElementStack, com.ctc.wstx.sr.AttributeCollector)'>
@@ -4769,11 +4754,6 @@
             <val name="value" val="&quot;fun writeStartElement(elem : StartElement) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.SimpleNsStreamWriter void writeStartOrEmpty(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeStartOrEmpty(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.SimpleOutputElement.AttrName AttrName(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun AttrName(nsURI : String?, localName : String?)&quot;"/>
@@ -4782,6 +4762,11 @@
     <item name='com.ctc.wstx.sw.SimpleOutputElement.AttrName int compareTo(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compareTo(o : Any) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.SimpleOutputElement.AttrName boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.SimpleOutputElement SimpleOutputElement(com.ctc.wstx.sw.SimpleOutputElement, java.lang.String, java.lang.String, java.lang.String, com.ctc.wstx.util.BijectiveNsMap)'>
@@ -4842,6 +4827,16 @@
     <item name='com.ctc.wstx.sw.SimpleOutputElement void relink(com.ctc.wstx.sw.SimpleOutputElement, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun relink(parent : SimpleOutputElement, prefix : String?, localName : String?, uri : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.SimpleOutputElement com.ctc.wstx.sw.SimpleOutputElement reuseAsChild(com.ctc.wstx.sw.SimpleOutputElement, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun reuseAsChild(parent : SimpleOutputElement, localName : String?) : SimpleOutputElement?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.SimpleOutputElement com.ctc.wstx.sw.SimpleOutputElement reuseAsChild(com.ctc.wstx.sw.SimpleOutputElement, java.lang.String, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun reuseAsChild(parent : SimpleOutputElement, prefix : String?, localName : String?, uri : String?) : SimpleOutputElement?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.XmlWriter XmlWriter(com.ctc.wstx.api.WriterConfig, java.lang.String, boolean)'>
@@ -4907,6 +4902,11 @@
     <item name='com.ctc.wstx.sw.XmlWriter int writePI(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writePI(p0 : String, p1 : String?) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.ctc.wstx.sw.XmlWriter void writePIStart(java.lang.String, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writePIStart(p0 : String, p1 : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.XmlWriter void writeRaw(java.lang.String)'>
@@ -5134,6 +5134,11 @@
             <val name="value" val="&quot;fun getNamespaces() : MutableIterator&quot;"/>
         </annotation>
     </item>
+    <item name='com.ctc.wstx.util.ExceptionUtil void throwIfUnchecked(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun throwIfUnchecked(t : Throwable?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='com.ctc.wstx.util.InternCache com.ctc.wstx.util.InternCache getInstance()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getInstance() : InternCache&quot;"/>
@@ -5161,17 +5166,12 @@
     </item>
     <item name='com.ctc.wstx.util.StringUtil java.lang.String getLF()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getLF() : String&quot;"/>
+            <val name="value" val="&quot;fun getLF() : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.StringUtil boolean isAllWhitespace(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun isAllWhitespace(str : String) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.util.StringUtil boolean isAllWhitespace(char[], int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isAllWhitespace(ch : CharArray, start : Int, len : Int) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.StringUtil boolean matches(java.lang.String, char[], int, int)'>
@@ -5181,7 +5181,7 @@
     </item>
     <item name='com.ctc.wstx.util.StringUtil java.lang.String normalizeSpaces(char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun normalizeSpaces(buf : CharArray, origStart : Int, origEnd : Int) : String?&quot;"/>
+            <val name="value" val="&quot;fun normalizeSpaces(buf : CharArray?, origStart : Int, origEnd : Int) : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.StringUtil java.lang.String trimEncoding(java.lang.String, boolean)'>
@@ -5326,7 +5326,7 @@
     </item>
     <item name='com.ctc.wstx.util.URLUtil java.net.URL urlFromSystemId(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun urlFromSystemId(sysId : String) : URL?&quot;"/>
+            <val name="value" val="&quot;fun urlFromSystemId(sysId : String?) : URL?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.URLUtil java.net.URL urlFromSystemId(java.lang.String, java.net.URL)'>
@@ -5376,12 +5376,12 @@
     </item>
     <item name='com.ctc.wstx.util.WordSet char[] constructRaw(java.util.TreeSet)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructRaw(wordSet : TreeSet?) : CharArray&quot;"/>
+            <val name="value" val="&quot;fun constructRaw(wordSet : TreeSet) : CharArray&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.WordSet com.ctc.wstx.util.WordSet constructSet(java.util.TreeSet)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun constructSet(wordSet : TreeSet?) : WordSet&quot;"/>
+            <val name="value" val="&quot;fun constructSet(wordSet : TreeSet) : WordSet&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.WordSet boolean contains(java.lang.String)'>
@@ -5944,11 +5944,6 @@
             <val name="value" val="&quot;fun getXmlVersion() : String&quot;"/>
         </annotation>
     </item>
-    <item name='org.codehaus.stax2.validation.ValidatorPair boolean doRemoveValidator(org.codehaus.stax2.validation.XMLValidator, org.codehaus.stax2.validation.XMLValidator[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doRemoveValidator(vld : XMLValidator?, results : Array&lt;out XMLValidator?&gt;) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='org.codehaus.stax2.validation.ValidatorPair java.lang.String getAttributeType(int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAttributeType(index : Int) : String?&quot;"/>
@@ -5966,17 +5961,7 @@
     </item>
     <item name='org.codehaus.stax2.validation.ValidatorPair boolean removeValidator(org.codehaus.stax2.validation.XMLValidator, org.codehaus.stax2.validation.XMLValidator, org.codehaus.stax2.validation.XMLValidator[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun removeValidator(root : XMLValidator?, vld : XMLValidator?, results : Array&lt;out XMLValidator?&gt;) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.ValidatorPair java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateAttribute(p0 : String?, p1 : String?, p2 : String?, p3 : String?) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.ValidatorPair void validateElementStart(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateElementStart(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun removeValidator(root : XMLValidator?, vld : XMLValidator?, results : Array&lt;out XMLValidator?&gt;?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.validation.ValidatorPair void validateText(java.lang.String, boolean)'>
@@ -6072,11 +6057,6 @@
     <item name='org.codehaus.stax2.validation.XMLValidator java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateAttribute(p0 : String?, p1 : String?, p2 : String?, p3 : CharArray?, p4 : Int, p5 : Int) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.XMLValidator void validateElementStart(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateElementStart(p0 : String?, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.validation.XMLValidator void validateText(java.lang.String, boolean)'>

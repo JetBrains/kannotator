@@ -1,3 +1,7 @@
+junit.extensions.ActiveTestSuite ActiveTestSuite(java.lang.Class<? extends junit.framework.TestCase>) 0
+NOT_NULL
+junit.extensions.ActiveTestSuite ActiveTestSuite(java.lang.Class<? extends junit.framework.TestCase>, java.lang.String) 0
+NOT_NULL
 junit.extensions.ActiveTestSuite void run(junit.framework.TestResult) 0
 NOT_NULL
 junit.extensions.ActiveTestSuite void runTest(junit.framework.Test, junit.framework.TestResult) 0
@@ -14,10 +18,8 @@ junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, jav
 NULLABLE
 junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object) 2
 NULLABLE
-junit.framework.Assert void assertEquals(java.lang.String, java.lang.String) 0
-NOT_NULL
 junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String) 1
-NOT_NULL
+NULLABLE
 junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String) 2
 NULLABLE
 junit.framework.Assert void assertNotNull(java.lang.String, java.lang.Object) 1
@@ -29,7 +31,7 @@ NULLABLE
 junit.framework.Assert void failSame(java.lang.String) 0
 NULLABLE
 junit.framework.AssertionFailedError java.lang.String defaultString(java.lang.String)
-NULLABLE
+NOT_NULL
 junit.framework.AssertionFailedError java.lang.String defaultString(java.lang.String) 0
 NULLABLE
 junit.framework.ComparisonCompactor DELTA_END
@@ -84,6 +86,10 @@ junit.framework.TestCase junit.framework.TestResult run()
 NOT_NULL
 junit.framework.TestCase void run(junit.framework.TestResult) 0
 NOT_NULL
+junit.framework.TestListener void addError(junit.framework.Test, java.lang.Throwable) 0
+NOT_NULL
+junit.framework.TestListener void addFailure(junit.framework.Test, junit.framework.AssertionFailedError) 0
+NOT_NULL
 junit.framework.TestListener void endTest(junit.framework.Test) 0
 NOT_NULL
 junit.framework.TestListener void startTest(junit.framework.Test) 0
@@ -92,9 +98,13 @@ junit.framework.TestResult java.util.List<junit.framework.TestListener> cloneLis
 NOT_NULL
 junit.framework.TestResult void run(junit.framework.TestCase) 0
 NOT_NULL
-junit.framework.TestResult void runProtected(junit.framework.Test, junit.framework.Protectable) 1
-NOT_NULL
 junit.framework.TestResult void startTest(junit.framework.Test) 0
+NOT_NULL
+junit.framework.TestSuite TestSuite(java.lang.Class<? extends junit.framework.TestCase>, java.lang.String) 0
+NOT_NULL
+junit.framework.TestSuite TestSuite(java.lang.Class<? extends junit.framework.TestCase>[], java.lang.String) 0
+NOT_NULL
+junit.framework.TestSuite TestSuite(java.lang.Class<?>) 0
 NOT_NULL
 junit.framework.TestSuite TestSuite(java.lang.Class<?>...) 0
 NOT_NULL
@@ -106,6 +116,8 @@ junit.framework.TestSuite java.lang.String exceptionToString(java.lang.Throwable
 NOT_NULL
 junit.framework.TestSuite java.lang.reflect.Constructor<?> getTestConstructor(java.lang.Class<?>) 0
 NOT_NULL
+junit.framework.TestSuite junit.framework.Test createTest(java.lang.Class<?>, java.lang.String)
+NULLABLE
 junit.framework.TestSuite junit.framework.Test createTest(java.lang.Class<?>, java.lang.String) 0
 NOT_NULL
 junit.framework.TestSuite junit.framework.Test testCaseForClass(java.lang.Class<?>)
@@ -117,6 +129,8 @@ NOT_NULL
 junit.framework.TestSuite void addTestMethod(java.lang.reflect.Method, java.util.List<java.lang.String>, java.lang.Class<?>) 0
 NOT_NULL
 junit.framework.TestSuite void addTestMethod(java.lang.reflect.Method, java.util.List<java.lang.String>, java.lang.Class<?>) 1
+NOT_NULL
+junit.framework.TestSuite void addTestSuite(java.lang.Class<? extends junit.framework.TestCase>) 0
 NOT_NULL
 junit.framework.TestSuite void addTestsFromTestCase(java.lang.Class<?>) 0
 NOT_NULL
@@ -136,17 +150,23 @@ junit.runner.BaseTestRunner java.lang.String processArguments(java.lang.String[]
 NULLABLE
 junit.runner.BaseTestRunner java.lang.String processArguments(java.lang.String[]) 0
 NOT_NULL
-junit.runner.BaseTestRunner java.lang.String truncate(java.lang.String) 0
-NOT_NULL
 junit.runner.BaseTestRunner junit.framework.Test getTest(java.lang.String)
 NULLABLE
 junit.runner.BaseTestRunner junit.framework.Test getTest(java.lang.String) 0
+NOT_NULL
+junit.runner.BaseTestRunner void addError(junit.framework.Test, java.lang.Throwable) 0
+NOT_NULL
+junit.runner.BaseTestRunner void addFailure(junit.framework.Test, junit.framework.AssertionFailedError) 0
 NOT_NULL
 junit.runner.BaseTestRunner void endTest(junit.framework.Test) 0
 NOT_NULL
 junit.runner.BaseTestRunner void startTest(junit.framework.Test) 0
 NOT_NULL
 junit.runner.Version java.lang.String id()
+NOT_NULL
+junit.textui.ResultPrinter void addError(junit.framework.Test, java.lang.Throwable) 0
+NOT_NULL
+junit.textui.ResultPrinter void addFailure(junit.framework.Test, junit.framework.AssertionFailedError) 0
 NOT_NULL
 junit.textui.ResultPrinter void endTest(junit.framework.Test) 0
 NOT_NULL
@@ -186,7 +206,7 @@ junit.textui.TestRunner junit.framework.TestResult start(java.lang.String[])
 NOT_NULL
 junit.textui.TestRunner junit.framework.TestResult start(java.lang.String[]) 0
 NOT_NULL
-junit.textui.TestRunner void main(java.lang.String[]) 0
+junit.textui.TestRunner void run(java.lang.Class<? extends junit.framework.TestCase>) 0
 NOT_NULL
 junit.textui.TestRunner void runAndWait(junit.framework.Test) 0
 NOT_NULL
@@ -195,6 +215,10 @@ NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendDescriptionOf(org.hamcrest.SelfDescribing) 0
 NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>)
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>) 0
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>) 2
 NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>) 3
 NOT_NULL
@@ -216,11 +240,23 @@ org.hamcrest.BaseDescription org.hamcrest.Description appendValue(java.lang.Obje
 NULLABLE
 org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...)
 NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...) 0
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...) 2
+NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>)
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>) 0
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>) 2
 NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>) 3
 NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.util.Iterator<T>)
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.util.Iterator<T>) 0
+NOT_NULL
+org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.util.Iterator<T>) 2
 NOT_NULL
 org.hamcrest.BaseDescription void append(java.lang.String) 0
 NOT_NULL
@@ -241,6 +277,8 @@ NOT_NULL
 org.hamcrest.CoreMatchers org.hamcrest.Matcher<T> anything(java.lang.String)
 NOT_NULL
 org.hamcrest.CoreMatchers org.hamcrest.Matcher<T> describedAs(java.lang.String, org.hamcrest.Matcher<T>, java.lang.Object...)
+NOT_NULL
+org.hamcrest.CoreMatchers org.hamcrest.Matcher<T> describedAs(java.lang.String, org.hamcrest.Matcher<T>, java.lang.Object...) 2
 NOT_NULL
 org.hamcrest.CoreMatchers org.hamcrest.Matcher<T> equalTo(T)
 NOT_NULL
@@ -272,6 +310,10 @@ org.hamcrest.Description org.hamcrest.Description appendDescriptionOf(org.hamcre
 NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>)
 NOT_NULL
+org.hamcrest.Description org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>) 0
+NOT_NULL
+org.hamcrest.Description org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>) 2
+NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<? extends org.hamcrest.SelfDescribing>) 3
 NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendText(java.lang.String)
@@ -284,7 +326,15 @@ org.hamcrest.Description org.hamcrest.Description appendValue(java.lang.Object) 
 NULLABLE
 org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...)
 NOT_NULL
+org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...) 0
+NOT_NULL
+org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...) 2
+NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>)
+NOT_NULL
+org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>) 0
+NOT_NULL
+org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>) 2
 NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable<T>) 3
 NOT_NULL
@@ -315,6 +365,8 @@ NOT_NULL
 org.hamcrest.core.DescribedAs boolean matches(java.lang.Object) 0
 NOT_NULL
 org.hamcrest.core.DescribedAs org.hamcrest.Matcher<T> describedAs(java.lang.String, org.hamcrest.Matcher<T>, java.lang.Object...)
+NOT_NULL
+org.hamcrest.core.DescribedAs org.hamcrest.Matcher<T> describedAs(java.lang.String, org.hamcrest.Matcher<T>, java.lang.Object...) 2
 NOT_NULL
 org.hamcrest.core.DescribedAs void describeTo(org.hamcrest.Description) 0
 NOT_NULL
@@ -422,20 +474,36 @@ org.junit.ComparisonFailure.ComparisonCompactor DELTA_START
 NOT_NULL
 org.junit.ComparisonFailure.ComparisonCompactor ELLIPSIS
 NOT_NULL
+org.junit.ComparisonFailure.ComparisonCompactor java.lang.String access$000(org.junit.ComparisonFailure.ComparisonCompactor, java.lang.String) 0
+NOT_NULL
 org.junit.ComparisonFailure.ComparisonCompactor java.lang.String compactString(java.lang.String) 0
 NOT_NULL
 org.junit.experimental.ParallelComputer org.junit.runner.Computer classes()
 NOT_NULL
 org.junit.experimental.ParallelComputer org.junit.runner.Computer methods()
 NOT_NULL
+org.junit.experimental.ParallelComputer org.junit.runner.Runner getRunner(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>)
+NULLABLE
 org.junit.experimental.ParallelComputer org.junit.runner.Runner getRunner(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>) 0
 NOT_NULL
+org.junit.experimental.ParallelComputer org.junit.runner.Runner getSuite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>[])
+NULLABLE
+org.junit.experimental.ParallelComputer org.junit.runner.Runner getSuite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>[]) 1
+NOT_NULL
+org.junit.experimental.ParallelComputer org.junit.runner.Runner parallelize(org.junit.runner.Runner)
+NULLABLE
+org.junit.experimental.ParallelComputer org.junit.runner.Runner parallelize(org.junit.runner.Runner) 0
+NULLABLE
 org.junit.experimental.ParallelComputer.1 fResults
 NOT_NULL
 org.junit.experimental.ParallelComputer.1 void schedule(java.lang.Runnable) 0
 NOT_NULL
 org.junit.experimental.ParallelComputer.1.1 java.lang.Object call()
 NULLABLE
+org.junit.experimental.categories.Categories Categories(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 0
+NOT_NULL
+org.junit.experimental.categories.Categories Categories(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 1
+NOT_NULL
 org.junit.experimental.categories.Categories boolean canHaveCategorizedChildren(org.junit.runner.Description) 0
 NOT_NULL
 org.junit.experimental.categories.Categories java.lang.Class<?> getExcludedCategory(java.lang.Class<?>)
@@ -450,11 +518,15 @@ org.junit.experimental.categories.Categories void assertNoCategorizedDescendents
 NOT_NULL
 org.junit.experimental.categories.Categories void assertNoDescendantsHaveCategoryAnnotations(org.junit.runner.Description) 0
 NOT_NULL
+org.junit.experimental.categories.Categories.CategoryFilter boolean hasCorrectCategoryAnnotation(org.junit.runner.Description) 0
+NOT_NULL
 org.junit.experimental.categories.Categories.CategoryFilter boolean shouldRun(org.junit.runner.Description) 0
 NOT_NULL
 org.junit.experimental.categories.Categories.CategoryFilter java.lang.Class<?>[] directCategories(org.junit.runner.Description) 0
 NULLABLE
 org.junit.experimental.categories.Categories.CategoryFilter java.util.List<java.lang.Class<?>> categories(org.junit.runner.Description)
+NOT_NULL
+org.junit.experimental.categories.Categories.CategoryFilter java.util.List<java.lang.Class<?>> categories(org.junit.runner.Description) 0
 NOT_NULL
 org.junit.experimental.categories.Categories.CategoryFilter org.junit.experimental.categories.Categories.CategoryFilter include(java.lang.Class<?>)
 NOT_NULL
@@ -468,17 +540,19 @@ org.junit.experimental.max.MaxCore MaxCore(java.io.File) 0
 NOT_NULL
 org.junit.experimental.max.MaxCore java.lang.Class<?> getMalformedTestClass(org.junit.runner.Description)
 NULLABLE
-org.junit.experimental.max.MaxCore java.lang.Class<?> getMalformedTestClass(org.junit.runner.Description) 0
-NOT_NULL
 org.junit.experimental.max.MaxCore java.util.List<org.junit.runner.Description> findLeaves(org.junit.runner.Request)
 NOT_NULL
 org.junit.experimental.max.MaxCore java.util.List<org.junit.runner.Description> findLeaves(org.junit.runner.Request) 0
 NOT_NULL
 org.junit.experimental.max.MaxCore java.util.List<org.junit.runner.Description> sortedLeavesForTest(org.junit.runner.Request)
 NOT_NULL
+org.junit.experimental.max.MaxCore java.util.List<org.junit.runner.Description> sortedLeavesForTest(org.junit.runner.Request) 0
+NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.experimental.max.MaxCore forFolder(java.lang.String)
 NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.experimental.max.MaxCore storedLocally(java.io.File)
+NOT_NULL
+org.junit.experimental.max.MaxCore org.junit.experimental.max.MaxCore storedLocally(java.io.File) 0
 NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.runner.Request constructLeafRequest(java.util.List<org.junit.runner.Description>)
 NOT_NULL
@@ -486,11 +560,17 @@ org.junit.experimental.max.MaxCore org.junit.runner.Request constructLeafRequest
 NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.runner.Request sortRequest(org.junit.runner.Request)
 NOT_NULL
+org.junit.experimental.max.MaxCore org.junit.runner.Request sortRequest(org.junit.runner.Request) 0
+NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.runner.Result run(java.lang.Class<?>)
 NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request)
 NOT_NULL
+org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request) 0
+NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request, org.junit.runner.JUnitCore)
+NOT_NULL
+org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request, org.junit.runner.JUnitCore) 0
 NOT_NULL
 org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request, org.junit.runner.JUnitCore) 1
 NOT_NULL
@@ -515,6 +595,8 @@ NOT_NULL
 org.junit.experimental.max.MaxHistory org.junit.experimental.max.MaxHistory forFolder(java.io.File) 0
 NOT_NULL
 org.junit.experimental.max.MaxHistory org.junit.runner.notification.RunListener listener()
+NOT_NULL
+org.junit.experimental.max.MaxHistory void access$000(org.junit.experimental.max.MaxHistory) 0
 NOT_NULL
 org.junit.experimental.max.MaxHistory void putTestDuration(org.junit.runner.Description, long) 0
 NOT_NULL
@@ -566,12 +648,12 @@ org.junit.experimental.results.ResultMatchers.3 void describeTo(org.hamcrest.Des
 NOT_NULL
 org.junit.experimental.runners.Enclosed Enclosed(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 0
 NOT_NULL
+org.junit.experimental.runners.Enclosed Enclosed(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 1
+NOT_NULL
 org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lang.Class<T>)
 NULLABLE
 org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lang.annotation.Annotation[], java.lang.Class<T>, int)
 NULLABLE
-org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lang.annotation.Annotation[], java.lang.Class<T>, int) 0
-NOT_NULL
 org.junit.experimental.theories.ParameterSignature T getAnnotation(java.lang.Class<T>)
 NULLABLE
 org.junit.experimental.theories.ParameterSignature boolean canAcceptArrayType(java.lang.Class<?>) 0
@@ -598,11 +680,11 @@ org.junit.experimental.theories.Theories java.util.List<org.junit.runners.model.
 NOT_NULL
 org.junit.experimental.theories.Theories org.junit.runners.model.Statement methodBlock(org.junit.runners.model.FrameworkMethod)
 NOT_NULL
-org.junit.experimental.theories.Theories void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
-NOT_NULL
-org.junit.experimental.theories.Theories void validateConstructor(java.util.List<java.lang.Throwable>) 0
+org.junit.experimental.theories.Theories.TheoryAnchor boolean access$000(org.junit.experimental.theories.Theories.TheoryAnchor) 0
 NOT_NULL
 org.junit.experimental.theories.Theories.TheoryAnchor org.junit.runners.model.Statement access$100(org.junit.experimental.theories.Theories.TheoryAnchor, org.junit.runners.model.FrameworkMethod, org.junit.experimental.theories.internal.Assignments, java.lang.Object)
+NOT_NULL
+org.junit.experimental.theories.Theories.TheoryAnchor org.junit.runners.model.Statement access$100(org.junit.experimental.theories.Theories.TheoryAnchor, org.junit.runners.model.FrameworkMethod, org.junit.experimental.theories.internal.Assignments, java.lang.Object) 0
 NOT_NULL
 org.junit.experimental.theories.Theories.TheoryAnchor org.junit.runners.model.Statement methodCompletesWithParameters(org.junit.runners.model.FrameworkMethod, org.junit.experimental.theories.internal.Assignments, java.lang.Object)
 NOT_NULL
@@ -613,8 +695,6 @@ NOT_NULL
 org.junit.experimental.theories.Theories.TheoryAnchor.1 org.junit.runners.model.Statement methodBlock(org.junit.runners.model.FrameworkMethod)
 NOT_NULL
 org.junit.experimental.theories.Theories.TheoryAnchor.1 org.junit.runners.model.Statement methodInvoker(org.junit.runners.model.FrameworkMethod, java.lang.Object)
-NOT_NULL
-org.junit.experimental.theories.Theories.TheoryAnchor.1 void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
 NOT_NULL
 org.junit.experimental.theories.internal.AllMembersSupplier java.lang.Object getStaticFieldValue(java.lang.reflect.Field) 0
 NOT_NULL
@@ -656,13 +736,13 @@ org.junit.experimental.theories.suppliers.TestedOnSupplier java.util.List<org.ju
 NOT_NULL
 org.junit.experimental.theories.suppliers.TestedOnSupplier java.util.List<org.junit.experimental.theories.PotentialAssignment> getValueSources(org.junit.experimental.theories.ParameterSignature) 0
 NOT_NULL
+org.junit.internal.AssumptionViolatedException AssumptionViolatedException(java.lang.Object, org.hamcrest.Matcher<?>) 0
+NULLABLE
+org.junit.internal.AssumptionViolatedException fValue
+NULLABLE
 org.junit.internal.AssumptionViolatedException void describeTo(org.hamcrest.Description) 0
 NOT_NULL
 org.junit.internal.ComparisonCriteria boolean isArray(java.lang.Object) 0
-NULLABLE
-org.junit.internal.ComparisonCriteria int assertArraysAreSameLength(java.lang.Object, java.lang.Object, java.lang.String) 0
-NULLABLE
-org.junit.internal.ComparisonCriteria int assertArraysAreSameLength(java.lang.Object, java.lang.Object, java.lang.String) 1
 NULLABLE
 org.junit.internal.ComparisonCriteria void arrayEquals(java.lang.String, java.lang.Object, java.lang.Object) 0
 NULLABLE
@@ -734,8 +814,6 @@ org.junit.internal.builders.NullBuilder org.junit.runner.Runner runnerForClass(j
 NULLABLE
 org.junit.internal.builders.NullBuilder org.junit.runner.Runner runnerForClass(java.lang.Class<?>) 0
 NOT_NULL
-org.junit.internal.builders.SuiteMethodBuilder boolean hasSuiteMethod(java.lang.Class<?>) 0
-NOT_NULL
 org.junit.internal.builders.SuiteMethodBuilder org.junit.runner.Runner runnerForClass(java.lang.Class<?>)
 NULLABLE
 org.junit.internal.builders.SuiteMethodBuilder org.junit.runner.Runner runnerForClass(java.lang.Class<?>) 0
@@ -794,6 +872,8 @@ org.junit.internal.matchers.TypeSafeMatcher boolean matchesSafely(T) 0
 NOT_NULL
 org.junit.internal.matchers.TypeSafeMatcher java.lang.Class<?> findExpectedType(java.lang.Class<?>) 0
 NOT_NULL
+org.junit.internal.runners.ErrorReportingRunner java.util.List<java.lang.Throwable> getCauses(java.lang.Throwable) 0
+NULLABLE
 org.junit.internal.runners.ErrorReportingRunner org.junit.runner.Description describeCause(java.lang.Throwable)
 NOT_NULL
 org.junit.internal.runners.ErrorReportingRunner org.junit.runner.Description getDescription()
@@ -819,6 +899,12 @@ NOT_NULL
 org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener java.lang.Class<? extends junit.framework.Test> getEffectiveClass(junit.framework.Test) 0
 NOT_NULL
 org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener java.lang.String getName(junit.framework.Test) 0
+NOT_NULL
+org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener org.junit.runner.Description asDescription(junit.framework.Test) 0
+NOT_NULL
+org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void addError(junit.framework.Test, java.lang.Throwable) 0
+NOT_NULL
+org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void addFailure(junit.framework.Test, junit.framework.AssertionFailedError) 0
 NOT_NULL
 org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void endTest(junit.framework.Test) 0
 NOT_NULL
@@ -858,13 +944,13 @@ org.junit.internal.runners.JUnit4ClassRunner.2 int compare(java.lang.reflect.Met
 NOT_NULL
 org.junit.internal.runners.JUnit4ClassRunner.2 int compare(java.lang.reflect.Method, java.lang.reflect.Method) 1
 NOT_NULL
-org.junit.internal.runners.MethodRoadie void runBeforesThenTestThenAfters(java.lang.Runnable) 0
-NOT_NULL
 org.junit.internal.runners.MethodRoadie.1.1 java.lang.Object call()
 NULLABLE
 org.junit.internal.runners.MethodValidator fErrors
 NOT_NULL
 org.junit.internal.runners.MethodValidator java.util.List<java.lang.Throwable> validateMethodsForDefaultRunner()
+NOT_NULL
+org.junit.internal.runners.MethodValidator void validateTestMethods(java.lang.Class<? extends java.lang.annotation.Annotation>, boolean) 0
 NOT_NULL
 org.junit.internal.runners.SuiteMethod SuiteMethod(java.lang.Class<?>) 0
 NOT_NULL
@@ -886,6 +972,8 @@ org.junit.internal.runners.TestClass java.util.List<java.lang.reflect.Method> ge
 NOT_NULL
 org.junit.internal.runners.TestClass java.util.List<java.lang.reflect.Method> getAnnotatedMethods(java.lang.Class<? extends java.lang.annotation.Annotation>)
 NOT_NULL
+org.junit.internal.runners.TestClass java.util.List<java.lang.reflect.Method> getAnnotatedMethods(java.lang.Class<? extends java.lang.annotation.Annotation>) 0
+NOT_NULL
 org.junit.internal.runners.TestClass java.util.List<java.lang.reflect.Method> getBefores()
 NOT_NULL
 org.junit.internal.runners.TestClass java.util.List<java.lang.reflect.Method> getTestMethods()
@@ -898,6 +986,8 @@ org.junit.internal.runners.TestMethod java.util.List<java.lang.reflect.Method> g
 NOT_NULL
 org.junit.internal.runners.TestMethod java.util.List<java.lang.reflect.Method> getBefores()
 NOT_NULL
+org.junit.internal.runners.model.EachTestNotifier void addFailure(java.lang.Throwable) 0
+NULLABLE
 org.junit.internal.runners.model.EachTestNotifier void addMultipleFailureException(org.junit.runners.model.MultipleFailureException) 0
 NOT_NULL
 org.junit.internal.runners.rules.RuleFieldValidator $VALUES
@@ -916,7 +1006,11 @@ org.junit.internal.runners.rules.RuleFieldValidator void addError(java.util.List
 NOT_NULL
 org.junit.internal.runners.rules.RuleFieldValidator void validate(org.junit.runners.model.TestClass, java.util.List<java.lang.Throwable>) 0
 NOT_NULL
+org.junit.internal.runners.rules.RuleFieldValidator void validateField(org.junit.runners.model.FrameworkField, java.util.List<java.lang.Throwable>) 0
+NOT_NULL
 org.junit.internal.runners.rules.RuleFieldValidator void validatePublic(org.junit.runners.model.FrameworkField, java.util.List<java.lang.Throwable>) 0
+NOT_NULL
+org.junit.internal.runners.rules.RuleFieldValidator void validateTestRuleOrMethodRule(org.junit.runners.model.FrameworkField, java.util.List<java.lang.Throwable>) 0
 NOT_NULL
 org.junit.internal.runners.statements.FailOnTimeout org.junit.internal.runners.statements.FailOnTimeout.StatementThread evaluateStatement()
 NOT_NULL
@@ -948,8 +1042,6 @@ org.junit.matchers.JUnitMatchers org.junit.internal.matchers.CombinableMatcher<T
 NOT_NULL
 org.junit.rules.ErrorCollector java.lang.Object checkSucceeds(java.util.concurrent.Callable<java.lang.Object>)
 NULLABLE
-org.junit.rules.ErrorCollector java.lang.Object checkSucceeds(java.util.concurrent.Callable<java.lang.Object>) 0
-NOT_NULL
 org.junit.rules.ExpectedException org.hamcrest.Matcher access$000(org.junit.rules.ExpectedException) 0
 NOT_NULL
 org.junit.rules.ExpectedException org.hamcrest.Matcher<java.lang.Throwable> hasMessage(org.hamcrest.Matcher<java.lang.String>)
@@ -1006,9 +1098,13 @@ org.junit.rules.Verifier org.junit.runners.model.Statement apply(org.junit.runne
 NOT_NULL
 org.junit.runner.Computer org.junit.runner.Computer serial()
 NOT_NULL
+org.junit.runner.Computer org.junit.runner.Runner getRunner(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>)
+NULLABLE
 org.junit.runner.Computer org.junit.runner.Runner getRunner(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>) 0
 NOT_NULL
 org.junit.runner.Computer org.junit.runner.Runner getSuite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>[])
+NULLABLE
+org.junit.runner.Computer org.junit.runner.Runner getSuite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>[]) 1
 NOT_NULL
 org.junit.runner.Computer.1 org.junit.runner.Runner runnerForClass(java.lang.Class<?>) 0
 NOT_NULL
@@ -1020,6 +1116,8 @@ org.junit.runner.Description T getAnnotation(java.lang.Class<T>)
 NULLABLE
 org.junit.runner.Description TEST_MECHANISM
 NOT_NULL
+org.junit.runner.Description boolean equals(java.lang.Object) 0
+NULLABLE
 org.junit.runner.Description fChildren
 NOT_NULL
 org.junit.runner.Description java.lang.Class<?> getTestClass()
@@ -1054,11 +1152,15 @@ org.junit.runner.JUnitCore org.junit.runner.Computer defaultComputer()
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result run(java.lang.Class<?>...)
 NOT_NULL
+org.junit.runner.JUnitCore org.junit.runner.Result run(java.lang.Class<?>...) 0
+NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result run(junit.framework.Test)
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Computer, java.lang.Class<?>...)
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Computer, java.lang.Class<?>...) 0
+NOT_NULL
+org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Computer, java.lang.Class<?>...) 1
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Request)
 NOT_NULL
@@ -1070,9 +1172,13 @@ org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Runner) 
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result runClasses(java.lang.Class<?>...)
 NOT_NULL
+org.junit.runner.JUnitCore org.junit.runner.Result runClasses(java.lang.Class<?>...) 0
+NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result runClasses(org.junit.runner.Computer, java.lang.Class<?>...)
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result runClasses(org.junit.runner.Computer, java.lang.Class<?>...) 0
+NOT_NULL
+org.junit.runner.JUnitCore org.junit.runner.Result runClasses(org.junit.runner.Computer, java.lang.Class<?>...) 1
 NOT_NULL
 org.junit.runner.JUnitCore org.junit.runner.Result runMain(org.junit.internal.JUnitSystem, java.lang.String...)
 NOT_NULL
@@ -1092,9 +1198,13 @@ org.junit.runner.Request org.junit.runner.Request classWithoutSuiteMethod(java.l
 NOT_NULL
 org.junit.runner.Request org.junit.runner.Request classes(java.lang.Class<?>...)
 NOT_NULL
+org.junit.runner.Request org.junit.runner.Request classes(java.lang.Class<?>...) 0
+NOT_NULL
 org.junit.runner.Request org.junit.runner.Request classes(org.junit.runner.Computer, java.lang.Class<?>...)
 NOT_NULL
 org.junit.runner.Request org.junit.runner.Request classes(org.junit.runner.Computer, java.lang.Class<?>...) 0
+NOT_NULL
+org.junit.runner.Request org.junit.runner.Request classes(org.junit.runner.Computer, java.lang.Class<?>...) 1
 NOT_NULL
 org.junit.runner.Request org.junit.runner.Request errorReport(java.lang.Class<?>, java.lang.Throwable)
 NOT_NULL
@@ -1144,10 +1254,14 @@ org.junit.runner.manipulation.Filter org.junit.runner.manipulation.Filter inters
 NOT_NULL
 org.junit.runner.manipulation.Filter org.junit.runner.manipulation.Filter matchMethodDescription(org.junit.runner.Description)
 NOT_NULL
+org.junit.runner.manipulation.Filter void apply(java.lang.Object) 0
+NULLABLE
 org.junit.runner.manipulation.Filter.1 boolean shouldRun(org.junit.runner.Description) 0
 NOT_NULL
 org.junit.runner.manipulation.Filter.1 java.lang.String describe()
 NOT_NULL
+org.junit.runner.manipulation.Filter.1 void apply(java.lang.Object) 0
+NULLABLE
 org.junit.runner.manipulation.Filter.2 boolean shouldRun(org.junit.runner.Description) 0
 NOT_NULL
 org.junit.runner.manipulation.Filter.3 boolean shouldRun(org.junit.runner.Description) 0
@@ -1156,6 +1270,8 @@ org.junit.runner.manipulation.Filterable void filter(org.junit.runner.manipulati
 NOT_NULL
 org.junit.runner.manipulation.Sortable void sort(org.junit.runner.manipulation.Sorter) 0
 NOT_NULL
+org.junit.runner.manipulation.Sorter void apply(java.lang.Object) 0
+NULLABLE
 org.junit.runner.notification.RunListener void testFailure(org.junit.runner.notification.Failure) 0
 NOT_NULL
 org.junit.runner.notification.RunListener void testFinished(org.junit.runner.Description) 0
@@ -1181,6 +1297,8 @@ NOT_NULL
 org.junit.runner.notification.RunNotifier.7 void notifyListener(org.junit.runner.notification.RunListener) 0
 NOT_NULL
 org.junit.runner.notification.RunNotifier.SafeNotifier void notifyListener(org.junit.runner.notification.RunListener) 0
+NOT_NULL
+org.junit.runners.AllTests AllTests(java.lang.Class<?>) 0
 NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner java.lang.Class<? extends java.lang.Throwable> getExpectedException(org.junit.Test)
 NULLABLE
@@ -1214,19 +1332,19 @@ org.junit.runners.BlockJUnit4ClassRunner org.junit.runners.model.Statement possi
 NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner org.junit.runners.model.Statement withPotentialTimeout(org.junit.runners.model.FrameworkMethod, java.lang.Object, org.junit.runners.model.Statement) 0
 NOT_NULL
-org.junit.runners.BlockJUnit4ClassRunner void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
-NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner void runChild(java.lang.Object, org.junit.runner.notification.RunNotifier) 0
 NOT_NULL
 org.junit.runners.BlockJUnit4ClassRunner void runChild(org.junit.runners.model.FrameworkMethod, org.junit.runner.notification.RunNotifier) 0
 NOT_NULL
-org.junit.runners.BlockJUnit4ClassRunner void validateConstructor(java.util.List<java.lang.Throwable>) 0
-NOT_NULL
-org.junit.runners.BlockJUnit4ClassRunner void validateOnlyOneConstructor(java.util.List<java.lang.Throwable>) 0
+org.junit.runners.Parameterized java.util.List<java.lang.Object[]> getParametersList(org.junit.runners.model.TestClass) 0
 NOT_NULL
 org.junit.runners.Parameterized java.util.List<org.junit.runner.Runner> getChildren()
 NOT_NULL
 org.junit.runners.Parameterized org.junit.runners.model.FrameworkMethod access$000(org.junit.runners.Parameterized, org.junit.runners.model.TestClass)
+NOT_NULL
+org.junit.runners.Parameterized org.junit.runners.model.FrameworkMethod access$000(org.junit.runners.Parameterized, org.junit.runners.model.TestClass) 0
+NOT_NULL
+org.junit.runners.Parameterized org.junit.runners.model.FrameworkMethod access$000(org.junit.runners.Parameterized, org.junit.runners.model.TestClass) 1
 NOT_NULL
 org.junit.runners.Parameterized org.junit.runners.model.FrameworkMethod getParametersMethod(org.junit.runners.model.TestClass)
 NOT_NULL
@@ -1237,8 +1355,6 @@ NOT_NULL
 org.junit.runners.Parameterized.TestClassRunnerForParameters java.lang.String testName(org.junit.runners.model.FrameworkMethod) 0
 NOT_NULL
 org.junit.runners.Parameterized.TestClassRunnerForParameters java.lang.annotation.Annotation[] getRunnerAnnotations()
-NOT_NULL
-org.junit.runners.Parameterized.TestClassRunnerForParameters void validateConstructor(java.util.List<java.lang.Throwable>) 0
 NOT_NULL
 org.junit.runners.ParentRunner boolean shouldRun(org.junit.runner.manipulation.Filter, T) 0
 NOT_NULL
@@ -1264,7 +1380,7 @@ org.junit.runners.ParentRunner org.junit.runners.model.Statement childrenInvoker
 NOT_NULL
 org.junit.runners.ParentRunner org.junit.runners.model.TestClass getTestClass()
 NOT_NULL
-org.junit.runners.ParentRunner void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
+org.junit.runners.ParentRunner void access$000(org.junit.runners.ParentRunner, org.junit.runner.notification.RunNotifier) 0
 NOT_NULL
 org.junit.runners.ParentRunner void filter(org.junit.runner.manipulation.Filter) 0
 NOT_NULL
@@ -1276,11 +1392,19 @@ org.junit.runners.ParentRunner void sort(org.junit.runner.manipulation.Sorter) 0
 NOT_NULL
 org.junit.runners.ParentRunner.1 void schedule(java.lang.Runnable) 0
 NOT_NULL
+org.junit.runners.Suite Suite(java.lang.Class<?>, java.lang.Class<?>[]) 1
+NOT_NULL
 org.junit.runners.Suite Suite(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 0
+NOT_NULL
+org.junit.runners.Suite Suite(java.lang.Class<?>, org.junit.runners.model.RunnerBuilder) 1
 NOT_NULL
 org.junit.runners.Suite Suite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>, java.lang.Class<?>[]) 0
 NOT_NULL
+org.junit.runners.Suite Suite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>, java.lang.Class<?>[]) 2
+NOT_NULL
 org.junit.runners.Suite Suite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>[]) 0
+NOT_NULL
+org.junit.runners.Suite Suite(org.junit.runners.model.RunnerBuilder, java.lang.Class<?>[]) 1
 NOT_NULL
 org.junit.runners.Suite java.lang.Class<?>[] getAnnotatedClasses(java.lang.Class<?>) 0
 NOT_NULL
@@ -1308,6 +1432,8 @@ org.junit.runners.model.FrameworkMethod boolean isShadowedBy(org.junit.runners.m
 NOT_NULL
 org.junit.runners.model.FrameworkMethod boolean isShadowedBy(org.junit.runners.model.FrameworkMethod) 0
 NOT_NULL
+org.junit.runners.model.FrameworkMethod boolean producesType(java.lang.reflect.Type) 0
+NULLABLE
 org.junit.runners.model.MultipleFailureException fErrors
 NOT_NULL
 org.junit.runners.model.MultipleFailureException void assertEmpty(java.util.List<java.lang.Throwable>) 0
@@ -1316,9 +1442,13 @@ org.junit.runners.model.NoGenericTypeParametersValidator void validateNoTypePara
 NOT_NULL
 org.junit.runners.model.NoGenericTypeParametersValidator void validateNoTypeParameterOnParameterizedType(java.lang.reflect.ParameterizedType, java.util.List<java.lang.Throwable>) 0
 NOT_NULL
+org.junit.runners.model.NoGenericTypeParametersValidator void validateNoTypeParameterOnType(java.lang.reflect.Type, java.util.List<java.lang.Throwable>) 0
+NULLABLE
 org.junit.runners.model.NoGenericTypeParametersValidator void validateNoTypeParameterOnWildcardType(java.lang.reflect.WildcardType, java.util.List<java.lang.Throwable>) 0
 NOT_NULL
 org.junit.runners.model.RunnerBuilder java.util.List<org.junit.runner.Runner> runners(java.lang.Class<?>, java.lang.Class<?>[])
+NOT_NULL
+org.junit.runners.model.RunnerBuilder java.util.List<org.junit.runner.Runner> runners(java.lang.Class<?>, java.lang.Class<?>[]) 1
 NOT_NULL
 org.junit.runners.model.RunnerBuilder java.util.List<org.junit.runner.Runner> runners(java.lang.Class<?>, java.util.List<java.lang.Class<?>>)
 NOT_NULL

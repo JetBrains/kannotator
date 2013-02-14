@@ -134,6 +134,11 @@
             <val name="value" val="&quot;fun Lattice2DGenerator(graph_factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertex_factory : Factory&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?, row_count : Int, col_count : Int, isToroidal : Boolean)&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator Lattice2DGenerator(org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Lattice2DGenerator(graph_factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertex_factory : Factory&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?, latticeSize : Int, isToroidal : Boolean)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Graph&lt;V, E&gt;&quot;"/>
@@ -187,6 +192,21 @@
     <item name='edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator java.lang.Object create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator KleinbergSmallWorldGenerator(org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KleinbergSmallWorldGenerator(graph_factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertex_factory : Factory&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?, latticeSize : Int, clusteringExponent : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator KleinbergSmallWorldGenerator(org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, int, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KleinbergSmallWorldGenerator(graph_factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertex_factory : Factory&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?, row_count : Int, col_count : Int, clusteringExponent : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator KleinbergSmallWorldGenerator(org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;, int, int, double, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KleinbergSmallWorldGenerator(graph_factory : Factory&lt;out Graph&lt;V, E&gt;?&gt;, vertex_factory : Factory&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?, row_count : Int, col_count : Int, clusteringExponent : Double, isToroidal : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator edu.uci.ics.jung.graph.Graph&lt;V,E&gt; create()'>
@@ -272,6 +292,11 @@
     <item name='edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.String getRankScoreKey()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getRankScoreKey() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, java.util.Set&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun MarkovCentrality(graph : DirectedGraph&lt;V, E&gt;, rootNodes : Set&lt;V&gt;?)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, java.util.Set&lt;V&gt;, java.util.Map&lt;E,java.lang.Number&gt;)'>
@@ -404,6 +429,11 @@
             <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout BalloonLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BalloonLayout(g : Forest&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.BalloonLayout void setLocation(V, java.awt.geom.Point2D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setLocation(v : V?, location : Point2D) : Unit&quot;"/>
@@ -429,9 +459,19 @@
             <val name="value" val="&quot;fun create() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.CircleLayout CircleLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun CircleLayout(g : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.CircleLayout void setVertexOrder(java.util.List&lt;V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setVertexOrder(vertex_list : List&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout DAGLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun DAGLayout(g : Graph&lt;V, E&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension)'>
@@ -474,6 +514,11 @@
             <val name="value" val="&quot;fun create() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2 FRLayout2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun FRLayout2(g : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2 FRLayout2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.awt.Dimension)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun FRLayout2(g : Graph&lt;V, E&gt;?, d : Dimension)&quot;"/>
@@ -482,6 +527,11 @@
     <item name='edu.uci.ics.jung.algorithms.layout.FRLayout2 void setSize(java.awt.Dimension)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setSize(size : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.FRLayout FRLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun FRLayout(g : Graph&lt;V, E&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.FRLayout FRLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.awt.Dimension)'>
@@ -517,6 +567,21 @@
     <item name='edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 java.lang.Object create()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun create() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.ISOMLayout ISOMLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ISOMLayout(g : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.KKLayout KKLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KKLayout(g : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.KKLayout KKLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.algorithms.shortestpath.Distance&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KKLayout(g : Graph&lt;V, E&gt;, distance : Distance&lt;V&gt;?)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.KKLayout double[] calcDeltaXY(int)'>
@@ -584,6 +649,21 @@
             <val name="value" val="&quot;fun setLocation(p : PolarPoint) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout RadialTreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun RadialTreeLayout(g : Forest&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout RadialTreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun RadialTreeLayout(g : Forest&lt;V, E&gt;, distx : Int)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout RadialTreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, int, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun RadialTreeLayout(g : Forest&lt;V, E&gt;, distx : Int, disty : Int)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D getMaxXY()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getMaxXY() : Point2D&quot;"/>
@@ -649,9 +729,34 @@
             <val name="value" val="&quot;fun componentResized(e : ComponentEvent) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout2 SpringLayout2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SpringLayout2(g : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout2 SpringLayout2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Integer&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SpringLayout2(g : Graph&lt;V, E&gt;, length_function : Transformer&lt;E, Int?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout SpringLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SpringLayout(g : Graph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout SpringLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Integer&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SpringLayout(g : Graph&lt;V, E&gt;, length_function : Transformer&lt;E, Int?&gt;?)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.layout.SpringLayout void setSize(java.awt.Dimension)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setSize(p0 : Dimension) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.StaticLayout StaticLayout(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun StaticLayout(graph : Graph&lt;V, E&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout.1 java.awt.geom.Point2D transform(V)'>
@@ -662,6 +767,16 @@
     <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout.1 java.lang.Object transform(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun transform(x0 : Any?) : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TreeLayout(g : Forest&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TreeLayout(g : Forest&lt;V, E&gt;, distx : Int)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, int, int)'>
@@ -784,6 +899,11 @@
             <val name="value" val="&quot;fun &lt;V, E&gt; triCode(g : Graph&lt;V, E&gt;, u : V?, v : V?, w : V?) : Int&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer java.lang.Number getEdgeWeight(V, E)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeWeight(v : V, e : E) : Number?&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun BetweennessCentrality(graph : Graph&lt;V, E&gt;)&quot;"/>
@@ -807,6 +927,21 @@
     <item name='edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Object getVertexScore(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getVertexScore(x0 : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality EigenvectorCentrality(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun EigenvectorCentrality(graph : Hypergraph&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality EigenvectorCentrality(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, org.apache.commons.collections15.Transformer&lt;E,? extends java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun EigenvectorCentrality(graph : Hypergraph&lt;V, E&gt;, edge_weights : Transformer&lt;E, out Number?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun HITS(g : Graph&lt;V, E&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, double)'>
@@ -954,6 +1089,11 @@
             <val name="value" val="&quot;fun singleSourceShortestPath(source : V?, targets : Collection&lt;V&gt;?, numDests : Int) : LinkedHashMap&lt;V, Number?&gt;?&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData SourcePathData(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SourcePathData(source : V?)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData java.util.Map.Entry&lt;V,java.lang.Number&gt; getNextVertex()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getNextVertex() : MutableMap.MutableEntry&lt;V, Number?&gt;&quot;"/>
@@ -1001,7 +1141,7 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Forest&lt;V,E&gt;&gt;, org.apache.commons.collections15.Factory&lt;? extends edu.uci.ics.jung.graph.Graph&lt;V,E&gt;&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Double&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun MinimumSpanningForest2(graph : Graph&lt;V, E&gt;?, factory : Factory&lt;Forest&lt;V, E&gt;?&gt;, treeFactory : Factory&lt;out Graph&lt;V, E&gt;?&gt;?, weights : Transformer&lt;E, Double?&gt;?)&quot;"/>
+            <val name="value" val="&quot;fun MinimumSpanningForest2(graph : Graph&lt;V, E&gt;, factory : Factory&lt;Forest&lt;V, E&gt;?&gt;, treeFactory : Factory&lt;out Graph&lt;V, E&gt;?&gt;?, weights : Transformer&lt;E, Double?&gt;?)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, edu.uci.ics.jung.graph.Forest&lt;V,E&gt;, V)'>
@@ -1016,7 +1156,7 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, org.apache.commons.collections15.Factory&lt;edu.uci.ics.jung.graph.Forest&lt;V,E&gt;&gt;, V, java.util.Map&lt;E,java.lang.Double&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun MinimumSpanningForest(graph : Graph&lt;V, E&gt;?, factory : Factory&lt;Forest&lt;V, E&gt;?&gt;, root : V?, weights : Map&lt;E, Double?&gt;?)&quot;"/>
+            <val name="value" val="&quot;fun MinimumSpanningForest(graph : Graph&lt;V, E&gt;, factory : Factory&lt;Forest&lt;V, E&gt;?&gt;, root : V?, weights : Map&lt;E, Double?&gt;?)&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest void updateForest(java.util.Collection&lt;V&gt;, java.util.Collection&lt;E&gt;)'>
@@ -1102,6 +1242,11 @@
     <item name='edu.uci.ics.jung.algorithms.transformation.VertexPartitionCollapser edu.uci.ics.jung.graph.Graph&lt;CV,CE&gt; collapseVertexPartitions(edu.uci.ics.jung.algorithms.blockmodel.VertexPartition&lt;V,E&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun collapseVertexPartitions(partitioning : VertexPartition&lt;V, E&gt;) : Graph&lt;CV, CE&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.BasicMapEntry boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.util.DiscreteDistribution double KullbackLeibler(double[], double[])'>
@@ -1214,14 +1359,24 @@
             <val name="value" val="&quot;fun evaluate(x0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map&lt;T,? extends java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WeightedChoice(item_weights : Map&lt;T, out Number?&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map&lt;T,? extends java.lang.Number&gt;, double)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WeightedChoice(item_weights : Map&lt;T, out Number?&gt;, threshold : Double)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map&lt;T,? extends java.lang.Number&gt;, java.util.Random)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun WeightedChoice(item_weights : Map&lt;T, out Number?&gt;, random : Random?)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map&lt;T,? extends java.lang.Number&gt;, java.util.Random, double)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun WeightedChoice(item_weights : Map&lt;T, out Number?&gt;, random : Random?, threshold : Double)&quot;"/>
-        </annotation>
-    </item>
-    <item name='edu.uci.ics.jung.algorithms.util.WeightedChoice void enqueueItem(T, double, double, java.util.Queue&lt;edu.uci.ics.jung.algorithms.util.WeightedChoice&lt;T&gt;.ItemPair&gt;, java.util.Queue&lt;edu.uci.ics.jung.algorithms.util.WeightedChoice&lt;T&gt;.ItemPair&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun enqueueItem(key : T?, value : Double, threshold : Double, light_weights : Queue&lt;WeightedChoice&lt;T&gt;.ItemPair?&gt;, heavy_weights : Queue&lt;WeightedChoice&lt;T&gt;.ItemPair?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
 </root>

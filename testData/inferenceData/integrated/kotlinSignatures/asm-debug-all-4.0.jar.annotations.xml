@@ -19,11 +19,6 @@
             <val name="value" val="&quot;fun visitEnum(p0 : String?, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.ByteVector)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(out : ByteVector) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.AnnotationWriter[], int, org.objectweb.asm.ByteVector)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun put(panns : Array&lt;out AnnotationWriter?&gt;, off : Int, out : ByteVector) : Unit&quot;"/>
@@ -464,16 +459,6 @@
             <val name="value" val="&quot;fun visitAttribute(attr : Attribute) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.Frame void execute(int, int, org.objectweb.asm.ClassWriter, org.objectweb.asm.Item)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun execute(opcode : Int, arg : Int, cw : ClassWriter?, item : Item) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.Frame int init(org.objectweb.asm.ClassWriter, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun init(cw : ClassWriter, t : Int) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.Frame void initInputFrame(org.objectweb.asm.ClassWriter, int, org.objectweb.asm.Type[], int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initInputFrame(cw : ClassWriter?, access : Int, args : Array&lt;out Type?&gt;, maxLocals : Int) : Unit&quot;"/>
@@ -502,6 +487,11 @@
     <item name='org.objectweb.asm.Frame int type(org.objectweb.asm.ClassWriter, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun type(cw : ClassWriter?, desc : String) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.Handle boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(obj : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.Handler org.objectweb.asm.Handler remove(org.objectweb.asm.Handler, org.objectweb.asm.Label, org.objectweb.asm.Label)'>
@@ -841,7 +831,7 @@
     </item>
     <item name='org.objectweb.asm.Type java.lang.String getMethodDescriptor(org.objectweb.asm.Type, org.objectweb.asm.Type...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getMethodDescriptor(returnType : Type?, vararg argumentTypes : Type) : String&quot;"/>
+            <val name="value" val="&quot;fun getMethodDescriptor(returnType : Type, vararg argumentTypes : Type) : String&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.Type org.objectweb.asm.Type getMethodType(java.lang.String)'>
@@ -902,6 +892,11 @@
     <item name='org.objectweb.asm.Type java.lang.String toString()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun toString() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.AdviceAdapter AdviceAdapter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AdviceAdapter(api : Int, mv : MethodVisitor?, access : Int, name : String?, desc : String)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.AdviceAdapter void addBranches(org.objectweb.asm.Label, org.objectweb.asm.Label[])'>
@@ -967,6 +962,11 @@
     <item name='org.objectweb.asm.commons.AnalyzerAdapter AnalyzerAdapter(int, java.lang.String, int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun AnalyzerAdapter(api : Int, owner : String?, access : Int, name : String?, desc : String, mv : MethodVisitor?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.AnalyzerAdapter AnalyzerAdapter(java.lang.String, int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AnalyzerAdapter(owner : String?, access : Int, name : String?, desc : String, mv : MethodVisitor?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.AnalyzerAdapter void pop(java.lang.String)'>
@@ -1056,7 +1056,7 @@
     </item>
     <item name='org.objectweb.asm.commons.CodeSizeEvaluator void visitLdcInsn(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLdcInsn(p0 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLdcInsn(cst : Any) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.CodeSizeEvaluator void visitLookupSwitchInsn(org.objectweb.asm.Label, int[], org.objectweb.asm.Label[])'>
@@ -1099,6 +1099,11 @@
             <val name="value" val="&quot;fun GeneratorAdapter(access : Int, method : Method, mv : MethodVisitor?)&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter GeneratorAdapter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun GeneratorAdapter(mv : MethodVisitor?, access : Int, name : String?, desc : String)&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void arrayLoad(org.objectweb.asm.Type)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun arrayLoad(type : Type) : Unit&quot;"/>
@@ -1134,9 +1139,19 @@
             <val name="value" val="&quot;fun getBoxedType(type : Type) : Type&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void getField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getField(owner : Type, name : String, type : Type) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter java.lang.String[] getInternalNames(org.objectweb.asm.Type[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getInternalNames(types : Array&lt;out Type?&gt;?) : Array&lt;out String?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void getStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getStatic(owner : Type, name : String, type : Type) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void goTo(org.objectweb.asm.Label)'>
@@ -1169,6 +1184,16 @@
             <val name="value" val="&quot;fun ifZCmp(mode : Int, label : Label) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void instanceOf(org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun instanceOf(type : Type) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void invokeConstructor(org.objectweb.asm.Type, org.objectweb.asm.commons.Method)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun invokeConstructor(type : Type, method : Method) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void invokeDynamic(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun invokeDynamic(name : String, desc : String, bsm : Handle, vararg bsmArgs : Any) : Unit&quot;"/>
@@ -1179,9 +1204,29 @@
             <val name="value" val="&quot;fun invokeInsn(opcode : Int, type : Type, method : Method) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void invokeInterface(org.objectweb.asm.Type, org.objectweb.asm.commons.Method)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun invokeInterface(owner : Type, method : Method) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void invokeStatic(org.objectweb.asm.Type, org.objectweb.asm.commons.Method)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun invokeStatic(owner : Type, method : Method) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void invokeVirtual(org.objectweb.asm.Type, org.objectweb.asm.commons.Method)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun invokeVirtual(owner : Type, method : Method) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void loadInsn(org.objectweb.asm.Type, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun loadInsn(type : Type, index : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void loadLocal(int, org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun loadLocal(local : Int, type : Type) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter org.objectweb.asm.Label mark()'>
@@ -1204,6 +1249,11 @@
             <val name="value" val="&quot;fun newArray(type : Type) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void newInstance(org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun newInstance(type : Type) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter org.objectweb.asm.Label newLabel()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun newLabel() : Label&quot;"/>
@@ -1224,9 +1274,24 @@
             <val name="value" val="&quot;fun push(value : Type?) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putField(owner : Type, name : String, type : Type) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void putStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun putStatic(owner : Type, name : String, type : Type) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void storeInsn(org.objectweb.asm.Type, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun storeInsn(type : Type, index : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void storeLocal(int, org.objectweb.asm.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun storeLocal(local : Int, type : Type) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void swap(org.objectweb.asm.Type, org.objectweb.asm.Type)'>
@@ -1242,6 +1307,11 @@
     <item name='org.objectweb.asm.commons.GeneratorAdapter void tableSwitch(int[], org.objectweb.asm.commons.TableSwitchGenerator, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun tableSwitch(keys : IntArray, generator : TableSwitchGenerator, useTable : Boolean) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.GeneratorAdapter void throwException(org.objectweb.asm.Type, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun throwException(type : Type, msg : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void typeInsn(int, org.objectweb.asm.Type)'>
@@ -1614,9 +1684,24 @@
             <val name="value" val="&quot;fun gotoLabel(l : LabelNode) : LabelNode?&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.JSRInlinerAdapter JSRInlinerAdapter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun JSRInlinerAdapter(api : Int, mv : MethodVisitor?, access : Int, name : String, desc : String, signature : String?, exceptions : Array&lt;out String?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.JSRInlinerAdapter JSRInlinerAdapter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun JSRInlinerAdapter(mv : MethodVisitor?, access : Int, name : String, desc : String, signature : String?, exceptions : Array&lt;out String?&gt;?)&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.JSRInlinerAdapter void emitSubroutine(org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation, java.util.List&lt;org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation&gt;, org.objectweb.asm.tree.InsnList, java.util.List&lt;org.objectweb.asm.tree.TryCatchBlockNode&gt;, java.util.List&lt;org.objectweb.asm.tree.LocalVariableNode&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun emitSubroutine(instant : JSRInlinerAdapter.Instantiation?, worklist : MutableList&lt;JSRInlinerAdapter.Instantiation?&gt;?, newInstructions : InsnList?, newTryCatchBlocks : MutableList&lt;TryCatchBlockNode?&gt;?, newLocalVariables : MutableList&lt;LocalVariableNode?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.JSRInlinerAdapter void markSubroutineWalk(java.util.BitSet, int, java.util.BitSet)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun markSubroutineWalk(sub : BitSet, index : Int, anyvisited : BitSet?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.JSRInlinerAdapter void markSubroutineWalkDFS(java.util.BitSet, int, java.util.BitSet)'>
@@ -1626,12 +1711,17 @@
     </item>
     <item name='org.objectweb.asm.commons.JSRInlinerAdapter void visitJumpInsn(int, org.objectweb.asm.Label)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitJumpInsn(p0 : Int, p1 : Label) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitJumpInsn(opcode : Int, lbl : Label) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.LocalVariablesSorter LocalVariablesSorter(int, int, java.lang.String, org.objectweb.asm.MethodVisitor)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun LocalVariablesSorter(api : Int, access : Int, desc : String, mv : MethodVisitor?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.LocalVariablesSorter LocalVariablesSorter(int, java.lang.String, org.objectweb.asm.MethodVisitor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LocalVariablesSorter(access : Int, desc : String, mv : MethodVisitor?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.LocalVariablesSorter int newLocal(org.objectweb.asm.Type)'>
@@ -1661,7 +1751,12 @@
     </item>
     <item name='org.objectweb.asm.commons.Method Method(java.lang.String, org.objectweb.asm.Type, org.objectweb.asm.Type[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun Method(name : String?, returnType : Type?, argumentTypes : Array&lt;out Type?&gt;)&quot;"/>
+            <val name="value" val="&quot;fun Method(name : String?, returnType : Type, argumentTypes : Array&lt;out Type?&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.Method boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.Method org.objectweb.asm.Type[] getArgumentTypes()'>
@@ -1704,16 +1799,6 @@
             <val name="value" val="&quot;fun mapDesc(desc : String) : String?&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.commons.Remapper java.lang.String mapFieldName(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mapFieldName(p0 : String?, p1 : String?, p2 : String?) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.commons.Remapper java.lang.String mapMethodName(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mapMethodName(p0 : String?, p1 : String?, p2 : String?) : String?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.commons.Remapper java.lang.String mapSignature(java.lang.String, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mapSignature(signature : String?, typeSignature : Boolean) : String?&quot;"/>
@@ -1734,6 +1819,11 @@
             <val name="value" val="&quot;fun mapTypes(types : Array&lt;out String?&gt;) : Array&lt;out String?&gt;?&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.Remapper java.lang.Object mapValue(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun mapValue(value : Any?) : Any?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.RemappingAnnotationAdapter void visit(java.lang.String, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun visit(p0 : String?, p1 : Any) : Unit&quot;"/>
@@ -1741,12 +1831,12 @@
     </item>
     <item name='org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitAnnotation(name : String?, desc : String) : AnnotationVisitor&quot;"/>
+            <val name="value" val="&quot;fun visitAnnotation(name : String?, desc : String) : AnnotationVisitor?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitArray(name : String?) : AnnotationVisitor&quot;"/>
+            <val name="value" val="&quot;fun visitArray(name : String?) : AnnotationVisitor?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String)'>
@@ -1766,7 +1856,7 @@
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.MethodVisitor createRemappingMethodAdapter(int, java.lang.String, org.objectweb.asm.MethodVisitor)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createRemappingMethodAdapter(access : Int, newDesc : String?, mv : MethodVisitor?) : MethodVisitor&quot;"/>
+            <val name="value" val="&quot;fun createRemappingMethodAdapter(access : Int, newDesc : String, mv : MethodVisitor?) : MethodVisitor&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -1804,9 +1894,14 @@
             <val name="value" val="&quot;fun visitAnnotation(desc : String, visible : Boolean) : AnnotationVisitor?&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.commons.RemappingMethodAdapter java.lang.Object[] remapEntries(int, java.lang.Object[])'>
+    <item name='org.objectweb.asm.commons.RemappingMethodAdapter RemappingMethodAdapter(int, int, java.lang.String, org.objectweb.asm.MethodVisitor, org.objectweb.asm.commons.Remapper)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remapEntries(n : Int, entries : Array&lt;out Any?&gt;) : Array&lt;out Any?&gt;&quot;"/>
+            <val name="value" val="&quot;fun RemappingMethodAdapter(api : Int, access : Int, desc : String, mv : MethodVisitor?, remapper : Remapper?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.RemappingMethodAdapter RemappingMethodAdapter(int, java.lang.String, org.objectweb.asm.MethodVisitor, org.objectweb.asm.commons.Remapper)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun RemappingMethodAdapter(access : Int, desc : String, mv : MethodVisitor?, remapper : Remapper?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingMethodAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
@@ -1944,9 +2039,14 @@
             <val name="value" val="&quot;fun compareTo(other : SerialVersionUIDAdder.Item) : Int&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.commons.SerialVersionUIDAdder.Item boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.commons.SerialVersionUIDAdder void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visit(p0 : Int, p1 : Int, p2 : String, p3 : String?, p4 : String?, p5 : Array&lt;out String?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visit(version : Int, access : Int, name : String, signature : String?, superName : String?, interfaces : Array&lt;out String?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.SerialVersionUIDAdder org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)'>
@@ -1956,7 +2056,7 @@
     </item>
     <item name='org.objectweb.asm.commons.SerialVersionUIDAdder void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInnerClass(p0 : String, p1 : String?, p2 : String?, p3 : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitInnerClass(aname : String, outerName : String?, innerName : String?, attr_access : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.SerialVersionUIDAdder org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -1967,16 +2067,6 @@
     <item name='org.objectweb.asm.commons.SerialVersionUIDAdder void writeItems(java.util.Collection&lt;org.objectweb.asm.commons.SerialVersionUIDAdder.Item&gt;, java.io.DataOutput, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeItems(itemCollection : Collection&lt;SerialVersionUIDAdder.Item?&gt;, dos : DataOutput?, dotted : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.commons.SimpleRemapper java.lang.String mapFieldName(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mapFieldName(owner : String?, name : String?, desc : String?) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.commons.SimpleRemapper java.lang.String mapMethodName(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun mapMethodName(owner : String?, name : String?, desc : String?) : String?&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.StaticInitMerger void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -1992,6 +2082,26 @@
     <item name='org.objectweb.asm.commons.TryCatchBlockSorter.1 int blockLength(org.objectweb.asm.tree.TryCatchBlockNode)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun blockLength(block : TryCatchBlockNode) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.TryCatchBlockSorter.1 int compare(java.lang.Object, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun compare(x0 : Any, x1 : Any) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.TryCatchBlockSorter.1 int compare(org.objectweb.asm.tree.TryCatchBlockNode, org.objectweb.asm.tree.TryCatchBlockNode)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun compare(t1 : TryCatchBlockNode, t2 : TryCatchBlockNode) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.TryCatchBlockSorter TryCatchBlockSorter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TryCatchBlockSorter(api : Int, mv : MethodVisitor?, access : Int, name : String, desc : String, signature : String?, exceptions : Array&lt;out String?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.commons.TryCatchBlockSorter TryCatchBlockSorter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TryCatchBlockSorter(mv : MethodVisitor?, access : Int, name : String, desc : String, signature : String?, exceptions : Array&lt;out String?&gt;?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.signature.SignatureReader void accept(org.objectweb.asm.signature.SignatureVisitor)'>
@@ -2696,7 +2806,7 @@
     </item>
     <item name='org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame&lt;V&gt;, org.objectweb.asm.tree.analysis.Subroutine)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun merge(insn : Int, frame : Frame&lt;V&gt;?, subroutine : Subroutine?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun merge(insn : Int, frame : Frame&lt;V&gt;, subroutine : Subroutine?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.Analyzer boolean newControlFlowExceptionEdge(int, org.objectweb.asm.tree.TryCatchBlockNode)'>
@@ -2711,7 +2821,7 @@
     </item>
     <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt; newFrame(org.objectweb.asm.tree.analysis.Frame&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun newFrame(src : Frame&lt;out V&gt;?) : Frame&lt;V&gt;&quot;"/>
+            <val name="value" val="&quot;fun newFrame(src : Frame&lt;out V&gt;) : Frame&lt;V&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.AnalyzerException AnalyzerException(org.objectweb.asm.tree.AbstractInsnNode, java.lang.String, java.lang.Object, org.objectweb.asm.tree.analysis.Value)'>
@@ -2807,6 +2917,11 @@
     <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.Value unaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun unaryOperation(x0 : AbstractInsnNode, x1 : Value) : Value?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.tree.analysis.BasicValue boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(value : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.BasicValue java.lang.String toString()'>
@@ -3109,6 +3224,11 @@
             <val name="value" val="&quot;fun unaryOperation(x0 : AbstractInsnNode, x1 : Value) : Value&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.tree.analysis.SourceValue boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(value : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.tree.analysis.Subroutine org.objectweb.asm.tree.analysis.Subroutine copy()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun copy() : Subroutine&quot;"/>
@@ -3349,11 +3469,6 @@
             <val name="value" val="&quot;fun visitTypeInsn(p0 : Int, p1 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.util.CheckAnnotationAdapter void checkName(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkName(name : String) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.util.CheckAnnotationAdapter void visit(java.lang.String, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun visit(name : String?, value : Any) : Unit&quot;"/>
@@ -3447,6 +3562,16 @@
     <item name='org.objectweb.asm.util.CheckFieldAdapter void visitAttribute(org.objectweb.asm.Attribute)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun visitAttribute(attr : Attribute) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.util.CheckMethodAdapter.1 1(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], org.objectweb.asm.MethodVisitor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun 1(x0 : Int, x1 : String, x2 : String, x3 : String?, x4 : Array&lt;out String?&gt;?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.util.CheckMethodAdapter CheckMethodAdapter(int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor, java.util.Map&lt;org.objectweb.asm.Label,java.lang.Integer&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun CheckMethodAdapter(access : Int, name : String, desc : String, cmv : MethodVisitor?, labels : Map&lt;Label?, Int?&gt;?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.CheckMethodAdapter int checkChar(char, java.lang.String, int)'>
@@ -4176,7 +4301,7 @@
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visit(p0 : Int, p1 : Int, p2 : String, p3 : String?, p4 : String?, p5 : Array&lt;out String?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visit(version : Int, access : Int, name : String, signature : String?, superName : String?, interfaces : Array&lt;out String?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
@@ -4186,7 +4311,7 @@
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor void visitAttribute(org.objectweb.asm.Attribute)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitAttribute(p0 : Attribute) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitAttribute(attr : Attribute) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)'>
@@ -4196,7 +4321,7 @@
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInnerClass(p0 : String, p1 : String?, p2 : String?, p3 : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitInnerClass(name : String, outerName : String?, innerName : String?, access : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -4206,7 +4331,7 @@
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor void visitOuterClass(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitOuterClass(p0 : String, p1 : String?, p2 : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitOuterClass(owner : String, name : String?, desc : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceClassVisitor void visitSource(java.lang.String, java.lang.String)'>
@@ -4236,62 +4361,62 @@
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitAttribute(org.objectweb.asm.Attribute)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitAttribute(p0 : Attribute) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitAttribute(attr : Attribute) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitFieldInsn(int, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitFieldInsn(p0 : Int, p1 : String, p2 : String, p3 : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitFieldInsn(opcode : Int, owner : String, name : String, desc : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitFrame(p0 : Int, p1 : Int, p2 : Array&lt;out Any?&gt;, p3 : Int, p4 : Array&lt;out Any?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitFrame(type : Int, nLocal : Int, local : Array&lt;out Any?&gt;, nStack : Int, stack : Array&lt;out Any?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitInvokeDynamicInsn(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInvokeDynamicInsn(p0 : String, p1 : String, p2 : Handle, vararg p3 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitInvokeDynamicInsn(name : String, desc : String, bsm : Handle, vararg bsmArgs : Any) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitJumpInsn(int, org.objectweb.asm.Label)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitJumpInsn(p0 : Int, p1 : Label) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitJumpInsn(opcode : Int, label : Label) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitLabel(org.objectweb.asm.Label)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLabel(p0 : Label) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLabel(label : Label) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitLdcInsn(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLdcInsn(p0 : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLdcInsn(cst : Any) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitLineNumber(int, org.objectweb.asm.Label)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLineNumber(p0 : Int, p1 : Label) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLineNumber(line : Int, start : Label) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitLocalVariable(java.lang.String, java.lang.String, java.lang.String, org.objectweb.asm.Label, org.objectweb.asm.Label, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLocalVariable(p0 : String, p1 : String, p2 : String?, p3 : Label, p4 : Label, p5 : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLocalVariable(name : String, desc : String, signature : String?, start : Label, end : Label, index : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitLookupSwitchInsn(org.objectweb.asm.Label, int[], org.objectweb.asm.Label[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLookupSwitchInsn(p0 : Label, p1 : IntArray, p2 : Array&lt;out Label?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLookupSwitchInsn(dflt : Label, keys : IntArray, labels : Array&lt;out Label?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitMethodInsn(int, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitMethodInsn(p0 : Int, p1 : String, p2 : String, p3 : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitMethodInsn(opcode : Int, owner : String, name : String, desc : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitMultiANewArrayInsn(java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitMultiANewArrayInsn(p0 : String, p1 : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitMultiANewArrayInsn(desc : String, dims : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor org.objectweb.asm.AnnotationVisitor visitParameterAnnotation(int, java.lang.String, boolean)'>
@@ -4301,17 +4426,17 @@
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitTableSwitchInsn(int, int, org.objectweb.asm.Label, org.objectweb.asm.Label...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitTableSwitchInsn(p0 : Int, p1 : Int, p2 : Label, vararg p3 : Label) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitTableSwitchInsn(min : Int, max : Int, dflt : Label, vararg labels : Label) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitTryCatchBlock(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Label, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitTryCatchBlock(p0 : Label, p1 : Label, p2 : Label, p3 : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitTryCatchBlock(start : Label, end : Label, handler : Label, type : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceMethodVisitor void visitTypeInsn(int, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitTypeInsn(p0 : Int, p1 : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitTypeInsn(opcode : Int, type : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.TraceSignatureVisitor java.lang.String getDeclaration()'>
@@ -4669,9 +4794,24 @@
             <val name="value" val="&quot;fun readEntry(zis : InputStream, ze : ZipEntry) : ByteArray?&quot;"/>
         </annotation>
     </item>
+    <item name='org.objectweb.asm.xml.Processor void update(java.lang.Object, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun update(arg : Any?, n : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun SAXAnnotationAdapter(api : Int, sa : SAXAdapter, elementName : String?, visible : Int, desc : String?, name : String?, parameter : Int)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, int, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SAXAnnotationAdapter(sa : SAXAdapter, elementName : String?, visible : Int, parameter : Int, desc : String?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SAXAnnotationAdapter(sa : SAXAdapter, elementName : String?, visible : Int, name : String?, desc : String?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXAnnotationAdapter void addValueElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
@@ -4697,11 +4837,6 @@
     <item name='org.objectweb.asm.xml.SAXAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun visitEnum(p0 : String?, p1 : String, p2 : String) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.xml.SAXClassAdapter void appendAccess(int, java.lang.StringBuffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun appendAccess(access : Int, sb : StringBuffer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter java.lang.String encode(java.lang.String)'>

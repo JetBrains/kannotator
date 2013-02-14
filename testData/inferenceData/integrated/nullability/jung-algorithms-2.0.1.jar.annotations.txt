@@ -96,6 +96,8 @@ edu.uci.ics.jung.algorithms.flows.EdmondsKarpMaxFlow EdmondsKarpMaxFlow(edu.uci.
 NOT_NULL
 edu.uci.ics.jung.algorithms.flows.EdmondsKarpMaxFlow EdmondsKarpMaxFlow(edu.uci.ics.jung.graph.DirectedGraph<V,E>, V, V, org.apache.commons.collections15.Transformer<E,java.lang.Number>, java.util.Map<E,java.lang.Number>, org.apache.commons.collections15.Factory<E>) 1
 NOT_NULL
+edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator Lattice2DGenerator(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, boolean) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator Lattice2DGenerator(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, int, boolean) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.generators.Lattice2DGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
@@ -113,6 +115,12 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.generators.random.ErdosRenyiGenerator java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator KleinbergSmallWorldGenerator(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator KleinbergSmallWorldGenerator(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, int, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator KleinbergSmallWorldGenerator(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, int, int, double, boolean) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.generators.random.KleinbergSmallWorldGenerator edu.uci.ics.jung.graph.Graph<V,E> create()
 NOT_NULL
@@ -155,6 +163,8 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.String getRankScoreKey()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality MEAN_FIRST_PASSAGE_TIME
+NOT_NULL
+edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, java.util.Map<E,java.lang.Number>) 0
 NOT_NULL
@@ -214,6 +224,8 @@ edu.uci.ics.jung.algorithms.layout.AggregateLayout void setLocation(V, java.awt.
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.AggregateLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.BalloonLayout BalloonLayout(edu.uci.ics.jung.graph.Forest<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.BalloonLayout void setLocation(V, java.awt.geom.Point2D) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.BalloonLayout void setPolars(java.util.List<V>, java.awt.geom.Point2D, double) 0
@@ -224,11 +236,15 @@ edu.uci.ics.jung.algorithms.layout.BalloonLayout.1 edu.uci.ics.jung.algorithms.l
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.BalloonLayout.1 java.lang.Object transform(java.lang.Object)
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.CircleLayout CircleLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.CircleLayout void setVertexOrder(java.util.List<V>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.CircleLayout.1 edu.uci.ics.jung.algorithms.layout.CircleLayout.CircleVertexData create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.CircleLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.DAGLayout DAGLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.DAGLayout void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension) 1
 NOT_NULL
@@ -240,6 +256,8 @@ edu.uci.ics.jung.algorithms.layout.DAGLayout void setRoot(edu.uci.ics.jung.graph
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.DAGLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout FRLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.FRLayout FRLayout(edu.uci.ics.jung.graph.Graph<V,E>, java.awt.Dimension) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.FRLayout void setSize(java.awt.Dimension) 0
@@ -247,6 +265,8 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.layout.FRLayout.1 edu.uci.ics.jung.algorithms.layout.FRLayout.FRVertexData create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.FRLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.FRLayout2 FRLayout2(edu.uci.ics.jung.graph.Graph<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.FRLayout2 FRLayout2(edu.uci.ics.jung.graph.Graph<V,E>, java.awt.Dimension) 1
 NOT_NULL
@@ -268,9 +288,15 @@ edu.uci.ics.jung.algorithms.layout.GraphElementAccessor java.util.Collection<V> 
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.GraphElementAccessor java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.ISOMLayout ISOMLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout.ISOMLayout.ISOMVertexData create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.ISOMLayout.1 java.lang.Object create()
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.KKLayout KKLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.KKLayout KKLayout(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.algorithms.shortestpath.Distance<V>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.KKLayout double[] calcDeltaXY(int)
 NOT_NULL
@@ -302,6 +328,12 @@ edu.uci.ics.jung.algorithms.layout.PolarPoint java.awt.geom.Point2D polarToCarte
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.PolarPoint void setLocation(edu.uci.ics.jung.algorithms.layout.PolarPoint) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout RadialTreeLayout(edu.uci.ics.jung.graph.Forest<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout RadialTreeLayout(edu.uci.ics.jung.graph.Forest<V,E>, int) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.RadialTreeLayout RadialTreeLayout(edu.uci.ics.jung.graph.Forest<V,E>, int, int) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D getMaxXY()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.RadialTreeLayout java.awt.geom.Point2D transform(V)
@@ -332,6 +364,10 @@ edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor java.util.Collecti
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.RadiusGraphElementAccessor java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout SpringLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout SpringLayout(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Transformer<E,java.lang.Integer>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.layout.SpringLayout void setSize(java.awt.Dimension) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.SpringLayout.1 edu.uci.ics.jung.algorithms.layout.SpringLayout.SpringVertexData create()
@@ -339,6 +375,16 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.layout.SpringLayout.1 java.lang.Object create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.SpringLayout.SpringDimensionChecker void componentResized(java.awt.event.ComponentEvent) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout2 SpringLayout2(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.SpringLayout2 SpringLayout2(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Transformer<E,java.lang.Integer>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.StaticLayout StaticLayout(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest<V,E>, int) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout.TreeLayout TreeLayout(edu.uci.ics.jung.graph.Forest<V,E>, int, int) 0
 NOT_NULL
@@ -402,6 +448,8 @@ edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 1
 NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 4
+NULLABLE
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> square(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<E>, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations<E>)
 NULLABLE
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> square(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<E>, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations<E>) 0
@@ -424,6 +472,10 @@ edu.uci.ics.jung.algorithms.metrics.TriadicCensus long[] getCounts(edu.uci.ics.j
 NOT_NULL
 edu.uci.ics.jung.algorithms.metrics.TriadicCensus long[] getCounts(edu.uci.ics.jung.graph.DirectedGraph<V,E>) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer java.lang.Number getEdgeWeight(V, E) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.AbstractIterativeScorer java.lang.Number getEdgeWeight(V, E) 1
+NOT_NULL
 edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.scoring.BetweennessCentrality BetweennessCentrality(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Transformer<E,? extends java.lang.Number>) 0
@@ -434,6 +486,12 @@ edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Double ge
 NULLABLE
 edu.uci.ics.jung.algorithms.scoring.DistanceCentralityScorer java.lang.Object getVertexScore(java.lang.Object)
 NULLABLE
+edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality EigenvectorCentrality(edu.uci.ics.jung.graph.Hypergraph<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.EigenvectorCentrality EigenvectorCentrality(edu.uci.ics.jung.graph.Hypergraph<V,E>, org.apache.commons.collections15.Transformer<E,? extends java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph<V,E>, double) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.scoring.HITS HITS(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Transformer<E,java.lang.Double>, double) 0
@@ -502,7 +560,11 @@ edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath edu.uci.ics.jung.a
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath java.util.List<E> getPath(V, V)
 NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData SourcePathData(V) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData java.util.Map.Entry<V,java.lang.Number> getNextVertex()
+NOT_NULL
+edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData this$0
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DistanceStatistics double diameter(edu.uci.ics.jung.graph.Hypergraph<V,E>) 0
 NOT_NULL
@@ -524,6 +586,8 @@ edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningFo
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, java.util.Map<E,java.lang.Double>) 3
 NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, V, java.util.Map<E,java.lang.Double>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, V, java.util.Map<E,java.lang.Double>) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest void updateForest(java.util.Collection<V>, java.util.Collection<E>) 1
@@ -534,6 +598,8 @@ edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningF
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 3
 NULLABLE
+edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.PrimMinimumSpanningTree PrimMinimumSpanningTree(org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1
@@ -594,6 +660,8 @@ edu.uci.ics.jung.algorithms.transformation.FoldingTransformer void populateTarge
 NOT_NULL
 edu.uci.ics.jung.algorithms.transformation.VertexPartitionCollapser edu.uci.ics.jung.graph.Graph<CV,CE> collapseVertexPartitions(edu.uci.ics.jung.algorithms.blockmodel.VertexPartition<V,E>) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.util.BasicMapEntry boolean equals(java.lang.Object) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.util.DiscreteDistribution double KullbackLeibler(double[], double[]) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.util.DiscreteDistribution double KullbackLeibler(double[], double[]) 1
@@ -662,9 +730,11 @@ edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(edu.uci.
 NOT_NULL
 edu.uci.ics.jung.algorithms.util.SelfLoopEdgePredicate boolean evaluate(java.lang.Object) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map<T,? extends java.lang.Number>) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map<T,? extends java.lang.Number>, double) 0
+NOT_NULL
+edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map<T,? extends java.lang.Number>, java.util.Random) 0
+NOT_NULL
 edu.uci.ics.jung.algorithms.util.WeightedChoice WeightedChoice(java.util.Map<T,? extends java.lang.Number>, java.util.Random, double) 0
-NOT_NULL
-edu.uci.ics.jung.algorithms.util.WeightedChoice void enqueueItem(T, double, double, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>) 3
-NOT_NULL
-edu.uci.ics.jung.algorithms.util.WeightedChoice void enqueueItem(T, double, double, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>, java.util.Queue<edu.uci.ics.jung.algorithms.util.WeightedChoice<T>.ItemPair>) 4
 NOT_NULL

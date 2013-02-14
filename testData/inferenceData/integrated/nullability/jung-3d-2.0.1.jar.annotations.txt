@@ -96,12 +96,24 @@ edu.uci.ics.jung.visualization3d.control.PickMouseBehavior void processMouseEven
 NOT_NULL
 edu.uci.ics.jung.visualization3d.control.PickMouseBehavior void processStimulus(java.util.Enumeration) 0
 NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickRotateBehavior PickRotateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickRotateBehavior PickRotateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds, int) 0
+NOT_NULL
 edu.uci.ics.jung.visualization3d.control.PickRotateBehavior void setupCallback(com.sun.j3d.utils.picking.behaviors.PickingCallback) 0
 NULLABLE
 edu.uci.ics.jung.visualization3d.control.PickSphereBehavior PickSphereBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
 NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior PickTranslateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior PickTranslateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds, int) 0
+NOT_NULL
 edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior void setupCallback(com.sun.j3d.utils.picking.behaviors.PickingCallback) 0
 NULLABLE
+edu.uci.ics.jung.visualization3d.control.PickZoomBehavior PickZoomBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickZoomBehavior PickZoomBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds, int) 0
+NOT_NULL
 edu.uci.ics.jung.visualization3d.control.PickZoomBehavior void setupCallback(com.sun.j3d.utils.picking.behaviors.PickingCallback) 0
 NULLABLE
 edu.uci.ics.jung.visualization3d.decorators.PickableVertexPaintTransformer PickableVertexPaintTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo<V>, java.awt.Paint, java.awt.Paint) 0

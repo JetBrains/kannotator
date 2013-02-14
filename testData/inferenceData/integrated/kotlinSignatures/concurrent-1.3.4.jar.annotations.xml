@@ -49,6 +49,11 @@
             <val name="value" val="&quot;fun take() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.BoundedPriorityQueue BoundedPriorityQueue(int, java.util.Comparator, java.lang.Class)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun BoundedPriorityQueue(p0 : Int, p1 : Comparator?, p2 : Class)&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.BoundedPriorityQueue java.lang.Object extract()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun extract() : Any?&quot;"/>
@@ -119,9 +124,19 @@
             <val name="value" val="&quot;fun nextTask() : ClockDaemon.TaskNode?&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Entry boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Entry java.lang.Object setValue(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setValue(p0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.EntrySet boolean contains(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun contains(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.EntrySet java.util.Iterator iterator()'>
@@ -129,9 +144,19 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.EntrySet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.HashIterator HashIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun HashIterator(p0 : ConcurrentHashMap)&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeyIterator KeyIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KeyIterator(p0 : ConcurrentHashMap)&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeySet boolean contains(java.lang.Object)'>
@@ -147,6 +172,11 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.KeySet boolean remove(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.ValueIterator ValueIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ValueIterator(p0 : ConcurrentHashMap)&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap.Values boolean contains(java.lang.Object)'>
@@ -191,12 +221,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.util.Set entrySet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun entrySet() : MutableSet?&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap boolean eq(java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun eq(p0 : Any, p1 : Any?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun entrySet() : MutableSet&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object get(java.lang.Object)'>
@@ -211,7 +236,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.util.Set keySet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun keySet() : MutableSet?&quot;"/>
+            <val name="value" val="&quot;fun keySet() : MutableSet&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.util.Enumeration keys()'>
@@ -226,7 +251,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(p0 : Any?, p1 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : Any, p1 : Any) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap void putAll(java.util.Map)'>
@@ -251,7 +276,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap java.util.Collection values()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun values() : MutableCollection?&quot;"/>
+            <val name="value" val="&quot;fun values() : MutableCollection&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentHashMap void writeObject(java.io.ObjectOutputStream)'>
@@ -259,9 +284,19 @@
             <val name="value" val="&quot;fun writeObject(p0 : ObjectOutputStream) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.Entry boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.Entry java.lang.Object setValue(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setValue(p0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.EntrySet boolean contains(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun contains(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.EntrySet java.util.Iterator iterator()'>
@@ -269,9 +304,19 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.EntrySet boolean remove(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun remove(p0 : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.HashIterator HashIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun HashIterator(p0 : ConcurrentReaderHashMap)&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.KeyIterator KeyIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun KeyIterator(p0 : ConcurrentReaderHashMap)&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.KeySet boolean contains(java.lang.Object)'>
@@ -289,6 +334,11 @@
             <val name="value" val="&quot;fun remove(p0 : Any) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.ValueIterator ValueIterator(EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ValueIterator(p0 : ConcurrentReaderHashMap)&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap.Values boolean contains(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun contains(p0 : Any) : Boolean&quot;"/>
@@ -302,6 +352,11 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap ConcurrentReaderHashMap(java.util.Map)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun ConcurrentReaderHashMap(p0 : Map)&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object clone()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun clone() : Any&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean contains(java.lang.Object)'>
@@ -326,12 +381,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.util.Set entrySet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun entrySet() : MutableSet?&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean eq(java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun eq(p0 : Any, p1 : Any?) : Boolean&quot;"/>
+            <val name="value" val="&quot;fun entrySet() : MutableSet&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap boolean findAndRemoveEntry(java.util.Map.Entry)'>
@@ -351,7 +401,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.util.Set keySet()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun keySet() : MutableSet?&quot;"/>
+            <val name="value" val="&quot;fun keySet() : MutableSet&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.util.Enumeration keys()'>
@@ -361,7 +411,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.lang.Object put(java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun put(p0 : Any?, p1 : Any) : Any?&quot;"/>
+            <val name="value" val="&quot;fun put(p0 : Any, p1 : Any) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap void putAll(java.util.Map)'>
@@ -391,7 +441,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap java.util.Collection values()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun values() : MutableCollection?&quot;"/>
+            <val name="value" val="&quot;fun values() : MutableCollection&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.ConcurrentReaderHashMap void writeObject(java.io.ObjectOutputStream)'>
@@ -429,6 +479,11 @@
             <val name="value" val="&quot;fun CopyOnWriteArrayList(p0 : Array&lt;out Any?&gt;)&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean addAll(int, java.util.Collection)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addAll(p0 : Int, p1 : Collection) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean addAll(java.util.Collection)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
@@ -449,6 +504,16 @@
             <val name="value" val="&quot;fun clone() : Any&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean containsAll(java.util.Collection)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun containsAll(p0 : Collection) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun indexOf(p0 : Any?, p1 : Int) : Int&quot;"/>
@@ -456,7 +521,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, java.lang.Object[], int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOf(p0 : Any?, p1 : Array&lt;out Any?&gt;, p2 : Int) : Int&quot;"/>
+            <val name="value" val="&quot;fun indexOf(p0 : Any?, p1 : Array&lt;out Any?&gt;?, p2 : Int) : Int&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.util.Iterator iterator()'>
@@ -471,7 +536,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int lastIndexOf(java.lang.Object, java.lang.Object[], int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun lastIndexOf(p0 : Any?, p1 : Array&lt;out Any?&gt;, p2 : Int) : Int&quot;"/>
+            <val name="value" val="&quot;fun lastIndexOf(p0 : Any?, p1 : Array&lt;out Any?&gt;?, p2 : Int) : Int&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.util.ListIterator listIterator()'>
@@ -529,6 +594,11 @@
             <val name="value" val="&quot;fun addAll(p0 : Collection) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet boolean containsAll(java.util.Collection)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun containsAll(p0 : Collection) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArraySet java.util.Iterator iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
@@ -569,6 +639,11 @@
             <val name="value" val="&quot;fun extract() : QueuedSemaphore.WaitQueue.WaitNode?&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.FJTask void coInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask, EDU.oswego.cs.dl.util.concurrent.FJTask)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun coInvoke(p0 : FJTask, p1 : FJTask) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTask void coInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun coInvoke(p0 : Array&lt;out FJTask?&gt;) : Unit&quot;"/>
@@ -604,6 +679,11 @@
             <val name="value" val="&quot;fun newArray(p0 : Int) : Array&lt;out FJTaskRunner.VolatileTaskRef?&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void coInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask, EDU.oswego.cs.dl.util.concurrent.FJTask)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun coInvoke(p0 : FJTask, p1 : FJTask) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void coInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun coInvoke(p0 : Array&lt;out FJTask?&gt;) : Unit&quot;"/>
@@ -631,7 +711,7 @@
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void slowCoInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask, EDU.oswego.cs.dl.util.concurrent.FJTask)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun slowCoInvoke(p0 : FJTask?, p1 : FJTask) : Unit&quot;"/>
+            <val name="value" val="&quot;fun slowCoInvoke(p0 : FJTask, p1 : FJTask) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void slowCoInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask[])'>
@@ -642,6 +722,11 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner EDU.oswego.cs.dl.util.concurrent.FJTask take()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun take() : FJTask?&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void taskJoin(EDU.oswego.cs.dl.util.concurrent.FJTask)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun taskJoin(p0 : FJTask) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunnerGroup void checkActive(EDU.oswego.cs.dl.util.concurrent.FJTaskRunner, long)'>
@@ -814,11 +899,6 @@
             <val name="value" val="&quot;fun firePropertyChange(p0 : PropertyChangeEvent) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster void firePropertyChange(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun firePropertyChange(p0 : String?, p1 : Any?, p2 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster getChild(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getChild(p0 : String?) : PropertyChangeMulticaster?&quot;"/>
@@ -939,6 +1019,11 @@
             <val name="value" val="&quot;fun put(p0 : Any) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.Slot Slot(java.lang.Class)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Slot(p0 : Class)&quot;"/>
+        </annotation>
+    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SyncCollection SyncCollection(java.util.Collection, EDU.oswego.cs.dl.util.concurrent.ReadWriteLock)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun SyncCollection(p0 : Collection?, p1 : ReadWriteLock)&quot;"/>
@@ -1034,11 +1119,6 @@
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean boolean swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedBoolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedBoolean) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedByte int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedByte)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compareTo(p0 : SynchronizedByte) : Int&quot;"/>
@@ -1052,11 +1132,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedByte boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedByte byte swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedByte)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedByte) : Byte&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedChar int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedChar)'>
@@ -1074,11 +1149,6 @@
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedChar char swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedChar)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedChar) : Char&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compareTo(p0 : SynchronizedDouble) : Int&quot;"/>
@@ -1092,11 +1162,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble double swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedDouble)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedDouble) : Double&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat)'>
@@ -1114,11 +1179,6 @@
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat float swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedFloat)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedFloat) : Float&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedInt int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedInt)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compareTo(p0 : SynchronizedInt) : Int&quot;"/>
@@ -1132,11 +1192,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedInt boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedInt int swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedInt)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedInt) : Int&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedLong int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedLong)'>
@@ -1154,16 +1209,6 @@
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedLong long swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedLong)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedLong) : Long&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedRef java.lang.Object swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedRef)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedRef) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedShort int compareTo(EDU.oswego.cs.dl.util.concurrent.SynchronizedShort)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compareTo(p0 : SynchronizedShort) : Int&quot;"/>
@@ -1177,11 +1222,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedShort boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedShort short swap(EDU.oswego.cs.dl.util.concurrent.SynchronizedShort)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun swap(p0 : SynchronizedShort) : Short&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.SynchronizedVariable void execute(java.lang.Runnable)'>
@@ -1267,11 +1307,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster void fireVetoableChange(java.beans.PropertyChangeEvent)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun fireVetoableChange(p0 : PropertyChangeEvent) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster void fireVetoableChange(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun fireVetoableChange(p0 : String?, p1 : Any?, p2 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster getChild(java.lang.String)'>
@@ -1837,6 +1872,16 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer javax.swing.JButton access$500(EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun access$500(p0 : SynchronizationTimer) : JButton&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer void access$600(EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer, java.lang.Runnable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$600(p0 : SynchronizationTimer, p1 : Runnable?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer void access$700(EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$700(p0 : SynchronizationTimer) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.misc.SynchronizationTimer javax.swing.JComboBox barrierBox()'>

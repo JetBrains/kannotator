@@ -16,6 +16,12 @@ edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(
 NULLABLE
 edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
+edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.visualization.VisualizationModel<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.visualization.VisualizationModel<V,E>, java.awt.Dimension) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer edu.uci.ics.jung.visualization.RenderContext<V,E> getRenderContext()
@@ -32,14 +38,14 @@ edu.uci.ics.jung.visualization.BasicVisualizationServer void setPickedEdgeState(
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.DefaultVisualizationModel DefaultVisualizationModel(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.DefaultVisualizationModel DefaultVisualizationModel(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.DefaultVisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 1
-NULLABLE
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage)
 NOT_NULL
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage) 0
@@ -71,6 +77,10 @@ NULLABLE
 edu.uci.ics.jung.visualization.FourPassImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath) 3
 NOT_NULL
 edu.uci.ics.jung.visualization.GraphZoomScrollPane GraphZoomScrollPane(edu.uci.ics.jung.visualization.VisualizationViewer) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.GraphZoomScrollPane void access$000(edu.uci.ics.jung.visualization.GraphZoomScrollPane, edu.uci.ics.jung.visualization.VisualizationViewer) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.GraphZoomScrollPane void access$000(edu.uci.ics.jung.visualization.GraphZoomScrollPane, edu.uci.ics.jung.visualization.VisualizationViewer) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.GraphZoomScrollPane void setCorner(javax.swing.JComponent) 0
 NOT_NULL
@@ -172,6 +182,8 @@ edu.uci.ics.jung.visualization.RenderContext.UndirectedEdgeArrowPredicate boolea
 NOT_NULL
 edu.uci.ics.jung.visualization.RenderContext.UndirectedEdgeArrowPredicate boolean evaluate(java.lang.Object) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.VisualizationImageServer VisualizationImageServer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationImageServer java.awt.Image getImage(java.awt.geom.Point2D, java.awt.Dimension)
 NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationImageServer java.awt.Image getImage(java.awt.geom.Point2D, java.awt.Dimension) 1
@@ -180,8 +192,6 @@ edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ic
 NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 1
-NULLABLE
 edu.uci.ics.jung.visualization.VisualizationServer edu.uci.ics.jung.visualization.RenderContext<V,E> getRenderContext()
 NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationServer java.awt.geom.Point2D getCenter()
@@ -193,6 +203,16 @@ NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationServer void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationServer.Paintable void paint(java.awt.Graphics) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.VisualizationViewer VisualizationViewer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.VisualizationViewer VisualizationViewer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.VisualizationViewer VisualizationViewer(edu.uci.ics.jung.visualization.VisualizationModel<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.VisualizationViewer VisualizationViewer(edu.uci.ics.jung.visualization.VisualizationModel<V,E>, java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin AnnotatingGraphMousePlugin(edu.uci.ics.jung.visualization.RenderContext<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin AnnotatingGraphMousePlugin(edu.uci.ics.jung.visualization.RenderContext<V,E>, int, int) 0
 NOT_NULL
@@ -207,6 +227,8 @@ NOT_NULL
 edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin.LensPaintable void paint(java.awt.Graphics) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse AnnotatingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.annotations.AnnotatingModalGraphMouse AnnotatingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.visualization.annotations.AnnotatingGraphMousePlugin<V,E>, float, float) 0
 NOT_NULL
@@ -330,6 +352,8 @@ edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.ArrowPaintable vo
 NOT_NULL
 edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.EdgePaintable void paint(java.awt.Graphics) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.control.EditingModalGraphMouse EditingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext<V,E>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.control.EditingModalGraphMouse EditingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext<V,E>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, float, float) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.EditingModalGraphMouse.1 void itemStateChanged(java.awt.event.ItemEvent) 0
@@ -354,6 +378,8 @@ edu.uci.ics.jung.visualization.control.LayoutScalingControl void scale(edu.uci.i
 NOT_NULL
 edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin void changeMagnification(edu.uci.ics.jung.visualization.transform.MutableTransformer, float) 0
+NULLABLE
 edu.uci.ics.jung.visualization.control.LensMagnificationGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
@@ -362,6 +388,12 @@ edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void mous
 NOT_NULL
 edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void setViewCenter(edu.uci.ics.jung.visualization.transform.MutableTransformer, java.awt.geom.Point2D) 0
+NULLABLE
+edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void setViewRadius(edu.uci.ics.jung.visualization.transform.MutableTransformer, java.awt.geom.Point2D) 0
+NULLABLE
+edu.uci.ics.jung.visualization.control.LensTranslatingGraphMousePlugin void testViewCenter(edu.uci.ics.jung.visualization.transform.MutableTransformer, java.awt.geom.Point2D) 0
+NULLABLE
 edu.uci.ics.jung.visualization.control.ModalGraphMouse.Mode $VALUES
 NOT_NULL
 edu.uci.ics.jung.visualization.control.ModalGraphMouse.Mode ANNOTATING
@@ -398,6 +430,10 @@ edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin void pickContaine
 NOT_NULL
 edu.uci.ics.jung.visualization.control.PickingGraphMousePlugin.LensPaintable void paint(java.awt.Graphics) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.control.PluggableGraphMouse void add(edu.uci.ics.jung.visualization.control.GraphMousePlugin) 0
+NULLABLE
+edu.uci.ics.jung.visualization.control.PluggableGraphMouse void remove(edu.uci.ics.jung.visualization.control.GraphMousePlugin) 0
+NULLABLE
 edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin double angleBetween(java.awt.geom.Point2D, java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin double angleBetween(java.awt.geom.Point2D, java.awt.geom.Point2D) 1
@@ -420,7 +456,13 @@ edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin void
 NOT_NULL
 edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.VisualizationModel<V,E>) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.VisualizationModel<V,E>) 1
+NOT_NULL
 edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.VisualizationModel<V,E>, java.awt.Dimension) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.VisualizationModel<V,E>, java.awt.Dimension) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVisualizationViewer(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, java.awt.Dimension) 0
 NOT_NULL
@@ -522,6 +564,8 @@ edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.
 NOT_NULL
 edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 1
 NOT_NULL
+edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 2
+NULLABLE
 edu.uci.ics.jung.visualization.layout.PersistentLayout.Point Point(java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension) 1
@@ -614,13 +658,9 @@ edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 0
-NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getFirstOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape)
-NOT_NULL
-edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.Line2D getLastOutsideSegment(java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
@@ -641,8 +681,6 @@ NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeRenderer void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 1
-NOT_NULL
-edu.uci.ics.jung.visualization.renderers.BasicRenderer void render(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicRenderer void renderEdgeLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
@@ -693,8 +731,6 @@ NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape, boolean)
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
-NOT_NULL
-edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport void subdivide(java.awt.geom.Line2D, java.awt.geom.Line2D, java.awt.geom.Line2D) 0
 NOT_NULL
@@ -747,8 +783,6 @@ NOT_NULL
 edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 1
-NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer void render(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer void renderEdgeLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
@@ -914,6 +948,10 @@ edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.
 NULLABLE
 edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
+edu.uci.ics.jung.visualization.transform.HyperbolicTransformer HyperbolicTransformer(java.awt.Component) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.HyperbolicTransformer HyperbolicTransformer(java.awt.Component, edu.uci.ics.jung.visualization.transform.MutableTransformer) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.transform.HyperbolicTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.HyperbolicTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)
@@ -946,11 +984,19 @@ edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D t
 NULLABLE
 edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
+edu.uci.ics.jung.visualization.transform.LensTransformer void access$000(edu.uci.ics.jung.visualization.transform.LensTransformer, java.awt.Component) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.LensTransformer void access$000(edu.uci.ics.jung.visualization.transform.LensTransformer, java.awt.Component) 1
+NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer void setComponent(java.awt.Component) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer void setViewCenter(java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer.ComponentListenerImpl void componentResized(java.awt.event.ComponentEvent) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.MagnifyTransformer MagnifyTransformer(java.awt.Component) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.MagnifyTransformer MagnifyTransformer(java.awt.Component, edu.uci.ics.jung.visualization.transform.MutableTransformer) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.MagnifyTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
@@ -1010,8 +1056,10 @@ edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(java.
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 2
-NULLABLE
+edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer HyperbolicShapeTransformer(java.awt.Component) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer HyperbolicShapeTransformer(java.awt.Component, edu.uci.ics.jung.visualization.transform.MutableTransformer) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.HyperbolicShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
@@ -1036,13 +1084,17 @@ edu.uci.ics.jung.visualization.transform.shape.Intersector void intersectLine(ja
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 2
-NULLABLE
+edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport instructions
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer MagnifyShapeTransformer(java.awt.Component) 0
+NOT_NULL
+edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer MagnifyShapeTransformer(java.awt.Component, edu.uci.ics.jung.visualization.transform.MutableTransformer) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL

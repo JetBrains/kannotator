@@ -1,4 +1,14 @@
 <root>
+    <item name='junit.extensions.ActiveTestSuite ActiveTestSuite(java.lang.Class&lt;? extends junit.framework.TestCase&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ActiveTestSuite(theClass : Class&lt;out TestCase?&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.extensions.ActiveTestSuite ActiveTestSuite(java.lang.Class&lt;? extends junit.framework.TestCase&gt;, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ActiveTestSuite(theClass : Class&lt;out TestCase?&gt;, name : String?)&quot;"/>
+        </annotation>
+    </item>
     <item name='junit.extensions.ActiveTestSuite void run(junit.framework.TestResult)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun run(p0 : TestResult) : Unit&quot;"/>
@@ -29,14 +39,9 @@
             <val name="value" val="&quot;fun assertEquals(message : String?, expected : Any?, actual : Any?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='junit.framework.Assert void assertEquals(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertEquals(expected : String, actual : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertEquals(message : String?, expected : String, actual : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun assertEquals(message : String?, expected : String?, actual : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='junit.framework.Assert void assertNotNull(java.lang.String, java.lang.Object)'>
@@ -66,7 +71,7 @@
     </item>
     <item name='junit.framework.AssertionFailedError java.lang.String defaultString(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun defaultString(message : String?) : String?&quot;"/>
+            <val name="value" val="&quot;fun defaultString(message : String?) : String&quot;"/>
         </annotation>
     </item>
     <item name='junit.framework.ComparisonCompactor java.lang.String compactString(java.lang.String)'>
@@ -169,6 +174,16 @@
             <val name="value" val="&quot;fun run(result : TestResult) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='junit.framework.TestListener void addError(junit.framework.Test, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addError(p0 : Test, p1 : Throwable?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.framework.TestListener void addFailure(junit.framework.Test, junit.framework.AssertionFailedError)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addFailure(p0 : Test, p1 : AssertionFailedError?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='junit.framework.TestListener void endTest(junit.framework.Test)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun endTest(p0 : Test) : Unit&quot;"/>
@@ -189,14 +204,19 @@
             <val name="value" val="&quot;fun run(test : TestCase) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='junit.framework.TestResult void runProtected(junit.framework.Test, junit.framework.Protectable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun runProtected(test : Test?, p : Protectable) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='junit.framework.TestResult void startTest(junit.framework.Test)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun startTest(test : Test) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.framework.TestSuite TestSuite(java.lang.Class&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TestSuite(theClass : Class&lt;*&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.framework.TestSuite TestSuite(java.lang.Class&lt;? extends junit.framework.TestCase&gt;, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TestSuite(theClass : Class&lt;out TestCase?&gt;, name : String?)&quot;"/>
         </annotation>
     </item>
     <item name='junit.framework.TestSuite TestSuite(java.lang.Class&lt;?&gt;...)'>
@@ -204,9 +224,19 @@
             <val name="value" val="&quot;fun TestSuite(vararg classes : Class&lt;*&gt;)&quot;"/>
         </annotation>
     </item>
+    <item name='junit.framework.TestSuite TestSuite(java.lang.Class&lt;? extends junit.framework.TestCase&gt;[], java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun TestSuite(classes : Array&lt;out Class&lt;out TestCase?&gt;?&gt;, name : String?)&quot;"/>
+        </annotation>
+    </item>
     <item name='junit.framework.TestSuite void addTestMethod(java.lang.reflect.Method, java.util.List&lt;java.lang.String&gt;, java.lang.Class&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addTestMethod(m : Method, names : MutableList&lt;String?&gt;, theClass : Class&lt;*&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.framework.TestSuite void addTestSuite(java.lang.Class&lt;? extends junit.framework.TestCase&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addTestSuite(testClass : Class&lt;out TestCase?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='junit.framework.TestSuite void addTestsFromTestCase(java.lang.Class&lt;?&gt;)'>
@@ -259,6 +289,16 @@
             <val name="value" val="&quot;fun warning(message : String?) : Test&quot;"/>
         </annotation>
     </item>
+    <item name='junit.runner.BaseTestRunner void addError(junit.framework.Test, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addError(p0 : Test, p1 : Throwable?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.runner.BaseTestRunner void addFailure(junit.framework.Test, junit.framework.AssertionFailedError)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addFailure(p0 : Test, p1 : AssertionFailedError?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='junit.runner.BaseTestRunner void endTest(junit.framework.Test)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun endTest(test : Test) : Unit&quot;"/>
@@ -294,14 +334,19 @@
             <val name="value" val="&quot;fun startTest(test : Test) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='junit.runner.BaseTestRunner java.lang.String truncate(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun truncate(s : String) : String?&quot;"/>
-        </annotation>
-    </item>
     <item name='junit.runner.Version java.lang.String id()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun id() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.textui.ResultPrinter void addError(junit.framework.Test, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addError(p0 : Test, p1 : Throwable?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='junit.textui.ResultPrinter void addFailure(junit.framework.Test, junit.framework.AssertionFailedError)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addFailure(p0 : Test, p1 : AssertionFailedError?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='junit.textui.ResultPrinter void endTest(junit.framework.Test)'>
@@ -364,9 +409,9 @@
             <val name="value" val="&quot;fun doRun(suite : Test, wait : Boolean) : TestResult&quot;"/>
         </annotation>
     </item>
-    <item name='junit.textui.TestRunner void main(java.lang.String[])'>
+    <item name='junit.textui.TestRunner void run(java.lang.Class&lt;? extends junit.framework.TestCase&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun main(args : Array&lt;out String?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun run(testClass : Class&lt;out TestCase?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='junit.textui.TestRunner junit.framework.TestResult run(junit.framework.Test)'>
@@ -401,7 +446,7 @@
     </item>
     <item name='org.hamcrest.BaseDescription org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable&lt;? extends org.hamcrest.SelfDescribing&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun appendList(start : String?, separator : String?, end : String?, values : Iterable&lt;out SelfDescribing?&gt;) : Description&quot;"/>
+            <val name="value" val="&quot;fun appendList(start : String, separator : String?, end : String, values : Iterable&lt;out SelfDescribing?&gt;) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.BaseDescription org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.util.Iterator&lt;? extends org.hamcrest.SelfDescribing&gt;)'>
@@ -421,17 +466,17 @@
     </item>
     <item name='org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable&lt;T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(start : String?, separator : String?, end : String?, values : Iterable&lt;T&gt;) : Description&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(start : String, separator : String?, end : String, values : Iterable&lt;T&gt;) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.util.Iterator&lt;T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(start : String?, separator : String?, end : String?, values : Iterator&lt;T&gt;?) : Description&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(start : String, separator : String?, end : String, values : Iterator&lt;T&gt;?) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(start : String?, separator : String?, end : String?, vararg values : T?) : Description&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(start : String, separator : String?, end : String, vararg values : T?) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.BaseDescription void toJavaSyntax(java.lang.String)'>
@@ -476,7 +521,7 @@
     </item>
     <item name='org.hamcrest.CoreMatchers org.hamcrest.Matcher&lt;T&gt; describedAs(java.lang.String, org.hamcrest.Matcher&lt;T&gt;, java.lang.Object...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; describedAs(description : String?, matcher : Matcher&lt;T&gt;?, vararg values : Any?) : Matcher&lt;T&gt;&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; describedAs(description : String?, matcher : Matcher&lt;T&gt;?, vararg values : Any) : Matcher&lt;T&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.CoreMatchers org.hamcrest.Matcher&lt;T&gt; equalTo(T)'>
@@ -546,7 +591,7 @@
     </item>
     <item name='org.hamcrest.Description org.hamcrest.Description appendList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable&lt;? extends org.hamcrest.SelfDescribing&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun appendList(p0 : String?, p1 : String?, p2 : String?, p3 : Iterable&lt;out SelfDescribing?&gt;) : Description&quot;"/>
+            <val name="value" val="&quot;fun appendList(p0 : String, p1 : String?, p2 : String, p3 : Iterable&lt;out SelfDescribing?&gt;) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.Description org.hamcrest.Description appendText(java.lang.String)'>
@@ -561,12 +606,12 @@
     </item>
     <item name='org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, java.lang.Iterable&lt;T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(p0 : String?, p1 : String?, p2 : String?, p3 : Iterable&lt;T&gt;) : Description&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(p0 : String, p1 : String?, p2 : String, p3 : Iterable&lt;T&gt;) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(p0 : String?, p1 : String?, p2 : String?, vararg p3 : T?) : Description&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; appendValueList(p0 : String, p1 : String?, p2 : String, vararg p3 : T?) : Description&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.Matcher boolean matches(java.lang.Object)'>
@@ -636,7 +681,7 @@
     </item>
     <item name='org.hamcrest.core.DescribedAs org.hamcrest.Matcher&lt;T&gt; describedAs(java.lang.String, org.hamcrest.Matcher&lt;T&gt;, java.lang.Object...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; describedAs(description : String?, matcher : Matcher&lt;T&gt;?, vararg values : Any?) : Matcher&lt;T&gt;&quot;"/>
+            <val name="value" val="&quot;fun &lt;T&gt; describedAs(description : String?, matcher : Matcher&lt;T&gt;?, vararg values : Any) : Matcher&lt;T&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.hamcrest.core.DescribedAs boolean matches(java.lang.Object)'>
@@ -874,6 +919,11 @@
             <val name="value" val="&quot;fun &lt;T&gt; assumeThat(actual : T?, matcher : Matcher&lt;T&gt;) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.ComparisonFailure.ComparisonCompactor java.lang.String access$000(org.junit.ComparisonFailure.ComparisonCompactor, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : ComparisonFailure.ComparisonCompactor, x1 : String?) : String?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.ComparisonFailure.ComparisonCompactor java.lang.String compactString(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compactString(source : String) : String?&quot;"/>
@@ -896,7 +946,12 @@
     </item>
     <item name='org.junit.experimental.ParallelComputer org.junit.runner.Runner getRunner(org.junit.runners.model.RunnerBuilder, java.lang.Class&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getRunner(p0 : RunnerBuilder, p1 : Class&lt;*&gt;?) : Runner?&quot;"/>
+            <val name="value" val="&quot;fun getRunner(builder : RunnerBuilder, testClass : Class&lt;*&gt;?) : Runner?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.experimental.ParallelComputer org.junit.runner.Runner getSuite(org.junit.runners.model.RunnerBuilder, java.lang.Class&lt;?&gt;[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getSuite(builder : RunnerBuilder?, classes : Array&lt;out Class&lt;*&gt;?&gt;) : Runner?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.ParallelComputer org.junit.runner.Computer methods()'>
@@ -904,14 +959,24 @@
             <val name="value" val="&quot;fun methods() : Computer&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.experimental.ParallelComputer org.junit.runner.Runner parallelize(org.junit.runner.Runner)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; parallelize(runner : Runner?) : Runner?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.experimental.categories.Categories.CategoryFilter java.util.List&lt;java.lang.Class&lt;?&gt;&gt; categories(org.junit.runner.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun categories(description : Description?) : MutableList&lt;Class&lt;*&gt;?&gt;&quot;"/>
+            <val name="value" val="&quot;fun categories(description : Description) : MutableList&lt;Class&lt;*&gt;?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.categories.Categories.CategoryFilter java.lang.Class&lt;?&gt;[] directCategories(org.junit.runner.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun directCategories(description : Description?) : Array&lt;out Class&lt;*&gt;?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.experimental.categories.Categories.CategoryFilter boolean hasCorrectCategoryAnnotation(org.junit.runner.Description)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun hasCorrectCategoryAnnotation(description : Description) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.categories.Categories.CategoryFilter org.junit.experimental.categories.Categories.CategoryFilter include(java.lang.Class&lt;?&gt;)'>
@@ -927,6 +992,11 @@
     <item name='org.junit.experimental.categories.Categories.CategoryFilter boolean shouldRun(org.junit.runner.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun shouldRun(description : Description) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.experimental.categories.Categories Categories(java.lang.Class&lt;?&gt;, org.junit.runners.model.RunnerBuilder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Categories(klass : Class&lt;*&gt;, builder : RunnerBuilder)&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.categories.Categories void assertNoCategorizedDescendentsOfUncategorizeableParents(org.junit.runner.Description)'>
@@ -991,7 +1061,7 @@
     </item>
     <item name='org.junit.experimental.max.MaxCore java.lang.Class&lt;?&gt; getMalformedTestClass(org.junit.runner.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getMalformedTestClass(each : Description) : Class&lt;*&gt;?&quot;"/>
+            <val name="value" val="&quot;fun getMalformedTestClass(each : Description?) : Class&lt;*&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxCore org.junit.runner.Result run(java.lang.Class&lt;?&gt;)'>
@@ -1001,27 +1071,27 @@
     </item>
     <item name='org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun run(request : Request?) : Result&quot;"/>
+            <val name="value" val="&quot;fun run(request : Request) : Result&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxCore org.junit.runner.Result run(org.junit.runner.Request, org.junit.runner.JUnitCore)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun run(request : Request?, core : JUnitCore) : Result&quot;"/>
+            <val name="value" val="&quot;fun run(request : Request, core : JUnitCore) : Result&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxCore org.junit.runner.Request sortRequest(org.junit.runner.Request)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sortRequest(request : Request?) : Request&quot;"/>
+            <val name="value" val="&quot;fun sortRequest(request : Request) : Request&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxCore java.util.List&lt;org.junit.runner.Description&gt; sortedLeavesForTest(org.junit.runner.Request)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sortedLeavesForTest(request : Request?) : MutableList&lt;Description?&gt;&quot;"/>
+            <val name="value" val="&quot;fun sortedLeavesForTest(request : Request) : MutableList&lt;Description?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxCore org.junit.experimental.max.MaxCore storedLocally(java.io.File)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun storedLocally(storedResults : File?) : MaxCore&quot;"/>
+            <val name="value" val="&quot;fun storedLocally(storedResults : File) : MaxCore&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxHistory.RememberingListener void testFailure(org.junit.runner.notification.Failure)'>
@@ -1057,6 +1127,11 @@
     <item name='org.junit.experimental.max.MaxHistory.TestComparator java.lang.Long getFailure(org.junit.runner.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getFailure(key : Description) : Long?&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.experimental.max.MaxHistory void access$000(org.junit.experimental.max.MaxHistory)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : MaxHistory) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.max.MaxHistory org.junit.experimental.max.MaxHistory forFolder(java.io.File)'>
@@ -1171,7 +1246,7 @@
     </item>
     <item name='org.junit.experimental.runners.Enclosed Enclosed(java.lang.Class&lt;?&gt;, org.junit.runners.model.RunnerBuilder)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun Enclosed(klass : Class&lt;*&gt;, builder : RunnerBuilder?)&quot;"/>
+            <val name="value" val="&quot;fun Enclosed(klass : Class&lt;*&gt;, builder : RunnerBuilder)&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.theories.ParameterSignature boolean canAcceptArrayType(java.lang.Class&lt;?&gt;)'>
@@ -1186,7 +1261,7 @@
     </item>
     <item name='org.junit.experimental.theories.ParameterSignature T findDeepAnnotation(java.lang.annotation.Annotation[], java.lang.Class&lt;T&gt;, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T : Annotation?&gt; findDeepAnnotation(annotations : Array&lt;out Annotation?&gt;, annotationType : Class&lt;T&gt;?, depth : Int) : T?&quot;"/>
+            <val name="value" val="&quot;fun &lt;T : Annotation?&gt; findDeepAnnotation(annotations : Array&lt;out Annotation?&gt;?, annotationType : Class&lt;T&gt;?, depth : Int) : T?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.theories.ParameterSignature T getAnnotation(java.lang.Class&lt;T&gt;)'>
@@ -1221,7 +1296,7 @@
     </item>
     <item name='org.junit.experimental.theories.Theories.TheoryAnchor.1 void collectInitializationErrors(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun collectInitializationErrors(p0 : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun collectInitializationErrors(p0 : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.theories.Theories.TheoryAnchor.1 org.junit.runners.model.Statement methodBlock(org.junit.runners.model.FrameworkMethod)'>
@@ -1234,9 +1309,14 @@
             <val name="value" val="&quot;fun methodInvoker(method : FrameworkMethod?, test : Any?) : Statement&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.experimental.theories.Theories.TheoryAnchor boolean access$000(org.junit.experimental.theories.Theories.TheoryAnchor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : Theories.TheoryAnchor) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.experimental.theories.Theories.TheoryAnchor org.junit.runners.model.Statement access$100(org.junit.experimental.theories.Theories.TheoryAnchor, org.junit.runners.model.FrameworkMethod, org.junit.experimental.theories.internal.Assignments, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun access$100(x0 : Theories.TheoryAnchor?, x1 : FrameworkMethod?, x2 : Assignments?, x3 : Any?) : Statement&quot;"/>
+            <val name="value" val="&quot;fun access$100(x0 : Theories.TheoryAnchor, x1 : FrameworkMethod?, x2 : Assignments?, x3 : Any?) : Statement&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.theories.Theories.TheoryAnchor org.junit.runners.model.Statement methodCompletesWithParameters(org.junit.runners.model.FrameworkMethod, org.junit.experimental.theories.internal.Assignments, java.lang.Object)'>
@@ -1256,7 +1336,7 @@
     </item>
     <item name='org.junit.experimental.theories.Theories void collectInitializationErrors(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun collectInitializationErrors(p0 : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun collectInitializationErrors(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.theories.Theories java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt; computeTestMethods()'>
@@ -1271,7 +1351,7 @@
     </item>
     <item name='org.junit.experimental.theories.Theories void validateConstructor(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateConstructor(p0 : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun validateConstructor(p0 : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.experimental.theories.Theories void validateDataPointFields(java.util.List&lt;java.lang.Throwable&gt;)'>
@@ -1374,6 +1454,11 @@
             <val name="value" val="&quot;fun getValueSources(sig : ParameterSignature) : MutableList&lt;PotentialAssignment?&gt;&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.internal.AssumptionViolatedException AssumptionViolatedException(java.lang.Object, org.hamcrest.Matcher&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AssumptionViolatedException(value : Any?, matcher : Matcher&lt;*&gt;?)&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.internal.AssumptionViolatedException void describeTo(org.hamcrest.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun describeTo(description : Description) : Unit&quot;"/>
@@ -1382,11 +1467,6 @@
     <item name='org.junit.internal.ComparisonCriteria void arrayEquals(java.lang.String, java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun arrayEquals(message : String?, expecteds : Any?, actuals : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.internal.ComparisonCriteria int assertArraysAreSameLength(java.lang.Object, java.lang.Object, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertArraysAreSameLength(expecteds : Any?, actuals : Any?, header : String?) : Int&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.ComparisonCriteria void assertElementsEqual(java.lang.Object, java.lang.Object)'>
@@ -1512,11 +1592,6 @@
     <item name='org.junit.internal.builders.NullBuilder org.junit.runner.Runner runnerForClass(java.lang.Class&lt;?&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun runnerForClass(each : Class&lt;*&gt;) : Runner?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.internal.builders.SuiteMethodBuilder boolean hasSuiteMethod(java.lang.Class&lt;?&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun hasSuiteMethod(testClass : Class&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.builders.SuiteMethodBuilder org.junit.runner.Runner runnerForClass(java.lang.Class&lt;?&gt;)'>
@@ -1654,6 +1729,11 @@
             <val name="value" val="&quot;fun describeCause(child : Throwable?) : Description&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.internal.runners.ErrorReportingRunner java.util.List&lt;java.lang.Throwable&gt; getCauses(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getCauses(cause : Throwable?) : MutableList&lt;Throwable?&gt;?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.internal.runners.ErrorReportingRunner org.junit.runner.Description getDescription()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getDescription() : Description&quot;"/>
@@ -1669,9 +1749,24 @@
             <val name="value" val="&quot;fun runCause(child : Throwable?, notifier : RunNotifier) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void addError(junit.framework.Test, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addError(test : Test, t : Throwable?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void addFailure(junit.framework.Test, junit.framework.AssertionFailedError)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addFailure(test : Test, t : AssertionFailedError?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener org.junit.runner.Description asDescription(junit.framework.Test)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun asDescription(test : Test) : Description?&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void endTest(junit.framework.Test)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun endTest(p0 : Test) : Unit&quot;"/>
+            <val name="value" val="&quot;fun endTest(test : Test) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener java.lang.Class&lt;? extends junit.framework.Test&gt; getEffectiveClass(junit.framework.Test)'>
@@ -1686,7 +1781,7 @@
     </item>
     <item name='org.junit.internal.runners.JUnit38ClassRunner.OldTestClassAdaptingListener void startTest(junit.framework.Test)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun startTest(p0 : Test) : Unit&quot;"/>
+            <val name="value" val="&quot;fun startTest(test : Test) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.JUnit38ClassRunner JUnit38ClassRunner(java.lang.Class&lt;?&gt;)'>
@@ -1794,14 +1889,14 @@
             <val name="value" val="&quot;fun call() : Any?&quot;"/>
         </annotation>
     </item>
-    <item name='org.junit.internal.runners.MethodRoadie void runBeforesThenTestThenAfters(java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun runBeforesThenTestThenAfters(test : Runnable) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.junit.internal.runners.MethodValidator java.util.List&lt;java.lang.Throwable&gt; validateMethodsForDefaultRunner()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateMethodsForDefaultRunner() : MutableList&lt;Throwable?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.internal.runners.MethodValidator void validateTestMethods(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun validateTestMethods(annotation : Class&lt;out Annotation?&gt;, isStatic : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.SuiteMethod SuiteMethod(java.lang.Class&lt;?&gt;)'>
@@ -1821,7 +1916,7 @@
     </item>
     <item name='org.junit.internal.runners.TestClass java.util.List&lt;java.lang.reflect.Method&gt; getAnnotatedMethods(java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getAnnotatedMethods(annotationClass : Class&lt;out Annotation?&gt;?) : MutableList&lt;Method?&gt;&quot;"/>
+            <val name="value" val="&quot;fun getAnnotatedMethods(annotationClass : Class&lt;out Annotation?&gt;) : MutableList&lt;Method?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.TestClass java.util.List&lt;java.lang.reflect.Method&gt; getBefores()'>
@@ -1874,6 +1969,11 @@
             <val name="value" val="&quot;fun isUnexpected(exception : Throwable) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.internal.runners.model.EachTestNotifier void addFailure(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addFailure(targetException : Throwable?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.internal.runners.model.EachTestNotifier void addMultipleFailureException(org.junit.runners.model.MultipleFailureException)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addMultipleFailureException(mfe : MultipleFailureException) : Unit&quot;"/>
@@ -1906,7 +2006,7 @@
     </item>
     <item name='org.junit.internal.runners.rules.RuleFieldValidator void validateField(org.junit.runners.model.FrameworkField, java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateField(field : FrameworkField?, errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun validateField(field : FrameworkField, errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.rules.RuleFieldValidator void validatePublic(org.junit.runners.model.FrameworkField, java.util.List&lt;java.lang.Throwable&gt;)'>
@@ -1916,7 +2016,7 @@
     </item>
     <item name='org.junit.internal.runners.rules.RuleFieldValidator void validateTestRuleOrMethodRule(org.junit.runners.model.FrameworkField, java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateTestRuleOrMethodRule(field : FrameworkField?, errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun validateTestRuleOrMethodRule(field : FrameworkField, errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.statements.FailOnTimeout.StatementThread boolean access$000(org.junit.internal.runners.statements.FailOnTimeout.StatementThread)'>
@@ -1981,7 +2081,7 @@
     </item>
     <item name='org.junit.rules.ErrorCollector java.lang.Object checkSucceeds(java.util.concurrent.Callable&lt;java.lang.Object&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkSucceeds(callable : Callable&lt;Any?&gt;) : Any?&quot;"/>
+            <val name="value" val="&quot;fun checkSucceeds(callable : Callable&lt;Any?&gt;?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.rules.ExpectedException.1 void describeTo(org.hamcrest.Description)'>
@@ -2126,7 +2226,7 @@
     </item>
     <item name='org.junit.runner.Computer org.junit.runner.Runner getSuite(org.junit.runners.model.RunnerBuilder, java.lang.Class&lt;?&gt;[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getSuite(builder : RunnerBuilder?, classes : Array&lt;out Class&lt;*&gt;?&gt;?) : Runner&quot;"/>
+            <val name="value" val="&quot;fun getSuite(builder : RunnerBuilder?, classes : Array&lt;out Class&lt;*&gt;?&gt;) : Runner?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.Computer org.junit.runner.Computer serial()'>
@@ -2162,6 +2262,11 @@
     <item name='org.junit.runner.Description org.junit.runner.Description createTestDescription(java.lang.Class&lt;?&gt;, java.lang.String, java.lang.annotation.Annotation...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createTestDescription(clazz : Class&lt;*&gt;, name : String?, vararg annotations : Annotation?) : Description&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.runner.Description boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(obj : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.Description T getAnnotation(java.lang.Class&lt;T&gt;)'>
@@ -2211,7 +2316,7 @@
     </item>
     <item name='org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Computer, java.lang.Class&lt;?&gt;...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun run(computer : Computer, vararg classes : Class&lt;*&gt;?) : Result&quot;"/>
+            <val name="value" val="&quot;fun run(computer : Computer, vararg classes : Class&lt;*&gt;) : Result&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.JUnitCore org.junit.runner.Result run(org.junit.runner.Request)'>
@@ -2226,17 +2331,17 @@
     </item>
     <item name='org.junit.runner.JUnitCore org.junit.runner.Result run(java.lang.Class&lt;?&gt;...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun run(vararg classes : Class&lt;*&gt;?) : Result&quot;"/>
+            <val name="value" val="&quot;fun run(vararg classes : Class&lt;*&gt;) : Result&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.JUnitCore org.junit.runner.Result runClasses(org.junit.runner.Computer, java.lang.Class&lt;?&gt;...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun runClasses(computer : Computer, vararg classes : Class&lt;*&gt;?) : Result&quot;"/>
+            <val name="value" val="&quot;fun runClasses(computer : Computer, vararg classes : Class&lt;*&gt;) : Result&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.JUnitCore org.junit.runner.Result runClasses(java.lang.Class&lt;?&gt;...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun runClasses(vararg classes : Class&lt;*&gt;?) : Result&quot;"/>
+            <val name="value" val="&quot;fun runClasses(vararg classes : Class&lt;*&gt;) : Result&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.JUnitCore org.junit.runner.Result runMain(org.junit.internal.JUnitSystem, java.lang.String...)'>
@@ -2261,12 +2366,12 @@
     </item>
     <item name='org.junit.runner.Request org.junit.runner.Request classes(org.junit.runner.Computer, java.lang.Class&lt;?&gt;...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun classes(computer : Computer, vararg classes : Class&lt;*&gt;?) : Request&quot;"/>
+            <val name="value" val="&quot;fun classes(computer : Computer, vararg classes : Class&lt;*&gt;) : Request&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.Request org.junit.runner.Request classes(java.lang.Class&lt;?&gt;...)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun classes(vararg classes : Class&lt;*&gt;?) : Request&quot;"/>
+            <val name="value" val="&quot;fun classes(vararg classes : Class&lt;*&gt;) : Request&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.Request org.junit.runner.Request errorReport(java.lang.Class&lt;?&gt;, java.lang.Throwable)'>
@@ -2364,6 +2469,11 @@
             <val name="value" val="&quot;fun run(p0 : RunNotifier) : Unit&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.runner.manipulation.Filter.1 void apply(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun apply(p0 : Any?) : Unit&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.runner.manipulation.Filter.1 java.lang.String describe()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun describe() : String&quot;"/>
@@ -2382,6 +2492,11 @@
     <item name='org.junit.runner.manipulation.Filter.3 boolean shouldRun(org.junit.runner.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun shouldRun(p0 : Description) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.runner.manipulation.Filter void apply(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun apply(child : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.manipulation.Filter java.lang.String describe()'>
@@ -2412,6 +2527,11 @@
     <item name='org.junit.runner.manipulation.Sortable void sort(org.junit.runner.manipulation.Sorter)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun sort(p0 : Sorter) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.runner.manipulation.Sorter void apply(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun apply(object : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runner.notification.RunListener void testFailure(org.junit.runner.notification.Failure)'>
@@ -2479,9 +2599,14 @@
             <val name="value" val="&quot;fun access$000(x0 : RunNotifier) : MutableList?&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.runners.AllTests AllTests(java.lang.Class&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AllTests(klass : Class&lt;*&gt;)&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.runners.BlockJUnit4ClassRunner void collectInitializationErrors(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun collectInitializationErrors(errors : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun collectInitializationErrors(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.BlockJUnit4ClassRunner java.util.List&lt;org.junit.runners.model.FrameworkMethod&gt; computeTestMethods()'>
@@ -2556,7 +2681,7 @@
     </item>
     <item name='org.junit.runners.BlockJUnit4ClassRunner void validateConstructor(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateConstructor(errors : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun validateConstructor(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.BlockJUnit4ClassRunner void validateFields(java.util.List&lt;java.lang.Throwable&gt;)'>
@@ -2576,7 +2701,7 @@
     </item>
     <item name='org.junit.runners.BlockJUnit4ClassRunner void validateOnlyOneConstructor(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateOnlyOneConstructor(errors : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun validateOnlyOneConstructor(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.BlockJUnit4ClassRunner void validateTestMethods(java.util.List&lt;java.lang.Throwable&gt;)'>
@@ -2606,17 +2731,22 @@
     </item>
     <item name='org.junit.runners.Parameterized.TestClassRunnerForParameters void validateConstructor(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun validateConstructor(p0 : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun validateConstructor(p0 : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.Parameterized org.junit.runners.model.FrameworkMethod access$000(org.junit.runners.Parameterized, org.junit.runners.model.TestClass)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun access$000(x0 : Parameterized?, x1 : TestClass?) : FrameworkMethod&quot;"/>
+            <val name="value" val="&quot;fun access$000(x0 : Parameterized, x1 : TestClass) : FrameworkMethod&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.Parameterized java.util.List&lt;org.junit.runner.Runner&gt; getChildren()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getChildren() : MutableList&lt;Runner?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.runners.Parameterized java.util.List&lt;java.lang.Object[]&gt; getParametersList(org.junit.runners.model.TestClass)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParametersList(klass : TestClass) : MutableList&lt;Array&lt;out Any?&gt;?&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.Parameterized org.junit.runners.model.FrameworkMethod getParametersMethod(org.junit.runners.model.TestClass)'>
@@ -2627,6 +2757,11 @@
     <item name='org.junit.runners.ParentRunner.1 void schedule(java.lang.Runnable)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun schedule(childStatement : Runnable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.runners.ParentRunner void access$000(org.junit.runners.ParentRunner, org.junit.runner.notification.RunNotifier)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : ParentRunner, x1 : RunNotifier?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.ParentRunner org.junit.runner.manipulation.Sorter access$100(org.junit.runners.ParentRunner)'>
@@ -2646,7 +2781,7 @@
     </item>
     <item name='org.junit.runners.ParentRunner void collectInitializationErrors(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun collectInitializationErrors(p0 : MutableList&lt;Throwable?&gt;) : Unit&quot;"/>
+            <val name="value" val="&quot;fun collectInitializationErrors(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.ParentRunner java.util.Comparator&lt;? super T&gt; comparator()'>
@@ -2716,17 +2851,22 @@
     </item>
     <item name='org.junit.runners.Suite Suite(java.lang.Class&lt;?&gt;, org.junit.runners.model.RunnerBuilder)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun Suite(klass : Class&lt;*&gt;, builder : RunnerBuilder?)&quot;"/>
+            <val name="value" val="&quot;fun Suite(klass : Class&lt;*&gt;, builder : RunnerBuilder)&quot;"/>
+        </annotation>
+    </item>
+    <item name='org.junit.runners.Suite Suite(java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun Suite(klass : Class&lt;*&gt;?, suiteClasses : Array&lt;out Class&lt;*&gt;?&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.Suite Suite(org.junit.runners.model.RunnerBuilder, java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun Suite(builder : RunnerBuilder, klass : Class&lt;*&gt;?, suiteClasses : Array&lt;out Class&lt;*&gt;?&gt;?)&quot;"/>
+            <val name="value" val="&quot;fun Suite(builder : RunnerBuilder, klass : Class&lt;*&gt;?, suiteClasses : Array&lt;out Class&lt;*&gt;?&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.Suite Suite(org.junit.runners.model.RunnerBuilder, java.lang.Class&lt;?&gt;[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun Suite(builder : RunnerBuilder, classes : Array&lt;out Class&lt;*&gt;?&gt;?)&quot;"/>
+            <val name="value" val="&quot;fun Suite(builder : RunnerBuilder, classes : Array&lt;out Class&lt;*&gt;?&gt;)&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.Suite org.junit.runner.Description describeChild(java.lang.Object)'>
@@ -2794,6 +2934,11 @@
             <val name="value" val="&quot;fun isShadowedBy(other : FrameworkMethod) : Boolean&quot;"/>
         </annotation>
     </item>
+    <item name='org.junit.runners.model.FrameworkMethod boolean producesType(java.lang.reflect.Type)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun producesType(type : Type?) : Boolean&quot;"/>
+        </annotation>
+    </item>
     <item name='org.junit.runners.model.FrameworkMethod void validateNoTypeParametersOnArgs(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateNoTypeParametersOnArgs(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
@@ -2851,7 +2996,7 @@
     </item>
     <item name='org.junit.runners.model.RunnerBuilder java.util.List&lt;org.junit.runner.Runner&gt; runners(java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun runners(parent : Class&lt;*&gt;?, children : Array&lt;out Class&lt;*&gt;?&gt;?) : MutableList&lt;Runner?&gt;&quot;"/>
+            <val name="value" val="&quot;fun runners(parent : Class&lt;*&gt;?, children : Array&lt;out Class&lt;*&gt;?&gt;) : MutableList&lt;Runner?&gt;&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.model.RunnerBuilder java.util.List&lt;org.junit.runner.Runner&gt; runners(java.lang.Class&lt;?&gt;[])'>

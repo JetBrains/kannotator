@@ -6,13 +6,23 @@ java.awt.KeyboardFocusManager java.util.Set initFocusTraversalKeysSet(java.lang.
 MUTABLE
 java.awt.datatransfer.SystemFlavorMap void store(java.lang.Object, java.lang.Object, java.util.Map) 2
 MUTABLE
+java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String, java.beans.beancontext.BeanContext) 2
+MUTABLE
+java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String, java.beans.beancontext.BeanContext, java.beans.AppletInitializer) 2
+MUTABLE
 java.beans.beancontext.BeanContextSupport void deserialize(java.io.ObjectInputStream, java.util.Collection) 1
+MUTABLE
+java.io.ObjectStreamClass void processQueue(java.lang.ref.ReferenceQueue<java.lang.Class<?>>, java.util.concurrent.ConcurrentMap<? extends java.lang.ref.WeakReference<java.lang.Class<?>>,?>) 1
 MUTABLE
 java.lang.Class java.lang.reflect.Field[] privateGetPublicFields(java.util.Set<java.lang.Class<?>>) 0
 MUTABLE
 java.lang.Class void addAll(java.util.Collection<java.lang.reflect.Field>, java.lang.reflect.Field[]) 0
 MUTABLE
+java.lang.Thread void processQueue(java.lang.ref.ReferenceQueue<java.lang.Class<?>>, java.util.concurrent.ConcurrentMap<? extends java.lang.ref.WeakReference<java.lang.Class<?>>,?>) 1
+MUTABLE
 java.lang.Throwable void printEnclosedStackTrace(java.lang.Throwable.PrintStreamOrWriter, java.lang.StackTraceElement[], java.lang.String, java.lang.String, java.util.Set<java.lang.Throwable>) 4
+MUTABLE
+java.net.CookieManager java.util.List<java.lang.String> sortByPath(java.util.List<java.net.HttpCookie>) 0
 MUTABLE
 java.net.InMemoryCookieStore void addIndex(java.util.Map<T,java.util.List<java.net.HttpCookie>>, T, java.net.HttpCookie) 0
 MUTABLE
@@ -51,6 +61,10 @@ MUTABLE
 java.util.Collections void shuffle(java.util.List<?>) 0
 MUTABLE
 java.util.Collections void shuffle(java.util.List<?>, java.util.Random) 0
+MUTABLE
+java.util.Collections void sort(java.util.List<T>) 0
+MUTABLE
+java.util.Collections void sort(java.util.List<T>, java.util.Comparator<? super T>) 0
 MUTABLE
 java.util.Collections void swap(java.util.List<?>, int, int) 0
 MUTABLE

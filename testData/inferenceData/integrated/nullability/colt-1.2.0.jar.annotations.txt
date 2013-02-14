@@ -106,18 +106,6 @@ cern.colt.GenericPermuting void permute(java.lang.Object[], int[]) 0
 NOT_NULL
 cern.colt.GenericSorting int med3(int, int, int, cern.colt.function.IntComparator) 3
 NOT_NULL
-cern.colt.GenericSorting void inplace_merge(int, int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 3
-NOT_NULL
-cern.colt.GenericSorting void inplace_merge(int, int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 4
-NOT_NULL
-cern.colt.GenericSorting void mergeSort(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
-cern.colt.GenericSorting void quickSort(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
-cern.colt.GenericSorting void quickSort1(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
-cern.colt.Partitioning int binarySearchFromTo(int, int, int, cern.colt.function.IntComparator) 3
-NOT_NULL
 cern.colt.Partitioning int med3(double[], int, int, int) 0
 NOT_NULL
 cern.colt.Partitioning int med3(int, int, int, cern.colt.function.IntComparator) 3
@@ -127,18 +115,6 @@ NOT_NULL
 cern.colt.Partitioning int med3(java.lang.Object[], int, int, int, java.util.Comparator) 0
 NOT_NULL
 cern.colt.Partitioning int med3(java.lang.Object[], int, int, int, java.util.Comparator) 4
-NOT_NULL
-cern.colt.Partitioning void dualPartition(double[], double[], int, int, double[], int, int, int[]) 0
-NOT_NULL
-cern.colt.Partitioning void dualPartition(double[], double[], int, int, double[], int, int, int[]) 7
-NOT_NULL
-cern.colt.Partitioning void dualPartition(int[], int[], int, int, int[], int, int, int[]) 0
-NOT_NULL
-cern.colt.Partitioning void dualPartition(int[], int[], int, int, int[], int, int, int[]) 7
-NOT_NULL
-cern.colt.Partitioning void genericPartition(int, int, int, int, int[], cern.colt.function.IntComparator, cern.colt.function.IntComparator, cern.colt.function.IntComparator, cern.colt.Swapper) 4
-NOT_NULL
-cern.colt.Partitioning void genericPartition(int, int, int, int, int[], cern.colt.function.IntComparator, cern.colt.function.IntComparator, cern.colt.function.IntComparator, cern.colt.Swapper) 6
 NOT_NULL
 cern.colt.Partitioning void partition(cern.colt.list.DoubleArrayList, int, int, cern.colt.list.DoubleArrayList, cern.colt.list.IntArrayList) 0
 NOT_NULL
@@ -152,47 +128,7 @@ cern.colt.Partitioning void partition(cern.colt.list.IntArrayList, int, int, cer
 NOT_NULL
 cern.colt.Partitioning void partition(cern.colt.list.IntArrayList, int, int, cern.colt.list.IntArrayList, cern.colt.list.IntArrayList) 4
 NOT_NULL
-cern.colt.Partitioning void partition(double[], int, int, double[], int, int, int[]) 0
-NOT_NULL
-cern.colt.Partitioning void partition(double[], int, int, double[], int, int, int[]) 6
-NOT_NULL
-cern.colt.Partitioning void partition(int[], int, int, int[], int, int, int[]) 0
-NOT_NULL
-cern.colt.Partitioning void partition(int[], int, int, int[], int, int, int[]) 6
-NOT_NULL
-cern.colt.Partitioning void partition(java.lang.Object[], int, int, java.lang.Object[], int, int, int[], java.util.Comparator) 0
-NOT_NULL
-cern.colt.Partitioning void partition(java.lang.Object[], int, int, java.lang.Object[], int, int, int[], java.util.Comparator) 6
-NOT_NULL
-cern.colt.Partitioning void partition(java.lang.Object[], int, int, java.lang.Object[], int, int, int[], java.util.Comparator) 7
-NOT_NULL
-cern.colt.Partitioning void triplePartition(double[], double[], double[], int, int, double[], int, int, int[]) 0
-NOT_NULL
-cern.colt.Partitioning void triplePartition(double[], double[], double[], int, int, double[], int, int, int[]) 8
-NOT_NULL
-cern.colt.Partitioning void triplePartition(int[], int[], int[], int, int, int[], int, int, int[]) 0
-NOT_NULL
-cern.colt.Partitioning void triplePartition(int[], int[], int[], int, int, int[], int, int, int[]) 8
-NOT_NULL
 cern.colt.PersistentObject java.lang.Object clone()
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(byte[], byte, int, int) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(char[], char, int, int) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(double[], double, int, int) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(float[], float, int, int) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(int, int, cern.colt.function.IntComparator) 2
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(int[], int, int, int) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(java.lang.Object[], java.lang.Object, int, int, java.util.Comparator) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(long[], long, int, int) 0
-NOT_NULL
-cern.colt.Sorting int binarySearchFromTo(short[], short, int, int) 0
 NOT_NULL
 cern.colt.Sorting int med3(byte[], int, int, int, cern.colt.function.ByteComparator) 0
 NOT_NULL
@@ -228,8 +164,6 @@ cern.colt.Sorting int med3(short[], int, int, int, cern.colt.function.ShortCompa
 NOT_NULL
 cern.colt.Sorting int med3(short[], int, int, int, cern.colt.function.ShortComparator) 4
 NOT_NULL
-cern.colt.Sorting void inplace_merge(int[], int, int, int) 0
-NOT_NULL
 cern.colt.Sorting void mergeSort(byte[], int, int) 0
 NOT_NULL
 cern.colt.Sorting void mergeSort(byte[], int, int, cern.colt.function.ByteComparator) 0
@@ -258,62 +192,6 @@ cern.colt.Sorting void mergeSort(short[], int, int) 0
 NOT_NULL
 cern.colt.Sorting void mergeSort(short[], int, int, cern.colt.function.ShortComparator) 0
 NOT_NULL
-cern.colt.Sorting void mergeSort1(byte[], byte[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(byte[], byte[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(byte[], byte[], int, int, cern.colt.function.ByteComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(byte[], byte[], int, int, cern.colt.function.ByteComparator) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(char[], char[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(char[], char[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(char[], char[], int, int, cern.colt.function.CharComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(char[], char[], int, int, cern.colt.function.CharComparator) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(double[], double[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(double[], double[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(double[], double[], int, int, cern.colt.function.DoubleComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(double[], double[], int, int, cern.colt.function.DoubleComparator) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(float[], float[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(float[], float[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(float[], float[], int, int, cern.colt.function.FloatComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(float[], float[], int, int, cern.colt.function.FloatComparator) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(int[], int[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(int[], int[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(int[], int[], int, int, cern.colt.function.IntComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(int[], int[], int, int, cern.colt.function.IntComparator) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(long[], long[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(long[], long[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(long[], long[], int, int, cern.colt.function.LongComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(long[], long[], int, int, cern.colt.function.LongComparator) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(short[], short[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(short[], short[], int, int) 1
-NOT_NULL
-cern.colt.Sorting void mergeSort1(short[], short[], int, int, cern.colt.function.ShortComparator) 0
-NOT_NULL
-cern.colt.Sorting void mergeSort1(short[], short[], int, int, cern.colt.function.ShortComparator) 1
-NOT_NULL
 cern.colt.Sorting void mergeSort2(double[], int, int) 0
 NOT_NULL
 cern.colt.Sorting void mergeSort2(float[], int, int) 0
@@ -322,23 +200,13 @@ cern.colt.Sorting void mergeSortInPlace(int[], int, int) 0
 NOT_NULL
 cern.colt.Sorting void quickSort(byte[], int, int, cern.colt.function.ByteComparator) 0
 NOT_NULL
-cern.colt.Sorting void quickSort(byte[], int, int, cern.colt.function.ByteComparator) 3
-NOT_NULL
 cern.colt.Sorting void quickSort(char[], int, int, cern.colt.function.CharComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort(char[], int, int, cern.colt.function.CharComparator) 3
 NOT_NULL
 cern.colt.Sorting void quickSort(double[], int, int, cern.colt.function.DoubleComparator) 0
 NOT_NULL
-cern.colt.Sorting void quickSort(double[], int, int, cern.colt.function.DoubleComparator) 3
-NOT_NULL
 cern.colt.Sorting void quickSort(float[], int, int, cern.colt.function.FloatComparator) 0
 NOT_NULL
-cern.colt.Sorting void quickSort(float[], int, int, cern.colt.function.FloatComparator) 3
-NOT_NULL
 cern.colt.Sorting void quickSort(int[], int, int, cern.colt.function.IntComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort(int[], int, int, cern.colt.function.IntComparator) 3
 NOT_NULL
 cern.colt.Sorting void quickSort(java.lang.Object[]) 0
 NOT_NULL
@@ -346,53 +214,11 @@ cern.colt.Sorting void quickSort(java.lang.Object[], int, int) 0
 NOT_NULL
 cern.colt.Sorting void quickSort(java.lang.Object[], int, int, java.util.Comparator) 0
 NOT_NULL
-cern.colt.Sorting void quickSort(java.lang.Object[], int, int, java.util.Comparator) 3
-NOT_NULL
 cern.colt.Sorting void quickSort(java.lang.Object[], java.util.Comparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort(java.lang.Object[], java.util.Comparator) 1
 NOT_NULL
 cern.colt.Sorting void quickSort(long[], int, int, cern.colt.function.LongComparator) 0
 NOT_NULL
-cern.colt.Sorting void quickSort(long[], int, int, cern.colt.function.LongComparator) 3
-NOT_NULL
 cern.colt.Sorting void quickSort(short[], int, int, cern.colt.function.ShortComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort(short[], int, int, cern.colt.function.ShortComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(byte[], int, int, cern.colt.function.ByteComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(byte[], int, int, cern.colt.function.ByteComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(char[], int, int, cern.colt.function.CharComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(char[], int, int, cern.colt.function.CharComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(double[], int, int, cern.colt.function.DoubleComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(double[], int, int, cern.colt.function.DoubleComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(float[], int, int, cern.colt.function.FloatComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(float[], int, int, cern.colt.function.FloatComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(int[], int, int, cern.colt.function.IntComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(int[], int, int, cern.colt.function.IntComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(java.lang.Object[], int, int) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(java.lang.Object[], int, int, java.util.Comparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(java.lang.Object[], int, int, java.util.Comparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(long[], int, int, cern.colt.function.LongComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(long[], int, int, cern.colt.function.LongComparator) 3
-NOT_NULL
-cern.colt.Sorting void quickSort1(short[], int, int, cern.colt.function.ShortComparator) 0
-NOT_NULL
-cern.colt.Sorting void quickSort1(short[], int, int, cern.colt.function.ShortComparator) 3
 NOT_NULL
 cern.colt.Sorting void swap(byte[], int, int) 0
 NOT_NULL
@@ -454,23 +280,17 @@ cern.colt.bitvector.BitVector boolean equals(java.lang.Object) 0
 NULLABLE
 cern.colt.bitvector.BitVector cern.colt.bitvector.BitVector partFromTo(int, int)
 NOT_NULL
-cern.colt.bitvector.BitVector void and(cern.colt.bitvector.BitVector) 0
-NOT_NULL
 cern.colt.bitvector.BitVector void andNot(cern.colt.bitvector.BitVector) 0
 NOT_NULL
 cern.colt.bitvector.BitVector void checkSize(cern.colt.bitvector.BitVector) 0
 NOT_NULL
 cern.colt.bitvector.BitVector void elements(long[], int) 0
 NOT_NULL
-cern.colt.bitvector.BitVector void or(cern.colt.bitvector.BitVector) 0
-NOT_NULL
 cern.colt.bitvector.BitVector void xor(cern.colt.bitvector.BitVector) 0
 NOT_NULL
 cern.colt.bitvector.BitVector.IndexProcedure int access$100(cern.colt.bitvector.BitVector.IndexProcedure) 0
 NOT_NULL
 cern.colt.bitvector.QuickBitVector boolean get(long[], int) 0
-NOT_NULL
-cern.colt.bitvector.QuickBitVector long getLongFromTo(long[], int, int) 0
 NOT_NULL
 cern.colt.bitvector.QuickBitVector long[] makeBitVector(int, int)
 NOT_NULL
@@ -481,8 +301,6 @@ NOT_NULL
 cern.colt.bitvector.QuickBitVector void clear(long[], int) 0
 NOT_NULL
 cern.colt.bitvector.QuickBitVector void put(long[], int, boolean) 0
-NOT_NULL
-cern.colt.bitvector.QuickBitVector void putLongFromTo(long[], long, int, int) 0
 NOT_NULL
 cern.colt.bitvector.QuickBitVector void set(long[], int) 0
 NOT_NULL
@@ -514,6 +332,8 @@ cern.colt.buffer.ObjectBuffer void addAllOf(cern.colt.list.ObjectArrayList) 0
 NOT_NULL
 cern.colt.buffer.ObjectBufferConsumer void addAllOf(cern.colt.list.ObjectArrayList) 0
 NOT_NULL
+cern.colt.list.AbstractBooleanList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractBooleanList boolean removeAll(cern.colt.list.AbstractBooleanList) 0
 NOT_NULL
 cern.colt.list.AbstractBooleanList boolean retainAll(cern.colt.list.AbstractBooleanList) 0
@@ -532,8 +352,12 @@ cern.colt.list.AbstractBooleanList java.lang.Object clone()
 NOT_NULL
 cern.colt.list.AbstractBooleanList java.util.ArrayList toList()
 NOT_NULL
+cern.colt.list.AbstractBooleanList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractBooleanList, int) 2
+NULLABLE
 cern.colt.list.AbstractBooleanList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
+cern.colt.list.AbstractByteList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractByteList boolean removeAll(cern.colt.list.AbstractByteList) 0
 NOT_NULL
 cern.colt.list.AbstractByteList boolean retainAll(cern.colt.list.AbstractByteList) 0
@@ -552,10 +376,12 @@ cern.colt.list.AbstractByteList java.lang.Object clone()
 NOT_NULL
 cern.colt.list.AbstractByteList java.util.ArrayList toList()
 NOT_NULL
-cern.colt.list.AbstractByteList void quickSortFromTo(int, int, cern.colt.function.ByteComparator) 2
-NOT_NULL
+cern.colt.list.AbstractByteList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractByteList, int) 2
+NULLABLE
 cern.colt.list.AbstractByteList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
+cern.colt.list.AbstractCharList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractCharList boolean removeAll(cern.colt.list.AbstractCharList) 0
 NOT_NULL
 cern.colt.list.AbstractCharList boolean retainAll(cern.colt.list.AbstractCharList) 0
@@ -574,12 +400,14 @@ cern.colt.list.AbstractCharList java.lang.Object clone()
 NOT_NULL
 cern.colt.list.AbstractCharList java.util.ArrayList toList()
 NOT_NULL
-cern.colt.list.AbstractCharList void quickSortFromTo(int, int, cern.colt.function.CharComparator) 2
-NOT_NULL
+cern.colt.list.AbstractCharList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractCharList, int) 2
+NULLABLE
 cern.colt.list.AbstractCharList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
 cern.colt.list.AbstractCollection java.util.ArrayList toList()
 NOT_NULL
+cern.colt.list.AbstractDoubleList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractDoubleList boolean removeAll(cern.colt.list.AbstractDoubleList) 0
 NOT_NULL
 cern.colt.list.AbstractDoubleList boolean retainAll(cern.colt.list.AbstractDoubleList) 0
@@ -600,10 +428,12 @@ cern.colt.list.AbstractDoubleList java.util.ArrayList toList()
 NOT_NULL
 cern.colt.list.AbstractDoubleList void addAllOf(cern.colt.list.DoubleArrayList) 0
 NOT_NULL
-cern.colt.list.AbstractDoubleList void quickSortFromTo(int, int, cern.colt.function.DoubleComparator) 2
-NOT_NULL
+cern.colt.list.AbstractDoubleList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractDoubleList, int) 2
+NULLABLE
 cern.colt.list.AbstractDoubleList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
+cern.colt.list.AbstractFloatList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractFloatList boolean removeAll(cern.colt.list.AbstractFloatList) 0
 NOT_NULL
 cern.colt.list.AbstractFloatList boolean retainAll(cern.colt.list.AbstractFloatList) 0
@@ -622,10 +452,12 @@ cern.colt.list.AbstractFloatList java.lang.Object clone()
 NOT_NULL
 cern.colt.list.AbstractFloatList java.util.ArrayList toList()
 NOT_NULL
-cern.colt.list.AbstractFloatList void quickSortFromTo(int, int, cern.colt.function.FloatComparator) 2
-NOT_NULL
+cern.colt.list.AbstractFloatList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractFloatList, int) 2
+NULLABLE
 cern.colt.list.AbstractFloatList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
+cern.colt.list.AbstractIntList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractIntList boolean removeAll(cern.colt.list.AbstractIntList) 0
 NOT_NULL
 cern.colt.list.AbstractIntList boolean retainAll(cern.colt.list.AbstractIntList) 0
@@ -646,8 +478,8 @@ cern.colt.list.AbstractIntList java.util.ArrayList toList()
 NOT_NULL
 cern.colt.list.AbstractIntList void addAllOf(cern.colt.list.IntArrayList) 0
 NOT_NULL
-cern.colt.list.AbstractIntList void quickSortFromTo(int, int, cern.colt.function.IntComparator) 2
-NOT_NULL
+cern.colt.list.AbstractIntList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractIntList, int) 2
+NULLABLE
 cern.colt.list.AbstractIntList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
 cern.colt.list.AbstractList void addAllOf(java.util.Collection) 0
@@ -656,6 +488,8 @@ cern.colt.list.AbstractList void beforeInsertAllOf(int, java.util.Collection) 1
 NOT_NULL
 cern.colt.list.AbstractList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
+cern.colt.list.AbstractLongList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractLongList boolean removeAll(cern.colt.list.AbstractLongList) 0
 NOT_NULL
 cern.colt.list.AbstractLongList boolean retainAll(cern.colt.list.AbstractLongList) 0
@@ -674,10 +508,12 @@ cern.colt.list.AbstractLongList java.util.ArrayList toList()
 NOT_NULL
 cern.colt.list.AbstractLongList long[] elements()
 NOT_NULL
-cern.colt.list.AbstractLongList void quickSortFromTo(int, int, cern.colt.function.LongComparator) 2
-NOT_NULL
+cern.colt.list.AbstractLongList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractLongList, int) 2
+NULLABLE
 cern.colt.list.AbstractLongList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
+cern.colt.list.AbstractShortList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.AbstractShortList boolean removeAll(cern.colt.list.AbstractShortList) 0
 NOT_NULL
 cern.colt.list.AbstractShortList boolean retainAll(cern.colt.list.AbstractShortList) 0
@@ -696,12 +532,14 @@ cern.colt.list.AbstractShortList java.util.ArrayList toList()
 NOT_NULL
 cern.colt.list.AbstractShortList short[] elements()
 NOT_NULL
-cern.colt.list.AbstractShortList void quickSortFromTo(int, int, cern.colt.function.ShortComparator) 2
-NOT_NULL
+cern.colt.list.AbstractShortList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractShortList, int) 2
+NULLABLE
 cern.colt.list.AbstractShortList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
 cern.colt.list.BooleanArrayList BooleanArrayList(boolean[]) 0
 NOT_NULL
+cern.colt.list.BooleanArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.BooleanArrayList boolean removeAll(cern.colt.list.AbstractBooleanList) 0
 NOT_NULL
 cern.colt.list.BooleanArrayList boolean retainAll(cern.colt.list.AbstractBooleanList) 0
@@ -716,8 +554,12 @@ cern.colt.list.BooleanArrayList cern.colt.list.BooleanArrayList copy()
 NOT_NULL
 cern.colt.list.BooleanArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.BooleanArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractBooleanList, int) 2
+NULLABLE
 cern.colt.list.ByteArrayList ByteArrayList(byte[]) 0
 NOT_NULL
+cern.colt.list.ByteArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.ByteArrayList boolean removeAll(cern.colt.list.AbstractByteList) 0
 NOT_NULL
 cern.colt.list.ByteArrayList boolean retainAll(cern.colt.list.AbstractByteList) 0
@@ -732,8 +574,12 @@ cern.colt.list.ByteArrayList cern.colt.list.ByteArrayList copy()
 NOT_NULL
 cern.colt.list.ByteArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.ByteArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractByteList, int) 2
+NULLABLE
 cern.colt.list.CharArrayList CharArrayList(char[]) 0
 NOT_NULL
+cern.colt.list.CharArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.CharArrayList boolean removeAll(cern.colt.list.AbstractCharList) 0
 NOT_NULL
 cern.colt.list.CharArrayList boolean retainAll(cern.colt.list.AbstractCharList) 0
@@ -748,12 +594,16 @@ cern.colt.list.CharArrayList cern.colt.list.CharArrayList copy()
 NOT_NULL
 cern.colt.list.CharArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.CharArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractCharList, int) 2
+NULLABLE
 cern.colt.list.DistinctNumberList DistinctNumberList(long[], int) 0
 NOT_NULL
 cern.colt.list.DistinctNumberList void setUp(long[], int) 0
 NOT_NULL
 cern.colt.list.DoubleArrayList DoubleArrayList(double[]) 0
 NOT_NULL
+cern.colt.list.DoubleArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.DoubleArrayList boolean removeAll(cern.colt.list.AbstractDoubleList) 0
 NOT_NULL
 cern.colt.list.DoubleArrayList boolean retainAll(cern.colt.list.AbstractDoubleList) 0
@@ -768,8 +618,12 @@ cern.colt.list.DoubleArrayList cern.colt.list.DoubleArrayList copy()
 NOT_NULL
 cern.colt.list.DoubleArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.DoubleArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractDoubleList, int) 2
+NULLABLE
 cern.colt.list.FloatArrayList FloatArrayList(float[]) 0
 NOT_NULL
+cern.colt.list.FloatArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.FloatArrayList boolean removeAll(cern.colt.list.AbstractFloatList) 0
 NOT_NULL
 cern.colt.list.FloatArrayList boolean retainAll(cern.colt.list.AbstractFloatList) 0
@@ -784,8 +638,12 @@ cern.colt.list.FloatArrayList cern.colt.list.FloatArrayList copy()
 NOT_NULL
 cern.colt.list.FloatArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.FloatArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractFloatList, int) 2
+NULLABLE
 cern.colt.list.IntArrayList IntArrayList(int[]) 0
 NOT_NULL
+cern.colt.list.IntArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.IntArrayList boolean removeAll(cern.colt.list.AbstractIntList) 0
 NOT_NULL
 cern.colt.list.IntArrayList boolean retainAll(cern.colt.list.AbstractIntList) 0
@@ -800,8 +658,12 @@ cern.colt.list.IntArrayList cern.colt.list.IntArrayList copy()
 NOT_NULL
 cern.colt.list.IntArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.IntArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractIntList, int) 2
+NULLABLE
 cern.colt.list.LongArrayList LongArrayList(long[]) 0
 NOT_NULL
+cern.colt.list.LongArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.LongArrayList boolean removeAll(cern.colt.list.AbstractLongList) 0
 NOT_NULL
 cern.colt.list.LongArrayList boolean retainAll(cern.colt.list.AbstractLongList) 0
@@ -816,6 +678,8 @@ cern.colt.list.LongArrayList cern.colt.list.LongArrayList copy()
 NOT_NULL
 cern.colt.list.LongArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.LongArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractLongList, int) 2
+NULLABLE
 cern.colt.list.MinMaxNumberList cern.colt.bitvector.BitVector toBitVector()
 NOT_NULL
 cern.colt.list.MinMaxNumberList void partFromTo(int, int, cern.colt.bitvector.BitVector, int, long[], int) 2
@@ -824,6 +688,8 @@ cern.colt.list.MinMaxNumberList void partFromTo(int, int, cern.colt.bitvector.Bi
 NOT_NULL
 cern.colt.list.ObjectArrayList ObjectArrayList(java.lang.Object[]) 0
 NOT_NULL
+cern.colt.list.ObjectArrayList boolean equals(java.lang.Object, boolean) 0
+NULLABLE
 cern.colt.list.ObjectArrayList boolean removeAll(cern.colt.list.ObjectArrayList, boolean) 0
 NOT_NULL
 cern.colt.list.ObjectArrayList boolean retainAll(cern.colt.list.ObjectArrayList, boolean) 0
@@ -854,6 +720,8 @@ cern.colt.list.ObjectArrayList void replaceFromWith(int, java.util.Collection) 1
 NOT_NULL
 cern.colt.list.ShortArrayList ShortArrayList(short[]) 0
 NOT_NULL
+cern.colt.list.ShortArrayList boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.list.ShortArrayList boolean removeAll(cern.colt.list.AbstractShortList) 0
 NOT_NULL
 cern.colt.list.ShortArrayList boolean retainAll(cern.colt.list.AbstractShortList) 0
@@ -868,6 +736,8 @@ cern.colt.list.ShortArrayList cern.colt.list.ShortArrayList copy()
 NOT_NULL
 cern.colt.list.ShortArrayList java.lang.Object clone()
 NOT_NULL
+cern.colt.list.ShortArrayList void replaceFromToWithFrom(int, int, cern.colt.list.AbstractShortList, int) 2
+NULLABLE
 cern.colt.list.adapter.DoubleListAdapter double value(java.lang.Object) 0
 NOT_NULL
 cern.colt.list.adapter.DoubleListAdapter java.lang.Object get(int)
@@ -924,6 +794,8 @@ cern.colt.list.adapter.LongListAdapter long value(java.lang.Object) 0
 NOT_NULL
 cern.colt.list.adapter.LongListAdapter void add(int, java.lang.Object) 1
 NOT_NULL
+cern.colt.map.AbstractDoubleIntMap boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.map.AbstractDoubleIntMap cern.colt.list.DoubleArrayList keys()
 NOT_NULL
 cern.colt.map.AbstractDoubleIntMap cern.colt.list.IntArrayList values()
@@ -946,10 +818,14 @@ cern.colt.map.AbstractDoubleIntMap void pairsSortedByValue(cern.colt.list.Double
 NOT_NULL
 cern.colt.map.AbstractDoubleIntMap void values(cern.colt.list.IntArrayList) 0
 NOT_NULL
+cern.colt.map.AbstractIntDoubleMap boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.map.AbstractIntDoubleMap cern.colt.list.DoubleArrayList values()
 NOT_NULL
 cern.colt.map.AbstractIntDoubleMap cern.colt.list.IntArrayList keys()
 NOT_NULL
+cern.colt.map.AbstractIntDoubleMap void assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.map.AbstractIntDoubleMap void assign(cern.colt.map.AbstractIntDoubleMap) 0
 NOT_NULL
 cern.colt.map.AbstractIntDoubleMap void keys(cern.colt.list.IntArrayList) 0
@@ -970,6 +846,8 @@ cern.colt.map.AbstractIntDoubleMap void pairsSortedByValue(cern.colt.list.IntArr
 NOT_NULL
 cern.colt.map.AbstractIntDoubleMap void values(cern.colt.list.DoubleArrayList) 0
 NOT_NULL
+cern.colt.map.AbstractIntIntMap boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.map.AbstractIntIntMap cern.colt.list.IntArrayList keys()
 NOT_NULL
 cern.colt.map.AbstractIntIntMap cern.colt.list.IntArrayList values()
@@ -992,6 +870,8 @@ cern.colt.map.AbstractIntIntMap void pairsSortedByValue(cern.colt.list.IntArrayL
 NOT_NULL
 cern.colt.map.AbstractIntIntMap void values(cern.colt.list.IntArrayList) 0
 NOT_NULL
+cern.colt.map.AbstractIntObjectMap boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.map.AbstractIntObjectMap cern.colt.list.IntArrayList keys()
 NOT_NULL
 cern.colt.map.AbstractIntObjectMap cern.colt.list.ObjectArrayList values()
@@ -1016,6 +896,8 @@ cern.colt.map.AbstractIntObjectMap void pairsSortedByValue(cern.colt.list.IntArr
 NOT_NULL
 cern.colt.map.AbstractIntObjectMap void values(cern.colt.list.ObjectArrayList) 0
 NOT_NULL
+cern.colt.map.AbstractLongObjectMap boolean equals(java.lang.Object) 0
+NULLABLE
 cern.colt.map.AbstractLongObjectMap cern.colt.list.LongArrayList keys()
 NOT_NULL
 cern.colt.map.AbstractLongObjectMap cern.colt.list.ObjectArrayList values()
@@ -1056,6 +938,8 @@ cern.colt.map.OpenDoubleIntHashMap void values(cern.colt.list.IntArrayList) 0
 NOT_NULL
 cern.colt.map.OpenIntDoubleHashMap java.lang.Object clone()
 NOT_NULL
+cern.colt.map.OpenIntDoubleHashMap void assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.map.OpenIntDoubleHashMap void assign(cern.colt.map.AbstractIntDoubleMap) 0
 NOT_NULL
 cern.colt.map.OpenIntDoubleHashMap void keys(cern.colt.list.IntArrayList) 0
@@ -1128,6 +1012,8 @@ cern.colt.matrix.DoubleFactory1D cern.colt.matrix.DoubleMatrix1D make(cern.colt.
 NOT_NULL
 cern.colt.matrix.DoubleFactory1D cern.colt.matrix.DoubleMatrix1D make(double[])
 NOT_NULL
+cern.colt.matrix.DoubleFactory1D cern.colt.matrix.DoubleMatrix1D make(double[]) 0
+NOT_NULL
 cern.colt.matrix.DoubleFactory1D cern.colt.matrix.DoubleMatrix1D make(int)
 NOT_NULL
 cern.colt.matrix.DoubleFactory1D cern.colt.matrix.DoubleMatrix1D make(int, double)
@@ -1192,6 +1078,8 @@ cern.colt.matrix.DoubleFactory2D cern.colt.matrix.DoubleMatrix2D make(double[], 
 NOT_NULL
 cern.colt.matrix.DoubleFactory2D cern.colt.matrix.DoubleMatrix2D make(double[][])
 NOT_NULL
+cern.colt.matrix.DoubleFactory2D cern.colt.matrix.DoubleMatrix2D make(double[][]) 0
+NOT_NULL
 cern.colt.matrix.DoubleFactory2D cern.colt.matrix.DoubleMatrix2D make(int, int)
 NOT_NULL
 cern.colt.matrix.DoubleFactory2D cern.colt.matrix.DoubleMatrix2D make(int, int, double)
@@ -1226,6 +1114,8 @@ cern.colt.matrix.DoubleFactory3D cern.colt.matrix.DoubleMatrix3D descending(int,
 NOT_NULL
 cern.colt.matrix.DoubleFactory3D cern.colt.matrix.DoubleMatrix3D make(double[][][])
 NOT_NULL
+cern.colt.matrix.DoubleFactory3D cern.colt.matrix.DoubleMatrix3D make(double[][][]) 0
+NOT_NULL
 cern.colt.matrix.DoubleFactory3D cern.colt.matrix.DoubleMatrix3D make(int, int, int)
 NOT_NULL
 cern.colt.matrix.DoubleFactory3D cern.colt.matrix.DoubleMatrix3D make(int, int, int, double)
@@ -1240,14 +1130,26 @@ cern.colt.matrix.DoubleMatrix1D boolean equals(java.lang.Object) 0
 NULLABLE
 cern.colt.matrix.DoubleMatrix1D boolean haveSharedCells(cern.colt.matrix.DoubleMatrix1D) 0
 NULLABLE
+cern.colt.matrix.DoubleMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction, cern.colt.list.IntArrayList)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction, cern.colt.list.IntArrayList) 1
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction, cern.colt.list.IntArrayList) 2
 NOT_NULL
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(double)
@@ -1272,10 +1174,14 @@ cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelection(in
 NULLABLE
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[])
 NOT_NULL
+cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[]) 0
+NOT_NULL
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewStrides(int)
 NOT_NULL
 cern.colt.matrix.DoubleMatrix1D cern.colt.matrix.DoubleMatrix2D like2D(int, int)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix1D double zDotProduct(cern.colt.matrix.DoubleMatrix1D, int, int) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D double[] toArray()
 NOT_NULL
 cern.colt.matrix.DoubleMatrix1D void getNonZeros(cern.colt.list.IntArrayList, cern.colt.list.DoubleArrayList) 0
@@ -1286,11 +1192,15 @@ cern.colt.matrix.DoubleMatrix1D void getNonZeros(cern.colt.list.IntArrayList, ce
 NULLABLE
 cern.colt.matrix.DoubleMatrix1D void getNonZeros(cern.colt.list.IntArrayList, cern.colt.list.DoubleArrayList, int) 1
 NULLABLE
+cern.colt.matrix.DoubleMatrix1D void swap(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix1D void toArray(double[]) 0
 NOT_NULL
 cern.colt.matrix.DoubleMatrix2D boolean equals(java.lang.Object) 0
 NULLABLE
 cern.colt.matrix.DoubleMatrix2D boolean haveSharedCells(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
+cern.colt.matrix.DoubleMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix2D) 0
 NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
@@ -1302,14 +1212,24 @@ cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix1D viewRow(int)
 NOT_NULL
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D) 1
 NULLABLE
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 1
 NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double)
 NOT_NULL
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double[][])
@@ -1340,9 +1260,11 @@ cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelection(in
 NULLABLE
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
-cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewStrides(int, int)
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 0
 NOT_NULL
-cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D zMult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 0
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewStrides(int, int)
 NOT_NULL
 cern.colt.matrix.DoubleMatrix2D cern.colt.matrix.DoubleMatrix2D zMult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 1
 NULLABLE
@@ -1360,11 +1282,15 @@ cern.colt.matrix.DoubleMatrix2D void getNonZeros(cern.colt.list.IntArrayList, ce
 NOT_NULL
 cern.colt.matrix.DoubleMatrix2D void getNonZeros(cern.colt.list.IntArrayList, cern.colt.list.IntArrayList, cern.colt.list.DoubleArrayList) 2
 NOT_NULL
+cern.colt.matrix.DoubleMatrix2D void zAssign8Neighbors(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix2D void zAssign8Neighbors(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function) 1
 NOT_NULL
 cern.colt.matrix.DoubleMatrix3D boolean equals(java.lang.Object) 0
 NULLABLE
 cern.colt.matrix.DoubleMatrix3D boolean haveSharedCells(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
+cern.colt.matrix.DoubleMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix3D) 0
 NULLABLE
 cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix2D like2D(int, int, int, int, int, int)
 NOT_NULL
@@ -1378,6 +1304,8 @@ cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(cern.colt
 NOT_NULL
 cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(cern.colt.matrix.DoubleMatrix3D)
 NOT_NULL
+cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.DoubleDoubleFunction)
 NOT_NULL
 cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(double)
@@ -1400,6 +1328,12 @@ cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelection(in
 NULLABLE
 cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.DoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
 cern.colt.matrix.DoubleMatrix3D double[][][] toArray()
 NOT_NULL
 cern.colt.matrix.DoubleMatrix3D void getNonZeros(cern.colt.list.IntArrayList, cern.colt.list.IntArrayList, cern.colt.list.IntArrayList, cern.colt.list.DoubleArrayList) 0
@@ -1410,6 +1344,8 @@ cern.colt.matrix.DoubleMatrix3D void getNonZeros(cern.colt.list.IntArrayList, ce
 NOT_NULL
 cern.colt.matrix.DoubleMatrix3D void getNonZeros(cern.colt.list.IntArrayList, cern.colt.list.IntArrayList, cern.colt.list.IntArrayList, cern.colt.list.DoubleArrayList) 3
 NOT_NULL
+cern.colt.matrix.DoubleMatrix3D void zAssign27Neighbors(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.Double27Function) 0
+NULLABLE
 cern.colt.matrix.DoubleMatrix3D void zAssign27Neighbors(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.Double27Function) 1
 NOT_NULL
 cern.colt.matrix.ObjectFactory1D cern.colt.list.ObjectArrayList toList(cern.colt.matrix.ObjectMatrix1D)
@@ -1435,6 +1371,8 @@ NOT_NULL
 cern.colt.matrix.ObjectFactory1D cern.colt.matrix.ObjectMatrix1D make(int, java.lang.Object)
 NOT_NULL
 cern.colt.matrix.ObjectFactory1D cern.colt.matrix.ObjectMatrix1D make(java.lang.Object[])
+NOT_NULL
+cern.colt.matrix.ObjectFactory1D cern.colt.matrix.ObjectMatrix1D make(java.lang.Object[]) 0
 NOT_NULL
 cern.colt.matrix.ObjectFactory1D cern.colt.matrix.ObjectMatrix1D repeat(cern.colt.matrix.ObjectMatrix1D, int)
 NOT_NULL
@@ -1492,6 +1430,8 @@ cern.colt.matrix.ObjectFactory2D cern.colt.matrix.ObjectMatrix2D make(java.lang.
 NOT_NULL
 cern.colt.matrix.ObjectFactory2D cern.colt.matrix.ObjectMatrix2D make(java.lang.Object[][])
 NOT_NULL
+cern.colt.matrix.ObjectFactory2D cern.colt.matrix.ObjectMatrix2D make(java.lang.Object[][]) 0
+NOT_NULL
 cern.colt.matrix.ObjectFactory2D cern.colt.matrix.ObjectMatrix2D repeat(cern.colt.matrix.ObjectMatrix2D, int, int)
 NOT_NULL
 cern.colt.matrix.ObjectFactory2D cern.colt.matrix.ObjectMatrix2D repeat(cern.colt.matrix.ObjectMatrix2D, int, int) 0
@@ -1512,18 +1452,28 @@ cern.colt.matrix.ObjectFactory3D cern.colt.matrix.ObjectMatrix3D make(int, int, 
 NOT_NULL
 cern.colt.matrix.ObjectFactory3D cern.colt.matrix.ObjectMatrix3D make(java.lang.Object[][][])
 NOT_NULL
+cern.colt.matrix.ObjectFactory3D cern.colt.matrix.ObjectMatrix3D make(java.lang.Object[][][]) 0
+NOT_NULL
 cern.colt.matrix.ObjectFactory3D dense
 NOT_NULL
 cern.colt.matrix.ObjectFactory3D sparse
 NOT_NULL
+cern.colt.matrix.ObjectMatrix1D boolean equals(java.lang.Object, boolean) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix1D boolean haveSharedCells(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
+cern.colt.matrix.ObjectMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix1D) 0
 NULLABLE
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.function.ObjectFunction)
 NOT_NULL
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D)
 NOT_NULL
+cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D, cern.colt.function.ObjectObjectFunction)
 NOT_NULL
+cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D, cern.colt.function.ObjectObjectFunction) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(java.lang.Object)
 NOT_NULL
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(java.lang.Object[])
@@ -1540,6 +1490,8 @@ cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelection(in
 NULLABLE
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[])
 NOT_NULL
+cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[]) 0
+NOT_NULL
 cern.colt.matrix.ObjectMatrix1D cern.colt.matrix.ObjectMatrix2D like2D(int, int)
 NOT_NULL
 cern.colt.matrix.ObjectMatrix1D java.lang.Object aggregate(cern.colt.function.ObjectObjectFunction, cern.colt.function.ObjectFunction)
@@ -1554,9 +1506,15 @@ cern.colt.matrix.ObjectMatrix1D void getNonZeros(cern.colt.list.IntArrayList, ce
 NULLABLE
 cern.colt.matrix.ObjectMatrix1D void setQuick(int, java.lang.Object) 1
 NULLABLE
+cern.colt.matrix.ObjectMatrix1D void swap(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix1D void toArray(java.lang.Object[]) 0
 NOT_NULL
+cern.colt.matrix.ObjectMatrix2D boolean equals(java.lang.Object, boolean) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix2D boolean haveSharedCells(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
+cern.colt.matrix.ObjectMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix2D) 0
 NULLABLE
 cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int)
 NOT_NULL
@@ -1570,8 +1528,12 @@ cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt
 NOT_NULL
 cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D)
 NOT_NULL
+cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D, cern.colt.function.ObjectObjectFunction)
 NOT_NULL
+cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D, cern.colt.function.ObjectObjectFunction) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(java.lang.Object)
 NOT_NULL
 cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(java.lang.Object[][])
@@ -1590,6 +1552,10 @@ cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelection(in
 NULLABLE
 cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.ObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.ObjectMatrix2D java.lang.Object aggregate(cern.colt.function.ObjectObjectFunction, cern.colt.function.ObjectFunction)
 NULLABLE
 cern.colt.matrix.ObjectMatrix2D java.lang.Object aggregate(cern.colt.matrix.ObjectMatrix2D, cern.colt.function.ObjectObjectFunction, cern.colt.function.ObjectObjectFunction)
@@ -1604,7 +1570,11 @@ cern.colt.matrix.ObjectMatrix2D void getNonZeros(cern.colt.list.IntArrayList, ce
 NOT_NULL
 cern.colt.matrix.ObjectMatrix2D void setQuick(int, int, java.lang.Object) 2
 NULLABLE
+cern.colt.matrix.ObjectMatrix3D boolean equals(java.lang.Object, boolean) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix3D boolean haveSharedCells(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
+cern.colt.matrix.ObjectMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix3D) 0
 NULLABLE
 cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix2D like2D(int, int, int, int, int, int)
 NOT_NULL
@@ -1618,6 +1588,8 @@ cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(cern.colt
 NOT_NULL
 cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(cern.colt.matrix.ObjectMatrix3D)
 NOT_NULL
+cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
 cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(cern.colt.matrix.ObjectMatrix3D, cern.colt.function.ObjectObjectFunction)
 NOT_NULL
 cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(java.lang.Object)
@@ -1639,6 +1611,12 @@ NULLABLE
 cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelection(int[], int[], int[]) 2
 NULLABLE
 cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[])
+NOT_NULL
+cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.ObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 2
 NOT_NULL
 cern.colt.matrix.ObjectMatrix3D java.lang.Object aggregate(cern.colt.function.ObjectObjectFunction, cern.colt.function.ObjectFunction)
 NULLABLE
@@ -1886,17 +1864,9 @@ cern.colt.matrix.doublealgo.Sorting mergeSort
 NOT_NULL
 cern.colt.matrix.doublealgo.Sorting quickSort
 NOT_NULL
-cern.colt.matrix.doublealgo.Sorting void runSort(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
 cern.colt.matrix.doublealgo.Sorting void runSort(int[], int, int, cern.colt.function.IntComparator) 0
 NOT_NULL
-cern.colt.matrix.doublealgo.Sorting void runSort(int[], int, int, cern.colt.function.IntComparator) 3
-NOT_NULL
-cern.colt.matrix.doublealgo.Sorting.1 void runSort(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
 cern.colt.matrix.doublealgo.Sorting.1 void runSort(int[], int, int, cern.colt.function.IntComparator) 0
-NOT_NULL
-cern.colt.matrix.doublealgo.Sorting.1 void runSort(int[], int, int, cern.colt.function.IntComparator) 3
 NOT_NULL
 cern.colt.matrix.doublealgo.Sorting.10 int compare(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D) 0
 NOT_NULL
@@ -1924,8 +1894,6 @@ cern.colt.matrix.doublealgo.Statistic MAXIMUM
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix1D viewSample(cern.colt.matrix.DoubleMatrix1D, double, cern.jet.random.engine.RandomEngine) 0
 NOT_NULL
-cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix1D viewSample(cern.colt.matrix.DoubleMatrix1D, double, cern.jet.random.engine.RandomEngine) 2
-NULLABLE
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D aggregate(cern.colt.matrix.DoubleMatrix2D, hep.aida.bin.BinFunction1D[], cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D correlation(cern.colt.matrix.DoubleMatrix2D)
@@ -1942,16 +1910,12 @@ cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D distance(c
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D viewSample(cern.colt.matrix.DoubleMatrix2D, double, double, cern.jet.random.engine.RandomEngine) 0
 NOT_NULL
-cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D viewSample(cern.colt.matrix.DoubleMatrix2D, double, double, cern.jet.random.engine.RandomEngine) 3
-NULLABLE
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D xdistanceOld(cern.colt.matrix.DoubleMatrix2D, int)
 NULLABLE
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix2D xdistanceOld2(cern.colt.matrix.DoubleMatrix2D, int)
 NULLABLE
 cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix3D viewSample(cern.colt.matrix.DoubleMatrix3D, double, double, double, cern.jet.random.engine.RandomEngine) 0
 NOT_NULL
-cern.colt.matrix.doublealgo.Statistic cern.colt.matrix.DoubleMatrix3D viewSample(cern.colt.matrix.DoubleMatrix3D, double, double, double, cern.jet.random.engine.RandomEngine) 4
-NULLABLE
 cern.colt.matrix.doublealgo.Statistic cern.jet.math.Functions access$000()
 NOT_NULL
 cern.colt.matrix.doublealgo.Statistic hep.aida.IHistogram1D histogram(hep.aida.IHistogram1D, cern.colt.matrix.DoubleMatrix1D) 1
@@ -2008,8 +1972,12 @@ cern.colt.matrix.doublealgo.Statistic.VectorVectorFunction double apply(cern.col
 NOT_NULL
 cern.colt.matrix.doublealgo.Stencil int stencil27(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.Double27Function, int, cern.colt.matrix.DoubleMatrix3DProcedure, int) 0
 NOT_NULL
+cern.colt.matrix.doublealgo.Stencil int stencil27(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.Double27Function, int, cern.colt.matrix.DoubleMatrix3DProcedure, int) 3
+NULLABLE
 cern.colt.matrix.doublealgo.Stencil int stencil9(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function, int, cern.colt.matrix.DoubleMatrix2DProcedure, int) 0
 NOT_NULL
+cern.colt.matrix.doublealgo.Stencil int stencil9(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function, int, cern.colt.matrix.DoubleMatrix2DProcedure, int) 3
+NULLABLE
 cern.colt.matrix.doublealgo.Transform F
 NOT_NULL
 cern.colt.matrix.doublealgo.Transform cern.colt.matrix.DoubleMatrix1D abs(cern.colt.matrix.DoubleMatrix1D)
@@ -2266,12 +2234,22 @@ cern.colt.matrix.impl.DelegateDoubleMatrix1D DelegateDoubleMatrix1D(cern.colt.ma
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix1D DenseDoubleMatrix1D(double[]) 0
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(cern.colt.matrix.DoubleMatrix1D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(double)
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(double[])
@@ -2282,24 +2260,42 @@ cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D like(i
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[])
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[]) 0
+NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix2D like2D(int, int)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix1D double zDotProduct(cern.colt.matrix.DoubleMatrix1D, int, int) 0
+NULLABLE
+cern.colt.matrix.impl.DenseDoubleMatrix1D void swap(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix1D void toArray(double[]) 0
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix2D DenseDoubleMatrix2D(double[][]) 0
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int, int, int)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 1
 NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double)
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double[][])
@@ -2310,18 +2306,28 @@ cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D like(i
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D zMult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, double, boolean, boolean) 0
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D zMult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, double, boolean, boolean) 1
+NULLABLE
+cern.colt.matrix.impl.DenseDoubleMatrix2D void zAssign8Neighbors(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function) 0
 NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix2D void zAssign8Neighbors(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.Double9Function) 1
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix3D DenseDoubleMatrix3D(double[][][]) 0
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix2D like2D(int, int, int, int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(cern.colt.matrix.DoubleMatrix3D)
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(double[][][])
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(double[][][]) 0
@@ -2330,16 +2336,30 @@ cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D like(i
 NOT_NULL
 cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
+cern.colt.matrix.impl.DenseDoubleMatrix3D void zAssign27Neighbors(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.Double27Function) 0
+NULLABLE
 cern.colt.matrix.impl.DenseDoubleMatrix3D void zAssign27Neighbors(cern.colt.matrix.DoubleMatrix3D, cern.colt.function.Double27Function) 1
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix1D DenseObjectMatrix1D(java.lang.Object[]) 0
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.function.ObjectFunction)
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D)
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D, cern.colt.function.ObjectObjectFunction)
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(cern.colt.matrix.ObjectMatrix1D, cern.colt.function.ObjectObjectFunction) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(java.lang.Object[])
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D assign(java.lang.Object[]) 0
@@ -2348,14 +2368,20 @@ cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D like(i
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[])
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[]) 0
+NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix1D cern.colt.matrix.ObjectMatrix2D like2D(int, int)
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix1D void setQuick(int, java.lang.Object) 1
+NULLABLE
+cern.colt.matrix.impl.DenseObjectMatrix1D void swap(cern.colt.matrix.ObjectMatrix1D) 0
 NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix1D void toArray(java.lang.Object[]) 0
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix2D DenseObjectMatrix2D(java.lang.Object[][]) 0
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int, int, int)
@@ -2364,8 +2390,12 @@ cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D)
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D, cern.colt.function.ObjectObjectFunction)
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(cern.colt.matrix.ObjectMatrix2D, cern.colt.function.ObjectObjectFunction) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(java.lang.Object[][])
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D assign(java.lang.Object[][]) 0
@@ -2374,14 +2404,22 @@ cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D like(i
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix2D void setQuick(int, int, java.lang.Object) 2
 NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix3D DenseObjectMatrix3D(java.lang.Object[][][]) 0
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix2D like2D(int, int, int, int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(cern.colt.matrix.ObjectMatrix3D)
 NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(java.lang.Object[][][])
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D assign(java.lang.Object[][][]) 0
@@ -2389,6 +2427,12 @@ NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D like(int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[])
+NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.DenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 2
 NOT_NULL
 cern.colt.matrix.impl.DenseObjectMatrix3D void setQuick(int, int, int, java.lang.Object) 3
 NULLABLE
@@ -2398,12 +2442,22 @@ cern.colt.matrix.impl.RCDoubleMatrix2D RCDoubleMatrix2D(double[][]) 0
 NOT_NULL
 cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
+cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 0
+NULLABLE
 cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 1
 NULLABLE
 cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
+cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double)
 NOT_NULL
 cern.colt.matrix.impl.RCDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D forEachNonZero(cern.colt.function.IntIntDoubleFunction)
@@ -2434,9 +2488,13 @@ cern.colt.matrix.impl.RCMDoubleMatrix2D void zMult(cern.colt.matrix.DoubleMatrix
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix1D SelectedDenseDoubleMatrix1D(double[], int[]) 1
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D like(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[])
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[]) 0
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix1D cern.colt.matrix.DoubleMatrix2D like2D(int, int)
 NOT_NULL
@@ -2444,6 +2502,8 @@ cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D SelectedDenseDoubleMatrix2D(do
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D SelectedDenseDoubleMatrix2D(double[], int[], int[], int) 2
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D viewColumn(int)
@@ -2454,6 +2514,10 @@ cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix2D cern.colt.matrix.impl.AbstractMatrix2D vDice()
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D SelectedDenseDoubleMatrix3D(double[], int[], int[], int[], int) 1
@@ -2462,6 +2526,8 @@ cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D SelectedDenseDoubleMatrix3D(do
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D SelectedDenseDoubleMatrix3D(double[], int[], int[], int[], int) 3
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix2D viewColumn(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix2D viewRow(int)
@@ -2472,13 +2538,23 @@ cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
 cern.colt.matrix.impl.SelectedDenseDoubleMatrix3D cern.colt.matrix.impl.AbstractMatrix3D vDice(int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix1D SelectedDenseObjectMatrix1D(java.lang.Object[], int[]) 1
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedDenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D like(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[])
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[]) 0
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix1D cern.colt.matrix.ObjectMatrix2D like2D(int, int)
 NOT_NULL
@@ -2488,6 +2564,8 @@ cern.colt.matrix.impl.SelectedDenseObjectMatrix2D SelectedDenseObjectMatrix2D(ja
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix2D SelectedDenseObjectMatrix2D(java.lang.Object[], int[], int[], int) 2
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D viewColumn(int)
@@ -2497,6 +2575,10 @@ NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D like(int, int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[])
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 1
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix2D cern.colt.matrix.impl.AbstractMatrix2D vDice()
 NOT_NULL
@@ -2508,6 +2590,8 @@ cern.colt.matrix.impl.SelectedDenseObjectMatrix3D SelectedDenseObjectMatrix3D(ja
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix3D SelectedDenseObjectMatrix3D(java.lang.Object[], int[], int[], int[], int) 3
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix2D viewColumn(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix2D viewRow(int)
@@ -2518,15 +2602,25 @@ cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix3D cern.colt.matrix.impl.AbstractMatrix3D vDice(int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedDenseObjectMatrix3D void setQuick(int, int, int, java.lang.Object) 3
 NULLABLE
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix1D SelectedSparseDoubleMatrix1D(cern.colt.map.AbstractIntDoubleMap, int[]) 1
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D like(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[])
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[]) 0
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix2D like2D(int, int)
 NOT_NULL
@@ -2534,6 +2628,8 @@ cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D SelectedSparseDoubleMatrix2D(
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D SelectedSparseDoubleMatrix2D(cern.colt.map.AbstractIntDoubleMap, int[], int[], int) 2
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D viewColumn(int)
@@ -2544,6 +2640,10 @@ cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix2D cern.colt.matrix.impl.AbstractMatrix2D vDice()
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D SelectedSparseDoubleMatrix3D(cern.colt.map.AbstractIntDoubleMap, int[], int[], int[], int) 1
@@ -2552,6 +2652,8 @@ cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D SelectedSparseDoubleMatrix3D(
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D SelectedSparseDoubleMatrix3D(cern.colt.map.AbstractIntDoubleMap, int[], int[], int[], int) 3
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix2D viewColumn(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix2D viewRow(int)
@@ -2562,13 +2664,23 @@ cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
 cern.colt.matrix.impl.SelectedSparseDoubleMatrix3D cern.colt.matrix.impl.AbstractMatrix3D vDice(int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix1D SelectedSparseObjectMatrix1D(cern.colt.map.AbstractIntObjectMap, int[]) 1
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedSparseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D like(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[])
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[]) 0
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix1D cern.colt.matrix.ObjectMatrix2D like2D(int, int)
 NOT_NULL
@@ -2578,6 +2690,8 @@ cern.colt.matrix.impl.SelectedSparseObjectMatrix2D SelectedSparseObjectMatrix2D(
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix2D SelectedSparseObjectMatrix2D(cern.colt.map.AbstractIntObjectMap, int[], int[], int) 2
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D viewColumn(int)
@@ -2587,6 +2701,10 @@ NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D like(int, int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[])
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 1
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix2D cern.colt.matrix.impl.AbstractMatrix2D vDice()
 NOT_NULL
@@ -2598,6 +2716,8 @@ cern.colt.matrix.impl.SelectedSparseObjectMatrix3D SelectedSparseObjectMatrix3D(
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix3D SelectedSparseObjectMatrix3D(cern.colt.map.AbstractIntObjectMap, int[], int[], int[], int) 3
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix2D viewColumn(int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix2D viewRow(int)
@@ -2608,34 +2728,56 @@ cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix3D cern.colt.matrix.impl.AbstractMatrix3D vDice(int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SelectedSparseObjectMatrix3D void setQuick(int, int, int, java.lang.Object) 3
 NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix1D SparseDoubleMatrix1D(double[]) 0
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D assign(double)
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D like(int)
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[])
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[]) 0
+NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix1D cern.colt.matrix.DoubleMatrix2D like2D(int, int)
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix2D SparseDoubleMatrix2D(double[][]) 0
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int, int, int)
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 0
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 1
 NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double)
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D forEachNonZero(cern.colt.function.IntIntDoubleFunction)
@@ -2644,12 +2786,18 @@ cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D like(
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D zMult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, double, boolean, boolean) 0
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D zMult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, double, boolean, boolean) 1
 NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix3D SparseDoubleMatrix3D(double[][][]) 0
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.DoubleMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix2D like2D(int, int, int, int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D assign(double)
@@ -2658,11 +2806,21 @@ cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D like(
 NOT_NULL
 cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.SparseDoubleMatrix3D cern.colt.matrix.DoubleMatrix3D viewSelectionLike(int[], int[], int[]) 2
+NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix1D SparseObjectMatrix1D(java.lang.Object[]) 0
 NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix1D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix1D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D like(int)
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[])
+NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix1D cern.colt.matrix.ObjectMatrix1D viewSelectionLike(int[]) 0
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix1D cern.colt.matrix.ObjectMatrix2D like2D(int, int)
 NOT_NULL
@@ -2670,6 +2828,8 @@ cern.colt.matrix.impl.SparseObjectMatrix1D void setQuick(int, java.lang.Object) 
 NULLABLE
 cern.colt.matrix.impl.SparseObjectMatrix2D SparseObjectMatrix2D(java.lang.Object[][]) 0
 NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix2D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix2D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int)
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix2D cern.colt.matrix.ObjectMatrix1D like1D(int, int, int)
@@ -2678,15 +2838,27 @@ cern.colt.matrix.impl.SparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D like(
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[])
 NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix2D cern.colt.matrix.ObjectMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix2D void setQuick(int, int, java.lang.Object) 2
 NULLABLE
 cern.colt.matrix.impl.SparseObjectMatrix3D SparseObjectMatrix3D(java.lang.Object[][][]) 0
 NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix3D boolean haveSharedCellsRaw(cern.colt.matrix.ObjectMatrix3D) 0
+NULLABLE
 cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix2D like2D(int, int, int, int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D like(int, int, int)
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[])
+NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 1
+NOT_NULL
+cern.colt.matrix.impl.SparseObjectMatrix3D cern.colt.matrix.ObjectMatrix3D viewSelectionLike(int[], int[], int[]) 2
 NOT_NULL
 cern.colt.matrix.impl.SparseObjectMatrix3D void setQuick(int, int, int, java.lang.Object) 3
 NULLABLE
@@ -2720,10 +2892,20 @@ cern.colt.matrix.impl.TridiagonalDoubleMatrix2D TridiagonalDoubleMatrix2D(double
 NOT_NULL
 cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D like1D(int)
 NOT_NULL
+cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 0
+NULLABLE
 cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix1D zMult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, double, double, boolean) 1
 NULLABLE
 cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction)
 NOT_NULL
+cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.function.DoubleFunction) 0
+NULLABLE
+cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D) 0
+NULLABLE
+cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 0
+NULLABLE
+cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(cern.colt.matrix.DoubleMatrix2D, cern.colt.function.DoubleDoubleFunction) 1
+NULLABLE
 cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D assign(double)
 NOT_NULL
 cern.colt.matrix.impl.TridiagonalDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D forEachNonZero(cern.colt.function.IntIntDoubleFunction)
@@ -2748,6 +2930,8 @@ cern.colt.matrix.impl.WrapperDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D view
 NOT_NULL
 cern.colt.matrix.impl.WrapperDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelection(int[]) 0
 NULLABLE
+cern.colt.matrix.impl.WrapperDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewSelectionLike(int[]) 0
+NOT_NULL
 cern.colt.matrix.impl.WrapperDoubleMatrix1D cern.colt.matrix.DoubleMatrix1D viewStrides(int)
 NOT_NULL
 cern.colt.matrix.impl.WrapperDoubleMatrix2D WrapperDoubleMatrix2D(cern.colt.matrix.DoubleMatrix2D) 0
@@ -2774,6 +2958,10 @@ cern.colt.matrix.impl.WrapperDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D view
 NULLABLE
 cern.colt.matrix.impl.WrapperDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelection(int[], int[]) 1
 NULLABLE
+cern.colt.matrix.impl.WrapperDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 0
+NOT_NULL
+cern.colt.matrix.impl.WrapperDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewSelectionLike(int[], int[]) 1
+NOT_NULL
 cern.colt.matrix.impl.WrapperDoubleMatrix2D cern.colt.matrix.DoubleMatrix2D viewStrides(int, int)
 NOT_NULL
 cern.colt.matrix.linalg.Algebra DEFAULT
@@ -2790,13 +2978,9 @@ cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix1D permute(cern.col
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix1D permute(cern.colt.matrix.DoubleMatrix1D, int[], double[]) 1
 NOT_NULL
-cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix1D permute(cern.colt.matrix.DoubleMatrix1D, int[], double[]) 2
-NULLABLE
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D inverse(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D mult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 0
-NOT_NULL
-cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D mult(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 1
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D multOuter(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
@@ -2832,11 +3016,7 @@ cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D solveTranspose(c
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D subMatrix(cern.colt.matrix.DoubleMatrix2D, int, int, int, int) 0
 NOT_NULL
-cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D subMatrix(cern.colt.matrix.DoubleMatrix2D, int, int, int[]) 0
-NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D subMatrix(cern.colt.matrix.DoubleMatrix2D, int, int, int[]) 3
-NOT_NULL
-cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D subMatrix(cern.colt.matrix.DoubleMatrix2D, int[], int, int) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D subMatrix(cern.colt.matrix.DoubleMatrix2D, int[], int, int) 1
 NOT_NULL
@@ -2854,13 +3034,27 @@ cern.colt.matrix.linalg.Algebra cern.colt.matrix.DoubleMatrix2D xpowSlow(cern.co
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.CholeskyDecomposition chol(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.CholeskyDecomposition chol(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.EigenvalueDecomposition eig(cern.colt.matrix.DoubleMatrix2D)
+NOT_NULL
+cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.EigenvalueDecomposition eig(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.LUDecomposition lu(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.LUDecomposition lu(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.QRDecomposition qr(cern.colt.matrix.DoubleMatrix2D)
 NOT_NULL
+cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.QRDecomposition qr(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
 cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.SingularValueDecomposition svd(cern.colt.matrix.DoubleMatrix2D)
+NOT_NULL
+cern.colt.matrix.linalg.Algebra cern.colt.matrix.linalg.SingularValueDecomposition svd(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
+cern.colt.matrix.linalg.Algebra double cond(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
+cern.colt.matrix.linalg.Algebra double det(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra double mult(cern.colt.matrix.DoubleMatrix1D, cern.colt.matrix.DoubleMatrix1D) 0
 NOT_NULL
@@ -2870,6 +3064,8 @@ cern.colt.matrix.linalg.Algebra double norm1(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra double norm2(cern.colt.matrix.DoubleMatrix1D) 0
 NOT_NULL
+cern.colt.matrix.linalg.Algebra double norm2(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
 cern.colt.matrix.linalg.Algebra double normF(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra double normInfinity(cern.colt.matrix.DoubleMatrix1D) 0
@@ -2877,6 +3073,8 @@ NOT_NULL
 cern.colt.matrix.linalg.Algebra double normInfinity(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra double trace(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
+cern.colt.matrix.linalg.Algebra int rank(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Algebra java.lang.Object clone()
 NOT_NULL
@@ -2901,8 +3099,6 @@ NOT_NULL
 cern.colt.matrix.linalg.Blas void dcopy(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 1
 NOT_NULL
 cern.colt.matrix.linalg.Blas void dgemm(boolean, boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, cern.colt.matrix.DoubleMatrix2D) 3
-NOT_NULL
-cern.colt.matrix.linalg.Blas void dgemm(boolean, boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, cern.colt.matrix.DoubleMatrix2D) 4
 NOT_NULL
 cern.colt.matrix.linalg.Blas void dgemv(boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix1D, double, cern.colt.matrix.DoubleMatrix1D) 2
 NOT_NULL
@@ -3042,6 +3238,8 @@ cern.colt.matrix.linalg.Property boolean isOrthogonal(cern.colt.matrix.DoubleMat
 NOT_NULL
 cern.colt.matrix.linalg.Property boolean isPositive(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
+cern.colt.matrix.linalg.Property boolean isSingular(cern.colt.matrix.DoubleMatrix2D) 0
+NOT_NULL
 cern.colt.matrix.linalg.Property boolean isSkewSymmetric(cern.colt.matrix.DoubleMatrix2D) 0
 NOT_NULL
 cern.colt.matrix.linalg.Property boolean isSquare(cern.colt.matrix.DoubleMatrix2D) 0
@@ -3111,8 +3309,6 @@ NOT_NULL
 cern.colt.matrix.linalg.SeqBlas void dcopy(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 1
 NOT_NULL
 cern.colt.matrix.linalg.SeqBlas void dgemm(boolean, boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, cern.colt.matrix.DoubleMatrix2D) 3
-NOT_NULL
-cern.colt.matrix.linalg.SeqBlas void dgemm(boolean, boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, cern.colt.matrix.DoubleMatrix2D) 4
 NOT_NULL
 cern.colt.matrix.linalg.SeqBlas void dgemv(boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix1D, double, cern.colt.matrix.DoubleMatrix1D) 2
 NOT_NULL
@@ -3193,8 +3389,6 @@ NOT_NULL
 cern.colt.matrix.linalg.SmpBlas void dcopy(cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D) 1
 NOT_NULL
 cern.colt.matrix.linalg.SmpBlas void dgemm(boolean, boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, cern.colt.matrix.DoubleMatrix2D) 3
-NOT_NULL
-cern.colt.matrix.linalg.SmpBlas void dgemm(boolean, boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix2D, double, cern.colt.matrix.DoubleMatrix2D) 4
 NOT_NULL
 cern.colt.matrix.linalg.SmpBlas void dgemv(boolean, double, cern.colt.matrix.DoubleMatrix2D, cern.colt.matrix.DoubleMatrix1D, double, cern.colt.matrix.DoubleMatrix1D) 2
 NOT_NULL
@@ -3296,17 +3490,9 @@ cern.colt.matrix.objectalgo.Sorting mergeSort
 NOT_NULL
 cern.colt.matrix.objectalgo.Sorting quickSort
 NOT_NULL
-cern.colt.matrix.objectalgo.Sorting void runSort(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
 cern.colt.matrix.objectalgo.Sorting void runSort(int[], int, int, cern.colt.function.IntComparator) 0
 NOT_NULL
-cern.colt.matrix.objectalgo.Sorting void runSort(int[], int, int, cern.colt.function.IntComparator) 3
-NOT_NULL
-cern.colt.matrix.objectalgo.Sorting.1 void runSort(int, int, cern.colt.function.IntComparator, cern.colt.Swapper) 2
-NOT_NULL
 cern.colt.matrix.objectalgo.Sorting.1 void runSort(int[], int, int, cern.colt.function.IntComparator) 0
-NOT_NULL
-cern.colt.matrix.objectalgo.Sorting.1 void runSort(int[], int, int, cern.colt.function.IntComparator) 3
 NOT_NULL
 cern.jet.math.Arithmetic double chbevl(double, double[], int) 1
 NOT_NULL
@@ -3670,23 +3856,19 @@ cern.jet.random.engine.MersenneTwister MersenneTwister(java.util.Date) 0
 NOT_NULL
 cern.jet.random.engine.MersenneTwister java.lang.Object clone()
 NOT_NULL
+cern.jet.random.engine.MersenneTwister64 MersenneTwister64(java.util.Date) 0
+NOT_NULL
 cern.jet.random.engine.RandomEngine cern.jet.random.engine.RandomEngine makeDefault()
 NOT_NULL
 cern.jet.random.engine.RandomSeedGenerator void main(java.lang.String[]) 0
 NOT_NULL
 cern.jet.random.engine.RandomSeedTable seeds
 NOT_NULL
-cern.jet.random.sampling.RandomSampler RandomSampler(long, long, long, cern.jet.random.engine.RandomEngine) 3
-NULLABLE
 cern.jet.random.sampling.RandomSampler java.lang.Object clone()
 NOT_NULL
 cern.jet.random.sampling.RandomSampler void main(java.lang.String[]) 0
 NOT_NULL
 cern.jet.random.sampling.RandomSampler void rejectMethodD(long, long, int, long, long[], int, cern.jet.random.engine.RandomEngine) 6
-NOT_NULL
-cern.jet.random.sampling.RandomSampler void sample(long, long, int, long, long[], int, cern.jet.random.engine.RandomEngine) 6
-NULLABLE
-cern.jet.random.sampling.RandomSampler void sampleMethodA(long, long, int, long, long[], int, cern.jet.random.engine.RandomEngine) 6
 NOT_NULL
 cern.jet.random.sampling.RandomSampler void sampleMethodD(long, long, int, long, long[], int, cern.jet.random.engine.RandomEngine) 6
 NOT_NULL
@@ -3842,10 +4024,6 @@ cern.jet.stat.quantile.DoubleBufferSet double[] getValuesAtPositions(cern.jet.st
 NOT_NULL
 cern.jet.stat.quantile.DoubleBufferSet java.lang.Object clone()
 NOT_NULL
-cern.jet.stat.quantile.DoubleQuantileEstimator cern.colt.list.DoubleArrayList preProcessPhis(cern.colt.list.DoubleArrayList)
-NULLABLE
-cern.jet.stat.quantile.DoubleQuantileEstimator cern.colt.list.DoubleArrayList preProcessPhis(cern.colt.list.DoubleArrayList) 0
-NULLABLE
 cern.jet.stat.quantile.DoubleQuantileEstimator cern.colt.list.DoubleArrayList quantileElements(cern.colt.list.DoubleArrayList)
 NOT_NULL
 cern.jet.stat.quantile.DoubleQuantileEstimator cern.colt.list.DoubleArrayList quantileElements(cern.colt.list.DoubleArrayList) 0
@@ -3874,10 +4052,6 @@ cern.jet.stat.quantile.ExactDoubleQuantileFinder void addAllOf(cern.colt.list.Do
 NOT_NULL
 cern.jet.stat.quantile.ExactDoubleQuantileFinder void addAllOfFromTo(cern.colt.list.DoubleArrayList, int, int) 0
 NOT_NULL
-cern.jet.stat.quantile.KnownDoubleQuantileEstimator cern.colt.list.DoubleArrayList preProcessPhis(cern.colt.list.DoubleArrayList)
-NULLABLE
-cern.jet.stat.quantile.KnownDoubleQuantileEstimator cern.colt.list.DoubleArrayList preProcessPhis(cern.colt.list.DoubleArrayList) 0
-NULLABLE
 cern.jet.stat.quantile.KnownDoubleQuantileEstimator cern.colt.list.DoubleArrayList quantileElements(cern.colt.list.DoubleArrayList)
 NOT_NULL
 cern.jet.stat.quantile.KnownDoubleQuantileEstimator cern.colt.list.DoubleArrayList quantileElements(cern.colt.list.DoubleArrayList) 0
@@ -3887,8 +4061,6 @@ NOT_NULL
 cern.jet.stat.quantile.KnownDoubleQuantileEstimator void postCollapse(cern.jet.stat.quantile.DoubleBuffer[]) 0
 NOT_NULL
 cern.jet.stat.quantile.KnownDoubleQuantileEstimator void removeInfinitiesFrom(int, cern.jet.stat.quantile.DoubleBuffer) 1
-NOT_NULL
-cern.jet.stat.quantile.Quantile1Test void main(java.lang.String[]) 0
 NOT_NULL
 cern.jet.stat.quantile.QuantileCalc long[] known_N_compute_B_and_K(long, double, double, int, double[])
 NOT_NULL
@@ -3962,6 +4134,8 @@ corejava.Format double atof(java.lang.String) 0
 NOT_NULL
 corejava.Format int atoi(java.lang.String) 0
 NOT_NULL
+corejava.Format java.lang.String format(java.lang.String) 0
+NOT_NULL
 corejava.Format java.lang.String pad(java.lang.String) 0
 NOT_NULL
 corejava.Format java.lang.String sign(int, java.lang.String) 1
@@ -3970,12 +4144,28 @@ corejava.Format long atol(java.lang.String) 0
 NOT_NULL
 corejava.Format long parseLong(java.lang.String, int) 0
 NOT_NULL
+corejava.Format void printf(java.lang.String, char) 0
+NOT_NULL
+corejava.Format void printf(java.lang.String, double) 0
+NOT_NULL
+corejava.Format void printf(java.lang.String, int) 0
+NOT_NULL
+corejava.Format void printf(java.lang.String, java.lang.String) 0
+NOT_NULL
+corejava.Format void printf(java.lang.String, java.lang.String) 1
+NOT_NULL
+corejava.Format void printf(java.lang.String, long) 0
+NOT_NULL
 hep.aida.IHistogram1D int[] minMaxBins()
 NOT_NULL
 hep.aida.IHistogram2D int[] minMaxBins()
 NOT_NULL
 hep.aida.IHistogram3D int[] minMaxBins()
 NOT_NULL
+hep.aida.bin.AbstractBin boolean equals(java.lang.Object) 0
+NULLABLE
+hep.aida.bin.AbstractBin1D boolean equals(java.lang.Object) 0
+NULLABLE
 hep.aida.bin.AbstractBin1D cern.colt.buffer.DoubleBuffer buffered(int)
 NOT_NULL
 hep.aida.bin.AbstractBin1D java.lang.String compareWith(hep.aida.bin.AbstractBin1D) 0
@@ -4054,7 +4244,9 @@ hep.aida.bin.BinFunctions1D.9 double apply(hep.aida.bin.DynamicBin1D) 0
 NOT_NULL
 hep.aida.bin.BinFunctions1D.9 java.lang.String name()
 NOT_NULL
-hep.aida.bin.DynamicBin1D boolean includes(double[], double[], int, int, int, int) 1
+hep.aida.bin.DynamicBin1D boolean equals(java.lang.Object) 0
+NULLABLE
+hep.aida.bin.DynamicBin1D boolean removeAllOf(cern.colt.list.DoubleArrayList) 0
 NOT_NULL
 hep.aida.bin.DynamicBin1D cern.colt.list.DoubleArrayList elements()
 NOT_NULL
@@ -4084,6 +4276,8 @@ hep.aida.bin.DynamicBin1D void sample(int, boolean, cern.jet.random.engine.Rando
 NULLABLE
 hep.aida.bin.DynamicBin1D void sample(int, boolean, cern.jet.random.engine.RandomEngine, cern.colt.buffer.DoubleBuffer) 3
 NOT_NULL
+hep.aida.bin.MightyStaticBin1D boolean xequals(java.lang.Object) 0
+NULLABLE
 hep.aida.bin.MightyStaticBin1D java.lang.String compareWith(hep.aida.bin.AbstractBin1D) 0
 NOT_NULL
 hep.aida.bin.MightyStaticBin1D void addAllOfFromTo(cern.colt.list.DoubleArrayList, int, int) 0
@@ -4162,9 +4356,15 @@ hep.aida.ref.Converter java.lang.String toXML(hep.aida.IHistogram1D) 0
 NOT_NULL
 hep.aida.ref.Converter java.lang.String toXML(hep.aida.IHistogram2D) 0
 NOT_NULL
+hep.aida.ref.Histogram1D Histogram1D(java.lang.String, double[]) 1
+NOT_NULL
 hep.aida.ref.Histogram1D Histogram1D(java.lang.String, hep.aida.IAxis) 1
 NOT_NULL
 hep.aida.ref.Histogram1D void setContents(int[], double[], double[]) 0
+NOT_NULL
+hep.aida.ref.Histogram2D Histogram2D(java.lang.String, double[], double[]) 1
+NOT_NULL
+hep.aida.ref.Histogram2D Histogram2D(java.lang.String, double[], double[]) 2
 NOT_NULL
 hep.aida.ref.Histogram2D Histogram2D(java.lang.String, hep.aida.IAxis, hep.aida.IAxis) 1
 NOT_NULL
@@ -4175,6 +4375,12 @@ NOT_NULL
 hep.aida.ref.Histogram2D hep.aida.IHistogram1D internalSliceY(java.lang.String, int, int)
 NOT_NULL
 hep.aida.ref.Histogram2D void setContents(int[][], double[][], double[][]) 0
+NOT_NULL
+hep.aida.ref.Histogram3D Histogram3D(java.lang.String, double[], double[], double[]) 1
+NOT_NULL
+hep.aida.ref.Histogram3D Histogram3D(java.lang.String, double[], double[], double[]) 2
+NOT_NULL
+hep.aida.ref.Histogram3D Histogram3D(java.lang.String, double[], double[], double[]) 3
 NOT_NULL
 hep.aida.ref.Histogram3D Histogram3D(java.lang.String, hep.aida.IAxis, hep.aida.IAxis, hep.aida.IAxis) 1
 NOT_NULL

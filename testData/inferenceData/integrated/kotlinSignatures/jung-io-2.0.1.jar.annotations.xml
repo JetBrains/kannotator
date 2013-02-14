@@ -104,6 +104,11 @@
             <val name="value" val="&quot;fun createMatrixFromFile(reader : BufferedReader) : DoubleMatrix2D&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.io.MatrixFile edu.uci.ics.jung.graph.Graph&lt;V,E&gt; load(java.io.BufferedReader)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun load(reader : BufferedReader) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.io.PajekNetReader.ListTagPred boolean evaluate(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun evaluate(s : String?) : Boolean&quot;"/>
@@ -316,27 +321,27 @@
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.DataElementParser edu.uci.ics.jung.io.graphml.DataMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : DataMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : DataMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.DataElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml.EdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : EdgeMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : EdgeMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.ElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(p0 : XMLEventReader, p1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(p0 : XMLEventReader?, p1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)'>
@@ -351,12 +356,12 @@
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.EndpointElementParser edu.uci.ics.jung.io.graphml.EndpointMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : EndpointMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : EndpointMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.EndpointElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser void addEdgesToGraph(G, java.util.Collection&lt;edu.uci.ics.jung.io.graphml.EdgeMetadata&gt;, java.util.Map&lt;java.lang.String,V&gt;)'>
@@ -376,12 +381,12 @@
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser edu.uci.ics.jung.io.graphml.GraphMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : GraphMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : GraphMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.GraphMLEventFilter boolean accept(javax.xml.stream.events.XMLEvent)'>
@@ -391,12 +396,12 @@
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser edu.uci.ics.jung.io.graphml.HyperEdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : HyperEdgeMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : HyperEdgeMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key.ForType convertFor(java.lang.String)'>
@@ -406,47 +411,47 @@
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : Key?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : Key?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.KeyElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.NodeElementParser edu.uci.ics.jung.io.graphml.NodeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : NodeMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : NodeMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.NodeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.PortElementParser edu.uci.ics.jung.io.graphml.PortMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement) : PortMetadata?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : PortMetadata?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.PortElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(x0 : XMLEventReader, x1 : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.String parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader, start : StartElement?) : String?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : String?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.io.graphml.parser.UnknownElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader, start : StartElement) : Any?&quot;"/>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : Any?&quot;"/>
         </annotation>
     </item>
 </root>

@@ -8,6 +8,10 @@ java.util.concurrent.locks.ReentrantReadWriteLock java.lang.Thread getOwner()
 java.util.concurrent.locks.ReentrantLock java.lang.Thread getOwner()
 java.util.Calendar boolean equals(java.lang.Object) 0
 java.util.regex.Matcher java.lang.String group()
+java.io.File java.io.File createTempFile(java.lang.String, java.lang.String) 1
+java.io.File java.io.File createTempFile(java.lang.String, java.lang.String, java.io.File) 1
+java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder insert(int, java.lang.String) 1
+java.lang.StringBuilder java.lang.StringBuilder insert(int, java.lang.String) 1
 #
 org.objectweb.asm.tree.MethodNode void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[]) 2
 org.objectweb.asm.tree.MethodNode void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[]) 4
@@ -49,3 +53,5 @@ java.io.PrintWriter void print(java.lang.String) 0
 java.lang.StringBuilder java.lang.StringBuilder append(java.lang.CharSequence, int, int) 0
 java.lang.String boolean equalsIgnoreCase(java.lang.String) 0
 java.util.SortedMap java.util.Comparator<? super K> comparator()
+#
+org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr getReprByName(java.io.File, int) 0

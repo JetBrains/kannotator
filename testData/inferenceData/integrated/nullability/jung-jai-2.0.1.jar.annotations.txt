@@ -6,6 +6,8 @@ edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport.Lens Lens
 NOT_NULL
 edu.uci.ics.jung.visualization.jai.AbstractPerspectiveTransformSupport.Lens void paint(java.awt.Graphics) 0
 NOT_NULL
+edu.uci.ics.jung.visualization.jai.HyperbolicImageLensSupport HyperbolicImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.jai.HyperbolicImageLensSupport HyperbolicImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.jai.HyperbolicImageLensSupport HyperbolicImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse) 1
@@ -60,6 +62,8 @@ edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer java.awt.
 NOT_NULL
 edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer java.awt.image.RenderedImage getPerspectiveImage(java.awt.Image, java.awt.Shape, java.awt.Shape)
 NULLABLE
+edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer java.awt.image.RenderedImage getPerspectiveImage(java.awt.Image, java.awt.Shape, java.awt.Shape) 0
+NOT_NULL
 edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer java.awt.image.RenderedImage getPerspectiveImage(java.awt.Image, java.awt.Shape, java.awt.Shape) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer java.awt.image.RenderedImage getPerspectiveImage(java.awt.Image, java.awt.Shape, java.awt.Shape) 2

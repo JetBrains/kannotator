@@ -1,4 +1,14 @@
 <root>
+    <item name='javax.xml.namespace.QName QName(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun QName(localPart : String)&quot;"/>
+        </annotation>
+    </item>
+    <item name='javax.xml.namespace.QName QName(java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun QName(namespaceURI : String?, localPart : String)&quot;"/>
+        </annotation>
+    </item>
     <item name='javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun QName(namespaceURI : String?, localPart : String, prefix : String?)&quot;"/>
@@ -19,14 +29,9 @@
             <val name="value" val="&quot;fun getMessage() : String?&quot;"/>
         </annotation>
     </item>
-    <item name='javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun find(factoryId : String?, fallbackClassName : String) : Any?&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang.String, java.lang.ClassLoader)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun find(factoryId : String?, fallbackClassName : String, classLoader : ClassLoader?) : Any?&quot;"/>
+            <val name="value" val="&quot;fun find(factoryId : String?, fallbackClassName : String?, classLoader : ClassLoader?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='javax.xml.stream.FactoryFinder java.lang.Object newInstance(java.lang.String, java.lang.ClassLoader)'>

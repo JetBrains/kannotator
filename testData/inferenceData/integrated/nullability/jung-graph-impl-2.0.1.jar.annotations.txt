@@ -44,8 +44,6 @@ edu.uci.ics.jung.graph.DelegateForest V getParent(V)
 NULLABLE
 edu.uci.ics.jung.graph.DelegateForest V getRoot()
 NULLABLE
-edu.uci.ics.jung.graph.DelegateForest boolean addEdge(E, java.util.Collection<? extends V>) 1
-NOT_NULL
 edu.uci.ics.jung.graph.DelegateForest java.util.Collection<V> getRoots()
 NOT_NULL
 edu.uci.ics.jung.graph.DelegateForest java.util.Collection<edu.uci.ics.jung.graph.Tree<V,E>> getTrees()
@@ -56,8 +54,6 @@ edu.uci.ics.jung.graph.DelegateTree DelegateTree(org.apache.commons.collections1
 NOT_NULL
 edu.uci.ics.jung.graph.DelegateTree V getParent(V)
 NULLABLE
-edu.uci.ics.jung.graph.DelegateTree boolean addEdge(E, java.util.Collection<? extends V>) 1
-NOT_NULL
 edu.uci.ics.jung.graph.DelegateTree java.util.Collection<V> getChildren(V)
 NULLABLE
 edu.uci.ics.jung.graph.DelegateTree java.util.List<V> getPath(V)

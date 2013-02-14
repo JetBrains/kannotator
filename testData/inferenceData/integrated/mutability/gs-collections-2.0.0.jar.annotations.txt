@@ -116,6 +116,26 @@ com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection R zip(j
 MUTABLE
 com.gs.collections.impl.collection.mutable.UnmodifiableMutableCollection R zipWithIndex(R) 0
 MUTABLE
+com.gs.collections.impl.factory.Sets R differenceAllInto(R, java.util.Set<? extends E>...) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R differenceInto(R, java.util.Set<? extends E>, java.util.Set<? extends E>) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R fillSet(R, com.gs.collections.api.block.procedure.Procedure2<java.util.Set<? extends E>,R>, java.util.Set<? extends E>...) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R intersectAllInto(R, java.util.Set<? extends E>...) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R intersectInto(R, java.util.Set<? extends E>, java.util.Set<? extends E>) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R symmetricDifferenceInto(R, java.util.Set<? extends E>, java.util.Set<? extends E>) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R unionAllInto(R, java.util.Set<? extends E>...) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets R unionInto(R, java.util.Set<? extends E>, java.util.Set<? extends E>) 0
+MUTABLE
+com.gs.collections.impl.factory.Sets.3 void value(java.lang.Object, java.lang.Object) 1
+MUTABLE
+com.gs.collections.impl.factory.Sets.3 void value(java.util.Set<? extends E>, R) 1
+MUTABLE
 com.gs.collections.impl.factory.Sets.4 void value(java.lang.Object, java.lang.Object) 1
 MUTABLE
 com.gs.collections.impl.factory.Sets.4 void value(java.util.Set<? extends E>, R) 1
@@ -441,6 +461,8 @@ MUTABLE
 com.gs.collections.impl.utility.MapIterate V getIfAbsentPut(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function0<? extends V>) 0
 MUTABLE
 com.gs.collections.impl.utility.MapIterate V getIfAbsentPutWith(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 0
+MUTABLE
+com.gs.collections.impl.utility.StringIterate L trimStringList(L) 0
 MUTABLE
 com.gs.collections.impl.utility.internal.IterableIterate R collect(java.lang.Iterable<T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2
 MUTABLE

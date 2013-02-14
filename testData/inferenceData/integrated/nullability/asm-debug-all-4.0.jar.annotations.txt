@@ -24,8 +24,6 @@ org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.AnnotationWriter[]
 NOT_NULL
 org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.AnnotationWriter[], int, org.objectweb.asm.ByteVector) 2
 NOT_NULL
-org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.ByteVector) 0
-NOT_NULL
 org.objectweb.asm.AnnotationWriter void visit(java.lang.String, java.lang.Object) 0
 NULLABLE
 org.objectweb.asm.AnnotationWriter void visit(java.lang.String, java.lang.Object) 1
@@ -344,11 +342,7 @@ org.objectweb.asm.Frame boolean merge(org.objectweb.asm.ClassWriter, int, int[],
 NOT_NULL
 org.objectweb.asm.Frame boolean merge(org.objectweb.asm.ClassWriter, org.objectweb.asm.Frame, int) 1
 NOT_NULL
-org.objectweb.asm.Frame int init(org.objectweb.asm.ClassWriter, int) 0
-NOT_NULL
 org.objectweb.asm.Frame int type(org.objectweb.asm.ClassWriter, java.lang.String) 1
-NOT_NULL
-org.objectweb.asm.Frame void execute(int, int, org.objectweb.asm.ClassWriter, org.objectweb.asm.Item) 3
 NOT_NULL
 org.objectweb.asm.Frame void initInputFrame(org.objectweb.asm.ClassWriter, int, org.objectweb.asm.Type[], int) 2
 NOT_NULL
@@ -356,6 +350,8 @@ org.objectweb.asm.Frame void pop(java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.Frame void push(org.objectweb.asm.ClassWriter, java.lang.String) 1
 NOT_NULL
+org.objectweb.asm.Handle boolean equals(java.lang.Object) 0
+NULLABLE
 org.objectweb.asm.Handler org.objectweb.asm.Handler remove(org.objectweb.asm.Handler, org.objectweb.asm.Label, org.objectweb.asm.Label)
 NULLABLE
 org.objectweb.asm.Handler org.objectweb.asm.Handler remove(org.objectweb.asm.Handler, org.objectweb.asm.Label, org.objectweb.asm.Label) 0
@@ -616,6 +612,8 @@ org.objectweb.asm.Type java.lang.String getMethodDescriptor(java.lang.reflect.Me
 NOT_NULL
 org.objectweb.asm.Type java.lang.String getMethodDescriptor(org.objectweb.asm.Type, org.objectweb.asm.Type...)
 NOT_NULL
+org.objectweb.asm.Type java.lang.String getMethodDescriptor(org.objectweb.asm.Type, org.objectweb.asm.Type...) 0
+NOT_NULL
 org.objectweb.asm.Type java.lang.String getMethodDescriptor(org.objectweb.asm.Type, org.objectweb.asm.Type...) 1
 NOT_NULL
 org.objectweb.asm.Type java.lang.String toString()
@@ -682,6 +680,8 @@ org.objectweb.asm.Type void getDescriptor(java.lang.StringBuffer, java.lang.Clas
 NOT_NULL
 org.objectweb.asm.Type void getDescriptor(java.lang.StringBuffer, java.lang.Class<?>) 1
 NOT_NULL
+org.objectweb.asm.commons.AdviceAdapter AdviceAdapter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String) 4
+NOT_NULL
 org.objectweb.asm.commons.AdviceAdapter OTHER
 NOT_NULL
 org.objectweb.asm.commons.AdviceAdapter THIS
@@ -737,6 +737,8 @@ NULLABLE
 org.objectweb.asm.commons.AdviceAdapter void visitTypeInsn(int, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.commons.AnalyzerAdapter AnalyzerAdapter(int, java.lang.String, int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor) 4
+NOT_NULL
+org.objectweb.asm.commons.AnalyzerAdapter AnalyzerAdapter(java.lang.String, int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor) 3
 NOT_NULL
 org.objectweb.asm.commons.AnalyzerAdapter void pop(java.lang.String) 0
 NOT_NULL
@@ -852,6 +854,8 @@ org.objectweb.asm.commons.GeneratorAdapter GeneratorAdapter(int, org.objectweb.a
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter GeneratorAdapter(int, org.objectweb.asm.commons.Method, org.objectweb.asm.MethodVisitor) 1
 NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter GeneratorAdapter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String) 3
+NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter INTEGER_TYPE
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter INT_VALUE
@@ -904,6 +908,18 @@ org.objectweb.asm.commons.GeneratorAdapter void fieldInsn(int, org.objectweb.asm
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void fieldInsn(int, org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 3
 NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void getField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void getField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void getField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 2
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void getStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void getStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void getStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 2
+NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void goTo(org.objectweb.asm.Label) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void ifCmp(org.objectweb.asm.Type, int, org.objectweb.asm.Label) 0
@@ -918,6 +934,12 @@ org.objectweb.asm.commons.GeneratorAdapter void ifNull(org.objectweb.asm.Label) 
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void ifZCmp(int, org.objectweb.asm.Label) 1
 NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void instanceOf(org.objectweb.asm.Type) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeConstructor(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeConstructor(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 1
+NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void invokeDynamic(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void invokeDynamic(java.lang.String, java.lang.String, org.objectweb.asm.Handle, java.lang.Object...) 1
@@ -930,7 +952,21 @@ org.objectweb.asm.commons.GeneratorAdapter void invokeInsn(int, org.objectweb.as
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void invokeInsn(int, org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 2
 NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeInterface(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeInterface(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeStatic(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeStatic(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeVirtual(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void invokeVirtual(org.objectweb.asm.Type, org.objectweb.asm.commons.Method) 1
+NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void loadInsn(org.objectweb.asm.Type, int) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void loadLocal(int, org.objectweb.asm.Type) 1
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void mark(org.objectweb.asm.Label) 0
 NOT_NULL
@@ -938,13 +974,29 @@ org.objectweb.asm.commons.GeneratorAdapter void math(int, org.objectweb.asm.Type
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void newArray(org.objectweb.asm.Type) 0
 NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void newInstance(org.objectweb.asm.Type) 0
+NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void push(java.lang.String) 0
 NULLABLE
 org.objectweb.asm.commons.GeneratorAdapter void push(org.objectweb.asm.Handle) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void push(org.objectweb.asm.Type) 0
 NULLABLE
+org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 2
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void putStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void putStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void putStatic(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 2
+NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void storeInsn(org.objectweb.asm.Type, int) 0
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void storeLocal(int, org.objectweb.asm.Type) 1
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void swap(org.objectweb.asm.Type, org.objectweb.asm.Type) 0
 NOT_NULL
@@ -957,6 +1009,8 @@ NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void tableSwitch(int[], org.objectweb.asm.commons.TableSwitchGenerator, boolean) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void tableSwitch(int[], org.objectweb.asm.commons.TableSwitchGenerator, boolean) 1
+NOT_NULL
+org.objectweb.asm.commons.GeneratorAdapter void throwException(org.objectweb.asm.Type, java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void typeInsn(int, org.objectweb.asm.Type) 1
 NOT_NULL
@@ -1160,11 +1214,21 @@ org.objectweb.asm.commons.InstructionAdapter void visitTypeInsn(int, java.lang.S
 NOT_NULL
 org.objectweb.asm.commons.InstructionAdapter void xor(org.objectweb.asm.Type) 0
 NOT_NULL
+org.objectweb.asm.commons.JSRInlinerAdapter JSRInlinerAdapter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3
+NOT_NULL
+org.objectweb.asm.commons.JSRInlinerAdapter JSRInlinerAdapter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4
+NOT_NULL
+org.objectweb.asm.commons.JSRInlinerAdapter JSRInlinerAdapter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
+NOT_NULL
+org.objectweb.asm.commons.JSRInlinerAdapter JSRInlinerAdapter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3
+NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter dualCitizens
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter mainSubroutine
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter subroutineHeads
+NOT_NULL
+org.objectweb.asm.commons.JSRInlinerAdapter void markSubroutineWalk(java.util.BitSet, int, java.util.BitSet) 0
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter void markSubroutineWalkDFS(java.util.BitSet, int, java.util.BitSet) 0
 NOT_NULL
@@ -1194,6 +1258,8 @@ org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation this$0
 NOT_NULL
 org.objectweb.asm.commons.LocalVariablesSorter LocalVariablesSorter(int, int, java.lang.String, org.objectweb.asm.MethodVisitor) 2
 NOT_NULL
+org.objectweb.asm.commons.LocalVariablesSorter LocalVariablesSorter(int, java.lang.String, org.objectweb.asm.MethodVisitor) 1
+NOT_NULL
 org.objectweb.asm.commons.LocalVariablesSorter OBJECT_TYPE
 NOT_NULL
 org.objectweb.asm.commons.LocalVariablesSorter int newLocal(org.objectweb.asm.Type) 0
@@ -1218,8 +1284,12 @@ org.objectweb.asm.commons.LocalVariablesSorter void visitLocalVariable(java.lang
 NOT_NULL
 org.objectweb.asm.commons.Method DESCRIPTORS
 NOT_NULL
+org.objectweb.asm.commons.Method Method(java.lang.String, org.objectweb.asm.Type, org.objectweb.asm.Type[]) 1
+NOT_NULL
 org.objectweb.asm.commons.Method Method(java.lang.String, org.objectweb.asm.Type, org.objectweb.asm.Type[]) 2
 NOT_NULL
+org.objectweb.asm.commons.Method boolean equals(java.lang.Object) 0
+NULLABLE
 org.objectweb.asm.commons.Method org.objectweb.asm.Type getReturnType()
 NOT_NULL
 org.objectweb.asm.commons.Method org.objectweb.asm.Type[] getArgumentTypes()
@@ -1240,12 +1310,12 @@ org.objectweb.asm.commons.Method org.objectweb.asm.commons.Method getMethod(java
 NOT_NULL
 org.objectweb.asm.commons.Method org.objectweb.asm.commons.Method getMethod(java.lang.reflect.Method) 0
 NOT_NULL
+org.objectweb.asm.commons.Remapper java.lang.Object mapValue(java.lang.Object)
+NULLABLE
+org.objectweb.asm.commons.Remapper java.lang.Object mapValue(java.lang.Object) 0
+NULLABLE
 org.objectweb.asm.commons.Remapper java.lang.String mapDesc(java.lang.String) 0
 NOT_NULL
-org.objectweb.asm.commons.Remapper java.lang.String mapFieldName(java.lang.String, java.lang.String, java.lang.String)
-NULLABLE
-org.objectweb.asm.commons.Remapper java.lang.String mapMethodName(java.lang.String, java.lang.String, java.lang.String)
-NULLABLE
 org.objectweb.asm.commons.Remapper java.lang.String mapSignature(java.lang.String, boolean)
 NULLABLE
 org.objectweb.asm.commons.Remapper java.lang.String mapSignature(java.lang.String, boolean) 0
@@ -1265,11 +1335,11 @@ NOT_NULL
 org.objectweb.asm.commons.Remapper org.objectweb.asm.signature.SignatureVisitor createRemappingSignatureAdapter(org.objectweb.asm.signature.SignatureVisitor)
 NOT_NULL
 org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String)
-NOT_NULL
+NULLABLE
 org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
-NOT_NULL
+NULLABLE
 org.objectweb.asm.commons.RemappingAnnotationAdapter void visit(java.lang.String, java.lang.Object) 0
 NULLABLE
 org.objectweb.asm.commons.RemappingAnnotationAdapter void visit(java.lang.String, java.lang.Object) 1
@@ -1299,6 +1369,8 @@ NULLABLE
 org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 4
 NULLABLE
 org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.MethodVisitor createRemappingMethodAdapter(int, java.lang.String, org.objectweb.asm.MethodVisitor)
+NOT_NULL
+org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.MethodVisitor createRemappingMethodAdapter(int, java.lang.String, org.objectweb.asm.MethodVisitor) 1
 NOT_NULL
 org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
 NULLABLE
@@ -1334,9 +1406,9 @@ org.objectweb.asm.commons.RemappingFieldAdapter org.objectweb.asm.AnnotationVisi
 NULLABLE
 org.objectweb.asm.commons.RemappingFieldAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean) 0
 NOT_NULL
-org.objectweb.asm.commons.RemappingMethodAdapter java.lang.Object[] remapEntries(int, java.lang.Object[])
+org.objectweb.asm.commons.RemappingMethodAdapter RemappingMethodAdapter(int, int, java.lang.String, org.objectweb.asm.MethodVisitor, org.objectweb.asm.commons.Remapper) 2
 NOT_NULL
-org.objectweb.asm.commons.RemappingMethodAdapter java.lang.Object[] remapEntries(int, java.lang.Object[]) 1
+org.objectweb.asm.commons.RemappingMethodAdapter RemappingMethodAdapter(int, java.lang.String, org.objectweb.asm.MethodVisitor, org.objectweb.asm.commons.Remapper) 1
 NOT_NULL
 org.objectweb.asm.commons.RemappingMethodAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)
 NULLABLE
@@ -1458,14 +1530,12 @@ org.objectweb.asm.commons.SerialVersionUIDAdder void visitInnerClass(java.lang.S
 NULLABLE
 org.objectweb.asm.commons.SerialVersionUIDAdder void writeItems(java.util.Collection<org.objectweb.asm.commons.SerialVersionUIDAdder.Item>, java.io.DataOutput, boolean) 0
 NOT_NULL
+org.objectweb.asm.commons.SerialVersionUIDAdder.Item boolean equals(java.lang.Object) 0
+NULLABLE
 org.objectweb.asm.commons.SerialVersionUIDAdder.Item int compareTo(java.lang.Object) 0
 NOT_NULL
 org.objectweb.asm.commons.SerialVersionUIDAdder.Item int compareTo(org.objectweb.asm.commons.SerialVersionUIDAdder.Item) 0
 NOT_NULL
-org.objectweb.asm.commons.SimpleRemapper java.lang.String mapFieldName(java.lang.String, java.lang.String, java.lang.String)
-NULLABLE
-org.objectweb.asm.commons.SimpleRemapper java.lang.String mapMethodName(java.lang.String, java.lang.String, java.lang.String)
-NULLABLE
 org.objectweb.asm.commons.StaticInitMerger org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
 NULLABLE
 org.objectweb.asm.commons.StaticInitMerger org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 1
@@ -1484,7 +1554,23 @@ org.objectweb.asm.commons.StaticInitMerger void visit(int, int, java.lang.String
 NULLABLE
 org.objectweb.asm.commons.StaticInitMerger void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 5
 NULLABLE
+org.objectweb.asm.commons.TryCatchBlockSorter TryCatchBlockSorter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter TryCatchBlockSorter(int, org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter TryCatchBlockSorter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter TryCatchBlockSorter(org.objectweb.asm.MethodVisitor, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3
+NOT_NULL
 org.objectweb.asm.commons.TryCatchBlockSorter.1 int blockLength(org.objectweb.asm.tree.TryCatchBlockNode) 0
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter.1 int compare(java.lang.Object, java.lang.Object) 0
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter.1 int compare(java.lang.Object, java.lang.Object) 1
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter.1 int compare(org.objectweb.asm.tree.TryCatchBlockNode, org.objectweb.asm.tree.TryCatchBlockNode) 0
+NOT_NULL
+org.objectweb.asm.commons.TryCatchBlockSorter.1 int compare(org.objectweb.asm.tree.TryCatchBlockNode, org.objectweb.asm.tree.TryCatchBlockNode) 1
 NOT_NULL
 org.objectweb.asm.signature.SignatureReader int parseType(java.lang.String, int, org.objectweb.asm.signature.SignatureVisitor) 0
 NOT_NULL
@@ -1571,6 +1657,8 @@ NOT_NULL
 org.objectweb.asm.tree.AnnotationNode void accept(org.objectweb.asm.AnnotationVisitor) 0
 NULLABLE
 org.objectweb.asm.tree.AnnotationNode void accept(org.objectweb.asm.AnnotationVisitor, java.lang.String, java.lang.Object) 0
+NULLABLE
+org.objectweb.asm.tree.AnnotationNode void accept(org.objectweb.asm.AnnotationVisitor, java.lang.String, java.lang.Object) 2
 NULLABLE
 org.objectweb.asm.tree.AnnotationNode void visit(java.lang.String, java.lang.Object) 0
 NULLABLE
@@ -1992,6 +2080,8 @@ org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame<V
 NOT_NULL
 org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame<V> newFrame(org.objectweb.asm.tree.analysis.Frame<? extends V>)
 NOT_NULL
+org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame<V> newFrame(org.objectweb.asm.tree.analysis.Frame<? extends V>) 0
+NOT_NULL
 org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame<V>[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode)
 NOT_NULL
 org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame<V>[] analyze(java.lang.String, org.objectweb.asm.tree.MethodNode) 0
@@ -2004,6 +2094,8 @@ org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.
 NOT_NULL
 org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine, boolean[]) 3
 NULLABLE
+org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine) 1
+NOT_NULL
 org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine) 2
 NULLABLE
 org.objectweb.asm.tree.analysis.AnalyzerException AnalyzerException(org.objectweb.asm.tree.AbstractInsnNode, java.lang.String, java.lang.Object, org.objectweb.asm.tree.analysis.Value) 1
@@ -2134,6 +2226,8 @@ org.objectweb.asm.tree.analysis.BasicValue RETURNADDRESS_VALUE
 NOT_NULL
 org.objectweb.asm.tree.analysis.BasicValue UNINITIALIZED_VALUE
 NOT_NULL
+org.objectweb.asm.tree.analysis.BasicValue boolean equals(java.lang.Object) 0
+NULLABLE
 org.objectweb.asm.tree.analysis.BasicValue java.lang.String toString()
 NOT_NULL
 org.objectweb.asm.tree.analysis.BasicVerifier boolean isArrayValue(org.objectweb.asm.tree.analysis.BasicValue) 0
@@ -2418,6 +2512,8 @@ org.objectweb.asm.tree.analysis.SourceInterpreter void returnOperation(org.objec
 NOT_NULL
 org.objectweb.asm.tree.analysis.SourceInterpreter void returnOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.Value, org.objectweb.asm.tree.analysis.Value) 2
 NOT_NULL
+org.objectweb.asm.tree.analysis.SourceValue boolean equals(java.lang.Object) 0
+NULLABLE
 org.objectweb.asm.tree.analysis.Subroutine boolean merge(org.objectweb.asm.tree.analysis.Subroutine) 0
 NOT_NULL
 org.objectweb.asm.tree.analysis.Subroutine org.objectweb.asm.tree.analysis.Subroutine copy()
@@ -2600,8 +2696,6 @@ org.objectweb.asm.util.CheckAnnotationAdapter org.objectweb.asm.AnnotationVisito
 NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
-org.objectweb.asm.util.CheckAnnotationAdapter void checkName(java.lang.String) 0
-NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter void visit(java.lang.String, java.lang.Object) 0
 NULLABLE
 org.objectweb.asm.util.CheckAnnotationAdapter void visit(java.lang.String, java.lang.Object) 1
@@ -2652,6 +2746,8 @@ org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassRead
 NOT_NULL
 org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassReader, java.lang.ClassLoader, boolean, java.io.PrintWriter) 0
 NOT_NULL
+org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassReader, java.lang.ClassLoader, boolean, java.io.PrintWriter) 1
+NULLABLE
 org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassReader, java.lang.ClassLoader, boolean, java.io.PrintWriter) 3
 NOT_NULL
 org.objectweb.asm.util.CheckClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
@@ -2685,6 +2781,10 @@ NOT_NULL
 org.objectweb.asm.util.CheckFieldAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean) 0
 NOT_NULL
 org.objectweb.asm.util.CheckFieldAdapter void visitAttribute(org.objectweb.asm.Attribute) 0
+NOT_NULL
+org.objectweb.asm.util.CheckMethodAdapter CheckMethodAdapter(int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor, java.util.Map<org.objectweb.asm.Label,java.lang.Integer>) 1
+NOT_NULL
+org.objectweb.asm.util.CheckMethodAdapter CheckMethodAdapter(int, java.lang.String, java.lang.String, org.objectweb.asm.MethodVisitor, java.util.Map<org.objectweb.asm.Label,java.lang.Integer>) 2
 NOT_NULL
 org.objectweb.asm.util.CheckMethodAdapter TYPE
 NOT_NULL
@@ -2817,6 +2917,10 @@ NOT_NULL
 org.objectweb.asm.util.CheckMethodAdapter void visitTryCatchBlock(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Label, java.lang.String) 3
 NULLABLE
 org.objectweb.asm.util.CheckMethodAdapter void visitTypeInsn(int, java.lang.String) 1
+NOT_NULL
+org.objectweb.asm.util.CheckMethodAdapter.1 1(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], org.objectweb.asm.MethodVisitor) 1
+NOT_NULL
+org.objectweb.asm.util.CheckMethodAdapter.1 1(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], org.objectweb.asm.MethodVisitor) 2
 NOT_NULL
 org.objectweb.asm.util.CheckSignatureAdapter org.objectweb.asm.signature.SignatureVisitor visitArrayType()
 NOT_NULL
@@ -3490,6 +3594,8 @@ org.objectweb.asm.xml.Processor void main(java.lang.String[]) 0
 NOT_NULL
 org.objectweb.asm.xml.Processor void processEntry(java.util.zip.ZipInputStream, java.util.zip.ZipEntry, org.objectweb.asm.xml.Processor.ContentHandlerFactory) 2
 NOT_NULL
+org.objectweb.asm.xml.Processor void update(java.lang.Object, int) 0
+NULLABLE
 org.objectweb.asm.xml.Processor.ASMContentHandlerFactory org.xml.sax.ContentHandler createContentHandler()
 NOT_NULL
 org.objectweb.asm.xml.Processor.ContentHandlerFactory org.xml.sax.ContentHandler createContentHandler()
@@ -3512,6 +3618,10 @@ org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectw
 NULLABLE
 org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String, int) 5
 NULLABLE
+org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, int, java.lang.String) 0
+NOT_NULL
+org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String) 0
+NOT_NULL
 org.objectweb.asm.xml.SAXAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String)
 NOT_NULL
 org.objectweb.asm.xml.SAXAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String) 1
@@ -3560,8 +3670,6 @@ org.objectweb.asm.xml.SAXClassAdapter org.objectweb.asm.MethodVisitor visitMetho
 NULLABLE
 org.objectweb.asm.xml.SAXClassAdapter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4
 NULLABLE
-org.objectweb.asm.xml.SAXClassAdapter void appendAccess(int, java.lang.StringBuffer) 1
-NOT_NULL
 org.objectweb.asm.xml.SAXClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
 NOT_NULL
 org.objectweb.asm.xml.SAXClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3

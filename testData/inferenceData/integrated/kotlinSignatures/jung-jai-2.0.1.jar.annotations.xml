@@ -14,6 +14,11 @@
             <val name="value" val="&quot;fun AbstractPerspectiveTransformSupport(vv : VisualizationViewer&lt;V, E&gt;)&quot;"/>
         </annotation>
     </item>
+    <item name='edu.uci.ics.jung.visualization.jai.HyperbolicImageLensSupport HyperbolicImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun HyperbolicImageLensSupport(vv : VisualizationViewer&lt;V, E&gt;)&quot;"/>
+        </annotation>
+    </item>
     <item name='edu.uci.ics.jung.visualization.jai.HyperbolicImageLensSupport HyperbolicImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer&lt;V,E&gt;, edu.uci.ics.jung.visualization.transform.LensTransformer, edu.uci.ics.jung.visualization.control.ModalGraphMouse)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun HyperbolicImageLensSupport(vv : VisualizationViewer&lt;V, E&gt;, lensTransformer : LensTransformer, lensGraphMouse : ModalGraphMouse?)&quot;"/>
@@ -86,7 +91,7 @@
     </item>
     <item name='edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer java.awt.image.RenderedImage getPerspectiveImage(java.awt.Image, java.awt.Shape, java.awt.Shape)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getPerspectiveImage(image : Image?, imageShape : Shape, perspectiveShape : Shape) : RenderedImage?&quot;"/>
+            <val name="value" val="&quot;fun getPerspectiveImage(image : Image, imageShape : Shape, perspectiveShape : Shape) : RenderedImage?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.visualization.jai.TransformingImageVertexIconRenderer void paintIconForVertex(edu.uci.ics.jung.visualization.RenderContext&lt;V,E&gt;, V, edu.uci.ics.jung.algorithms.layout.Layout&lt;V,E&gt;)'>

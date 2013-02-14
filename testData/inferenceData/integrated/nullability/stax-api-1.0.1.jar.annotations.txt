@@ -8,6 +8,10 @@ javax.xml.XMLConstants XML_NS_PREFIX
 NOT_NULL
 javax.xml.XMLConstants XML_NS_URI
 NOT_NULL
+javax.xml.namespace.QName QName(java.lang.String) 0
+NOT_NULL
+javax.xml.namespace.QName QName(java.lang.String, java.lang.String) 1
+NOT_NULL
 javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String) 0
 NULLABLE
 javax.xml.namespace.QName QName(java.lang.String, java.lang.String, java.lang.String) 1
@@ -22,10 +26,6 @@ javax.xml.namespace.QName javax.xml.namespace.QName valueOf(java.lang.String) 0
 NOT_NULL
 javax.xml.stream.FactoryConfigurationError java.lang.String getMessage()
 NULLABLE
-javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang.String) 1
-NOT_NULL
-javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang.String, java.lang.ClassLoader) 1
-NOT_NULL
 javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang.String, java.lang.ClassLoader) 2
 NULLABLE
 javax.xml.stream.FactoryFinder java.lang.Object newInstance(java.lang.String, java.lang.ClassLoader) 1

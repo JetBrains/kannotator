@@ -28,6 +28,8 @@ org.jetbrains.jps.ProjectPaths java.util.Collection<java.io.File> getCompilation
 NOT_NULL
 org.jetbrains.jps.ProjectPaths java.util.Collection<java.io.File> getCompilationClasspathFiles(org.jetbrains.jps.ModuleChunk, boolean, boolean, boolean)
 NOT_NULL
+org.jetbrains.jps.ProjectPaths java.util.Collection<java.io.File> getCompilationClasspathFiles(org.jetbrains.jps.ModuleChunk, boolean, boolean, boolean) 0
+NOT_NULL
 org.jetbrains.jps.ProjectPaths java.util.Collection<java.io.File> getOutputPathsWithDependents(org.jetbrains.jps.ModuleChunk)
 NOT_NULL
 org.jetbrains.jps.ProjectPaths java.util.Collection<java.io.File> getOutputPathsWithDependents(org.jetbrains.jps.ModuleChunk) 0
@@ -270,8 +272,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message org.jetbrains.jps.api.CmdlineRe
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder toBuilder()
@@ -300,8 +300,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder com.google.protobuf.Gen
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder com.google.protobuf.MessageLite buildPartial()
@@ -319,6 +317,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message access$11700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message access$11700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message build()
 NOT_NULL
@@ -357,8 +357,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Builder mergeSessionId(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID)
 NOT_NULL
@@ -440,8 +438,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jp
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder toBuilder()
@@ -452,6 +448,8 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jp
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Type access$11202(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage, org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Type) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent com.google.protobuf.ByteString getDescriptionBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -498,8 +496,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent org.j
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder toBuilder()
@@ -524,8 +520,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Build
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder com.google.protobuf.MessageLite buildPartial()
@@ -543,6 +537,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent access$7800(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent access$7800(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent build()
 NOT_NULL
@@ -596,8 +592,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Build
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder removeGeneratedFiles(int)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder setCompletionStatus(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Status)
@@ -628,6 +622,12 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Build
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Builder setGeneratedFiles(int, org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder) 1
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage com.google.protobuf.ByteString getBuilderIdBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage com.google.protobuf.ByteString getMessageTextBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage com.google.protobuf.ByteString getMessageTypeBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -674,8 +674,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Custo
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder toBuilder()
@@ -694,8 +692,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Custo
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder com.google.protobuf.MessageLite buildPartial()
@@ -713,6 +709,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage access$7100(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage access$7100(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage build()
 NOT_NULL
@@ -742,8 +740,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Custo
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder setBuilderId(java.lang.String)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder setBuilderId(java.lang.String) 0
@@ -756,6 +752,10 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Custo
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.CustomBuilderMessage.Builder setMessageType(java.lang.String) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile com.google.protobuf.ByteString getOutputRootBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile com.google.protobuf.ByteString getRelativePathBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -800,8 +800,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Gener
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder toBuilder()
@@ -820,8 +818,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.Gener
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder com.google.protobuf.MessageLite buildPartial()
@@ -839,6 +835,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile access$6500(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile access$6500(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile build()
 NOT_NULL
@@ -865,8 +863,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent.GeneratedFile.Builder setOutputRoot(java.lang.String)
 NOT_NULL
@@ -920,8 +916,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder com.goog
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder com.google.protobuf.MessageLite buildPartial()
@@ -939,6 +933,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage access$10900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage access$10900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage build()
 NOT_NULL
@@ -976,8 +972,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetb
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder setBuildEvent(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder setBuildEvent(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.BuildEvent) 0
@@ -1006,6 +1000,10 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetb
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Builder setType(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.Type) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage com.google.protobuf.ByteString getSourceFilePathBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage com.google.protobuf.ByteString getTextBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -1062,8 +1060,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage o
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder toBuilder()
@@ -1084,8 +1080,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.B
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder com.google.protobuf.MessageLite buildPartial()
@@ -1103,6 +1097,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage access$8700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage access$8700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage build()
 NOT_NULL
@@ -1143,8 +1139,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.CompileMessage.Builder setColumn(long)
 NOT_NULL
@@ -1190,6 +1184,10 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTa
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask boolean access$10702(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask, boolean) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask com.google.protobuf.ByteString getFieldNameBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask com.google.protobuf.ByteString getOwnerClassNameBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -1236,8 +1234,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTa
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder toBuilder()
@@ -1256,8 +1252,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTa
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder com.google.protobuf.MessageLite buildPartial()
@@ -1275,6 +1269,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask access$10000(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask access$10000(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask build()
 NOT_NULL
@@ -1307,8 +1303,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.BuilderMessage.ConstantSearchTask.Builder setAccessFlags(int)
 NOT_NULL
@@ -1380,8 +1374,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage org.jetbrains
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder toBuilder()
@@ -1408,8 +1400,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder com.g
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder com.google.protobuf.MessageLite buildPartial()
@@ -1427,6 +1417,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage access$5700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage access$5700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage build()
 NOT_NULL
@@ -1459,8 +1451,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder mergeFsEvent(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent)
 NOT_NULL
@@ -1496,6 +1486,10 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Builder org.j
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult boolean access$5402(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult, boolean) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult com.google.protobuf.ByteString getFieldNameBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult com.google.protobuf.ByteString getOwnerClassNameBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult com.google.protobuf.LazyStringList access$5500(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult com.google.protobuf.LazyStringList access$5502(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult, com.google.protobuf.LazyStringList) 0
@@ -1544,8 +1538,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearc
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder toBuilder()
@@ -1564,8 +1556,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearc
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder com.google.protobuf.MessageLite buildPartial()
@@ -1583,6 +1573,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult access$4900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult access$4900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult build()
 NOT_NULL
@@ -1619,8 +1611,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult.Builder setFieldName(java.lang.String)
 NOT_NULL
@@ -1686,8 +1676,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent org.j
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder toBuilder()
@@ -1706,8 +1694,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Build
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder com.google.protobuf.MessageLite buildPartial()
@@ -1725,6 +1711,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent access$1900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent access$1900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent build()
 NOT_NULL
@@ -1766,8 +1754,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Build
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder setChangedPaths(int, java.lang.String)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder setChangedPaths(int, java.lang.String) 1
@@ -1778,6 +1764,8 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Build
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent.Builder setOrdinal(long)
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings com.google.protobuf.ByteString getGlobalOptionsPathBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -1824,8 +1812,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSetting
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder toBuilder()
@@ -1844,8 +1830,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSetting
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder com.google.protobuf.MessageLite buildPartial()
@@ -1863,6 +1847,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings access$2600(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings access$2600(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings build()
 NOT_NULL
@@ -1908,8 +1894,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSetting
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder removePathVariable(int)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder setGlobalOptionsPath(java.lang.String)
@@ -1924,6 +1908,8 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSetting
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings.Builder setPathVariable(int, org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder) 1
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage com.google.protobuf.ByteString getProjectIdBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage com.google.protobuf.LazyStringList access$4600(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage com.google.protobuf.LazyStringList access$4602(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage, com.google.protobuf.LazyStringList) 0
@@ -1980,8 +1966,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMes
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder toBuilder()
@@ -2002,8 +1986,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMes
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder com.google.protobuf.MessageLite buildPartial()
@@ -2021,6 +2003,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage access$3900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage access$3900(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage build()
 NOT_NULL
@@ -2098,8 +2082,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMes
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder mergeGlobalSettings(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.GlobalSettings)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Builder removeBuilderParameter(int)
@@ -2144,6 +2126,8 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMes
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope boolean access$3602(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope, boolean) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope com.google.protobuf.ByteString getTypeIdBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope com.google.protobuf.LazyStringList access$3700(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope com.google.protobuf.LazyStringList access$3702(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope, com.google.protobuf.LazyStringList) 0
@@ -2190,8 +2174,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMes
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder toBuilder()
@@ -2210,8 +2192,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMes
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder com.google.protobuf.MessageLite buildPartial()
@@ -2229,6 +2209,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope access$3200(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope access$3200(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope build()
 NOT_NULL
@@ -2263,8 +2245,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.TargetTypeBuildScope.Builder setAllTargets(boolean)
 NOT_NULL
@@ -2309,6 +2289,10 @@ NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Type.1 com.google.protobuf.Internal.EnumLite findValueByNumber(int)
 NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Type.1 org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.Type findValueByNumber(int)
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure com.google.protobuf.ByteString getDescriptionBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure com.google.protobuf.ByteString getStacktraceBytes()
 NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
@@ -2356,8 +2340,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure org.jetbrains.jps.api.C
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder toBuilder()
@@ -2376,8 +2358,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder com.google.prot
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder com.google.protobuf.MessageLite buildPartial()
@@ -2395,6 +2375,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure access$1200(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure access$1200(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure build()
 NOT_NULL
@@ -2424,8 +2406,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.j
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder setDescription(java.lang.String)
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder setDescription(java.lang.String) 0
@@ -2436,6 +2416,10 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.j
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.Failure.Builder setStacktrace(java.lang.String) 0
 NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair com.google.protobuf.ByteString getKeyBytes()
+NULLABLE
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair com.google.protobuf.ByteString getValueBytes()
+NULLABLE
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -2480,8 +2464,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair org.jetbrains.jps.
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder toBuilder()
@@ -2500,8 +2482,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder com.google
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder com.google.protobuf.MessageLite buildPartial()
@@ -2519,6 +2499,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair access$600(org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair access$600(org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair build()
 NOT_NULL
@@ -2545,8 +2527,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.KeyValuePair.Builder setKey(java.lang.String)
 NOT_NULL
@@ -2614,8 +2594,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID org.jetbrains.jps.api.Cmdl
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder newBuilder(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder toBuilder()
@@ -2634,8 +2612,6 @@ org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder com.google.protobu
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder com.google.protobuf.MessageLite buildPartial()
@@ -2653,6 +2629,8 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID access$000(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder)
+NOT_NULL
+org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID access$000(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID build()
 NOT_NULL
@@ -2679,8 +2657,6 @@ NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID)
-NOT_NULL
-org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder mergeFrom(org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID) 0
 NOT_NULL
 org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder org.jetbrains.jps.api.CmdlineRemoteProto.Message.UUID.Builder setLeastSigBits(long)
 NOT_NULL
@@ -2795,6 +2771,8 @@ NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.util.Collection<org.jetbrains.jps.builders.BuildTarget<?>> computeDependencies(org.jetbrains.jps.builders.BuildTargetRegistry)
 NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.util.List<R> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
+NOT_NULL
+org.jetbrains.jps.builders.BuildTarget java.util.List<R> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 0
 NOT_NULL
 org.jetbrains.jps.builders.BuildTarget java.util.List<R> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
@@ -2996,8 +2974,6 @@ org.jetbrains.jps.builders.java.ExcludedJavaSourceRootProvider boolean isExclude
 NOT_NULL
 org.jetbrains.jps.builders.java.JavaBuilderUtil boolean chunkContainsAffectedFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, java.util.Set<java.io.File>) 1
 NOT_NULL
-org.jetbrains.jps.builders.java.JavaBuilderUtil boolean updateMappings(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.DirtyFilesHolder<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget>, org.jetbrains.jps.ModuleChunk, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>) 2
-NOT_NULL
 org.jetbrains.jps.builders.java.JavaBuilderUtil java.util.List<com.intellij.openapi.util.Pair<java.io.File,org.jetbrains.jps.model.module.JpsModule>> checkAffectedFilesInCorrectModules(org.jetbrains.jps.incremental.CompileContext, java.util.Collection<java.io.File>, org.jetbrains.jps.builders.java.JavaBuilderUtil.ModulesBasedFileFilter) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.JavaBuilderUtil java.util.Set<java.io.File> getAllAffectedFilesContainer(org.jetbrains.jps.incremental.CompileContext)
@@ -3011,6 +2987,8 @@ NOT_NULL
 org.jetbrains.jps.builders.java.JavaBuilderUtil org.jetbrains.jps.model.library.sdk.JpsSdk<org.jetbrains.jps.model.JpsDummyElement> ensureModuleHasJdk(org.jetbrains.jps.model.module.JpsModule, org.jetbrains.jps.incremental.CompileContext, java.lang.String) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.JavaBuilderUtil.ModulesBasedFileFilter ModulesBasedFileFilter(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.JavaBuilderUtil.ModulesBasedFileFilter ModulesBasedFileFilter(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.java.JavaBuilderUtil.1) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.JavaBuilderUtil.ModulesBasedFileFilter myCache
 NOT_NULL
@@ -3220,7 +3198,11 @@ org.jetbrains.jps.builders.java.dependencyView.ClassRepr.1 org.jetbrains.jps.bui
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr.2 java.lang.Object read(java.io.DataInput)
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr.2 java.lang.Object read(java.io.DataInput) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr.2 org.jetbrains.jps.builders.java.dependencyView.ClassRepr read(java.io.DataInput)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr.2 org.jetbrains.jps.builders.java.dependencyView.ClassRepr read(java.io.DataInput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassRepr.2 void save(java.io.DataOutput, java.lang.Object) 0
 NOT_NULL
@@ -3312,6 +3294,8 @@ org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler or
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler org.jetbrains.asm4.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler void access$1000(org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler, java.lang.String) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler void processSignature(java.lang.String) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 1
@@ -3348,13 +3332,15 @@ org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.3 
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.3 void addClassUsage(org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType) 0
 NULLABLE
-org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.3 void visitTryCatchBlock(org.jetbrains.asm4.Label, org.jetbrains.asm4.Label, org.jetbrains.asm4.Label, java.lang.String) 3
-NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.3 void visitTypeInsn(int, java.lang.String) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler AnnotationCrawler(org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType, org.jetbrains.jps.builders.java.dependencyView.ElemType) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler AnnotationCrawler(org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType, org.jetbrains.jps.builders.java.dependencyView.ElemType) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler AnnotationCrawler(org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType, org.jetbrains.jps.builders.java.dependencyView.ElemType, org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.1) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler AnnotationCrawler(org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType, org.jetbrains.jps.builders.java.dependencyView.ElemType, org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.1) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler java.lang.String getMethodDescr(java.lang.Object) 0
 NOT_NULL
@@ -3367,6 +3353,8 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler org.jetbrains.asm4.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler this$1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationCrawler void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.AnnotationRetentionPolicyCrawler org.jetbrains.asm4.AnnotationVisitor visitAnnotation(java.lang.String, java.lang.String)
 NULLABLE
@@ -3420,6 +3408,8 @@ org.jetbrains.jps.builders.java.dependencyView.ElemType TYPE
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.FieldRepr FieldRepr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int, int, java.lang.Object) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.FieldRepr FieldRepr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.FieldRepr boolean equals(java.lang.Object) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.FieldRepr com.intellij.util.io.DataExternalizer<org.jetbrains.jps.builders.java.dependencyView.FieldRepr> externalizer(org.jetbrains.jps.builders.java.dependencyView.DependencyContext)
@@ -3430,7 +3420,11 @@ org.jetbrains.jps.builders.java.dependencyView.FieldRepr org.jetbrains.jps.build
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.FieldRepr.1 java.lang.Object read(java.io.DataInput)
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.FieldRepr.1 java.lang.Object read(java.io.DataInput) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.FieldRepr.1 org.jetbrains.jps.builders.java.dependencyView.FieldRepr read(java.io.DataInput)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.FieldRepr.1 org.jetbrains.jps.builders.java.dependencyView.FieldRepr read(java.io.DataInput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.FieldRepr.1 void save(java.io.DataOutput, java.lang.Object) 1
 NOT_NULL
@@ -3674,15 +3668,23 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings SOURCE_TO_CLASS
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$100(gnu.trove.TIntHashSet, gnu.trove.TIntHashSet) 1
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$1800(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, org.jetbrains.jps.builders.java.dependencyView.Proto, java.util.Collection, org.jetbrains.jps.builders.java.dependencyView.Mappings.DependentFilesFilter) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$1800(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, org.jetbrains.jps.builders.java.dependencyView.Proto, java.util.Collection, org.jetbrains.jps.builders.java.dependencyView.Mappings.DependentFilesFilter) 2
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$1900(org.jetbrains.jps.builders.java.dependencyView.Mappings) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$1902(org.jetbrains.jps.builders.java.dependencyView.Mappings, boolean) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$2800(org.jetbrains.jps.builders.java.dependencyView.Mappings, int) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$3802(org.jetbrains.jps.builders.java.dependencyView.Mappings, boolean) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean access$400(org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.ProtoMember, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean addAll(gnu.trove.TIntHashSet, gnu.trove.TIntHashSet) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings boolean differentiateOnIncrementalMake(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection<java.lang.String>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, org.jetbrains.jps.builders.java.dependencyView.Mappings.DependentFilesFilter, org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings boolean differentiateOnIncrementalMake(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection<java.lang.String>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, org.jetbrains.jps.builders.java.dependencyView.Mappings.DependentFilesFilter, org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver) 6
 NULLABLE
@@ -3700,7 +3702,13 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.THashSet<java.
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.TIntHashSet access$1500(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, gnu.trove.TIntHashSet)
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.TIntHashSet access$1500(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, gnu.trove.TIntHashSet) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.TIntHashSet access$1500(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, gnu.trove.TIntHashSet) 2
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.TIntHashSet access$2700(org.jetbrains.jps.builders.java.dependencyView.Mappings, int)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.TIntHashSet access$2700(org.jetbrains.jps.builders.java.dependencyView.Mappings, int) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings gnu.trove.TIntHashSet addAllSubclasses(int, gnu.trove.TIntHashSet)
 NOT_NULL
@@ -3742,6 +3750,10 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builde
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr access$800(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.io.File, int)
 NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr access$800(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.io.File, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr access$800(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.io.File, int) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr getReprByName(java.io.File, int)
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr getReprByName(java.io.File, int) 0
@@ -3762,6 +3774,28 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builde
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings ourClassSetConstructor
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$1000(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.lang.String, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$1300(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.lang.String, java.io.File) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$1300(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.lang.String, java.io.File) 2
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$2300(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$3000(org.jetbrains.jps.builders.java.dependencyView.Mappings, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$3100(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$3200(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$3300(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.lang.String, boolean) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$3500(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$3500(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void access$4300(org.jetbrains.jps.builders.java.dependencyView.Mappings, int, java.util.Set, org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings void addAllKeys(gnu.trove.TIntHashSet, org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings void addDeletedClass(org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 0
@@ -3775,6 +3809,10 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings void compensateRemovedContent(java.util.Collection<java.io.File>) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings void debug(java.lang.String, java.io.File) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void differentiateOnNonIncrementalMake(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection<java.lang.String>, java.util.Collection<java.io.File>) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings void differentiateOnRebuild(org.jetbrains.jps.builders.java.dependencyView.Mappings) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings void integrate(org.jetbrains.jps.builders.java.dependencyView.Mappings) 0
 NOT_NULL
@@ -3799,6 +3837,12 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential Differential(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection<java.lang.String>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, org.jetbrains.jps.builders.java.dependencyView.Mappings.DependentFilesFilter, org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver) 7
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential Differential(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential Differential(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection, java.util.Collection, java.util.Collection, java.util.Collection, org.jetbrains.jps.builders.java.dependencyView.Mappings.DependentFilesFilter, org.jetbrains.jps.builders.java.dependencyView.Callbacks.ConstantAffectionResolver, org.jetbrains.jps.builders.java.dependencyView.Mappings.1) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential Differential(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection, java.util.Collection, org.jetbrains.jps.builders.java.dependencyView.Mappings.1) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential Differential(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings.1) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential boolean processAddedFields(org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential.DiffState, org.jetbrains.jps.builders.java.dependencyView.ClassRepr.Diff, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 1
 NOT_NULL
@@ -3860,6 +3904,12 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings.MemberComparator boolean
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util Util(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings) 1
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util Util(org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings, org.jetbrains.jps.builders.java.dependencyView.Mappings.1) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util boolean access$2500(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util boolean access$2500(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util boolean hasOverriddenFields(org.jetbrains.jps.builders.java.dependencyView.FieldRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util boolean hasOverriddenMethods(org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate) 0
@@ -3872,25 +3922,45 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings.Util gnu.trove.TIntHashS
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.lang.Boolean access$1400(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, int, int)
 NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.lang.Boolean access$1400(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, int, int) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.lang.Boolean isInheritorOf(int, int)
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.lang.Boolean isSubtypeOf(org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType)
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.lang.Boolean isSubtypeOf(org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.lang.Boolean isSubtypeOf(org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType, org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType) 1
+NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection access$2600(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection access$2600(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection access$2600(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 2
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection access$2900(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr)
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection access$2900(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection access$2900(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 2
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.MethodRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>> findAllMethodsBySpecificity(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr)
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.MethodRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>> findAllMethodsBySpecificity(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.MethodRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>> findOverriddenMethods(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.MethodRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>> findOverriddenMethods(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util myMappings
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util org.jetbrains.jps.builders.java.dependencyView.ClassRepr reprByName(int)
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate lessSpecific(org.jetbrains.jps.builders.java.dependencyView.MethodRepr)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void access$500(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate, java.util.Collection) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void access$500(org.jetbrains.jps.builders.java.dependencyView.Mappings.Util, org.jetbrains.jps.builders.java.dependencyView.MethodRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate, java.util.Collection) 2
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void addOverriddenFields(org.jetbrains.jps.builders.java.dependencyView.FieldRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr, java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.FieldRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>>) 1
 NOT_NULL
@@ -3950,7 +4020,11 @@ org.jetbrains.jps.builders.java.dependencyView.MethodRepr void toStream(org.jetb
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.MethodRepr.2 java.lang.Object read(java.io.DataInput)
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.MethodRepr.2 java.lang.Object read(java.io.DataInput) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.MethodRepr.2 org.jetbrains.jps.builders.java.dependencyView.MethodRepr read(java.io.DataInput)
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.MethodRepr.2 org.jetbrains.jps.builders.java.dependencyView.MethodRepr read(java.io.DataInput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.MethodRepr.2 void save(java.io.DataOutput, java.lang.Object) 0
 NOT_NULL
@@ -4055,6 +4129,8 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.OrderProvider org.jetbrains.jps.builders.java.dependencyView.DependencyContext access$000(org.jetbrains.jps.builders.java.dependencyView.OrderProvider) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.OrderProvider.Entry Entry(org.jetbrains.jps.builders.java.dependencyView.OrderProvider, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.OrderProvider.Entry Entry(org.jetbrains.jps.builders.java.dependencyView.OrderProvider, int, org.jetbrains.jps.builders.java.dependencyView.OrderProvider.1) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.OrderProvider.Entry int compareTo(java.lang.Object) 0
 NOT_NULL
@@ -4210,6 +4286,8 @@ org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType boolean equals
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType java.lang.String getDescr(org.jetbrains.jps.builders.java.dependencyView.DependencyContext) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType getDeepElementType()
+NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 0
@@ -4276,7 +4354,11 @@ org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1 void save(java.io.Dat
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage AnnotationUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage AnnotationUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage boolean equals(java.lang.Object) 0
+NULLABLE
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage boolean satisfies(org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage elementTypeExternalizer
 NOT_NULL
@@ -4302,9 +4384,13 @@ org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage.1 void 
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.AnnotationUsage.1 void save(java.io.DataOutput, org.jetbrains.jps.builders.java.dependencyView.ElemType) 1
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassAsGenericBoundUsage ClassAsGenericBoundUsage(java.io.DataInput) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassAsGenericBoundUsage void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassExtendsUsage ClassExtendsUsage(java.io.DataInput) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassExtendsUsage ClassExtendsUsage(java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassExtendsUsage boolean equals(java.lang.Object) 0
 NULLABLE
@@ -4314,6 +4400,10 @@ org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassExtendsUsage void 
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassExtendsUsage void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 1
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassNewUsage ClassNewUsage(java.io.DataInput) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassNewUsage ClassNewUsage(java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassNewUsage void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassNewUsage void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 0
@@ -4321,6 +4411,8 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassNewUsage void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassUsage ClassUsage(java.io.DataInput) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassUsage ClassUsage(java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassUsage boolean equals(java.lang.Object) 0
 NULLABLE
@@ -4332,6 +4424,8 @@ org.jetbrains.jps.builders.java.dependencyView.UsageRepr.ClassUsage void toStrea
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FMUsage FMUsage(java.io.DataInput) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FMUsage FMUsage(java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FMUsage boolean equals(java.lang.Object) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FMUsage void kindToStream(java.io.PrintStream) 0
@@ -4342,6 +4436,14 @@ org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FMUsage void toStream(o
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FMUsage void toStream(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.PrintStream) 1
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage FieldAssignUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage FieldAssignUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage FieldAssignUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage FieldAssignUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 1
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage boolean equals(java.lang.Object) 0
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage void kindToStream(java.io.PrintStream) 0
@@ -4349,6 +4451,12 @@ NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldAssignUsage void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldUsage FieldUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldUsage FieldUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, int, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldUsage FieldUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldUsage FieldUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.FieldUsage boolean equals(java.lang.Object) 0
 NULLABLE
@@ -4374,7 +4482,11 @@ org.jetbrains.jps.builders.java.dependencyView.UsageRepr.MetaMethodUsage void to
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.MethodUsage MethodUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, java.lang.String) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.MethodUsage MethodUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, int, java.lang.String, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 0
+NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.MethodUsage MethodUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput) 1
+NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.UsageRepr.MethodUsage MethodUsage(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.io.DataInput, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.1) 1
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.UsageRepr.MethodUsage boolean equals(java.lang.Object) 0
 NULLABLE
@@ -4450,6 +4562,8 @@ org.jetbrains.jps.client.ProtobufClientMessageHandler void messageReceived(org.j
 NOT_NULL
 org.jetbrains.jps.client.ProtobufResponseHandler boolean handleMessage(com.google.protobuf.MessageLite) 0
 NOT_NULL
+org.jetbrains.jps.client.SimpleProtobufClient SimpleProtobufClient(com.google.protobuf.MessageLite, java.util.concurrent.Executor, org.jetbrains.jps.client.UUIDGetter) 2
+NOT_NULL
 org.jetbrains.jps.client.SimpleProtobufClient myChannelFactory
 NOT_NULL
 org.jetbrains.jps.client.SimpleProtobufClient myMessageHandler
@@ -4467,6 +4581,10 @@ NULLABLE
 org.jetbrains.jps.client.SimpleProtobufClient org.jetbrains.jps.client.ProtobufClientMessageHandler access$000(org.jetbrains.jps.client.SimpleProtobufClient)
 NOT_NULL
 org.jetbrains.jps.client.SimpleProtobufClient org.jetbrains.jps.client.ProtobufClientMessageHandler access$000(org.jetbrains.jps.client.SimpleProtobufClient) 0
+NOT_NULL
+org.jetbrains.jps.client.SimpleProtobufClient void access$100(org.jetbrains.jps.client.SimpleProtobufClient, java.util.UUID, org.jetbrains.jps.api.RequestFuture, org.jetbrains.jps.client.ProtobufResponseHandler) 0
+NOT_NULL
+org.jetbrains.jps.client.SimpleProtobufClient void access$100(org.jetbrains.jps.client.SimpleProtobufClient, java.util.UUID, org.jetbrains.jps.api.RequestFuture, org.jetbrains.jps.client.ProtobufResponseHandler) 2
 NOT_NULL
 org.jetbrains.jps.client.SimpleProtobufClient void notifyTerminated(java.util.UUID, org.jetbrains.jps.api.RequestFuture<T>, T) 1
 NOT_NULL
@@ -4555,6 +4673,8 @@ NOT_NULL
 org.jetbrains.jps.cmdline.BuildSession org.jetbrains.jps.api.BuildType convertCompileType(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Type) 0
 NOT_NULL
 org.jetbrains.jps.cmdline.BuildSession org.jetbrains.jps.cmdline.ProjectDescriptor access$300(org.jetbrains.jps.cmdline.BuildSession) 0
+NOT_NULL
+org.jetbrains.jps.cmdline.BuildSession void access$400(org.jetbrains.jps.cmdline.BuildSession, org.jetbrains.jps.cmdline.ProjectDescriptor, org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent, boolean) 0
 NOT_NULL
 org.jetbrains.jps.cmdline.BuildSession void applyFSEvent(org.jetbrains.jps.cmdline.ProjectDescriptor, org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.FSEvent, boolean) 1
 NULLABLE
@@ -4734,6 +4854,8 @@ org.jetbrains.jps.incremental.CompileScopeImpl boolean isAffected(org.jetbrains.
 NOT_NULL
 org.jetbrains.jps.incremental.CompileScopeImpl boolean isAffected(org.jetbrains.jps.builders.BuildTarget<?>, java.io.File) 1
 NOT_NULL
+org.jetbrains.jps.incremental.CompileScopeImpl boolean isAffectedByAssociatedModule(org.jetbrains.jps.builders.BuildTarget<?>) 0
+NULLABLE
 org.jetbrains.jps.incremental.CompileScopeImpl boolean isRecompilationForced(org.jetbrains.jps.builders.BuildTarget<?>) 0
 NOT_NULL
 org.jetbrains.jps.incremental.CompileScopeImpl void expandScope(org.jetbrains.jps.builders.BuildTarget<?>, java.io.File) 1
@@ -4894,6 +5016,14 @@ org.jetbrains.jps.incremental.IncProjectBuilder org.jetbrains.jps.incremental.Co
 NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder org.jetbrains.jps.incremental.CompileContextImpl createContext(org.jetbrains.jps.incremental.CompileScope, boolean, boolean)
 NOT_NULL
+org.jetbrains.jps.incremental.IncProjectBuilder void access$200(org.jetbrains.jps.incremental.IncProjectBuilder, org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.incremental.CompileScope, org.jetbrains.jps.builders.impl.BuildTargetChunk) 0
+NOT_NULL
+org.jetbrains.jps.incremental.IncProjectBuilder void access$200(org.jetbrains.jps.incremental.IncProjectBuilder, org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.incremental.CompileScope, org.jetbrains.jps.builders.impl.BuildTargetChunk) 1
+NOT_NULL
+org.jetbrains.jps.incremental.IncProjectBuilder void access$200(org.jetbrains.jps.incremental.IncProjectBuilder, org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.incremental.CompileScope, org.jetbrains.jps.builders.impl.BuildTargetChunk) 3
+NOT_NULL
+org.jetbrains.jps.incremental.IncProjectBuilder void buildChunkIfAffected(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.incremental.CompileScope, org.jetbrains.jps.builders.impl.BuildTargetChunk) 0
+NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder void buildChunkIfAffected(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.incremental.CompileScope, org.jetbrains.jps.builders.impl.BuildTargetChunk) 2
 NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder void buildChunks(org.jetbrains.jps.incremental.CompileContextImpl) 0
@@ -4906,12 +5036,12 @@ org.jetbrains.jps.incremental.IncProjectBuilder void cleanOutputRoots(org.jetbra
 NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder void clearOutputFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>) 0
 NOT_NULL
+org.jetbrains.jps.incremental.IncProjectBuilder void clearOutputFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>) 1
+NULLABLE
 org.jetbrains.jps.incremental.IncProjectBuilder void clearOutputs(org.jetbrains.jps.incremental.CompileContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder void createClasspathIndex(org.jetbrains.jps.builders.impl.BuildTargetChunk) 0
 NOT_NULL
-org.jetbrains.jps.incremental.IncProjectBuilder void flushContext(org.jetbrains.jps.incremental.CompileContext) 0
-NULLABLE
 org.jetbrains.jps.incremental.IncProjectBuilder void onChunkBuildComplete(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.impl.BuildTargetChunk) 0
 NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder void onChunkBuildComplete(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.impl.BuildTargetChunk) 1
@@ -4937,6 +5067,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder.ChunkGroup java.util.List<org.jetbrains.jps.builders.impl.BuildTargetChunk> getChunks()
 NOT_NULL
 org.jetbrains.jps.incremental.IncProjectBuilder.ChunkGroup myChunks
+NOT_NULL
+org.jetbrains.jps.incremental.JVMModuleBuildTarget JVMModuleBuildTarget(org.jetbrains.jps.builders.BuildTargetType<? extends org.jetbrains.jps.incremental.JVMModuleBuildTarget<R>>, org.jetbrains.jps.model.module.JpsModule) 1
 NOT_NULL
 org.jetbrains.jps.incremental.JVMModuleBuildTarget R findRootDescriptor(java.lang.String, org.jetbrains.jps.builders.BuildRootIndex) 1
 NOT_NULL
@@ -4970,6 +5102,8 @@ org.jetbrains.jps.incremental.ModuleBuildTarget java.util.Collection<org.jetbrai
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleBuildTarget java.util.List<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
 NOT_NULL
+org.jetbrains.jps.incremental.ModuleBuildTarget java.util.List<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 0
+NOT_NULL
 org.jetbrains.jps.incremental.ModuleBuildTarget java.util.List<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleBuildTarget org.jetbrains.jps.builders.java.JavaModuleBuildTargetType access$000(org.jetbrains.jps.incremental.ModuleBuildTarget) 0
@@ -4977,6 +5111,10 @@ NOT_NULL
 org.jetbrains.jps.incremental.ModuleBuildTarget void writeConfiguration(java.io.PrintWriter, org.jetbrains.jps.builders.storage.BuildDataPaths, org.jetbrains.jps.builders.BuildRootIndex) 0
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleBuildTarget void writeConfiguration(java.io.PrintWriter, org.jetbrains.jps.builders.storage.BuildDataPaths, org.jetbrains.jps.builders.BuildRootIndex) 2
+NOT_NULL
+org.jetbrains.jps.incremental.ModuleBuildTarget.1 void consume(java.lang.Object) 0
+NOT_NULL
+org.jetbrains.jps.incremental.ModuleBuildTarget.1 void consume(org.jetbrains.jps.model.module.JpsModule) 0
 NOT_NULL
 org.jetbrains.jps.incremental.ModuleLevelBuilder org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode build(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.DirtyFilesHolder<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget>, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer)
 NOT_NULL
@@ -5016,10 +5154,6 @@ org.jetbrains.jps.incremental.ResourcePatterns boolean matches(java.lang.String,
 NULLABLE
 org.jetbrains.jps.incremental.ResourcePatterns boolean matches(java.lang.String, java.lang.String, com.intellij.openapi.util.Pair<java.util.regex.Pattern,java.util.regex.Pattern>) 2
 NOT_NULL
-org.jetbrains.jps.incremental.ResourcePatterns boolean matches(java.lang.String, java.util.regex.Pattern) 1
-NOT_NULL
-org.jetbrains.jps.incremental.ResourcePatterns com.intellij.openapi.util.Pair<java.util.regex.Pattern,java.util.regex.Pattern> convertToRegexp(java.lang.String) 0
-NOT_NULL
 org.jetbrains.jps.incremental.ResourcePatterns java.lang.String optimize(java.lang.String) 0
 NOT_NULL
 org.jetbrains.jps.incremental.ResourcePatterns myCompiledPatterns
@@ -5037,6 +5171,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.ResourcesTarget java.util.Collection<java.io.File> getOutputRoots(org.jetbrains.jps.incremental.CompileContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.ResourcesTarget java.util.List<org.jetbrains.jps.builders.java.ResourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
+NOT_NULL
+org.jetbrains.jps.incremental.ResourcesTarget java.util.List<org.jetbrains.jps.builders.java.ResourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 0
 NOT_NULL
 org.jetbrains.jps.incremental.ResourcesTarget java.util.List<org.jetbrains.jps.builders.java.ResourceRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
@@ -5086,6 +5222,8 @@ org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.Collection
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.List<org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths)
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.List<org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 0
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget java.util.List<org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor> computeRootDescriptors(org.jetbrains.jps.model.JpsModel, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, org.jetbrains.jps.builders.storage.BuildDataPaths) 1
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget myArtifact
@@ -5103,6 +5241,10 @@ NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget void writeConfiguration(java.io.PrintWriter, org.jetbrains.jps.builders.storage.BuildDataPaths, org.jetbrains.jps.builders.BuildRootIndex) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget void writeConfiguration(java.io.PrintWriter, org.jetbrains.jps.builders.storage.BuildDataPaths, org.jetbrains.jps.builders.BuildRootIndex) 2
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget.1 boolean process(java.lang.Object) 0
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget.1 boolean process(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.ArtifactBuildTargetType INSTANCE
 NOT_NULL
@@ -5210,11 +5352,21 @@ org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService voi
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService void generateInstructions(E, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry java.util.Collection<org.jetbrains.jps.builders.BuildTarget<?>> getDependencies(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement) 0
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService<?> getElementBuilder(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement)
 NULLABLE
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuilderService<?> getElementBuilder(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry getInstance()
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void access$100(org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry, org.jetbrains.jps.model.artifact.elements.JpsCompositePackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void access$100(org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry, org.jetbrains.jps.model.artifact.elements.JpsCompositePackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void access$300(org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry, org.jetbrains.jps.model.artifact.elements.JpsComplexPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void access$300(org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry, org.jetbrains.jps.model.artifact.elements.JpsComplexPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void generateChildrenInstructions(org.jetbrains.jps.model.artifact.elements.JpsCompositePackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
@@ -5223,6 +5375,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void generateInstructions(org.jetbrains.jps.model.artifact.JpsArtifact, org.jetbrains.jps.incremental.artifacts.instructions.CopyToDirectoryInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void generateInstructions(org.jetbrains.jps.model.artifact.JpsArtifact, org.jetbrains.jps.incremental.artifacts.instructions.CopyToDirectoryInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 2
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry void generateModuleOutputInstructions(java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator) 0
 NULLABLE
@@ -5241,6 +5395,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.ArtifactOutputElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.ArtifactOutputElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.ComplexElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsComplexPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.ComplexElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
@@ -5294,6 +5450,8 @@ org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.M
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.ModuleTestOutputElementBuilder void generateInstructions(org.jetbrains.jps.model.java.JpsTestModuleOutputPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.RootElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsArtifactRootElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.RootElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.builders.LayoutElementBuildersRegistry.RootElementBuilder void generateInstructions(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreator, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderContext) 1
@@ -5312,6 +5470,8 @@ org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter void collectIncluded
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter void processIncludedArtifacts(org.jetbrains.jps.model.artifact.JpsArtifact, com.intellij.util.Consumer<org.jetbrains.jps.model.artifact.JpsArtifact>) 0
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter.3 boolean process(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement) 0
+NULLABLE
 org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter.ArtifactsGraph java.util.Collection<org.jetbrains.jps.model.artifact.JpsArtifact> getNodes()
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter.ArtifactsGraph java.util.Iterator getIn(java.lang.Object) 0
@@ -5348,10 +5508,10 @@ org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.JarOutput
 NULLABLE
 org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest access$100(org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder, java.io.InputStream, java.io.File)
 NULLABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest access$100(org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder, java.io.InputStream, java.io.File) 0
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest createManifest(java.io.InputStream, java.io.File)
 NULLABLE
-org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest createManifest(java.io.InputStream, java.io.File) 0
-NOT_NULL
 org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest loadManifest(org.jetbrains.jps.incremental.artifacts.instructions.JarInfo, java.util.List<java.lang.String>)
 NULLABLE
 org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest loadManifest(org.jetbrains.jps.incremental.artifacts.instructions.JarInfo, java.util.List<java.lang.String>) 0
@@ -5488,6 +5648,8 @@ org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstruction
 NULLABLE
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.SourceFileFilterImpl SourceFileFilterImpl(org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, boolean) 1
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.SourceFileFilterImpl SourceFileFilterImpl(org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.indices.ModuleExcludeIndex, org.jetbrains.jps.indices.IgnoredFileIndex, boolean, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.1) 1
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.SourceFileFilterImpl boolean accept(java.lang.String, org.jetbrains.jps.cmdline.ProjectDescriptor) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactCompilerInstructionCreatorBase.SourceFileFilterImpl myBaseFilter
@@ -5516,6 +5678,8 @@ org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilder
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.FileBasedArtifactRootDescriptor createFileBasedRoot(java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 1
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.FileBasedArtifactRootDescriptor createFileBasedRoot(java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 2
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor createJarBasedRoot(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo)
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor createJarBasedRoot(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 0
@@ -5523,6 +5687,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor createJarBasedRoot(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 1
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor createJarBasedRoot(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 2
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.instructions.ArtifactInstructionsBuilderImpl org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor createJarBasedRoot(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 3
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor ALL_FILES_FILTER
 NOT_NULL
@@ -5584,6 +5750,8 @@ org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo myOutputFil
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo myOutputPath
 NOT_NULL
+org.jetbrains.jps.incremental.artifacts.instructions.ExplodedDestinationInfo ExplodedDestinationInfo(java.lang.String) 0
+NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.FileBasedArtifactRootDescriptor FileBasedArtifactRootDescriptor(java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, int, org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 0
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.FileBasedArtifactRootDescriptor FileBasedArtifactRootDescriptor(java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, int, org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 1
@@ -5597,6 +5765,8 @@ NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor JarBasedArtifactRootDescriptor(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, int, org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 1
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor JarBasedArtifactRootDescriptor(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, int, org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 2
+NOT_NULL
+org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor JarBasedArtifactRootDescriptor(java.io.File, java.lang.String, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, int, org.jetbrains.jps.incremental.artifacts.ArtifactBuildTarget, org.jetbrains.jps.incremental.artifacts.instructions.DestinationInfo) 5
 NOT_NULL
 org.jetbrains.jps.incremental.artifacts.instructions.JarBasedArtifactRootDescriptor myPathInJar
 NOT_NULL
@@ -5710,6 +5880,8 @@ org.jetbrains.jps.incremental.fs.BuildFSState boolean processFilesToRecompile(or
 NOT_NULL
 org.jetbrains.jps.incremental.fs.BuildFSState java.util.Map<org.jetbrains.jps.builders.BuildRootDescriptor,java.util.Set<java.io.File>> getSourcesToRecompile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>) 0
 NOT_NULL
+org.jetbrains.jps.incremental.fs.BuildFSState java.util.Map<org.jetbrains.jps.builders.BuildRootDescriptor,java.util.Set<java.io.File>> getSourcesToRecompile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>) 1
+NULLABLE
 org.jetbrains.jps.incremental.fs.BuildFSState org.jetbrains.jps.incremental.fs.FilesDelta getRoundDelta(com.intellij.openapi.util.Key<org.jetbrains.jps.incremental.fs.FilesDelta>, org.jetbrains.jps.incremental.CompileContext)
 NULLABLE
 org.jetbrains.jps.incremental.fs.BuildFSState org.jetbrains.jps.incremental.fs.FilesDelta getRoundDelta(com.intellij.openapi.util.Key<org.jetbrains.jps.incremental.fs.FilesDelta>, org.jetbrains.jps.incremental.CompileContext) 0
@@ -5750,6 +5922,8 @@ org.jetbrains.jps.incremental.fs.FSState boolean markDirtyIfNotDeleted(org.jetbr
 NULLABLE
 org.jetbrains.jps.incremental.fs.FSState java.util.Map<org.jetbrains.jps.builders.BuildRootDescriptor,java.util.Set<java.io.File>> getSourcesToRecompile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>) 0
 NOT_NULL
+org.jetbrains.jps.incremental.fs.FSState java.util.Map<org.jetbrains.jps.builders.BuildRootDescriptor,java.util.Set<java.io.File>> getSourcesToRecompile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>) 1
+NULLABLE
 org.jetbrains.jps.incremental.fs.FSState myRegistrationStamps
 NOT_NULL
 org.jetbrains.jps.incremental.fs.FSState org.jetbrains.jps.incremental.fs.FilesDelta getDelta(org.jetbrains.jps.builders.BuildTarget<?>)
@@ -5786,8 +5960,6 @@ org.jetbrains.jps.incremental.java.CopyResourcesUtil java.util.List<java.io.File
 NOT_NULL
 org.jetbrains.jps.incremental.java.FormsParsing FORM_TAG
 NOT_NULL
-org.jetbrains.jps.incremental.java.FormsParsing void parse(java.io.InputStream, net.n3.nanoxml.IXMLBuilder) 0
-NOT_NULL
 org.jetbrains.jps.incremental.java.FormsParsing.EmptyEntityResolver java.io.Reader getEntity(net.n3.nanoxml.IXMLReader, java.lang.String)
 NOT_NULL
 org.jetbrains.jps.incremental.java.FormsParsing.EmptyValidator void parseDTD(java.lang.String, net.n3.nanoxml.IXMLReader, net.n3.nanoxml.IXMLEntityResolver, boolean) 1
@@ -5813,8 +5985,6 @@ NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder boolean compileJava(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, org.jetbrains.jps.javac.DiagnosticOutputConsumer, org.jetbrains.jps.javac.OutputFileConsumer) 1
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder boolean isEncodingSet(java.util.List<java.lang.String>) 0
-NOT_NULL
-org.jetbrains.jps.incremental.java.JavaBuilder boolean useEclipseCompiler(org.jetbrains.jps.incremental.CompileContext) 0
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder com.intellij.compiler.instrumentation.InstrumentationClassFinder createInstrumentationClassFinder(java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer)
 NOT_NULL
@@ -5860,11 +6030,11 @@ org.jetbrains.jps.incremental.java.JavaBuilder org.jetbrains.jps.incremental.Mod
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode compile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.DirtyFilesHolder<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget>, java.util.Collection<java.io.File>, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer)
 NOT_NULL
-org.jetbrains.jps.incremental.java.JavaBuilder org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode compile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.DirtyFilesHolder<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget>, java.util.Collection<java.io.File>, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer) 2
-NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder org.jetbrains.jps.incremental.ModuleLevelBuilder.ExitCode compile(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.ModuleChunk, org.jetbrains.jps.builders.DirtyFilesHolder<org.jetbrains.jps.builders.java.JavaSourceRootDescriptor,org.jetbrains.jps.incremental.ModuleBuildTarget>, java.util.Collection<java.io.File>, org.jetbrains.jps.incremental.ModuleLevelBuilder.OutputConsumer) 3
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder ourClassProcessors
+NOT_NULL
+org.jetbrains.jps.incremental.java.JavaBuilder void access$600(org.jetbrains.jps.incremental.java.JavaBuilder, org.jetbrains.jps.incremental.CompileContext, java.lang.Runnable) 0
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder void buildStarted(org.jetbrains.jps.incremental.CompileContext) 0
 NOT_NULL
@@ -5889,11 +6059,11 @@ NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer ClassProcessingConsumer(org.jetbrains.jps.incremental.java.JavaBuilder, org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.javac.OutputFileConsumer) 2
 NULLABLE
 org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer myDelegateOutputFileSink
-NULLABLE
+NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer org.jetbrains.jps.incremental.CompileContext access$400(org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer) 0
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer org.jetbrains.jps.javac.OutputFileConsumer access$500(org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer)
-NULLABLE
+NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer org.jetbrains.jps.javac.OutputFileConsumer access$500(org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer) 0
 NOT_NULL
 org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer void save(org.jetbrains.jps.javac.OutputFileObject) 0
@@ -5948,10 +6118,6 @@ org.jetbrains.jps.incremental.messages.FileGeneratedEvent java.util.Collection<c
 NOT_NULL
 org.jetbrains.jps.incremental.messages.FileGeneratedEvent myPaths
 NOT_NULL
-org.jetbrains.jps.incremental.messages.FileGeneratedEvent void add(java.lang.String, java.lang.String) 0
-NULLABLE
-org.jetbrains.jps.incremental.messages.FileGeneratedEvent void add(java.lang.String, java.lang.String) 1
-NULLABLE
 org.jetbrains.jps.incremental.resources.ResourcesBuilder BUILDER_NAME
 NOT_NULL
 org.jetbrains.jps.incremental.resources.ResourcesBuilder java.lang.String getPresentableName()
@@ -6177,7 +6343,7 @@ NOT_NULL
 org.jetbrains.jps.incremental.storage.TimestampStorage org.jetbrains.jps.incremental.storage.TimestampStorage.TimestampPerTarget[] updateTimestamp(org.jetbrains.jps.incremental.storage.TimestampStorage.TimestampPerTarget[], int, long)
 NOT_NULL
 org.jetbrains.jps.incremental.storage.TimestampStorage org.jetbrains.jps.incremental.storage.TimestampStorage.TimestampPerTarget[] updateTimestamp(org.jetbrains.jps.incremental.storage.TimestampStorage.TimestampPerTarget[], int, long) 0
-NOT_NULL
+NULLABLE
 org.jetbrains.jps.incremental.storage.TimestampStorage void saveStamp(java.io.File, org.jetbrains.jps.builders.BuildTarget<?>, long) 1
 NOT_NULL
 org.jetbrains.jps.incremental.storage.TimestampStorage.StateExternalizer java.lang.Object read(java.io.DataInput)
@@ -6198,10 +6364,14 @@ org.jetbrains.jps.incremental.storage.TimestampStorage.StateExternalizer void sa
 NOT_NULL
 org.jetbrains.jps.incremental.storage.TimestampValidityState TimestampValidityState(java.io.DataInput) 0
 NOT_NULL
+org.jetbrains.jps.incremental.storage.TimestampValidityState boolean equalsTo(org.jetbrains.jps.incremental.storage.ValidityState) 0
+NULLABLE
 org.jetbrains.jps.incremental.storage.TimestampValidityState void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.incremental.storage.Timestamps void saveStamp(java.io.File, org.jetbrains.jps.builders.BuildTarget<?>, long) 1
 NOT_NULL
+org.jetbrains.jps.incremental.storage.ValidityState boolean equalsTo(org.jetbrains.jps.incremental.storage.ValidityState) 0
+NULLABLE
 org.jetbrains.jps.incremental.storage.ValidityState void save(java.io.DataOutput) 0
 NOT_NULL
 org.jetbrains.jps.indices.impl.IgnoredFileIndexImpl IgnoredFileIndexImpl(org.jetbrains.jps.model.JpsModel) 0
@@ -6278,6 +6448,8 @@ org.jetbrains.jps.javac.JavacFileManager org.jetbrains.jps.javac.JavacFileManage
 NOT_NULL
 org.jetbrains.jps.javac.JavacFileManager org.jetbrains.jps.javac.OutputFileObject getFileForOutput(javax.tools.JavaFileManager.Location, javax.tools.JavaFileObject.Kind, java.lang.String, java.lang.String, javax.tools.FileObject)
 NOT_NULL
+org.jetbrains.jps.javac.JavacFileManager org.jetbrains.jps.javac.OutputFileObject getFileForOutput(javax.tools.JavaFileManager.Location, javax.tools.JavaFileObject.Kind, java.lang.String, java.lang.String, javax.tools.FileObject) 1
+NOT_NULL
 org.jetbrains.jps.javac.JavacFileManager org.jetbrains.jps.javac.OutputFileObject getFileForOutput(javax.tools.JavaFileManager.Location, javax.tools.JavaFileObject.Kind, java.lang.String, java.lang.String, javax.tools.FileObject) 3
 NULLABLE
 org.jetbrains.jps.javac.JavacFileManager org.jetbrains.jps.javac.OutputFileObject getFileForOutput(javax.tools.JavaFileManager.Location, javax.tools.JavaFileObject.Kind, java.lang.String, java.lang.String, javax.tools.FileObject) 4
@@ -6289,6 +6461,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacMain FILTERED_OPTIONS
 NOT_NULL
 org.jetbrains.jps.javac.JavacMain FILTERED_SINGLE_OPTIONS
+NOT_NULL
+org.jetbrains.jps.javac.JavacMain boolean compile(java.util.Collection<java.lang.String>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Map<java.io.File,java.util.Set<java.io.File>>, org.jetbrains.jps.javac.DiagnosticOutputConsumer, org.jetbrains.jps.javac.OutputFileConsumer, org.jetbrains.jps.api.CanceledStatus, boolean) 6
 NOT_NULL
 org.jetbrains.jps.javac.JavacMain boolean isAnnotationProcessingEnabled(java.util.Collection<java.lang.String>) 0
 NOT_NULL
@@ -6434,8 +6608,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message org.jetbrains.jps.javac.JavacRe
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder toBuilder()
@@ -6464,8 +6636,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder com.google.protobuf.Gen
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder com.google.protobuf.MessageLite buildPartial()
@@ -6483,6 +6653,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message access$7000(org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message access$7000(org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message build()
 NOT_NULL
@@ -6517,8 +6689,6 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message)
-NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder mergeRequest(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request)
 NOT_NULL
@@ -6562,6 +6732,10 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Builder setSessionId(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder) 0
 NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure com.google.protobuf.ByteString getDescriptionBytes()
+NULLABLE
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure com.google.protobuf.ByteString getStacktraceBytes()
+NULLABLE
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -6608,8 +6782,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure org.jetbrains.jps.javac
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder toBuilder()
@@ -6628,8 +6800,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder com.google.prot
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder com.google.protobuf.MessageLite buildPartial()
@@ -6647,6 +6817,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure access$600(org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure access$600(org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure build()
 NOT_NULL
@@ -6675,8 +6847,6 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure)
-NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Failure.Builder setDescription(java.lang.String)
 NOT_NULL
@@ -6752,8 +6922,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Request org.jetbrains.jps.javac
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Request org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder toBuilder()
@@ -6774,8 +6942,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder com.google.prot
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder com.google.protobuf.MessageLite buildPartial()
@@ -6793,6 +6959,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request access$1900(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request access$1900(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request build()
 NOT_NULL
@@ -6878,8 +7046,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.j
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder removeOutput(int)
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder setClasspath(int, java.lang.String)
@@ -6914,6 +7080,8 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.j
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.Builder setSourcepath(int, java.lang.String) 1
 NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup com.google.protobuf.ByteString getOutputRootBytes()
+NULLABLE
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup com.google.protobuf.LazyStringList access$1700(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup com.google.protobuf.LazyStringList access$1702(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup, com.google.protobuf.LazyStringList) 0
@@ -6960,8 +7128,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup org.jetbrai
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder toBuilder()
@@ -6980,8 +7146,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder com
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder com.google.protobuf.MessageLite buildPartial()
@@ -6999,6 +7163,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup access$1300(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup access$1300(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup build()
 NOT_NULL
@@ -7031,8 +7197,6 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup)
-NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Request.OutputGroup.Builder setOutputRoot(java.lang.String)
 NOT_NULL
@@ -7098,8 +7262,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response org.jetbrains.jps.java
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder toBuilder()
@@ -7126,8 +7288,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder com.google.pro
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder com.google.protobuf.MessageLite buildPartial()
@@ -7145,6 +7305,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response access$6100(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response access$6100(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response build()
 NOT_NULL
@@ -7182,8 +7344,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder mergeOutputObject(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject)
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder setClassData(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData)
@@ -7216,6 +7376,8 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Builder setResponseType(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.Type) 0
 NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData com.google.protobuf.ByteString getClassNameBytes()
+NULLABLE
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData com.google.protobuf.LazyStringList access$5700(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData com.google.protobuf.LazyStringList access$5702(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData, com.google.protobuf.LazyStringList) 0
@@ -7270,8 +7432,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData org.jetbrain
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder toBuilder()
@@ -7290,8 +7450,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder com.
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder com.google.protobuf.MessageLite buildPartial()
@@ -7309,6 +7467,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData access$5300(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData access$5300(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData build()
 NOT_NULL
@@ -7358,8 +7518,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder setClassName(java.lang.String)
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder setClassName(java.lang.String) 0
@@ -7376,6 +7534,10 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.ClassData.Builder setStaticImport(int, java.lang.String) 1
 NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage com.google.protobuf.ByteString getSourceUriBytes()
+NULLABLE
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage com.google.protobuf.ByteString getTextBytes()
+NULLABLE
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -7430,8 +7592,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage org.jet
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder toBuilder()
@@ -7452,8 +7612,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder com.google.protobuf.MessageLite buildPartial()
@@ -7471,6 +7629,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage access$3000(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage access$3000(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage build()
 NOT_NULL
@@ -7509,8 +7669,6 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage)
-NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Builder setColumn(long)
 NOT_NULL
@@ -7556,6 +7714,16 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.CompileMessage.Kind.1 
 NULLABLE
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.ByteString access$5102(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject, com.google.protobuf.ByteString) 0
 NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.ByteString getClassNameBytes()
+NULLABLE
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.ByteString getFilePathBytes()
+NULLABLE
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.ByteString getOutputRootBytes()
+NULLABLE
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.ByteString getRelativePathBytes()
+NULLABLE
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.ByteString getSourceUriBytes()
+NULLABLE
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.MessageLite getDefaultInstanceForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject com.google.protobuf.MessageLite.Builder newBuilderForType()
@@ -7606,8 +7774,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject org.jetbr
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder toBuilder()
@@ -7628,8 +7794,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder c
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder com.google.protobuf.MessageLite buildPartial()
@@ -7647,6 +7811,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject access$4200(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject access$4200(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject build()
 NOT_NULL
@@ -7683,8 +7849,6 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject)
-NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.Response.OutputObject.Builder setClassName(java.lang.String)
 NOT_NULL
@@ -7806,8 +7970,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID org.jetbrains.jps.javac.Ja
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder newBuilder(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder newBuilderForType()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder toBuilder()
@@ -7826,8 +7988,6 @@ org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder com.google.protobu
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite)
 NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder com.google.protobuf.GeneratedMessageLite.Builder mergeFrom(com.google.protobuf.GeneratedMessageLite) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder com.google.protobuf.MessageLite build()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder com.google.protobuf.MessageLite buildPartial()
@@ -7845,6 +8005,8 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder java.lang.Object clone()
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID access$000(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder)
+NOT_NULL
+org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID access$000(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID build()
 NOT_NULL
@@ -7871,8 +8033,6 @@ NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder mergeFrom(com.google.protobuf.CodedInputStream, com.google.protobuf.ExtensionRegistryLite) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID)
-NOT_NULL
-org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder mergeFrom(org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder org.jetbrains.jps.javac.JavacRemoteProto.Message.UUID.Builder setLeastSigBits(long)
 NOT_NULL
@@ -7906,8 +8066,6 @@ org.jetbrains.jps.javac.JavacServer org.jetbrains.jps.javac.JavacRemoteProto.Mes
 NOT_NULL
 org.jetbrains.jps.javac.JavacServer org.jetbrains.jps.javac.JavacRemoteProto.Message compile(org.jboss.netty.channel.ChannelHandlerContext, java.util.UUID, java.util.List<java.lang.String>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Map<java.io.File,java.util.Set<java.io.File>>, org.jetbrains.jps.api.CanceledStatus) 1
 NOT_NULL
-org.jetbrains.jps.javac.JavacServer void main(java.lang.String[]) 0
-NOT_NULL
 org.jetbrains.jps.javac.JavacServer.3 void outputLineAvailable(java.lang.String) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacServer.3 void registerImports(java.lang.String, java.util.Collection<java.lang.String>, java.util.Collection<java.lang.String>) 0
@@ -7932,13 +8090,13 @@ org.jetbrains.jps.javac.JavacServerBootstrap com.intellij.execution.process.Base
 NOT_NULL
 org.jetbrains.jps.javac.JavacServerBootstrap void appendParam(java.util.List<java.lang.String>, java.lang.String) 0
 NOT_NULL
-org.jetbrains.jps.javac.JavacServerBootstrap void appendParam(java.util.List<java.lang.String>, java.lang.String) 1
-NOT_NULL
 org.jetbrains.jps.javac.JavacServerBootstrap void configureProcessHandler(com.intellij.execution.process.BaseOSProcessHandler) 0
 NOT_NULL
 org.jetbrains.jps.javac.JavacServerBootstrap.2 void onTextAvailable(com.intellij.execution.process.ProcessEvent, com.intellij.openapi.util.Key) 0
 NOT_NULL
-org.jetbrains.jps.javac.JavacServerBootstrap.3 void onTextAvailable(com.intellij.execution.process.ProcessEvent, com.intellij.openapi.util.Key) 0
+org.jetbrains.jps.javac.JavacServerClient org.jetbrains.jps.api.RequestFuture access$000(org.jetbrains.jps.javac.JavacServerClient, org.jetbrains.jps.javac.JavacRemoteProto.Message.Request, org.jetbrains.jps.javac.JavacServerResponseHandler, org.jetbrains.jps.api.RequestFuture.CancelAction) 0
+NOT_NULL
+org.jetbrains.jps.javac.JavacServerClient org.jetbrains.jps.api.RequestFuture access$000(org.jetbrains.jps.javac.JavacServerClient, org.jetbrains.jps.javac.JavacRemoteProto.Message.Request, org.jetbrains.jps.javac.JavacServerResponseHandler, org.jetbrains.jps.api.RequestFuture.CancelAction) 1
 NOT_NULL
 org.jetbrains.jps.javac.JavacServerClient org.jetbrains.jps.api.RequestFuture<org.jetbrains.jps.javac.JavacServerResponseHandler> sendCompileRequest(java.util.List<java.lang.String>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Collection<java.io.File>, java.util.Map<java.io.File,java.util.Set<java.io.File>>, org.jetbrains.jps.javac.DiagnosticOutputConsumer, org.jetbrains.jps.javac.OutputFileConsumer) 1
 NOT_NULL
@@ -7990,6 +8148,8 @@ org.jetbrains.jps.javac.LineOutputWriter myLineParser
 NOT_NULL
 org.jetbrains.jps.javac.LineOutputWriter void processData(org.jetbrains.jps.javac.LineOutputWriter.CharIterator) 0
 NOT_NULL
+org.jetbrains.jps.javac.LineOutputWriter void write(char[]) 0
+NOT_NULL
 org.jetbrains.jps.javac.LineOutputWriter void write(java.lang.String, int, int) 0
 NOT_NULL
 org.jetbrains.jps.javac.LineOutputWriter.ArrayCharSequence java.lang.CharSequence subSequence(int, int)
@@ -8029,6 +8189,8 @@ NULLABLE
 org.jetbrains.jps.javac.OutputFileObject OutputFileObject(org.jetbrains.jps.javac.JavacFileManager.Context, java.io.File, java.lang.String, java.io.File, javax.tools.JavaFileObject.Kind, java.lang.String, java.net.URI, org.jetbrains.jps.javac.BinaryContent) 6
 NULLABLE
 org.jetbrains.jps.javac.OutputFileObject OutputFileObject(org.jetbrains.jps.javac.JavacFileManager.Context, java.io.File, java.lang.String, java.io.File, javax.tools.JavaFileObject.Kind, java.lang.String, java.net.URI, org.jetbrains.jps.javac.BinaryContent) 7
+NULLABLE
+org.jetbrains.jps.javac.OutputFileObject boolean equals(java.lang.Object) 0
 NULLABLE
 org.jetbrains.jps.javac.OutputFileObject java.io.ByteArrayOutputStream openOutputStream()
 NOT_NULL
