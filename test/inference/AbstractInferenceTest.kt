@@ -19,20 +19,21 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 import util.getClassReader
 import util.junit.getTestName
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
     protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
 
     protected abstract fun getInitialAnnotations(): Annotations<A>
-    protected abstract fun getInferrer(): AnnotationInferrer<A>
+    protected abstract fun getInferrer(): AnnotationInferrer<A, *>
     protected abstract fun getClassFiles(): Collection<File>
 
     private fun doInferAnnotations(annotations: Annotations<A>) : Annotations<Any> {
         return inferAnnotations<String>(
                 FileBasedClassSource(getClassFiles()),
                 ArrayList<File>(),
-                hashMap(Pair("inferrer", getInferrer() as AnnotationInferrer<Any>)),
+                hashMap(Pair("inferrer", getInferrer() as AnnotationInferrer<Any, Qualifier>)),
                 ProgressMonitor(),
                 false,
                 false,

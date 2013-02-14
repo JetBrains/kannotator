@@ -31,6 +31,7 @@ import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotationsInference.nullability.*
 import org.jetbrains.kannotator.annotationsInference.mutability.*
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -108,12 +109,12 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                 inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
 
                 try {
-                    val inferrerMap = HashMap<String, AnnotationInferrer<Any>>()
+                    val inferrerMap = HashMap<String, AnnotationInferrer<Any, Qualifier>>()
                     if (taskParams.inferNullabilityAnnotations) {
-                        inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any>
+                        inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>
                     }
                     if (taskParams.inferKotlinAnnotations) {
-                        inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any>
+                        inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
                     }
 
                     // TODO: Add existing annotations from dependent libraries

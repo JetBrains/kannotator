@@ -16,7 +16,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
                 "out/production/kannotator/inferenceData/MutabilityInferenceTestClass.class").map { File(it) }
     }
 
-    protected override fun getInferrer(): AnnotationInferrer<MutabilityAnnotation> {
+    protected override fun getInferrer(): AnnotationInferrer<MutabilityAnnotation, *> {
         return MUTABILITY_INFERRER
     }
 

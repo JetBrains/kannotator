@@ -67,7 +67,7 @@ class IntegratedInferenceTest : TestCase() {
             keyIndex: AnnotationKeyIndex,
             inferredAnnotations: Annotations<A>,
             existingAnnotations: Annotations<A>,
-            inferrer: AnnotationInferrer<A>
+            inferrer: AnnotationInferrer<A, *>
     ) {
         val conflictExceptions = loadPositionsOfConflictExceptions(keyIndex, File("testData/inferenceData/integrated/$testName/exceptions.txt"))
         val conflicts = processAnnotationInferenceConflicts(

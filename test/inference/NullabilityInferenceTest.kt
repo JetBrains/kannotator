@@ -10,7 +10,7 @@ import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
 
 class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
-    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation> {
+    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {
         return NullabilityInferrer()
     }
 

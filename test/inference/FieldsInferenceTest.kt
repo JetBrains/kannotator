@@ -43,7 +43,7 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         return arrayList(File("out/production/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"))
     }
 
-    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation> {
+    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {
         return NullabilityInferrer()
     }
 

@@ -27,6 +27,7 @@ import java.util.HashSet
 import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
+import kotlin.all
 import org.jetbrains.kannotator.declarations.copyAllChanged
 import org.objectweb.asm.tree.AnnotationNode
 import org.objectweb.asm.Type
@@ -39,6 +40,8 @@ import org.jetbrains.kannotator.index.loadMethodParameterNames
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.annotationsInference.propagation.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.*
+import org.jetbrains.kannotator.controlFlow.builder.*
 
 open class ProgressMonitor {
     open fun processingStarted() {}
@@ -59,7 +62,7 @@ private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<Str
 
 public fun <K> loadMethodAnnotationsFromByteCode(
         methodNodes: Map<Method, MethodNode>,
-        inferrers: Map<K, AnnotationInferrer<Any>>
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>
 ): Map<K, Annotations<Any>> {
     val internalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>() }
 
@@ -109,7 +112,7 @@ public fun <K> loadMethodAnnotationsFromByteCode(
 
 public fun <K> loadFieldAnnotationsFromByteCode(
         fieldNodes: Map<Field, FieldNode>,
-        inferrers: Map<K, AnnotationInferrer<Any>>
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>
 ): Map<K, Annotations<Any>> {
     val internalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>() }
 
@@ -139,7 +142,7 @@ private fun <K> loadExternalAnnotations(
         delegatingAnnotations: Map<K, Annotations<Any>>,
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
-        inferrers: Map<K, AnnotationInferrer<Any>>,
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         showErrorIfPositionNotFound: Boolean = true
 ): Map<K, MutableAnnotations<Any>> {
     val externalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>(delegatingAnnotations[entry.key]) }
@@ -172,24 +175,29 @@ private fun <K> loadAnnotations(
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
         methodNodes: Map<Method, MethodNode>,
-        inferrers: Map<K, AnnotationInferrer<Any>>,
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         showErrorIfPositionNotFound: Boolean = true
 ): Map<K, MutableAnnotations<Any>> =
         loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
 
-trait AnnotationInferrer<A: Any> {
+trait AnnotationInferrer<A: Any, I: Qualifier> {
     fun resolveAnnotation(classNames: Set<String>): A?
 
     fun inferAnnotationsFromFieldValue(field: Field): Annotations<A>
 
-    fun inferAnnotationsFromMethod(
+    fun <Q: Qualifier> inferAnnotationsFromMethod(
             method: Method,
-            cfGraph: ControlFlowGraph,
+            methodNode: MethodNode,
+            analysisResult: AnalysisResult<QualifiedValueSet<Q>>,
             fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
             declarationIndex: DeclarationIndex,
             annotations: Annotations<A>): Annotations<A>
 
     val lattice: AnnotationLattice<A>
+    val qualifierSet: QualifierSet<I>
+
+    fun getFrameTransformer(annotations: Annotations<A>, declarationIndex: DeclarationIndex): FrameTransformer<QualifiedValueSet<*>>
+    fun getQualifierEvaluator(positions: PositionsForMethod, annotations: Annotations<A>, declarationIndex: DeclarationIndex): QualifierEvaluator<I>
 }
 
 data class InferenceResult<K>(
@@ -200,7 +208,7 @@ data class InferenceResult<K>(
 fun <K> inferAnnotations(
         classSource: ClassSource,
         existingAnnotationFiles: Collection<File>,
-        inferrers: Map<K, AnnotationInferrer<Any>>,
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         progressMonitor: ProgressMonitor = ProgressMonitor(),
         showErrors: Boolean = true,
         loadOnly: Boolean = false,
@@ -255,24 +263,20 @@ fun <K> inferAnnotations(
             methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.data}).plus(method)
         }
 
-        val methodToGraph = buildControlFlowGraphs(methods.keySet(), { m -> methodNodes.getOrThrow(m) })
-
         for (method in methods.keySet()) {
             loadMethodParameterNames(method, methodNodes[method]!!)
         }
 
-        for ((key, inferrer) in inferrers) {
-            inferAnnotationsOnMutuallyRecursiveMethods(
-                    declarationIndex,
-                    resultingAnnotationsMap[key]!!,
-                    methods.keySet(),
-                    { classMember -> dependentMembersInsideThisComponent(classMember) },
-                    { m -> methodToGraph.getOrThrow(m) },
-                    { f -> fieldToDependencyInfosMap.getOrThrow(f) },
-                    inferrer,
-                    progressMonitor
-            )
-        }
+        inferAnnotationsOnMutuallyRecursiveMethods(
+                declarationIndex,
+                resultingAnnotationsMap,
+                methods.keySet(),
+                { classMember -> dependentMembersInsideThisComponent(classMember) },
+                { m -> methodNodes.getOrThrow(m) },
+                { f -> fieldToDependencyInfosMap.getOrThrow(f) },
+                inferrers,
+                progressMonitor
+        )
 
         progressMonitor.processingComponentFinished(methods.keySet())
 
@@ -289,7 +293,7 @@ fun <K> inferAnnotations(
 
 private fun <K> propagateAnnotations(
         classSource: ClassSource,
-        inferrers: Map<K, AnnotationInferrer<Any>>,
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         inferenceResult: InferenceResult<K>,
         propagationOverrides: Map<K, Annotations<Any>>
 ): InferenceResult<K> {
@@ -304,14 +308,14 @@ private fun <K> propagateAnnotations(
     return inferenceResult.copy(inferredAnnotationsMap = propagatedAnnotations)
 }
 
-private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
+private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
         declarationIndex: DeclarationIndex,
-        annotations: MutableAnnotations<A>,
+        annotationsMap: Map<K, MutableAnnotations<A>>,
         methods: Collection<Method>,
         dependentMethods: (Method) -> Collection<Method>,
-        cfGraph: (Method) -> ControlFlowGraph,
+        methodNodes: (Method) -> MethodNode,
         fieldDependencyInfoProvider: (Field) -> FieldDependencyInfo,
-        inferrer: AnnotationInferrer<A>,
+        inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         progressMonitor: ProgressMonitor
 ) {
     assert (!methods.isEmpty()) {"Empty SSC"}
@@ -321,18 +325,38 @@ private fun <A> inferAnnotationsOnMutuallyRecursiveMethods(
         val method = queue.removeFirst()
 
         progressMonitor.processingStepStarted(method)
+        println(method)
 
-        val inferredAnnotations = inferrer.inferAnnotationsFromMethod(
-                method, cfGraph(method), fieldDependencyInfoProvider, declarationIndex, annotations)
+        val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<Any>>(
+                method.declaringClass,
+                MultiQualifierSet(inferrers.mapKeysAndValues (
+                        {it.value.qualifierSet.id}, {it.value.qualifierSet}
+                )),
+                MultiFrameTransformer<Any, QualifiedValueSet<Qualifier>>(inferrers.mapKeysAndValues (
+                        {it.value.qualifierSet.id},
+                        {it.value.getFrameTransformer(annotationsMap[it.key]!!, declarationIndex)}
+                )),
+                MultiQualifierEvaluator(inferrers.mapKeysAndValues (
+                        {it.value.qualifierSet.id},
+                        {it.value.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[it.key]!!, declarationIndex)}
+                ))
+        )
 
-        var changed = false
-        annotations.copyAllChanged(inferredAnnotations) { pos, previous, new ->
-            changed = true
-            new // Return merged
-        }
+        for ((key, inferrer) in inferrers) {
+            val annotations = annotationsMap[key]!!
 
-        if (changed) {
-            queue.addAll(dependentMethods(method))
+            val inferredAnnotations = inferrer.inferAnnotationsFromMethod<MultiQualifier<Any>>(
+                    method, methodNodes(method), analysisResult, fieldDependencyInfoProvider, declarationIndex, annotations)
+
+            var changed = false
+            annotations.copyAllChanged(inferredAnnotations as Annotations<A>) { pos, previous, new ->
+                changed = true
+                new // Return merged
+            }
+
+            if (changed) {
+                queue.addAll(dependentMethods(method))
+            }
         }
 
         progressMonitor.processingStepFinished(method)
@@ -366,7 +390,7 @@ data class AnnotationsConflict<out V>(val position: AnnotationPosition, val expe
 fun <A: Any> processAnnotationInferenceConflicts(
         inferredAnnotations: MutableAnnotations<A>,
         existingAnnotations: Annotations<A>?,
-        inferrer: AnnotationInferrer<A>,
+        inferrer: AnnotationInferrer<A, *>,
         positionsOfConflictExceptions: Set<AnnotationPosition> = Collections.emptySet()
 ): List<AnnotationsConflict<A>> {
     if (existingAnnotations == null) {
@@ -393,10 +417,6 @@ fun <A: Any> processAnnotationInferenceConflicts(
         }
     }
     return conflicts
-}
-
-fun buildControlFlowGraphs(methods: Collection<Method>, node: (Method) -> MethodNode): Map<Method, ControlFlowGraph> {
-    return methods.map {m -> Pair(m, node(m).buildControlFlowGraph(m.declaringClass))}.toMap()
 }
 
 fun error(message: String) {
