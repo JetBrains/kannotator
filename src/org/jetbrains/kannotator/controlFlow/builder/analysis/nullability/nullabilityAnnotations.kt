@@ -1,24 +1,12 @@
 package org.jetbrains.kannotator.annotationsInference.nullability
 
 import org.jetbrains.kannotator.annotationsInference.Annotation
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityValueInfo.*
 import org.jetbrains.kannotator.declarations.ClassName
+import org.jetbrains.kannotator.annotationsInference.propagation.TwoElementLattice
 
 enum class NullabilityAnnotation : Annotation {
     NOT_NULL
     NULLABLE
-}
-
-fun NullabilityValueInfo.toAnnotation() : NullabilityAnnotation? = when (this) {
-    NULL, NULLABLE -> NullabilityAnnotation.NULLABLE
-    NOT_NULL -> NullabilityAnnotation.NOT_NULL
-    CONFLICT, UNKNOWN -> null
-}
-
-fun NullabilityAnnotation?.toValueInfo() : NullabilityValueInfo = when (this) {
-    NullabilityAnnotation.NOT_NULL -> NOT_NULL
-    NullabilityAnnotation.NULLABLE -> NULLABLE
-    null -> UNKNOWN
 }
 
 public val JB_NOT_NULL: String = "org.jetbrains.annotations.NotNull"
@@ -32,7 +20,12 @@ fun classNamesToNullabilityAnnotation(canonicalClassNames: Set<String>) : Nullab
 
     if (containsNotNull == containsNullable) return null
     return if (containsNotNull)
-               NullabilityAnnotation.NOT_NULL
-           else
-               NullabilityAnnotation.NULLABLE
+        NullabilityAnnotation.NOT_NULL
+    else
+        NullabilityAnnotation.NULLABLE
 }
+
+object NullabiltyLattice : TwoElementLattice<NullabilityAnnotation>(
+        small = NullabilityAnnotation.NOT_NULL,
+        big = NullabilityAnnotation.NULLABLE
+)

@@ -11,9 +11,8 @@ import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.controlFlow.builder.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.classNamesToMutabilityAnnotation
-import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabiltyLattice
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 
 class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation, Nullability> {
     private val methodToFieldNullabilityInfo = HashMap<Method, Map<Field, Nullability>>()
@@ -22,7 +21,7 @@ class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation, Nullability
 
     override fun inferAnnotationsFromFieldValue(field: Field): Annotations<NullabilityAnnotation> {
         val result = AnnotationsImpl<NullabilityAnnotation>()
-        result.setIfNotNull(getFieldTypePosition(field), nullability.inferAnnotationsFromFieldValue(field: Field))
+        result.setIfNotNull(getFieldTypePosition(field), inferNullabilityFromFieldValue(field: Field))
         return result
     }
 

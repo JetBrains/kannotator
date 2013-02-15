@@ -28,10 +28,9 @@ import org.jetbrains.kannotator.plugin.ideaUtils.runComputableInsideWriteAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideReadAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
 import org.jetbrains.kannotator.declarations.*
-import org.jetbrains.kannotator.annotationsInference.nullability.*
-import org.jetbrains.kannotator.annotationsInference.mutability.*
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,

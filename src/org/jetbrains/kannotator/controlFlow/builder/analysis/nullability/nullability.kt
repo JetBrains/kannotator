@@ -389,13 +389,26 @@ fun findFieldsWithChangedNullabilityInfo(previous: Map<Field, Nullability>?,
     return changedInFields
 }
 
+fun shouldCollectNullabilityInfo(field: Field): Boolean {
+    return !field.getType().isPrimitiveOrVoidType() && field.isFinal()
+}
+
+fun inferNullabilityFromFieldValue(field: Field) : NullabilityAnnotation? {
+    if (field.isFinal() && field.value != null && !field.getType().isPrimitiveOrVoidType()) {
+        // A very simple case when final field has initial value
+        return NullabilityAnnotation.NOT_NULL
+    }
+
+    return null
+}
+
 private fun FieldDependencyInfo.areAllWritersProcessed(methodFieldsNullabilityInfoProvider: (Method) -> Map<Field, Nullability>?) : Boolean =
         this.writers.all { methodFieldsNullabilityInfoProvider(it) != null }
 
 private fun buildFieldNullabilityAnnotations(
         fieldInfo: FieldDependencyInfo,
         methodToFieldsNullabilityProvider: (Method) -> Map<Field, Nullability>?): NullabilityAnnotation? {
-    val fromValueAnnotation = inferAnnotationsFromFieldValue(fieldInfo.field)
+    val fromValueAnnotation = inferNullabilityFromFieldValue(fieldInfo.field)
 
     if (fromValueAnnotation != null) {
         return fromValueAnnotation
