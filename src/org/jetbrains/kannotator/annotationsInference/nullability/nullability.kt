@@ -55,7 +55,7 @@ public object NullabilitySet: QualifierSet<Nullability> {
     public override val id: Any = NULLABILITY_KEY
     public override val initial: Nullability = Nullability.UNKNOWN
 
-    // Can assume that UNCERTAIN does not appear as argument
+    // Can assume that EMPTY and DISCARD do not appear as argument
     public override fun merge(q1: Nullability, q2: Nullability): Nullability {
         if (q1 == q2) {
             return q1
