@@ -326,7 +326,6 @@ private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
         val method = queue.removeFirst()
 
         progressMonitor.processingStepStarted(method)
-        println(method)
 
         val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<Any>>(
                 method.declaringClass,
