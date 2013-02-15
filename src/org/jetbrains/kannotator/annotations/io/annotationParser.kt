@@ -50,7 +50,6 @@ import java.io.FileWriter
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.kotlinSignatures.renderMethodSignature
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
 import java.io.StringWriter
 import org.jetbrains.kannotator.index.AnnotationKeyIndex

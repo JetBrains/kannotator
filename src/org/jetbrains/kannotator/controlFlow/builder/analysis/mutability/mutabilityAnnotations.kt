@@ -1,6 +1,8 @@
-package org.jetbrains.kannotator.annotationsInference.mutability
+package org.jetbrains.kannotator.controlFlow.builder.analysis.mutability
 
 import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.annotationsInference.propagation.TwoElementLattice
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation.*
 
 enum class MutabilityAnnotation : Annotation {
     MUTABLE
@@ -21,3 +23,8 @@ fun classNamesToMutabilityAnnotation(canonicalClassNames: Set<String>) : Mutabil
     else
         MutabilityAnnotation.READ_ONLY
 }
+
+object MutabiltyLattice : TwoElementLattice<MutabilityAnnotation>(
+        small = READ_ONLY,
+        big = MUTABLE
+)

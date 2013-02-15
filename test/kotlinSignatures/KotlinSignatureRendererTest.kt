@@ -38,9 +38,9 @@ import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.jetbrains.kannotator.index.DeclarationIndex
 import java.util.LinkedHashMap
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.index.loadMethodParameterNames
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 class KotlinSignatureRendererTest : TestCase() {
 

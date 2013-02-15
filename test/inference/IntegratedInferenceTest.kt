@@ -32,7 +32,6 @@ import java.io.FileWriter
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.kotlinSignatures.renderMethodSignature
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
 import java.io.StringWriter
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
@@ -59,6 +58,7 @@ import org.jetbrains.kannotator.annotations.io.methodsToAnnotationsMap
 import org.jetbrains.kannotator.annotations.io.getPackageName
 import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
 import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(

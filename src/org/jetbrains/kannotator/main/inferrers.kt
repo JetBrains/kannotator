@@ -1,19 +1,19 @@
 package org.jetbrains.kannotator.main
 
 import java.util.HashMap
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.classNamesToMutabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.nullability
 import org.jetbrains.kannotator.annotationsInference.nullability.*
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.annotationsInference.mutability.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.controlFlow.builder.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.classNamesToMutabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabiltyLattice
 
 class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation, Nullability> {
     private val methodToFieldNullabilityInfo = HashMap<Method, Map<Field, Nullability>>()

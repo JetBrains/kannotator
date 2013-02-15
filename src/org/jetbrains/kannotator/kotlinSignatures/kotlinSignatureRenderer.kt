@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.kotlinSignatures
 
 import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.declarations.Method
@@ -26,6 +25,7 @@ import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.isInnerClassConstructor
 import org.jetbrains.kannotator.declarations.isConstructor
 import org.jetbrains.kannotator.index.NO_PARAMETER_NAME
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 fun kotlinSignatureToAnnotationData(kotlinSignatureString: String): AnnotationData {
     return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))

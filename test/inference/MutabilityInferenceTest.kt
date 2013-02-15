@@ -1,12 +1,12 @@
 package inference
 
 import java.io.File
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {

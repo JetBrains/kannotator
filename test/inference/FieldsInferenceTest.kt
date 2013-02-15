@@ -15,7 +15,6 @@ import org.jetbrains.kannotator.index.ClassSource
 import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import java.util.ArrayList
-import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
 import java.io.File
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
