@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.main
 
 import java.util.HashMap
 import org.jetbrains.kannotator.annotationsInference.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.annotationsInference.mutability.buildMutabilityAnnotations
 import org.jetbrains.kannotator.annotationsInference.mutability.classNamesToMutabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.nullability
 import org.jetbrains.kannotator.annotationsInference.nullability.*
