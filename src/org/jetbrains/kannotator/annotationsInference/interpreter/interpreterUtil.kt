@@ -3,7 +3,7 @@ package org.jetbrains.kannotator.controlFlow.builder.analysis
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.controlFlow.builder.Method
 import org.jetbrains.kannotator.asm.util.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.*
+import org.jetbrains.kannotator.annotationsInference.engine.*
 
 import org.objectweb.asm.*
 import org.objectweb.asm.Opcodes.*

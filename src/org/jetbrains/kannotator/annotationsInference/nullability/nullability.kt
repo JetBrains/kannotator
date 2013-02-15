@@ -27,7 +27,7 @@ import org.jetbrains.kannotator.declarations.*
 import java.util.HashSet
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Type
-import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.*
+import org.jetbrains.kannotator.annotationsInference.engine.*
 
 object NULLABILITY_KEY
 

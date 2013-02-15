@@ -28,7 +28,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jetbrains.kannotator.controlFlow.builder.analysis.engine;
+package org.jetbrains.kannotator.annotationsInference.engine;
 
 import jet.runtime.typeinfo.KotlinSignature;
 import org.objectweb.asm.Opcodes;

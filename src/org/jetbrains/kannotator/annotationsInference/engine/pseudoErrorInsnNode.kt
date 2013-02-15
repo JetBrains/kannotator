@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.controlFlow.builder.analysis.engine
+package org.jetbrains.kannotator.annotationsInference.engine
 
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.InsnNode

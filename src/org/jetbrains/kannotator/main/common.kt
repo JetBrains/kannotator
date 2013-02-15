@@ -42,7 +42,7 @@ import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.controlFlow.builder.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.*
+import org.jetbrains.kannotator.annotationsInference.engine.*
 
 open class ProgressMonitor {
     open fun processingStarted() {}
