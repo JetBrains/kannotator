@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.controlFlow.builder.analysis
+package org.jetbrains.kannotator.controlFlow.builder.analysis.engine
 
 import org.objectweb.asm.tree.analysis.Value
 import org.objectweb.asm.tree.analysis.Frame

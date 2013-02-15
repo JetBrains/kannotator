@@ -23,6 +23,8 @@ import java.util.HashSet
 import org.objectweb.asm.Type
 import kotlinlib.bfs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.Analyzer
+import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.AnalysisResult
 
 object MUTABILITY_KEY
 

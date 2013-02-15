@@ -18,7 +18,7 @@ import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
 import org.objectweb.asm.tree.MethodNode
 import org.objectweb.asm.util.Printer
-import org.jetbrains.kannotator.controlFlow.builder.analysis.Analyzer
+import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.Analyzer
 import org.objectweb.asm.tree.analysis.Frame
 
 public fun MethodNode.buildControlFlowGraph(

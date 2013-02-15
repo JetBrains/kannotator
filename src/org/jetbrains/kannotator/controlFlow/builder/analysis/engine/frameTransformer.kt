@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.controlFlow.builder.analysis
+package org.jetbrains.kannotator.controlFlow.builder.analysis.engine
 
 import org.objectweb.asm.tree.analysis.Value
 import org.objectweb.asm.tree.analysis.Frame
@@ -42,42 +42,3 @@ public trait FrameTransformer<V: Value> {
 }
 
 public class DefaultFrameTransformer<V: Value>: FrameTransformer<V>
-
-class MultiFrameTransformer<K, V: AbstractValue<V>>(
-        val transformers: Map<K, FrameTransformer<V>>
-): FrameTransformer<V> {
-    public override fun getPseudoResults(
-            insnNode: AbstractInsnNode,
-            preFrame: Frame<V>,
-            executedFrame: Frame<V>,
-            analyzer: Analyzer<V>
-    ): Collection<ResultFrame<V>> {
-        val preFrameCopy = preFrame.copy()
-
-        val resultList = ArrayList<ResultFrame<V>>()
-        for ((key, transformer) in transformers) {
-            resultList.addAll(transformer.getPseudoResults(insnNode, preFrameCopy, executedFrame, analyzer))
-        }
-        return resultList
-    }
-
-    public override fun getPostFrame(
-            insnNode: AbstractInsnNode,
-            edgeIndex: Int,
-            preFrame: Frame<V>,
-            executedFrame: Frame<V>,
-            analyzer: Analyzer<V>
-    ): Frame<V>? {
-        val preFrameCopy = preFrame.copy()
-
-        var postFrame: Frame<V> = executedFrame
-        for ((key, transformer) in transformers) {
-            val nextFrame = transformer.getPostFrame(insnNode, edgeIndex, preFrameCopy, postFrame, analyzer)
-            if (nextFrame == null) {
-                return null
-            }
-            postFrame = nextFrame
-        }
-        return postFrame
-    }
-}

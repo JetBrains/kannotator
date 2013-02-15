@@ -1,7 +1,6 @@
 package org.jetbrains.kannotator.main
 
 import java.util.HashMap
-import org.jetbrains.kannotator.annotationsInference.nullability
 import org.jetbrains.kannotator.annotationsInference.nullability.*
 import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.*
@@ -13,6 +12,7 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.engine.*
 
 class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation, Nullability> {
     private val methodToFieldNullabilityInfo = HashMap<Method, Map<Field, Nullability>>()
