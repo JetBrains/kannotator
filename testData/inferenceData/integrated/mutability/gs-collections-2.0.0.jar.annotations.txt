@@ -68,6 +68,8 @@ com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R zip(j
 MUTABLE
 com.gs.collections.impl.collection.immutable.AbstractImmutableCollection R zipWithIndex(R) 0
 MUTABLE
+com.gs.collections.impl.collection.immutable.AbstractImmutableCollection void removeAllFrom(java.lang.Iterable<? extends T>, com.gs.collections.api.collection.MutableCollection<T>) 1
+MUTABLE
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R collect(com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 1
 MUTABLE
 com.gs.collections.impl.collection.mutable.AbstractCollectionAdapter R collectIf(com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.function.Function<? super T,? extends V>, R) 2

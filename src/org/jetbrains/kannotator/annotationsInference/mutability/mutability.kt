@@ -105,7 +105,10 @@ private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsn
         for (superType in superTypes) {
             contains = this@containsInvocation[superType.getName().replace('.', '/')]?.contains(methodName) ?: false
             if (contains) break
-            this.schedule(superType)
+        }
+
+        if (!contains) {
+            scheduleAll(superTypes)
         }
     }
 
