@@ -7,7 +7,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 1: ALOAD 1
+Offset 1: LINENUMBER 6 L0
 ------------------------------------------------------------
 Frame
   Locals
@@ -15,34 +15,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-    stack[0] = [1!Ljava/lang/Object;#2]
-Offset 2: LDC "foo"
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#1]
-    locals[1] = [1!Ljava/lang/Object;#2]
-    locals[2] = []
-  Stack
-    stack[0] = [Ljava/lang/String;#3]
-    stack[1] = [1!Ljava/lang/Object;#2]
-Offset 3: INVOKESTATIC jet/runtime/Intrinsics.checkParameterIsNotNull (Ljava/lang/Object;Ljava/lang/String;)V
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#1]
-    locals[1] = [1!Ljava/lang/Object;#2]
-    locals[2] = []
-  Stack
-Offset 5: LINENUMBER 6 L0
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#1]
-    locals[1] = [1!Ljava/lang/Object;#2]
-    locals[2] = []
-  Stack
-Offset 6: ICONST_1
+Offset 2: ICONST_1
 ------------------------------------------------------------
 Frame
   Locals
@@ -51,7 +24,7 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [P1#-1]
-Offset 7: ICONST_2
+Offset 3: ICONST_2
 ------------------------------------------------------------
 Frame
   Locals
@@ -61,7 +34,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
     stack[1] = [P1#-1]
-Offset 8: IF_ICMPLE L1
+Offset 4: IF_ICMPLE L1
 ------------------------------------------------------------
 Frame
   Locals
@@ -69,7 +42,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 10: LINENUMBER 7 L2
+Offset 6: LINENUMBER 7 L2
 ------------------------------------------------------------
 Frame
   Locals
@@ -77,7 +50,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 11: ACONST_NULL
+Offset 7: ACONST_NULL
 ------------------------------------------------------------
 Frame
   Locals
@@ -86,7 +59,7 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [null#-1]
-Offset 12: ASTORE 2
+Offset 8: ASTORE 2
 ------------------------------------------------------------
 Frame
   Locals
@@ -94,7 +67,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [null#-1]
   Stack
-Offset 13: GOTO L3
+Offset 9: GOTO L3
 ------------------------------------------------------------
 Frame
   Locals
@@ -102,7 +75,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 15: LINENUMBER 10 L1
+Offset 11: LINENUMBER 10 L1
 ------------------------------------------------------------
 Frame
   Locals
@@ -110,7 +83,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 16: FRAME SAME
+Offset 12: FRAME SAME
 ------------------------------------------------------------
 Frame
   Locals
@@ -118,7 +91,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = []
   Stack
-Offset 17: ALOAD 1
+Offset 13: ALOAD 1
 ------------------------------------------------------------
 Frame
   Locals
@@ -127,7 +100,7 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [1!Ljava/lang/Object;#2]
-Offset 18: ASTORE 2
+Offset 14: ASTORE 2
 ------------------------------------------------------------
 Frame
   Locals
@@ -135,7 +108,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
-Offset 20: LINENUMBER 12 L3
+Offset 16: LINENUMBER 12 L3
 ------------------------------------------------------------
 Frame
   Locals
@@ -143,7 +116,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
-Offset 21: FRAME APPEND [java/lang/Object]
+Offset 17: FRAME APPEND [java/lang/Object]
 ------------------------------------------------------------
 Frame
   Locals
@@ -151,7 +124,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#2]
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
-Offset 22: ALOAD 2
+Offset 18: ALOAD 2
 ------------------------------------------------------------
 Frame
   Locals
@@ -160,7 +133,7 @@ Frame
     locals[2] = [1!Ljava/lang/Object;#2, null#-1]
   Stack
     stack[0] = [1!Ljava/lang/Object;#2, null#-1]
-Offset 23: ARETURN
+Offset 19: ARETURN
 ------------------------------------------------------------
 ==========================================================================================
 
@@ -173,7 +146,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 1: ALOAD 1
+Offset 1: LINENUMBER 17 L0
 ------------------------------------------------------------
 Frame
   Locals
@@ -181,34 +154,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-    stack[0] = [1!Ljava/lang/Object;#1]
-Offset 2: LDC "fooUnit"
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#0]
-    locals[1] = [1!Ljava/lang/Object;#1]
-    locals[2] = []
-  Stack
-    stack[0] = [Ljava/lang/String;#2]
-    stack[1] = [1!Ljava/lang/Object;#1]
-Offset 3: INVOKESTATIC jet/runtime/Intrinsics.checkParameterIsNotNull (Ljava/lang/Object;Ljava/lang/String;)V
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#0]
-    locals[1] = [1!Ljava/lang/Object;#1]
-    locals[2] = []
-  Stack
-Offset 5: LINENUMBER 17 L0
-------------------------------------------------------------
-Frame
-  Locals
-    locals[0] = [Linterpreter/oneParam/Test;#0]
-    locals[1] = [1!Ljava/lang/Object;#1]
-    locals[2] = []
-  Stack
-Offset 6: ICONST_1
+Offset 2: ICONST_1
 ------------------------------------------------------------
 Frame
   Locals
@@ -217,7 +163,7 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [P1#-1]
-Offset 7: ICONST_2
+Offset 3: ICONST_2
 ------------------------------------------------------------
 Frame
   Locals
@@ -227,7 +173,7 @@ Frame
   Stack
     stack[0] = [P1#-1]
     stack[1] = [P1#-1]
-Offset 8: IF_ICMPLE L1
+Offset 4: IF_ICMPLE L1
 ------------------------------------------------------------
 Frame
   Locals
@@ -235,7 +181,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 10: LINENUMBER 18 L2
+Offset 6: LINENUMBER 18 L2
 ------------------------------------------------------------
 Frame
   Locals
@@ -243,7 +189,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 11: ACONST_NULL
+Offset 7: ACONST_NULL
 ------------------------------------------------------------
 Frame
   Locals
@@ -252,7 +198,7 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [null#-1]
-Offset 12: ASTORE 2
+Offset 8: ASTORE 2
 ------------------------------------------------------------
 Frame
   Locals
@@ -260,7 +206,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [null#-1]
   Stack
-Offset 13: GOTO L3
+Offset 9: GOTO L3
 ------------------------------------------------------------
 Frame
   Locals
@@ -268,7 +214,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 15: LINENUMBER 21 L1
+Offset 11: LINENUMBER 21 L1
 ------------------------------------------------------------
 Frame
   Locals
@@ -276,7 +222,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 16: FRAME SAME
+Offset 12: FRAME SAME
 ------------------------------------------------------------
 Frame
   Locals
@@ -284,7 +230,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = []
   Stack
-Offset 17: ALOAD 1
+Offset 13: ALOAD 1
 ------------------------------------------------------------
 Frame
   Locals
@@ -293,7 +239,7 @@ Frame
     locals[2] = []
   Stack
     stack[0] = [1!Ljava/lang/Object;#1]
-Offset 18: ASTORE 2
+Offset 14: ASTORE 2
 ------------------------------------------------------------
 Frame
   Locals
@@ -301,7 +247,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-Offset 20: LINENUMBER 23 L3
+Offset 16: LINENUMBER 23 L3
 ------------------------------------------------------------
 Frame
   Locals
@@ -309,7 +255,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-Offset 21: FRAME APPEND [java/lang/Object]
+Offset 17: FRAME APPEND [java/lang/Object]
 ------------------------------------------------------------
 Frame
   Locals
@@ -317,7 +263,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-Offset 22: ALOAD 2
+Offset 18: ALOAD 2
 ------------------------------------------------------------
 Frame
   Locals
@@ -326,7 +272,7 @@ Frame
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
     stack[0] = [1!Ljava/lang/Object;#1, null#-1]
-Offset 23: INVOKESTATIC kotlin/io/IoPackage.println (Ljava/lang/Object;)V
+Offset 19: INVOKESTATIC kotlin/io/IoPackage.println (Ljava/lang/Object;)V
 ------------------------------------------------------------
 Frame
   Locals
@@ -334,7 +280,7 @@ Frame
     locals[1] = [1!Ljava/lang/Object;#1]
     locals[2] = [1!Ljava/lang/Object;#1, null#-1]
   Stack
-Offset 25: RETURN
+Offset 21: RETURN
 ------------------------------------------------------------
 ==========================================================================================
 
