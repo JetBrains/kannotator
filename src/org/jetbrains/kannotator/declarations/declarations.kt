@@ -6,6 +6,7 @@ import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
 import java.util.ArrayList
+import org.objectweb.asm.tree.MethodNode
 
 trait ClassMember {
     val declaringClass: ClassName
@@ -79,6 +80,9 @@ data class Method(
         return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
 }
+
+fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
+        className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
 
 private fun defaultMethodParameterNames(method: Method): List<String>
         = (0..method.getArgumentTypes().size - 1).toList().map { i -> "p$i" }

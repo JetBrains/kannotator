@@ -20,7 +20,6 @@ import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.declarations.Method
 import java.io.FileInputStream
-import interpreter.readWithBuffer
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotationsInference.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation

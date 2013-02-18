@@ -10,7 +10,6 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.ClassReader
 import util.junit.getTestName
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import util.controlFlow.buildControlFlowGraph
 import org.jetbrains.kannotator.index.ClassSource
 import util.ClassPathDeclarationIndex
 import org.jetbrains.kannotator.index.buildFieldsDependencyInfos

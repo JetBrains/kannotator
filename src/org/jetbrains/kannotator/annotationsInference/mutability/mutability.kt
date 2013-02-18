@@ -1,7 +1,6 @@
 package org.jetbrains.kannotator.controlFlow.builder.analysis
 
 import org.objectweb.asm.tree.analysis.Frame
-import org.jetbrains.kannotator.controlFlow.builder.PossibleTypedValues
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode

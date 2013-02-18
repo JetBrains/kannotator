@@ -7,7 +7,6 @@ import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.asm.util.createMethodNodeStub
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
@@ -24,7 +23,6 @@ import java.util.ArrayList
 import org.jetbrains.kannotator.funDependecy.DependencyGraph
 import org.jetbrains.kannotator.funDependecy.DependencyNode
 import java.util.HashSet
-import org.jetbrains.kannotator.controlFlow.builder.buildControlFlowGraph
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import kotlin.all

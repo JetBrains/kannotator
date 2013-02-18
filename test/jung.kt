@@ -15,19 +15,6 @@ import java.awt.geom.Point2D
 import javax.swing.JFrame
 import org.apache.commons.collections15.Transformer
 import org.apache.commons.collections15.functors.ConstantTransformer
-import org.jetbrains.kannotator.controlFlow.ControlFlowEdge
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
-import org.jetbrains.kannotator.controlFlow.Instruction
-
-fun ControlFlowGraph.toJungGraph(): DirectedSparseMultigraph<Instruction, ControlFlowEdge> {
-    val jungGraph = DirectedSparseMultigraph<Instruction, ControlFlowEdge>()
-    for (i in this.instructions) {
-        for (e in i.outgoingEdges) {
-            jungGraph.addEdge(e, e.from, e.to, EdgeType.DIRECTED)
-        }
-    }
-    return jungGraph
-}
 
 fun displayJungGraph<V, E>(
         graph: DirectedGraph<V, E>,

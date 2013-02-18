@@ -1,7 +1,6 @@
 package org.jetbrains.kannotator.controlFlow.builder.analysis
 
 import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.controlFlow.builder.Method
 import org.jetbrains.kannotator.asm.util.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
 
@@ -15,6 +14,7 @@ import org.objectweb.asm.tree.analysis.Frame
 import java.util.*
 import com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy
 import com.gs.collections.api.block.HashingStrategy
+import org.jetbrains.kannotator.declarations.Method
 
 public fun <V: CopyableValue<V>> Frame<V>.copy(): Frame<V> {
     val frameCopy = Frame<V>(this)

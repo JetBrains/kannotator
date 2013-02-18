@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.main
 
 import java.util.HashMap
 import org.jetbrains.kannotator.annotationsInference.nullability.*
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FieldDependencyInfo

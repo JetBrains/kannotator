@@ -1,7 +1,5 @@
 package org.jetbrains.kannotator.asm.util
 
-import org.jetbrains.kannotator.controlFlow.Instruction
-import org.jetbrains.kannotator.controlFlow.builder.AsmInstructionMetadata
 import org.jetbrains.kannotator.declarations.Method
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
@@ -80,11 +78,6 @@ public fun ClassReader.forEachMember(
         }
     }, 0)
 }
-
-public fun Instruction.getAsmInstructionNode(): AbstractInsnNode? =
-        (this.metadata as? AsmInstructionMetadata)?.asmInstruction
-
-public fun Instruction.getOpcode(): Int? = getAsmInstructionNode()?.getOpcode()
 
 public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, access: Int, name: String, desc: String, signature: String?) -> MethodVisitor?) {
     accept(object : ClassVisitor(Opcodes.ASM4) {

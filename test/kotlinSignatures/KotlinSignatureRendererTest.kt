@@ -33,7 +33,6 @@ import org.jetbrains.kannotator.main.loadFieldAnnotationsFromByteCode
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
 import org.jetbrains.kannotator.main.NullabilityInferrer
-import org.jetbrains.kannotator.controlFlow.ControlFlowGraph
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.jetbrains.kannotator.index.DeclarationIndex
 import java.util.LinkedHashMap
