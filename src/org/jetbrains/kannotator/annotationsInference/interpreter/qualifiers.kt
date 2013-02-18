@@ -40,9 +40,11 @@ public class MultiQualifier<K: Any>(val qualifiers: Map<K, Qualifier>): Qualifie
     public fun hashCode(): Int = qualifiers.hashCode()
 }
 
-object MULTI_QUALIFIER_KEY
-
 public class MultiQualifierSet<K: Any>(val qualifierSets: Map<K, QualifierSet<Qualifier>>): QualifierSet<MultiQualifier<K>> {
+    class object {
+        private object MULTI_QUALIFIER_KEY
+    }
+
     public override val id: Any = MULTI_QUALIFIER_KEY
 
     public override val initial: MultiQualifier<K> =
