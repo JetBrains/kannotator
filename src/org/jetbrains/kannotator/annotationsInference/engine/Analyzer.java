@@ -64,9 +64,9 @@ public class Analyzer<V extends Value> implements Opcodes {
 
     private Frame<V>[] frames;
 
-    List<ResultFrame<V>> errorResults;
+    private List<ResultFrame<V>> errorResults;
 
-    List<ResultFrame<V>> returnedResults;
+    private List<ResultFrame<V>> returnedResults;
 
     private Subroutine[] subroutines;
 
