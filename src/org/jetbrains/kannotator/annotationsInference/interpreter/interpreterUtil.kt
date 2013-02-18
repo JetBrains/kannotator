@@ -16,7 +16,7 @@ import java.util.*
 import com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy
 import com.gs.collections.api.block.HashingStrategy
 
-public fun <V: AbstractValue<V>> Frame<V>.copy(): Frame<V> {
+public fun <V: CopyableValue<V>> Frame<V>.copy(): Frame<V> {
     val frameCopy = Frame<V>(this)
 
     for (i in 0..getLocals() - 1) {
@@ -171,7 +171,7 @@ open class BasicFrameTransformer<Q: Qualifier>: FrameTransformer<QualifiedValueS
     }
 }
 
-class MultiFrameTransformer<K, V: AbstractValue<V>>(
+class MultiFrameTransformer<K, V: CopyableValue<V>>(
         val transformers: Map<K, FrameTransformer<V>>
 ): FrameTransformer<V> {
     public override fun getPseudoResults(

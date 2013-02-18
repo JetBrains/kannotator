@@ -47,7 +47,7 @@ val TypedValue.size: Int
 val TypedValue.interesting: Boolean
     get() = parameterIndex != null
 
-trait AbstractValue<V: AbstractValue<V>>: Value {
+trait CopyableValue<V: CopyableValue<V>>: Value {
     public fun copy(): V
 }
 
@@ -66,7 +66,7 @@ fun <Q: Qualifier> qualifiedValueSetOf(vararg values: QualifiedValue<Q>): Qualif
 
 public class QualifiedValueSet<out Q: Qualifier>(
         val _size: Int, val values: Set<QualifiedValue<Q>>
-) : AbstractValue<QualifiedValueSet<Q>> {
+) : CopyableValue<QualifiedValueSet<Q>> {
     public override fun getSize(): Int = _size
 
     public override fun toString(): String = values.toString()
