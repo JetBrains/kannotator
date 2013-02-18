@@ -32,10 +32,11 @@ object TypedValueMergeHashingStrategy : HashingStrategy<QualifiedValue<*>> {
 
     public override fun computeHashCode(_object: QualifiedValue<*>?): Int {
         if (_object == null) return 0
-        val r1 = if (_object.base.interesting) 13 else 17
-        val r2 = _object.base.createdAt?.hashCode() ?: 0
-        val r3 = _object.qualifier.hashCode()
-        return r1*r2*r3
+
+        var r = if (_object.base.interesting) 13 else 17
+        r = 19*r + (_object.base.createdAt?.hashCode() ?: 0)
+        r = 19*r + _object.qualifier.hashCode()
+        return r
     }
 }
 

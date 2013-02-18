@@ -105,7 +105,7 @@ class QualifiedValueHashingStrategy<Q: Qualifier, I: Qualifier>(
 
     public override fun computeHashCode(_object: QualifiedValue<Q>?): Int {
         if (_object == null) return 0
-        return _object.base.id * (_object.qualifier.extract<I>(qualifierSet)?.hashCode() ?: 0)
+        return 19*_object.base.id + (_object.qualifier.extract<I>(qualifierSet)?.hashCode() ?: 0)
     }
 }
 
