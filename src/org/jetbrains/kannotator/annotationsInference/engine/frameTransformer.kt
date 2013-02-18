@@ -48,4 +48,19 @@ public trait FrameTransformer<V: Value> {
     ): Frame<V>? = executedFrame
 }
 
-public class DefaultFrameTransformer<V: Value>: FrameTransformer<V>
+public open class DefaultFrameTransformer<V: Value>: FrameTransformer<V> {
+    public override fun getPseudoResults(
+            insnNode: AbstractInsnNode,
+            preFrame: Frame<V>,
+            executedFrame: Frame<V>,
+            analyzer: Analyzer<V>
+    ): Collection<ResultFrame<V>> = Collections.emptyList()
+
+    public override fun getPostFrame(
+            insnNode: AbstractInsnNode,
+            edgeKind: EdgeKind,
+            preFrame: Frame<V>,
+            executedFrame: Frame<V>,
+            analyzer: Analyzer<V>
+    ): Frame<V>? = executedFrame
+}

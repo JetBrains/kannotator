@@ -153,7 +153,7 @@ fun <Q: Qualifier, I: Qualifier> imposeQualifierOnFrameValues(
     return frame
 }
 
-open class BasicFrameTransformer<Q: Qualifier>: FrameTransformer<QualifiedValueSet<Q>> {
+open class BasicFrameTransformer<Q: Qualifier>: DefaultFrameTransformer<QualifiedValueSet<Q>>() {
     public override fun getPostFrame(
             insnNode: AbstractInsnNode,
             edgeKind: EdgeKind,
