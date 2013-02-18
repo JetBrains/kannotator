@@ -156,11 +156,11 @@ fun <Q: Qualifier, I: Qualifier> imposeQualifierOnFrameValues(
 open class BasicFrameTransformer<Q: Qualifier>: FrameTransformer<QualifiedValueSet<Q>> {
     public override fun getPostFrame(
             insnNode: AbstractInsnNode,
-            edgeIndex: Int,
+            edgeKind: EdgeKind,
             preFrame: Frame<QualifiedValueSet<Q>>,
             executedFrame: Frame<QualifiedValueSet<Q>>,
             analyzer: Analyzer<QualifiedValueSet<Q>>): Frame<QualifiedValueSet<Q>>? {
-        if (insnNode.getOpcode() == ASTORE && edgeIndex == 0) {
+        if (insnNode.getOpcode() == ASTORE && edgeKind == EdgeKind.DEFAULT) {
             val postFrame = executedFrame.copy()
             val varIndex = (insnNode as VarInsnNode).`var`
             val rhs = preFrame.getStackFromTop(0)
@@ -191,7 +191,7 @@ class MultiFrameTransformer<K, V: CopyableValue<V>>(
 
     public override fun getPostFrame(
             insnNode: AbstractInsnNode,
-            edgeIndex: Int,
+            edgeKind: EdgeKind,
             preFrame: Frame<V>,
             executedFrame: Frame<V>,
             analyzer: Analyzer<V>
@@ -200,7 +200,7 @@ class MultiFrameTransformer<K, V: CopyableValue<V>>(
 
         var postFrame: Frame<V> = executedFrame
         for ((key, transformer) in transformers) {
-            val nextFrame = transformer.getPostFrame(insnNode, edgeIndex, preFrameCopy, postFrame, analyzer)
+            val nextFrame = transformer.getPostFrame(insnNode, edgeKind, preFrameCopy, postFrame, analyzer)
             if (nextFrame == null) {
                 return null
             }

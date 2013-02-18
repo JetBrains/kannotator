@@ -9,6 +9,13 @@ import org.objectweb.asm.Opcodes
 import org.objectweb.asm.tree.VarInsnNode
 import java.util.ArrayList
 
+public enum class EdgeKind {
+    DEFAULT
+    FALSE
+    TRUE
+    EXCEPTION
+}
+
 public trait FrameTransformer<V: Value> {
     /**
      * Returns collection of results for pseudo-transitions with their frames for given instruction and pre-frame
@@ -34,7 +41,7 @@ public trait FrameTransformer<V: Value> {
      */
     public fun getPostFrame(
             insnNode: AbstractInsnNode,
-            edgeIndex: Int,
+            edgeKind: EdgeKind,
             preFrame: Frame<V>,
             executedFrame: Frame<V>,
             analyzer: Analyzer<V>

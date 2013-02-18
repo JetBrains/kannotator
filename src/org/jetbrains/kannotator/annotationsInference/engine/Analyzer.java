@@ -217,15 +217,12 @@ public class Analyzer<V extends Value> implements Opcodes {
                 int insnOpcode = insnNode.getOpcode();
                 int insnType = insnNode.getType();
 
-                int edgeIndex = 0;
-
                 if (insnType == AbstractInsnNode.LABEL
                         || insnType == AbstractInsnNode.LINE
                         || insnType == AbstractInsnNode.FRAME)
                 {
                     merge(insn + 1, f, subroutine);
                     newControlFlowEdge(insn, insn + 1, newFrame(current));
-                    edgeIndex++;
                 } else {
                     current.init(f).execute(insnNode, interpreter);
                     for (ResultFrame<V> pseudoResult : frameTransformer.getPseudoResults(insnNode, f, current, this)) {
@@ -240,7 +237,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                     if (insnNode instanceof JumpInsnNode) {
                         JumpInsnNode j = (JumpInsnNode) insnNode;
                         if (insnOpcode != GOTO && insnOpcode != JSR) {
-                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.FALSE, f, current, this);
                             merge(insn + 1, postFrame, subroutine);
                             if (postFrame != null) {
                                 newControlFlowEdge(insn, insn + 1, newFrame(postFrame));
@@ -249,14 +246,15 @@ public class Analyzer<V extends Value> implements Opcodes {
 
                         int jump = insns.indexOf(j.label);
                         if (insnOpcode == JSR) {
-                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                             merge(
                                     jump,
                                     postFrame,
                                     new Subroutine(j.label, m.maxLocals, j)
                             );
                         } else {
-                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            EdgeKind edgeKind = insnOpcode == GOTO ? EdgeKind.DEFAULT : EdgeKind.TRUE;
+                            postFrame = frameTransformer.getPostFrame(insnNode, edgeKind, f, current, this);
                             merge(jump, postFrame, subroutine);
                         }
                         if (postFrame != null) {
@@ -265,7 +263,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                     } else if (insnNode instanceof LookupSwitchInsnNode) {
                         LookupSwitchInsnNode lsi = (LookupSwitchInsnNode) insnNode;
                         int jump = insns.indexOf(lsi.dflt);
-                        postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                        postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                         merge(jump, postFrame, subroutine);
                         if (postFrame != null) {
                             newControlFlowEdge(insn, jump, newFrame(postFrame));
@@ -273,7 +271,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                         for (int j = 0; j < lsi.labels.size(); ++j) {
                             LabelNode label = lsi.labels.get(j);
                             jump = insns.indexOf(label);
-                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                             merge(jump, postFrame, subroutine);
                             if (postFrame != null) {
                                 newControlFlowEdge(insn, jump, newFrame(postFrame));
@@ -282,7 +280,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                     } else if (insnNode instanceof TableSwitchInsnNode) {
                         TableSwitchInsnNode tsi = (TableSwitchInsnNode) insnNode;
                         int jump = insns.indexOf(tsi.dflt);
-                        postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                        postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                         merge(jump, postFrame, subroutine);
                         if (postFrame != null) {
                             newControlFlowEdge(insn, jump, newFrame(postFrame));
@@ -290,7 +288,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                         for (int j = 0; j < tsi.labels.size(); ++j) {
                             LabelNode label = tsi.labels.get(j);
                             jump = insns.indexOf(label);
-                            postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                            postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                             merge(jump, postFrame, subroutine);
                             if (postFrame != null) {
                                 newControlFlowEdge(insn, jump, newFrame(postFrame));
@@ -304,7 +302,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                             JumpInsnNode caller = subroutine.callers.get(i);
                             int call = insns.indexOf(caller);
                             if (frames[call] != null) {
-                                postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                                postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                                 merge(call + 1,
                                         frames[call],
                                         postFrame,
@@ -333,7 +331,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                                 subroutine.access[var] = true;
                             }
                         }
-                        postFrame = frameTransformer.getPostFrame(insnNode, edgeIndex++, f, current, this);
+                        postFrame = frameTransformer.getPostFrame(insnNode, EdgeKind.DEFAULT, f, current, this);
                         merge(insn + 1, postFrame, subroutine);
                         if (postFrame != null) {
                             newControlFlowEdge(insn, insn + 1, newFrame(postFrame));
@@ -357,7 +355,7 @@ public class Analyzer<V extends Value> implements Opcodes {
                             handler.clearStack();
                             handler.push(interpreter.newValue(type));
                             newControlFlowExceptionEdge(insn, tcb, newFrame(handler));
-                            merge(jump, frameTransformer.getPostFrame(insnNode, edgeIndex++, f, handler, this), subroutine);
+                            merge(jump, frameTransformer.getPostFrame(insnNode, EdgeKind.EXCEPTION, f, handler, this), subroutine);
                         }
                     }
                 }

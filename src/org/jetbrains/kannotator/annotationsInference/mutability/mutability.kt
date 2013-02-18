@@ -139,12 +139,12 @@ class MutabilityFrameTransformer<Q: Qualifier>(
 ): BasicFrameTransformer<Q>() {
     public override fun getPostFrame(
             insnNode: AbstractInsnNode,
-            edgeIndex: Int,
+            edgeKind: EdgeKind,
             preFrame: Frame<QualifiedValueSet<Q>>,
             executedFrame: Frame<QualifiedValueSet<Q>>,
             analyzer: Analyzer<QualifiedValueSet<Q>>
     ): Frame<QualifiedValueSet<Q>>? {
-        val defFrame = super<BasicFrameTransformer>.getPostFrame(insnNode, edgeIndex, preFrame, executedFrame, analyzer)
+        val defFrame = super<BasicFrameTransformer>.getPostFrame(insnNode, edgeKind, preFrame, executedFrame, analyzer)
 
         val opcode = insnNode.getOpcode()
         return when (opcode) {
