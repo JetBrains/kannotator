@@ -64,9 +64,11 @@ public class Analyzer<V extends Value> implements Opcodes {
 
     private Frame<V>[] frames;
 
-    private List<ResultFrame<V>> errorResults;
+    private Map<AbstractInsnNode, Frame<V>> frameMap;
 
-    private List<ResultFrame<V>> returnedResults;
+    private Set<AbstractInsnNode> errorInstructions;
+
+    private Set<AbstractInsnNode> returnInstructions;
 
     private Subroutine[] subroutines;
 
@@ -114,21 +116,19 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @throws AnalyzerException if a problem occurs during the analysis.
      */
 
-
     @KotlinSignature("fun analyze(owner : String, methodNode : MethodNode) : AnalysisResult<V>")
     @SuppressWarnings("unchecked")
     public AnalysisResult<V> analyze(final String owner, final MethodNode methodNode)
             throws AnalyzerException
     {
         m = methodNode;
-        errorResults = new ArrayList<ResultFrame<V>>();
-        returnedResults = new ArrayList<ResultFrame<V>>();
+        returnInstructions = new HashSet<AbstractInsnNode>();
+        errorInstructions = new HashSet<AbstractInsnNode>();
+        frameMap = new HashMap();
 
         if ((m.access & (ACC_ABSTRACT | ACC_NATIVE)) != 0) {
             frames = (Frame<V>[])new Frame<?>[0];
-            return new AnalysisResult<V>(
-                    frames, Collections.<ResultFrame<V>>emptyList(), Collections.<ResultFrame<V>>emptyList()
-            );
+            return new AnalysisResult<V>(frameMap, returnInstructions, errorInstructions);
         }
 
         n = m.instructions.size();
@@ -227,7 +227,8 @@ public class Analyzer<V extends Value> implements Opcodes {
                     current.init(f).execute(insnNode, interpreter);
                     for (ResultFrame<V> pseudoResult : frameTransformer.getPseudoResults(insnNode, f, current, this)) {
                         if (pseudoResult.getInsnNode() instanceof PseudoErrorInsnNode) {
-                            errorResults.add(pseudoResult);
+                            errorInstructions.add(pseudoResult.getInsnNode());
+                            frameMap.put(pseudoResult.getInsnNode(), pseudoResult.getFrame());
                         }
                     }
                     subroutine = subroutine == null ? null : subroutine.copy();
@@ -377,13 +378,15 @@ public class Analyzer<V extends Value> implements Opcodes {
             int opcode = insnNode.getOpcode();
 
             if (opcode == ATHROW) {
-                errorResults.add(new ResultFrame<V>(frames[i], insnNode));
+                errorInstructions.add(insnNode);
             } else if (opcode >= IRETURN && opcode <= RETURN) {
-                returnedResults.add(new ResultFrame<V>(frames[i], insnNode));
+                returnInstructions.add(insnNode);
             }
+
+            frameMap.put(insnNode, frames[i]);
         }
 
-        return new AnalysisResult<V>(frames, returnedResults, errorResults);
+        return new AnalysisResult<V>(frameMap, returnInstructions, errorInstructions);
     }
 
     private void findSubroutine(int insn, final Subroutine sub, final List<AbstractInsnNode> calls)

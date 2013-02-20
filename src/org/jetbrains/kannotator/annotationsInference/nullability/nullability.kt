@@ -474,9 +474,10 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
     fun collectReturnValueNullability(): Nullability {
         var returnValueInfo: Nullability = Nullability.EMPTY
 
-        for (resultFrame in analysisResult.returnedResults) {
-            if (resultFrame.insnNode.getOpcode() == ARETURN) {
-                val returnValues = resultFrame.frame.getStackFromTop(0)
+        for (returnInsn in analysisResult.returnInstructions) {
+            val resultFrame = analysisResult.mergedFrames[returnInsn]!!
+            if (returnInsn.getOpcode() == ARETURN) {
+                val returnValues = resultFrame.getStackFromTop(0)
                 val nullability = returnValues.lub()
                 returnValueInfo = lub(returnValueInfo, nullability)
             }
@@ -487,15 +488,15 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
         else Nullability.UNKNOWN
     }
 
-    fun buildMergedParameterMap(resultFrames: Collection<ResultFrame<QualifiedValueSet<Q>>>): Map<Int, Nullability> {
-        if (resultFrames.empty) {
+    fun buildMergedParameterMap(insnSet: Set<AbstractInsnNode>): Map<Int, Nullability> {
+        if (insnSet.empty) {
             return Collections.emptyMap()
         }
 
         val paramInfoMap = HashMap<Int, Nullability>()
 
-        for (returnedResult in resultFrames) {
-            val frame = returnedResult.frame
+        for (insn in insnSet) {
+            val frame = analysisResult.mergedFrames[insn]!!
             val localParamInfoMap = HashMap<Int, Nullability>()
 
             for (i in 0..frame.getLocals() - 1) {
@@ -526,13 +527,13 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
     }
 
     fun collectParamNullability(): Map<Int, Nullability> {
-        val returnInfoMap = buildMergedParameterMap(analysisResult.returnedResults)
+        val returnInfoMap = buildMergedParameterMap(analysisResult.returnInstructions)
         if (returnInfoMap.empty) {
             return returnInfoMap
         }
 
         val paramInfoMap = HashMap<Int, Nullability>()
-        val errorInfoMap = buildMergedParameterMap(analysisResult.errorResults)
+        val errorInfoMap = buildMergedParameterMap(analysisResult.errorInstructions)
         for ((index, info) in returnInfoMap) {
             val pos = positions.forParameter(index).position
             val currentAnnotation = annotations[pos]

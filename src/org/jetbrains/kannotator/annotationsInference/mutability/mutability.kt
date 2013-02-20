@@ -180,8 +180,9 @@ fun <Q: Qualifier> buildMutabilityAnnotations(
     val positions = PositionsForMethod(method)
 
     val affectedValues = HashSet<QualifiedValue<Q>>()
-    for (resultFrame in analysisResult.returnedResults) {
-        resultFrame.frame.forEachValue { frameValue ->
+    for (returnInsn in analysisResult.returnInstructions) {
+        val resultFrame = analysisResult.mergedFrames[returnInsn]!!
+        resultFrame.forEachValue { frameValue ->
             frameValue.values.forEach { v ->
                 if (v.base.interesting && v.qualifier.extract<Mutability>(MutabilitySet) == Mutability.MUTABLE) {
                     affectedValues.add(v)
