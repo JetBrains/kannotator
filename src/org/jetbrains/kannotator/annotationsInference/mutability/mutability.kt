@@ -22,6 +22,7 @@ import java.util.HashSet
 import org.objectweb.asm.Type
 import kotlinlib.bfs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Mutability.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
 
 object MUTABILITY_KEY
@@ -33,13 +34,11 @@ public enum class Mutability: Qualifier {
 
 object MutabilitySet: QualifierSet<Mutability> {
     public override val id: Any = MUTABILITY_KEY
-    public override val initial: Mutability = Mutability.READ_ONLY
+    public override val initial: Mutability = READ_ONLY
 
     public override fun merge(q1: Mutability, q2: Mutability): Mutability {
-        return if (q1 == q2) q1 else Mutability.MUTABLE
+        return if (q1 == q2) q1 else MUTABLE
     }
-
-    public override fun impose(q1: Mutability, q2: Mutability): Mutability = merge(q1, q2)
 
     public override fun contains(q: Qualifier): Boolean = q is Mutability
 }
@@ -114,17 +113,21 @@ private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsn
     return contains
 }
 
+val imposeMutable = {
+    (q: Mutability) -> MUTABLE
+}
+
 fun <Q: Qualifier> imposeMutabilityOnFrameValues(
-        frame: Frame<QualifiedValueSet<Q>>, frameValues: QualifiedValueSet<Q>?, mutability: Mutability, analyzer: Analyzer<QualifiedValueSet<Q>>
+        frame: Frame<QualifiedValueSet<Q>>, frameValues: QualifiedValueSet<Q>?, analyzer: Analyzer<QualifiedValueSet<Q>>
 ): Frame<QualifiedValueSet<Q>> {
-    imposeQualifierOnFrameValues(frame, frameValues, mutability, MutabilitySet, true)
+    updateQualifiers(frame, frameValues, MutabilitySet, true, imposeMutable)
 
     if (frameValues != null) {
         for (value in frameValues.values) {
             val createdAtInsn = value.base.createdAt
             if (createdAtInsn is MethodInsnNode && createdAtInsn.isMutabilityPropagatingInvocation()) {
                 val createdAtFrame = analyzer.getInstructionFrame(createdAtInsn)!!
-                imposeMutabilityOnFrameValues(frame, createdAtInsn.getReceiver(createdAtFrame), Mutability.MUTABLE, analyzer)
+                imposeMutabilityOnFrameValues(frame, createdAtInsn.getReceiver(createdAtFrame), analyzer)
             }
         }
     }
@@ -151,11 +154,11 @@ class MutabilityFrameTransformer<Q: Qualifier>(
                 val methodInsnNode = insnNode as MethodInsnNode
                 val postFrame = executedFrame.copy()
                 if (opcode == INVOKEINTERFACE && methodInsnNode.isMutatingInvocation()) {
-                    imposeMutabilityOnFrameValues(postFrame, methodInsnNode.getReceiver(preFrame), Mutability.MUTABLE, analyzer)
+                    imposeMutabilityOnFrameValues(postFrame, methodInsnNode.getReceiver(preFrame), analyzer)
                 }
 
                 generateAssertsForCallArguments(insnNode, declarationIndex, annotations,
-                        { indexFromTop -> imposeMutabilityOnFrameValues(postFrame, preFrame.getStackFromTop(indexFromTop), Mutability.MUTABLE, analyzer)},
+                        { indexFromTop -> imposeMutabilityOnFrameValues(postFrame, preFrame.getStackFromTop(indexFromTop), analyzer)},
                         false,
                         { paramAnnotation -> paramAnnotation == MutabilityAnnotation.MUTABLE },
                         {}
@@ -170,7 +173,7 @@ class MutabilityFrameTransformer<Q: Qualifier>(
 }
 
 object MutabilityQualifierEvaluator: QualifierEvaluator<Mutability> {
-    override fun evaluateQualifier(baseValue: TypedValue): Mutability = Mutability.READ_ONLY
+    override fun evaluateQualifier(baseValue: TypedValue): Mutability = READ_ONLY
 }
 
 fun <Q: Qualifier> buildMutabilityAnnotations(
@@ -184,7 +187,7 @@ fun <Q: Qualifier> buildMutabilityAnnotations(
         val resultFrame = analysisResult.mergedFrames[returnInsn]!!
         resultFrame.forEachValue { frameValue ->
             frameValue.values.forEach { v ->
-                if (v.base.interesting && v.qualifier.extract<Mutability>(MutabilitySet) == Mutability.MUTABLE) {
+                if (v.base.interesting && v.qualifier.extract<Mutability>(MutabilitySet) == MUTABLE) {
                     affectedValues.add(v)
                 }
             }

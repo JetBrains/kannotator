@@ -10,7 +10,6 @@ public trait QualifierSet<Q: Qualifier> {
     public val initial: Q
 
     public fun merge(q1: Q, q2: Q): Q
-    public fun impose(q1: Q, q2: Q): Q
 
     public fun contains(q: Qualifier): Boolean
 }
@@ -53,13 +52,6 @@ public class MultiQualifierSet<K: Any>(val qualifierSets: Map<K, QualifierSet<Qu
     public override fun merge(q1: MultiQualifier<K>, q2: MultiQualifier<K>): MultiQualifier<K> {
         val map = mapMerge(q1.qualifiers, q2.qualifiers, qualifierSets.keySet()) {(key, v1, v2) ->
             qualifierSets[key]!!.merge(v1, v2)
-        }
-        return MultiQualifier(map)
-    }
-
-    public override fun impose(q1: MultiQualifier<K>, q2: MultiQualifier<K>): MultiQualifier<K> {
-        val map = mapMerge(q1.qualifiers, q2.qualifiers, qualifierSets.keySet()) {(key, v1, v2) ->
-            qualifierSets[key]!!.impose(v1, v2)
         }
         return MultiQualifier(map)
     }

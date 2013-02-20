@@ -109,19 +109,19 @@ class QualifiedValueHashingStrategy<Q: Qualifier, I: Qualifier>(
     }
 }
 
-fun <Q: Qualifier, I: Qualifier> imposeQualifierOnFrameValues(
+fun <Q: Qualifier, I: Qualifier> updateQualifiers(
         frame: Frame<QualifiedValueSet<Q>>,
         frameValues: QualifiedValueSet<Q>?,
-        qualifier: I,
         qualifierSet: QualifierSet<I>,
-        updateOriginalValues: Boolean
+        updateOriginalValues: Boolean,
+        transform: (I) -> I
 ): Frame<QualifiedValueSet<Q>> {
     if (frameValues != null) {
         val map = UnifiedMapWithHashingStrategy<QualifiedValue<Q>, QualifiedValue<Q>>(QualifiedValueHashingStrategy(qualifierSet))
 
         for (stackValue in frameValues.values) {
             val q1 = stackValue.qualifier.extract<I>(qualifierSet) ?: qualifierSet.initial
-            val q2 = qualifierSet.impose(q1, qualifier)
+            val q2 = transform(q1)
             if (q2 != q1) {
                 map.put(stackValue, stackValue.copy(qualifierSet, q2))
             }

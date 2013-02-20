@@ -7,7 +7,6 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.annotationsInference.findMethodByMethodInsnNode
 import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.annotationsInference.findFieldByFieldInsnNode
 import org.objectweb.asm.tree.FieldInsnNode
@@ -21,13 +20,15 @@ import org.jetbrains.kannotator.declarations.Method
 import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.annotationsInference.nullability.*
+import org.jetbrains.kannotator.annotationsInference.*
 import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.declarations.*
 import java.util.HashSet
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Type
 import org.jetbrains.kannotator.annotationsInference.engine.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.*
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 
 object NULLABILITY_KEY
 
@@ -46,64 +47,51 @@ public enum class Nullability: Qualifier {
 
     // can prove that no values reach the frame
     EMPTY
-
-    // special value used in "impose" to discard the proof and fall back to UNKNOWN
-    DISCARD
 }
 
 public object NullabilitySet: QualifierSet<Nullability> {
     public override val id: Any = NULLABILITY_KEY
-    public override val initial: Nullability = Nullability.UNKNOWN
+    public override val initial: Nullability = UNKNOWN
 
     // Can assume that EMPTY and DISCARD do not appear as argument
     public override fun merge(q1: Nullability, q2: Nullability): Nullability {
         if (q1 == q2) {
             return q1
         }
-        if (q1 == Nullability.NULLABLE || q2 == Nullability.NULLABLE) {
-            return Nullability.NULLABLE
+        if (q1 == NULLABLE || q2 == NULLABLE) {
+            return NULLABLE
         }
-        if (q1 == Nullability.NULL || q2 == Nullability.NULL) {
-            return Nullability.NULLABLE
+        if (q1 == NULL || q2 == NULL) {
+            return NULLABLE
         }
 
-        return Nullability.UNKNOWN
-    }
-
-    // Can assume that EMPTY does not appear as argument
-    // and DISCARD can appear at most once
-    public override fun impose(q1: Nullability, q2: Nullability): Nullability {
-        if (q1 == q2) {
-            return q1
-        }
-        if (q1 == Nullability.DISCARD) {
-            return if (q2 != Nullability.NOT_NULL) Nullability.UNKNOWN else Nullability.NOT_NULL
-        }
-        if (q2 == Nullability.DISCARD) {
-            return if (q1 != Nullability.NOT_NULL) Nullability.UNKNOWN else Nullability.NOT_NULL
-        }
-        if (q1 == Nullability.UNKNOWN) {
-            return q2
-        }
-        if (q2 == Nullability.UNKNOWN) {
-            return q1
-        }
-        if (q1 == Nullability.NULLABLE) {
-            return q2
-        }
-        if (q2 == Nullability.NULLABLE) {
-            return q1
-        }
-        return Nullability.EMPTY
+        return UNKNOWN
     }
 
     public override fun contains(q: Qualifier): Boolean = q is Nullability
 }
 
+val imposeNull = {
+    (q: Nullability) -> if (q != NOT_NULL) NULL else EMPTY
+}
+
+val imposeNotNull = {
+    (q: Nullability) -> if (q != NULL) NOT_NULL else EMPTY
+}
+
+val imposeNullable = {
+    (q: Nullability) -> if (q == NOT_NULL || q == NULL) q else NULLABLE
+}
+
+val imposeUndecidable = {
+    (q: Nullability) -> if (q != NOT_NULL) UNKNOWN else NOT_NULL
+}
+
 fun <Q: Qualifier> imposeNullabilityOnFrameValues(
-        frame: Frame<QualifiedValueSet<Q>>, frameValues: QualifiedValueSet<Q>?, nullability: Nullability, updateOriginalValues: Boolean = true
+        frame: Frame<QualifiedValueSet<Q>>, frameValues: QualifiedValueSet<Q>?, updateOriginalValues: Boolean,
+        transform: (Nullability) -> Nullability
 ): Frame<QualifiedValueSet<Q>>? {
-    imposeQualifierOnFrameValues(frame, frameValues, nullability, NullabilitySet, updateOriginalValues)
+    updateQualifiers(frame, frameValues, NullabilitySet, updateOriginalValues, transform)
 
     return if (frame.allValues { frameValue ->
         if (frameValue.values.empty)
@@ -113,7 +101,7 @@ fun <Q: Qualifier> imposeNullabilityOnFrameValues(
             val it = valueSet.iterator()
             while (it.hasNext()) {
                 val value = it.next()
-                if (value.qualifier.extract<Nullability>(NullabilitySet) == Nullability.EMPTY) {
+                if (value.qualifier.extract<Nullability>(NullabilitySet) == EMPTY) {
                     it.remove()
                 }
             }
@@ -137,19 +125,19 @@ class NullabilityFrameTransformer<Q: Qualifier>(
 
         return when (insnNode.getOpcode()) {
             GETFIELD, ARRAYLENGTH, ATHROW, MONITORENTER, MONITOREXIT -> {
-                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), Nullability.NULL))
+                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull))
             }
             AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD, PUTFIELD -> {
-                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(1), Nullability.NULL))
+                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(1), true, imposeNull))
             }
             AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
-                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(2), Nullability.NULL))
+                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(2), true, imposeNull))
             }
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC, INVOKESPECIAL -> {
                 val results = ArrayList<ResultFrame<QualifiedValueSet<Q>>>()
                 generateAssertsForCallArguments(insnNode, declarationIndex, annotations,
                         { indexFromTop ->
-                            val newFrame = imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(indexFromTop), Nullability.NULL)
+                            val newFrame = imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(indexFromTop), true, imposeNull)
                             if (newFrame != null) {
                                 results.add(pseudoErrorResult(newFrame))
                             }
@@ -174,7 +162,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
 
         fun getPostFrameForSimpleDereferensing(stackIndexFromTop: Int): Frame<QualifiedValueSet<Q>>? {
             if (edgeKind == EdgeKind.DEFAULT)
-                imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(stackIndexFromTop), Nullability.NOT_NULL)
+                imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(stackIndexFromTop), true, imposeNotNull)
             else defFrame
         }
 
@@ -184,13 +172,13 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                 generateAssertsForCallArguments(insnNode, declarationIndex, annotations,
                         { indexFromTop ->
                             if (newFrame != null)
-                                newFrame = imposeNullabilityOnFrameValues(newFrame!!, preFrame.getStackFromTop(indexFromTop), Nullability.NOT_NULL)
+                                newFrame = imposeNullabilityOnFrameValues(newFrame!!, preFrame.getStackFromTop(indexFromTop), true, imposeNotNull)
                         },
                         true,
                         { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL },
                         { indexFromTop ->
                             if (newFrame != null)
-                                newFrame = imposeNullabilityOnFrameValues(newFrame!!, preFrame.getStackFromTop(indexFromTop), Nullability.DISCARD)
+                                newFrame = imposeNullabilityOnFrameValues(newFrame!!, preFrame.getStackFromTop(indexFromTop), true, imposeUndecidable)
                         })
                 newFrame
             } else defFrame
@@ -200,8 +188,8 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             val nullEdge = if (insnNode.getOpcode() == IFNULL) EdgeKind.TRUE else EdgeKind.FALSE
             val nonNullEdge = if (insnNode.getOpcode() == IFNULL) EdgeKind.FALSE else EdgeKind.TRUE
             when (edgeKind) {
-                nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), Nullability.NOT_NULL)
-                nullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), Nullability.NULL)
+                nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNotNull)
+                nullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull)
                 else -> defFrame
             }
         }
@@ -211,7 +199,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                 EdgeKind.FALSE, EdgeKind.TRUE -> {
                     val newFrame: Frame<QualifiedValueSet<Q>>? = executedFrame.copy()
                     preFrame.forEachValue { frameValue ->
-                        imposeNullabilityOnFrameValues(executedFrame.copy(), frameValue, Nullability.DISCARD)
+                        imposeNullabilityOnFrameValues(executedFrame.copy(), frameValue, true, imposeUndecidable)
                     }
                     newFrame
                 }
@@ -237,8 +225,8 @@ class NullabilityFrameTransformer<Q: Qualifier>(
 
             if (instanceOfFrame != null) {
                 when (edgeKind) {
-                    nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), instanceOfFrame.getStackFromTop(0), Nullability.NOT_NULL, false)
-                    nullableEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), instanceOfFrame.getStackFromTop(0), Nullability.NULLABLE, false)
+                    nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), instanceOfFrame.getStackFromTop(0), false, imposeNotNull)
+                    nullableEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), instanceOfFrame.getStackFromTop(0), false, imposeNullable)
                     else -> defFrame
                 }
 
@@ -275,9 +263,9 @@ class NullabilityFrameTransformer<Q: Qualifier>(
 }
 
 fun NullabilityAnnotation?.toQualifier() : Nullability = when (this) {
-    NullabilityAnnotation.NOT_NULL -> Nullability.NOT_NULL
-    NullabilityAnnotation.NULLABLE -> Nullability.NULLABLE
-    null -> Nullability.UNKNOWN
+    NullabilityAnnotation.NOT_NULL -> NOT_NULL
+    NullabilityAnnotation.NULLABLE -> NULLABLE
+    null -> UNKNOWN
 }
 
 class NullabilityQualifierEvaluator(
@@ -289,25 +277,25 @@ class NullabilityQualifierEvaluator(
         val createdAt = baseValue.createdAt
         if (createdAt != null) {
             return when (createdAt.getOpcode()) {
-                NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> Nullability.NOT_NULL
-                ACONST_NULL -> Nullability.NULL
-                LDC -> Nullability.NOT_NULL
+                NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
+                ACONST_NULL -> NULL
+                LDC -> NOT_NULL
                 INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL, INVOKESPECIAL -> {
                     val method = declarationIndex.findMethodByMethodInsnNode(createdAt as MethodInsnNode)
                     if (method != null) {
                         val positions = PositionsForMethod(method)
                         annotations[positions.forReturnType().position].toQualifier()
                     }
-                    else Nullability.UNKNOWN
+                    else UNKNOWN
                 }
                 GETFIELD, GETSTATIC -> {
                     val field = declarationIndex.findFieldByFieldInsnNode(createdAt as FieldInsnNode)
                     if (field != null) {
                         annotations[getFieldAnnotatedType(field).position].toQualifier()
                     }
-                    else Nullability.UNKNOWN
+                    else UNKNOWN
                 }
-                else -> Nullability.UNKNOWN
+                else -> UNKNOWN
             }
         }
 
@@ -316,9 +304,9 @@ class NullabilityQualifierEvaluator(
         }
 
         return when (baseValue._type) {
-            NULL_TYPE -> Nullability.NULL
-            PRIMITIVE_TYPE_SIZE_1, PRIMITIVE_TYPE_SIZE_2 -> Nullability.UNKNOWN
-            else -> Nullability.NOT_NULL // this is either "this" or caught exception
+            NULL_TYPE -> NULL
+            PRIMITIVE_TYPE_SIZE_1, PRIMITIVE_TYPE_SIZE_2 -> UNKNOWN
+            else -> NOT_NULL // this is either "this" or caught exception
         }
     }
 }
@@ -327,23 +315,23 @@ fun <Q: Qualifier> QualifiedValueSet<Q>?.lub(): Nullability {
     return if (this != null)
         if (!this.values.empty) {
             this.values.fold(
-                    Nullability.EMPTY,
+                    EMPTY,
                     { (q, v) -> lub(q, v.qualifier.extract<Nullability>(NullabilitySet)) }
             )
         } else {
-            Nullability.UNKNOWN
+            UNKNOWN
         }
-    else Nullability.UNKNOWN
+    else UNKNOWN
 }
 
 fun lub(a: Nullability?, b: Nullability?): Nullability {
-    val q1 = a ?: Nullability.UNKNOWN
-    val q2 = b ?: Nullability.UNKNOWN
+    val q1 = a ?: UNKNOWN
+    val q2 = b ?: UNKNOWN
 
-    if (q1 == Nullability.EMPTY) {
+    if (q1 == EMPTY) {
         return q2
     }
-    if (q2 == Nullability.EMPTY) {
+    if (q2 == EMPTY) {
         return q1
     }
 
@@ -351,21 +339,21 @@ fun lub(a: Nullability?, b: Nullability?): Nullability {
 }
 
 fun glb(a: Nullability?, b: Nullability?): Nullability {
-    val q1 = a ?: Nullability.UNKNOWN
-    val q2 = b ?: Nullability.UNKNOWN
+    val q1 = a ?: UNKNOWN
+    val q2 = b ?: UNKNOWN
 
-    if (q1 == Nullability.NOT_NULL || q2 == Nullability.NOT_NULL)
-        return Nullability.NOT_NULL
-    if (q1 == Nullability.UNKNOWN && q2 == Nullability.UNKNOWN)
-        return Nullability.UNKNOWN
+    if (q1 == NOT_NULL || q2 == NOT_NULL)
+        return NOT_NULL
+    if (q1 == UNKNOWN && q2 == UNKNOWN)
+        return UNKNOWN
 
-    return Nullability.NULLABLE
+    return NULLABLE
 }
 
 fun Nullability.toAnnotation(): NullabilityAnnotation? {
     return when(this) {
-        Nullability.NOT_NULL -> NullabilityAnnotation.NOT_NULL
-        Nullability.NULL, Nullability.NULLABLE -> NullabilityAnnotation.NULLABLE
+        NOT_NULL -> NullabilityAnnotation.NOT_NULL
+        NULL, NULLABLE -> NullabilityAnnotation.NULLABLE
         else -> null
     }
 }
@@ -451,14 +439,14 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
                     if (field != null && shouldCollectNullabilityInfo(field)) {
                         assert(field.name == fieldNode.name)
 
-                        val frame = analysisResult.mergedFrames[methodNode.instructions.indexOf(insnNode)]
+                        val frame = analysisResult.mergedFrames[insnNode]
                         if (frame != null) {
                             val fieldValues = frame.getStackFromTop(0)
                             val nullabilityValueInfo = fieldValues.lub()
 
                             val autoCastedField : Field = field // Avoid KT-2746 bug
                             fieldInfoMap[autoCastedField] = lub(
-                                    fieldInfoMap.getOrElse(autoCastedField, { Nullability.EMPTY }),
+                                    fieldInfoMap.getOrElse(autoCastedField, { EMPTY }),
                                     nullabilityValueInfo
                             )
                         }
@@ -472,7 +460,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
     }
 
     fun collectReturnValueNullability(): Nullability {
-        var returnValueInfo: Nullability = Nullability.EMPTY
+        var returnValueInfo: Nullability = EMPTY
 
         for (returnInsn in analysisResult.returnInstructions) {
             val resultFrame = analysisResult.mergedFrames[returnInsn]!!
@@ -483,9 +471,9 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             }
         }
 
-        return if (returnValueInfo != Nullability.EMPTY)
+        return if (returnValueInfo != EMPTY)
             returnValueInfo
-        else Nullability.UNKNOWN
+        else UNKNOWN
     }
 
     fun buildMergedParameterMap(insnSet: Set<AbstractInsnNode>): Map<Int, Nullability> {
@@ -505,7 +493,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
                     for (value in localVar.values) {
                         if (value.base.interesting) {
                             val index = value.base.parameterIndex!!
-                            val currentInfo = (value.qualifier.extract<Nullability>(NullabilitySet)) ?: Nullability.UNKNOWN
+                            val currentInfo = (value.qualifier.extract<Nullability>(NullabilitySet)) ?: UNKNOWN
                             if (!localParamInfoMap.containsKey(index)) {
                                 localParamInfoMap[index] = currentInfo
                             }
@@ -537,17 +525,21 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
         for ((index, info) in returnInfoMap) {
             val pos = positions.forParameter(index).position
             val currentAnnotation = annotations[pos]
+            
+            /*if (info != UNKNOWN && errorInfo == NOT_NULL) {
+                paramInfoMap[index] = NULLABLE
+            }*/
 
-            if (info == Nullability.NOT_NULL && currentAnnotation != NullabilityAnnotation.NOT_NULL) {
+            if (info == NOT_NULL && currentAnnotation != NullabilityAnnotation.NOT_NULL) {
                 if (errorInfoMap.empty) {
-                    paramInfoMap[index] = Nullability.NULLABLE
+                    paramInfoMap[index] = NULLABLE
                 } else when (errorInfoMap[index]) {
-                    Nullability.UNKNOWN -> Nullability.UNKNOWN
-                    Nullability.NOT_NULL -> paramInfoMap[index] = Nullability.NULLABLE
-                    Nullability.NULL, Nullability.NULLABLE -> paramInfoMap[index] = Nullability.NOT_NULL
+                    UNKNOWN -> UNKNOWN
+                    NOT_NULL -> paramInfoMap[index] = NULLABLE
+                    NULL, NULLABLE -> paramInfoMap[index] = NOT_NULL
                     else -> assert(false, "Invalid nullability of parameter $index")
                 }
-            } else if (info == Nullability.UNKNOWN && currentAnnotation != null) {
+            } else if (info == UNKNOWN && currentAnnotation != null) {
                 paramInfoMap[index] = currentAnnotation.toQualifier()
             } else { //info == NULL || NULLABLE
                 paramInfoMap[index] = info
