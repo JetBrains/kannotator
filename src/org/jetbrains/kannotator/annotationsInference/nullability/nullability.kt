@@ -38,7 +38,7 @@ public enum class Nullability: Qualifier {
     // can prove that only NULL reaches the frame
     NULL
 
-    // can prove that non-NULL values reach the frame
+    // can prove that only non-NULL values reach the frame
     NOT_NULL
 
     // can prove that NULL as well as non-NULL values reach the frame
@@ -538,14 +538,17 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             val currentAnnotation = annotations[pos]
 
             if (info == Nullability.NOT_NULL && currentAnnotation != NullabilityAnnotation.NOT_NULL) {
-                when (errorInfoMap[index]) {
-                    Nullability.UNKNOWN -> paramInfoMap[index] = Nullability.UNKNOWN
-                    null, Nullability.NOT_NULL -> paramInfoMap[index] = Nullability.NULLABLE
-                    else -> paramInfoMap[index] = Nullability.NOT_NULL
+                if (errorInfoMap.empty) {
+                    paramInfoMap[index] = Nullability.NULLABLE
+                } else when (errorInfoMap[index]) {
+                    Nullability.UNKNOWN -> Nullability.UNKNOWN
+                    Nullability.NOT_NULL -> paramInfoMap[index] = Nullability.NULLABLE
+                    Nullability.NULL, Nullability.NULLABLE -> paramInfoMap[index] = Nullability.NOT_NULL
+                    else -> assert(false, "Invalid nullability of parameter $index")
                 }
             } else if (info == Nullability.UNKNOWN && currentAnnotation != null) {
                 paramInfoMap[index] = currentAnnotation.toQualifier()
-            } else {
+            } else { //info == NULL || NULLABLE
                 paramInfoMap[index] = info
             }
         }
