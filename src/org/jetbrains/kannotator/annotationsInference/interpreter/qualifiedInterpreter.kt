@@ -136,7 +136,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
                     continue
 
                 val interestingInstances = u.base.interesting && v.base.interesting &&
-                u.base.parameterIndex == v.base.parameterIndex
+                    u.base.parameterIndex == v.base.parameterIndex
                 if (interestingInstances) {
                     mergedSet.remove(u)
                     if (v.qualifier != u.qualifier) {
