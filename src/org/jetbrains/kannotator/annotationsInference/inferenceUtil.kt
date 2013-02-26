@@ -12,6 +12,8 @@ import org.objectweb.asm.tree.MethodInsnNode
 import org.objectweb.asm.tree.FieldInsnNode
 import org.jetbrains.kannotator.declarations.Field
 import org.objectweb.asm.tree.AbstractInsnNode
+import org.objectweb.asm.Type
+import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 
 trait Annotation
 
@@ -28,13 +30,16 @@ public fun <A: Annotation> generateAssertsForCallArguments(
     val hasThis = instructionNode.getOpcode() != INVOKESTATIC
     val thisSlots = if (hasThis) 1 else 0
     val parametersCount = instructionNode.getArgumentCount() + thisSlots
+    val argTypes = Type.getArgumentTypes(instructionNode.desc)
 
     fun addAssertForArgumentOnStack(index: Int, external: Boolean) {
-        val indexFromTop = parametersCount - index - 1
-        if (external)
-            addAssertForExternalStackValue(indexFromTop)
-        else
-            addAssertForStackValue(indexFromTop)
+        if (index < thisSlots || !argTypes[index - thisSlots].isPrimitiveOrVoidType()) {
+            val indexFromTop = parametersCount - index - 1
+            if (external)
+                addAssertForExternalStackValue(indexFromTop)
+            else
+                addAssertForStackValue(indexFromTop)
+        }
     }
 
     if (hasThis && needGenerateAssertForThis) {
@@ -46,8 +51,12 @@ public fun <A: Annotation> generateAssertsForCallArguments(
             val positions = PositionsForMethod(method)
             for (paramIndex in thisSlots..parametersCount - 1) {
                 val paramAnnotation = annotations[positions.forParameter(paramIndex).position]
-                if (paramAnnotation != null && needGenerateAssertForArgument(paramAnnotation)) {
-                    addAssertForArgumentOnStack(paramIndex, false)
+                if (paramAnnotation != null) {
+                    if (needGenerateAssertForArgument(paramAnnotation)) {
+                        addAssertForArgumentOnStack(paramIndex, false)
+                    }
+                } else {
+                    addAssertForArgumentOnStack(paramIndex, true)
                 }
             }
             return
