@@ -21,7 +21,7 @@ import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.declarations.Method
 import java.io.FileInputStream
 import java.util.TreeMap
-import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.util.ArrayList
 import util.assertEqualsOrCreate

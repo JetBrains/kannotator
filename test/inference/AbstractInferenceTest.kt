@@ -6,7 +6,7 @@ import java.util.HashMap
 import junit.framework.TestCase
 import kotlin.test.assertEquals
 import kotlinlib.*
-import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import org.jetbrains.kannotator.asm.util.forEachField
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.ClassSource

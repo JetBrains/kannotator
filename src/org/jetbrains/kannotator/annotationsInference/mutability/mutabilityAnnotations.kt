@@ -1,6 +1,6 @@
 package org.jetbrains.kannotator.controlFlow.builder.analysis.mutability
 
-import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import org.jetbrains.kannotator.annotationsInference.propagation.TwoElementLattice
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation.*
 

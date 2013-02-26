@@ -18,7 +18,7 @@ import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import java.util.Collections
-import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import java.util.ArrayList
 import org.jetbrains.kannotator.funDependecy.DependencyGraph
 import org.jetbrains.kannotator.funDependecy.DependencyNode

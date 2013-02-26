@@ -17,10 +17,10 @@ public class TypedValue(
         val _type: Type,
         val parameterIndex: Int?,
         val createdAt: AbstractInsnNode?
-) {
-    fun toString() = {
+): Object() {
+    public override fun toString(): String {
         val s = "$_type#$id"
-        if (parameterIndex != null)
+        return if (parameterIndex != null)
             "$parameterIndex!" + s
         else s
     }

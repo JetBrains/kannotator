@@ -1,6 +1,6 @@
 package org.jetbrains.kannotator.annotationsInference.nullability
 
-import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.annotationsInference.propagation.TwoElementLattice
 

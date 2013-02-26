@@ -6,11 +6,9 @@ import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.annotationsInference.findFieldByFieldInsnNode
 import org.objectweb.asm.tree.FieldInsnNode
 import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 import java.util.Collections
-import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import java.util.ArrayList
 import java.util.HashMap
 import org.jetbrains.kannotator.index.DeclarationIndex
