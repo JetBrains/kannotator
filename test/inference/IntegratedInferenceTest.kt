@@ -59,6 +59,9 @@ import org.jetbrains.kannotator.annotations.io.getPackageName
 import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
 import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.funDependecy
+import org.jetbrains.kannotator.declarations.isStatic
+import org.jetbrains.kannotator.declarations.isProtected
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -177,6 +180,74 @@ class IntegratedInferenceTest : TestCase() {
 
         writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
     }
+
+
+    private fun doInferenceAsNotNullTest(testedJarSubstring: String) {
+        val jars = findJarsInLibFolder().filter { f -> f.getName().contains(testedJarSubstring) }
+        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
+
+        val annotationFiles = ArrayList<File>()
+        File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
+
+        val jar = jars.first()
+        println("start: $jar")
+
+        val classHierarchy = buildClassHierarchyGraph(FileBasedClassSource(arrayListOf(jar)))
+        val methodHierarchy = buildMethodHierarchy(classHierarchy)
+        val toProcessMethods = arrayListOf<Method>()
+
+        classHierarchy.nodes.forEach {
+            clazzNode -> clazzNode.methods.forEach {
+                    method -> if (method.isPublicOrProtected()
+                                && (methodHierarchy.findNode(method) == null || method.isStatic())) {
+                        toProcessMethods.add(method)
+                }
+        } }
+
+        methodHierarchy.nodes.forEach {
+            node ->  if ((node.data.access.isPublic()
+                        && node.parents.all { p -> !p.parent.data.access.isPublic()})
+                        || (node.data.access.isProtected()
+                                && node.parents.all { p -> !p.parent.data.access.isProtected()})) {
+                    toProcessMethods.add(node.data)
+        }}
+
+        val nullability = AnnotationsImpl<NullabilityAnnotation>()
+        toProcessMethods.forEach {
+            m -> nullability.set(PositionsForMethod(m).forReturnType().position, NullabilityAnnotation.NOT_NULL)
+        }
+
+        val mutability = AnnotationsImpl<MutabilityAnnotation>()
+
+        for ((inferrerKey, annotations) in mapOf(Pair(InferrerKey.NULLABILITY, nullability), Pair(InferrerKey.MUTABILITY, mutability) )) {
+            val testName = inferrerKey.toString().toLowerCase()
+            val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
+            val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
+            outFile.getParentFile()!!.mkdirs()
+
+            val map = TreeMap<String, Any>()
+            annotations forEach {
+                pos, ann -> map.put(pos.toAnnotationKey(), ann!!)
+            }
+
+            PrintStream(FileOutputStream(outFile)) use {
+                p ->
+                for ((key, ann) in map) {
+                    p.println(key)
+                    p.println(ann)
+                }
+            }
+
+            assertEqualsOrCreate(expectedFile, outFile.readText(), false)
+
+            outFile.delete()
+        }
+
+        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
+
+        writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
+    }
+
 
     fun writeKotlinSignatureAnnotationsToFile(
             expectedFile: File,

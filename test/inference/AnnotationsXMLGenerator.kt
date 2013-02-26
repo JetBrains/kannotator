@@ -13,7 +13,9 @@ import java.util.Collections
 import org.jetbrains.kannotator.main.loadPositionsOfConflictExceptions
 
 fun main(args: Array<String>) {
-    val jar = File("lib/jdk_1_7_0_09_rt.jar")
+    val jarName = if (args.size == 1) args[0] else "lib/jdk_1_7_0_09_rt.jar"
+
+    val jar = File(jarName)
 
     val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayList(jar)))
 
@@ -21,7 +23,7 @@ fun main(args: Array<String>) {
     File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
 
     val annotations = loadAnnotationsFromLogs(
-            arrayList(File("testData/inferenceData/integrated/nullability/jdk_1_7_0_09_rt.jar.annotations.txt")),
+            arrayList(File("testData/inferenceData/integrated/nullability/${jar.getName()}.annotations.txt")),
             declarationIndex
     )
 

@@ -171,7 +171,11 @@ val ClassName.canonicalName: String
 
 fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
 
-fun String.toCanonical(): String = replace('$', '.')
+fun String.toCanonical(): String {
+    //keep last $ in class name: it's generated in scala bytecode
+    val lastCharIndex = this.size - 1
+    return this.substring(0, lastCharIndex).replace('$', '.') + this.substring(lastCharIndex)
+}
 
 fun ClassName.toType(): Type {
     return Type.getType(typeDescriptor)
