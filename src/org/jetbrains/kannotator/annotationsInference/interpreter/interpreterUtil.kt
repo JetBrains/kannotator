@@ -17,7 +17,7 @@ import com.gs.collections.api.block.HashingStrategy
 import org.jetbrains.kannotator.declarations.Method
 
 public fun <V: CopyableValue<V>> Frame<V>.copy(): Frame<V> {
-    val frameCopy = Frame<V>(this)
+    val frameCopy = InferenceFrame<V>(this)
 
     for (i in 0..getLocals() - 1) {
         val v = getLocal(i)
@@ -164,7 +164,13 @@ open class BasicFrameTransformer<Q: Qualifier>: DefaultFrameTransformer<Qualifie
             val postFrame = executedFrame.copy()
             val varIndex = (insnNode as VarInsnNode).`var`
             val rhs = preFrame.getStackFromTop(0)
+            val lhs = preFrame.getLocal(varIndex)
+
+            (postFrame as InferenceFrame<QualifiedValueSet<Q>>).setLostValue(
+                    if (lhs != null) QualifiedValueSet(lhs._size, HashSet(lhs.values)) else null
+            )
             postFrame.setLocal(varIndex, if (rhs != null) QualifiedValueSet(rhs._size, HashSet(rhs.values)) else null)
+
             return postFrame
         }
         return executedFrame
@@ -210,6 +216,11 @@ class MultiFrameTransformer<K, V: CopyableValue<V>>(
     }
 }
 
+fun <V: Value> Analyzer<V>.getInstructionIndex(insn: AbstractInsnNode): Int {
+    val m = getMethodNode()
+    return if (m != null) m.instructions.indexOf(insn) else -1
+}
+
 fun <V: Value> Analyzer<V>.getInstructionFrame(insn: AbstractInsnNode): Frame<V>? {
     val m = getMethodNode()
     return if (m != null) getFrames()[m.instructions.indexOf(insn)] else null
@@ -227,7 +238,15 @@ public class QualifiedValuesAnalyzer<Q: Qualifier>(
         val qualifierSet: QualifierSet<Q>,
         val frameTransformer: FrameTransformer<QualifiedValueSet<Q>>,
         val qualifierEvaluator: QualifierEvaluator<Q>
-) : Analyzer<QualifiedValueSet<Q>>(QualifiedValuesInterpreter(Method(owner, methodNode), qualifierSet, qualifierEvaluator), frameTransformer)
+) : Analyzer<QualifiedValueSet<Q>>(QualifiedValuesInterpreter(Method(owner, methodNode), qualifierSet, qualifierEvaluator), frameTransformer) {
+    protected override fun newFrame(nLocals: Int, nStack: Int): Frame<QualifiedValueSet<Q>>? {
+        return InferenceFrame(nLocals, nStack)
+    }
+
+    protected override fun newFrame(src: Frame<out QualifiedValueSet<Q>>): Frame<QualifiedValueSet<Q>> {
+        return InferenceFrame(src)
+    }
+}
 
 public fun <Q: Qualifier> MethodNode.runQualifierAnalysis(
         owner: ClassName,

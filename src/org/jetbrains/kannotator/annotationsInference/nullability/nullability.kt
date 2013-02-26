@@ -29,6 +29,9 @@ import org.objectweb.asm.Type
 import org.jetbrains.kannotator.annotationsInference.engine.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.*
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
+import org.jetbrains.kannotator.annotationsInference.propagation.unify
 
 object NULLABILITY_KEY
 
@@ -144,7 +147,15 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                         },
                         true,
                         { paramAnnotation -> paramAnnotation == NullabilityAnnotation.NOT_NULL },
-                        {})
+                        { indexFromTop ->
+                            val newFrame = imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(indexFromTop), true) {
+                                q -> if (q != NOT_NULL) q else EMPTY
+                            }
+                            if (newFrame != null) {
+                                results.add(pseudoErrorResult(newFrame))
+                            }
+                        }
+                )
                 results
             }
             else -> defFrame
@@ -194,19 +205,6 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             }
         }
 
-        fun getPostFrameForCondition(): Frame<QualifiedValueSet<Q>>? {
-            return when (edgeKind) {
-                EdgeKind.FALSE, EdgeKind.TRUE -> {
-                    val newFrame: Frame<QualifiedValueSet<Q>>? = executedFrame.copy()
-                    preFrame.forEachValue { frameValue ->
-                        imposeNullabilityOnFrameValues(executedFrame.copy(), frameValue, true, imposeUndecidable)
-                    }
-                    newFrame
-                }
-                else -> defFrame
-            }
-        }
-
         fun getPostFrameForEqualityCheck(): Frame<QualifiedValueSet<Q>>? {
             val conditions = preFrame.getStackFromTop(0)
             val instanceOfFrame = if (conditions != null) {
@@ -230,7 +228,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                     else -> defFrame
                 }
 
-            } else getPostFrameForCondition()
+            } else defFrame
         }
 
         return when (insnNode.getOpcode()) {
@@ -251,11 +249,6 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             }
             IFEQ, IFNE -> {
                 getPostFrameForEqualityCheck()
-            }
-            IFLT, IFLE, IFGT, IFGE,
-            IF_ICMPEQ, IF_ICMPNE, IF_ICMPLT, IF_ICMPGE, IF_ICMPGT, IF_ICMPLE,
-            IF_ACMPEQ, IF_ACMPNE -> {
-                getPostFrameForCondition()
             }
             else -> defFrame
         }
@@ -476,6 +469,33 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
         else UNKNOWN
     }
 
+    fun buildNullLostParamSet(insnSet: Set<AbstractInsnNode>): Set<Int> {
+        if (insnSet.empty) {
+            return Collections.emptySet()
+        }
+
+        val set = HashSet<Int>()
+
+        for (insn in insnSet) {
+            val frame = analysisResult.mergedFrames[insn]!! as InferenceFrame<QualifiedValueSet<Q>>
+
+            val lostValue = frame.getLostValue()
+            if (lostValue != null) {
+                for (value in lostValue.values) {
+                    if (value.base.interesting) {
+                        val index = value.base.parameterIndex!!
+                        val currentInfo = (value.qualifier.extract<Nullability>(NullabilitySet)) ?: UNKNOWN
+                        if (currentInfo == NULL || currentInfo == NULLABLE) {
+                            set.add(index)
+                        }
+                    }
+                }
+            }
+        }
+
+        return set
+    }
+
     fun buildMergedParameterMap(insnSet: Set<AbstractInsnNode>): Map<Int, Nullability> {
         if (insnSet.empty) {
             return Collections.emptyMap()
@@ -520,29 +540,19 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             return returnInfoMap
         }
 
-        val paramInfoMap = HashMap<Int, Nullability>()
         val errorInfoMap = buildMergedParameterMap(analysisResult.errorInstructions)
-        for ((index, info) in returnInfoMap) {
-            val pos = positions.forParameter(index).position
-            val currentAnnotation = annotations[pos]
-            
-            /*if (info != UNKNOWN && errorInfo == NOT_NULL) {
-                paramInfoMap[index] = NULLABLE
-            }*/
+        val nullLostParams = buildNullLostParamSet(analysisResult.returnInstructions)
 
-            if (info == NOT_NULL && currentAnnotation != NullabilityAnnotation.NOT_NULL) {
-                if (errorInfoMap.empty) {
-                    paramInfoMap[index] = NULLABLE
-                } else when (errorInfoMap[index]) {
-                    UNKNOWN -> UNKNOWN
-                    NOT_NULL -> paramInfoMap[index] = NULLABLE
-                    NULL, NULLABLE -> paramInfoMap[index] = NOT_NULL
-                    else -> assert(false, "Invalid nullability of parameter $index")
-                }
-            } else if (info == UNKNOWN && currentAnnotation != null) {
-                paramInfoMap[index] = currentAnnotation.toQualifier()
-            } else { //info == NULL || NULLABLE
-                paramInfoMap[index] = info
+        val paramInfoMap = HashMap<Int, Nullability>()
+        for ((index, info) in returnInfoMap) {
+            val errorInfo = errorInfoMap[index]
+
+            if (info != UNKNOWN && (errorInfo == NOT_NULL || errorInfo == null)) {
+                paramInfoMap[index] = NULLABLE
+            } else if ((errorInfo == NULL || errorInfo == NULLABLE) && info == NOT_NULL && !nullLostParams.contains(index)) {
+                paramInfoMap[index] = NOT_NULL
+            } else {
+                paramInfoMap[index] = UNKNOWN
             }
         }
 
