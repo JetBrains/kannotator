@@ -348,8 +348,11 @@ private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
 
             var changed = false
             annotations.copyAllChanged(inferredAnnotations as Annotations<A>) { pos, previous, new ->
-                changed = true
-                new // Return merged
+                val isParam = pos.relativePosition is ParameterPosition
+                if ((isParam && previous == null) || !isParam) {
+                    changed = true
+                    new
+                } else previous!!
             }
 
             if (changed) {
