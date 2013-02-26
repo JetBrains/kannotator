@@ -31429,7 +31429,7 @@ NOT_NULL
 java.util.concurrent.locks.ReentrantLock java.lang.String toString()
 NOT_NULL
 java.util.concurrent.locks.ReentrantLock java.lang.Thread getOwner()
-NOT_NULL
+NULLABLE
 java.util.concurrent.locks.ReentrantLock java.util.Collection<java.lang.Thread> getWaitingThreads(java.util.concurrent.locks.Condition) 0
 NOT_NULL
 java.util.concurrent.locks.ReentrantLock java.util.concurrent.locks.Condition newCondition()
@@ -31449,7 +31449,7 @@ NOT_NULL
 java.util.concurrent.locks.ReentrantReadWriteLock java.lang.String toString()
 NOT_NULL
 java.util.concurrent.locks.ReentrantReadWriteLock java.lang.Thread getOwner()
-NOT_NULL
+NULLABLE
 java.util.concurrent.locks.ReentrantReadWriteLock java.util.Collection<java.lang.Thread> getWaitingThreads(java.util.concurrent.locks.Condition) 0
 NOT_NULL
 java.util.concurrent.locks.ReentrantReadWriteLock java.util.concurrent.locks.Lock readLock()
@@ -32553,7 +32553,7 @@ NOT_NULL
 java.util.regex.ASCII ctype
 NOT_NULL
 java.util.regex.MatchResult java.lang.String group()
-NOT_NULL
+NULLABLE
 java.util.regex.MatchResult java.lang.String group(int)
 NULLABLE
 java.util.regex.Matcher Matcher(java.util.regex.Pattern, java.lang.CharSequence) 0
@@ -32561,7 +32561,7 @@ NOT_NULL
 java.util.regex.Matcher java.lang.CharSequence getSubSequence(int, int)
 NOT_NULL
 java.util.regex.Matcher java.lang.String group()
-NOT_NULL
+NULLABLE
 java.util.regex.Matcher java.lang.String group(int)
 NULLABLE
 java.util.regex.Matcher java.lang.String group(java.lang.String)

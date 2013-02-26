@@ -1,57 +1,14 @@
-java.lang.String byte[] getBytes()
+# jdk_1_7_0_09_rt.jar
 java.lang.Class T newInstance()
-java.io.StringWriter java.io.StringWriter append(java.lang.CharSequence, int, int) 0
-java.io.CharArrayWriter java.io.CharArrayWriter append(java.lang.CharSequence, int, int) 0
-java.io.Writer java.io.Writer append(java.lang.CharSequence, int, int) 0
-java.io.File java.io.File createTempFile(java.lang.String, java.lang.String, java.io.File) 2
-java.util.concurrent.locks.ReentrantReadWriteLock java.lang.Thread getOwner()
-java.util.concurrent.locks.ReentrantLock java.lang.Thread getOwner()
-java.util.Calendar boolean equals(java.lang.Object) 0
-java.util.regex.Matcher java.lang.String group()
-java.io.File java.io.File createTempFile(java.lang.String, java.lang.String) 1
-java.io.File java.io.File createTempFile(java.lang.String, java.lang.String, java.io.File) 1
-java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder insert(int, java.lang.String) 1
-java.lang.StringBuilder java.lang.StringBuilder insert(int, java.lang.String) 1
-#
+java.util.SortedMap java.util.Comparator<? super K> comparator()
+java.io.StringWriter void write(java.lang.String) 0
+java.lang.String byte[] getBytes()
+java.io.FileOutputStream java.nio.channels.FileChannel getChannel()
+# asm-debug-all-4.0.jar
 org.objectweb.asm.tree.MethodNode void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[]) 2
 org.objectweb.asm.tree.MethodNode void visitFrame(int, int, java.lang.Object[], int, java.lang.Object[]) 4
-#
-com.google.common.base.Predicates.ObjectPredicate.4 boolean apply(java.lang.Object) 0
-com.google.common.base.Predicates.ObjectPredicate.1 boolean apply(java.lang.Object) 0
-com.google.common.base.Predicates.ObjectPredicate.2 boolean apply(java.lang.Object) 0
-com.google.common.base.Predicates.InstanceOfPredicate boolean apply(java.lang.Object) 0
-com.google.common.collect.AllEqualOrdering int compare(java.lang.Object, java.lang.Object) 0
-com.google.common.collect.AllEqualOrdering int compare(java.lang.Object, java.lang.Object) 1
+# guava-13.0.1.jar
 com.google.common.cache.CacheBuilderSpec.ValueStrengthParser void parse(com.google.common.cache.CacheBuilderSpec, java.lang.String, java.lang.String) 2
-com.google.common.base.Predicates.ObjectPredicate.3 boolean apply(java.lang.Object) 0
 com.google.common.cache.CacheBuilderSpec.ValueParser void parse(com.google.common.cache.CacheBuilderSpec, java.lang.String, java.lang.String) 2
 com.google.common.collect.ComparisonChain.InactiveComparisonChain com.google.common.collect.ComparisonChain compare(java.lang.Comparable, java.lang.Comparable) 0
 com.google.common.cache.CacheBuilderSpec.KeyStrengthParser void parse(com.google.common.cache.CacheBuilderSpec, java.lang.String, java.lang.String) 2
-#
-java.math.BigDecimal boolean equals(java.lang.Object) 0
-java.sql.Statement java.sql.ResultSet executeQuery(java.lang.String)
-java.io.StringWriter void write(java.lang.String) 0
-java.math.MathContext boolean equals(java.lang.Object) 0
-java.math.BigInteger boolean equals(java.lang.Object) 0
-java.lang.String boolean equals(java.lang.Object) 0
-java.util.GregorianCalendar boolean equals(java.lang.Object) 0
-java.util.BitSet boolean equals(java.lang.Object) 0
-java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder append(java.lang.String) 0
-java.lang.AbstractStringBuilder java.lang.AbstractStringBuilder append(java.lang.CharSequence, int, int) 0
-java.util.Locale boolean equals(java.lang.Object) 0
-java.io.FileOutputStream java.nio.channels.FileChannel getChannel()
-java.util.regex.MatchResult java.lang.String group()
-java.io.File File(java.lang.String, java.lang.String) 0
-java.io.File File(java.io.File, java.lang.String) 0
-java.lang.Thread Thread(java.lang.ThreadGroup, java.lang.String) 0
-java.lang.annotation.AnnotationFormatError AnnotationFormatError(java.lang.Throwable) 0
-java.io.PrintWriter void print(java.lang.Object) 0
-java.io.PrintWriter java.io.PrintWriter format(java.util.Locale, java.lang.String, java.lang.Object...) 0
-java.lang.StringBuilder java.lang.StringBuilder append(java.lang.String) 0
-java.lang.annotation.AnnotationFormatError AnnotationFormatError(java.lang.String) 0
-java.io.PrintWriter void print(java.lang.String) 0
-java.lang.StringBuilder java.lang.StringBuilder append(java.lang.CharSequence, int, int) 0
-java.lang.String boolean equalsIgnoreCase(java.lang.String) 0
-java.util.SortedMap java.util.Comparator<? super K> comparator()
-#
-org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr getReprByName(java.io.File, int) 0
