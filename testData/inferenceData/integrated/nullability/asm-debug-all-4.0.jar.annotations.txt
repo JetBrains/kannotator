@@ -4,12 +4,8 @@ org.objectweb.asm.AnnotationVisitor org.objectweb.asm.AnnotationVisitor visitAnn
 NOT_NULL
 org.objectweb.asm.AnnotationVisitor org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NULLABLE
-org.objectweb.asm.AnnotationVisitor void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.AnnotationVisitor void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.AnnotationVisitor void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.AnnotationVisitor void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.AnnotationVisitor void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -24,12 +20,8 @@ org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.AnnotationWriter[]
 NOT_NULL
 org.objectweb.asm.AnnotationWriter void put(org.objectweb.asm.AnnotationWriter[], int, org.objectweb.asm.ByteVector) 2
 NOT_NULL
-org.objectweb.asm.AnnotationWriter void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.AnnotationWriter void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.AnnotationWriter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.AnnotationWriter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.AnnotationWriter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -50,8 +42,6 @@ org.objectweb.asm.ByteVector org.objectweb.asm.ByteVector putByte(int)
 NOT_NULL
 org.objectweb.asm.ByteVector org.objectweb.asm.ByteVector putByteArray(byte[], int, int)
 NOT_NULL
-org.objectweb.asm.ByteVector org.objectweb.asm.ByteVector putByteArray(byte[], int, int) 0
-NULLABLE
 org.objectweb.asm.ByteVector org.objectweb.asm.ByteVector putInt(int)
 NOT_NULL
 org.objectweb.asm.ByteVector org.objectweb.asm.ByteVector putLong(long)
@@ -72,10 +62,6 @@ org.objectweb.asm.ClassReader byte[] readClass(java.io.InputStream, boolean)
 NOT_NULL
 org.objectweb.asm.ClassReader byte[] readClass(java.io.InputStream, boolean) 0
 NOT_NULL
-org.objectweb.asm.ClassReader int readAnnotationValue(int, char[], java.lang.String, org.objectweb.asm.AnnotationVisitor) 3
-NULLABLE
-org.objectweb.asm.ClassReader int readAnnotationValues(int, char[], boolean, org.objectweb.asm.AnnotationVisitor) 3
-NULLABLE
 org.objectweb.asm.ClassReader int readFrameType(java.lang.Object[], int, int, char[], org.objectweb.asm.Label[]) 0
 NOT_NULL
 org.objectweb.asm.ClassReader items
@@ -322,10 +308,6 @@ org.objectweb.asm.FieldWriter FieldWriter(org.objectweb.asm.ClassWriter, int, ja
 NOT_NULL
 org.objectweb.asm.FieldWriter FieldWriter(org.objectweb.asm.ClassWriter, int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 3
 NOT_NULL
-org.objectweb.asm.FieldWriter FieldWriter(org.objectweb.asm.ClassWriter, int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 4
-NULLABLE
-org.objectweb.asm.FieldWriter FieldWriter(org.objectweb.asm.ClassWriter, int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 5
-NULLABLE
 org.objectweb.asm.FieldWriter cw
 NOT_NULL
 org.objectweb.asm.FieldWriter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)
@@ -355,8 +337,6 @@ NULLABLE
 org.objectweb.asm.Handler org.objectweb.asm.Handler remove(org.objectweb.asm.Handler, org.objectweb.asm.Label, org.objectweb.asm.Label)
 NULLABLE
 org.objectweb.asm.Handler org.objectweb.asm.Handler remove(org.objectweb.asm.Handler, org.objectweb.asm.Label, org.objectweb.asm.Label) 0
-NULLABLE
-org.objectweb.asm.Handler org.objectweb.asm.Handler remove(org.objectweb.asm.Handler, org.objectweb.asm.Label, org.objectweb.asm.Label) 2
 NULLABLE
 org.objectweb.asm.Item Item(int, org.objectweb.asm.Item) 1
 NOT_NULL
@@ -452,8 +432,6 @@ org.objectweb.asm.MethodWriter MethodWriter(org.objectweb.asm.ClassWriter, int, 
 NOT_NULL
 org.objectweb.asm.MethodWriter MethodWriter(org.objectweb.asm.ClassWriter, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], boolean, boolean) 3
 NOT_NULL
-org.objectweb.asm.MethodWriter MethodWriter(org.objectweb.asm.ClassWriter, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[], boolean, boolean) 5
-NULLABLE
 org.objectweb.asm.MethodWriter cw
 NOT_NULL
 org.objectweb.asm.MethodWriter descriptor
@@ -898,8 +876,6 @@ org.objectweb.asm.commons.GeneratorAdapter void catchException(org.objectweb.asm
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void catchException(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Type) 1
 NOT_NULL
-org.objectweb.asm.commons.GeneratorAdapter void catchException(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Type) 2
-NULLABLE
 org.objectweb.asm.commons.GeneratorAdapter void checkCast(org.objectweb.asm.Type) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void fieldInsn(int, org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 1
@@ -976,12 +952,8 @@ org.objectweb.asm.commons.GeneratorAdapter void newArray(org.objectweb.asm.Type)
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void newInstance(org.objectweb.asm.Type) 0
 NOT_NULL
-org.objectweb.asm.commons.GeneratorAdapter void push(java.lang.String) 0
-NULLABLE
 org.objectweb.asm.commons.GeneratorAdapter void push(org.objectweb.asm.Handle) 0
 NOT_NULL
-org.objectweb.asm.commons.GeneratorAdapter void push(org.objectweb.asm.Type) 0
-NULLABLE
 org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 0
 NOT_NULL
 org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type) 1
@@ -1020,8 +992,6 @@ org.objectweb.asm.commons.GeneratorAdapter void valueOf(org.objectweb.asm.Type) 
 NOT_NULL
 org.objectweb.asm.commons.InstructionAdapter OBJECT_TYPE
 NOT_NULL
-org.objectweb.asm.commons.InstructionAdapter void aconst(java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.commons.InstructionAdapter void add(org.objectweb.asm.Type) 0
 NOT_NULL
 org.objectweb.asm.commons.InstructionAdapter void aload(org.objectweb.asm.Type) 0
@@ -1236,8 +1206,6 @@ org.objectweb.asm.commons.JSRInlinerAdapter void visitJumpInsn(int, org.objectwe
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation Instantiation(org.objectweb.asm.commons.JSRInlinerAdapter, org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation, java.util.BitSet) 0
 NOT_NULL
-org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation Instantiation(org.objectweb.asm.commons.JSRInlinerAdapter, org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation, java.util.BitSet) 1
-NULLABLE
 org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation java.lang.Object get(java.lang.Object) 0
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation java.util.Set<java.util.Map.Entry<org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode>> entrySet()
@@ -1248,8 +1216,6 @@ org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation org.objectweb.asm.tree
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation org.objectweb.asm.tree.LabelNode gotoLabel(org.objectweb.asm.tree.LabelNode) 0
 NOT_NULL
-org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation previous
-NULLABLE
 org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation rangeTable
 NOT_NULL
 org.objectweb.asm.commons.JSRInlinerAdapter.Instantiation returnLabel
@@ -1340,12 +1306,8 @@ org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.Annotatio
 NOT_NULL
 org.objectweb.asm.commons.RemappingAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NULLABLE
-org.objectweb.asm.commons.RemappingAnnotationAdapter void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.commons.RemappingAnnotationAdapter void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.commons.RemappingAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.commons.RemappingAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.commons.RemappingAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -1658,14 +1620,8 @@ org.objectweb.asm.tree.AnnotationNode void accept(org.objectweb.asm.AnnotationVi
 NULLABLE
 org.objectweb.asm.tree.AnnotationNode void accept(org.objectweb.asm.AnnotationVisitor, java.lang.String, java.lang.Object) 0
 NULLABLE
-org.objectweb.asm.tree.AnnotationNode void accept(org.objectweb.asm.AnnotationVisitor, java.lang.String, java.lang.Object) 2
-NULLABLE
-org.objectweb.asm.tree.AnnotationNode void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.tree.AnnotationNode void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.tree.AnnotationNode void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.tree.AnnotationNode void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.tree.AnnotationNode void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -1876,10 +1832,6 @@ org.objectweb.asm.tree.LocalVariableNode start
 NOT_NULL
 org.objectweb.asm.tree.LocalVariableNode void accept(org.objectweb.asm.MethodVisitor) 0
 NOT_NULL
-org.objectweb.asm.tree.LookupSwitchInsnNode LookupSwitchInsnNode(org.objectweb.asm.tree.LabelNode, int[], org.objectweb.asm.tree.LabelNode[]) 1
-NULLABLE
-org.objectweb.asm.tree.LookupSwitchInsnNode LookupSwitchInsnNode(org.objectweb.asm.tree.LabelNode, int[], org.objectweb.asm.tree.LabelNode[]) 2
-NULLABLE
 org.objectweb.asm.tree.LookupSwitchInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map<org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode>)
 NOT_NULL
 org.objectweb.asm.tree.LookupSwitchInsnNode org.objectweb.asm.tree.AbstractInsnNode clone(java.util.Map<org.objectweb.asm.tree.LabelNode,org.objectweb.asm.tree.LabelNode>) 0
@@ -2092,14 +2044,8 @@ org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame<V
 NOT_NULL
 org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine, boolean[]) 2
 NOT_NULL
-org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine, boolean[]) 3
-NULLABLE
 org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine) 1
 NOT_NULL
-org.objectweb.asm.tree.analysis.Analyzer void merge(int, org.objectweb.asm.tree.analysis.Frame<V>, org.objectweb.asm.tree.analysis.Subroutine) 2
-NULLABLE
-org.objectweb.asm.tree.analysis.AnalyzerException AnalyzerException(org.objectweb.asm.tree.AbstractInsnNode, java.lang.String, java.lang.Object, org.objectweb.asm.tree.analysis.Value) 1
-NULLABLE
 org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue)
 NULLABLE
 org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue) 0
@@ -2536,8 +2482,6 @@ org.objectweb.asm.util.ASMifier org.objectweb.asm.util.ASMifier visitFieldAnnota
 NOT_NULL
 org.objectweb.asm.util.ASMifier org.objectweb.asm.util.ASMifier visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
 NOT_NULL
-org.objectweb.asm.util.ASMifier org.objectweb.asm.util.ASMifier visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4
-NULLABLE
 org.objectweb.asm.util.ASMifier org.objectweb.asm.util.ASMifier visitMethodAnnotation(java.lang.String, boolean)
 NOT_NULL
 org.objectweb.asm.util.ASMifier org.objectweb.asm.util.ASMifier visitParameterAnnotation(int, java.lang.String, boolean)
@@ -2580,8 +2524,6 @@ org.objectweb.asm.util.ASMifier org.objectweb.asm.util.Printer visitParameterAnn
 NOT_NULL
 org.objectweb.asm.util.ASMifier org.objectweb.asm.util.Printer visitParameterAnnotation(int, java.lang.String, boolean) 1
 NOT_NULL
-org.objectweb.asm.util.ASMifier void appendConstant(java.lang.StringBuffer, java.lang.Object) 1
-NULLABLE
 org.objectweb.asm.util.ASMifier void main(java.lang.String[]) 0
 NOT_NULL
 org.objectweb.asm.util.ASMifier void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
@@ -2592,16 +2534,12 @@ org.objectweb.asm.util.ASMifier void visit(int, int, java.lang.String, java.lang
 NULLABLE
 org.objectweb.asm.util.ASMifier void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 5
 NULLABLE
-org.objectweb.asm.util.ASMifier void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.util.ASMifier void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
 org.objectweb.asm.util.ASMifier void visitAttribute(org.objectweb.asm.Attribute) 0
 NOT_NULL
 org.objectweb.asm.util.ASMifier void visitClassAttribute(org.objectweb.asm.Attribute) 0
 NOT_NULL
-org.objectweb.asm.util.ASMifier void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.ASMifier void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.util.ASMifier void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -2696,12 +2634,8 @@ org.objectweb.asm.util.CheckAnnotationAdapter org.objectweb.asm.AnnotationVisito
 NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
-org.objectweb.asm.util.CheckAnnotationAdapter void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.util.CheckAnnotationAdapter void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.util.CheckAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.CheckAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.util.CheckAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -2746,8 +2680,6 @@ org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassRead
 NOT_NULL
 org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassReader, java.lang.ClassLoader, boolean, java.io.PrintWriter) 0
 NOT_NULL
-org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassReader, java.lang.ClassLoader, boolean, java.io.PrintWriter) 1
-NULLABLE
 org.objectweb.asm.util.CheckClassAdapter void verify(org.objectweb.asm.ClassReader, java.lang.ClassLoader, boolean, java.io.PrintWriter) 3
 NOT_NULL
 org.objectweb.asm.util.CheckClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2
@@ -3012,14 +2944,10 @@ org.objectweb.asm.util.Printer void visit(int, int, java.lang.String, java.lang.
 NULLABLE
 org.objectweb.asm.util.Printer void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 5
 NULLABLE
-org.objectweb.asm.util.Printer void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.util.Printer void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
 org.objectweb.asm.util.Printer void visitClassAttribute(org.objectweb.asm.Attribute) 0
 NOT_NULL
-org.objectweb.asm.util.Printer void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.Printer void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.util.Printer void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -3152,36 +3080,22 @@ org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitAnnotatio
 NOT_NULL
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitAnnotation(java.lang.String, java.lang.String)
 NOT_NULL
-org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitAnnotation(java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitAnnotationDefault()
 NOT_NULL
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitArray(java.lang.String)
 NOT_NULL
-org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitArray(java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitClassAnnotation(java.lang.String, boolean)
 NOT_NULL
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)
 NOT_NULL
-org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 3
-NULLABLE
-org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 4
-NULLABLE
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitFieldAnnotation(java.lang.String, boolean)
 NOT_NULL
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])
 NOT_NULL
-org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3
-NULLABLE
-org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4
-NULLABLE
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitMethodAnnotation(java.lang.String, boolean)
 NOT_NULL
 org.objectweb.asm.util.Textifier org.objectweb.asm.util.Textifier visitParameterAnnotation(int, java.lang.String, boolean)
 NOT_NULL
-org.objectweb.asm.util.Textifier void appendDescriptor(int, java.lang.String) 1
-NULLABLE
 org.objectweb.asm.util.Textifier void appendHandle(org.objectweb.asm.Handle) 0
 NOT_NULL
 org.objectweb.asm.util.Textifier void main(java.lang.String[]) 0
@@ -3194,16 +3108,12 @@ org.objectweb.asm.util.Textifier void visit(int, int, java.lang.String, java.lan
 NULLABLE
 org.objectweb.asm.util.Textifier void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 5
 NULLABLE
-org.objectweb.asm.util.Textifier void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.util.Textifier void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
 org.objectweb.asm.util.Textifier void visitAttribute(org.objectweb.asm.Attribute) 0
 NOT_NULL
 org.objectweb.asm.util.Textifier void visitClassAttribute(org.objectweb.asm.Attribute) 0
 NOT_NULL
-org.objectweb.asm.util.Textifier void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.Textifier void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.util.Textifier void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -3300,12 +3210,8 @@ org.objectweb.asm.util.TraceAnnotationVisitor org.objectweb.asm.AnnotationVisito
 NOT_NULL
 org.objectweb.asm.util.TraceAnnotationVisitor org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
-org.objectweb.asm.util.TraceAnnotationVisitor void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.util.TraceAnnotationVisitor void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.util.TraceAnnotationVisitor void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.util.TraceAnnotationVisitor void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.util.TraceAnnotationVisitor void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2
@@ -3488,10 +3394,6 @@ org.objectweb.asm.xml.ASMContentHandler java.lang.Object pop()
 NULLABLE
 org.objectweb.asm.xml.ASMContentHandler stack
 NOT_NULL
-org.objectweb.asm.xml.ASMContentHandler void endElement(java.lang.String, java.lang.String, java.lang.String) 1
-NULLABLE
-org.objectweb.asm.xml.ASMContentHandler void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes) 1
-NULLABLE
 org.objectweb.asm.xml.ASMContentHandler.AnnotationDefaultRule void begin(java.lang.String, org.xml.sax.Attributes) 1
 NOT_NULL
 org.objectweb.asm.xml.ASMContentHandler.AnnotationParameterRule void begin(java.lang.String, org.xml.sax.Attributes) 1
@@ -3594,8 +3496,6 @@ org.objectweb.asm.xml.Processor void main(java.lang.String[]) 0
 NOT_NULL
 org.objectweb.asm.xml.Processor void processEntry(java.util.zip.ZipInputStream, java.util.zip.ZipEntry, org.objectweb.asm.xml.Processor.ContentHandlerFactory) 2
 NOT_NULL
-org.objectweb.asm.xml.Processor void update(java.lang.Object, int) 0
-NULLABLE
 org.objectweb.asm.xml.Processor.ASMContentHandlerFactory org.xml.sax.ContentHandler createContentHandler()
 NOT_NULL
 org.objectweb.asm.xml.Processor.ContentHandlerFactory org.xml.sax.ContentHandler createContentHandler()
@@ -3604,8 +3504,6 @@ org.objectweb.asm.xml.Processor.OutputSlicingHandler subdocumentRoot
 NOT_NULL
 org.objectweb.asm.xml.Processor.SAXWriter java.lang.String esc(java.lang.String) 0
 NOT_NULL
-org.objectweb.asm.xml.Processor.SAXWriter void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes) 3
-NULLABLE
 org.objectweb.asm.xml.Processor.SAXWriter void writeAttributes(org.xml.sax.Attributes) 0
 NOT_NULL
 org.objectweb.asm.xml.Processor.SAXWriterFactory org.xml.sax.ContentHandler createContentHandler()
@@ -3614,10 +3512,6 @@ org.objectweb.asm.xml.Processor.TransformerHandlerFactory org.xml.sax.ContentHan
 NOT_NULL
 org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String, int) 1
 NOT_NULL
-org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String, int) 4
-NULLABLE
-org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String, int) 5
-NULLABLE
 org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, int, java.lang.String) 0
 NOT_NULL
 org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String) 0
@@ -3628,18 +3522,8 @@ org.objectweb.asm.xml.SAXAnnotationAdapter org.objectweb.asm.AnnotationVisitor v
 NOT_NULL
 org.objectweb.asm.xml.SAXAnnotationAdapter org.objectweb.asm.AnnotationVisitor visitArray(java.lang.String)
 NOT_NULL
-org.objectweb.asm.xml.SAXAnnotationAdapter void addValueElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 1
-NULLABLE
-org.objectweb.asm.xml.SAXAnnotationAdapter void addValueElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 2
-NULLABLE
-org.objectweb.asm.xml.SAXAnnotationAdapter void addValueElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String) 3
-NULLABLE
-org.objectweb.asm.xml.SAXAnnotationAdapter void visit(java.lang.String, java.lang.Object) 0
-NULLABLE
 org.objectweb.asm.xml.SAXAnnotationAdapter void visit(java.lang.String, java.lang.Object) 1
 NOT_NULL
-org.objectweb.asm.xml.SAXAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 0
-NULLABLE
 org.objectweb.asm.xml.SAXAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 1
 NOT_NULL
 org.objectweb.asm.xml.SAXAnnotationAdapter void visitEnum(java.lang.String, java.lang.String, java.lang.String) 2

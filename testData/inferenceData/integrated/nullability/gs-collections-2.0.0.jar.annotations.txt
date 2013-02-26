@@ -626,8 +626,6 @@ com.gs.collections.impl.bag.mutable.HashBag.1 com.gs.collections.impl.Counter va
 NOT_NULL
 com.gs.collections.impl.bag.mutable.HashBag.1 java.lang.Object value()
 NOT_NULL
-com.gs.collections.impl.bag.mutable.HashBag.11 void value(T, int) 0
-NULLABLE
 com.gs.collections.impl.bag.mutable.HashBag.12 void value(T, com.gs.collections.impl.Counter) 1
 NOT_NULL
 com.gs.collections.impl.bag.mutable.HashBag.12 void value(java.lang.Object, java.lang.Object) 1
@@ -728,12 +726,8 @@ com.gs.collections.impl.block.factory.Comparators REVERSE_NATURAL_ORDER_COMPARAT
 NOT_NULL
 com.gs.collections.impl.block.factory.Comparators boolean nullSafeEquals(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.gs.collections.impl.block.factory.Comparators boolean nullSafeEquals(java.lang.Object, java.lang.Object) 1
-NULLABLE
 com.gs.collections.impl.block.factory.Comparators com.gs.collections.api.block.SerializableComparator<T> byFunction(com.gs.collections.api.block.function.Function<? super T,? extends V>)
 NOT_NULL
-com.gs.collections.impl.block.factory.Comparators com.gs.collections.api.block.SerializableComparator<T> byFunction(com.gs.collections.api.block.function.Function<? super T,? extends V>) 0
-NULLABLE
 com.gs.collections.impl.block.factory.Comparators com.gs.collections.api.block.SerializableComparator<T> byFunction(com.gs.collections.api.block.function.Function<? super T,? extends V>, java.util.Comparator<V>)
 NOT_NULL
 com.gs.collections.impl.block.factory.Comparators com.gs.collections.api.block.SerializableComparator<T> chain(java.util.Comparator<T>...)
@@ -1496,8 +1490,6 @@ com.gs.collections.impl.block.factory.Predicates2.AlwaysFalse java.lang.String t
 NOT_NULL
 com.gs.collections.impl.block.factory.Predicates2.AlwaysTrue java.lang.String toString()
 NOT_NULL
-com.gs.collections.impl.block.factory.Predicates2.Equal boolean accept(java.lang.Object, java.lang.Object) 0
-NULLABLE
 com.gs.collections.impl.block.factory.Predicates2.Equal boolean accept(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.gs.collections.impl.block.factory.Predicates2.Equal java.lang.String toString()
@@ -1544,8 +1536,6 @@ com.gs.collections.impl.block.factory.Predicates2.LessThanOrEqual boolean accept
 NOT_NULL
 com.gs.collections.impl.block.factory.Predicates2.LessThanOrEqual java.lang.String toString()
 NOT_NULL
-com.gs.collections.impl.block.factory.Predicates2.NotEqual boolean accept(java.lang.Object, java.lang.Object) 0
-NULLABLE
 com.gs.collections.impl.block.factory.Predicates2.NotEqual boolean accept(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.gs.collections.impl.block.factory.Predicates2.NotEqual java.lang.String toString()
@@ -1668,8 +1658,6 @@ com.gs.collections.impl.block.factory.Procedures com.gs.collections.impl.block.p
 NOT_NULL
 com.gs.collections.impl.block.factory.Procedures com.gs.collections.impl.block.procedure.CaseProcedure<T> caseDefault(com.gs.collections.api.block.procedure.Procedure<? super T>, com.gs.collections.api.block.predicate.Predicate<? super T>, com.gs.collections.api.block.procedure.Procedure<? super T>)
 NOT_NULL
-com.gs.collections.impl.block.factory.Procedures.SynchronizedProcedure void value(T) 0
-NULLABLE
 com.gs.collections.impl.block.factory.Procedures2 ADD_TO_COLLECTION
 NOT_NULL
 com.gs.collections.impl.block.factory.Procedures2 com.gs.collections.api.block.procedure.Procedure2<T,P> fromProcedure(com.gs.collections.api.block.procedure.Procedure<? super T>)
@@ -2616,8 +2604,6 @@ com.gs.collections.impl.collection.mutable.CollectionAdapter com.gs.collections.
 NOT_NULL
 com.gs.collections.impl.collection.mutable.CollectionAdapter com.gs.collections.api.collection.MutableCollection<E> adapt(java.util.Collection<E>)
 NOT_NULL
-com.gs.collections.impl.collection.mutable.CollectionAdapter com.gs.collections.api.collection.MutableCollection<E> adapt(java.util.Collection<E>) 0
-NULLABLE
 com.gs.collections.impl.collection.mutable.CollectionAdapter com.gs.collections.api.collection.MutableCollection<T> asSynchronized()
 NOT_NULL
 com.gs.collections.impl.collection.mutable.CollectionAdapter com.gs.collections.api.collection.MutableCollection<T> asUnmodifiable()
@@ -3450,8 +3436,6 @@ com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.Muta
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
 NOT_NULL
-com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList sortThis(java.util.Comparator) 0
-NULLABLE
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList with(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.fixed.ArrayAdapter com.gs.collections.api.list.MutableList withAll(java.lang.Iterable)
@@ -3554,8 +3538,6 @@ com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.Mutable
 NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
 NOT_NULL
-com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator) 0
-NULLABLE
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList with(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.fixed.EmptyList com.gs.collections.api.list.MutableList<T> sortThisBy(com.gs.collections.api.block.function.Function<? super T,? extends V>)
@@ -3716,8 +3698,6 @@ com.gs.collections.impl.list.fixed.SingletonList com.gs.collections.api.list.Mut
 NOT_NULL
 com.gs.collections.impl.list.fixed.SingletonList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
 NOT_NULL
-com.gs.collections.impl.list.fixed.SingletonList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator) 0
-NULLABLE
 com.gs.collections.impl.list.fixed.SingletonList com.gs.collections.api.list.MutableList with(java.lang.Object)
 NOT_NULL
 com.gs.collections.impl.list.fixed.SingletonList com.gs.collections.api.list.MutableList<T> sortThisBy(com.gs.collections.api.block.function.Function<? super T,? extends V>)
@@ -3917,8 +3897,6 @@ NOT_NULL
 com.gs.collections.impl.list.immutable.ImmutableArrayList int indexOf(java.lang.Object) 0
 NULLABLE
 com.gs.collections.impl.list.immutable.ImmutableArrayList int lastIndexOf(java.lang.Object) 0
-NULLABLE
-com.gs.collections.impl.list.immutable.ImmutableArrayList void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super T>, int, int) 0
 NULLABLE
 com.gs.collections.impl.list.immutable.ImmutableArrayList void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
@@ -4270,8 +4248,6 @@ com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList<T> sortThis(java.util.Comparator<? super T>)
 NOT_NULL
-com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList<T> sortThis(java.util.Comparator<? super T>) 0
-NULLABLE
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList<T> sortThisBy(com.gs.collections.api.block.function.Function<? super T,? extends V>)
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList com.gs.collections.api.list.MutableList<T> subList(int, int)
@@ -4320,8 +4296,6 @@ com.gs.collections.impl.list.mutable.AbstractMutableList java.util.ListIterator<
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
-com.gs.collections.impl.list.mutable.AbstractMutableList void defaultSort(java.util.Comparator<? super T>) 0
-NULLABLE
 com.gs.collections.impl.list.mutable.AbstractMutableList void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.AbstractMutableList void forEachWith(com.gs.collections.api.block.procedure.Procedure2<? super T,? super P>, P) 0
@@ -4612,8 +4586,6 @@ com.gs.collections.impl.list.mutable.CompositeFastList lists
 NOT_NULL
 com.gs.collections.impl.list.mutable.CompositeFastList void addComposited(java.util.Collection<? extends E>) 0
 NOT_NULL
-com.gs.collections.impl.list.mutable.CompositeFastList void defaultSort(java.util.Comparator<? super E>) 0
-NULLABLE
 com.gs.collections.impl.list.mutable.CompositeFastList void forEach(com.gs.collections.api.block.procedure.Procedure<? super E>) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.CompositeFastList void forEachWith(com.gs.collections.api.block.procedure.Procedure2<? super E,? super P>, P) 0
@@ -4742,8 +4714,6 @@ com.gs.collections.impl.list.mutable.FastList com.gs.collections.api.list.Mutabl
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator)
 NOT_NULL
-com.gs.collections.impl.list.mutable.FastList com.gs.collections.api.list.MutableList sortThis(java.util.Comparator) 0
-NULLABLE
 com.gs.collections.impl.list.mutable.FastList com.gs.collections.api.list.MutableList toList()
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList com.gs.collections.api.list.MutableList toSortedList()
@@ -4816,8 +4786,6 @@ com.gs.collections.impl.list.mutable.FastList void addAllFastList(com.gs.collect
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList void addAllFastListAtIndex(com.gs.collections.impl.list.mutable.FastList<T>, int) 0
 NOT_NULL
-com.gs.collections.impl.list.mutable.FastList void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super T>, int, int) 0
-NULLABLE
 com.gs.collections.impl.list.mutable.FastList void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
 com.gs.collections.impl.list.mutable.FastList void forEachWith(com.gs.collections.api.block.procedure.Procedure2<? super T,? super P>, P) 0
@@ -5282,10 +5250,6 @@ com.gs.collections.impl.map.AbstractMapIterable V getIfAbsentWith(K, com.gs.coll
 NOT_NULL
 com.gs.collections.impl.map.AbstractMapIterable V getIfAbsentWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 1
 NOT_NULL
-com.gs.collections.impl.map.AbstractMapIterable boolean isAbsent(V, K) 0
-NULLABLE
-com.gs.collections.impl.map.AbstractMapIterable boolean keyAndValueEquals(K, V, java.util.Map<K,V>) 1
-NULLABLE
 com.gs.collections.impl.map.AbstractMapIterable boolean keyAndValueEquals(K, V, java.util.Map<K,V>) 2
 NOT_NULL
 com.gs.collections.impl.map.AbstractMapIterable com.gs.collections.api.RichIterable<com.gs.collections.api.tuple.Pair<V,S>> zip(java.lang.Iterable<S>) 0
@@ -5942,8 +5906,6 @@ com.gs.collections.impl.map.immutable.ImmutableUnifiedMap java.util.Collection<V
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableUnifiedMap java.util.Set<K> keySet()
 NOT_NULL
-com.gs.collections.impl.map.immutable.ImmutableUnifiedMap void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super V>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.immutable.ImmutableUnifiedMap void forEachKey(com.gs.collections.api.block.procedure.Procedure<? super K>) 0
 NOT_NULL
 com.gs.collections.impl.map.immutable.ImmutableUnifiedMap void forEachValue(com.gs.collections.api.block.procedure.Procedure<? super V>) 0
@@ -5956,8 +5918,6 @@ com.gs.collections.impl.map.mutable.AbstractMutableMap V getIfAbsentPut(K, com.g
 NULLABLE
 com.gs.collections.impl.map.mutable.AbstractMutableMap V getIfAbsentPut(K, com.gs.collections.api.block.function.Function0<? extends V>) 0
 NOT_NULL
-com.gs.collections.impl.map.mutable.AbstractMutableMap V getIfAbsentPutWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P)
-NULLABLE
 com.gs.collections.impl.map.mutable.AbstractMutableMap V getIfAbsentPutWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.AbstractMutableMap com.gs.collections.api.RichIterable selectInstancesOf(java.lang.Class)
@@ -6050,16 +6010,10 @@ com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsent(K, com.gs.co
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsent(K, com.gs.collections.api.block.function.Function0<? extends V>) 1
 NOT_NULL
-com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentPut(K, com.gs.collections.api.block.function.Function0<? extends V>)
-NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentPut(K, com.gs.collections.api.block.function.Function0<? extends V>) 0
 NOT_NULL
-com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentPut(K, com.gs.collections.api.block.function.Function<? super K,? extends V>)
-NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentPut(K, com.gs.collections.api.block.function.Function<? super K,? extends V>) 0
 NOT_NULL
-com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentPutWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P)
-NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentPutWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap V getIfAbsentWith(K, com.gs.collections.api.block.function.Function<? super P,? extends V>, P) 0
@@ -6137,8 +6091,6 @@ NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry access$1700(com.gs.collections.impl.map.mutable.ConcurrentHashMap, java.lang.Object) 1
 NOT_NULL
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> createReplacementChainForRemoval(com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>, com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>)
-NULLABLE
-com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> createReplacementChainForRemoval(com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>, com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V>) 0
 NULLABLE
 com.gs.collections.impl.map.mutable.ConcurrentHashMap com.gs.collections.impl.map.mutable.ConcurrentHashMap.Entry<K,V> getEntry(java.lang.Object)
 NULLABLE
@@ -6480,8 +6432,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap boolean equals(java.lang.Object) 
 NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap boolean nullSafeEquals(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.gs.collections.impl.map.mutable.UnifiedMap boolean nullSafeEquals(java.lang.Object, java.lang.Object) 1
-NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap com.gs.collections.api.map.MutableMap clone()
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap com.gs.collections.api.map.MutableMap<K,V> collectKeysAndValues(java.util.Collection<E>, com.gs.collections.api.block.function.Function<? super E,? extends K>, com.gs.collections.api.block.function.Function<? super E,? extends V>)
@@ -6558,8 +6508,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap void access$400(com.gs.collection
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap void access$400(com.gs.collections.impl.map.mutable.UnifiedMap, java.lang.Object[], int, int) 1
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super V>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap void chainedForEachEntry(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure2<? super K,? super V>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap void chainedForEachKey(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure<? super K>) 0
@@ -6592,8 +6540,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet T[] toArray(T[]) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object) 0
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object) 2
-NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean contains(java.lang.Object) 0
 NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean containsAll(java.util.Collection<?>) 0
@@ -6614,8 +6560,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet java.lang.Object[] toArr
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super java.util.Map.Entry<K,V>>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet void chainedForEachEntry(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure<? super java.util.Map.Entry<K,V>>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet void forEach(com.gs.collections.api.block.procedure.Procedure<? super java.util.Map.Entry<K,V>>) 0
@@ -6646,8 +6590,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap.KeySet java.lang.Object[] toArray
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super K>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void chainedAddToSet(java.lang.Object[], com.gs.collections.impl.set.mutable.UnifiedSet<K>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void forEach(com.gs.collections.api.block.procedure.Procedure<? super K>) 0
@@ -6676,8 +6618,6 @@ com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection java.lang.Object
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection java.util.Iterator<V> iterator()
 NOT_NULL
-com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super V>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection void chainedAddToList(java.lang.Object[], com.gs.collections.impl.list.mutable.FastList<V>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection void forEach(com.gs.collections.api.block.procedure.Procedure<? super V>) 0
@@ -6689,8 +6629,6 @@ NULLABLE
 com.gs.collections.impl.map.mutable.UnmodifiableMutableMap UnmodifiableMutableMap(com.gs.collections.api.map.MutableMap<K,V>) 0
 NOT_NULL
 com.gs.collections.impl.map.mutable.UnmodifiableMutableMap boolean equals(java.lang.Object) 0
-NULLABLE
-com.gs.collections.impl.map.mutable.UnmodifiableMutableMap boolean isAbsent(V, K) 0
 NULLABLE
 com.gs.collections.impl.map.mutable.UnmodifiableMutableMap com.gs.collections.api.RichIterable<K> keysView()
 NOT_NULL
@@ -7068,8 +7006,6 @@ com.gs.collections.impl.map.sorted.mutable.TreeSortedMap com.gs.collections.impl
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.TreeSortedMap com.gs.collections.impl.map.sorted.mutable.TreeSortedMap<K,V> newMap(java.util.Map<? extends K,? extends V>)
 NOT_NULL
-com.gs.collections.impl.map.sorted.mutable.TreeSortedMap com.gs.collections.impl.map.sorted.mutable.TreeSortedMap<K,V> newMap(java.util.Map<? extends K,? extends V>) 0
-NULLABLE
 com.gs.collections.impl.map.sorted.mutable.TreeSortedMap com.gs.collections.impl.map.sorted.mutable.TreeSortedMap<K,V> newMapWith(K, V)
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.TreeSortedMap com.gs.collections.impl.map.sorted.mutable.TreeSortedMap<K,V> newMapWith(K, V, K, V)
@@ -7135,8 +7071,6 @@ NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.UnmodifiableTreeMap UnmodifiableTreeMap(com.gs.collections.api.map.sorted.MutableSortedMap<K,V>) 0
 NOT_NULL
 com.gs.collections.impl.map.sorted.mutable.UnmodifiableTreeMap boolean equals(java.lang.Object) 0
-NULLABLE
-com.gs.collections.impl.map.sorted.mutable.UnmodifiableTreeMap boolean isAbsent(V, K) 0
 NULLABLE
 com.gs.collections.impl.map.sorted.mutable.UnmodifiableTreeMap com.gs.collections.api.RichIterable<K> keysView()
 NOT_NULL
@@ -7306,8 +7240,6 @@ com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStr
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy java.util.Set<K> keySet()
 NOT_NULL
-com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super V>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy void forEachKey(com.gs.collections.api.block.procedure.Procedure<? super K>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy void forEachValue(com.gs.collections.api.block.procedure.Procedure<? super V>) 0
@@ -7379,8 +7311,6 @@ NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy boolean equals(java.lang.Object) 0
 NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy boolean nullSafeEquals(java.lang.Object, java.lang.Object) 0
-NULLABLE
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy boolean nullSafeEquals(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy com.gs.collections.api.block.HashingStrategy access$200(com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy) 0
 NOT_NULL
@@ -7458,8 +7388,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void 
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void access$500(com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy, java.lang.Object[], int, int) 1
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super V>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void chainedForEachEntry(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure2<? super K,? super V>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void chainedForEachKey(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure<? super K>) 0
@@ -7492,8 +7420,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.Entry
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object) 0
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object) 2
-NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean contains(java.lang.Object) 0
 NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean containsAll(java.util.Collection<?>) 0
@@ -7514,8 +7440,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.Entry
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet java.util.Iterator<java.util.Map.Entry<K,V>> iterator()
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super java.util.Map.Entry<K,V>>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet void chainedForEachEntry(java.lang.Object[], com.gs.collections.api.block.procedure.Procedure<? super java.util.Map.Entry<K,V>>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet void forEach(com.gs.collections.api.block.procedure.Procedure<? super java.util.Map.Entry<K,V>>) 0
@@ -7546,8 +7470,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySe
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet java.util.Iterator<K> iterator()
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super K>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void chainedAddToSet(java.lang.Object[], com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy<K>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void forEach(com.gs.collections.api.block.procedure.Procedure<? super K>) 0
@@ -7576,8 +7498,6 @@ com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.Value
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection java.util.Iterator<V> iterator()
 NOT_NULL
-com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super V>, int, int) 0
-NULLABLE
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection void chainedAddToList(java.lang.Object[], com.gs.collections.impl.list.mutable.FastList<V>) 0
 NOT_NULL
 com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection void forEach(com.gs.collections.api.block.procedure.Procedure<? super V>) 0
@@ -8172,8 +8092,6 @@ com.gs.collections.impl.parallel.AbstractPredicateBasedCombiner java.util.Collec
 NULLABLE
 com.gs.collections.impl.parallel.AbstractPredicateBasedCombiner java.util.Collection<T> initializeResult(java.lang.Iterable<?>, java.util.Collection<T>, int) 0
 NULLABLE
-com.gs.collections.impl.parallel.AbstractPredicateBasedCombiner java.util.Collection<T> initializeResult(java.lang.Iterable<?>, java.util.Collection<T>, int) 1
-NULLABLE
 com.gs.collections.impl.parallel.AbstractProcedureCombiner void combineAll(java.lang.Iterable<BT>) 0
 NOT_NULL
 com.gs.collections.impl.parallel.AbstractTransformerBasedCombiner java.util.Collection<V> createResultForCollection(java.lang.Iterable<T>, int) 0
@@ -8196,8 +8114,6 @@ com.gs.collections.impl.parallel.ArrayProcedureFJTaskRunner.ProcedureExtractor B
 NOT_NULL
 com.gs.collections.impl.parallel.ArrayProcedureFJTaskRunner.ProcedureExtractor java.lang.Object valueOf(java.lang.Object) 0
 NOT_NULL
-com.gs.collections.impl.parallel.BatchIterable void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super E>, int, int) 0
-NULLABLE
 com.gs.collections.impl.parallel.BatchIterable void forEach(com.gs.collections.api.block.procedure.Procedure<? super E>) 0
 NOT_NULL
 com.gs.collections.impl.parallel.BatchIterableProcedureFJTaskRunner latch
@@ -9152,8 +9068,6 @@ com.gs.collections.impl.set.immutable.ImmutableUnifiedSet com.gs.collections.api
 NOT_NULL
 com.gs.collections.impl.set.immutable.ImmutableUnifiedSet java.util.Iterator<T> iterator()
 NOT_NULL
-com.gs.collections.impl.set.immutable.ImmutableUnifiedSet void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super T>, int, int) 0
-NULLABLE
 com.gs.collections.impl.set.immutable.ImmutableUnifiedSet void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.AbstractMutableSet R differenceInto(com.gs.collections.api.set.SetIterable<? extends T>, R)
@@ -9798,8 +9712,6 @@ com.gs.collections.impl.set.mutable.UnifiedSet void appendString(java.lang.Appen
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
-com.gs.collections.impl.set.mutable.UnifiedSet void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super K>, int, int) 0
-NULLABLE
 com.gs.collections.impl.set.mutable.UnifiedSet void chainedForEach(com.gs.collections.impl.set.mutable.UnifiedSet.ChainedBucket, com.gs.collections.api.block.procedure.Procedure<? super K>) 0
 NOT_NULL
 com.gs.collections.impl.set.mutable.UnifiedSet void chainedForEach(com.gs.collections.impl.set.mutable.UnifiedSet.ChainedBucket, com.gs.collections.api.block.procedure.Procedure<? super K>) 1
@@ -10008,8 +9920,6 @@ com.gs.collections.impl.set.sorted.immutable.ImmutableSortedSetFactoryImpl com.g
 NULLABLE
 com.gs.collections.impl.set.sorted.immutable.ImmutableSortedSetFactoryImpl com.gs.collections.api.set.sorted.ImmutableSortedSet<T> with(java.util.Comparator<? super T>, T...)
 NOT_NULL
-com.gs.collections.impl.set.sorted.immutable.ImmutableSortedSetFactoryImpl com.gs.collections.api.set.sorted.ImmutableSortedSet<T> with(java.util.Comparator<? super T>, T...) 1
-NULLABLE
 com.gs.collections.impl.set.sorted.immutable.ImmutableSortedSetFactoryImpl com.gs.collections.api.set.sorted.ImmutableSortedSet<T> withAll(java.lang.Iterable<? extends T>)
 NOT_NULL
 com.gs.collections.impl.set.sorted.immutable.ImmutableSortedSetFactoryImpl com.gs.collections.api.set.sorted.ImmutableSortedSet<T> withAll(java.lang.Iterable<? extends T>) 0
@@ -10530,8 +10440,6 @@ com.gs.collections.impl.set.strategy.immutable.ImmutableHashingStrategySetFactor
 NOT_NULL
 com.gs.collections.impl.set.strategy.immutable.ImmutableHashingStrategySetFactoryImpl com.gs.collections.api.set.ImmutableSet<T> with(com.gs.collections.api.block.HashingStrategy<? super T>, T...)
 NOT_NULL
-com.gs.collections.impl.set.strategy.immutable.ImmutableHashingStrategySetFactoryImpl com.gs.collections.api.set.ImmutableSet<T> with(com.gs.collections.api.block.HashingStrategy<? super T>, T...) 1
-NULLABLE
 com.gs.collections.impl.set.strategy.immutable.ImmutableHashingStrategySetFactoryImpl com.gs.collections.api.set.ImmutableSet<T> withAll(com.gs.collections.api.block.HashingStrategy<? super T>, java.lang.Iterable<? extends T>)
 NOT_NULL
 com.gs.collections.impl.set.strategy.immutable.ImmutableHashingStrategySetFactoryImpl com.gs.collections.api.set.ImmutableSet<T> withAll(com.gs.collections.api.block.HashingStrategy<? super T>, java.lang.Iterable<? extends T>) 1
@@ -10552,8 +10460,6 @@ com.gs.collections.impl.set.strategy.immutable.ImmutableUnifiedSetWithHashingStr
 NOT_NULL
 com.gs.collections.impl.set.strategy.immutable.ImmutableUnifiedSetWithHashingStrategy java.util.Iterator<T> iterator()
 NOT_NULL
-com.gs.collections.impl.set.strategy.immutable.ImmutableUnifiedSetWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super T>, int, int) 0
-NULLABLE
 com.gs.collections.impl.set.strategy.immutable.ImmutableUnifiedSetWithHashingStrategy void forEach(com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
 com.gs.collections.impl.set.strategy.mutable.MutableHashingStrategySetFactoryImpl com.gs.collections.api.set.MutableSet<T> of(com.gs.collections.api.block.HashingStrategy<? super T>)
@@ -10870,8 +10776,6 @@ com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy void 
 NOT_NULL
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy void appendString(java.lang.Appendable, java.lang.String, java.lang.String, java.lang.String) 0
 NOT_NULL
-com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure<? super K>, int, int) 0
-NULLABLE
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy void chainedForEach(com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy.ChainedBucket, com.gs.collections.api.block.procedure.Procedure<? super K>) 0
 NOT_NULL
 com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy void chainedForEach(com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy.ChainedBucket, com.gs.collections.api.block.procedure.Procedure<? super K>) 1
@@ -11318,8 +11222,6 @@ com.gs.collections.impl.utility.ArrayIterate void forEachWithIndex(T[], com.gs.c
 NOT_NULL
 com.gs.collections.impl.utility.ArrayIterate void forEachWithIndex(T[], int, int, com.gs.collections.api.block.procedure.ObjectIntProcedure<? super T>) 0
 NOT_NULL
-com.gs.collections.impl.utility.ArrayIterate void sort(T[], int, java.util.Comparator<? super T>) 2
-NULLABLE
 com.gs.collections.impl.utility.ArrayIterate void swapWithPrevious(T[], int) 0
 NOT_NULL
 com.gs.collections.impl.utility.ArrayListIterate ELEMENT_DATA_FIELD
@@ -11874,8 +11776,6 @@ com.gs.collections.impl.utility.ListIterate void forEachWithIndex(java.util.List
 NOT_NULL
 com.gs.collections.impl.utility.ListIterate void reverseForEach(java.util.List<T>, com.gs.collections.api.block.procedure.Procedure<? super T>) 0
 NOT_NULL
-com.gs.collections.impl.utility.ListIterate void toArray(java.util.List<T>, T[], int, int) 0
-NULLABLE
 com.gs.collections.impl.utility.MapIterate A ifPresentApply(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function<? super V,? extends A>)
 NULLABLE
 com.gs.collections.impl.utility.MapIterate A ifPresentApply(java.util.Map<K,V>, K, com.gs.collections.api.block.function.Function<? super V,? extends A>) 0
@@ -11918,8 +11818,6 @@ com.gs.collections.impl.utility.MapIterate boolean allSatisfy(java.util.Map<K,V>
 NOT_NULL
 com.gs.collections.impl.utility.MapIterate boolean anySatisfy(java.util.Map<K,V>, com.gs.collections.api.block.predicate.Predicate<? super V>) 0
 NOT_NULL
-com.gs.collections.impl.utility.MapIterate boolean isAbsent(V, java.util.Map<K,V>, K) 0
-NULLABLE
 com.gs.collections.impl.utility.MapIterate boolean isEmpty(java.util.Map<?,?>) 0
 NULLABLE
 com.gs.collections.impl.utility.MapIterate boolean notEmpty(java.util.Map<?,?>) 0
@@ -12070,11 +11968,7 @@ com.gs.collections.impl.utility.StringIterate java.lang.String englishToUpperCas
 NOT_NULL
 com.gs.collections.impl.utility.StringIterate java.lang.String getFirstToken(java.lang.String, java.lang.String)
 NULLABLE
-com.gs.collections.impl.utility.StringIterate java.lang.String getFirstToken(java.lang.String, java.lang.String) 0
-NULLABLE
 com.gs.collections.impl.utility.StringIterate java.lang.String getLastToken(java.lang.String, java.lang.String)
-NULLABLE
-com.gs.collections.impl.utility.StringIterate java.lang.String getLastToken(java.lang.String, java.lang.String) 0
 NULLABLE
 com.gs.collections.impl.utility.StringIterate java.lang.String padOrTrim(java.lang.String, int) 0
 NOT_NULL
@@ -12100,8 +11994,6 @@ com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy INSTANCE
 NOT_NULL
 com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy SIZE_CONSTRUCTOR_TYPES
 NOT_NULL
-com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy java.util.Collection<T> createNewInstanceForCollectionType(java.util.Collection<?>) 0
-NULLABLE
 com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy java.util.Collection<T> speciesNew(java.util.Collection<?>) 0
 NOT_NULL
 com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy java.util.Collection<T> speciesNew(java.util.Collection<?>, int) 0

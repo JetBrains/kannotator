@@ -96,8 +96,6 @@ edu.uci.ics.jung.io.PajekNetReader E createAddEdge(java.util.StringTokenizer, V,
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetReader E createAddEdge(java.util.StringTokenizer, V, edu.uci.ics.jung.graph.util.EdgeType, edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, org.apache.commons.collections15.Factory<E>) 3
 NOT_NULL
-edu.uci.ics.jung.io.PajekNetReader E createAddEdge(java.util.StringTokenizer, V, edu.uci.ics.jung.graph.util.EdgeType, edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, org.apache.commons.collections15.Factory<E>) 4
-NULLABLE
 edu.uci.ics.jung.io.PajekNetReader E createAddEdge(java.util.StringTokenizer, V, edu.uci.ics.jung.graph.util.EdgeType, edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, org.apache.commons.collections15.Factory<E>) 5
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetReader G load(java.io.Reader, org.apache.commons.collections15.Factory<? extends G>) 1
@@ -112,10 +110,6 @@ edu.uci.ics.jung.io.PajekNetReader e_pred
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetReader java.lang.String readArcsOrEdges(java.lang.String, java.io.BufferedReader, edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, org.apache.commons.collections15.Factory<E>)
 NULLABLE
-edu.uci.ics.jung.io.PajekNetReader java.lang.String readArcsOrEdges(java.lang.String, java.io.BufferedReader, edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, org.apache.commons.collections15.Factory<E>) 2
-NULLABLE
-edu.uci.ics.jung.io.PajekNetReader java.lang.String readArcsOrEdges(java.lang.String, java.io.BufferedReader, edu.uci.ics.jung.graph.Graph<V,E>, java.util.List<V>, org.apache.commons.collections15.Factory<E>) 3
-NULLABLE
 edu.uci.ics.jung.io.PajekNetReader java.lang.String skip(java.io.BufferedReader, org.apache.commons.collections15.Predicate<java.lang.String>)
 NULLABLE
 edu.uci.ics.jung.io.PajekNetReader java.lang.String skip(java.io.BufferedReader, org.apache.commons.collections15.Predicate<java.lang.String>) 0
@@ -126,8 +120,6 @@ edu.uci.ics.jung.io.PajekNetReader v_pred
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetReader void readVertex(java.lang.String, java.util.List<V>, int) 0
 NOT_NULL
-edu.uci.ics.jung.io.PajekNetReader void readVertex(java.lang.String, java.util.List<V>, int) 1
-NULLABLE
 edu.uci.ics.jung.io.PajekNetReader.ListTagPred boolean evaluate(java.lang.String) 0
 NULLABLE
 edu.uci.ics.jung.io.PajekNetReader.StartsWithPredicate boolean evaluate(java.lang.String) 0
@@ -138,12 +130,6 @@ edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, 
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 0
 NOT_NULL
-edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 2
-NULLABLE
-edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 3
-NULLABLE
-edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.io.Writer, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>, org.apache.commons.collections15.Transformer<V,java.awt.geom.Point2D>) 4
-NULLABLE
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String) 0
 NOT_NULL
 edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph<V,E>, java.lang.String, org.apache.commons.collections15.Transformer<V,java.lang.String>, org.apache.commons.collections15.Transformer<E,java.lang.Number>) 0

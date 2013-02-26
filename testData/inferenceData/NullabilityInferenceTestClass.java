@@ -2,9 +2,8 @@ package inferenceData;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
-import java.util.Collection;
-import java.util.List;
-import java.util.ListIterator;
+
+import java.util.*;
 
 public class NullabilityInferenceTestClass {
     @ExpectNullable
@@ -366,5 +365,31 @@ public class NullabilityInferenceTestClass {
             listIt.set(string);
         }
         return strings;
+    }
+
+    @ExpectNotNull
+    public int[] testAssertsWithExceptions(@ExpectNotNull int[] a, int[] b) {
+        if (a.length != 10) {
+            throw new IllegalArgumentException("");
+        }
+        if (b == null || b.length != 10) {
+            b = new int[10];
+        } else {
+            b[0]++;
+        }
+
+        return b;
+    }
+
+    public <V> Collection<V> testUnmodifiableCollectionSubclass(Collection<V> collection) {
+        if (collection instanceof SortedSet) {
+            return Collections.unmodifiableSortedSet((SortedSet<V>) collection);
+        } else if (collection instanceof Set) {
+            return Collections.unmodifiableSet((Set<V>) collection);
+        } else if (collection instanceof List) {
+            return Collections.unmodifiableList((List<V>) collection);
+        } else {
+            return Collections.unmodifiableCollection(collection);
+        }
     }
 }

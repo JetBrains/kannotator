@@ -294,8 +294,6 @@ edu.uci.ics.jung.visualization.annotations.AnnotationRenderer java.awt.Component
 NOT_NULL
 edu.uci.ics.jung.visualization.annotations.AnnotationRenderer java.awt.Component getAnnotationRendererComponent(javax.swing.JComponent, java.lang.Object) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.annotations.AnnotationRenderer void setValue(java.lang.Object) 0
-NULLABLE
 edu.uci.ics.jung.visualization.control.AbsoluteCrossoverScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationViewer<?,?>, float, java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.AbstractGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent) 0
@@ -564,8 +562,6 @@ edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.
 NOT_NULL
 edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.layout.LayoutTransition LayoutTransition(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 2
-NULLABLE
 edu.uci.ics.jung.visualization.layout.PersistentLayout.Point Point(java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.layout.PersistentLayoutImpl void initializeLocation(V, java.awt.geom.Point2D, java.awt.Dimension) 1
@@ -744,18 +740,10 @@ edu.uci.ics.jung.visualization.renderers.DefaultEdgeLabelRenderer java.awt.Compo
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.DefaultEdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, E) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.DefaultEdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, E) 2
-NULLABLE
-edu.uci.ics.jung.visualization.renderers.DefaultEdgeLabelRenderer void setValue(java.lang.Object) 0
-NULLABLE
 edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, V)
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, V) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, V) 2
-NULLABLE
-edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer void setValue(java.lang.Object) 0
-NULLABLE
 edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
 NULLABLE
 edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
@@ -772,8 +760,6 @@ edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component ge
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 2
-NULLABLE
 edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer boolean vertexHit(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintShapeForVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, V, java.awt.Shape) 0
@@ -884,8 +870,6 @@ edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component 
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 2
-NULLABLE
 edu.uci.ics.jung.visualization.subLayout.GraphCollapser boolean contains(edu.uci.ics.jung.graph.Graph, java.lang.Object) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.subLayout.GraphCollapser edu.uci.ics.jung.graph.Graph collapse(edu.uci.ics.jung.graph.Graph, edu.uci.ics.jung.graph.Graph) 1

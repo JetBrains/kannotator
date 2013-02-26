@@ -26,8 +26,6 @@ edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? e
 NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean isSuccessor(V, V) 0
-NULLABLE
 edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair<V> getValidatedEndpoints(E, edu.uci.ics.jung.graph.util.Pair<? extends V>)
 NULLABLE
 edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair<V> getValidatedEndpoints(E, edu.uci.ics.jung.graph.util.Pair<? extends V>) 0
@@ -188,8 +186,6 @@ edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, java.util.Collection<?
 NOT_NULL
 edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
-edu.uci.ics.jung.graph.OrderedKAryTree boolean isSuccessor(V, V) 0
-NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree edu.uci.ics.jung.graph.util.Pair<V> getEndpoints(E)
 NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection<E> getChildEdges(V)

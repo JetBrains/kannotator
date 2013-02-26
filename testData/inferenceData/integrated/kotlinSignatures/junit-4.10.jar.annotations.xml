@@ -34,41 +34,6 @@
             <val name="value" val="&quot;fun run(result : TestResult) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertEquals(message : String?, expected : Any?, actual : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertEquals(message : String?, expected : String?, actual : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='junit.framework.Assert void assertNotNull(java.lang.String, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertNotNull(message : String?, object : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='junit.framework.Assert void assertNull(java.lang.String, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertNull(message : String?, object : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='junit.framework.Assert void failNotSame(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun failNotSame(message : String?, expected : Any?, actual : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='junit.framework.Assert void failSame(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun failSame(message : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='junit.framework.Assert java.lang.String format(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun format(message : String?, expected : Any?, actual : Any?) : String?&quot;"/>
-        </annotation>
-    </item>
     <item name='junit.framework.AssertionFailedError java.lang.String defaultString(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun defaultString(message : String?) : String&quot;"/>
@@ -864,21 +829,6 @@
             <val name="value" val="&quot;fun next() : SelfDescribing&quot;"/>
         </annotation>
     </item>
-    <item name='org.junit.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertEquals(message : String?, expected : Any?, actual : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.Assert void assertNotNull(java.lang.String, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertNotNull(message : String?, object : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.Assert void assertNull(java.lang.String, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun assertNull(message : String?, object : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.junit.Assert void assertThat(T, org.hamcrest.Matcher&lt;T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; assertThat(actual : T?, matcher : Matcher&lt;T&gt;) : Unit&quot;"/>
@@ -887,26 +837,6 @@
     <item name='org.junit.Assert void assertThat(java.lang.String, T, org.hamcrest.Matcher&lt;T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; assertThat(reason : String?, actual : T?, matcher : Matcher&lt;T&gt;) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.Assert void failNotSame(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun failNotSame(message : String?, expected : Any?, actual : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.Assert void failSame(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun failSame(message : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.Assert java.lang.String format(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun format(message : String?, expected : Any?, actual : Any?) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.Assert java.lang.String formatClassAndValue(java.lang.Object, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun formatClassAndValue(value : Any?, valueString : String?) : String?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.Assert boolean isEquals(java.lang.Object, java.lang.Object)'>
@@ -1454,19 +1384,9 @@
             <val name="value" val="&quot;fun getValueSources(sig : ParameterSignature) : MutableList&lt;PotentialAssignment?&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='org.junit.internal.AssumptionViolatedException AssumptionViolatedException(java.lang.Object, org.hamcrest.Matcher&lt;?&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun AssumptionViolatedException(value : Any?, matcher : Matcher&lt;*&gt;?)&quot;"/>
-        </annotation>
-    </item>
     <item name='org.junit.internal.AssumptionViolatedException void describeTo(org.hamcrest.Description)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun describeTo(description : Description) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.internal.ComparisonCriteria void arrayEquals(java.lang.String, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun arrayEquals(message : String?, expecteds : Any?, actuals : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.ComparisonCriteria void assertElementsEqual(java.lang.Object, java.lang.Object)'>
@@ -1729,11 +1649,6 @@
             <val name="value" val="&quot;fun describeCause(child : Throwable?) : Description&quot;"/>
         </annotation>
     </item>
-    <item name='org.junit.internal.runners.ErrorReportingRunner java.util.List&lt;java.lang.Throwable&gt; getCauses(java.lang.Throwable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getCauses(cause : Throwable?) : MutableList&lt;Throwable?&gt;?&quot;"/>
-        </annotation>
-    </item>
     <item name='org.junit.internal.runners.ErrorReportingRunner org.junit.runner.Description getDescription()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getDescription() : Description&quot;"/>
@@ -1967,11 +1882,6 @@
     <item name='org.junit.internal.runners.TestMethod boolean isUnexpected(java.lang.Throwable)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun isUnexpected(exception : Throwable) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.internal.runners.model.EachTestNotifier void addFailure(java.lang.Throwable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addFailure(targetException : Throwable?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.internal.runners.model.EachTestNotifier void addMultipleFailureException(org.junit.runners.model.MultipleFailureException)'>
@@ -2934,11 +2844,6 @@
             <val name="value" val="&quot;fun isShadowedBy(other : FrameworkMethod) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.junit.runners.model.FrameworkMethod boolean producesType(java.lang.reflect.Type)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun producesType(type : Type?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='org.junit.runners.model.FrameworkMethod void validateNoTypeParametersOnArgs(java.util.List&lt;java.lang.Throwable&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateNoTypeParametersOnArgs(errors : MutableList&lt;Throwable?&gt;?) : Unit&quot;"/>
@@ -3009,11 +2914,6 @@
             <val name="value" val="&quot;fun schedule(p0 : Runnable) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.junit.runners.model.TestClass TestClass(java.lang.Class&lt;?&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun TestClass(klass : Class&lt;*&gt;?)&quot;"/>
-        </annotation>
-    </item>
     <item name='org.junit.runners.model.TestClass void addToAnnotationLists(T, java.util.Map&lt;java.lang.Class&lt;?&gt;,java.util.List&lt;T&gt;&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T : FrameworkMember&lt;T&gt;?&gt; addToAnnotationLists(member : T, map : MutableMap&lt;Class&lt;*&gt;?, List&lt;T&gt;?&gt;?) : Unit&quot;"/>
@@ -3027,11 +2927,6 @@
     <item name='org.junit.runners.model.TestClass java.util.List&lt;T&gt; getAnnotatedMembers(java.util.Map&lt;java.lang.Class&lt;?&gt;,java.util.List&lt;T&gt;&gt;, java.lang.Class&lt;? extends java.lang.annotation.Annotation&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; getAnnotatedMembers(map : MutableMap&lt;Class&lt;*&gt;?, List&lt;T&gt;?&gt;, type : Class&lt;out Annotation?&gt;?) : MutableList&lt;T&gt;?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.junit.runners.model.TestClass java.lang.Class&lt;?&gt; getJavaClass()'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getJavaClass() : Class&lt;*&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='org.junit.runners.model.TestClass java.util.List&lt;java.lang.Class&lt;?&gt;&gt; getSuperClasses(java.lang.Class&lt;?&gt;)'>

@@ -12,24 +12,6 @@ junit.extensions.TestDecorator void run(junit.framework.TestResult) 0
 NOT_NULL
 junit.extensions.TestSetup void run(junit.framework.TestResult) 0
 NOT_NULL
-junit.framework.Assert java.lang.String format(java.lang.String, java.lang.Object, java.lang.Object) 0
-NULLABLE
-junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object) 1
-NULLABLE
-junit.framework.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object) 2
-NULLABLE
-junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String) 1
-NULLABLE
-junit.framework.Assert void assertEquals(java.lang.String, java.lang.String, java.lang.String) 2
-NULLABLE
-junit.framework.Assert void assertNotNull(java.lang.String, java.lang.Object) 1
-NULLABLE
-junit.framework.Assert void assertNull(java.lang.String, java.lang.Object) 1
-NULLABLE
-junit.framework.Assert void failNotSame(java.lang.String, java.lang.Object, java.lang.Object) 0
-NULLABLE
-junit.framework.Assert void failSame(java.lang.String) 0
-NULLABLE
 junit.framework.AssertionFailedError java.lang.String defaultString(java.lang.String)
 NOT_NULL
 junit.framework.AssertionFailedError java.lang.String defaultString(java.lang.String) 0
@@ -236,8 +218,6 @@ org.hamcrest.BaseDescription org.hamcrest.Description appendText(java.lang.Strin
 NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendValue(java.lang.Object)
 NOT_NULL
-org.hamcrest.BaseDescription org.hamcrest.Description appendValue(java.lang.Object) 0
-NULLABLE
 org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...)
 NOT_NULL
 org.hamcrest.BaseDescription org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...) 0
@@ -322,8 +302,6 @@ org.hamcrest.Description org.hamcrest.Description appendText(java.lang.String) 0
 NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendValue(java.lang.Object)
 NOT_NULL
-org.hamcrest.Description org.hamcrest.Description appendValue(java.lang.Object) 0
-NULLABLE
 org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...)
 NOT_NULL
 org.hamcrest.Description org.hamcrest.Description appendValueList(java.lang.String, java.lang.String, java.lang.String, T...) 0
@@ -446,26 +424,10 @@ org.hamcrest.internal.SelfDescribingValueIterator org.hamcrest.SelfDescribing ne
 NOT_NULL
 org.junit.Assert boolean isEquals(java.lang.Object, java.lang.Object) 0
 NOT_NULL
-org.junit.Assert java.lang.String format(java.lang.String, java.lang.Object, java.lang.Object) 0
-NULLABLE
-org.junit.Assert java.lang.String formatClassAndValue(java.lang.Object, java.lang.String) 0
-NULLABLE
-org.junit.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object) 1
-NULLABLE
-org.junit.Assert void assertEquals(java.lang.String, java.lang.Object, java.lang.Object) 2
-NULLABLE
-org.junit.Assert void assertNotNull(java.lang.String, java.lang.Object) 1
-NULLABLE
-org.junit.Assert void assertNull(java.lang.String, java.lang.Object) 1
-NULLABLE
 org.junit.Assert void assertThat(T, org.hamcrest.Matcher<T>) 1
 NOT_NULL
 org.junit.Assert void assertThat(java.lang.String, T, org.hamcrest.Matcher<T>) 2
 NOT_NULL
-org.junit.Assert void failNotSame(java.lang.String, java.lang.Object, java.lang.Object) 0
-NULLABLE
-org.junit.Assert void failSame(java.lang.String) 0
-NULLABLE
 org.junit.Assume void assumeThat(T, org.hamcrest.Matcher<T>) 1
 NOT_NULL
 org.junit.ComparisonFailure.ComparisonCompactor DELTA_END
@@ -736,15 +698,11 @@ org.junit.experimental.theories.suppliers.TestedOnSupplier java.util.List<org.ju
 NOT_NULL
 org.junit.experimental.theories.suppliers.TestedOnSupplier java.util.List<org.junit.experimental.theories.PotentialAssignment> getValueSources(org.junit.experimental.theories.ParameterSignature) 0
 NOT_NULL
-org.junit.internal.AssumptionViolatedException AssumptionViolatedException(java.lang.Object, org.hamcrest.Matcher<?>) 0
-NULLABLE
 org.junit.internal.AssumptionViolatedException fValue
 NULLABLE
 org.junit.internal.AssumptionViolatedException void describeTo(org.hamcrest.Description) 0
 NOT_NULL
 org.junit.internal.ComparisonCriteria boolean isArray(java.lang.Object) 0
-NULLABLE
-org.junit.internal.ComparisonCriteria void arrayEquals(java.lang.String, java.lang.Object, java.lang.Object) 0
 NULLABLE
 org.junit.internal.ComparisonCriteria void assertElementsEqual(java.lang.Object, java.lang.Object) 0
 NOT_NULL
@@ -872,8 +830,6 @@ org.junit.internal.matchers.TypeSafeMatcher boolean matchesSafely(T) 0
 NOT_NULL
 org.junit.internal.matchers.TypeSafeMatcher java.lang.Class<?> findExpectedType(java.lang.Class<?>) 0
 NOT_NULL
-org.junit.internal.runners.ErrorReportingRunner java.util.List<java.lang.Throwable> getCauses(java.lang.Throwable) 0
-NULLABLE
 org.junit.internal.runners.ErrorReportingRunner org.junit.runner.Description describeCause(java.lang.Throwable)
 NOT_NULL
 org.junit.internal.runners.ErrorReportingRunner org.junit.runner.Description getDescription()
@@ -986,8 +942,6 @@ org.junit.internal.runners.TestMethod java.util.List<java.lang.reflect.Method> g
 NOT_NULL
 org.junit.internal.runners.TestMethod java.util.List<java.lang.reflect.Method> getBefores()
 NOT_NULL
-org.junit.internal.runners.model.EachTestNotifier void addFailure(java.lang.Throwable) 0
-NULLABLE
 org.junit.internal.runners.model.EachTestNotifier void addMultipleFailureException(org.junit.runners.model.MultipleFailureException) 0
 NOT_NULL
 org.junit.internal.runners.rules.RuleFieldValidator $VALUES
@@ -1432,8 +1386,6 @@ org.junit.runners.model.FrameworkMethod boolean isShadowedBy(org.junit.runners.m
 NOT_NULL
 org.junit.runners.model.FrameworkMethod boolean isShadowedBy(org.junit.runners.model.FrameworkMethod) 0
 NOT_NULL
-org.junit.runners.model.FrameworkMethod boolean producesType(java.lang.reflect.Type) 0
-NULLABLE
 org.junit.runners.model.MultipleFailureException fErrors
 NOT_NULL
 org.junit.runners.model.MultipleFailureException void assertEmpty(java.util.List<java.lang.Throwable>) 0
@@ -1466,14 +1418,8 @@ org.junit.runners.model.RunnerBuilder parents
 NOT_NULL
 org.junit.runners.model.RunnerScheduler void schedule(java.lang.Runnable) 0
 NOT_NULL
-org.junit.runners.model.TestClass TestClass(java.lang.Class<?>) 0
-NULLABLE
 org.junit.runners.model.TestClass boolean runsTopToBottom(java.lang.Class<? extends java.lang.annotation.Annotation>) 0
 NOT_NULL
-org.junit.runners.model.TestClass fClass
-NULLABLE
-org.junit.runners.model.TestClass java.lang.Class<?> getJavaClass()
-NULLABLE
 org.junit.runners.model.TestClass java.util.List<T> getAnnotatedFieldValues(java.lang.Object, java.lang.Class<? extends java.lang.annotation.Annotation>, java.lang.Class<T>)
 NOT_NULL
 org.junit.runners.model.TestClass java.util.List<T> getAnnotatedMembers(java.util.Map<java.lang.Class<?>,java.util.List<T>>, java.lang.Class<? extends java.lang.annotation.Annotation>) 0

@@ -64,11 +64,6 @@
             <val name="value" val="&quot;fun getUndeclaredEntityResolver() : XMLResolver?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.api.ReaderConfig void setCustomInternalEntities(java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCustomInternalEntities(m : Map?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.api.ValidatorConfig com.ctc.wstx.api.ValidatorConfig createDefaults()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun createDefaults() : ValidatorConfig&quot;"/>
@@ -384,11 +379,6 @@
             <val name="value" val="&quot;fun getVersion() : String?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.dom.DOMWrappingReader void require(int, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun require(type : Int, nsUri : String?, localName : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.dom.DOMWrappingReader java.lang.String safeGetLocalName(org.w3c.dom.Node)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun safeGetLocalName(n : Node) : String?&quot;"/>
@@ -434,11 +424,6 @@
             <val name="value" val="&quot;fun createFrom(cfg : WriterConfig, dst : DOMResult) : DOMWrappingWriter&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.dom.DOMWrappingWriter void createStartElem(java.lang.String, java.lang.String, java.lang.String, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createStartElem(nsURI : String?, prefix : String?, localName : String?, isEmpty : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.dom.DOMWrappingWriter org.codehaus.stax2.XMLStreamLocation2 getLocation()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getLocation() : XMLStreamLocation2?&quot;"/>
@@ -452,11 +437,6 @@
     <item name='com.ctc.wstx.dom.DOMWrappingWriter java.lang.Object getProperty(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getProperty(name : String?) : Any?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dom.DOMWrappingWriter void outputAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun outputAttribute(nsURI : String?, prefix : String?, localName : String?, value : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dom.DOMWrappingWriter org.codehaus.stax2.validation.ValidationProblemHandler setValidationProblemHandler(org.codehaus.stax2.validation.ValidationProblemHandler)'>
@@ -482,11 +462,6 @@
     <item name='com.ctc.wstx.dom.DOMWrappingWriter void writeDTD(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeDTD(p0 : String, p1 : String?, p2 : String?, p3 : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dom.DOMWrappingWriter void writeNamespace(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeNamespace(prefix : String?, nsURI : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dom.DOMWrappingWriter void writeRaw(java.lang.String)'>
@@ -627,11 +602,6 @@
     <item name='com.ctc.wstx.dtd.DFAValidator java.lang.String tryToValidate(com.ctc.wstx.dtd.NameKey)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun tryToValidate(elemName : NameKey) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.DTDAttribute void checkEntity(com.ctc.wstx.sr.InputProblemReporter, java.lang.String, com.ctc.wstx.ent.EntityDecl)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkEntity(rep : InputProblemReporter?, id : String?, ent : EntityDecl?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDAttribute com.ctc.wstx.dtd.DTDAttribute cloneWith(int)'>
@@ -1027,11 +997,6 @@
     <item name='com.ctc.wstx.dtd.DTDValidator java.lang.String validateAttribute(java.lang.String, java.lang.String, java.lang.String, char[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateAttribute(localName : String?, uri : String?, prefix : String?, valueChars : CharArray?, valueStart : Int, valueEnd : Int) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.dtd.DTDValidatorBase DTDValidatorBase(com.ctc.wstx.dtd.DTDSubset, org.codehaus.stax2.validation.ValidationContext, boolean, java.util.Map, java.util.Map)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun DTDValidatorBase(schema : DTDSubset?, ctxt : ValidationContext?, hasNsDefaults : Boolean, elemSpecs : Map?, genEntities : Map?)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDValidatorBase void doAddDefaultValue(com.ctc.wstx.dtd.DTDAttribute)'>
@@ -1674,11 +1639,6 @@
             <val name="value" val="&quot;fun writeUsing(w : XMLStreamWriter) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.evt.CompactStartElement CompactStartElement(javax.xml.stream.Location, javax.xml.namespace.QName, com.ctc.wstx.util.BaseNsContext, com.ctc.wstx.sr.ElemAttrs)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun CompactStartElement(loc : Location?, name : QName?, nsCtxt : BaseNsContext?, attrs : ElemAttrs?)&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.evt.CompactStartElement com.ctc.wstx.evt.WAttribute constructAttr(java.lang.String[], int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun constructAttr(raw : Array&lt;out String?&gt;, rawIndex : Int, isDef : Boolean) : WAttribute&quot;"/>
@@ -1739,11 +1699,6 @@
             <val name="value" val="&quot;fun peek() : XMLEvent?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.evt.MergedNsContext MergedNsContext(javax.xml.namespace.NamespaceContext, java.util.List)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun MergedNsContext(parentCtxt : NamespaceContext?, localNs : List?)&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.evt.MergedNsContext com.ctc.wstx.util.BaseNsContext construct(javax.xml.namespace.NamespaceContext, java.util.List)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun construct(parentCtxt : NamespaceContext?, localNs : List?) : BaseNsContext&quot;"/>
@@ -1772,11 +1727,6 @@
     <item name='com.ctc.wstx.evt.SimpleStartElement javax.xml.stream.events.Attribute getAttributeByName(javax.xml.namespace.QName)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAttributeByName(name : QName?) : Attribute?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.evt.WAttribute WAttribute(javax.xml.stream.Location, java.lang.String, java.lang.String, java.lang.String, java.lang.String, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun WAttribute(loc : Location?, localName : String?, uri : String?, prefix : String?, value : String?, wasSpec : Boolean)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WAttribute java.lang.String getDTDType()'>
@@ -1847,11 +1797,6 @@
     <item name='com.ctc.wstx.evt.WEndDocument void writeUsing(javax.xml.stream.XMLStreamWriter)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeUsing(w : XMLStreamWriter) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.evt.WEndElement WEndElement(javax.xml.stream.Location, javax.xml.namespace.QName, java.util.Iterator)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun WEndElement(loc : Location?, name : QName?, namespaces : Iterator?)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WEndElement WEndElement(javax.xml.stream.Location, javax.xml.stream.XMLStreamReader)'>
@@ -1989,19 +1934,9 @@
             <val name="value" val="&quot;fun writeUsing(w : XMLStreamWriter) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.evt.WStartDocument WStartDocument(javax.xml.stream.Location, java.lang.String, java.lang.String, boolean, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun WStartDocument(loc : Location?, encoding : String?, version : String?, standaloneSet : Boolean, isStandalone : Boolean)&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.evt.WStartDocument WStartDocument(javax.xml.stream.Location, javax.xml.stream.XMLStreamReader)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun WStartDocument(loc : Location?, r : XMLStreamReader)&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.evt.WStartDocument java.lang.String getCharacterEncodingScheme()'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getCharacterEncodingScheme() : String?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.evt.WStartDocument void writeAsEncodedUnicode(java.io.Writer)'>
@@ -2216,7 +2151,7 @@
     </item>
     <item name='com.ctc.wstx.io.InputBootstrapper java.io.Reader bootstrapInput(com.ctc.wstx.api.ReaderConfig, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun bootstrapInput(p0 : ReaderConfig, p1 : Boolean, p2 : Int) : Reader?&quot;"/>
+            <val name="value" val="&quot;fun bootstrapInput(p0 : ReaderConfig, p1 : Boolean, p2 : Int) : Reader&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.InputBootstrapper int checkKeyword(java.lang.String)'>
@@ -2274,14 +2209,9 @@
             <val name="value" val="&quot;fun read(b : ByteArray) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.io.ReaderBootstrapper ReaderBootstrapper(java.io.Reader, java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun ReaderBootstrapper(r : Reader?, pubId : String?, sysId : String?, appEncoding : String?)&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.io.ReaderBootstrapper java.io.Reader bootstrapInput(com.ctc.wstx.api.ReaderConfig, boolean, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun bootstrapInput(cfg : ReaderConfig, mainDoc : Boolean, xmlVersion : Int) : Reader?&quot;"/>
+            <val name="value" val="&quot;fun bootstrapInput(p0 : ReaderConfig, p1 : Boolean, p2 : Int) : Reader?&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.ReaderBootstrapper int checkKeyword(java.lang.String)'>
@@ -2929,11 +2859,6 @@
             <val name="value" val="&quot;fun reportWrongEndElem(prefix : String?, localName : String, done : Int) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sr.BasicStreamReader void require(int, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun require(type : Int, nsUri : String?, localName : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sr.BasicStreamReader void setFeature(java.lang.String, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setFeature(p0 : String, p1 : Any?) : Unit&quot;"/>
@@ -3004,11 +2929,6 @@
             <val name="value" val="&quot;fun createNonTransientNsContext(p0 : Location?) : BaseNsContext&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sr.InputElementStack int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(p0 : String?, p1 : String?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sr.InputElementStack com.ctc.wstx.sr.AttributeCollector getAttrCollector()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAttrCollector() : AttributeCollector&quot;"/>
@@ -3072,16 +2992,6 @@
     <item name='com.ctc.wstx.sr.InputElementStack java.lang.String getXmlVersion()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getXmlVersion() : String&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.InputElementStack boolean isPrefixLocallyDeclared(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isPrefixLocallyDeclared(p0 : String?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.InputElementStack boolean matches(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun matches(p0 : String?, p1 : String?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.InputElementStack void normalizeXmlIdAttr(com.ctc.wstx.sr.AttributeCollector, int)'>
@@ -3204,11 +3114,6 @@
             <val name="value" val="&quot;fun createNonTransientNsContext(loc : Location?) : BaseNsContext&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sr.NonNsInputElementStack int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(nsURI : String?, localName : String?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sr.NonNsInputElementStack com.ctc.wstx.sr.AttributeCollector getAttrCollector()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAttrCollector() : AttributeCollector&quot;"/>
@@ -3259,16 +3164,6 @@
             <val name="value" val="&quot;fun getPrefixes(nsURI : String) : MutableIterator&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sr.NonNsInputElementStack boolean isPrefixLocallyDeclared(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isPrefixLocallyDeclared(p0 : String?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.NonNsInputElementStack boolean matches(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun matches(prefix : String?, localName : String?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sr.NsAttributeCollector NsAttributeCollector(com.ctc.wstx.api.ReaderConfig)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun NsAttributeCollector(cfg : ReaderConfig)&quot;"/>
@@ -3282,11 +3177,6 @@
     <item name='com.ctc.wstx.sr.NsAttributeCollector com.ctc.wstx.sr.ElemAttrs buildAttrOb()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun buildAttrOb() : ElemAttrs?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.NsAttributeCollector int findIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findIndex(nsURI : String?, localName : String?) : Int&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.NsAttributeCollector com.ctc.wstx.util.TextBuilder getDefaultNsBuilder()'>
@@ -3339,11 +3229,6 @@
             <val name="value" val="&quot;fun addNsBinding(prefix : String?, uri : String?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sr.NsInputElementStack int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(p0 : String?, p1 : String?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sr.NsInputElementStack com.ctc.wstx.sr.AttributeCollector getAttrCollector()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAttrCollector() : AttributeCollector&quot;"/>
@@ -3367,16 +3252,6 @@
     <item name='com.ctc.wstx.sr.NsInputElementStack java.util.Iterator getPrefixes(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getPrefixes(nsURI : String) : MutableIterator?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.NsInputElementStack boolean isPrefixLocallyDeclared(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isPrefixLocallyDeclared(internedPrefix : String?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.NsInputElementStack boolean matches(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun matches(prefix : String?, localName : String?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.ReaderCreator com.ctc.wstx.dtd.DTDSubset findCachedDTD(com.ctc.wstx.dtd.DTDId)'>
@@ -3482,11 +3357,6 @@
     <item name='com.ctc.wstx.sr.StreamScanner com.ctc.wstx.exc.WstxException throwInvalidSpace(int, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun throwInvalidSpace(i : Int, deferErrors : Boolean) : WstxException&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sr.StreamScanner void throwLazyError(java.lang.Exception)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun throwLazyError(e : Exception?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sr.StreamScanner com.ctc.wstx.exc.WstxException throwWfcException(java.lang.String, boolean)'>
@@ -4074,11 +3944,6 @@
             <val name="value" val="&quot;fun BaseNsStreamWriter(xw : XmlWriter?, enc : String?, cfg : WriterConfig, repairing : Boolean)&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.BaseNsStreamWriter void checkStartElement(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkStartElement(localName : String?, prefix : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void doSetPrefix(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun doSetPrefix(p0 : String, p1 : String?) : Unit&quot;"/>
@@ -4089,24 +3954,9 @@
             <val name="value" val="&quot;fun doWriteAttr(localName : String?, nsURI : String?, prefix : String?, value : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.BaseNsStreamWriter void doWriteDefaultNs(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doWriteDefaultNs(nsURI : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.BaseNsStreamWriter void doWriteEndTag(javax.xml.namespace.QName, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doWriteEndTag(expName : QName?, allowEmpty : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void doWriteNamespace(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun doWriteNamespace(prefix : String?, nsURI : String) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.BaseNsStreamWriter void doWriteStartTag(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doWriteStartTag(prefix : String?, localName : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter javax.xml.namespace.QName getCurrentElementName()'>
@@ -4144,11 +3994,6 @@
             <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.BaseNsStreamWriter void writeNamespace(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeNamespace(p0 : String?, p1 : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.BaseNsStreamWriter void writeStartElement(javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeStartElement(p0 : StartElement) : Unit&quot;"/>
@@ -4177,16 +4022,6 @@
     <item name='com.ctc.wstx.sw.BaseStreamWriter void doReportProblem(javax.xml.stream.XMLReporter, java.lang.String, java.lang.String, javax.xml.stream.Location)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun doReportProblem(rep : XMLReporter?, probType : String?, msg : String?, loc : Location?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.BaseStreamWriter void doWriteStartDocument(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doWriteStartDocument(version : String?, encoding : String?, standAlone : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.BaseStreamWriter int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(p0 : String?, p1 : String?) : Int&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseStreamWriter java.lang.String getAttributeLocalName(int)'>
@@ -4284,11 +4119,6 @@
             <val name="value" val="&quot;fun validateAgainst(schema : XMLValidationSchema) : XMLValidator?&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.BaseStreamWriter void verifyRootElement(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun verifyRootElement(localName : String?, prefix : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.BaseStreamWriter void writeAttribute(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String) : Unit&quot;"/>
@@ -4317,11 +4147,6 @@
     <item name='com.ctc.wstx.sw.BaseStreamWriter void writeDTD(org.codehaus.stax2.DTDInfo)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeDTD(info : DTDInfo) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.BaseStreamWriter void writeNamespace(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeNamespace(p0 : String?, p1 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BaseStreamWriter void writeRaw(java.lang.String)'>
@@ -4366,12 +4191,12 @@
     </item>
     <item name='com.ctc.wstx.sw.BufferingXmlWriter void writeAttribute(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAttribute(localName : String, value : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BufferingXmlWriter void writeAttribute(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeAttribute(prefix : String, localName : String, value : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.BufferingXmlWriter void writeAttribute(java.lang.String, java.lang.String, char[], int, int)'>
@@ -4609,11 +4434,6 @@
             <val name="value" val="&quot;fun copyStartElement(elemStack : InputElementStack, attrCollector : AttributeCollector) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.NonNsStreamWriter void doWriteEndTag(java.lang.String, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doWriteEndTag(expName : String?, allowEmpty : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.NonNsStreamWriter javax.xml.namespace.QName getCurrentElementName()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getCurrentElementName() : QName?&quot;"/>
@@ -4654,11 +4474,6 @@
             <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.NonNsStreamWriter void writeNamespace(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeNamespace(p0 : String?, p1 : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.NonNsStreamWriter void writeStartElement(javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeStartElement(elem : StartElement) : Unit&quot;"/>
@@ -4676,7 +4491,7 @@
     </item>
     <item name='com.ctc.wstx.sw.RepairingNsStreamWriter void doSetPrefix(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doSetPrefix(prefix : String, uri : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun doSetPrefix(p0 : String, p1 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.RepairingNsStreamWriter java.lang.String findElemPrefix(java.lang.String, com.ctc.wstx.sw.SimpleOutputElement)'>
@@ -4709,11 +4524,6 @@
             <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.RepairingNsStreamWriter void writeNamespace(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeNamespace(prefix : String?, nsURI : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.RepairingNsStreamWriter void writeStartElement(javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeStartElement(elem : StartElement) : Unit&quot;"/>
@@ -4744,19 +4554,9 @@
             <val name="value" val="&quot;fun writeAttribute(p0 : String, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='com.ctc.wstx.sw.SimpleNsStreamWriter void writeNamespace(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeNamespace(prefix : String?, nsURI : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.ctc.wstx.sw.SimpleNsStreamWriter void writeStartElement(javax.xml.stream.events.StartElement)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun writeStartElement(elem : StartElement) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.sw.SimpleOutputElement.AttrName AttrName(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun AttrName(nsURI : String?, localName : String?)&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.sw.SimpleOutputElement.AttrName int compareTo(java.lang.Object)'>
@@ -4977,11 +4777,6 @@
     <item name='com.ctc.wstx.util.ArgUtil boolean convertToBoolean(java.lang.String, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun convertToBoolean(prop : String?, value : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.ctc.wstx.util.ArgUtil int convertToInt(java.lang.String, java.lang.Object, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun convertToInt(prop : String?, value : Any?, minValue : Int) : Int&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.util.BaseNsContext java.lang.String doGetNamespaceURI(java.lang.String)'>
@@ -5404,11 +5199,6 @@
             <val name="value" val="&quot;fun SETBITS(array : IntArray, point : Int) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.codehaus.stax2.AttributeInfo int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(p0 : String?, p1 : String?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='org.codehaus.stax2.DTDInfo java.lang.String getDTDInternalSubset()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getDTDInternalSubset() : String?&quot;"/>
@@ -5694,11 +5484,6 @@
             <val name="value" val="&quot;fun getContext() : XMLStreamLocation2?&quot;"/>
         </annotation>
     </item>
-    <item name='org.codehaus.stax2.ri.Stax2ReaderAdapter int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(nsURI : String?, localName : String?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='org.codehaus.stax2.ri.Stax2ReaderAdapter org.codehaus.stax2.AttributeInfo getAttributeInfo()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getAttributeInfo() : AttributeInfo&quot;"/>
@@ -5851,7 +5636,7 @@
     </item>
     <item name='org.codehaus.stax2.ri.Stax2WriterAdapter void writeDTD(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun writeDTD(rootName : String, systemId : String?, publicId : String?, internalSubset : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun writeDTD(p0 : String, p1 : String?, p2 : String?, p3 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.ri.Stax2WriterAdapter void writeRaw(java.lang.String)'>
@@ -5887,11 +5672,6 @@
     <item name='org.codehaus.stax2.validation.ValidationContext int addDefaultAttribute(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addDefaultAttribute(p0 : String, p1 : String, p2 : String?, p3 : String?) : Int&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.ValidationContext int findAttributeIndex(java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findAttributeIndex(p0 : String?, p1 : String?) : Int&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.validation.ValidationContext java.lang.String getAttributeLocalName(int)'>
@@ -5959,11 +5739,6 @@
             <val name="value" val="&quot;fun removeValidator(root : XMLValidator, schema : XMLValidationSchema?, results : Array&lt;out XMLValidator?&gt;?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='org.codehaus.stax2.validation.ValidatorPair boolean removeValidator(org.codehaus.stax2.validation.XMLValidator, org.codehaus.stax2.validation.XMLValidator, org.codehaus.stax2.validation.XMLValidator[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun removeValidator(root : XMLValidator?, vld : XMLValidator?, results : Array&lt;out XMLValidator?&gt;?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='org.codehaus.stax2.validation.ValidatorPair void validateText(java.lang.String, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun validateText(p0 : String, p1 : Boolean) : Unit&quot;"/>
@@ -5972,16 +5747,6 @@
     <item name='org.codehaus.stax2.validation.XMLValidationException XMLValidationException(org.codehaus.stax2.validation.XMLValidationProblem)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun XMLValidationException(cause : XMLValidationProblem?)&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.XMLValidationException XMLValidationException(org.codehaus.stax2.validation.XMLValidationProblem, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun XMLValidationException(cause : XMLValidationProblem?, msg : String?)&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.XMLValidationException XMLValidationException(org.codehaus.stax2.validation.XMLValidationProblem, java.lang.String, javax.xml.stream.Location)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun XMLValidationException(cause : XMLValidationProblem?, msg : String?, loc : Location?)&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.validation.XMLValidationException org.codehaus.stax2.validation.XMLValidationException createException(org.codehaus.stax2.validation.XMLValidationProblem)'>
@@ -5997,11 +5762,6 @@
     <item name='org.codehaus.stax2.validation.XMLValidationSchema java.lang.String getSchemaType()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getSchemaType() : String&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.XMLValidationSchemaFactory org.codehaus.stax2.validation.XMLValidationSchemaFactory createNewInstance(java.lang.ClassLoader, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun createNewInstance(cloader : ClassLoader?, clsName : String?) : XMLValidationSchemaFactory?&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.validation.XMLValidationSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema createSchema(java.io.File)'>
@@ -6027,11 +5787,6 @@
     <item name='org.codehaus.stax2.validation.XMLValidationSchemaFactory java.lang.Object getProperty(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getProperty(p0 : String) : Any?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.codehaus.stax2.validation.XMLValidationSchemaFactory org.codehaus.stax2.validation.XMLValidationSchemaFactory newInstance(java.lang.String, java.lang.ClassLoader)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun newInstance(schemaType : String?, classLoader : ClassLoader?) : XMLValidationSchemaFactory?&quot;"/>
         </annotation>
     </item>
     <item name='org.codehaus.stax2.validation.XMLValidator java.lang.String getAttributeType(int)'>

@@ -144,16 +144,6 @@
             <val name="value" val="&quot;fun getSuperName() : String?&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.ClassReader int readAnnotationValue(int, char[], java.lang.String, org.objectweb.asm.AnnotationVisitor)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun readAnnotationValue(v : Int, buf : CharArray?, name : String?, av : AnnotationVisitor?) : Int&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.ClassReader int readAnnotationValues(int, char[], boolean, org.objectweb.asm.AnnotationVisitor)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun readAnnotationValues(v : Int, buf : CharArray?, named : Boolean, av : AnnotationVisitor?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.ClassReader org.objectweb.asm.Attribute readAttribute(org.objectweb.asm.Attribute[], java.lang.String, int, int, char[], int, org.objectweb.asm.Label[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readAttribute(attrs : Array&lt;out Attribute?&gt;, type : String?, off : Int, len : Int, buf : CharArray?, codeOff : Int, labels : Array&lt;out Label?&gt;?) : Attribute&quot;"/>
@@ -411,7 +401,7 @@
     </item>
     <item name='org.objectweb.asm.ClassWriter void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInnerClass(name : String, outerName : String?, innerName : String?, access : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitInnerClass(p0 : String, p1 : String?, p2 : String?, p3 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.ClassWriter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -736,7 +726,7 @@
     </item>
     <item name='org.objectweb.asm.MethodWriter void visitTryCatchBlock(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Label, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitTryCatchBlock(start : Label, end : Label, handler : Label, type : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitTryCatchBlock(p0 : Label, p1 : Label, p2 : Label, p3 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.MethodWriter void visitTypeInsn(int, java.lang.String)'>
@@ -1056,7 +1046,7 @@
     </item>
     <item name='org.objectweb.asm.commons.CodeSizeEvaluator void visitLdcInsn(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLdcInsn(cst : Any) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLdcInsn(p0 : Any) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.CodeSizeEvaluator void visitLookupSwitchInsn(org.objectweb.asm.Label, int[], org.objectweb.asm.Label[])'>
@@ -1259,19 +1249,9 @@
             <val name="value" val="&quot;fun newLabel() : Label&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.commons.GeneratorAdapter void push(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun push(value : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void push(org.objectweb.asm.Handle)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun push(handle : Handle) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.commons.GeneratorAdapter void push(org.objectweb.asm.Type)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun push(value : Type?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.GeneratorAdapter void putField(org.objectweb.asm.Type, java.lang.String, org.objectweb.asm.Type)'>
@@ -1327,11 +1307,6 @@
     <item name='org.objectweb.asm.commons.GeneratorAdapter void valueOf(org.objectweb.asm.Type)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun valueOf(type : Type) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.commons.InstructionAdapter void aconst(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun aconst(cst : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.InstructionAdapter void add(org.objectweb.asm.Type)'>
@@ -1861,7 +1836,7 @@
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visit(version : Int, access : Int, name : String, signature : String?, superName : String?, interfaces : Array&lt;out String?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visit(p0 : Int, p1 : Int, p2 : String, p3 : String?, p4 : String?, p5 : Array&lt;out String?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
@@ -1876,7 +1851,7 @@
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInnerClass(name : String, outerName : String?, innerName : String?, access : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitInnerClass(p0 : String, p1 : String?, p2 : String?, p3 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -1886,7 +1861,7 @@
     </item>
     <item name='org.objectweb.asm.commons.RemappingClassAdapter void visitOuterClass(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitOuterClass(owner : String, name : String?, desc : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitOuterClass(p0 : String, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingFieldAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
@@ -1956,7 +1931,7 @@
     </item>
     <item name='org.objectweb.asm.commons.RemappingMethodAdapter void visitTryCatchBlock(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Label, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitTryCatchBlock(start : Label, end : Label, handler : Label, type : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitTryCatchBlock(p0 : Label, p1 : Label, p2 : Label, p3 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.commons.RemappingMethodAdapter void visitTypeInsn(int, java.lang.String)'>
@@ -2579,11 +2554,6 @@
             <val name="value" val="&quot;fun accept(mv : MethodVisitor) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.tree.LookupSwitchInsnNode LookupSwitchInsnNode(org.objectweb.asm.tree.LabelNode, int[], org.objectweb.asm.tree.LabelNode[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun LookupSwitchInsnNode(dflt : LabelNode?, keys : IntArray?, labels : Array&lt;out LabelNode?&gt;?)&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.tree.LookupSwitchInsnNode void accept(org.objectweb.asm.MethodVisitor)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun accept(mv : MethodVisitor) : Unit&quot;"/>
@@ -2822,11 +2792,6 @@
     <item name='org.objectweb.asm.tree.analysis.Analyzer org.objectweb.asm.tree.analysis.Frame&lt;V&gt; newFrame(org.objectweb.asm.tree.analysis.Frame&lt;? extends V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun newFrame(src : Frame&lt;out V&gt;) : Frame&lt;V&gt;&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.tree.analysis.AnalyzerException AnalyzerException(org.objectweb.asm.tree.AbstractInsnNode, java.lang.String, java.lang.Object, org.objectweb.asm.tree.analysis.Value)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun AnalyzerException(node : AbstractInsnNode?, msg : String?, expected : Any?, encountered : Value?)&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.tree.analysis.BasicInterpreter org.objectweb.asm.tree.analysis.BasicValue binaryOperation(org.objectweb.asm.tree.AbstractInsnNode, org.objectweb.asm.tree.analysis.BasicValue, org.objectweb.asm.tree.analysis.BasicValue)'>
@@ -3237,11 +3202,6 @@
     <item name='org.objectweb.asm.tree.analysis.Subroutine boolean merge(org.objectweb.asm.tree.analysis.Subroutine)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun merge(subroutine : Subroutine) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.util.ASMifier void appendConstant(java.lang.StringBuffer, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun appendConstant(buf : StringBuffer?, cst : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.ASMifier org.objectweb.asm.util.ASMifier createASMifier(java.lang.String, int)'>
@@ -4039,11 +3999,6 @@
             <val name="value" val="&quot;fun visitTypeInsn(p0 : Int, p1 : String) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.util.Textifier void appendDescriptor(int, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun appendDescriptor(type : Int, desc : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.util.Textifier void appendHandle(org.objectweb.asm.Handle)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun appendHandle(h : Handle) : Unit&quot;"/>
@@ -4061,7 +4016,7 @@
     </item>
     <item name='org.objectweb.asm.util.Textifier void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visit(version : Int, access : Int, name : String, signature : String?, superName : String?, interfaces : Array&lt;out String?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visit(p0 : Int, p1 : Int, p2 : String, p3 : String?, p4 : String?, p5 : Array&lt;out String?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.Textifier void visit(java.lang.String, java.lang.Object)'>
@@ -4126,7 +4081,7 @@
     </item>
     <item name='org.objectweb.asm.util.Textifier void visitEnum(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitEnum(name : String?, desc : String, value : String) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitEnum(p0 : String?, p1 : String, p2 : String) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.Textifier org.objectweb.asm.util.Printer visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)'>
@@ -4196,7 +4151,7 @@
     </item>
     <item name='org.objectweb.asm.util.Textifier void visitLocalVariable(java.lang.String, java.lang.String, java.lang.String, org.objectweb.asm.Label, org.objectweb.asm.Label, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLocalVariable(name : String, desc : String, signature : String?, start : Label, end : Label, index : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLocalVariable(p0 : String, p1 : String, p2 : String?, p3 : Label, p4 : Label, p5 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.Textifier void visitLookupSwitchInsn(org.objectweb.asm.Label, int[], org.objectweb.asm.Label[])'>
@@ -4241,7 +4196,7 @@
     </item>
     <item name='org.objectweb.asm.util.Textifier void visitOuterClass(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitOuterClass(owner : String, name : String?, desc : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitOuterClass(p0 : String, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.Textifier org.objectweb.asm.util.Printer visitParameterAnnotation(int, java.lang.String, boolean)'>
@@ -4256,7 +4211,7 @@
     </item>
     <item name='org.objectweb.asm.util.Textifier void visitSource(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitSource(file : String?, debug : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitSource(p0 : String?, p1 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.util.Textifier void visitTableSwitchInsn(int, int, org.objectweb.asm.Label, org.objectweb.asm.Label...)'>
@@ -4709,11 +4664,6 @@
             <val name="value" val="&quot;fun begin(name : String?, attrs : Attributes) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.xml.ASMContentHandler void endElement(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun endElement(ns : String?, lName : String?, qName : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.xml.ASMContentHandler java.lang.Object peek()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun peek() : Any?&quot;"/>
@@ -4722,11 +4672,6 @@
     <item name='org.objectweb.asm.xml.ASMContentHandler java.lang.Object pop()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun pop() : Any?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.xml.ASMContentHandler void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun startElement(ns : String?, lName : String?, qName : String?, list : Attributes?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.Processor.ASMContentHandlerFactory org.xml.sax.ContentHandler createContentHandler()'>
@@ -4742,11 +4687,6 @@
     <item name='org.objectweb.asm.xml.Processor.SAXWriter java.lang.String esc(java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun esc(str : String) : String?&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.xml.Processor.SAXWriter void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun startElement(ns : String?, localName : String?, qName : String?, atts : Attributes?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.Processor.SAXWriter void writeAttributes(org.xml.sax.Attributes)'>
@@ -4794,11 +4734,6 @@
             <val name="value" val="&quot;fun readEntry(zis : InputStream, ze : ZipEntry) : ByteArray?&quot;"/>
         </annotation>
     </item>
-    <item name='org.objectweb.asm.xml.Processor void update(java.lang.Object, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun update(arg : Any?, n : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(int, org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun SAXAnnotationAdapter(api : Int, sa : SAXAdapter, elementName : String?, visible : Int, desc : String?, name : String?, parameter : Int)&quot;"/>
@@ -4812,11 +4747,6 @@
     <item name='org.objectweb.asm.xml.SAXAnnotationAdapter SAXAnnotationAdapter(org.objectweb.asm.xml.SAXAdapter, java.lang.String, int, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun SAXAnnotationAdapter(sa : SAXAdapter, elementName : String?, visible : Int, name : String?, desc : String?)&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.objectweb.asm.xml.SAXAnnotationAdapter void addValueElement(java.lang.String, java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addValueElement(element : String?, name : String?, desc : String?, value : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXAnnotationAdapter void visit(java.lang.String, java.lang.Object)'>
@@ -4846,7 +4776,7 @@
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visit(version : Int, access : Int, name : String, signature : String?, superName : String?, interfaces : Array&lt;out String?&gt;?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visit(p0 : Int, p1 : Int, p2 : String, p3 : String?, p4 : String?, p5 : Array&lt;out String?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
@@ -4861,7 +4791,7 @@
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInnerClass(name : String, outerName : String?, innerName : String?, access : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitInnerClass(p0 : String, p1 : String?, p2 : String?, p3 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
@@ -4871,12 +4801,12 @@
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter void visitOuterClass(java.lang.String, java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitOuterClass(owner : String, name : String?, desc : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitOuterClass(p0 : String, p1 : String?, p2 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXClassAdapter void visitSource(java.lang.String, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitSource(source : String?, debug : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitSource(p0 : String?, p1 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXCodeAdapter org.xml.sax.helpers.AttributesImpl getConstantAttribute(java.lang.Object)'>
@@ -4931,7 +4861,7 @@
     </item>
     <item name='org.objectweb.asm.xml.SAXCodeAdapter void visitLocalVariable(java.lang.String, java.lang.String, java.lang.String, org.objectweb.asm.Label, org.objectweb.asm.Label, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitLocalVariable(name : String, desc : String, signature : String?, start : Label, end : Label, index : Int) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitLocalVariable(p0 : String, p1 : String, p2 : String?, p3 : Label, p4 : Label, p5 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXCodeAdapter void visitLookupSwitchInsn(org.objectweb.asm.Label, int[], org.objectweb.asm.Label[])'>
@@ -4961,7 +4891,7 @@
     </item>
     <item name='org.objectweb.asm.xml.SAXCodeAdapter void visitTryCatchBlock(org.objectweb.asm.Label, org.objectweb.asm.Label, org.objectweb.asm.Label, java.lang.String)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitTryCatchBlock(start : Label, end : Label, handler : Label, type : String?) : Unit&quot;"/>
+            <val name="value" val="&quot;fun visitTryCatchBlock(p0 : Label, p1 : Label, p2 : Label, p3 : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.objectweb.asm.xml.SAXCodeAdapter void visitTypeInsn(int, java.lang.String)'>

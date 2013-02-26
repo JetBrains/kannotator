@@ -151,4 +151,6 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     fun testMultipleInstanceOf() = doTest()
 
     fun testTrimStringList() = doTest()
+
+    fun testUnmodifiableCollectionSubclass() = doTest()
 }

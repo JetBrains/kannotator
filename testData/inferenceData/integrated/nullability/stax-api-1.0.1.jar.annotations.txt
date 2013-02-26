@@ -26,10 +26,6 @@ javax.xml.namespace.QName javax.xml.namespace.QName valueOf(java.lang.String) 0
 NOT_NULL
 javax.xml.stream.FactoryConfigurationError java.lang.String getMessage()
 NULLABLE
-javax.xml.stream.FactoryFinder java.lang.Object find(java.lang.String, java.lang.String, java.lang.ClassLoader) 2
-NULLABLE
-javax.xml.stream.FactoryFinder java.lang.Object newInstance(java.lang.String, java.lang.ClassLoader) 1
-NULLABLE
 javax.xml.stream.XMLInputFactory ALLOCATOR
 NOT_NULL
 javax.xml.stream.XMLInputFactory IS_COALESCING

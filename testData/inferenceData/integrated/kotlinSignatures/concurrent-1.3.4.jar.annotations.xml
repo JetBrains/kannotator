@@ -494,11 +494,6 @@
             <val name="value" val="&quot;fun addAllAbsent(p0 : Collection) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean addIfAbsent(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addIfAbsent(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object clone()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun clone() : Any&quot;"/>
@@ -514,29 +509,9 @@
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOf(p0 : Any?, p1 : Int) : Int&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int indexOf(java.lang.Object, java.lang.Object[], int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOf(p0 : Any?, p1 : Array&lt;out Any?&gt;?, p2 : Int) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.util.Iterator iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int lastIndexOf(java.lang.Object, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun lastIndexOf(p0 : Any?, p1 : Int) : Int&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList int lastIndexOf(java.lang.Object, java.lang.Object[], int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun lastIndexOf(p0 : Any?, p1 : Array&lt;out Any?&gt;?, p2 : Int) : Int&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.util.ListIterator listIterator()'>
@@ -552,16 +527,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(p0 : ObjectInputStream) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList boolean remove(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.lang.Object set(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun set(p0 : Int, p1 : Any?) : Any?&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.CopyOnWriteArrayList java.util.List subList(int, int)'>
@@ -702,11 +667,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner EDU.oswego.cs.dl.util.concurrent.FJTask pop()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun pop() : FJTask?&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void scan(EDU.oswego.cs.dl.util.concurrent.FJTask)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun scan(p0 : FJTask?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.FJTaskRunner void slowCoInvoke(EDU.oswego.cs.dl.util.concurrent.FJTask, EDU.oswego.cs.dl.util.concurrent.FJTask)'>
@@ -904,19 +864,9 @@
             <val name="value" val="&quot;fun getChild(p0 : String?) : PropertyChangeMulticaster?&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster boolean hasListeners(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun hasListeners(p0 : String?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(p0 : ObjectInputStream) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster void removePropertyChangeListener(java.beans.PropertyChangeListener)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun removePropertyChangeListener(p0 : PropertyChangeListener?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.PropertyChangeMulticaster void writeObject(java.io.ObjectOutputStream)'>
@@ -1314,19 +1264,9 @@
             <val name="value" val="&quot;fun getChild(p0 : String?) : VetoableChangeMulticaster?&quot;"/>
         </annotation>
     </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster boolean hasListeners(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun hasListeners(p0 : String?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(p0 : ObjectInputStream) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster void removeVetoableChangeListener(java.beans.VetoableChangeListener)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun removeVetoableChangeListener(p0 : VetoableChangeListener?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.VetoableChangeMulticaster void writeObject(java.io.ObjectOutputStream)'>
@@ -1362,256 +1302,6 @@
     <item name='EDU.oswego.cs.dl.util.concurrent.WaitFreeQueue java.lang.Object take()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun take() : Any&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableBoolean void whenEqual(boolean, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Boolean, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableBoolean void whenFalse(java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenFalse(p0 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableBoolean void whenNotEqual(boolean, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Boolean, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableBoolean void whenTrue(java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenTrue(p0 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableByte void whenEqual(byte, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Byte, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableByte void whenGreater(byte, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Byte, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableByte void whenGreaterEqual(byte, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Byte, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableByte void whenLess(byte, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Byte, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableByte void whenLessEqual(byte, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Byte, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableByte void whenNotEqual(byte, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Byte, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableChar void whenEqual(char, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Char, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableChar void whenGreater(char, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Char, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableChar void whenGreaterEqual(char, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Char, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableChar void whenLess(char, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Char, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableChar void whenLessEqual(char, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Char, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableChar void whenNotEqual(char, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Char, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableDouble void whenEqual(double, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Double, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableDouble void whenGreater(double, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Double, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableDouble void whenGreaterEqual(double, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Double, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableDouble void whenLess(double, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Double, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableDouble void whenLessEqual(double, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Double, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableDouble void whenNotEqual(double, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Double, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableFloat void whenEqual(float, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Float, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableFloat void whenGreater(float, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Float, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableFloat void whenGreaterEqual(float, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Float, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableFloat void whenLess(float, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Float, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableFloat void whenLessEqual(float, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Float, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableFloat void whenNotEqual(float, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Float, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableInt void whenEqual(int, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Int, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableInt void whenGreater(int, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Int, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableInt void whenGreaterEqual(int, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Int, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableInt void whenLess(int, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Int, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableInt void whenLessEqual(int, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Int, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableInt void whenNotEqual(int, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Int, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableLong void whenEqual(long, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Long, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableLong void whenGreater(long, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Long, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableLong void whenGreaterEqual(long, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Long, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableLong void whenLess(long, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Long, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableLong void whenLessEqual(long, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Long, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableLong void whenNotEqual(long, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Long, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableRef void whenEqual(java.lang.Object, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Any?, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableRef void whenNotEqual(java.lang.Object, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Any?, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableRef void whenNotNull(java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotNull(p0 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableRef void whenNull(java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNull(p0 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableShort void whenEqual(short, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenEqual(p0 : Short, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableShort void whenGreater(short, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreater(p0 : Short, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableShort void whenGreaterEqual(short, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenGreaterEqual(p0 : Short, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableShort void whenLess(short, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLess(p0 : Short, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableShort void whenLessEqual(short, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenLessEqual(p0 : Short, p1 : Runnable?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='EDU.oswego.cs.dl.util.concurrent.WaitableShort void whenNotEqual(short, java.lang.Runnable)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun whenNotEqual(p0 : Short, p1 : Runnable?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock EDU.oswego.cs.dl.util.concurrent.WriterPreferenceReadWriteLock.Signaller endRead()'>

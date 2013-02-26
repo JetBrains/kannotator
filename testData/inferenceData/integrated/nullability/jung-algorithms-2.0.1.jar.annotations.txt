@@ -36,8 +36,6 @@ edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.u
 NOT_NULL
 edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> cluster_internal(V, int)
 NOT_NULL
-edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> cluster_internal(V, int) 0
-NULLABLE
 edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Collection<java.util.Set<V>> getCommunity(V)
 NOT_NULL
 edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.List<V> getSeedCandidates(java.util.Collection<java.util.Set<V>>)
@@ -48,8 +46,6 @@ edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map<V,double[]> g
 NOT_NULL
 edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map<V,double[]> getObjectCounts(java.util.Collection<java.util.Set<V>>, V) 0
 NOT_NULL
-edu.uci.ics.jung.algorithms.cluster.VoltageClusterer java.util.Map<V,double[]> getObjectCounts(java.util.Collection<java.util.Set<V>>, V) 1
-NULLABLE
 edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.lang.Object transform(java.lang.Object)
 NOT_NULL
 edu.uci.ics.jung.algorithms.cluster.WeakComponentClusterer java.lang.Object transform(java.lang.Object) 0
@@ -154,8 +150,6 @@ edu.uci.ics.jung.algorithms.importance.BetweennessCentrality void initializeData
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.KStepMarkov CURRENT_RANK
 NOT_NULL
-edu.uci.ics.jung.algorithms.importance.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, int, java.util.Map<E,java.lang.Number>) 3
-NULLABLE
 edu.uci.ics.jung.algorithms.importance.KStepMarkov RANK_SCORE
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.Object getRankScoreKey()
@@ -168,8 +162,6 @@ edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, java.util.Map<E,java.lang.Number>) 0
 NOT_NULL
-edu.uci.ics.jung.algorithms.importance.MarkovCentrality MarkovCentrality(edu.uci.ics.jung.graph.DirectedGraph<V,E>, java.util.Set<V>, java.util.Map<E,java.lang.Number>) 2
-NULLABLE
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality cern.colt.matrix.DoubleMatrix1D getStationaryDistribution()
 NOT_NULL
 edu.uci.ics.jung.algorithms.importance.MarkovCentrality java.lang.Object getRankScoreKey()
@@ -416,6 +408,8 @@ edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.Double
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 0
 NOT_NULL
+edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 1
+NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 2
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph<V,E>)
@@ -435,7 +429,7 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 1
-NULLABLE
+NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>)
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 0
@@ -448,8 +442,6 @@ edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 1
 NOT_NULL
-edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>, java.util.Map<E,java.lang.Number>) 4
-NULLABLE
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> square(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<E>, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations<E>)
 NULLABLE
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> square(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<E>, edu.uci.ics.jung.algorithms.matrix.MatrixElementOperations<E>) 0
@@ -546,8 +538,6 @@ edu.uci.ics.jung.algorithms.shortestpath.BFSDistanceLabeler void labelDistances(
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance<V,E>.SourceData getSourceData(V)
 NOT_NULL
-edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.LinkedHashMap<V,java.lang.Number> singleSourceShortestPath(V, java.util.Collection<V>, int) 1
-NULLABLE
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.Map<V,java.lang.Number> getDistanceMap(V, java.util.Collection<V>) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance.SourceData SourceData(V) 0
@@ -584,8 +574,6 @@ edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningFo
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, java.util.Map<E,java.lang.Double>) 1
 NOT_NULL
-edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, V, java.util.Map<E,java.lang.Double>) 3
-NULLABLE
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, V, java.util.Map<E,java.lang.Double>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest MinimumSpanningForest(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, V, java.util.Map<E,java.lang.Double>) 1
@@ -596,8 +584,6 @@ edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningF
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1
 NOT_NULL
-edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, edu.uci.ics.jung.graph.Forest<V,E>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 3
-NULLABLE
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.shortestpath.MinimumSpanningForest2 MinimumSpanningForest2(edu.uci.ics.jung.graph.Graph<V,E>, org.apache.commons.collections15.Factory<edu.uci.ics.jung.graph.Forest<V,E>>, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Transformer<E,java.lang.Double>) 1

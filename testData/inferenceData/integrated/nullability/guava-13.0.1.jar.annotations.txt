@@ -2804,8 +2804,6 @@ com.google.common.collect.AbstractMultimap java.util.Collection<V> wrapCollectio
 NOT_NULL
 com.google.common.collect.AbstractMultimap java.util.Collection<V> wrapCollection(K, java.util.Collection<V>) 0
 NULLABLE
-com.google.common.collect.AbstractMultimap java.util.Collection<V> wrapCollection(K, java.util.Collection<V>) 1
-NULLABLE
 com.google.common.collect.AbstractMultimap java.util.Collection<java.util.Map.Entry<K,V>> createEntries()
 NOT_NULL
 com.google.common.collect.AbstractMultimap java.util.Collection<java.util.Map.Entry<K,V>> entries()
@@ -2825,8 +2823,6 @@ NOT_NULL
 com.google.common.collect.AbstractMultimap java.util.List<V> wrapList(K, java.util.List<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection)
 NOT_NULL
 com.google.common.collect.AbstractMultimap java.util.List<V> wrapList(K, java.util.List<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection) 0
-NULLABLE
-com.google.common.collect.AbstractMultimap java.util.List<V> wrapList(K, java.util.List<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection) 1
 NULLABLE
 com.google.common.collect.AbstractMultimap java.util.List<V> wrapList(K, java.util.List<V>, com.google.common.collect.AbstractMultimap<K,V>.WrappedCollection) 2
 NULLABLE
@@ -6912,8 +6908,6 @@ com.google.common.collect.ImmutableSetMultimap com.google.common.collect.Immutab
 NOT_NULL
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSetMultimap<K,V> copyOf(com.google.common.collect.Multimap<? extends K,? extends V>, java.util.Comparator<? super V>) 0
 NOT_NULL
-com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSetMultimap<K,V> copyOf(com.google.common.collect.Multimap<? extends K,? extends V>, java.util.Comparator<? super V>) 1
-NULLABLE
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSetMultimap<K,V> of()
 NOT_NULL
 com.google.common.collect.ImmutableSetMultimap com.google.common.collect.ImmutableSetMultimap<K,V> of(K, V)
@@ -9010,8 +9004,6 @@ com.google.common.collect.MapConstraints java.util.Collection<V> checkValues(K, 
 NOT_NULL
 com.google.common.collect.MapConstraints java.util.Collection<java.util.Map.Entry<K,V>> constrainedEntries(java.util.Collection<java.util.Map.Entry<K,V>>, com.google.common.collect.MapConstraint<? super K,? super V>)
 NOT_NULL
-com.google.common.collect.MapConstraints java.util.Collection<java.util.Map.Entry<K,V>> constrainedEntries(java.util.Collection<java.util.Map.Entry<K,V>>, com.google.common.collect.MapConstraint<? super K,? super V>) 0
-NULLABLE
 com.google.common.collect.MapConstraints java.util.Map access$100(java.util.Map, com.google.common.collect.MapConstraint)
 NOT_NULL
 com.google.common.collect.MapConstraints java.util.Map.Entry access$500(java.util.Map.Entry, com.google.common.collect.MapConstraint)
@@ -15946,8 +15938,6 @@ com.google.common.io.CharStreams com.google.common.io.OutputSupplier<java.io.Out
 NOT_NULL
 com.google.common.io.CharStreams java.io.Writer asWriter(java.lang.Appendable)
 NOT_NULL
-com.google.common.io.CharStreams java.io.Writer asWriter(java.lang.Appendable) 0
-NULLABLE
 com.google.common.io.CharStreams java.lang.String readFirstLine(com.google.common.io.InputSupplier<R>) 0
 NOT_NULL
 com.google.common.io.CharStreams java.lang.String toString(com.google.common.io.InputSupplier<R>) 0
@@ -17778,8 +17768,6 @@ com.google.common.reflect.TypeResolver.TypeMappingIntrospector introspectedTypes
 NOT_NULL
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector mappings
 NOT_NULL
-com.google.common.reflect.TypeResolver.TypeMappingIntrospector void introspect(java.lang.reflect.Type) 0
-NULLABLE
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector void introspectClass(java.lang.Class<?>) 0
 NOT_NULL
 com.google.common.reflect.TypeResolver.TypeMappingIntrospector void introspectParameterizedType(java.lang.reflect.ParameterizedType) 0
@@ -17824,8 +17812,6 @@ com.google.common.reflect.TypeToken TypeToken(java.lang.reflect.Type, com.google
 NOT_NULL
 com.google.common.reflect.TypeToken boolean equals(java.lang.Object) 0
 NULLABLE
-com.google.common.reflect.TypeToken boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.Type) 0
-NULLABLE
 com.google.common.reflect.TypeToken boolean isAssignable(java.lang.reflect.Type, java.lang.reflect.Type) 1
 NOT_NULL
 com.google.common.reflect.TypeToken boolean isAssignableBySubtypeBound(java.lang.reflect.Type, java.lang.reflect.WildcardType) 1
@@ -17852,8 +17838,6 @@ com.google.common.reflect.TypeToken boolean isAssignableToWildcardType(java.lang
 NOT_NULL
 com.google.common.reflect.TypeToken boolean matchTypeArgument(java.lang.reflect.Type, java.lang.reflect.Type) 0
 NOT_NULL
-com.google.common.reflect.TypeToken boolean matchTypeArgument(java.lang.reflect.Type, java.lang.reflect.Type) 1
-NULLABLE
 com.google.common.reflect.TypeToken com.google.common.collect.ImmutableList<com.google.common.reflect.TypeToken<? super T>> boundsAsInterfaces(java.lang.reflect.Type[])
 NOT_NULL
 com.google.common.reflect.TypeToken com.google.common.collect.ImmutableList<com.google.common.reflect.TypeToken<? super T>> boundsAsInterfaces(java.lang.reflect.Type[]) 0
@@ -18120,8 +18104,6 @@ com.google.common.reflect.Types java.lang.reflect.Type getComponentType(java.lan
 NULLABLE
 com.google.common.reflect.Types java.lang.reflect.Type getComponentType(java.lang.reflect.Type) 0
 NOT_NULL
-com.google.common.reflect.Types java.lang.reflect.Type newArrayType(java.lang.reflect.Type) 0
-NULLABLE
 com.google.common.reflect.Types java.lang.reflect.Type subtypeOfComponentType(java.lang.reflect.Type[])
 NULLABLE
 com.google.common.reflect.Types java.lang.reflect.Type subtypeOfComponentType(java.lang.reflect.Type[]) 0
@@ -18188,8 +18170,6 @@ com.google.common.reflect.Types.JavaVersion com.google.common.collect.ImmutableL
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion java.lang.reflect.Type newArrayType(java.lang.reflect.Type)
 NOT_NULL
-com.google.common.reflect.Types.JavaVersion java.lang.reflect.Type newArrayType(java.lang.reflect.Type) 0
-NULLABLE
 com.google.common.reflect.Types.JavaVersion java.lang.reflect.Type usedInGenericType(java.lang.reflect.Type)
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion java.lang.reflect.Type usedInGenericType(java.lang.reflect.Type) 0
@@ -18198,14 +18178,10 @@ com.google.common.reflect.Types.JavaVersion.2 java.lang.reflect.GenericArrayType
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion.2 java.lang.reflect.Type newArrayType(java.lang.reflect.Type)
 NOT_NULL
-com.google.common.reflect.Types.JavaVersion.2 java.lang.reflect.Type newArrayType(java.lang.reflect.Type) 0
-NULLABLE
 com.google.common.reflect.Types.JavaVersion.2 java.lang.reflect.Type usedInGenericType(java.lang.reflect.Type)
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion.2 java.lang.reflect.Type usedInGenericType(java.lang.reflect.Type) 0
 NOT_NULL
-com.google.common.reflect.Types.JavaVersion.3 java.lang.reflect.Type newArrayType(java.lang.reflect.Type) 0
-NULLABLE
 com.google.common.reflect.Types.JavaVersion.3 java.lang.reflect.Type usedInGenericType(java.lang.reflect.Type)
 NOT_NULL
 com.google.common.reflect.Types.JavaVersion.3 java.lang.reflect.Type usedInGenericType(java.lang.reflect.Type) 0

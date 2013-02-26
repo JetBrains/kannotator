@@ -1159,11 +1159,6 @@
             <val name="value" val="&quot;fun zip(x0 : Iterable) : ImmutableCollection?&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.bag.mutable.HashBag.11 void value(T, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun value(each : T?, count : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.bag.mutable.HashBag.12 void value(T, com.gs.collections.impl.Counter)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun value(item : T?, count : Counter) : Unit&quot;"/>
@@ -3462,11 +3457,6 @@
     <item name='com.gs.collections.impl.block.factory.PrimitiveFunctions com.gs.collections.api.block.function.primitive.LongFunction&lt;java.lang.Number&gt; unboxNumberToLong()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun unboxNumberToLong() : LongFunction&lt;Number?&gt;&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.block.factory.Procedures.SynchronizedProcedure void value(T)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun value(each : T?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.block.factory.Procedures2.AddToCollection void value(java.lang.Object, java.lang.Object)'>
@@ -8024,11 +8014,6 @@
             <val name="value" val="&quot;fun anySatisfy(p0 : Predicate&lt;in T&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.list.immutable.ImmutableArrayList void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super T&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(procedure : Procedure&lt;in T&gt;?, sectionIndex : Int, sectionCount : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.list.immutable.ImmutableArrayList boolean contains(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun contains(p0 : Any?) : Boolean&quot;"/>
@@ -9034,11 +9019,6 @@
             <val name="value" val="&quot;fun count(p0 : Predicate&lt;in T&gt;) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.list.mutable.AbstractMutableList void defaultSort(java.util.Comparator&lt;? super T&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun defaultSort(p0 : Comparator&lt;in T&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.list.mutable.AbstractMutableList T detect(com.gs.collections.api.block.predicate.Predicate&lt;? super T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun detect(predicate : Predicate&lt;in T&gt;) : T?&quot;"/>
@@ -9874,11 +9854,6 @@
             <val name="value" val="&quot;fun containsAll(collection : Collection&lt;*&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.list.mutable.CompositeFastList void defaultSort(java.util.Comparator&lt;? super E&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun defaultSort(comparator : Comparator&lt;in E&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.list.mutable.CompositeFastList boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(other : Any?) : Boolean&quot;"/>
@@ -9992,11 +9967,6 @@
     <item name='com.gs.collections.impl.list.mutable.FastList boolean anySatisfy(com.gs.collections.api.block.predicate.Predicate&lt;? super T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun anySatisfy(p0 : Predicate&lt;in T&gt;) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.list.mutable.FastList void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super T&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(procedure : Procedure&lt;in T&gt;?, sectionIndex : Int, sectionCount : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.list.mutable.FastList R collect(com.gs.collections.api.block.function.Function&lt;? super T,? extends V&gt;, R)'>
@@ -11352,11 +11322,6 @@
     <item name='com.gs.collections.impl.map.AbstractMapIterable A ifPresentApply(K, com.gs.collections.api.block.function.Function&lt;? super V,? extends A&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;A&gt; ifPresentApply(key : K, function : Function&lt;in V, out A&gt;?) : A?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.map.AbstractMapIterable boolean isAbsent(V, K)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isAbsent(result : V?, key : K?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.map.AbstractMapIterable boolean keyAndValueEquals(K, V, java.util.Map&lt;K,V&gt;)'>
@@ -12779,11 +12744,6 @@
             <val name="value" val="&quot;fun ImmutableUnifiedMap(vararg pairs : Pair&lt;K, V&gt;)&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.immutable.ImmutableUnifiedMap void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super V&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in V&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.immutable.ImmutableUnifiedMap void forEachKey(com.gs.collections.api.block.procedure.Procedure&lt;? super K&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun forEachKey(p0 : Procedure&lt;in K&gt;) : Unit&quot;"/>
@@ -13774,11 +13734,6 @@
             <val name="value" val="&quot;fun withoutKey(key : K?) : MutableMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super java.util.Map.Entry&lt;K,V&gt;&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in Map.Entry&lt;K, V&gt;?&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.mutable.UnifiedMap.EntrySet boolean chainContainsEntry(java.lang.Object[], java.lang.Object, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun chainContainsEntry(chain : Array&lt;out Any?&gt;, key : Any?, value : Any?) : Boolean&quot;"/>
@@ -13869,11 +13824,6 @@
             <val name="value" val="&quot;fun nextFromChain() : MutableMap.MutableEntry&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super K&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in K&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.mutable.UnifiedMap.KeySet void chainedAddToSet(java.lang.Object[], com.gs.collections.impl.set.mutable.UnifiedSet&lt;K&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun chainedAddToSet(chain : Array&lt;out Any?&gt;, replace : UnifiedSet&lt;K&gt;?) : Unit&quot;"/>
@@ -13947,11 +13897,6 @@
     <item name='com.gs.collections.impl.map.mutable.UnifiedMap.PositionalIterator void removeLastFromChain(java.lang.Object[], int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun removeLastFromChain(chain : Array&lt;out Any?&gt;, tableIndex : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super V&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in V&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.map.mutable.UnifiedMap.ValuesCollection void chainedAddToList(java.lang.Object[], com.gs.collections.impl.list.mutable.FastList&lt;V&gt;)'>
@@ -14037,11 +13982,6 @@
     <item name='com.gs.collections.impl.map.mutable.UnifiedMap void access$400(com.gs.collections.impl.map.mutable.UnifiedMap, java.lang.Object[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun access$400(x0 : UnifiedMap, x1 : Array&lt;out Any?&gt;, x2 : Int, x3 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.map.mutable.UnifiedMap void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super V&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in V&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.map.mutable.UnifiedMap boolean chainContainsKey(java.lang.Object[], java.lang.Object)'>
@@ -14337,11 +14277,6 @@
     <item name='com.gs.collections.impl.map.mutable.UnmodifiableMutableMap boolean equals(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.map.mutable.UnmodifiableMutableMap boolean isAbsent(V, K)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isAbsent(result : V?, key : K?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.map.mutable.UnmodifiableMutableMap java.util.Iterator&lt;V&gt; iterator()'>
@@ -15294,11 +15229,6 @@
             <val name="value" val="&quot;fun headMap(x0 : Any?) : SortedMap&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.sorted.mutable.UnmodifiableTreeMap boolean isAbsent(V, K)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isAbsent(result : V?, key : K?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.sorted.mutable.UnmodifiableTreeMap java.util.Iterator&lt;V&gt; iterator()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;V&gt;&quot;"/>
@@ -15519,11 +15449,6 @@
             <val name="value" val="&quot;fun ImmutableUnifiedMapWithHashingStrategy(delegate : UnifiedMapWithHashingStrategy&lt;K, V&gt;)&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super V&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in V&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.strategy.immutable.ImmutableUnifiedMapWithHashingStrategy com.gs.collections.api.map.ImmutableMap&lt;K,R&gt; collectValues(com.gs.collections.api.block.function.Function2&lt;? super K,? super V,? extends R&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;R&gt; collectValues(p0 : Function2&lt;in K, in V, out R&gt;) : ImmutableMap&lt;K, R&gt;?&quot;"/>
@@ -15669,11 +15594,6 @@
             <val name="value" val="&quot;fun &lt;K, V&gt; with(hashingStrategy : HashingStrategy&lt;in K&gt;?, key1 : K?, value1 : V?, key2 : K?, value2 : V?, key3 : K?, value3 : V?, key4 : K?, value4 : V?) : MutableMap&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super java.util.Map.Entry&lt;K,V&gt;&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in Map.Entry&lt;K, V&gt;?&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.EntrySet boolean chainContainsEntry(java.lang.Object[], K, java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun chainContainsEntry(chain : Array&lt;out Any?&gt;, key : K?, value : Any?) : Boolean&quot;"/>
@@ -15764,11 +15684,6 @@
             <val name="value" val="&quot;fun nextFromChain() : MutableMap.MutableEntry&lt;K, V&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super K&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in K&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.KeySet void chainedAddToSet(java.lang.Object[], com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy&lt;K&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun chainedAddToSet(chain : Array&lt;out Any?&gt;, replace : UnifiedSetWithHashingStrategy&lt;K&gt;?) : Unit&quot;"/>
@@ -15842,11 +15757,6 @@
     <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.PositionalIterator void removeLastFromChain(java.lang.Object[], int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun removeLastFromChain(chain : Array&lt;out Any?&gt;, tableIndex : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super V&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in V&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy.ValuesCollection void chainedAddToList(java.lang.Object[], com.gs.collections.impl.list.mutable.FastList&lt;V&gt;)'>
@@ -15937,11 +15847,6 @@
     <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void access$500(com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy, java.lang.Object[], int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun access$500(x0 : UnifiedMapWithHashingStrategy, x1 : Array&lt;out Any?&gt;, x2 : Int, x3 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super V&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in V&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.map.strategy.mutable.UnifiedMapWithHashingStrategy boolean chainContainsKey(java.lang.Object[], K)'>
@@ -17607,11 +17512,6 @@
     <item name='com.gs.collections.impl.parallel.ArrayProcedureFJTaskRunner void executeAndCombine(java.util.concurrent.Executor, com.gs.collections.impl.parallel.ProcedureFactory&lt;BT&gt;, T[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun executeAndCombine(executor : Executor?, procedureFactory : ProcedureFactory&lt;BT&gt;?, array : Array&lt;out T&gt;) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.parallel.BatchIterable void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super E&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in E&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.parallel.BatchIterable void forEach(com.gs.collections.api.block.procedure.Procedure&lt;? super E&gt;)'>
@@ -19789,11 +19689,6 @@
             <val name="value" val="&quot;fun iterator() : MutableIterator&lt;T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.set.immutable.ImmutableUnifiedSet void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super T&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in T&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.set.immutable.ImmutableUnifiedSet boolean contains(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun contains(p0 : Any?) : Boolean&quot;"/>
@@ -20747,11 +20642,6 @@
     <item name='com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.set.MutableSet&lt;K&gt; asUnmodifiable()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun asUnmodifiable() : MutableSet&lt;K&gt;&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.set.mutable.UnifiedSet void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super K&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in K&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.set.mutable.UnifiedSet com.gs.collections.api.LazyIterable&lt;com.gs.collections.api.tuple.Pair&lt;K,B&gt;&gt; cartesianProduct(com.gs.collections.api.set.SetIterable&lt;B&gt;)'>
@@ -22724,11 +22614,6 @@
             <val name="value" val="&quot;fun &lt;T&gt; withAll(hashingStrategy : HashingStrategy&lt;in T&gt;?, items : Iterable&lt;out T&gt;) : ImmutableSet&lt;T&gt;&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.set.strategy.immutable.ImmutableUnifiedSetWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super T&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in T&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.set.strategy.immutable.ImmutableUnifiedSetWithHashingStrategy boolean contains(java.lang.Object)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun contains(p0 : Any?) : Boolean&quot;"/>
@@ -22947,11 +22832,6 @@
     <item name='com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy com.gs.collections.api.set.MutableSet&lt;K&gt; asUnmodifiable()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun asUnmodifiable() : MutableSet&lt;K&gt;&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy void batchForEach(com.gs.collections.api.block.procedure.Procedure&lt;? super K&gt;, int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun batchForEach(p0 : Procedure&lt;in K&gt;?, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy com.gs.collections.api.LazyIterable&lt;com.gs.collections.api.tuple.Pair&lt;K,B&gt;&gt; cartesianProduct(com.gs.collections.api.set.SetIterable&lt;B&gt;)'>
@@ -24289,11 +24169,6 @@
             <val name="value" val="&quot;fun size(array : Array&lt;out Any?&gt;?) : Int&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.utility.ArrayIterate void sort(T[], int, java.util.Comparator&lt;? super T&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; sort(array : Array&lt;out T&gt;?, size : Int, comparator : Comparator&lt;in T&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.utility.ArrayIterate void swapWithPrevious(T[], int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;T&gt; swapWithPrevious(array : Array&lt;out T&gt;, index : Int) : Unit&quot;"/>
@@ -25469,11 +25344,6 @@
             <val name="value" val="&quot;fun &lt;T, R : Collection&lt;T&gt;?&gt; take(list : List&lt;T&gt;, count : Int, targetList : R?) : R?&quot;"/>
         </annotation>
     </item>
-    <item name='com.gs.collections.impl.utility.ListIterate void toArray(java.util.List&lt;T&gt;, T[], int, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; toArray(list : List&lt;T&gt;?, target : Array&lt;out T&gt;?, startIndex : Int, sourceSize : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='com.gs.collections.impl.utility.ListIterate com.gs.collections.api.list.MutableList&lt;com.gs.collections.api.tuple.Pair&lt;X,Y&gt;&gt; zip(java.util.List&lt;X&gt;, java.lang.Iterable&lt;Y&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;X, Y&gt; zip(list : List&lt;X&gt;, iterable : Iterable&lt;Y&gt;) : MutableList&lt;Pair&lt;X, Y&gt;?&gt;?&quot;"/>
@@ -25657,11 +25527,6 @@
     <item name='com.gs.collections.impl.utility.MapIterate IV injectIntoIf(IV, java.util.Map&lt;K,V&gt;, com.gs.collections.api.block.predicate.Predicate&lt;? super V&gt;, com.gs.collections.api.block.function.Function2&lt;? super IV,? super V,? extends IV&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;IV, K, V&gt; injectIntoIf(initialValue : IV?, map : Map&lt;K, V&gt;, predicate : Predicate&lt;in V&gt;?, function : Function2&lt;in IV, in V, out IV&gt;?) : IV?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.utility.MapIterate boolean isAbsent(V, java.util.Map&lt;K,V&gt;, K)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;K, V&gt; isAbsent(result : V?, map : Map&lt;K, V&gt;?, key : K?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.utility.MapIterate boolean isEmpty(java.util.Map&lt;?,?&gt;)'>
@@ -25947,11 +25812,6 @@
     <item name='com.gs.collections.impl.utility.StringIterate L trimStringList(L)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun &lt;L : List&lt;String?&gt;?&gt; trimStringList(strings : L?) : L?&quot;"/>
-        </annotation>
-    </item>
-    <item name='com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy java.util.Collection&lt;T&gt; createNewInstanceForCollectionType(java.util.Collection&lt;?&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T&gt; createNewInstanceForCollectionType(collection : Collection&lt;*&gt;?) : MutableCollection&lt;T&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='com.gs.collections.impl.utility.internal.DefaultSpeciesNewStrategy java.util.Collection&lt;T&gt; speciesNew(java.util.Collection&lt;?&gt;)'>

@@ -6029,11 +6029,6 @@
             <val name="value" val="&quot;fun visitAnnotation(desc : String?, visible : Boolean) : AnnotationVisitor&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.3 void addClassUsage(org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addClassUsage(type : TypeRepr.AbstractType?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler.3 org.jetbrains.asm4.AnnotationVisitor visitAnnotation(java.lang.String, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun visitAnnotation(desc : String?, visible : Boolean) : AnnotationVisitor&quot;"/>
@@ -6154,19 +6149,9 @@
             <val name="value" val="&quot;fun visitField(access : Int, n : String?, desc : String?, signature : String?, value : Any?) : FieldVisitor&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitInnerClass(name : String?, outerName : String?, innerName : String?, access : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler org.jetbrains.asm4.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun visitMethod(access : Int, n : String?, desc : String?, signature : String?, exceptions : Array&lt;out String?&gt;?) : MethodVisitor&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer.ClassCrawler void visitOuterClass(java.lang.String, java.lang.String, java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun visitOuterClass(owner : String?, name : String?, desc : String?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer org.jetbrains.jps.builders.java.dependencyView.DependencyContext access$200(org.jetbrains.jps.builders.java.dependencyView.ClassfileAnalyzer)'>
@@ -6277,11 +6262,6 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(p0 : IntIntMultiMaplet) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet void replace(int, gnu.trove.TIntHashSet)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(p0 : Int, p1 : TIntHashSet?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet)'>
@@ -6419,11 +6399,6 @@
             <val name="value" val="&quot;fun putAll(m : IntIntMultiMaplet) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntPersistentMultiMaplet void replace(int, gnu.trove.TIntHashSet)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(key : Int, value : TIntHashSet?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntPersistentMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun replaceAll(m : IntIntMultiMaplet) : Unit&quot;"/>
@@ -6447,11 +6422,6 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntTransientMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(m : IntIntMultiMaplet) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntTransientMultiMaplet void replace(int, gnu.trove.TIntHashSet)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(key : Int, value : TIntHashSet?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntIntTransientMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntIntMultiMaplet)'>
@@ -6482,11 +6452,6 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(p0 : IntObjectMultiMaplet&lt;V&gt;) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void replace(int, java.util.Collection&lt;V&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(p0 : Int, p1 : Collection&lt;V&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
@@ -6604,11 +6569,6 @@
             <val name="value" val="&quot;fun putAll(m : IntObjectMultiMaplet&lt;V&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectPersistentMultiMaplet void replace(int, java.util.Collection&lt;V&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(key : Int, value : Collection&lt;V&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectPersistentMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun replaceAll(m : IntObjectMultiMaplet&lt;V&gt;) : Unit&quot;"/>
@@ -6632,11 +6592,6 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectTransientMultiMaplet void putAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun putAll(m : IntObjectMultiMaplet&lt;V&gt;) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectTransientMultiMaplet void replace(int, java.util.Collection&lt;V&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(key : Int, value : Collection&lt;V&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.IntObjectTransientMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.IntObjectMultiMaplet&lt;V&gt;)'>
@@ -7071,7 +7026,7 @@
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr access$800(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.io.File, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun access$800(x0 : Mappings, x1 : File, x2 : Int) : ClassRepr?&quot;"/>
+            <val name="value" val="&quot;fun access$800(x0 : Mappings, x1 : File?, x2 : Int) : ClassRepr?&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.DependencyContext access$900(org.jetbrains.jps.builders.java.dependencyView.Mappings)'>
@@ -7319,11 +7274,6 @@
             <val name="value" val="&quot;fun remove(p0 : K) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void replace(K, java.util.Collection&lt;V&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(p0 : K?, p1 : Collection&lt;V&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun replaceAll(p0 : ObjectObjectMultiMaplet&lt;K, V&gt;) : Unit&quot;"/>
@@ -7389,11 +7339,6 @@
             <val name="value" val="&quot;fun remove(p0 : K) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void replace(K, java.util.Collection&lt;V&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(key : K?, value : Collection&lt;V&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectPersistentMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet&lt;K,V&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun replaceAll(m : ObjectObjectMultiMaplet&lt;K, V&gt;) : Unit&quot;"/>
@@ -7412,11 +7357,6 @@
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void remove(K)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun remove(p0 : K) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void replace(K, java.util.Collection&lt;V&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun replace(key : K?, value : Collection&lt;V&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.builders.java.dependencyView.ObjectObjectTransientMultiMaplet void replaceAll(org.jetbrains.jps.builders.java.dependencyView.ObjectObjectMultiMaplet&lt;K,V&gt;)'>
@@ -8414,11 +8354,6 @@
             <val name="value" val="&quot;fun createFSDataStream(dataStorageRoot : File?) : DataInputStream?&quot;"/>
         </annotation>
     </item>
-    <item name='org.jetbrains.jps.cmdline.BuildSession void finishBuild(java.lang.Throwable, boolean, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun finishBuild(error : Throwable?, hadBuildErrors : Boolean, doneSomething : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='org.jetbrains.jps.cmdline.BuildSession void processConstantSearchResult(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun processConstantSearchResult(result : CmdlineRemoteProto.Message.ControllerMessage.ConstantSearchResult) : Unit&quot;"/>
@@ -8677,11 +8612,6 @@
     <item name='org.jetbrains.jps.incremental.CompileScopeImpl boolean isAffected(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;, java.io.File)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun isAffected(p0 : BuildTarget&lt;*&gt;?, p1 : File) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.incremental.CompileScopeImpl boolean isAffectedByAssociatedModule(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun isAffectedByAssociatedModule(target : BuildTarget&lt;*&gt;?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.CompileScopeImpl boolean isRecompilationForced(org.jetbrains.jps.builders.BuildTarget&lt;?&gt;)'>
@@ -10337,11 +10267,6 @@
     <item name='org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer.1 void save(org.jetbrains.jps.javac.OutputFileObject)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun save(p0 : OutputFileObject) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer ClassProcessingConsumer(org.jetbrains.jps.incremental.java.JavaBuilder, org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.javac.OutputFileConsumer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun ClassProcessingConsumer(context : CompileContext?, sink : OutputFileConsumer?)&quot;"/>
         </annotation>
     </item>
     <item name='org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer org.jetbrains.jps.incremental.CompileContext access$400(org.jetbrains.jps.incremental.java.JavaBuilder.ClassProcessingConsumer)'>

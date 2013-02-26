@@ -102,7 +102,7 @@ class IntegratedInferenceTest : TestCase() {
             }
 
             override fun processingStepStarted(method: Method) {
-                println(method)
+                //println(method)
                 currentMethod = method
             }
         }

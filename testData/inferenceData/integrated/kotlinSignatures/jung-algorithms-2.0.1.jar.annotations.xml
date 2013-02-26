@@ -279,11 +279,6 @@
             <val name="value" val="&quot;fun initializeData(g : Graph&lt;V, E&gt;, decorator : MutableMap&lt;V, BetweennessCentrality&lt;V, E&gt;.BetweennessData?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='edu.uci.ics.jung.algorithms.importance.KStepMarkov KStepMarkov(edu.uci.ics.jung.graph.DirectedGraph&lt;V,E&gt;, java.util.Set&lt;V&gt;, int, java.util.Map&lt;E,java.lang.Number&gt;)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun KStepMarkov(graph : DirectedGraph&lt;V, E&gt;?, priors : Set&lt;V&gt;?, k : Int, edgeWeights : Map&lt;E, Number?&gt;?)&quot;"/>
-        </annotation>
-    </item>
     <item name='edu.uci.ics.jung.algorithms.importance.KStepMarkov java.lang.Object getRankScoreKey()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getRankScoreKey() : Any&quot;"/>
@@ -831,7 +826,7 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;E,java.lang.Number&gt;, cern.colt.matrix.DoubleMatrix1D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;V, E&gt; computeMeanFirstPassageMatrix(G : Graph&lt;V, E&gt;, edgeWeights : Map&lt;E, Number?&gt;?, stationaryDistribution : DoubleMatrix1D) : DoubleMatrix2D?&quot;"/>
+            <val name="value" val="&quot;fun &lt;V, E&gt; computeMeanFirstPassageMatrix(G : Graph&lt;V, E&gt;, edgeWeights : Map&lt;E, Number?&gt;, stationaryDistribution : DoubleMatrix1D) : DoubleMatrix2D?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;)'>
@@ -851,7 +846,7 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;E,java.lang.Number&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;V, E&gt; graphToSparseMatrix(g : Graph&lt;V, E&gt;, nev : Map&lt;E, Number?&gt;?) : SparseDoubleMatrix2D&quot;"/>
+            <val name="value" val="&quot;fun &lt;V, E&gt; graphToSparseMatrix(g : Graph&lt;V, E&gt;, nev : Map&lt;E, Number?&gt;) : SparseDoubleMatrix2D&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix1D mapTo1DMatrix(java.util.Map&lt;V,java.lang.Number&gt;)'>
@@ -1082,11 +1077,6 @@
     <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance&lt;V,E&gt;.SourceData getSourceData(V)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getSourceData(source : V?) : DijkstraDistance&lt;V, E&gt;.SourceData&quot;"/>
-        </annotation>
-    </item>
-    <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraDistance java.util.LinkedHashMap&lt;V,java.lang.Number&gt; singleSourceShortestPath(V, java.util.Collection&lt;V&gt;, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun singleSourceShortestPath(source : V?, targets : Collection&lt;V&gt;?, numDests : Int) : LinkedHashMap&lt;V, Number?&gt;?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.shortestpath.DijkstraShortestPath.SourcePathData SourcePathData(V)'>

@@ -79,11 +79,6 @@
             <val name="value" val="&quot;fun getMirrorObjects(p0 : ArrayList, p1 : HashKey?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.AlternateAppearanceRetained int indexOfScope(javax.media.j3d.Group)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOfScope(p0 : Group?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.AlternateAppearanceRetained void initAddScope(javax.media.j3d.Group)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initAddScope(p0 : Group) : Unit&quot;"/>
@@ -122,16 +117,6 @@
     <item name='javax.media.j3d.AlternateAppearanceRetained void insertScope(javax.media.j3d.Node, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun insertScope(p0 : Node, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AlternateAppearanceRetained void setInfluencingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AlternateAppearanceRetained void setInfluencingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.AlternateAppearanceRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -239,11 +224,6 @@
             <val name="value" val="&quot;fun equals(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.AppearanceRetained boolean equals(javax.media.j3d.AppearanceRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun equals(p0 : AppearanceRetained?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.AppearanceRetained javax.media.j3d.ColoringAttributes getColoringAttributes()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getColoringAttributes() : ColoringAttributes?&quot;"/>
@@ -302,76 +282,6 @@
     <item name='javax.media.j3d.AppearanceRetained javax.media.j3d.TransparencyAttributes getTransparencyAttributes()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getTransparencyAttributes() : TransparencyAttributes?&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void sendMessage(int, java.lang.Object, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sendMessage(p0 : Int, p1 : Any?, p2 : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setColoringAttributes(javax.media.j3d.ColoringAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColoringAttributes(p0 : ColoringAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setLineAttributes(javax.media.j3d.LineAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setLineAttributes(p0 : LineAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setMaterial(javax.media.j3d.Material)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setMaterial(p0 : Material?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setPointAttributes(javax.media.j3d.PointAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setPointAttributes(p0 : PointAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setPolygonAttributes(javax.media.j3d.PolygonAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setPolygonAttributes(p0 : PolygonAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setRenderingAttributes(javax.media.j3d.RenderingAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setRenderingAttributes(p0 : RenderingAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setTexCoordGeneration(javax.media.j3d.TexCoordGeneration)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTexCoordGeneration(p0 : TexCoordGeneration?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setTexture(javax.media.j3d.Texture)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTexture(p0 : Texture?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setTextureAttributes(javax.media.j3d.TextureAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTextureAttributes(p0 : TextureAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setTextureUnitState(int, javax.media.j3d.TextureUnitState)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTextureUnitState(p0 : Int, p1 : TextureUnitState?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setTextureUnitState(javax.media.j3d.TextureUnitState[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTextureUnitState(p0 : Array&lt;out TextureUnitState?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void setTransparencyAttributes(javax.media.j3d.TransparencyAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTransparencyAttributes(p0 : TransparencyAttributes?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.AppearanceRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.AttributeBin void addTextureBin(javax.media.j3d.TextureBin, javax.media.j3d.RenderBin, javax.media.j3d.RenderAtom)'>
@@ -704,29 +614,9 @@
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.BackgroundRetained void setApplicationBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setApplicationBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BackgroundRetained void setApplicationBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setApplicationBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BackgroundRetained void setGeometry(javax.media.j3d.BranchGroup)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setGeometry(p0 : BranchGroup?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.BackgroundRetained void setGeometryBranch(javax.media.j3d.BranchGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setGeometryBranch(p0 : BranchGroupRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BackgroundRetained void setImage(javax.media.j3d.ImageComponent2D)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setImage(p0 : ImageComponent2D?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.BackgroundRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -794,11 +684,6 @@
             <val name="value" val="&quot;fun getView() : View?&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.BehaviorRetained void handleLastWakeupOn(javax.media.j3d.WakeupCondition, javax.media.j3d.BehaviorStructure)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun handleLastWakeupOn(p0 : WakeupCondition?, p1 : BehaviorStructure?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.BehaviorRetained void mergeTransform(javax.media.j3d.TransformGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
@@ -807,16 +692,6 @@
     <item name='javax.media.j3d.BehaviorRetained void setLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setLive(p0 : SetLiveState) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BehaviorRetained void setSchedulingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSchedulingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BehaviorRetained void setSchedulingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSchedulingBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.BehaviorRetained void updateTransformRegion(javax.media.j3d.Bounds)'>
@@ -1059,11 +934,6 @@
             <val name="value" val="&quot;fun intersect(p0 : Bounds) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds, javax.media.j3d.BoundingBox)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun intersect(p0 : Bounds?, p1 : BoundingBox?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun intersect(p0 : Bounds, p1 : Point4d?) : Boolean&quot;"/>
@@ -1072,11 +942,6 @@
     <item name='javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Bounds?&gt;?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds[], javax.media.j3d.BoundingBox)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Bounds?&gt;?, p1 : BoundingBox?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.BoundingBox void set(javax.media.j3d.Bounds)'>
@@ -1144,11 +1009,6 @@
             <val name="value" val="&quot;fun getRegion() : Bounds?&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.BoundingLeafRetained void initRegion(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun initRegion(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.BoundingLeafRetained void mergeTransform(javax.media.j3d.TransformGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
@@ -1157,11 +1017,6 @@
     <item name='javax.media.j3d.BoundingLeafRetained void setLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setLive(p0 : SetLiveState) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BoundingLeafRetained void setRegion(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setRegion(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.BoundingLeafRetained void updateImmediateMirrorObject(java.lang.Object[])'>
@@ -1232,11 +1087,6 @@
     <item name='javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Bounds?&gt;?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds[], javax.media.j3d.BoundingPolytope)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Bounds?&gt;?, p1 : BoundingPolytope?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.BoundingPolytope void set(javax.media.j3d.Bounds)'>
@@ -1317,11 +1167,6 @@
     <item name='javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Bounds?&gt;?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds[], javax.media.j3d.BoundingSphere)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Bounds?&gt;?, p1 : BoundingSphere?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.BoundingSphere void set(javax.media.j3d.Bounds)'>
@@ -1499,19 +1344,9 @@
             <val name="value" val="&quot;fun Canvas3D(p0 : GraphicsConfiguration, p1 : Boolean)&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Canvas3D java.awt.GraphicsConfiguration checkForValidGraphicsConfig(java.awt.GraphicsConfiguration)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkForValidGraphicsConfig(p0 : GraphicsConfiguration?) : GraphicsConfiguration?&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.Canvas3D void freeContextResources(javax.media.j3d.Renderer, boolean, long)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun freeContextResources(p0 : Renderer?, p1 : Boolean, p2 : Long) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Canvas3D java.awt.Rectangle getBounds(java.awt.Rectangle)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getBounds(p0 : Rectangle?) : Rectangle?&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Canvas3D void getCenterEyeInImagePlate(javax.vecmath.Point3d)'>
@@ -1542,11 +1377,6 @@
     <item name='javax.media.j3d.Canvas3D void getLeftManualEyeInImagePlate(javax.vecmath.Point3d)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getLeftManualEyeInImagePlate(p0 : Point3d) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Canvas3D java.awt.Point getLocation(java.awt.Point)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getLocation(p0 : Point?) : Point?&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Canvas3D java.awt.Point getOffScreenLocation()'>
@@ -1589,11 +1419,6 @@
             <val name="value" val="&quot;fun getRightManualEyeInImagePlate(p0 : Point3d) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Canvas3D java.awt.Dimension getSize(java.awt.Dimension)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getSize(p0 : Dimension?) : Dimension?&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.Canvas3D void getVworldProjection(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getVworldProjection(p0 : Transform3D, p1 : Transform3D) : Unit&quot;"/>
@@ -1619,11 +1444,6 @@
             <val name="value" val="&quot;fun setOffScreenBuffer(p0 : ImageComponent2D) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.CanvasViewCache CanvasViewCache(javax.media.j3d.Canvas3D, javax.media.j3d.ScreenViewCache, javax.media.j3d.ViewCache)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun CanvasViewCache(p0 : Canvas3D?, p1 : ScreenViewCache?, p2 : ViewCache?)&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.CanvasViewCache void analyzeProjection(javax.media.j3d.Transform3D, double)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun analyzeProjection(p0 : Transform3D, p1 : Double) : Unit&quot;"/>
@@ -1647,11 +1467,6 @@
     <item name='javax.media.j3d.CanvasViewCache void copyComputedCanvasViewCache(javax.media.j3d.CanvasViewCache, boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun copyComputedCanvasViewCache(p0 : CanvasViewCache, p1 : Boolean) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.CanvasViewCache void doComputeDerivedData(boolean, javax.media.j3d.CanvasViewCache, javax.media.j3d.BoundingBox, boolean)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doComputeDerivedData(p0 : Boolean, p1 : CanvasViewCache?, p2 : BoundingBox?, p3 : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.CanvasViewCache void getPixelLocationFromImagePlate(javax.vecmath.Point3d, javax.vecmath.Point2d)'>
@@ -1724,16 +1539,6 @@
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.ClipRetained void setApplicationBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setApplicationBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ClipRetained void setApplicationBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setApplicationBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.ClipRetained void setLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setLive(p0 : SetLiveState) : Unit&quot;"/>
@@ -1802,11 +1607,6 @@
     <item name='javax.media.j3d.ColoringAttributesRetained void set(javax.media.j3d.ColoringAttributesRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : ColoringAttributesRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ColoringAttributesRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.CompileState javax.media.j3d.AppearanceRetained getAppearance(javax.media.j3d.AppearanceRetained)'>
@@ -1967,21 +1767,6 @@
     <item name='javax.media.j3d.ConeSoundRetained void mergeTransform(javax.media.j3d.TransformGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ConeSoundRetained void setAngularAttenuation(float[], float[], float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setAngularAttenuation(p0 : FloatArray?, p1 : FloatArray?, p2 : FloatArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ConeSoundRetained void setAngularAttenuation(javax.vecmath.Point2f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setAngularAttenuation(p0 : Array&lt;out Point2f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ConeSoundRetained void setBackDistanceGain(float[], float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBackDistanceGain(p0 : FloatArray?, p1 : FloatArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.ConeSoundRetained void updateMirrorObject(java.lang.Object[])'>
@@ -2179,16 +1964,6 @@
             <val name="value" val="&quot;fun addAttributeBin(p0 : AttributeBin, p1 : RenderBin?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.EnvironmentSet boolean equalLights(javax.media.j3d.LightRetained[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun equalLights(p0 : Array&lt;out LightRetained?&gt;?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.EnvironmentSet boolean equals(javax.media.j3d.RenderAtom, javax.media.j3d.LightRetained[], javax.media.j3d.FogRetained, javax.media.j3d.ModelClipRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun equals(p0 : RenderAtom?, p1 : Array&lt;out LightRetained?&gt;?, p2 : FogRetained?, p3 : ModelClipRetained?) : Boolean&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.EnvironmentSet void removeAttributeBin(javax.media.j3d.AttributeBin)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun removeAttributeBin(p0 : AttributeBin) : Unit&quot;"/>
@@ -2197,11 +1972,6 @@
     <item name='javax.media.j3d.EnvironmentSet void render(javax.media.j3d.Canvas3D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun render(p0 : Canvas3D) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.EnvironmentSet void reset(javax.media.j3d.RenderAtom, javax.media.j3d.LightRetained[], javax.media.j3d.FogRetained, javax.media.j3d.ModelClipRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun reset(p0 : RenderAtom?, p1 : Array&lt;out LightRetained?&gt;?, p2 : FogRetained?, p3 : ModelClipRetained?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.EnvironmentSet void updateAttributes(javax.media.j3d.Canvas3D)'>
@@ -2314,11 +2084,6 @@
             <val name="value" val="&quot;fun getMirrorObjects(p0 : ArrayList, p1 : HashKey?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.FogRetained int indexOfScope(javax.media.j3d.Group)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOfScope(p0 : Group?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.FogRetained void initAddScope(javax.media.j3d.Group)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initAddScope(p0 : Group) : Unit&quot;"/>
@@ -2327,11 +2092,6 @@
     <item name='javax.media.j3d.FogRetained void initInfluencingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initInfluencingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.FogRetained void initInfluencingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun initInfluencingBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.FogRetained void initInsertScope(javax.media.j3d.Node, int)'>
@@ -2357,16 +2117,6 @@
     <item name='javax.media.j3d.FogRetained void mergeTransform(javax.media.j3d.TransformGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.FogRetained void setInfluencingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.FogRetained void setInfluencingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.FogRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -3339,41 +3089,6 @@
             <val name="value" val="&quot;fun setColor(p0 : Int, p1 : FloatArray) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRef3b(javax.vecmath.Color3b[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRef3b(p0 : Array&lt;out Color3b?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRef3f(javax.vecmath.Color3f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRef3f(p0 : Array&lt;out Color3f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRef4b(javax.vecmath.Color4b[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRef4b(p0 : Array&lt;out Color4b?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRef4f(javax.vecmath.Color4f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRef4f(p0 : Array&lt;out Color4f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRefBuffer(javax.media.j3d.J3DBuffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRefBuffer(p0 : J3DBuffer?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRefByte(byte[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRefByte(p0 : ByteArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setColorRefFloat(float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setColorRefFloat(p0 : FloatArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.GeometryArrayRetained void setColors(int, byte[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setColors(p0 : Int, p1 : ByteArray) : Unit&quot;"/>
@@ -3407,31 +3122,6 @@
     <item name='javax.media.j3d.GeometryArrayRetained void setCompiled(java.util.ArrayList)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setCompiled(p0 : ArrayList) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setCoordRef3d(javax.vecmath.Point3d[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCoordRef3d(p0 : Array&lt;out Point3d?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setCoordRef3f(javax.vecmath.Point3f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCoordRef3f(p0 : Array&lt;out Point3f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setCoordRefBuffer(javax.media.j3d.J3DBuffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCoordRefBuffer(p0 : J3DBuffer?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setCoordRefDouble(double[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCoordRefDouble(p0 : DoubleArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setCoordRefFloat(float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCoordRefFloat(p0 : FloatArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GeometryArrayRetained void setCoordinate(int, javax.vecmath.Point3d)'>
@@ -3474,16 +3164,6 @@
             <val name="value" val="&quot;fun setCoordinates(p0 : Int, p1 : Array&lt;out Point3f?&gt;) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setInterleavedVertexBuffer(javax.media.j3d.J3DBuffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInterleavedVertexBuffer(p0 : J3DBuffer?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setInterleavedVertices(float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInterleavedVertices(p0 : FloatArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.GeometryArrayRetained void setNormal(int, javax.vecmath.Vector3f)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setNormal(p0 : Int, p1 : Vector3f) : Unit&quot;"/>
@@ -3494,21 +3174,6 @@
             <val name="value" val="&quot;fun setNormal(p0 : Int, p1 : FloatArray) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setNormalRef3f(javax.vecmath.Vector3f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setNormalRef3f(p0 : Array&lt;out Vector3f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setNormalRefBuffer(javax.media.j3d.J3DBuffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setNormalRefBuffer(p0 : J3DBuffer?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setNormalRefFloat(float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setNormalRefFloat(p0 : FloatArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.GeometryArrayRetained void setNormals(int, float[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setNormals(p0 : Int, p1 : FloatArray) : Unit&quot;"/>
@@ -3517,26 +3182,6 @@
     <item name='javax.media.j3d.GeometryArrayRetained void setNormals(int, javax.vecmath.Vector3f[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setNormals(p0 : Int, p1 : Array&lt;out Vector3f?&gt;) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setTexCoordRef2f(int, javax.vecmath.TexCoord2f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTexCoordRef2f(p0 : Int, p1 : Array&lt;out TexCoord2f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setTexCoordRef3f(int, javax.vecmath.TexCoord3f[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTexCoordRef3f(p0 : Int, p1 : Array&lt;out TexCoord3f?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setTexCoordRefBuffer(int, javax.media.j3d.J3DBuffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTexCoordRefBuffer(p0 : Int, p1 : J3DBuffer?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GeometryArrayRetained void setTexCoordRefFloat(int, float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTexCoordRefFloat(p0 : Int, p1 : FloatArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GeometryArrayRetained int[] texCoordSetMapOffset()'>
@@ -3879,11 +3524,6 @@
             <val name="value" val="&quot;fun doSetBackground(p0 : Background) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.GraphicsContext3D void doSetFog(javax.media.j3d.Fog)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doSetFog(p0 : Fog?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.GraphicsContext3D void doSetHiRes(javax.media.j3d.HiResCoord)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun doSetHiRes(p0 : HiResCoord) : Unit&quot;"/>
@@ -3944,11 +3584,6 @@
             <val name="value" val="&quot;fun setBackground(p0 : Background) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.GraphicsContext3D void setFog(javax.media.j3d.Fog)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setFog(p0 : Fog?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.GraphicsContext3D void setHiRes(javax.media.j3d.HiResCoord)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setHiRes(p0 : HiResCoord) : Unit&quot;"/>
@@ -3957,11 +3592,6 @@
     <item name='javax.media.j3d.GraphicsContext3D void setLight(javax.media.j3d.Light, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setLight(p0 : Light, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GraphicsContext3D void setModelClip(javax.media.j3d.ModelClip)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setModelClip(p0 : ModelClip?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GraphicsContext3D void setSound(javax.media.j3d.Sound, int)'>
@@ -3977,16 +3607,6 @@
     <item name='javax.media.j3d.GraphicsContext3D void updateLightState(javax.media.j3d.LightRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun updateLightState(p0 : LightRetained?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GraphicsContext3D void updateSoundState(javax.media.j3d.SoundRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateSoundState(p0 : SoundRetained?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Group void addChild(javax.media.j3d.Node)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addChild(p0 : Node?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Group javax.media.j3d.Node cloneNode(boolean)'>
@@ -4012,26 +3632,6 @@
     <item name='javax.media.j3d.Group javax.media.j3d.Bounds getCollisionBounds()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getCollisionBounds() : Bounds?&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Group void insertChild(javax.media.j3d.Node, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun insertChild(p0 : Node?, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Group void setChild(javax.media.j3d.Node, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setChild(p0 : Node?, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void addChild(javax.media.j3d.Node)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addChild(p0 : Node?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void checkClearLive(javax.media.j3d.NodeRetained, javax.media.j3d.HashKey[], boolean, javax.media.j3d.J3dMessage[], int, int, javax.media.j3d.NodeRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun checkClearLive(p0 : NodeRetained?, p1 : Array&lt;out HashKey?&gt;?, p2 : Boolean, p3 : Array&lt;out J3dMessage?&gt;?, p4 : Int, p5 : Int, p6 : NodeRetained?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GroupRetained void checkValidChild(javax.media.j3d.Node, java.lang.String)'>
@@ -4064,34 +3664,9 @@
             <val name="value" val="&quot;fun computeCombineBounds(p0 : Bounds) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.GroupRetained void doAddChild(javax.media.j3d.Node, javax.media.j3d.J3dMessage[], int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doAddChild(p0 : Node?, p1 : Array&lt;out J3dMessage?&gt;?, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void doInsertChild(javax.media.j3d.Node, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doInsertChild(p0 : Node?, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void doMoveTo(javax.media.j3d.BranchGroup)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doMoveTo(p0 : BranchGroup?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void doSetChild(javax.media.j3d.Node, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doSetChild(p0 : Node?, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.GroupRetained void doSetLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun doSetLive(p0 : SetLiveState) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void findSwitchInfo(javax.media.j3d.SetLiveState, javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun findSwitchInfo(p0 : SetLiveState?, p1 : NodeRetained?, p2 : NodeRetained?, p3 : NodeRetained?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GroupRetained void gatherBlUsers(java.util.ArrayList, java.lang.Object[])'>
@@ -4117,11 +3692,6 @@
     <item name='javax.media.j3d.GroupRetained javax.media.j3d.Bounds getEffectiveBounds()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getEffectiveBounds() : Bounds?&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained int indexOfChild(javax.media.j3d.Node)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOfChild(p0 : Node?) : Int&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GroupRetained javax.media.j3d.TargetsInterface initSwitchStates(javax.media.j3d.SetLiveState, javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained, boolean)'>
@@ -4157,16 +3727,6 @@
     <item name='javax.media.j3d.GroupRetained void searchGeometryAtoms(javax.media.j3d.UnorderList)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun searchGeometryAtoms(p0 : UnorderList) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void setBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.GroupRetained void setCollisionBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCollisionBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.GroupRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -4439,11 +3999,6 @@
             <val name="value" val="&quot;fun updateData(p0 : ImageComponent2D.Updater, p1 : Int, p2 : Int, p3 : Int, p4 : Int) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.ImageComponent2DRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.ImageComponent3D ImageComponent3D(int, java.awt.image.BufferedImage[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun ImageComponent3D(p0 : Int, p1 : Array&lt;out BufferedImage?&gt;)&quot;"/>
@@ -4572,11 +4127,6 @@
     <item name='javax.media.j3d.ImageComponentRetained boolean is4ByteRGBAOr3ByteRGB(java.awt.image.RenderedImage)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun is4ByteRGBAOr3ByteRGB(p0 : RenderedImage) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ImageComponentRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.ImplementationVersion java.lang.String getJ3dVersion()'>
@@ -4999,11 +4549,6 @@
             <val name="value" val="&quot;fun checkNativeBufferAccess(p0 : Buffer?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.J3DBuffer void setBuffer(java.nio.Buffer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBuffer(p0 : Buffer?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.J3DGraphics2D void drawAndFlushImage(java.awt.image.BufferedImage, int, int, java.awt.image.ImageObserver)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun drawAndFlushImage(p0 : BufferedImage, p1 : Int, p2 : Int, p3 : ImageObserver?) : Unit&quot;"/>
@@ -5239,11 +4784,6 @@
             <val name="value" val="&quot;fun getMirrorObjects(p0 : ArrayList, p1 : HashKey?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.LightRetained int indexOfScope(javax.media.j3d.Group)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOfScope(p0 : Group?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.LightRetained void initAddScope(javax.media.j3d.Group)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initAddScope(p0 : Group) : Unit&quot;"/>
@@ -5287,16 +4827,6 @@
     <item name='javax.media.j3d.LightRetained void mergeTransform(javax.media.j3d.TransformGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.LightRetained void setInfluencingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.LightRetained void setInfluencingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.LightRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -5357,11 +4887,6 @@
     <item name='javax.media.j3d.LineAttributesRetained void set(javax.media.j3d.LineAttributesRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : LineAttributesRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.LineAttributesRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.LineStripArray LineStripArray(int, int, int, int[], int[])'>
@@ -5472,11 +4997,6 @@
     <item name='javax.media.j3d.LinkRetained void setNodeData(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setNodeData(p0 : SetLiveState) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.LinkRetained void setSharedGroup(javax.media.j3d.SharedGroup)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSharedGroup(p0 : SharedGroup?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.LinkRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[])'>
@@ -5889,11 +5409,6 @@
             <val name="value" val="&quot;fun set(p0 : MaterialRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.MaterialRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.MediaContainer javax.media.j3d.NodeComponent cloneNodeComponent()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneNodeComponent() : NodeComponent&quot;"/>
@@ -6024,11 +5539,6 @@
             <val name="value" val="&quot;fun getPlane(p0 : Int, p1 : Vector4d) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.ModelClipRetained int indexOfScope(javax.media.j3d.Group)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOfScope(p0 : Group?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.ModelClipRetained void initAddScope(javax.media.j3d.Group)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initAddScope(p0 : Group) : Unit&quot;"/>
@@ -6082,16 +5592,6 @@
     <item name='javax.media.j3d.ModelClipRetained void setEnables(boolean[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setEnables(p0 : BooleanArray) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ModelClipRetained void setInfluencingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ModelClipRetained void setInfluencingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setInfluencingBounds(p0 : Bounds?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.ModelClipRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -6227,26 +5727,6 @@
     <item name='javax.media.j3d.MorphRetained void searchGeometryAtoms(javax.media.j3d.UnorderList)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun searchGeometryAtoms(p0 : UnorderList) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.MorphRetained void setAppearance(javax.media.j3d.Appearance)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setAppearance(p0 : Appearance?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.MorphRetained void setBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.MorphRetained void setCollisionBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCollisionBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.MorphRetained void setGeometryArrays(javax.media.j3d.GeometryArray[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setGeometryArrays(p0 : Array&lt;out GeometryArray?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.MorphRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -6474,11 +5954,6 @@
             <val name="value" val="&quot;fun set(p0 : NodeComponentRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.NodeComponentRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.NodeRetained void clearLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun clearLive(p0 : SetLiveState) : Unit&quot;"/>
@@ -6569,11 +6044,6 @@
             <val name="value" val="&quot;fun setAuxData(p0 : SetLiveState, p1 : Int, p2 : Int) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.NodeRetained void setBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.NodeRetained void setLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setLive(p0 : SetLiveState) : Unit&quot;"/>
@@ -6599,11 +6069,6 @@
             <val name="value" val="&quot;fun updatePickable(p0 : Array&lt;out HashKey?&gt;?, p1 : BooleanArray) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.OrderedGroup void addChild(javax.media.j3d.Node)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addChild(p0 : Node?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.OrderedGroup javax.media.j3d.Node cloneNode(boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneNode(p0 : Boolean) : Node&quot;"/>
@@ -6612,31 +6077,6 @@
     <item name='javax.media.j3d.OrderedGroup int[] getChildIndexOrder()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getChildIndexOrder() : IntArray?&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.OrderedGroup void insertChild(javax.media.j3d.Node, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun insertChild(p0 : Node?, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.OrderedGroup void verifyAddStates(javax.media.j3d.Node)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun verifyAddStates(p0 : Node?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.OrderedGroup void verifyChildIndexOrderArray(int[], int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun verifyChildIndexOrderArray(p0 : IntArray?, p1 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.OrderedGroupRetained void addChild(javax.media.j3d.Node)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addChild(p0 : Node?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.OrderedGroupRetained void addChild(javax.media.j3d.Node, int[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addChild(p0 : Node?, p1 : IntArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.OrderedGroupRetained void childCheckSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState, javax.media.j3d.NodeRetained)'>
@@ -6677,11 +6117,6 @@
     <item name='javax.media.j3d.OrderedGroupRetained void setAuxData(javax.media.j3d.SetLiveState, int, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setAuxData(p0 : SetLiveState, p1 : Int, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.OrderedGroupRetained void setChildIndexOrder(int[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setChildIndexOrder(p0 : IntArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.OrderedGroupRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -7159,11 +6594,6 @@
             <val name="value" val="&quot;fun set(p0 : PointAttributesRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.PointAttributesRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.PointLight javax.media.j3d.Node cloneNode(boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneNode(p0 : Boolean) : Node&quot;"/>
@@ -7322,11 +6752,6 @@
     <item name='javax.media.j3d.PolygonAttributesRetained void set(javax.media.j3d.PolygonAttributesRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : PolygonAttributesRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.PolygonAttributesRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.PositionInterpolator PositionInterpolator(javax.media.j3d.Alpha, javax.media.j3d.TransformGroup, javax.media.j3d.Transform3D, float, float)'>
@@ -7567,16 +6992,6 @@
     <item name='javax.media.j3d.RasterRetained boolean intersect(javax.vecmath.Point3d[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Point3d?&gt;) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.RasterRetained void setDepthComponent(javax.media.j3d.DepthComponent)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setDepthComponent(p0 : DepthComponent?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.RasterRetained void setImage(javax.media.j3d.ImageComponent2D)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setImage(p0 : ImageComponent2D?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.RasterRetained void setPosition(javax.vecmath.Point3f)'>
@@ -7909,11 +7324,6 @@
             <val name="value" val="&quot;fun renderOrderedBins(p0 : Canvas3D?, p1 : ArrayList, p2 : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.RenderBin void setBackground(javax.media.j3d.BackgroundRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBackground(p0 : BackgroundRetained?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.RenderBin void updateCanvasForDirtyFog(java.util.ArrayList)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun updateCanvasForDirtyFog(p0 : ArrayList) : Unit&quot;"/>
@@ -7989,11 +7399,6 @@
             <val name="value" val="&quot;fun equals(p0 : RenderAtom, p1 : PolygonAttributesRetained?, p2 : LineAttributesRetained?, p3 : PointAttributesRetained?, p4 : MaterialRetained?, p5 : ColoringAttributesRetained?, p6 : TransparencyAttributesRetained?, p7 : Array&lt;out Transform3D?&gt;?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.RenderMolecule void evalAlphaUsage(javax.media.j3d.RenderingAttributesRetained, javax.media.j3d.TextureUnitStateRetained[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun evalAlphaUsage(p0 : RenderingAttributesRetained?, p1 : Array&lt;out TextureUnitStateRetained?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.RenderMolecule int evalRinfoGroupType(javax.media.j3d.RenderAtomListInfo)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun evalRinfoGroupType(p0 : RenderAtomListInfo) : Int&quot;"/>
@@ -8044,11 +7449,6 @@
             <val name="value" val="&quot;fun updateTransparencyAttributes(p0 : Canvas3D) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Renderer void freeResourcesInFreeList(javax.media.j3d.Canvas3D)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun freeResourcesInFreeList(p0 : Canvas3D?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.RendererStructure void removeNodes(javax.media.j3d.J3dMessage)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun removeNodes(p0 : J3dMessage) : Unit&quot;"/>
@@ -8072,11 +7472,6 @@
     <item name='javax.media.j3d.RenderingAttributesRetained void set(javax.media.j3d.RenderingAttributesRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : RenderingAttributesRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.RenderingAttributesRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.RenderingAttributesStructure void removeNodes(javax.media.j3d.J3dMessage)'>
@@ -8704,11 +8099,6 @@
             <val name="value" val="&quot;fun intersect(p0 : SceneGraphPath, p1 : PickShape, p2 : DoubleArray?) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Shape3DRetained void addGeometry(javax.media.j3d.Geometry)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addGeometry(p0 : Geometry?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.Shape3DRetained void checkEquivalenceClass(javax.media.j3d.Geometry, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun checkEquivalenceClass(p0 : Geometry?, p1 : Int) : Unit&quot;"/>
@@ -8784,19 +8174,9 @@
             <val name="value" val="&quot;fun getMirrorObjects(p0 : ArrayList, p1 : HashKey?) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Shape3DRetained javax.media.j3d.Shape3DRetained getMirrorShape(javax.media.j3d.HashKey)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun getMirrorShape(p0 : HashKey?) : Shape3DRetained?&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.Shape3DRetained javax.vecmath.Point3d getPoint3d()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getPoint3d() : Point3d?&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Shape3DRetained int indexOfGeometry(javax.media.j3d.Geometry)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOfGeometry(p0 : Geometry?) : Int&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Shape3DRetained void initMirrorShape3D(javax.media.j3d.SetLiveState, javax.media.j3d.MorphRetained, int)'>
@@ -8812,11 +8192,6 @@
     <item name='javax.media.j3d.Shape3DRetained void initializeGAtom(javax.media.j3d.Shape3DRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun initializeGAtom(p0 : Shape3DRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Shape3DRetained void insertGeometry(javax.media.j3d.Geometry, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun insertGeometry(p0 : Geometry?, p1 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Shape3DRetained boolean intersect(javax.media.j3d.SceneGraphPath, javax.media.j3d.PickShape, double[])'>
@@ -8854,34 +8229,9 @@
             <val name="value" val="&quot;fun searchGeometryAtoms(p0 : UnorderList) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Shape3DRetained void sendDataChangedMessage(javax.media.j3d.GeometryRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun sendDataChangedMessage(p0 : GeometryRetained?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Shape3DRetained void setAppearance(javax.media.j3d.Appearance)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setAppearance(p0 : Appearance?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Shape3DRetained void setBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Shape3DRetained void setCollisionBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setCollisionBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.Shape3DRetained void setGeomAtom(javax.media.j3d.Shape3DRetained, javax.media.j3d.GeometryAtom)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setGeomAtom(p0 : Shape3DRetained, p1 : GeometryAtom?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Shape3DRetained void setGeometry(javax.media.j3d.Geometry, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setGeometry(p0 : Geometry?, p1 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Shape3DRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -9064,21 +8414,6 @@
             <val name="value" val="&quot;fun setLive(p0 : SetLiveState) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.SoundRetained void setSchedulingBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSchedulingBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundRetained void setSchedulingBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSchedulingBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundRetained void setSoundData(javax.media.j3d.MediaContainer)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSoundData(p0 : MediaContainer?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.SoundRetained void updateMirrorObject(java.lang.Object[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun updateMirrorObject(p0 : Array&lt;out Any?&gt;) : Unit&quot;"/>
@@ -9112,11 +8447,6 @@
     <item name='javax.media.j3d.SoundScheduler void clearSoundData(javax.media.j3d.SoundSchedulerAtom)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun clearSoundData(p0 : SoundSchedulerAtom) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundScheduler void deleteSound(javax.media.j3d.SoundRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun deleteSound(p0 : SoundRetained?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.SoundScheduler javax.media.j3d.SoundSchedulerAtom findSoundAtom(javax.media.j3d.SoundRetained, int)'>
@@ -9202,11 +8532,6 @@
     <item name='javax.media.j3d.SoundScheduler void update(javax.media.j3d.SoundSchedulerAtom)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun update(p0 : SoundSchedulerAtom) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundScheduler void updateAuralAttribs(javax.media.j3d.AuralAttributesRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateAuralAttribs(p0 : AuralAttributesRetained?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.SoundScheduler void updateSoundParams(boolean, javax.media.j3d.SoundSchedulerAtom, javax.media.j3d.AuralAttributesRetained)'>
@@ -9342,21 +8667,6 @@
     <item name='javax.media.j3d.SoundscapeRetained void mergeTransform(javax.media.j3d.TransformGroupRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun mergeTransform(p0 : TransformGroupRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundscapeRetained void setApplicationBoundingLeaf(javax.media.j3d.BoundingLeaf)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setApplicationBoundingLeaf(p0 : BoundingLeaf?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundscapeRetained void setApplicationBounds(javax.media.j3d.Bounds)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setApplicationBounds(p0 : Bounds?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.SoundscapeRetained void setAuralAttributes(javax.media.j3d.AuralAttributes)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setAuralAttributes(p0 : AuralAttributes?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.SoundscapeRetained void setLive(javax.media.j3d.SetLiveState)'>
@@ -9499,11 +8809,6 @@
             <val name="value" val="&quot;fun setNodeData(p0 : SetLiveState) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.SwitchRetained void traverseSwitchChild(int, javax.media.j3d.HashKey, int, javax.media.j3d.SwitchRetained, boolean, boolean, boolean, int, java.util.ArrayList)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun traverseSwitchChild(p0 : Int, p1 : HashKey?, p2 : Int, p3 : SwitchRetained?, p4 : Boolean, p5 : Boolean, p6 : Boolean, p7 : Int, p8 : ArrayList?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.SwitchValueInterpolator SwitchValueInterpolator(javax.media.j3d.Alpha, javax.media.j3d.Switch)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun SwitchValueInterpolator(p0 : Alpha?, p1 : Switch)&quot;"/>
@@ -9609,11 +8914,6 @@
             <val name="value" val="&quot;fun set(p0 : TexCoordGenerationRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.TexCoordGenerationRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.TexCoordGenerationRetained void updateNative(javax.media.j3d.Canvas3D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun updateNative(p0 : Canvas3D) : Unit&quot;"/>
@@ -9679,11 +8979,6 @@
             <val name="value" val="&quot;fun intersect(p0 : Array&lt;out Point3d?&gt;) : Boolean&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Text3DRetained void setString(java.lang.String)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setString(p0 : String?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.Texture2D javax.media.j3d.NodeComponent cloneNodeComponent()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneNodeComponent() : NodeComponent&quot;"/>
@@ -9702,11 +8997,6 @@
     <item name='javax.media.j3d.Texture2D javax.media.j3d.ImageComponent2D getDetailImage()'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun getDetailImage() : ImageComponent2D?&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.Texture2D void setDetailTextureFunc(float[], float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setDetailTextureFunc(p0 : FloatArray?, p1 : FloatArray?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.Texture2DRetained javax.media.j3d.ImageComponent2D getDetailImage()'>
@@ -9834,11 +9124,6 @@
             <val name="value" val="&quot;fun setLodOffset(p0 : Tuple3f) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.Texture void setSharpenTextureFunc(float[], float[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setSharpenTextureFunc(p0 : FloatArray?, p1 : FloatArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.TextureAttributes TextureAttributes(int, javax.media.j3d.Transform3D, javax.vecmath.Color4f, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun TextureAttributes(p0 : Int, p1 : Transform3D, p2 : Color4f?, p3 : Int)&quot;"/>
@@ -9909,19 +9194,9 @@
             <val name="value" val="&quot;fun set(p0 : TextureAttributesRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.TextureAttributesRetained void setTextureColorTable(int[][])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTextureColorTable(p0 : Array&lt;out IntArray?&gt;?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.TextureAttributesRetained void setTextureTransform(javax.media.j3d.Transform3D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setTextureTransform(p0 : Transform3D) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureAttributesRetained void updateMirrorObject(int, java.lang.Object, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?, p2 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.TextureAttributesRetained void updateNative(javax.media.j3d.Canvas3D, boolean, int)'>
@@ -9997,16 +9272,6 @@
     <item name='javax.media.j3d.TextureBin void renderList(javax.media.j3d.Canvas3D, int, javax.media.j3d.TransparentRenderingInfo)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun renderList(p0 : Canvas3D?, p1 : Int, p2 : TransparentRenderingInfo) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureBin void reset(javax.media.j3d.TextureUnitStateRetained[], javax.media.j3d.AppearanceRetained)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun reset(p0 : Array&lt;out TextureUnitStateRetained?&gt;?, p1 : AppearanceRetained?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureBin void resetTextureState(javax.media.j3d.TextureUnitStateRetained[])'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun resetTextureState(p0 : Array&lt;out TextureUnitStateRetained?&gt;?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.TextureBin void updateAttributes(javax.media.j3d.Canvas3D, int)'>
@@ -10092,11 +9357,6 @@
     <item name='javax.media.j3d.TextureCubeMapRetained void updateTextureSubImage(javax.media.j3d.Canvas3D, int, int, int, int, int, int, int, int, int, int, int, byte[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun updateTextureSubImage(p0 : Canvas3D, p1 : Int, p2 : Int, p3 : Int, p4 : Int, p5 : Int, p6 : Int, p7 : Int, p8 : Int, p9 : Int, p10 : Int, p11 : Int, p12 : ByteArray?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureRetained void addImageUpdateInfo(int, int, javax.media.j3d.ImageComponentUpdateInfo)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addImageUpdateInfo(p0 : Int, p1 : Int, p2 : ImageComponentUpdateInfo?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.TextureRetained void bindTexture(javax.media.j3d.Canvas3D)'>
@@ -10192,11 +9452,6 @@
     <item name='javax.media.j3d.TextureRetained void setImages(javax.media.j3d.ImageComponent[])'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setImages(p0 : Array&lt;out ImageComponent?&gt;) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.TextureRetained void updateNative(javax.media.j3d.Canvas3D)'>
@@ -10322,21 +9577,6 @@
     <item name='javax.media.j3d.TextureUnitStateRetained void set(javax.media.j3d.TextureUnitStateRetained)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun set(p0 : TextureUnitStateRetained) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureUnitStateRetained void setTextureUnitState(javax.media.j3d.Texture, javax.media.j3d.TextureAttributes, javax.media.j3d.TexCoordGeneration)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTextureUnitState(p0 : Texture?, p1 : TextureAttributes?, p2 : TexCoordGeneration?) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureUnitStateRetained void setTextureUnitStateComponent(javax.media.j3d.NodeComponent, javax.media.j3d.NodeComponentRetained, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setTextureUnitStateComponent(p0 : NodeComponent?, p1 : NodeComponentRetained?, p2 : Int) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.TextureUnitStateRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.TextureUnitStateRetained void updateNative(int, javax.media.j3d.Canvas3D, boolean, boolean)'>
@@ -11049,11 +10289,6 @@
             <val name="value" val="&quot;fun set(p0 : TransparencyAttributesRetained) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.TransparencyAttributesRetained void updateMirrorObject(int, java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun updateMirrorObject(p0 : Int, p1 : Any?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.TransparencyInterpolator javax.media.j3d.Node cloneNode(boolean)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun cloneNode(p0 : Boolean) : Node&quot;"/>
@@ -11149,24 +10384,9 @@
             <val name="value" val="&quot;fun clone() : Any&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.UnorderList boolean contains(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun contains(p0 : Any?) : Boolean&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.UnorderList int indexOf(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun indexOf(p0 : Any?) : Int&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.UnorderList void readObject(java.io.ObjectInputStream)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun readObject(p0 : ObjectInputStream) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.UnorderList boolean remove(java.lang.Object)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun remove(p0 : Any?) : Boolean&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.UnorderList void writeObject(java.io.ObjectOutputStream)'>
@@ -11197,11 +10417,6 @@
     <item name='javax.media.j3d.View void addToCanvasList(javax.media.j3d.Canvas3D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun addToCanvasList(p0 : Canvas3D) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.View void attachViewPlatform(javax.media.j3d.ViewPlatform)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun attachViewPlatform(p0 : ViewPlatform?) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.View javax.media.j3d.Canvas3D getFirstCanvas()'>
@@ -11329,11 +10544,6 @@
             <val name="value" val="&quot;fun duplicateAttributes(p0 : Node, p1 : Boolean) : Unit&quot;"/>
         </annotation>
     </item>
-    <item name='javax.media.j3d.ViewSpecificGroupRetained void addView(javax.media.j3d.View)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun addView(p0 : View?) : Unit&quot;"/>
-        </annotation>
-    </item>
     <item name='javax.media.j3d.ViewSpecificGroupRetained void clearLive(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun clearLive(p0 : SetLiveState) : Unit&quot;"/>
@@ -11342,11 +10552,6 @@
     <item name='javax.media.j3d.ViewSpecificGroupRetained void compile(javax.media.j3d.CompileState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun compile(p0 : CompileState) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ViewSpecificGroupRetained void insertView(javax.media.j3d.View, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun insertView(p0 : View?, p1 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.ViewSpecificGroupRetained void removeNodeData(javax.media.j3d.SetLiveState)'>
@@ -11367,11 +10572,6 @@
     <item name='javax.media.j3d.ViewSpecificGroupRetained void setNodeData(javax.media.j3d.SetLiveState)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value" val="&quot;fun setNodeData(p0 : SetLiveState) : Unit&quot;"/>
-        </annotation>
-    </item>
-    <item name='javax.media.j3d.ViewSpecificGroupRetained void setView(javax.media.j3d.View, int)'>
-        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun setView(p0 : View?, p1 : Int) : Unit&quot;"/>
         </annotation>
     </item>
     <item name='javax.media.j3d.VirtualUniverse void removeLocale(javax.media.j3d.Locale)'>
