@@ -5,14 +5,11 @@ import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.Opcodes.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.annotationsInference.findMethodByMethodInsnNode
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.annotationsInference.findFieldByFieldInsnNode
 import org.objectweb.asm.tree.FieldInsnNode
 import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 import java.util.Collections
-import org.jetbrains.kannotator.annotationsInference.generateAssertsForCallArguments
 import java.util.ArrayList
 import java.util.HashMap
 import org.jetbrains.kannotator.controlFlow.builder.*
@@ -125,16 +122,17 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             analyzer: Analyzer<QualifiedValueSet<Q>>
     ): Collection<ResultFrame<QualifiedValueSet<Q>>> {
         val defFrame = super<BasicFrameTransformer>.getPseudoResults(insnNode, preFrame, executedFrame, analyzer)
+        val insnIndex = analyzer.getInstructionIndex(insnNode)
 
         return when (insnNode.getOpcode()) {
             GETFIELD, ARRAYLENGTH, ATHROW, MONITORENTER, MONITOREXIT -> {
-                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull))
+                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull), insnIndex)
             }
             AALOAD, BALOAD, IALOAD, CALOAD, SALOAD, FALOAD, LALOAD, DALOAD, PUTFIELD -> {
-                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(1), true, imposeNull))
+                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(1), true, imposeNull), insnIndex)
             }
             AASTORE, BASTORE, IASTORE, CASTORE, SASTORE, FASTORE, LASTORE, DASTORE -> {
-                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(2), true, imposeNull))
+                singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(2), true, imposeNull), insnIndex)
             }
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC, INVOKESPECIAL -> {
                 val results = ArrayList<ResultFrame<QualifiedValueSet<Q>>>()
@@ -142,7 +140,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                         { indexFromTop ->
                             val newFrame = imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(indexFromTop), true, imposeNull)
                             if (newFrame != null) {
-                                results.add(pseudoErrorResult(newFrame))
+                                results.add(pseudoErrorResult(newFrame, insnIndex))
                             }
                         },
                         true,
@@ -152,7 +150,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                                 q -> if (q != NOT_NULL) q else EMPTY
                             }
                             if (newFrame != null) {
-                                results.add(pseudoErrorResult(newFrame))
+                                results.add(pseudoErrorResult(newFrame, insnIndex))
                             }
                         }
                 )
@@ -449,6 +447,11 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             }
         }
 
+        if (methodNode.name == "<init>" && method.declaringClass.canonicalName == "javax.xml.namespace.QName") {
+            println("field info map: ")
+            println("\t$fieldInfoMap")
+        }
+
         return fieldInfoMap
     }
 
@@ -554,6 +557,18 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             } else {
                 paramInfoMap[index] = UNKNOWN
             }
+        }
+
+        if (methodNode.name == "visitFrame" && methodNode.desc == "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V") {
+            println(method.declaringClass.canonicalName)
+            println("return map: ")
+            println("\t$returnInfoMap")
+            println("error map: ")
+            println("\t$errorInfoMap")
+            println("lost nulls: ")
+            println("\t$nullLostParams")
+            println("param map: ")
+            println("\t$paramInfoMap")
         }
 
         return paramInfoMap

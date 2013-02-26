@@ -7,9 +7,9 @@ import java.util.Collections
 
 public data class ResultFrame<V: Value>(val frame: Frame<V>, val insnNode: AbstractInsnNode)
 
-fun <V: Value> singletonOrEmptyResult(frame: Frame<V>?): Collection<ResultFrame<V>> {
+fun <V: Value> singletonOrEmptyResult(frame: Frame<V>?, insnIndex: Int): Collection<ResultFrame<V>> {
     return if (frame != null)
-        Collections.singletonList(pseudoErrorResult(frame))
+        Collections.singletonList(pseudoErrorResult(frame, insnIndex))
     else
         Collections.emptyList<ResultFrame<V>>()
 }
