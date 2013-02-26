@@ -10,10 +10,7 @@ class AnnotationsImpl<A: Any>(val delegate: Annotations<A>? = null) : MutableAnn
     private val data = HashMap<AnnotationPosition, A>()
 
     override fun get(typePosition: AnnotationPosition): A? {
-        val my = data[typePosition]
-        val theirs = delegate?.get(typePosition)
-
-        return if (my != null) my else theirs
+        return data[typePosition] ?: delegate?.get(typePosition)
     }
 
     override fun forEach(body: (AnnotationPosition, A) -> Unit) {
