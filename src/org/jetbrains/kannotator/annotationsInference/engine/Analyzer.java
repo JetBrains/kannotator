@@ -88,6 +88,12 @@ public class Analyzer<V extends Value> implements Opcodes {
     public Analyzer(
             final Interpreter<V> interpreter,
             final FrameTransformer<V> frameTransformer) {
+        if (interpreter == null) {
+            throw new NullPointerException("FrameTransformer is null");
+        }
+        if (frameTransformer == null) {
+            throw new NullPointerException("FrameTransformer is null");
+        }
         this.interpreter = interpreter;
         this.frameTransformer = frameTransformer;
     }
@@ -595,6 +601,11 @@ public class Analyzer<V extends Value> implements Opcodes {
     protected boolean isInterestingControlFlowExceptionEdge(final int insn, final TryCatchBlockNode tcb)
     {
         return isInterestingControlFlowExceptionEdge(insn, insns.indexOf(tcb.handler));
+    }
+
+    @KotlinSignature("fun getInterpreter() : Interpreter<V>")
+    public Interpreter<V> getInterpreter() {
+        return interpreter;
     }
 
     // -------------------------------------------------------------------------
