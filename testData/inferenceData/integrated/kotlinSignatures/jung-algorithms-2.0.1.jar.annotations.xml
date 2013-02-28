@@ -826,7 +826,7 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;E,java.lang.Number&gt;, cern.colt.matrix.DoubleMatrix1D)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;V, E&gt; computeMeanFirstPassageMatrix(G : Graph&lt;V, E&gt;, edgeWeights : Map&lt;E, Number?&gt;, stationaryDistribution : DoubleMatrix1D) : DoubleMatrix2D?&quot;"/>
+            <val name="value" val="&quot;fun &lt;V, E&gt; computeMeanFirstPassageMatrix(G : Graph&lt;V, E&gt;, edgeWeights : Map&lt;E, Number?&gt;?, stationaryDistribution : DoubleMatrix1D) : DoubleMatrix2D?&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph&lt;V,E&gt;)'>
@@ -846,7 +846,7 @@
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.Map&lt;E,java.lang.Number&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;V, E&gt; graphToSparseMatrix(g : Graph&lt;V, E&gt;, nev : Map&lt;E, Number?&gt;) : SparseDoubleMatrix2D&quot;"/>
+            <val name="value" val="&quot;fun &lt;V, E&gt; graphToSparseMatrix(g : Graph&lt;V, E&gt;, nev : Map&lt;E, Number?&gt;?) : SparseDoubleMatrix2D&quot;"/>
         </annotation>
     </item>
     <item name='edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix1D mapTo1DMatrix(java.util.Map&lt;V,java.lang.Number&gt;)'>

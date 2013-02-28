@@ -906,7 +906,7 @@
     </item>
     <item name='com.ctc.wstx.dtd.DTDSchemaFactory org.codehaus.stax2.validation.XMLValidationSchema doCreateSchema(com.ctc.wstx.api.ReaderConfig, com.ctc.wstx.io.InputBootstrapper, java.lang.String, java.lang.String, java.net.URL)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun doCreateSchema(rcfg : ReaderConfig, bs : InputBootstrapper, publicId : String?, systemId : String?, ctxt : URL) : XMLValidationSchema&quot;"/>
+            <val name="value" val="&quot;fun doCreateSchema(rcfg : ReaderConfig, bs : InputBootstrapper, publicId : String?, systemId : String?, ctxt : URL?) : XMLValidationSchema&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.dtd.DTDSchemaFactory java.lang.Object getProperty(java.lang.String)'>
@@ -2106,7 +2106,7 @@
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource resolveEntity(com.ctc.wstx.io.WstxInputSource, java.net.URL, java.lang.String, java.lang.String, java.lang.String, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun resolveEntity(parent : WstxInputSource?, pathCtxt : URL, entityName : String?, publicId : String?, systemId : String?, customResolver : XMLResolver?, cfg : ReaderConfig, xmlVersion : Int) : WstxInputSource&quot;"/>
+            <val name="value" val="&quot;fun resolveEntity(parent : WstxInputSource?, pathCtxt : URL?, entityName : String?, publicId : String?, systemId : String?, customResolver : XMLResolver?, cfg : ReaderConfig, xmlVersion : Int) : WstxInputSource&quot;"/>
         </annotation>
     </item>
     <item name='com.ctc.wstx.io.DefaultInputResolver com.ctc.wstx.io.WstxInputSource resolveEntityUsing(com.ctc.wstx.io.WstxInputSource, java.lang.String, java.lang.String, java.lang.String, javax.xml.stream.XMLResolver, com.ctc.wstx.api.ReaderConfig, int)'>

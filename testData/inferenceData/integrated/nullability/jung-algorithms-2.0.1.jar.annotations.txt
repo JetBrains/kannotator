@@ -408,8 +408,6 @@ edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.Double
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 0
 NOT_NULL
-edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 1
-NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeMeanFirstPassageMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>, cern.colt.matrix.DoubleMatrix1D) 2
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.DoubleMatrix2D computeVoltagePotentialMatrix(edu.uci.ics.jung.graph.UndirectedGraph<V,E>)
@@ -427,8 +425,6 @@ NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>)
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 0
-NOT_NULL
-edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations cern.colt.matrix.impl.SparseDoubleMatrix2D graphToSparseMatrix(edu.uci.ics.jung.graph.Graph<V,E>, java.util.Map<E,java.lang.Number>) 1
 NOT_NULL
 edu.uci.ics.jung.algorithms.matrix.GraphMatrixOperations edu.uci.ics.jung.graph.Graph<V,E> matrixToGraph(cern.colt.matrix.DoubleMatrix2D, org.apache.commons.collections15.Factory<? extends edu.uci.ics.jung.graph.Graph<V,E>>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>)
 NOT_NULL

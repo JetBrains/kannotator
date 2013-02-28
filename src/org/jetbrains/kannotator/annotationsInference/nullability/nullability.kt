@@ -447,11 +447,6 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             }
         }
 
-        if (methodNode.name == "<init>" && method.declaringClass.canonicalName == "javax.xml.namespace.QName") {
-            println("field info map: ")
-            println("\t$fieldInfoMap")
-        }
-
         return fieldInfoMap
     }
 
@@ -559,18 +554,6 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             }
         }
 
-        if (methodNode.name == "visitFrame" && methodNode.desc == "(II[Ljava/lang/Object;I[Ljava/lang/Object;)V") {
-            println(method.declaringClass.canonicalName)
-            println("return map: ")
-            println("\t$returnInfoMap")
-            println("error map: ")
-            println("\t$errorInfoMap")
-            println("lost nulls: ")
-            println("\t$nullLostParams")
-            println("param map: ")
-            println("\t$paramInfoMap")
-        }
-
         return paramInfoMap
     }
 
@@ -583,7 +566,16 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
 
     val paramInfoMap = collectParamNullability()
     for ((paramIndex, paramInfo) in paramInfoMap) {
-        inferredAnnotations.setIfNotNull(positions.forParameter(paramIndex).position, paramInfo.toAnnotation())
+        val pos = positions.forParameter(paramIndex).position
+        val prevAnnotation = annotations[pos]
+        val currAnnotation = paramInfo.toAnnotation()
+        val newAnnotation =
+                if (currAnnotation == null) prevAnnotation
+                else if (prevAnnotation == null) currAnnotation
+                else if (currAnnotation == prevAnnotation) prevAnnotation
+                else if (prevAnnotation == NullabilityAnnotation.NOT_NULL && currAnnotation == NullabilityAnnotation.NULLABLE) NullabilityAnnotation.NOT_NULL
+                else throw AssertionError("Nullability conflict: $prevAnnotation -> $currAnnotation at $pos")
+        inferredAnnotations.setIfNotNull(pos, newAnnotation)
     }
 
     val fieldInfoMap = collectFieldNullability()

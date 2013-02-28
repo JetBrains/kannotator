@@ -398,8 +398,6 @@ java.awt.Canvas void createBufferStrategy(int, java.awt.BufferCapabilities) 1
 NOT_NULL
 java.awt.Canvas void paint(java.awt.Graphics) 0
 NOT_NULL
-java.awt.Canvas void setGraphicsConfiguration(java.awt.GraphicsConfiguration) 0
-NOT_NULL
 java.awt.Canvas void update(java.awt.Graphics) 0
 NOT_NULL
 java.awt.Canvas.AccessibleAWTCanvas javax.accessibility.AccessibleRole getAccessibleRole()
@@ -950,8 +948,6 @@ java.awt.Component void setBounds(java.awt.Rectangle) 0
 NOT_NULL
 java.awt.Component void setCursor(java.awt.Cursor) 0
 NULLABLE
-java.awt.Component void setGraphicsConfiguration(java.awt.GraphicsConfiguration) 0
-NOT_NULL
 java.awt.Component void setLocation(java.awt.Point) 0
 NOT_NULL
 java.awt.Component void setSize(java.awt.Dimension) 0
@@ -4152,8 +4148,6 @@ java.awt.Window java.awt.Container getContainer()
 NULLABLE
 java.awt.Window java.awt.Container getFocusCycleRootAncestor()
 NULLABLE
-java.awt.Window java.awt.GraphicsConfiguration initGC(java.awt.GraphicsConfiguration)
-NOT_NULL
 java.awt.Window java.awt.Point getLocationOnWindow()
 NOT_NULL
 java.awt.Window java.awt.Shape getShape()
@@ -4242,8 +4236,6 @@ java.awt.Window void setBounds(java.awt.Rectangle) 0
 NOT_NULL
 java.awt.Window void setCursor(java.awt.Cursor) 0
 NULLABLE
-java.awt.Window void setGraphicsConfiguration(java.awt.GraphicsConfiguration) 0
-NOT_NULL
 java.awt.Window void setIconImage(java.awt.Image) 0
 NULLABLE
 java.awt.Window void setLocation(java.awt.Point) 0
@@ -4496,11 +4488,7 @@ java.awt.datatransfer.FlavorEvent FlavorEvent(java.awt.datatransfer.Clipboard) 0
 NOT_NULL
 java.awt.datatransfer.FlavorMap java.util.Map<java.awt.datatransfer.DataFlavor,java.lang.String> getNativesForFlavors(java.awt.datatransfer.DataFlavor[])
 NOT_NULL
-java.awt.datatransfer.FlavorMap java.util.Map<java.awt.datatransfer.DataFlavor,java.lang.String> getNativesForFlavors(java.awt.datatransfer.DataFlavor[]) 0
-NOT_NULL
 java.awt.datatransfer.FlavorMap java.util.Map<java.lang.String,java.awt.datatransfer.DataFlavor> getFlavorsForNatives(java.lang.String[])
-NOT_NULL
-java.awt.datatransfer.FlavorMap java.util.Map<java.lang.String,java.awt.datatransfer.DataFlavor> getFlavorsForNatives(java.lang.String[]) 0
 NOT_NULL
 java.awt.datatransfer.FlavorTable java.util.List<java.awt.datatransfer.DataFlavor> getFlavorsForNative(java.lang.String)
 NOT_NULL
@@ -4632,11 +4620,7 @@ java.awt.datatransfer.SystemFlavorMap java.util.List<java.lang.String> getNative
 NOT_NULL
 java.awt.datatransfer.SystemFlavorMap java.util.Map<java.awt.datatransfer.DataFlavor,java.lang.String> getNativesForFlavors(java.awt.datatransfer.DataFlavor[])
 NOT_NULL
-java.awt.datatransfer.SystemFlavorMap java.util.Map<java.awt.datatransfer.DataFlavor,java.lang.String> getNativesForFlavors(java.awt.datatransfer.DataFlavor[]) 0
-NOT_NULL
 java.awt.datatransfer.SystemFlavorMap java.util.Map<java.lang.String,java.awt.datatransfer.DataFlavor> getFlavorsForNatives(java.lang.String[])
-NOT_NULL
-java.awt.datatransfer.SystemFlavorMap java.util.Map<java.lang.String,java.awt.datatransfer.DataFlavor> getFlavorsForNatives(java.lang.String[]) 0
 NOT_NULL
 java.awt.datatransfer.SystemFlavorMap keyValueSeparators
 NOT_NULL
@@ -5844,8 +5828,6 @@ java.awt.font.TextLine sun.font.TextLineComponent[] createComponentsOnRun(int, i
 NOT_NULL
 java.awt.font.TextLine sun.font.TextLineComponent[] createComponentsOnRun(int, int, char[], int[], byte[], sun.font.TextLabelFactory, java.awt.Font, sun.font.CoreMetrics, java.awt.font.FontRenderContext, sun.font.Decoration, sun.font.TextLineComponent[], int) 5
 NOT_NULL
-java.awt.font.TextLine sun.font.TextLineComponent[] createComponentsOnRun(int, int, char[], int[], byte[], sun.font.TextLabelFactory, java.awt.Font, sun.font.CoreMetrics, java.awt.font.FontRenderContext, sun.font.Decoration, sun.font.TextLineComponent[], int) 7
-NOT_NULL
 java.awt.font.TextLine sun.font.TextLineComponent[] expandArray(sun.font.TextLineComponent[])
 NOT_NULL
 java.awt.font.TextLine sun.font.TextLineComponent[] expandArray(sun.font.TextLineComponent[]) 0
@@ -6609,7 +6591,7 @@ NOT_NULL
 java.awt.image.AffineTransformOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 0
 NOT_NULL
 java.awt.image.AffineTransformOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 1
-NOT_NULL
+NULLABLE
 java.awt.image.AffineTransformOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
 NOT_NULL
 java.awt.image.AffineTransformOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage) 0
@@ -6755,7 +6737,7 @@ NOT_NULL
 java.awt.image.BufferedImageOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 0
 NOT_NULL
 java.awt.image.BufferedImageOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 1
-NOT_NULL
+NULLABLE
 java.awt.image.BufferedImageOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
 NOT_NULL
 java.awt.image.BufferedImageOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage) 0
@@ -6815,12 +6797,10 @@ NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 0
 NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 1
-NOT_NULL
+NULLABLE
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel, java.awt.color.ColorSpace)
 NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel, java.awt.color.ColorSpace) 0
-NOT_NULL
-java.awt.image.ColorConvertOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel, java.awt.color.ColorSpace) 1
 NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
 NOT_NULL
@@ -6831,8 +6811,6 @@ NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage nonICCBIFilter(java.awt.image.BufferedImage, java.awt.color.ColorSpace, java.awt.image.BufferedImage, java.awt.color.ColorSpace)
 NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.BufferedImage nonICCBIFilter(java.awt.image.BufferedImage, java.awt.color.ColorSpace, java.awt.image.BufferedImage, java.awt.color.ColorSpace) 0
-NOT_NULL
-java.awt.image.ColorConvertOp java.awt.image.BufferedImage nonICCBIFilter(java.awt.image.BufferedImage, java.awt.color.ColorSpace, java.awt.image.BufferedImage, java.awt.color.ColorSpace) 2
 NOT_NULL
 java.awt.image.ColorConvertOp java.awt.image.WritableRaster createCompatibleDestRaster(java.awt.image.Raster)
 NOT_NULL
@@ -7059,7 +7037,7 @@ NOT_NULL
 java.awt.image.ConvolveOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 0
 NOT_NULL
 java.awt.image.ConvolveOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 1
-NOT_NULL
+NULLABLE
 java.awt.image.ConvolveOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
 NOT_NULL
 java.awt.image.ConvolveOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage) 0
@@ -7247,7 +7225,7 @@ NOT_NULL
 java.awt.image.LookupOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 0
 NOT_NULL
 java.awt.image.LookupOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 1
-NOT_NULL
+NULLABLE
 java.awt.image.LookupOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
 NOT_NULL
 java.awt.image.LookupOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage) 0
@@ -7535,7 +7513,7 @@ NOT_NULL
 java.awt.image.RescaleOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 0
 NOT_NULL
 java.awt.image.RescaleOp java.awt.image.BufferedImage createCompatibleDestImage(java.awt.image.BufferedImage, java.awt.image.ColorModel) 1
-NOT_NULL
+NULLABLE
 java.awt.image.RescaleOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage)
 NOT_NULL
 java.awt.image.RescaleOp java.awt.image.BufferedImage filter(java.awt.image.BufferedImage, java.awt.image.BufferedImage) 0
@@ -13666,8 +13644,6 @@ java.lang.Throwable void printEnclosedStackTrace(java.lang.Throwable.PrintStream
 NOT_NULL
 java.lang.Throwable void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
-java.lang.Throwable void printStackTrace(java.io.PrintWriter) 0
-NOT_NULL
 java.lang.Throwable void printStackTrace(java.lang.Throwable.PrintStreamOrWriter) 0
 NOT_NULL
 java.lang.Throwable void readObject(java.io.ObjectInputStream) 0
@@ -14975,8 +14951,6 @@ NOT_NULL
 java.lang.invoke.MethodHandleStatics java.lang.String getNameString(java.lang.invoke.MethodHandle, java.lang.invoke.MethodHandle)
 NOT_NULL
 java.lang.invoke.MethodHandleStatics java.lang.String getNameString(java.lang.invoke.MethodHandle, java.lang.invoke.MethodType)
-NOT_NULL
-java.lang.invoke.MethodHandleStatics java.lang.String getNameString(java.lang.invoke.MethodHandle, java.lang.invoke.MethodType) 1
 NOT_NULL
 java.lang.invoke.MethodHandleStatics java.lang.String message(java.lang.String, java.lang.Object) 1
 NULLABLE
@@ -21134,12 +21108,6 @@ java.rmi.registry.LocateRegistry java.rmi.registry.Registry createRegistry(int)
 NOT_NULL
 java.rmi.registry.LocateRegistry java.rmi.registry.Registry createRegistry(int, java.rmi.server.RMIClientSocketFactory, java.rmi.server.RMIServerSocketFactory)
 NOT_NULL
-java.rmi.registry.LocateRegistry java.rmi.registry.Registry getRegistry(java.lang.String) 0
-NOT_NULL
-java.rmi.registry.LocateRegistry java.rmi.registry.Registry getRegistry(java.lang.String, int) 0
-NOT_NULL
-java.rmi.registry.LocateRegistry java.rmi.registry.Registry getRegistry(java.lang.String, int, java.rmi.server.RMIClientSocketFactory) 0
-NOT_NULL
 java.rmi.server.LoaderHandler packagePrefix
 NOT_NULL
 java.rmi.server.LogStream int parseLevel(java.lang.String) 0
@@ -22807,8 +22775,6 @@ NOT_NULL
 java.sql.DriverManager java.sql.Connection getConnection(java.lang.String, java.util.Properties, java.lang.ClassLoader)
 NOT_NULL
 java.sql.DriverManager java.sql.Connection getConnection(java.lang.String, java.util.Properties, java.lang.ClassLoader) 0
-NOT_NULL
-java.sql.DriverManager java.sql.Connection getConnection(java.lang.String, java.util.Properties, java.lang.ClassLoader) 2
 NOT_NULL
 java.sql.DriverManager java.sql.Driver getDriver(java.lang.String)
 NOT_NULL
@@ -36520,8 +36486,6 @@ javax.management.modelmbean.ModelMBeanInfo javax.management.modelmbean.ModelMBea
 NULLABLE
 javax.management.modelmbean.ModelMBeanInfo javax.management.modelmbean.ModelMBeanOperationInfo getOperation(java.lang.String) 0
 NOT_NULL
-javax.management.modelmbean.ModelMBeanInfo void setDescriptor(javax.management.Descriptor, java.lang.String) 1
-NOT_NULL
 javax.management.modelmbean.ModelMBeanInfo void setDescriptors(javax.management.Descriptor[]) 0
 NOT_NULL
 javax.management.modelmbean.ModelMBeanInfoSupport ALL
@@ -36585,8 +36549,6 @@ NOT_NULL
 javax.management.modelmbean.ModelMBeanInfoSupport serialPersistentFields
 NOT_NULL
 javax.management.modelmbean.ModelMBeanInfoSupport void readObject(java.io.ObjectInputStream) 0
-NOT_NULL
-javax.management.modelmbean.ModelMBeanInfoSupport void setDescriptor(javax.management.Descriptor, java.lang.String) 1
 NOT_NULL
 javax.management.modelmbean.ModelMBeanInfoSupport void setDescriptors(javax.management.Descriptor[]) 0
 NOT_NULL
@@ -36667,8 +36629,6 @@ NOT_NULL
 javax.management.modelmbean.RequiredModelMBean java.lang.Object resolveForCacheValue(javax.management.Descriptor)
 NULLABLE
 javax.management.modelmbean.RequiredModelMBean java.lang.String printModelMBeanInfo(javax.management.modelmbean.ModelMBeanInfo)
-NOT_NULL
-javax.management.modelmbean.RequiredModelMBean java.lang.String printModelMBeanInfo(javax.management.modelmbean.ModelMBeanInfo) 0
 NOT_NULL
 javax.management.modelmbean.RequiredModelMBean java.lang.reflect.Method findRMMBMethod(java.lang.String, java.lang.Object, java.lang.String, java.lang.String[])
 NULLABLE
@@ -57906,8 +57866,6 @@ javax.swing.plaf.nimbus.DropShadowEffect java.awt.image.BufferedImage applyEffec
 NOT_NULL
 javax.swing.plaf.nimbus.DropShadowEffect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int) 0
 NOT_NULL
-javax.swing.plaf.nimbus.DropShadowEffect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int) 1
-NOT_NULL
 javax.swing.plaf.nimbus.DropShadowEffect javax.swing.plaf.nimbus.Effect.EffectType getEffectType()
 NOT_NULL
 javax.swing.plaf.nimbus.EditorPanePainter void doPaint(java.awt.Graphics2D, javax.swing.JComponent, int, int, java.lang.Object[]) 0
@@ -57923,8 +57881,6 @@ NOT_NULL
 javax.swing.plaf.nimbus.Effect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int)
 NOT_NULL
 javax.swing.plaf.nimbus.Effect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int) 0
-NOT_NULL
-javax.swing.plaf.nimbus.Effect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int) 1
 NOT_NULL
 javax.swing.plaf.nimbus.Effect javax.swing.plaf.nimbus.Effect.ArrayCache getArrayCache()
 NOT_NULL
@@ -58129,8 +58085,6 @@ NOT_NULL
 javax.swing.plaf.nimbus.InnerShadowEffect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int)
 NOT_NULL
 javax.swing.plaf.nimbus.InnerShadowEffect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int) 0
-NOT_NULL
-javax.swing.plaf.nimbus.InnerShadowEffect java.awt.image.BufferedImage applyEffect(java.awt.image.BufferedImage, java.awt.image.BufferedImage, int, int) 1
 NOT_NULL
 javax.swing.plaf.nimbus.InnerShadowEffect javax.swing.plaf.nimbus.Effect.EffectType getEffectType()
 NOT_NULL
@@ -70548,8 +70502,6 @@ javax.xml.bind.JAXBElement scope
 NOT_NULL
 javax.xml.bind.JAXBException void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
-javax.xml.bind.JAXBException void printStackTrace(java.io.PrintWriter) 0
-NOT_NULL
 javax.xml.bind.JAXBIntrospector java.lang.Object getValue(java.lang.Object)
 NULLABLE
 javax.xml.bind.JAXBIntrospector java.lang.Object getValue(java.lang.Object) 0
@@ -70926,17 +70878,11 @@ javax.xml.crypto.KeySelector.SingletonKeySelector.1 java.security.Key getKey()
 NOT_NULL
 javax.xml.crypto.KeySelectorException void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
-javax.xml.crypto.KeySelectorException void printStackTrace(java.io.PrintWriter) 0
-NOT_NULL
 javax.xml.crypto.KeySelectorResult java.security.Key getKey()
 NOT_NULL
 javax.xml.crypto.MarshalException void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
-javax.xml.crypto.MarshalException void printStackTrace(java.io.PrintWriter) 0
-NOT_NULL
 javax.xml.crypto.NoSuchMechanismException void printStackTrace(java.io.PrintStream) 0
-NOT_NULL
-javax.xml.crypto.NoSuchMechanismException void printStackTrace(java.io.PrintWriter) 0
 NOT_NULL
 javax.xml.crypto.OctetStreamData OctetStreamData(java.io.InputStream) 0
 NOT_NULL
@@ -70955,8 +70901,6 @@ NULLABLE
 javax.xml.crypto.URIReferenceException URIReferenceException(java.lang.String, java.lang.Throwable, javax.xml.crypto.URIReference) 2
 NOT_NULL
 javax.xml.crypto.URIReferenceException void printStackTrace(java.io.PrintStream) 0
-NOT_NULL
-javax.xml.crypto.URIReferenceException void printStackTrace(java.io.PrintWriter) 0
 NOT_NULL
 javax.xml.crypto.XMLCryptoContext java.lang.Object get(java.lang.Object)
 NULLABLE
@@ -71106,8 +71050,6 @@ javax.xml.crypto.dsig.Transform javax.xml.crypto.Data transform(javax.xml.crypto
 NOT_NULL
 javax.xml.crypto.dsig.TransformException void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
-javax.xml.crypto.dsig.TransformException void printStackTrace(java.io.PrintWriter) 0
-NOT_NULL
 javax.xml.crypto.dsig.TransformService javax.xml.crypto.dsig.TransformService getInstance(java.lang.String, java.lang.String)
 NOT_NULL
 javax.xml.crypto.dsig.TransformService javax.xml.crypto.dsig.TransformService getInstance(java.lang.String, java.lang.String) 0
@@ -71165,8 +71107,6 @@ NOT_NULL
 javax.xml.crypto.dsig.XMLSignature.SignatureValue byte[] getValue()
 NULLABLE
 javax.xml.crypto.dsig.XMLSignatureException void printStackTrace(java.io.PrintStream) 0
-NOT_NULL
-javax.xml.crypto.dsig.XMLSignatureException void printStackTrace(java.io.PrintWriter) 0
 NOT_NULL
 javax.xml.crypto.dsig.XMLSignatureFactory boolean isFeatureSupported(java.lang.String) 0
 NOT_NULL
@@ -71906,8 +71846,6 @@ javax.xml.transform.TransformerException java.lang.Throwable initCause(java.lang
 NOT_NULL
 javax.xml.transform.TransformerException void printStackTrace(java.io.PrintStream) 0
 NOT_NULL
-javax.xml.transform.TransformerException void printStackTrace(java.io.PrintWriter) 0
-NOT_NULL
 javax.xml.transform.TransformerFactory javax.xml.transform.TransformerFactory newInstance()
 NULLABLE
 javax.xml.transform.TransformerFactory javax.xml.transform.TransformerFactory newInstance(java.lang.String, java.lang.ClassLoader)
@@ -72235,8 +72173,6 @@ NULLABLE
 javax.xml.xpath.XPathException java.lang.Throwable getCause()
 NULLABLE
 javax.xml.xpath.XPathException void printStackTrace(java.io.PrintStream) 0
-NOT_NULL
-javax.xml.xpath.XPathException void printStackTrace(java.io.PrintWriter) 0
 NOT_NULL
 javax.xml.xpath.XPathExpressionException XPathExpressionException(java.lang.String) 0
 NOT_NULL

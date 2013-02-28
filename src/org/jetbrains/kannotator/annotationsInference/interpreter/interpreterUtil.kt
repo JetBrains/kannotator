@@ -99,6 +99,8 @@ public fun <V: CopyableValue<V>> Frame<V>.copy(): Frame<V> {
         }
     }
 
+    frameCopy.setLostValue((this as InferenceFrame<V>).getLostValue()?.copy())
+
     return frameCopy
 }
 
@@ -231,9 +233,15 @@ open class BasicFrameTransformer<Q: Qualifier>: DefaultFrameTransformer<Qualifie
             val rhs = preFrame.getStackFromTop(0)
             val lhs = preFrame.getLocal(varIndex)
 
-            (postFrame as InferenceFrame<QualifiedValueSet<Q>>).setLostValue(
-                    if (lhs != null) QualifiedValueSet(lhs._size, HashSet(lhs.values)) else null
-            )
+            val infPostFrame = postFrame as InferenceFrame<QualifiedValueSet<Q>>
+            val prevLostValue = infPostFrame.getLostValue()
+            val currLostValue = if (lhs != null) QualifiedValueSet(lhs._size, HashSet(lhs.values)) else null
+            val newLostValue =
+                    if (currLostValue == null) prevLostValue
+                    else if (prevLostValue == null) currLostValue
+                    else analyzer.getInterpreter().merge(prevLostValue, currLostValue)
+            infPostFrame.setLostValue(newLostValue)
+
             postFrame.setLocal(varIndex, if (rhs != null) QualifiedValueSet(rhs._size, HashSet(rhs.values)) else null)
 
             return postFrame
