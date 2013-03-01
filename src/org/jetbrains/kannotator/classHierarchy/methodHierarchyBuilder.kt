@@ -1,35 +1,22 @@
 package org.jetbrains.kannotator.classHierarchy
 
-import org.jetbrains.kannotator.declarations.Method
-import java.util.HashMap
-import java.util.LinkedList
-import java.util.LinkedHashSet
+import java.util.*
 import kotlinlib.*
 import org.objectweb.asm.tree.ClassNode
-import java.util.HashSet
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.isConstructor
-import org.jetbrains.kannotator.declarations.isPrivate
-import org.jetbrains.kannotator.declarations.isStatic
-import org.jetbrains.kannotator.declarations.isFinal
+import org.jetbrains.kannotator.declarations.*
 
 private class MethodNodeImpl(data: Method): HierarchyNodeImpl<Method>() {
     // TODO Workaround for KT-2926 Bridge methods are not generated for properties declared in primary constructors
     override val data: Method = data
 }
 
-fun Method.canBeSuperOf(m: Method): Boolean {
-    if (this.isStatic() || m.isStatic()) {
-        return false
-    }
-    if (this.isConstructor() || m.isConstructor()) {
-        return false
-    }
-    if (this.isPrivate() || m.isPrivate()) {
-        return false
-    }
-    return true
-}
+private val Method.overridable: Boolean
+    get() =
+        !isFinal() &&
+        !isStatic() &&
+        !isPrivate() &&
+        !isConstructor() &&
+        !isClassInitializer()
 
 fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGraph<Method> {
     val nodeByMethod = HashMap<Method, MethodNodeImpl>()
@@ -44,15 +31,19 @@ fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGr
             val visitedClasses = HashSet<HierarchyNode<ClassData>>()
 
             while (!superClassQueue.isEmpty()) {
-                val superClass = superClassQueue.removeFirst()
-                visitedClasses.add(superClass)
+                val superClassNode = superClassQueue.removeFirst()
+                visitedClasses.add(superClassNode)
 
-                val superMethod = superClass.data.methodsById[method.id]
-                if (superMethod != null && superMethod.canBeSuperOf(method)) {
-                    getNode(method).addParentNode(getNode(superMethod))
+                val superMethod = superClassNode.data.methodsById[method.id]
+                val overriden =
+                        superMethod != null &&
+                        superMethod.overridable &&
+                        (superMethod.visibility != Visibility.PACKAGE || classNode.data.name.packageName == superClassNode.data.name.packageName)
+                if (overriden) {
+                    getNode(method).addParentNode(getNode(superMethod!!))
                 }
                 else {
-                    superClassQueue.addAll(superClass.parentNodes() - visitedClasses)
+                    superClassQueue.addAll(superClassNode.parentNodes() - visitedClasses)
                 }
             }
         }
