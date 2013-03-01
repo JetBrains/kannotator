@@ -7,6 +7,7 @@ import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
 import java.util.ArrayList
 import org.objectweb.asm.tree.MethodNode
+import kotlinlib.prefixUpToLast
 
 trait ClassMember {
     val declaringClass: ClassName
@@ -104,7 +105,8 @@ fun ClassMember.isPrivate(): Boolean = access.isPrivate()
 
 fun ClassDeclaration.isPublic(): Boolean = access.isPublic()
 
-fun Method.isConstructor(): Boolean = name == "<init>"
+fun Method.isConstructor(): Boolean = id.methodName == "<init>"
+fun Method.isClassInitializer(): Boolean = id.methodName == "<clinit>"
 
 fun Method.isInnerClassConstructor(): Boolean {
     if (!isConstructor()) return false
@@ -194,6 +196,9 @@ fun ClassName.isAnonymous(): Boolean {
     }
     return true
 }
+
+val ClassName.packageName: String
+    get() = internal.prefixUpToLast('/')!!
 
 data class FieldId(val fieldName: String) {
     public fun toString(): String = fieldName
