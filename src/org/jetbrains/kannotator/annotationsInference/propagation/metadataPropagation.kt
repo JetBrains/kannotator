@@ -18,7 +18,7 @@ import org.jetbrains.kannotator.declarations.getSignatureDescriptor
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.ParameterPosition
-import org.jetbrains.kannotator.classHierarchy.parentNodes
+import org.jetbrains.kannotator.classHierarchy.*
 import org.jetbrains.kannotator.declarations.MethodTypePosition
 
 fun propagateMetadata<A>(
@@ -29,10 +29,11 @@ fun propagateMetadata<A>(
 ): Annotations<A> {
     val result = AnnotationsImpl(annotations)
 
-    val classifiedMethods = graph.nodes.classify {
+    val classifiedMethods = graph.hierarchyNodes.classify {
+        val node = it as HierarchyNode<Method>
         when {
-            it.children.isEmpty() -> "leaf"
-            it.parents.isEmpty() -> "root"
+            node.children.isEmpty() -> "leaf"
+            node.parents.isEmpty() -> "root"
             else -> ""
         }
     }
@@ -67,11 +68,12 @@ private fun propagateOverrides<A>(
         if (pos is MethodTypePosition) {
             val methodNode = graph.findNode(pos.method)
             if (methodNode != null) {
-                bfs(arrayList(methodNode)) {node ->
-                    val method = node!!.data
+                bfs(arrayList(methodNode)) {
+                    val node = it as HierarchyNode<Method>
+                    val method = node.data
                     val currentPos = PositionsForMethod(method)[pos.relativePosition].position
                     annotationsToFix[currentPos] = ann
-                    scheduleAll(node.childNodes())
+                    scheduleAll(node.childNodes)
                 }
             }
         }

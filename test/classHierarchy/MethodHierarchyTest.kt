@@ -25,7 +25,7 @@ class MethodHierarchyTest : TestCase() {
 
         val actual = buildString {
             sb ->
-            for (methodNode in methodHierarchy.nodes.sortForTest()) {
+            for (methodNode in methodHierarchy.hierarchyNodes.sortForTest()) {
                 sb.append(methodNode.data).append("\n")
 
                 fun appendNodes(title: String, nodes: Collection<HierarchyNode<Method>>) {
@@ -37,8 +37,8 @@ class MethodHierarchyTest : TestCase() {
                     }
                 }
 
-                appendNodes("It overrides", methodNode.parentNodes())
-                appendNodes("It is overridden by", methodNode.childNodes())
+                appendNodes("It overrides", methodNode.parentNodes)
+                appendNodes("It is overridden by", methodNode.childNodes)
                 sb.append("\n")
             }
         }

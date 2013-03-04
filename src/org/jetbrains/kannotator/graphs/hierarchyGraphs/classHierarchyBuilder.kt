@@ -1,34 +1,46 @@
 package org.jetbrains.kannotator.classHierarchy
 
-import java.util.ArrayList
-import java.util.HashMap
-import java.util.HashSet
 import kotlinlib.*
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.declarations.MethodId
-import org.jetbrains.kannotator.index.ClassSource
+import java.util.*
+
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassReader.*
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.index.ClassSource
+import org.jetbrains.kannotator.graphs.*
+
 data class ClassData(val name: ClassName, methodsById: Map<MethodId, Method>) {
     val methodsById = methodsById
 }
 
-private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
+class ClassHierarchyBuilder: GraphBuilderImpl<ClassName, ClassData, Any?>(true, true) {
+    override fun newGraph(): GraphImpl<ClassData, Any?> = HierarchyGraphImpl(createNodeMap)
+
+    override fun newNode(name: ClassName) = ClassNodeImpl(name)
+
+    override fun newEdge(label: Any?, from: NodeImpl<ClassData, Any?>, to: NodeImpl<ClassData, Any?>) =
+            HierarchyEdgeImpl(from as ClassNodeImpl, to as ClassNodeImpl)
+
+    fun getOrCreateEdge(parent: ClassNodeImpl, child: ClassNodeImpl): HierarchyEdgeImpl<ClassData> {
+        return getOrCreateEdge(null, parent, child) as HierarchyEdgeImpl<ClassData>
+    }
+}
+
+class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
     private val methods = HashSet<Method>()
 
     private var _data: ClassData? = null
     override val data: ClassData
-            get() {
-                if (_data == null) {
-                    _data = ClassData(name, methods.map { m -> m.id to m }.toMap())
-                }
-                return _data!!
+        get() {
+            if (_data == null) {
+                _data = ClassData(name, methods.map { m -> m.id to m }.toMap())
             }
+            return _data!!
+        }
 
     fun addMethod(method: Method) {
         assert(_data == null) {"Trying to add method after initialization is finished"}
@@ -38,39 +50,30 @@ private class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>()
     public fun toString(): String = name.internal
 }
 
-val HierarchyNode<ClassData>.methods: Collection<Method>
+val Node<ClassData, *>.methods: Collection<Method>
     get() = data.methodsById.values()
 
-val HierarchyNode<ClassData>.name: ClassName
+val Node<ClassData, *>.name: ClassName
     get() = data.name
 
-
 fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> {
-    val nodesByName = HashMap<ClassName, ClassNodeImpl>()
-
-    fun getNodeByName(name: ClassName) = nodesByName.getOrPut(name) { ClassNodeImpl(name) }
-
-    fun addEdge(base: ClassNodeImpl, derived: ClassNodeImpl) {
-        val edge = HierarchyEdgeImpl(base, derived)
-        base.addChild(edge)
-        derived.addParent(edge)
-    }
+    val builder = ClassHierarchyBuilder()
 
     classSource forEach {
         reader ->
         val className = ClassName.fromInternalName(reader.getClassName())
-        val node = getNodeByName(className)
+        val node = builder.getOrCreateNode(className) as ClassNodeImpl
         val (methods, superClasses) = processClass(reader)
         for (superClass in superClasses) {
-            val superClassNode = getNodeByName(superClass)
-            addEdge(base = superClassNode, derived = node)
+            val superClassNode = builder.getOrCreateNode(superClass) as ClassNodeImpl
+            builder.getOrCreateEdge(parent = superClassNode, child = node)
         }
         for (method in methods) {
             node.addMethod(method)
         }
     }
 
-    return HierarchyGraphImpl(nodesByName.values())
+    return builder.toGraph() as HierarchyGraph<ClassData>
 }
 
 private data class MethodsAndSuperClasses(

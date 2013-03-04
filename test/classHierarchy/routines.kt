@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.classHierarchy.*
 fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
     val graph = buildClassHierarchyGraph(getAllClassesWithPrefix(prefix))
 
-    return graph.nodes.filter {
+    return graph.hierarchyNodes.filter {
         it.name.internal.startsWith(prefix)
     }.sortByToString()
 }

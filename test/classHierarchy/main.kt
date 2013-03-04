@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.classHierarchy.*
 
 fun HierarchyGraph<ClassData>.toJungGraph(): DirectedSparseMultigraph<HierarchyNode<ClassData>, HierarchyEdge<ClassData>> {
     val jungGraph = DirectedSparseMultigraph<HierarchyNode<ClassData>, HierarchyEdge<ClassData>>()
-    for (i in this.nodes) {
+    for (i in this.hierarchyNodes) {
         for (e in i.children) {
             jungGraph.addEdge(e, e.parent, e.child, EdgeType.DIRECTED)
         }

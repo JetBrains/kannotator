@@ -203,7 +203,7 @@ class IntegratedInferenceTest : TestCase() {
                 }
         } }
 
-        methodHierarchy.nodes.forEach {
+        methodHierarchy.hierarchyNodes.forEach {
             node ->  if ((node.data.access.isPublic()
                         && node.parents.all { p -> !p.parent.data.access.isPublic()})
                         || (node.data.access.isProtected()

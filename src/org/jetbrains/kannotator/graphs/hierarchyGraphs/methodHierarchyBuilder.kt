@@ -4,6 +4,7 @@ import java.util.*
 import kotlinlib.*
 import org.objectweb.asm.tree.ClassNode
 import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.graphs.*
 
 private class MethodNodeImpl(data: Method): HierarchyNodeImpl<Method>() {
     // TODO Workaround for KT-2926 Bridge methods are not generated for properties declared in primary constructors
@@ -18,21 +19,26 @@ private val Method.overridable: Boolean
         !isConstructor() &&
         !isClassInitializer()
 
-fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGraph<Method> {
-    val nodeByMethod = HashMap<Method, MethodNodeImpl>()
+class MethodHierarchyBuilder: GraphBuilderImpl<Method, Method, Any?>(true, true) {
+    override fun newGraph(): GraphImpl<Method, Any?> = HierarchyGraphImpl(createNodeMap)
 
-    fun getNode(method: Method): HierarchyNodeImpl<Method> {
-        return nodeByMethod.getOrPut(method) { MethodNodeImpl(method) }
-    }
+    override fun newNode(method: Method): MethodNodeImpl = MethodNodeImpl(method)
+
+    override fun newEdge(label: Any?, from: NodeImpl<Method, Any?>, to: NodeImpl<Method, Any?>): HierarchyEdgeImpl<Method> =
+            HierarchyEdgeImpl(from as MethodNodeImpl, to as MethodNodeImpl)
+}
+
+fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGraph<Method> {
+    val builder = MethodHierarchyBuilder()
 
     for (classNode in classHierarchy.nodes) {
         for (method in classNode.methods) {
-            val superClassQueue = LinkedHashSet(classNode.parentNodes())
-            val visitedClasses = HashSet<HierarchyNode<ClassData>>()
+            val superClassQueue = LinkedHashSet((classNode as ClassNodeImpl).parentNodes)
+            val visitedClasses = HashSet<ClassNodeImpl>()
 
             while (!superClassQueue.isEmpty()) {
                 val superClassNode = superClassQueue.removeFirst()
-                visitedClasses.add(superClassNode)
+                visitedClasses.add(superClassNode as ClassNodeImpl)
 
                 val superMethod = superClassNode.data.methodsById[method.id]
                 val overriden =
@@ -40,14 +46,14 @@ fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGr
                         superMethod.overridable &&
                         (superMethod.visibility != Visibility.PACKAGE || classNode.data.name.packageName == superClassNode.data.name.packageName)
                 if (overriden) {
-                    getNode(method).addParentNode(getNode(superMethod!!))
+                    builder.getOrCreateEdge(null, builder.getOrCreateNode(superMethod!!), builder.getOrCreateNode(method))
                 }
                 else {
-                    superClassQueue.addAll(superClassNode.parentNodes() - visitedClasses)
+                    superClassQueue.addAll(superClassNode.parentNodes - visitedClasses)
                 }
             }
         }
     }
 
-    return HierarchyGraphImpl(nodeByMethod.values(), nodeByMethod)
+    return builder.toGraph() as HierarchyGraph<Method>
 }

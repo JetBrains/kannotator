@@ -2,8 +2,6 @@ package org.jetbrains.kannotator.annotationsInference.propagation
 
 import java.util.HashSet
 import kotlinlib.*
-import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
-import org.jetbrains.kannotator.classHierarchy.HierarchyNode
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
@@ -15,6 +13,8 @@ import org.jetbrains.kannotator.declarations.getValidPositions
 import java.util.LinkedHashSet
 import org.jetbrains.kannotator.classHierarchy.parentNodes
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
+import org.jetbrains.kannotator.graphs.Node
+import org.jetbrains.kannotator.classHierarchy.HierarchyNode
 
 fun resolveAllAnnotationConflicts<A>(
         leafMethodNodes: Collection<HierarchyNode<Method>>,
@@ -37,7 +37,7 @@ private fun resolveAnnotationConflicts<A>(
 
     return bfs(arrayList(leafMethod)) {
         node ->
-        val parentNodes = node.parentNodes()
+        val parentNodes = node.parentNodes
 
         resolveConflictsInParents(
                 node.method,
@@ -86,5 +86,5 @@ private fun resolveConflictsInParents<A>(
     }
 }
 
-private val HierarchyNode<Method>.method: Method
+private val Node<Method, *>.method: Method
     get() = data

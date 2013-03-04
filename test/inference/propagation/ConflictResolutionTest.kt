@@ -8,13 +8,14 @@ import org.jetbrains.kannotator.index.ClassSource
 import util.Classes
 import org.jetbrains.kannotator.annotationsInference.propagation.resolveAllAnnotationConflicts
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.classHierarchy.*
 
 class ConflictResolutionTest: TestCase() {
 
     fun doTest(classSource: ClassSource) {
         doPropagationTest(classSource) {
             methodHierarchy, initialAnnotations ->
-            val leafMethodNodes = methodHierarchy.nodes.filter{ n -> n.children.isEmpty() }
+            val leafMethodNodes = methodHierarchy.hierarchyNodes.filter{ n -> n.children.isEmpty() }
 
             val result = AnnotationsImpl(initialAnnotations)
 
