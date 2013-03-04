@@ -32,12 +32,12 @@ abstract class NodeImpl<out T, out L> : Node<T, L> {
         _outgoingEdges.add(edge)
     }
 
-    fun toString(): String {
+    open fun toString(): String {
         return "${data} in$incomingEdges out$outgoingEdges"
     }
 }
 
-abstract class DefaultNodeImpl<out T, out L>(public override val data: T) : NodeImpl<T, L>()
+class DefaultNodeImpl<out T, out L>(public override val data: T) : NodeImpl<T, L>()
 
 open class EdgeImpl<T, L>(
         public override val label: L,
@@ -66,9 +66,9 @@ abstract class GraphBuilderImpl<TI, TO, L>(val createNodeMap: Boolean, cacheNode
 
     val graph: GraphImpl<TO, L> = newGraph()
 
-    abstract fun newGraph(): GraphImpl<TO, L>
+    open fun newGraph(): GraphImpl<TO, L> = GraphImpl(createNodeMap)
     abstract fun newNode(data: TI): NodeImpl<TO, L>
-    abstract fun newEdge(label: L, from: NodeImpl<TO, L>, to: NodeImpl<TO, L>): EdgeImpl<TO, L>
+    open fun newEdge(label: L, from: NodeImpl<TO, L>, to: NodeImpl<TO, L>): EdgeImpl<TO, L> = EdgeImpl(label, from, to)
 
     override fun getOrCreateNode(data: TI): NodeImpl<TO, L> {
         val cachedNode = nodeCache?.get(data)
