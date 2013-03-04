@@ -17,7 +17,10 @@ data class ClassData(val name: ClassName, methodsById: Map<MethodId, Method>) {
     val methodsById = methodsById
 }
 
-class ClassHierarchyBuilder: GraphBuilderImpl<ClassName, ClassData, Any?>(true, true) {
+fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> =
+        ClassHierarchyBuilder(classSource).build()
+
+class ClassHierarchyBuilder(val classSource: ClassSource): GraphBuilderImpl<ClassName, ClassData, Any?>(true, true) {
     override fun newGraph(): GraphImpl<ClassData, Any?> = HierarchyGraphImpl(createNodeMap)
 
     override fun newNode(name: ClassName) = ClassNodeImpl(name)
@@ -27,6 +30,24 @@ class ClassHierarchyBuilder: GraphBuilderImpl<ClassName, ClassData, Any?>(true, 
 
     fun getOrCreateEdge(parent: ClassNodeImpl, child: ClassNodeImpl): HierarchyEdgeImpl<ClassData> {
         return getOrCreateEdge(null, parent, child) as HierarchyEdgeImpl<ClassData>
+    }
+
+    fun build(): HierarchyGraph<ClassData> {
+        classSource forEach {
+            reader ->
+            val className = ClassName.fromInternalName(reader.getClassName())
+            val node = getOrCreateNode(className) as ClassNodeImpl
+            val (methods, superClasses) = processClass(reader)
+            for (superClass in superClasses) {
+                val superClassNode = getOrCreateNode(superClass) as ClassNodeImpl
+                getOrCreateEdge(parent = superClassNode, child = node)
+            }
+            for (method in methods) {
+                node.addMethod(method)
+            }
+        }
+
+        return toGraph() as HierarchyGraph<ClassData>
     }
 }
 
@@ -47,7 +68,7 @@ class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
         methods.add(method)
     }
 
-    public fun toString(): String = name.internal
+    public override fun toString(): String = name.internal
 }
 
 val Node<ClassData, *>.methods: Collection<Method>
@@ -55,26 +76,6 @@ val Node<ClassData, *>.methods: Collection<Method>
 
 val Node<ClassData, *>.name: ClassName
     get() = data.name
-
-fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> {
-    val builder = ClassHierarchyBuilder()
-
-    classSource forEach {
-        reader ->
-        val className = ClassName.fromInternalName(reader.getClassName())
-        val node = builder.getOrCreateNode(className) as ClassNodeImpl
-        val (methods, superClasses) = processClass(reader)
-        for (superClass in superClasses) {
-            val superClassNode = builder.getOrCreateNode(superClass) as ClassNodeImpl
-            builder.getOrCreateEdge(parent = superClassNode, child = node)
-        }
-        for (method in methods) {
-            node.addMethod(method)
-        }
-    }
-
-    return builder.toGraph() as HierarchyGraph<ClassData>
-}
 
 private data class MethodsAndSuperClasses(
         val methods: List<Method>,
