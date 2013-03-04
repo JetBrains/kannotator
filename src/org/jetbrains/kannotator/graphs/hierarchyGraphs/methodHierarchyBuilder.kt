@@ -22,8 +22,10 @@ private val Method.overridable: Boolean
 fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGraph<Method> =
         MethodHierarchyBuilder(classHierarchy).build()
 
-class MethodHierarchyBuilder(val classHierarchy: HierarchyGraph<ClassData>): GraphBuilderImpl<Method, Method, Any?>(true, true) {
-    override fun newGraph(): GraphImpl<Method, Any?> = HierarchyGraphImpl(createNodeMap)
+class MethodHierarchyBuilder(
+        val classHierarchy: HierarchyGraph<ClassData>
+): GraphBuilderImpl<Method, Method, Any?, HierarchyGraphImpl<Method>>(true, true) {
+    override fun newGraph(): HierarchyGraphImpl<Method> = HierarchyGraphImpl(createNodeMap)
 
     override fun newNode(method: Method): MethodNodeImpl = MethodNodeImpl(method)
 

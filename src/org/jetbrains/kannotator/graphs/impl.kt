@@ -62,16 +62,19 @@ open class EdgeImpl<T, L>(
     }
 }
 
-abstract class GraphBuilderImpl<TI, TO, L>(val createNodeMap: Boolean, cacheNodes: Boolean) : GraphBuilder<TI, TO, L, NodeImpl<TO, L>, EdgeImpl<TO, L>> {
-    val nodeCache = if (cacheNodes) HashMap<TI, NodeImpl<TO, L>>() else null
+abstract class GraphBuilderImpl<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>>(
+        val createNodeMap: Boolean, cacheNodes: Boolean
+) : GraphBuilder<NodeKey, NodeData, EdgeLabel, NodeImpl<NodeData, EdgeLabel>, EdgeImpl<NodeData, EdgeLabel>> {
 
-    val graph: GraphImpl<TO, L> = newGraph()
+    val nodeCache = if (cacheNodes) HashMap<NodeKey, NodeImpl<NodeData, EdgeLabel>>() else null
 
-    open fun newGraph(): GraphImpl<TO, L> = GraphImpl(createNodeMap)
-    abstract fun newNode(data: TI): NodeImpl<TO, L>
-    open fun newEdge(label: L, from: NodeImpl<TO, L>, to: NodeImpl<TO, L>): EdgeImpl<TO, L> = EdgeImpl(label, from, to)
+    val graph: G = newGraph()
 
-    override fun getOrCreateNode(data: TI): NodeImpl<TO, L> {
+    abstract fun newGraph(): G
+    abstract fun newNode(data: NodeKey): NodeImpl<NodeData, EdgeLabel>
+    open fun newEdge(label: EdgeLabel, from: NodeImpl<NodeData, EdgeLabel>, to: NodeImpl<NodeData, EdgeLabel>): EdgeImpl<NodeData, EdgeLabel> = EdgeImpl(label, from, to)
+
+    override fun getOrCreateNode(data: NodeKey): NodeImpl<NodeData, EdgeLabel> {
         val cachedNode = nodeCache?.get(data)
         if (cachedNode != null) {
             return cachedNode
@@ -83,12 +86,12 @@ abstract class GraphBuilderImpl<TI, TO, L>(val createNodeMap: Boolean, cacheNode
         return node
     }
 
-    override fun getOrCreateEdge(label: L, from: NodeImpl<TO, L>, to: NodeImpl<TO, L>): EdgeImpl<TO, L> {
+    override fun getOrCreateEdge(label: EdgeLabel, from: NodeImpl<NodeData, EdgeLabel>, to: NodeImpl<NodeData, EdgeLabel>): EdgeImpl<NodeData, EdgeLabel> {
         val edge = newEdge(label, from, to)
         from.addOutgoingEdge(edge)
         to.addIncomingEdge(edge)
         return edge
     }
 
-    override fun toGraph(): Graph<TO, L> = graph
+    override fun toGraph(): G = graph
 }

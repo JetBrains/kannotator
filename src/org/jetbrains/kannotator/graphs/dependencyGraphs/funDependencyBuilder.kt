@@ -30,7 +30,7 @@ private class FunDependencyGraphBuilder(
         private val declarationIndex: DeclarationIndex,
         private val classSource: ClassSource,
         private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
-): GraphBuilderImpl<Method, Method, String>(false, true) {
+): GraphBuilderImpl<Method, Method, String, DependencyGraphImpl<Method, String>>(false, true) {
     private var currentFromNode : NodeImpl<Method, String>? = null
     private var currentClassName : ClassName? = null
 
@@ -56,7 +56,7 @@ private class FunDependencyGraphBuilder(
     }
 
 
-    override fun newGraph(): GraphImpl<Method, String> = DependencyGraphImpl(false)
+    override fun newGraph(): DependencyGraphImpl<Method, String> = DependencyGraphImpl(false)
     override fun newNode(data: Method): NodeImpl<Method, String> = DefaultNodeImpl(data)
 
     public fun build(): DependencyGraph<Method, String> {
