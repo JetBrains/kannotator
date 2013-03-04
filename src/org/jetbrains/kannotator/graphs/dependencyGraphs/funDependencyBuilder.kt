@@ -17,7 +17,6 @@ import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.declarations.getType
 import org.objectweb.asm.Type
-import org.jetbrains.kannotator.graphs.GraphBuilder
 import org.jetbrains.kannotator.graphs.NodeImpl
 import org.jetbrains.kannotator.graphs.GraphBuilderImpl
 import org.jetbrains.kannotator.graphs.DefaultNodeImpl

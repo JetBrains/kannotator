@@ -64,8 +64,7 @@ open class EdgeImpl<T, L>(
 
 abstract class GraphBuilderImpl<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>>(
         val createNodeMap: Boolean, cacheNodes: Boolean
-) : GraphBuilder<NodeKey, NodeData, EdgeLabel, NodeImpl<NodeData, EdgeLabel>, EdgeImpl<NodeData, EdgeLabel>> {
-
+) {
     val nodeCache = if (cacheNodes) HashMap<NodeKey, NodeImpl<NodeData, EdgeLabel>>() else null
 
     val graph: G = newGraph()
@@ -74,7 +73,7 @@ abstract class GraphBuilderImpl<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeD
     abstract fun newNode(data: NodeKey): NodeImpl<NodeData, EdgeLabel>
     open fun newEdge(label: EdgeLabel, from: NodeImpl<NodeData, EdgeLabel>, to: NodeImpl<NodeData, EdgeLabel>): EdgeImpl<NodeData, EdgeLabel> = EdgeImpl(label, from, to)
 
-    override fun getOrCreateNode(data: NodeKey): NodeImpl<NodeData, EdgeLabel> {
+    fun getOrCreateNode(data: NodeKey): NodeImpl<NodeData, EdgeLabel> {
         val cachedNode = nodeCache?.get(data)
         if (cachedNode != null) {
             return cachedNode
@@ -86,12 +85,12 @@ abstract class GraphBuilderImpl<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeD
         return node
     }
 
-    override fun getOrCreateEdge(label: EdgeLabel, from: NodeImpl<NodeData, EdgeLabel>, to: NodeImpl<NodeData, EdgeLabel>): EdgeImpl<NodeData, EdgeLabel> {
+    fun getOrCreateEdge(label: EdgeLabel, from: NodeImpl<NodeData, EdgeLabel>, to: NodeImpl<NodeData, EdgeLabel>): EdgeImpl<NodeData, EdgeLabel> {
         val edge = newEdge(label, from, to)
         from.addOutgoingEdge(edge)
         to.addIncomingEdge(edge)
         return edge
     }
 
-    override fun toGraph(): G = graph
+    fun toGraph(): G = graph
 }

@@ -21,10 +21,3 @@ public val <T, L> Node<T, L>.predecessors: Collection<Node<T, L>>
     get() = incomingEdges.map { e -> e.from }
 public val <T, L> Node<T, L>.successors: Collection<Node<T, L>>
     get() = outgoingEdges.map { e -> e.to }
-
-public trait GraphBuilder<in TI, out TO, out L, N: Node<TO, L>, E: Edge<TO, L>> {
-    public fun getOrCreateNode(data: TI): N
-    public fun getOrCreateEdge(label: L, from: N, to: N): E
-
-    public fun toGraph(): Graph<TO, L>
-}
