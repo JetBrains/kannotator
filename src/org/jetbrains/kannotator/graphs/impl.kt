@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.graphs
 
 import java.util.ArrayList
 import java.util.HashMap
+import java.util.LinkedHashSet
 
 open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> {
     private val _nodes: MutableCollection<Node<T, L>> = ArrayList()
@@ -18,8 +19,8 @@ open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> 
 }
 
 abstract class NodeImpl<out T, out L> : Node<T, L> {
-    private val _incomingEdges: MutableCollection<Edge<T, L>> = ArrayList()
-    private val _outgoingEdges: MutableCollection<Edge<T, L>> = ArrayList()
+    private val _incomingEdges: MutableCollection<Edge<T, L>> = LinkedHashSet()
+    private val _outgoingEdges: MutableCollection<Edge<T, L>> = LinkedHashSet()
 
     override val incomingEdges: Collection<Edge<T, L>> = _incomingEdges
     override val outgoingEdges: Collection<Edge<T, L>> = _outgoingEdges
