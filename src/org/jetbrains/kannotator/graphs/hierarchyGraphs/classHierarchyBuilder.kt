@@ -20,7 +20,7 @@ data class ClassData(val name: ClassName, methodsById: Map<MethodId, Method>) {
 fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData> =
         ClassHierarchyBuilder(classSource).build()
 
-class ClassHierarchyBuilder(val classSource: ClassSource): GraphBuilderImpl<ClassName, ClassData, Any?>(true, true) {
+class ClassHierarchyBuilder(val classSource: ClassSource): GraphBuilderImpl<ClassName, ClassData, Any?>(false, true) {
     override fun newGraph(): GraphImpl<ClassData, Any?> = HierarchyGraphImpl(createNodeMap)
 
     override fun newNode(name: ClassName) = ClassNodeImpl(name)
