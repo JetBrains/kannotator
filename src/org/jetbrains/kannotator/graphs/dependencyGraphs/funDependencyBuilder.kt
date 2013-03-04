@@ -17,19 +17,22 @@ import org.objectweb.asm.Opcodes.ASM4
 import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.declarations.getType
 import org.objectweb.asm.Type
+import org.jetbrains.kannotator.graphs.GraphBuilder
+import org.jetbrains.kannotator.graphs.NodeImpl
+import org.jetbrains.kannotator.graphs.GraphBuilderImpl
+import org.jetbrains.kannotator.graphs.DefaultNodeImpl
+import org.jetbrains.kannotator.graphs.GraphImpl
 
-public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : DependencyGraph<Method> =
+public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : DependencyGraph<Method, String> =
         FunDependencyGraphBuilder(declarationIndex, classSource, buildFieldsDependencyInfos(declarationIndex, classSource)).build()
 
 private class FunDependencyGraphBuilder(
         private val declarationIndex: DeclarationIndex,
         private val classSource: ClassSource,
         private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
-) {
-    private var currentFromNode : DependencyNodeImpl<Method>? = null
+): GraphBuilderImpl<Method, Method, String>(false, true) {
+    private var currentFromNode : NodeImpl<Method, String>? = null
     private var currentClassName : ClassName? = null
-
-    private val dependencyGraph = DependencyGraphImpl<Method>()
 
     private val classVisitor = object : ClassVisitor(ASM4) {
         public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
@@ -38,7 +41,7 @@ private class FunDependencyGraphBuilder(
 
         public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
             val method = Method(currentClassName!!, access, name, desc, signature)
-            currentFromNode = dependencyGraph.getOrCreateNode(method)
+            currentFromNode = getOrCreateNode(method)
             return methodVisitor
         }
     }
@@ -47,12 +50,16 @@ private class FunDependencyGraphBuilder(
         public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
             val method = declarationIndex.findMethod(ClassName.fromInternalName(owner), name, desc)
             if (method != null) {
-                dependencyGraph.createEdge(currentFromNode!!, dependencyGraph.getOrCreateNode(method), "call")
+                getOrCreateEdge("call", currentFromNode!!, getOrCreateNode(method))
             }
         }
     }
 
-    public fun build(): DependencyGraph<Method> {
+
+    override fun newGraph(): GraphImpl<Method, String> = DependencyGraphImpl(false)
+    override fun newNode(data: Method): NodeImpl<Method, String> = DefaultNodeImpl(data)
+
+    public fun build(): DependencyGraph<Method, String> {
         classSource.forEach {
             reader ->
             reader.accept(classVisitor, flags(SKIP_DEBUG, SKIP_FRAMES))
@@ -65,16 +72,16 @@ private class FunDependencyGraphBuilder(
                 continue
             }
             for (readerFun in fieldInfo.readers) {
-                val readerNode = dependencyGraph.getOrCreateNode(readerFun)
+                val readerNode = getOrCreateNode(readerFun)
                 for (writerFun in fieldInfo.writers) {
                     if (writerFun != readerFun) {
-                        val writerNode = dependencyGraph.getOrCreateNode(writerFun)
-                        dependencyGraph.createEdge(readerNode, writerNode, "reading '${fieldInfo.field.name}'")
+                        val writerNode = getOrCreateNode(writerFun)
+                        getOrCreateEdge("reading '${fieldInfo.field.name}'", readerNode, writerNode)
                     }
                 }
             }
         }
 
-        return dependencyGraph
+        return toGraph() as DependencyGraph<Method, String>
     }
 }

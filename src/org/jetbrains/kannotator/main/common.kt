@@ -21,7 +21,6 @@ import java.util.Collections
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import java.util.ArrayList
 import org.jetbrains.kannotator.funDependecy.DependencyGraph
-import org.jetbrains.kannotator.funDependecy.DependencyNode
 import java.util.HashSet
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
