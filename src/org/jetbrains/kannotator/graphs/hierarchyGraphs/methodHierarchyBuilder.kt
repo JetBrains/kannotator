@@ -24,7 +24,7 @@ fun buildMethodHierarchy(classHierarchy: HierarchyGraph<ClassData>): HierarchyGr
 
 class MethodHierarchyBuilder(
         val classHierarchy: HierarchyGraph<ClassData>
-): GraphBuilderImpl<Method, Method, Any?, HierarchyGraphImpl<Method>>(true, true) {
+): GraphBuilder<Method, Method, Any?, HierarchyGraphImpl<Method>>(true, true) {
     override fun newGraph(): HierarchyGraphImpl<Method> = HierarchyGraphImpl(createNodeMap)
 
     override fun newNode(method: Method): MethodNodeImpl = MethodNodeImpl(method)

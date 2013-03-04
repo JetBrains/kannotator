@@ -18,7 +18,7 @@ import org.objectweb.asm.commons.Method as AsmMethod
 import org.jetbrains.kannotator.declarations.getType
 import org.objectweb.asm.Type
 import org.jetbrains.kannotator.graphs.NodeImpl
-import org.jetbrains.kannotator.graphs.GraphBuilderImpl
+import org.jetbrains.kannotator.graphs.GraphBuilder
 import org.jetbrains.kannotator.graphs.DefaultNodeImpl
 import org.jetbrains.kannotator.graphs.GraphImpl
 
@@ -29,7 +29,7 @@ private class FunDependencyGraphBuilder(
         private val declarationIndex: DeclarationIndex,
         private val classSource: ClassSource,
         private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
-): GraphBuilderImpl<Method, Method, String, DependencyGraphImpl<Method, String>>(false, true) {
+): GraphBuilder<Method, Method, String, DependencyGraphImpl<Method, String>>(false, true) {
     private var currentFromNode : NodeImpl<Method, String>? = null
     private var currentClassName : ClassName? = null
 

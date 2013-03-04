@@ -22,7 +22,7 @@ fun buildClassHierarchyGraph(classSource: ClassSource): HierarchyGraph<ClassData
 
 class ClassHierarchyBuilder(
         val classSource: ClassSource
-): GraphBuilderImpl<ClassName, ClassData, Any?, HierarchyGraphImpl<ClassData>>(false, true) {
+): GraphBuilder<ClassName, ClassData, Any?, HierarchyGraphImpl<ClassData>>(false, true) {
     override fun newGraph(): HierarchyGraphImpl<ClassData> = HierarchyGraphImpl(createNodeMap)
 
     override fun newNode(name: ClassName) = ClassNodeImpl(name)

@@ -62,7 +62,7 @@ open class EdgeImpl<T, L>(
     }
 }
 
-abstract class GraphBuilderImpl<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>>(
+abstract class GraphBuilder<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>>(
         val createNodeMap: Boolean, cacheNodes: Boolean
 ) {
     val nodeCache = if (cacheNodes) HashMap<NodeKey, NodeImpl<NodeData, EdgeLabel>>() else null
