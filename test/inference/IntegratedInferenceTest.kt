@@ -306,4 +306,5 @@ class IntegratedInferenceTest : TestCase() {
     fun testWstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
     fun testJpsServer() = doInferenceTest("jps-server.jar")
     fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jdk_1_7_0_09_rt.jar")
+    fun testExtensions() = doInferenceTest("extensions.jar")
 }

@@ -1,0 +1,742 @@
+<root>
+    <item name='com.intellij.openapi.extensions.AbstractExtensionPointBean java.lang.Class&lt;T&gt; findClass(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; findClass(p0 : String?) : Class&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.AbstractExtensionPointBean java.lang.Class&lt;T&gt; findClassNoExceptions(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; findClassNoExceptions(p0 : String?) : Class&lt;T&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class&lt;T&gt;, org.picocontainer.PicoContainer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; instantiate(aClass : Class&lt;T&gt;, container : PicoContainer) : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class&lt;T&gt;, org.picocontainer.PicoContainer, boolean)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; instantiate(aClass : Class&lt;T&gt;, container : PicoContainer, allowNonPublicClasses : Boolean) : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.String, org.picocontainer.PicoContainer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; instantiate(p0 : String?, p1 : PicoContainer) : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionException ExtensionException(java.lang.Class)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ExtensionException(extensionClass : Class)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionException java.lang.Class getExtensionClass()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensionClass() : Class&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addExtensionPointListener(p0 : ExtensionPointListener&lt;T&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener&lt;T&gt;, com.intellij.openapi.Disposable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addExtensionPointListener(p0 : ExtensionPointListener&lt;T&gt;, p1 : Disposable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint T getExtension()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtension() : T?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint T[] getExtensions()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensions() : Array&lt;out T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint boolean hasExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun hasExtension(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint void registerExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(p0 : T) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint void registerExtension(T, com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(p0 : T, p1 : LoadingOrder) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint void removeExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeExtensionPointListener(p0 : ExtensionPointListener&lt;T&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPoint void unregisterExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unregisterExtension(p0 : T) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPointListener void extensionAdded(T, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extensionAdded(p0 : T, p1 : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPointListener void extensionRemoved(T, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extensionRemoved(p0 : T, p1 : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPointName com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt; create(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; create(name : String?) : ExtensionPointName&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionPointName T[] getExtensions()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensions() : Array&lt;out T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions.SimpleLogProvider void error(java.lang.String, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun error(p0 : String?, p1 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions.SimpleLogProvider void error(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun error(p0 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions.SimpleLogProvider void warn(java.lang.String, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun warn(p0 : String?, p1 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions.SimpleLogProvider void warn(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun warn(p0 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions void cleanRootArea(com.intellij.openapi.Disposable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun cleanRootArea(p0 : Disposable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.impl.ExtensionsAreaImpl createRootArea()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createRootArea() : ExtensionsAreaImpl&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions void disposeArea(com.intellij.openapi.extensions.AreaInstance)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun disposeArea(p0 : AreaInstance) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions boolean equals(java.lang.Object, java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(object1 : Any?, object2 : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt;, com.intellij.openapi.extensions.AreaInstance, java.lang.Class&lt;U&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T, U : T&gt; findExtension(p0 : ExtensionPointName&lt;T&gt;, p1 : AreaInstance?, p2 : Class&lt;U&gt;) : U&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt;, java.lang.Class&lt;U&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T, U : T&gt; findExtension(p0 : ExtensionPointName&lt;T&gt;, p1 : Class&lt;U&gt;) : U&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.AreaInstance[] getAllAreas(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAllAreas(p0 : String?) : Array&lt;out AreaInstance?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.ExtensionsArea getArea(com.intellij.openapi.extensions.AreaInstance)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getArea(p0 : AreaInstance?) : ExtensionsArea&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.AreaListener[] getAreaListeners()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAreaListeners() : Array&lt;out AreaListener?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions T[] getExtensions(com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensions(extensionPointName : ExtensionPointName&lt;T&gt;) : Array&lt;out T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions T[] getExtensions(com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt;, com.intellij.openapi.extensions.AreaInstance)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensions(p0 : ExtensionPointName&lt;T&gt;, p1 : AreaInstance?) : Array&lt;out T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions java.lang.Object[] getExtensions(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensions(p0 : String?) : Array&lt;out Any?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions T[] getExtensions(java.lang.String, com.intellij.openapi.extensions.AreaInstance)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensions(extensionPointName : String?, areaInstance : AreaInstance?) : Array&lt;out T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.ExtensionsArea getRootArea()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRootArea() : ExtensionsArea&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions void instantiateArea(java.lang.String, com.intellij.openapi.extensions.AreaInstance, com.intellij.openapi.extensions.AreaInstance)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun instantiateArea(p0 : String, p1 : AreaInstance?, p2 : AreaInstance?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions void registerAreaClass(java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerAreaClass(p0 : String, p1 : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.Extensions void setLogProvider(com.intellij.openapi.extensions.LogProvider)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun setLogProvider(p0 : LogProvider) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.ExtensionPoint&lt;T&gt; getExtensionPoint(com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensionPoint(p0 : ExtensionPointName&lt;T&gt;) : ExtensionPoint&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.ExtensionPoint&lt;T&gt; getExtensionPoint(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensionPoint(p0 : String?) : ExtensionPoint&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.AreaPicoContainer getPicoContainer()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPicoContainer() : AreaPicoContainer&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea org.picocontainer.PicoContainer getPluginContainer(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPluginContainer(p0 : String?) : PicoContainer&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea void registerExtension(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(p0 : PluginDescriptor, p1 : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea void registerExtension(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(p0 : String?, p1 : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea void registerExtensionPoint(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtensionPoint(p0 : PluginDescriptor, p1 : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea void registerExtensionPoint(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtensionPoint(p0 : String?, p1 : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea void unregisterExtension(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unregisterExtension(p0 : String?, p1 : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.ExtensionsArea void unregisterExtensionPoint(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unregisterExtensionPoint(p0 : String?, p1 : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder.1 java.util.Iterator&lt;com.intellij.openapi.extensions.LoadingOrder.Orderable&gt; getIn(com.intellij.openapi.extensions.LoadingOrder.Orderable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIn(n : LoadingOrder.Orderable) : MutableIterator&lt;LoadingOrder.Orderable?&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder.1 java.util.Iterator getIn(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getIn(x0 : Any) : MutableIterator?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder.1 java.util.Collection&lt;com.intellij.openapi.extensions.LoadingOrder.Orderable&gt; getNodes()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNodes() : MutableCollection&lt;LoadingOrder.Orderable?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder.Orderable org.jdom.Element getDescribingElement()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDescribingElement() : Element&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder.Orderable com.intellij.openapi.extensions.LoadingOrder getOrder()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOrder() : LoadingOrder&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder.Orderable java.lang.String getOrderId()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOrderId() : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder LoadingOrder(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun LoadingOrder(p0 : String)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder java.util.Set access$000(com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : LoadingOrder) : MutableSet&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder java.util.Set access$100(com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$100(x0 : LoadingOrder) : MutableSet&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder boolean access$200(com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$200(x0 : LoadingOrder) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder boolean access$300(com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$300(x0 : LoadingOrder) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder after(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun after(id : String?) : LoadingOrder&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder before(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun before(id : String?) : LoadingOrder&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder readOrder(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun readOrder(orderAttr : String?) : LoadingOrder&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder void sort(com.intellij.openapi.extensions.LoadingOrder.Orderable[])'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun sort(orderables : Array&lt;out LoadingOrder.Orderable?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LoadingOrder java.lang.String toString()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun toString() : String&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LogProvider void error(java.lang.String, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun error(p0 : String?, p1 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LogProvider void error(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun error(p0 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LogProvider void warn(java.lang.String, java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun warn(p0 : String?, p1 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.LogProvider void warn(java.lang.Throwable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun warn(p0 : Throwable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.PluginDescriptor java.lang.ClassLoader getPluginClassLoader()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPluginClassLoader() : ClassLoader?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.PluginId int compareTo(com.intellij.openapi.extensions.PluginId)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun compareTo(o : PluginId) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.PluginId int compareTo(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun compareTo(x0 : Any) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.PluginId com.intellij.openapi.extensions.PluginId getId(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getId(idString : String?) : PluginId&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.PluginId java.util.Map&lt;java.lang.String,com.intellij.openapi.extensions.PluginId&gt; getRegisteredIds()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getRegisteredIds() : MutableMap&lt;String?, PluginId?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SimpleSmartExtensionPoint SimpleSmartExtensionPoint(java.util.Collection&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SimpleSmartExtensionPoint(p0 : Collection&lt;T&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SimpleSmartExtensionPoint T getExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtension(p0 : T) : T&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint.1 V fun(Extension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun fun(p0 : Extension) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint SmartExtensionPoint(java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun SmartExtensionPoint(explicitExtensions : Collection&lt;V&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint void addExplicitExtension(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addExplicitExtension(p0 : V) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint void extensionAdded(Extension, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extensionAdded(p0 : Extension, p1 : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint void extensionRemoved(Extension, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extensionRemoved(p0 : Extension, p1 : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint V getExtension(Extension)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtension(p0 : Extension) : V?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint com.intellij.openapi.extensions.ExtensionPoint&lt;Extension&gt; getExtensionPoint()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensionPoint() : ExtensionPoint&lt;Extension&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint java.util.List&lt;V&gt; getExtensions()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensions() : MutableList&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SmartExtensionPoint void removeExplicitExtension(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeExplicitExtension(p0 : V) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SortingException.1 java.lang.Object fun(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun fun(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.SortingException.1 java.lang.String fun(org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun fun(element : Element) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.AreaDescriptor boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(o : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.AreaPicoContainerImpl AreaPicoContainerImpl(com.intellij.openapi.extensions.impl.AreaPicoContainerImpl.MyPicoContainer, com.intellij.openapi.extensions.AreaInstance)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun AreaPicoContainerImpl(picoContainer : AreaPicoContainerImpl.MyPicoContainer, areaInstance : AreaInstance?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.AreaPicoContainerImpl com.intellij.openapi.extensions.AreaInstance access$000(com.intellij.openapi.extensions.impl.AreaPicoContainerImpl)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : AreaPicoContainerImpl) : AreaInstance?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionClassAndAreaInstance boolean equals(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equals(areaInstance : Any?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionComponentAdapter java.lang.Object getComponentKey()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getComponentKey() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionComponentAdapter org.jdom.Element getDescribingElement()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDescribingElement() : Element&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionComponentAdapter java.lang.Object getExtension()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtension() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionComponentAdapter com.intellij.openapi.extensions.LoadingOrder getOrder()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOrder() : LoadingOrder&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionComponentAdapter java.lang.String getOrderId()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOrderId() : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionComponentAdapter boolean isAssignableTo(java.lang.Class)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun isAssignableTo(aClass : Class) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter ObjectComponentAdapter(java.lang.Object, com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ObjectComponentAdapter(p0 : Any, p1 : LoadingOrder)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter ObjectComponentAdapter(java.lang.Object, com.intellij.openapi.extensions.LoadingOrder, com.intellij.openapi.extensions.impl.ExtensionPointImpl.1)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ObjectComponentAdapter(x0 : Any, x1 : LoadingOrder, x2 : ExtensionPointImpl.1?)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter org.jdom.Element getDescribingElement()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getDescribingElement() : Element&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter java.lang.Object getExtension()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtension() : Any&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter com.intellij.openapi.extensions.LoadingOrder getOrder()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOrder() : LoadingOrder&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter java.lang.String getOrderId()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getOrderId() : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addExtensionPointListener(listener : ExtensionPointListener&lt;T&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener&lt;T&gt;, com.intellij.openapi.Disposable)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addExtensionPointListener(p0 : ExtensionPointListener&lt;T&gt;, p1 : Disposable) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void assertClass(java.lang.Class&lt;?&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun assertClass(extensionClass : Class&lt;*&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl T getExtension()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtension() : T?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl int getExtensionIndex(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensionIndex(extension : T) : Int&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl T[] getExtensions()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensions() : Array&lt;out T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl boolean hasExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun hasExtension(p0 : T) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void internalUnregisterExtension(T, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun internalUnregisterExtension(extension : T, pluginDescriptor : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(p0 : T) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtension(T, com.intellij.openapi.extensions.LoadingOrder)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(extension : T, order : LoadingOrder) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtensionAdapter(com.intellij.openapi.extensions.impl.ExtensionComponentAdapter)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtensionAdapter(p0 : ExtensionComponentAdapter) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void removeExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeExtensionPointListener(listener : ExtensionPointListener&lt;T&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionPointImpl void unregisterExtension(T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unregisterExtension(p0 : T) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl.1 void extensionAdded(java.lang.Object, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extensionAdded(p0 : Any, p1 : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl.1 void extensionRemoved(java.lang.Object, com.intellij.openapi.extensions.PluginDescriptor)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extensionRemoved(p0 : Any, p1 : PluginDescriptor?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl ExtensionsAreaImpl(java.lang.String, com.intellij.openapi.extensions.AreaInstance, org.picocontainer.PicoContainer, com.intellij.openapi.extensions.LogProvider)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ExtensionsAreaImpl(areaClass : String?, areaInstance : AreaInstance?, parentPicoContainer : PicoContainer?, logger : LogProvider)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl ExtensionsAreaImpl(org.picocontainer.MutablePicoContainer, com.intellij.openapi.extensions.LogProvider)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun ExtensionsAreaImpl(picoContainer : MutablePicoContainer?, logger : LogProvider)&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.util.containers.MultiMap access$000(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$000(x0 : ExtensionsAreaImpl) : MultiMap&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.LogProvider access$100(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$100(x0 : ExtensionsAreaImpl) : LogProvider&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl java.lang.Object access$200(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl, java.lang.Class)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun access$200(x0 : ExtensionsAreaImpl, x1 : Class?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl boolean equal(java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun equal(areaClass : String?, anotherAreaClass : String?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl java.lang.String extractEPName(org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun extractEPName(extensionElement : Element) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl java.lang.Throwable getCreationTrace()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getCreationTrace() : Throwable?&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.ExtensionPoint&lt;T&gt; getExtensionPoint(com.intellij.openapi.extensions.ExtensionPointName&lt;T&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensionPoint(extensionPointName : ExtensionPointName&lt;T&gt;) : ExtensionPoint&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.ExtensionPoint getExtensionPoint(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getExtensionPoint(x0 : String?) : ExtensionPoint&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.impl.ExtensionPointImpl&lt;T&gt; getExtensionPoint(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; getExtensionPoint(extensionPointName : String?) : ExtensionPointImpl&lt;T&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl org.picocontainer.MutablePicoContainer getMutablePicoContainer()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMutablePicoContainer() : MutablePicoContainer&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.AreaPicoContainer getPicoContainer()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPicoContainer() : AreaPicoContainer&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl org.picocontainer.PicoContainer getPluginContainer(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPluginContainer(pluginName : String?) : PicoContainer&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl org.picocontainer.MutablePicoContainer internalGetPluginContainer()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun internalGetPluginContainer() : MutablePicoContainer&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void notifyEPRegistered(com.intellij.openapi.extensions.ExtensionPoint)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun notifyEPRegistered(extensionPoint : ExtensionPoint) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void notifyEPRemoved(com.intellij.openapi.extensions.ExtensionPoint)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun notifyEPRemoved(extensionPoint : ExtensionPoint) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtension(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(pluginDescriptor : PluginDescriptor, extensionElement : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtension(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtension(pluginName : String?, extensionElement : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtensionPoint(pluginDescriptor : PluginDescriptor, extensionPointElement : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(com.intellij.openapi.extensions.impl.ExtensionPointImpl)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtensionPoint(extensionPoint : ExtensionPointImpl) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun registerExtensionPoint(pluginName : String?, extensionPointElement : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void removeAllComponents(java.util.Set&lt;com.intellij.openapi.extensions.impl.ExtensionComponentAdapter&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun removeAllComponents(extensionAdapters : Set&lt;ExtensionComponentAdapter?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl boolean shouldDeserializeInstance(org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun shouldDeserializeInstance(extensionElement : Element) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void unregisterExtension(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unregisterExtension(pluginName : String?, extensionElement : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void unregisterExtensionPoint(java.lang.String, org.jdom.Element)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun unregisterExtensionPoint(pluginName : String?, extensionPointElement : Element) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='com.intellij.openapi.extensions.impl.UndefinedPluginDescriptor java.lang.ClassLoader getPluginClassLoader()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPluginClassLoader() : ClassLoader?&quot;"/>
+        </annotation>
+    </item>
+</root>
