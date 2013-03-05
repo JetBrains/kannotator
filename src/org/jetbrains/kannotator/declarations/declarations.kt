@@ -9,6 +9,10 @@ import java.util.ArrayList
 import org.objectweb.asm.tree.MethodNode
 import kotlinlib.prefixUpToLast
 
+data class Package(val name: String) {
+    public fun toString(): String = name
+}
+
 trait ClassMember {
     val declaringClass: ClassName
     val access: Access
