@@ -574,7 +574,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
                 else if (prevAnnotation == null) currAnnotation
                 else if (currAnnotation == prevAnnotation) prevAnnotation
                 else if (prevAnnotation == NullabilityAnnotation.NOT_NULL && currAnnotation == NullabilityAnnotation.NULLABLE) NullabilityAnnotation.NOT_NULL
-                else throw AssertionError("Nullability conflict: $prevAnnotation -> $currAnnotation at $pos")
+                else NullabilityAnnotation.NOT_NULL
         inferredAnnotations.setIfNotNull(pos, newAnnotation)
     }
 
