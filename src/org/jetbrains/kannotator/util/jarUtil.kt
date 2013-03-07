@@ -5,10 +5,12 @@ import org.objectweb.asm.Type
 import org.objectweb.asm.ClassReader
 import java.util.jar.JarFile
 import kotlinlib.removeSuffix
+import java.util.Enumeration
+import java.util.jar.JarEntry
 
 fun processJar(file: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     val jar = JarFile(file)
-    for (entry in jar.entries()) {
+    for (entry in jar.entries() as Enumeration<JarEntry>) { //todo KT-2872
         val name = entry.getName()
         if (!name.endsWith(".class")) continue
 
