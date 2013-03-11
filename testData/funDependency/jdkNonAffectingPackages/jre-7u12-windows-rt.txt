@@ -1,0 +1,2839 @@
+== Non-Affecting Nodes == 
+Found 313 out of total 822
+com/oracle/net
+    outgoing edges:
+        com/oracle/net -> java/security
+    incoming edges:
+        java/security -> com/oracle/net
+com/oracle/nio
+com/oracle/util
+com/sun/accessibility/internal/resources
+    outgoing edges:
+        com/sun/accessibility/internal/resources -> java/util
+    incoming edges:
+        java/util -> com/sun/accessibility/internal/resources
+com/sun/beans/infos
+    outgoing edges:
+        com/sun/beans/infos -> java/beans
+    incoming edges:
+        java/beans -> com/sun/beans/infos
+com/sun/corba/se/impl/javax/rmi
+    outgoing edges:
+        com/sun/corba/se/impl/javax/rmi -> javax/rmi/CORBA
+    incoming edges:
+        javax/rmi/CORBA -> com/sun/corba/se/impl/javax/rmi
+com/sun/corba/se/internal/CosNaming
+com/sun/corba/se/internal/Interceptors
+com/sun/corba/se/internal/POA
+com/sun/corba/se/internal/corba
+com/sun/corba/se/internal/iiop
+com/sun/corba/se/pept/broker
+    outgoing edges:
+        com/sun/corba/se/pept/broker -> com/sun/corba/se/impl/orb
+    incoming edges:
+        com/sun/corba/se/impl/orb -> com/sun/corba/se/pept/broker
+com/sun/demo/jvmti/hprof
+com/sun/image/codec/jpeg
+    outgoing edges:
+        com/sun/image/codec/jpeg -> com/sun/image/codec/jpeg
+        com/sun/image/codec/jpeg -> java/lang
+        com/sun/image/codec/jpeg -> sun/awt/image/codec
+    incoming edges:
+        com/sun/image/codec/jpeg -> com/sun/image/codec/jpeg
+        java/lang -> com/sun/image/codec/jpeg
+        sun/awt/image/codec -> com/sun/image/codec/jpeg
+com/sun/istack/internal
+    outgoing edges:
+        com/sun/istack/internal -> com/sun/istack/internal
+        com/sun/istack/internal -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/istack/internal -> java/lang
+        com/sun/istack/internal -> javax/activation
+        com/sun/istack/internal -> org/xml/sax
+        com/sun/istack/internal -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/istack/internal -> com/sun/istack/internal
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/istack/internal
+        java/lang -> com/sun/istack/internal
+        javax/activation -> com/sun/istack/internal
+        org/xml/sax -> com/sun/istack/internal
+        org/xml/sax/helpers -> com/sun/istack/internal
+com/sun/istack/internal/localization
+    outgoing edges:
+        com/sun/istack/internal/localization -> com/sun/istack/internal/localization
+    incoming edges:
+        com/sun/istack/internal/localization -> com/sun/istack/internal/localization
+com/sun/istack/internal/logging
+com/sun/java/browser/dom
+    outgoing edges:
+        com/sun/java/browser/dom -> java/lang
+    incoming edges:
+        java/lang -> com/sun/java/browser/dom
+com/sun/java/browser/net
+com/sun/java/swing/plaf/motif
+    outgoing edges:
+        com/sun/java/swing/plaf/motif -> com/sun/java/swing/plaf/motif
+        com/sun/java/swing/plaf/motif -> java/awt
+        com/sun/java/swing/plaf/motif -> java/awt/event
+        com/sun/java/swing/plaf/motif -> java/beans
+        com/sun/java/swing/plaf/motif -> java/lang
+        com/sun/java/swing/plaf/motif -> javax/swing
+        com/sun/java/swing/plaf/motif -> javax/swing/border
+        com/sun/java/swing/plaf/motif -> javax/swing/event
+        com/sun/java/swing/plaf/motif -> javax/swing/plaf
+        com/sun/java/swing/plaf/motif -> javax/swing/plaf/basic
+        com/sun/java/swing/plaf/motif -> javax/swing/text
+    incoming edges:
+        com/sun/java/swing/plaf/motif -> com/sun/java/swing/plaf/motif
+        java/awt -> com/sun/java/swing/plaf/motif
+        java/awt/event -> com/sun/java/swing/plaf/motif
+        java/beans -> com/sun/java/swing/plaf/motif
+        java/lang -> com/sun/java/swing/plaf/motif
+        javax/swing -> com/sun/java/swing/plaf/motif
+        javax/swing/border -> com/sun/java/swing/plaf/motif
+        javax/swing/event -> com/sun/java/swing/plaf/motif
+        javax/swing/plaf -> com/sun/java/swing/plaf/motif
+        javax/swing/plaf/basic -> com/sun/java/swing/plaf/motif
+        javax/swing/text -> com/sun/java/swing/plaf/motif
+com/sun/java/swing/plaf/motif/resources
+    outgoing edges:
+        com/sun/java/swing/plaf/motif/resources -> java/util
+    incoming edges:
+        java/util -> com/sun/java/swing/plaf/motif/resources
+com/sun/java/swing/plaf/nimbus
+com/sun/java/swing/plaf/windows/resources
+    outgoing edges:
+        com/sun/java/swing/plaf/windows/resources -> java/util
+    incoming edges:
+        java/util -> com/sun/java/swing/plaf/windows/resources
+com/sun/java/util/jar/pack
+    outgoing edges:
+        com/sun/java/util/jar/pack -> com/sun/java/util/jar/pack
+        com/sun/java/util/jar/pack -> java/io
+        com/sun/java/util/jar/pack -> java/lang
+        com/sun/java/util/jar/pack -> java/util
+        com/sun/java/util/jar/pack -> java/util/jar
+    incoming edges:
+        com/sun/java/util/jar/pack -> com/sun/java/util/jar/pack
+        java/io -> com/sun/java/util/jar/pack
+        java/lang -> com/sun/java/util/jar/pack
+        java/util -> com/sun/java/util/jar/pack
+        java/util/jar -> com/sun/java/util/jar/pack
+com/sun/java_cup/internal/runtime
+    outgoing edges:
+        com/sun/java_cup/internal/runtime -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        com/sun/java_cup/internal/runtime -> java/lang
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> com/sun/java_cup/internal/runtime
+        java/lang -> com/sun/java_cup/internal/runtime
+com/sun/jmx/remote/protocol/iiop
+    outgoing edges:
+        com/sun/jmx/remote/protocol/iiop -> com/sun/jmx/remote/internal
+        com/sun/jmx/remote/protocol/iiop -> javax/management/remote
+        com/sun/jmx/remote/protocol/iiop -> org/omg/CORBA/portable
+        com/sun/jmx/remote/protocol/iiop -> org/omg/CORBA_2_3/portable
+    incoming edges:
+        com/sun/jmx/remote/internal -> com/sun/jmx/remote/protocol/iiop
+        javax/management/remote -> com/sun/jmx/remote/protocol/iiop
+        org/omg/CORBA/portable -> com/sun/jmx/remote/protocol/iiop
+        org/omg/CORBA_2_3/portable -> com/sun/jmx/remote/protocol/iiop
+com/sun/jmx/remote/protocol/rmi
+    outgoing edges:
+        com/sun/jmx/remote/protocol/rmi -> javax/management/remote
+    incoming edges:
+        javax/management/remote -> com/sun/jmx/remote/protocol/rmi
+com/sun/jmx/snmp
+    outgoing edges:
+        com/sun/jmx/snmp -> com/sun/jmx/snmp
+        com/sun/jmx/snmp -> com/sun/jmx/snmp/IPAcl
+        com/sun/jmx/snmp -> com/sun/jmx/snmp/internal
+        com/sun/jmx/snmp -> java/lang
+        com/sun/jmx/snmp -> java/util
+        com/sun/jmx/snmp -> sun/management/snmp/jvmmib
+    incoming edges:
+        com/sun/jmx/snmp -> com/sun/jmx/snmp
+        com/sun/jmx/snmp/IPAcl -> com/sun/jmx/snmp
+        com/sun/jmx/snmp/internal -> com/sun/jmx/snmp
+        java/lang -> com/sun/jmx/snmp
+        java/util -> com/sun/jmx/snmp
+        sun/management/snmp/jvmmib -> com/sun/jmx/snmp
+com/sun/jmx/snmp/IPAcl
+    outgoing edges:
+        com/sun/jmx/snmp/IPAcl -> com/sun/jmx/snmp
+        com/sun/jmx/snmp/IPAcl -> com/sun/jmx/snmp/IPAcl
+        com/sun/jmx/snmp/IPAcl -> java/lang
+        com/sun/jmx/snmp/IPAcl -> java/security
+        com/sun/jmx/snmp/IPAcl -> java/security/acl
+    incoming edges:
+        com/sun/jmx/snmp -> com/sun/jmx/snmp/IPAcl
+        com/sun/jmx/snmp/IPAcl -> com/sun/jmx/snmp/IPAcl
+        java/lang -> com/sun/jmx/snmp/IPAcl
+        java/security -> com/sun/jmx/snmp/IPAcl
+        java/security/acl -> com/sun/jmx/snmp/IPAcl
+com/sun/jmx/snmp/agent
+    outgoing edges:
+        com/sun/jmx/snmp/agent -> com/sun/jmx/snmp/agent
+        com/sun/jmx/snmp/agent -> com/sun/jmx/snmp/daemon
+        com/sun/jmx/snmp/agent -> java/lang
+        com/sun/jmx/snmp/agent -> java/util
+        com/sun/jmx/snmp/agent -> javax/management
+        com/sun/jmx/snmp/agent -> sun/management/snmp/jvminstr
+        com/sun/jmx/snmp/agent -> sun/management/snmp/jvmmib
+        com/sun/jmx/snmp/agent -> sun/management/snmp/util
+    incoming edges:
+        com/sun/jmx/snmp/agent -> com/sun/jmx/snmp/agent
+        com/sun/jmx/snmp/daemon -> com/sun/jmx/snmp/agent
+        java/lang -> com/sun/jmx/snmp/agent
+        java/util -> com/sun/jmx/snmp/agent
+        javax/management -> com/sun/jmx/snmp/agent
+        sun/management/snmp/jvminstr -> com/sun/jmx/snmp/agent
+        sun/management/snmp/jvmmib -> com/sun/jmx/snmp/agent
+        sun/management/snmp/util -> com/sun/jmx/snmp/agent
+com/sun/jmx/snmp/daemon
+    outgoing edges:
+        com/sun/jmx/snmp/daemon -> com/sun/jmx/snmp/agent
+        com/sun/jmx/snmp/daemon -> com/sun/jmx/snmp/daemon
+        com/sun/jmx/snmp/daemon -> java/lang
+        com/sun/jmx/snmp/daemon -> javax/management
+    incoming edges:
+        com/sun/jmx/snmp/agent -> com/sun/jmx/snmp/daemon
+        com/sun/jmx/snmp/daemon -> com/sun/jmx/snmp/daemon
+        java/lang -> com/sun/jmx/snmp/daemon
+        javax/management -> com/sun/jmx/snmp/daemon
+com/sun/jmx/snmp/defaults
+com/sun/jmx/snmp/internal
+    outgoing edges:
+        com/sun/jmx/snmp/internal -> com/sun/jmx/snmp
+    incoming edges:
+        com/sun/jmx/snmp -> com/sun/jmx/snmp/internal
+com/sun/jmx/snmp/mpm
+com/sun/jmx/snmp/tasks
+    outgoing edges:
+        com/sun/jmx/snmp/tasks -> com/sun/jmx/snmp/tasks
+        com/sun/jmx/snmp/tasks -> java/lang
+    incoming edges:
+        com/sun/jmx/snmp/tasks -> com/sun/jmx/snmp/tasks
+        java/lang -> com/sun/jmx/snmp/tasks
+com/sun/jmx/trace
+    outgoing edges:
+        com/sun/jmx/trace -> com/sun/jmx/trace
+    incoming edges:
+        com/sun/jmx/trace -> com/sun/jmx/trace
+com/sun/jndi/dns
+    outgoing edges:
+        com/sun/jndi/dns -> com/sun/jndi/dns
+        com/sun/jndi/dns -> com/sun/jndi/toolkit/ctx
+        com/sun/jndi/dns -> java/lang
+        com/sun/jndi/dns -> java/util
+        com/sun/jndi/dns -> javax/naming
+        com/sun/jndi/dns -> javax/naming/spi
+    incoming edges:
+        com/sun/jndi/dns -> com/sun/jndi/dns
+        com/sun/jndi/toolkit/ctx -> com/sun/jndi/dns
+        java/lang -> com/sun/jndi/dns
+        java/util -> com/sun/jndi/dns
+        javax/naming -> com/sun/jndi/dns
+        javax/naming/spi -> com/sun/jndi/dns
+com/sun/jndi/rmi/registry
+    outgoing edges:
+        com/sun/jndi/rmi/registry -> com/sun/jndi/rmi/registry
+        com/sun/jndi/rmi/registry -> java/lang
+        com/sun/jndi/rmi/registry -> java/util
+        com/sun/jndi/rmi/registry -> javax/naming
+        com/sun/jndi/rmi/registry -> javax/naming/spi
+    incoming edges:
+        com/sun/jndi/rmi/registry -> com/sun/jndi/rmi/registry
+        java/lang -> com/sun/jndi/rmi/registry
+        java/util -> com/sun/jndi/rmi/registry
+        javax/naming -> com/sun/jndi/rmi/registry
+        javax/naming/spi -> com/sun/jndi/rmi/registry
+com/sun/jndi/url/corbaname
+com/sun/jndi/url/dns
+    outgoing edges:
+        com/sun/jndi/url/dns -> com/sun/jndi/toolkit/url
+        com/sun/jndi/url/dns -> javax/naming/spi
+    incoming edges:
+        com/sun/jndi/toolkit/url -> com/sun/jndi/url/dns
+        javax/naming/spi -> com/sun/jndi/url/dns
+com/sun/jndi/url/iiop
+    outgoing edges:
+        com/sun/jndi/url/iiop -> com/sun/jndi/toolkit/url
+        com/sun/jndi/url/iiop -> javax/naming/spi
+    incoming edges:
+        com/sun/jndi/toolkit/url -> com/sun/jndi/url/iiop
+        javax/naming/spi -> com/sun/jndi/url/iiop
+com/sun/jndi/url/iiopname
+com/sun/jndi/url/ldaps
+com/sun/jndi/url/rmi
+    outgoing edges:
+        com/sun/jndi/url/rmi -> com/sun/jndi/toolkit/url
+        com/sun/jndi/url/rmi -> javax/naming/spi
+    incoming edges:
+        com/sun/jndi/toolkit/url -> com/sun/jndi/url/rmi
+        javax/naming/spi -> com/sun/jndi/url/rmi
+com/sun/management/jmx
+    outgoing edges:
+        com/sun/management/jmx -> javax/management
+    incoming edges:
+        javax/management -> com/sun/management/jmx
+com/sun/net/httpserver
+    outgoing edges:
+        com/sun/net/httpserver -> com/sun/net/httpserver
+        com/sun/net/httpserver -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/net/httpserver -> java/lang
+        com/sun/net/httpserver -> java/security
+        com/sun/net/httpserver -> java/util
+        com/sun/net/httpserver -> sun/net/httpserver
+    incoming edges:
+        com/sun/net/httpserver -> com/sun/net/httpserver
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/net/httpserver
+        java/lang -> com/sun/net/httpserver
+        java/security -> com/sun/net/httpserver
+        java/util -> com/sun/net/httpserver
+        sun/net/httpserver -> com/sun/net/httpserver
+com/sun/net/httpserver/spi
+    outgoing edges:
+        com/sun/net/httpserver/spi -> java/security
+        com/sun/net/httpserver/spi -> sun/net/httpserver
+    incoming edges:
+        java/security -> com/sun/net/httpserver/spi
+        sun/net/httpserver -> com/sun/net/httpserver/spi
+com/sun/net/ssl
+    outgoing edges:
+        com/sun/net/ssl -> com/sun/net/ssl
+        com/sun/net/ssl -> com/sun/net/ssl/internal/www/protocol/https
+        com/sun/net/ssl -> java/security
+        com/sun/net/ssl -> javax/net/ssl
+    incoming edges:
+        com/sun/net/ssl -> com/sun/net/ssl
+        com/sun/net/ssl/internal/www/protocol/https -> com/sun/net/ssl
+        java/security -> com/sun/net/ssl
+        javax/net/ssl -> com/sun/net/ssl
+com/sun/net/ssl/internal/www/protocol/https
+    outgoing edges:
+        com/sun/net/ssl/internal/www/protocol/https -> com/sun/net/ssl
+        com/sun/net/ssl/internal/www/protocol/https -> java/lang
+        com/sun/net/ssl/internal/www/protocol/https -> java/net
+        com/sun/net/ssl/internal/www/protocol/https -> javax/net/ssl
+        com/sun/net/ssl/internal/www/protocol/https -> sun/net/www/protocol/https
+    incoming edges:
+        com/sun/net/ssl -> com/sun/net/ssl/internal/www/protocol/https
+        java/lang -> com/sun/net/ssl/internal/www/protocol/https
+        java/net -> com/sun/net/ssl/internal/www/protocol/https
+        javax/net/ssl -> com/sun/net/ssl/internal/www/protocol/https
+        sun/net/www/protocol/https -> com/sun/net/ssl/internal/www/protocol/https
+com/sun/org/apache/bcel/internal
+com/sun/org/apache/bcel/internal/classfile
+    outgoing edges:
+        com/sun/org/apache/bcel/internal/classfile -> com/sun/org/apache/bcel/internal/classfile
+        com/sun/org/apache/bcel/internal/classfile -> com/sun/org/apache/bcel/internal/util
+        com/sun/org/apache/bcel/internal/classfile -> java/io
+        com/sun/org/apache/bcel/internal/classfile -> java/lang
+    incoming edges:
+        com/sun/org/apache/bcel/internal/classfile -> com/sun/org/apache/bcel/internal/classfile
+        com/sun/org/apache/bcel/internal/util -> com/sun/org/apache/bcel/internal/classfile
+        java/io -> com/sun/org/apache/bcel/internal/classfile
+        java/lang -> com/sun/org/apache/bcel/internal/classfile
+com/sun/org/apache/bcel/internal/generic
+    outgoing edges:
+        com/sun/org/apache/bcel/internal/generic -> com/sun/org/apache/bcel/internal/generic
+        com/sun/org/apache/bcel/internal/generic -> com/sun/org/apache/bcel/internal/util
+        com/sun/org/apache/bcel/internal/generic -> com/sun/org/apache/xalan/internal/xsltc/compiler/util
+        com/sun/org/apache/bcel/internal/generic -> java/lang
+        com/sun/org/apache/bcel/internal/generic -> java/util
+    incoming edges:
+        com/sun/org/apache/bcel/internal/generic -> com/sun/org/apache/bcel/internal/generic
+        com/sun/org/apache/bcel/internal/util -> com/sun/org/apache/bcel/internal/generic
+        com/sun/org/apache/xalan/internal/xsltc/compiler/util -> com/sun/org/apache/bcel/internal/generic
+        java/lang -> com/sun/org/apache/bcel/internal/generic
+        java/util -> com/sun/org/apache/bcel/internal/generic
+com/sun/org/apache/bcel/internal/util
+    outgoing edges:
+        com/sun/org/apache/bcel/internal/util -> com/sun/org/apache/bcel/internal/classfile
+        com/sun/org/apache/bcel/internal/util -> com/sun/org/apache/bcel/internal/generic
+        com/sun/org/apache/bcel/internal/util -> com/sun/org/apache/bcel/internal/util
+        com/sun/org/apache/bcel/internal/util -> java/io
+        com/sun/org/apache/bcel/internal/util -> java/lang
+    incoming edges:
+        com/sun/org/apache/bcel/internal/classfile -> com/sun/org/apache/bcel/internal/util
+        com/sun/org/apache/bcel/internal/generic -> com/sun/org/apache/bcel/internal/util
+        com/sun/org/apache/bcel/internal/util -> com/sun/org/apache/bcel/internal/util
+        java/io -> com/sun/org/apache/bcel/internal/util
+        java/lang -> com/sun/org/apache/bcel/internal/util
+com/sun/org/apache/regexp/internal
+    outgoing edges:
+        com/sun/org/apache/regexp/internal -> com/sun/org/apache/regexp/internal
+    incoming edges:
+        com/sun/org/apache/regexp/internal -> com/sun/org/apache/regexp/internal
+com/sun/org/apache/xalan/internal
+com/sun/org/apache/xalan/internal/extensions
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/extensions -> com/sun/org/apache/xpath/internal
+    incoming edges:
+        com/sun/org/apache/xpath/internal -> com/sun/org/apache/xalan/internal/extensions
+com/sun/org/apache/xalan/internal/lib
+com/sun/org/apache/xalan/internal/templates
+com/sun/org/apache/xalan/internal/xslt
+com/sun/org/apache/xalan/internal/xsltc
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xalan/internal/xsltc -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        com/sun/org/apache/xalan/internal/xsltc -> com/sun/org/apache/xalan/internal/xsltc/trax
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xalan/internal/xsltc
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> com/sun/org/apache/xalan/internal/xsltc
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc
+com/sun/org/apache/xalan/internal/xsltc/cmdline
+com/sun/org/apache/xalan/internal/xsltc/cmdline/getopt
+com/sun/org/apache/xalan/internal/xsltc/compiler
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> com/sun/java_cup/internal/runtime
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> com/sun/org/apache/xalan/internal/xsltc/trax
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> java/lang
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> org/xml/sax
+    incoming edges:
+        com/sun/java_cup/internal/runtime -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        java/lang -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        org/xml/sax -> com/sun/org/apache/xalan/internal/xsltc/compiler
+com/sun/org/apache/xalan/internal/xsltc/compiler/util
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/compiler/util -> com/sun/org/apache/bcel/internal/generic
+        com/sun/org/apache/xalan/internal/xsltc/compiler/util -> com/sun/org/apache/xalan/internal/xsltc/compiler/util
+        com/sun/org/apache/xalan/internal/xsltc/compiler/util -> java/lang
+        com/sun/org/apache/xalan/internal/xsltc/compiler/util -> java/util
+    incoming edges:
+        com/sun/org/apache/bcel/internal/generic -> com/sun/org/apache/xalan/internal/xsltc/compiler/util
+        com/sun/org/apache/xalan/internal/xsltc/compiler/util -> com/sun/org/apache/xalan/internal/xsltc/compiler/util
+        java/lang -> com/sun/org/apache/xalan/internal/xsltc/compiler/util
+        java/util -> com/sun/org/apache/xalan/internal/xsltc/compiler/util
+com/sun/org/apache/xalan/internal/xsltc/dom
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xalan/internal/xsltc
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xml/internal/dtm
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xml/internal/dtm/ref
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xml/internal/dtm/ref/sax2dtm
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xml/internal/serializer
+        com/sun/org/apache/xalan/internal/xsltc/dom -> java/io
+        com/sun/org/apache/xalan/internal/xsltc/dom -> org/xml/sax
+        com/sun/org/apache/xalan/internal/xsltc/dom -> org/xml/sax/ext
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xml/internal/dtm -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xml/internal/dtm/ref -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xml/internal/dtm/ref/sax2dtm -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xml/internal/serializer -> com/sun/org/apache/xalan/internal/xsltc/dom
+        java/io -> com/sun/org/apache/xalan/internal/xsltc/dom
+        org/xml/sax -> com/sun/org/apache/xalan/internal/xsltc/dom
+        org/xml/sax/ext -> com/sun/org/apache/xalan/internal/xsltc/dom
+com/sun/org/apache/xalan/internal/xsltc/runtime
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> com/sun/org/apache/xalan/internal/xsltc
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> com/sun/org/apache/xalan/internal/xsltc/trax
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> com/sun/org/apache/xml/internal/serializer
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> java/lang
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> java/util
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> org/w3c/dom
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> org/xml/sax
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        com/sun/org/apache/xml/internal/serializer -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        java/lang -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        java/util -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        org/w3c/dom -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        org/xml/sax -> com/sun/org/apache/xalan/internal/xsltc/runtime
+com/sun/org/apache/xalan/internal/xsltc/runtime/output
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/runtime/output -> com/sun/org/apache/xalan/internal/xsltc/runtime/output
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc/runtime/output -> com/sun/org/apache/xalan/internal/xsltc/runtime/output
+com/sun/org/apache/xalan/internal/xsltc/trax
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc/compiler
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc/trax
+        com/sun/org/apache/xalan/internal/xsltc/trax -> java/io
+        com/sun/org/apache/xalan/internal/xsltc/trax -> java/security
+        com/sun/org/apache/xalan/internal/xsltc/trax -> javax/xml/stream
+        com/sun/org/apache/xalan/internal/xsltc/trax -> javax/xml/transform
+        com/sun/org/apache/xalan/internal/xsltc/trax -> javax/xml/transform/sax
+        com/sun/org/apache/xalan/internal/xsltc/trax -> org/xml/sax
+        com/sun/org/apache/xalan/internal/xsltc/trax -> org/xml/sax/ext
+        com/sun/org/apache/xalan/internal/xsltc/trax -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc -> com/sun/org/apache/xalan/internal/xsltc/trax
+        com/sun/org/apache/xalan/internal/xsltc/compiler -> com/sun/org/apache/xalan/internal/xsltc/trax
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> com/sun/org/apache/xalan/internal/xsltc/trax
+        com/sun/org/apache/xalan/internal/xsltc/trax -> com/sun/org/apache/xalan/internal/xsltc/trax
+        java/io -> com/sun/org/apache/xalan/internal/xsltc/trax
+        java/security -> com/sun/org/apache/xalan/internal/xsltc/trax
+        javax/xml/stream -> com/sun/org/apache/xalan/internal/xsltc/trax
+        javax/xml/transform -> com/sun/org/apache/xalan/internal/xsltc/trax
+        javax/xml/transform/sax -> com/sun/org/apache/xalan/internal/xsltc/trax
+        org/xml/sax -> com/sun/org/apache/xalan/internal/xsltc/trax
+        org/xml/sax/ext -> com/sun/org/apache/xalan/internal/xsltc/trax
+        org/xml/sax/helpers -> com/sun/org/apache/xalan/internal/xsltc/trax
+com/sun/org/apache/xalan/internal/xsltc/util
+    outgoing edges:
+        com/sun/org/apache/xalan/internal/xsltc/util -> java/lang
+    incoming edges:
+        java/lang -> com/sun/org/apache/xalan/internal/xsltc/util
+com/sun/org/apache/xerces/internal/impl/dv/dtd
+    outgoing edges:
+        com/sun/org/apache/xerces/internal/impl/dv/dtd -> com/sun/org/apache/xerces/internal/impl/dv
+        com/sun/org/apache/xerces/internal/impl/dv/dtd -> com/sun/org/apache/xerces/internal/impl/dv/dtd
+    incoming edges:
+        com/sun/org/apache/xerces/internal/impl/dv -> com/sun/org/apache/xerces/internal/impl/dv/dtd
+        com/sun/org/apache/xerces/internal/impl/dv/dtd -> com/sun/org/apache/xerces/internal/impl/dv/dtd
+com/sun/org/apache/xml/internal/resolver/tools
+    outgoing edges:
+        com/sun/org/apache/xml/internal/resolver/tools -> javax/xml/transform
+        com/sun/org/apache/xml/internal/resolver/tools -> org/xml/sax
+        com/sun/org/apache/xml/internal/resolver/tools -> org/xml/sax/helpers
+    incoming edges:
+        javax/xml/transform -> com/sun/org/apache/xml/internal/resolver/tools
+        org/xml/sax -> com/sun/org/apache/xml/internal/resolver/tools
+        org/xml/sax/helpers -> com/sun/org/apache/xml/internal/resolver/tools
+com/sun/org/apache/xml/internal/security/utils/resolver/implementations
+    outgoing edges:
+        com/sun/org/apache/xml/internal/security/utils/resolver/implementations -> com/sun/org/apache/xml/internal/security/utils/resolver
+    incoming edges:
+        com/sun/org/apache/xml/internal/security/utils/resolver -> com/sun/org/apache/xml/internal/security/utils/resolver/implementations
+com/sun/org/apache/xml/internal/serializer
+    outgoing edges:
+        com/sun/org/apache/xml/internal/serializer -> com/sun/org/apache/xalan/internal/xsltc/dom
+        com/sun/org/apache/xml/internal/serializer -> com/sun/org/apache/xalan/internal/xsltc/runtime
+        com/sun/org/apache/xml/internal/serializer -> com/sun/org/apache/xml/internal/serializer
+        com/sun/org/apache/xml/internal/serializer -> java/io
+        com/sun/org/apache/xml/internal/serializer -> java/lang
+        com/sun/org/apache/xml/internal/serializer -> java/security
+        com/sun/org/apache/xml/internal/serializer -> org/xml/sax
+        com/sun/org/apache/xml/internal/serializer -> org/xml/sax/ext
+        com/sun/org/apache/xml/internal/serializer -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/org/apache/xalan/internal/xsltc/dom -> com/sun/org/apache/xml/internal/serializer
+        com/sun/org/apache/xalan/internal/xsltc/runtime -> com/sun/org/apache/xml/internal/serializer
+        com/sun/org/apache/xml/internal/serializer -> com/sun/org/apache/xml/internal/serializer
+        java/io -> com/sun/org/apache/xml/internal/serializer
+        java/lang -> com/sun/org/apache/xml/internal/serializer
+        java/security -> com/sun/org/apache/xml/internal/serializer
+        org/xml/sax -> com/sun/org/apache/xml/internal/serializer
+        org/xml/sax/ext -> com/sun/org/apache/xml/internal/serializer
+        org/xml/sax/helpers -> com/sun/org/apache/xml/internal/serializer
+com/sun/org/apache/xml/internal/serializer/utils
+    outgoing edges:
+        com/sun/org/apache/xml/internal/serializer/utils -> java/lang
+        com/sun/org/apache/xml/internal/serializer/utils -> java/util
+        com/sun/org/apache/xml/internal/serializer/utils -> org/xml/sax
+    incoming edges:
+        java/lang -> com/sun/org/apache/xml/internal/serializer/utils
+        java/util -> com/sun/org/apache/xml/internal/serializer/utils
+        org/xml/sax -> com/sun/org/apache/xml/internal/serializer/utils
+com/sun/org/apache/xml/internal/utils/res
+    outgoing edges:
+        com/sun/org/apache/xml/internal/utils/res -> com/sun/org/apache/xml/internal/utils/res
+        com/sun/org/apache/xml/internal/utils/res -> java/util
+    incoming edges:
+        com/sun/org/apache/xml/internal/utils/res -> com/sun/org/apache/xml/internal/utils/res
+        java/util -> com/sun/org/apache/xml/internal/utils/res
+com/sun/org/apache/xpath/internal/jaxp
+    outgoing edges:
+        com/sun/org/apache/xpath/internal/jaxp -> com/sun/org/apache/xml/internal/utils
+        com/sun/org/apache/xpath/internal/jaxp -> com/sun/org/apache/xpath/internal
+        com/sun/org/apache/xpath/internal/jaxp -> javax/xml/xpath
+    incoming edges:
+        com/sun/org/apache/xml/internal/utils -> com/sun/org/apache/xpath/internal/jaxp
+        com/sun/org/apache/xpath/internal -> com/sun/org/apache/xpath/internal/jaxp
+        javax/xml/xpath -> com/sun/org/apache/xpath/internal/jaxp
+com/sun/org/glassfish/external/amx
+    outgoing edges:
+        com/sun/org/glassfish/external/amx -> com/sun/org/glassfish/external/amx
+        com/sun/org/glassfish/external/amx -> java/lang
+        com/sun/org/glassfish/external/amx -> javax/management
+    incoming edges:
+        com/sun/org/glassfish/external/amx -> com/sun/org/glassfish/external/amx
+        java/lang -> com/sun/org/glassfish/external/amx
+        javax/management -> com/sun/org/glassfish/external/amx
+com/sun/org/glassfish/external/arc
+    outgoing edges:
+        com/sun/org/glassfish/external/arc -> java/lang
+    incoming edges:
+        java/lang -> com/sun/org/glassfish/external/arc
+com/sun/org/glassfish/external/probe/provider
+com/sun/org/glassfish/external/probe/provider/annotations
+com/sun/org/glassfish/external/statistics
+    outgoing edges:
+        com/sun/org/glassfish/external/statistics -> com/sun/org/glassfish/external/statistics/impl
+    incoming edges:
+        com/sun/org/glassfish/external/statistics/impl -> com/sun/org/glassfish/external/statistics
+com/sun/org/glassfish/external/statistics/impl
+    outgoing edges:
+        com/sun/org/glassfish/external/statistics/impl -> com/sun/org/glassfish/external/statistics
+        com/sun/org/glassfish/external/statistics/impl -> com/sun/org/glassfish/external/statistics/impl
+        com/sun/org/glassfish/external/statistics/impl -> java/lang
+        com/sun/org/glassfish/external/statistics/impl -> java/lang/reflect
+    incoming edges:
+        com/sun/org/glassfish/external/statistics -> com/sun/org/glassfish/external/statistics/impl
+        com/sun/org/glassfish/external/statistics/impl -> com/sun/org/glassfish/external/statistics/impl
+        java/lang -> com/sun/org/glassfish/external/statistics/impl
+        java/lang/reflect -> com/sun/org/glassfish/external/statistics/impl
+com/sun/org/glassfish/gmbal
+    outgoing edges:
+        com/sun/org/glassfish/gmbal -> com/sun/org/glassfish/gmbal
+        com/sun/org/glassfish/gmbal -> com/sun/xml/internal/ws/server
+        com/sun/org/glassfish/gmbal -> java/io
+        com/sun/org/glassfish/gmbal -> java/lang
+        com/sun/org/glassfish/gmbal -> java/security
+        com/sun/org/glassfish/gmbal -> javax/management
+    incoming edges:
+        com/sun/org/glassfish/gmbal -> com/sun/org/glassfish/gmbal
+        com/sun/xml/internal/ws/server -> com/sun/org/glassfish/gmbal
+        java/io -> com/sun/org/glassfish/gmbal
+        java/lang -> com/sun/org/glassfish/gmbal
+        java/security -> com/sun/org/glassfish/gmbal
+        javax/management -> com/sun/org/glassfish/gmbal
+com/sun/org/glassfish/gmbal/util
+    outgoing edges:
+        com/sun/org/glassfish/gmbal/util -> java/security
+    incoming edges:
+        java/security -> com/sun/org/glassfish/gmbal/util
+com/sun/script/javascript
+    outgoing edges:
+        com/sun/script/javascript -> com/sun/script/util
+        com/sun/script/javascript -> java/security
+        com/sun/script/javascript -> javax/script
+        com/sun/script/javascript -> sun/org/mozilla/javascript/internal
+    incoming edges:
+        com/sun/script/util -> com/sun/script/javascript
+        java/security -> com/sun/script/javascript
+        javax/script -> com/sun/script/javascript
+        sun/org/mozilla/javascript/internal -> com/sun/script/javascript
+com/sun/script/util
+    outgoing edges:
+        com/sun/script/util -> com/sun/script/javascript
+        com/sun/script/util -> com/sun/script/util
+        com/sun/script/util -> java/lang/reflect
+        com/sun/script/util -> java/security
+        com/sun/script/util -> java/util
+        com/sun/script/util -> javax/script
+    incoming edges:
+        com/sun/script/javascript -> com/sun/script/util
+        com/sun/script/util -> com/sun/script/util
+        java/lang/reflect -> com/sun/script/util
+        java/security -> com/sun/script/util
+        java/util -> com/sun/script/util
+        javax/script -> com/sun/script/util
+com/sun/security/auth/module
+    outgoing edges:
+        com/sun/security/auth/module -> java/security
+        com/sun/security/auth/module -> javax/security/auth/spi
+    incoming edges:
+        java/security -> com/sun/security/auth/module
+        javax/security/auth/spi -> com/sun/security/auth/module
+com/sun/security/cert/internal/x509
+    outgoing edges:
+        com/sun/security/cert/internal/x509 -> java/lang
+        com/sun/security/cert/internal/x509 -> javax/security/cert
+    incoming edges:
+        java/lang -> com/sun/security/cert/internal/x509
+        javax/security/cert -> com/sun/security/cert/internal/x509
+com/sun/security/ntlm
+    outgoing edges:
+        com/sun/security/ntlm -> com/sun/security/ntlm
+        com/sun/security/ntlm -> com/sun/security/sasl/ntlm
+    incoming edges:
+        com/sun/security/ntlm -> com/sun/security/ntlm
+        com/sun/security/sasl/ntlm -> com/sun/security/ntlm
+com/sun/security/sasl
+    outgoing edges:
+        com/sun/security/sasl -> java/lang
+        com/sun/security/sasl -> java/security
+        com/sun/security/sasl -> javax/security/sasl
+    incoming edges:
+        java/lang -> com/sun/security/sasl
+        java/security -> com/sun/security/sasl
+        javax/security/sasl -> com/sun/security/sasl
+com/sun/security/sasl/digest
+    outgoing edges:
+        com/sun/security/sasl/digest -> com/sun/security/sasl/digest
+        com/sun/security/sasl/digest -> com/sun/security/sasl/util
+        com/sun/security/sasl/digest -> javax/security/sasl
+    incoming edges:
+        com/sun/security/sasl/digest -> com/sun/security/sasl/digest
+        com/sun/security/sasl/util -> com/sun/security/sasl/digest
+        javax/security/sasl -> com/sun/security/sasl/digest
+com/sun/security/sasl/gsskerb
+    outgoing edges:
+        com/sun/security/sasl/gsskerb -> java/lang
+        com/sun/security/sasl/gsskerb -> javax/security/sasl
+    incoming edges:
+        java/lang -> com/sun/security/sasl/gsskerb
+        javax/security/sasl -> com/sun/security/sasl/gsskerb
+com/sun/security/sasl/ntlm
+    outgoing edges:
+        com/sun/security/sasl/ntlm -> com/sun/security/ntlm
+        com/sun/security/sasl/ntlm -> javax/security/sasl
+    incoming edges:
+        com/sun/security/ntlm -> com/sun/security/sasl/ntlm
+        javax/security/sasl -> com/sun/security/sasl/ntlm
+com/sun/security/sasl/util
+    outgoing edges:
+        com/sun/security/sasl/util -> com/sun/security/sasl/digest
+    incoming edges:
+        com/sun/security/sasl/digest -> com/sun/security/sasl/util
+com/sun/servicetag
+    outgoing edges:
+        com/sun/servicetag -> java/io
+        com/sun/servicetag -> java/lang
+    incoming edges:
+        java/io -> com/sun/servicetag
+        java/lang -> com/sun/servicetag
+com/sun/swing/internal/plaf/basic/resources
+    outgoing edges:
+        com/sun/swing/internal/plaf/basic/resources -> java/util
+    incoming edges:
+        java/util -> com/sun/swing/internal/plaf/basic/resources
+com/sun/swing/internal/plaf/metal/resources
+    outgoing edges:
+        com/sun/swing/internal/plaf/metal/resources -> java/util
+    incoming edges:
+        java/util -> com/sun/swing/internal/plaf/metal/resources
+com/sun/swing/internal/plaf/synth/resources
+    outgoing edges:
+        com/sun/swing/internal/plaf/synth/resources -> java/util
+    incoming edges:
+        java/util -> com/sun/swing/internal/plaf/synth/resources
+com/sun/tracing
+    outgoing edges:
+        com/sun/tracing -> java/security
+        com/sun/tracing -> sun/tracing
+        com/sun/tracing -> sun/tracing/dtrace
+    incoming edges:
+        java/security -> com/sun/tracing
+        sun/tracing -> com/sun/tracing
+        sun/tracing/dtrace -> com/sun/tracing
+com/sun/tracing/dtrace
+com/sun/xml/internal/bind
+    outgoing edges:
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind/util
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind -> javax/xml/bind/annotation/adapters
+    incoming edges:
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind/util -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind
+        javax/xml/bind/annotation/adapters -> com/sun/xml/internal/bind
+com/sun/xml/internal/bind/annotation
+com/sun/xml/internal/bind/api
+    outgoing edges:
+        com/sun/xml/internal/bind/api -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/api -> com/sun/xml/internal/ws/message/jaxb
+        com/sun/xml/internal/bind/api -> java/lang
+        com/sun/xml/internal/bind/api -> javax/xml/bind
+        com/sun/xml/internal/bind/api -> org/xml/sax
+    incoming edges:
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/api
+        com/sun/xml/internal/ws/message/jaxb -> com/sun/xml/internal/bind/api
+        java/lang -> com/sun/xml/internal/bind/api
+        javax/xml/bind -> com/sun/xml/internal/bind/api
+        org/xml/sax -> com/sun/xml/internal/bind/api
+com/sun/xml/internal/bind/api/impl
+    outgoing edges:
+        com/sun/xml/internal/bind/api/impl -> com/sun/xml/internal/bind/api/impl
+    incoming edges:
+        com/sun/xml/internal/bind/api/impl -> com/sun/xml/internal/bind/api/impl
+com/sun/xml/internal/bind/marshaller
+    outgoing edges:
+        com/sun/xml/internal/bind/marshaller -> com/sun/xml/internal/bind/marshaller
+        com/sun/xml/internal/bind/marshaller -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/marshaller -> com/sun/xml/internal/ws/fault
+        com/sun/xml/internal/bind/marshaller -> org/xml/sax
+        com/sun/xml/internal/bind/marshaller -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/bind/marshaller -> com/sun/xml/internal/bind/marshaller
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/marshaller
+        com/sun/xml/internal/ws/fault -> com/sun/xml/internal/bind/marshaller
+        org/xml/sax -> com/sun/xml/internal/bind/marshaller
+        org/xml/sax/helpers -> com/sun/xml/internal/bind/marshaller
+com/sun/xml/internal/bind/unmarshaller
+    outgoing edges:
+        com/sun/xml/internal/bind/unmarshaller -> com/sun/xml/internal/bind/unmarshaller
+        com/sun/xml/internal/bind/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/unmarshaller -> org/xml/sax
+    incoming edges:
+        com/sun/xml/internal/bind/unmarshaller -> com/sun/xml/internal/bind/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/unmarshaller
+        org/xml/sax -> com/sun/xml/internal/bind/unmarshaller
+com/sun/xml/internal/bind/util
+    outgoing edges:
+        com/sun/xml/internal/bind/util -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind/util -> java/lang
+        com/sun/xml/internal/bind/util -> javax/xml/bind/helpers
+        com/sun/xml/internal/bind/util -> org/xml/sax
+    incoming edges:
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind/util
+        java/lang -> com/sun/xml/internal/bind/util
+        javax/xml/bind/helpers -> com/sun/xml/internal/bind/util
+        org/xml/sax -> com/sun/xml/internal/bind/util
+com/sun/xml/internal/bind/v2
+    outgoing edges:
+        com/sun/xml/internal/bind/v2 -> java/lang
+    incoming edges:
+        java/lang -> com/sun/xml/internal/bind/v2
+com/sun/xml/internal/bind/v2/bytecode
+com/sun/xml/internal/bind/v2/model/annotation
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/model/annotation -> com/sun/xml/internal/bind/v2/model/annotation
+        com/sun/xml/internal/bind/v2/model/annotation -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/annotation -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/annotation -> java/lang
+        com/sun/xml/internal/bind/v2/model/annotation -> java/lang/annotation
+        com/sun/xml/internal/bind/v2/model/annotation -> java/lang/reflect
+        com/sun/xml/internal/bind/v2/model/annotation -> javax/xml/bind/annotation
+    incoming edges:
+        com/sun/xml/internal/bind/v2/model/annotation -> com/sun/xml/internal/bind/v2/model/annotation
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/annotation
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/annotation
+        java/lang -> com/sun/xml/internal/bind/v2/model/annotation
+        java/lang/annotation -> com/sun/xml/internal/bind/v2/model/annotation
+        java/lang/reflect -> com/sun/xml/internal/bind/v2/model/annotation
+        javax/xml/bind/annotation -> com/sun/xml/internal/bind/v2/model/annotation
+com/sun/xml/internal/bind/v2/model/core
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/model/runtime
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/runtime
+    incoming edges:
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/model/runtime -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/core
+com/sun/xml/internal/bind/v2/model/impl
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/annotation
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/runtime
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/impl -> java/lang
+        com/sun/xml/internal/bind/v2/model/impl -> java/util
+    incoming edges:
+        com/sun/xml/internal/bind/v2/model/annotation -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/runtime -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/impl
+        java/lang -> com/sun/xml/internal/bind/v2/model/impl
+        java/util -> com/sun/xml/internal/bind/v2/model/impl
+com/sun/xml/internal/bind/v2/model/nav
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/model/nav -> com/sun/xml/internal/bind/v2/model/nav
+        com/sun/xml/internal/bind/v2/model/nav -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/nav -> java/lang
+        com/sun/xml/internal/bind/v2/model/nav -> java/lang/reflect
+    incoming edges:
+        com/sun/xml/internal/bind/v2/model/nav -> com/sun/xml/internal/bind/v2/model/nav
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/nav
+        java/lang -> com/sun/xml/internal/bind/v2/model/nav
+        java/lang/reflect -> com/sun/xml/internal/bind/v2/model/nav
+com/sun/xml/internal/bind/v2/model/runtime
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/model/runtime -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/model/runtime -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/model/runtime -> com/sun/xml/internal/bind/v2/model/runtime
+    incoming edges:
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/model/runtime
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/model/runtime
+        com/sun/xml/internal/bind/v2/model/runtime -> com/sun/xml/internal/bind/v2/model/runtime
+com/sun/xml/internal/bind/v2/runtime
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/istack/internal
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/api
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/annotation
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/core
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/impl
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/model/nav
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime -> java/lang
+        com/sun/xml/internal/bind/v2/runtime -> java/util
+        com/sun/xml/internal/bind/v2/runtime -> javax/xml/bind
+        com/sun/xml/internal/bind/v2/runtime -> javax/xml/bind/annotation/adapters
+        com/sun/xml/internal/bind/v2/runtime -> javax/xml/bind/helpers
+        com/sun/xml/internal/bind/v2/runtime -> org/xml/sax
+        com/sun/xml/internal/bind/v2/runtime -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/istack/internal -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/api -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/annotation -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/core -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/impl -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/model/nav -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime
+        java/lang -> com/sun/xml/internal/bind/v2/runtime
+        java/util -> com/sun/xml/internal/bind/v2/runtime
+        javax/xml/bind -> com/sun/xml/internal/bind/v2/runtime
+        javax/xml/bind/annotation/adapters -> com/sun/xml/internal/bind/v2/runtime
+        javax/xml/bind/helpers -> com/sun/xml/internal/bind/v2/runtime
+        org/xml/sax -> com/sun/xml/internal/bind/v2/runtime
+        org/xml/sax/helpers -> com/sun/xml/internal/bind/v2/runtime
+com/sun/xml/internal/bind/v2/runtime/output
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/marshaller
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/org/jvnet/fastinfoset
+        com/sun/xml/internal/bind/v2/runtime/output -> java/lang
+        com/sun/xml/internal/bind/v2/runtime/output -> javax/xml/namespace
+    incoming edges:
+        com/sun/xml/internal/bind/marshaller -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/bind/v2/runtime/output
+        java/lang -> com/sun/xml/internal/bind/v2/runtime/output
+        javax/xml/namespace -> com/sun/xml/internal/bind/v2/runtime/output
+com/sun/xml/internal/bind/v2/runtime/property
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/property -> java/lang
+    incoming edges:
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/property
+        java/lang -> com/sun/xml/internal/bind/v2/runtime/property
+com/sun/xml/internal/bind/v2/runtime/reflect
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/reflect/opt
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/reflect -> java/lang
+    incoming edges:
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/reflect/opt -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/reflect
+        java/lang -> com/sun/xml/internal/bind/v2/runtime/reflect
+com/sun/xml/internal/bind/v2/runtime/reflect/opt
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/runtime/reflect/opt -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/reflect/opt -> java/security
+    incoming edges:
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/reflect/opt
+        java/security -> com/sun/xml/internal/bind/v2/runtime/reflect/opt
+com/sun/xml/internal/bind/v2/runtime/unmarshaller
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/property
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/reflect
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> java/io
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> java/lang
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> java/util/concurrent
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> javax/activation
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> javax/xml/bind
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> javax/xml/bind/helpers
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> javax/xml/namespace
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> org/xml/sax
+    incoming edges:
+        com/sun/xml/internal/bind -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/property -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/reflect -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        com/sun/xml/internal/bind/v2/runtime/unmarshaller -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        java/io -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        java/lang -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        java/util/concurrent -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        javax/activation -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        javax/xml/bind -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        javax/xml/bind/helpers -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        javax/xml/namespace -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+        org/xml/sax -> com/sun/xml/internal/bind/v2/runtime/unmarshaller
+com/sun/xml/internal/bind/v2/schemagen
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/schemagen -> com/sun/xml/internal/bind/v2/schemagen
+        com/sun/xml/internal/bind/v2/schemagen -> java/lang
+        com/sun/xml/internal/bind/v2/schemagen -> java/util
+        com/sun/xml/internal/bind/v2/schemagen -> javax/xml/bind
+    incoming edges:
+        com/sun/xml/internal/bind/v2/schemagen -> com/sun/xml/internal/bind/v2/schemagen
+        java/lang -> com/sun/xml/internal/bind/v2/schemagen
+        java/util -> com/sun/xml/internal/bind/v2/schemagen
+        javax/xml/bind -> com/sun/xml/internal/bind/v2/schemagen
+com/sun/xml/internal/bind/v2/schemagen/episode
+com/sun/xml/internal/bind/v2/schemagen/xmlschema
+com/sun/xml/internal/bind/v2/util
+    outgoing edges:
+        com/sun/xml/internal/bind/v2/util -> java/lang
+        com/sun/xml/internal/bind/v2/util -> java/util
+        com/sun/xml/internal/bind/v2/util -> javax/xml/transform/stream
+        com/sun/xml/internal/bind/v2/util -> org/xml/sax
+    incoming edges:
+        java/lang -> com/sun/xml/internal/bind/v2/util
+        java/util -> com/sun/xml/internal/bind/v2/util
+        javax/xml/transform/stream -> com/sun/xml/internal/bind/v2/util
+        org/xml/sax -> com/sun/xml/internal/bind/v2/util
+com/sun/xml/internal/fastinfoset
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/fastinfoset/stax
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/org/jvnet/fastinfoset
+        com/sun/xml/internal/fastinfoset -> java/io
+        com/sun/xml/internal/fastinfoset -> java/util
+    incoming edges:
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/fastinfoset/stax -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/fastinfoset
+        java/io -> com/sun/xml/internal/fastinfoset
+        java/util -> com/sun/xml/internal/fastinfoset
+com/sun/xml/internal/fastinfoset/algorithm
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/algorithm -> com/sun/xml/internal/fastinfoset/algorithm
+        com/sun/xml/internal/fastinfoset/algorithm -> com/sun/xml/internal/org/jvnet/fastinfoset
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/algorithm -> com/sun/xml/internal/fastinfoset/algorithm
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/fastinfoset/algorithm
+com/sun/xml/internal/fastinfoset/alphabet
+com/sun/xml/internal/fastinfoset/dom
+com/sun/xml/internal/fastinfoset/org/apache/xerces/util
+com/sun/xml/internal/fastinfoset/sax
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/org/jvnet/fastinfoset
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/org/jvnet/fastinfoset/sax
+        com/sun/xml/internal/fastinfoset/sax -> org/xml/sax
+        com/sun/xml/internal/fastinfoset/sax -> org/xml/sax/ext
+        com/sun/xml/internal/fastinfoset/sax -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax -> com/sun/xml/internal/fastinfoset/sax
+        org/xml/sax -> com/sun/xml/internal/fastinfoset/sax
+        org/xml/sax/ext -> com/sun/xml/internal/fastinfoset/sax
+        org/xml/sax/helpers -> com/sun/xml/internal/fastinfoset/sax
+com/sun/xml/internal/fastinfoset/stax
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/stax -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/fastinfoset/stax -> com/sun/xml/internal/org/jvnet/fastinfoset/stax
+        com/sun/xml/internal/fastinfoset/stax -> java/lang
+        com/sun/xml/internal/fastinfoset/stax -> javax/xml/namespace
+        com/sun/xml/internal/fastinfoset/stax -> javax/xml/stream
+    incoming edges:
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/fastinfoset/stax
+        com/sun/xml/internal/org/jvnet/fastinfoset/stax -> com/sun/xml/internal/fastinfoset/stax
+        java/lang -> com/sun/xml/internal/fastinfoset/stax
+        javax/xml/namespace -> com/sun/xml/internal/fastinfoset/stax
+        javax/xml/stream -> com/sun/xml/internal/fastinfoset/stax
+com/sun/xml/internal/fastinfoset/stax/events
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/stax/events -> com/sun/xml/internal/fastinfoset/stax/events
+        com/sun/xml/internal/fastinfoset/stax/events -> java/lang
+        com/sun/xml/internal/fastinfoset/stax/events -> java/util
+        com/sun/xml/internal/fastinfoset/stax/events -> javax/xml/stream
+        com/sun/xml/internal/fastinfoset/stax/events -> javax/xml/stream/events
+        com/sun/xml/internal/fastinfoset/stax/events -> javax/xml/stream/util
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/stax/events -> com/sun/xml/internal/fastinfoset/stax/events
+        java/lang -> com/sun/xml/internal/fastinfoset/stax/events
+        java/util -> com/sun/xml/internal/fastinfoset/stax/events
+        javax/xml/stream -> com/sun/xml/internal/fastinfoset/stax/events
+        javax/xml/stream/events -> com/sun/xml/internal/fastinfoset/stax/events
+        javax/xml/stream/util -> com/sun/xml/internal/fastinfoset/stax/events
+com/sun/xml/internal/fastinfoset/stax/factory
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/stax/factory -> javax/xml/stream
+    incoming edges:
+        javax/xml/stream -> com/sun/xml/internal/fastinfoset/stax/factory
+com/sun/xml/internal/fastinfoset/stax/util
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/stax/util -> com/sun/xml/internal/fastinfoset/stax/util
+        com/sun/xml/internal/fastinfoset/stax/util -> javax/xml/stream
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/stax/util -> com/sun/xml/internal/fastinfoset/stax/util
+        javax/xml/stream -> com/sun/xml/internal/fastinfoset/stax/util
+com/sun/xml/internal/fastinfoset/tools
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/tools -> com/sun/xml/internal/fastinfoset/tools
+        com/sun/xml/internal/fastinfoset/tools -> java/lang
+        com/sun/xml/internal/fastinfoset/tools -> org/xml/sax
+        com/sun/xml/internal/fastinfoset/tools -> org/xml/sax/ext
+        com/sun/xml/internal/fastinfoset/tools -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/tools -> com/sun/xml/internal/fastinfoset/tools
+        java/lang -> com/sun/xml/internal/fastinfoset/tools
+        org/xml/sax -> com/sun/xml/internal/fastinfoset/tools
+        org/xml/sax/ext -> com/sun/xml/internal/fastinfoset/tools
+        org/xml/sax/helpers -> com/sun/xml/internal/fastinfoset/tools
+com/sun/xml/internal/fastinfoset/util
+    outgoing edges:
+        com/sun/xml/internal/fastinfoset/util -> com/sun/xml/internal/fastinfoset/util
+        com/sun/xml/internal/fastinfoset/util -> java/lang
+        com/sun/xml/internal/fastinfoset/util -> java/util
+        com/sun/xml/internal/fastinfoset/util -> javax/xml/namespace
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/util -> com/sun/xml/internal/fastinfoset/util
+        java/lang -> com/sun/xml/internal/fastinfoset/util
+        java/util -> com/sun/xml/internal/fastinfoset/util
+        javax/xml/namespace -> com/sun/xml/internal/fastinfoset/util
+com/sun/xml/internal/fastinfoset/vocab
+com/sun/xml/internal/messaging/saaj
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj -> java/lang
+        com/sun/xml/internal/messaging/saaj -> javax/xml/soap
+    incoming edges:
+        java/lang -> com/sun/xml/internal/messaging/saaj
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj
+com/sun/xml/internal/messaging/saaj/client/p2p
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/client/p2p -> javax/xml/soap
+    incoming edges:
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj/client/p2p
+com/sun/xml/internal/messaging/saaj/packaging/mime
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/packaging/mime -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        com/sun/xml/internal/messaging/saaj/packaging/mime -> java/lang
+    incoming edges:
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> com/sun/xml/internal/messaging/saaj/packaging/mime
+        java/lang -> com/sun/xml/internal/messaging/saaj/packaging/mime
+com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> com/sun/xml/internal/messaging/saaj/packaging/mime
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> java/io
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> java/lang
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> java/util
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> javax/activation
+    incoming edges:
+        com/sun/xml/internal/messaging/saaj/packaging/mime -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        com/sun/xml/internal/messaging/saaj/packaging/mime/internet -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        java/io -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        java/lang -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        java/util -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+        javax/activation -> com/sun/xml/internal/messaging/saaj/packaging/mime/internet
+com/sun/xml/internal/messaging/saaj/packaging/mime/util
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/packaging/mime/util -> com/sun/xml/internal/messaging/saaj/packaging/mime/util
+        com/sun/xml/internal/messaging/saaj/packaging/mime/util -> java/io
+    incoming edges:
+        com/sun/xml/internal/messaging/saaj/packaging/mime/util -> com/sun/xml/internal/messaging/saaj/packaging/mime/util
+        java/io -> com/sun/xml/internal/messaging/saaj/packaging/mime/util
+com/sun/xml/internal/messaging/saaj/soap
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/org/apache/xerces/internal/dom
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/dynamic
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/ver1_1
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/ver1_2
+        com/sun/xml/internal/messaging/saaj/soap -> java/lang
+        com/sun/xml/internal/messaging/saaj/soap -> java/util
+        com/sun/xml/internal/messaging/saaj/soap -> javax/activation
+        com/sun/xml/internal/messaging/saaj/soap -> javax/xml/soap
+        com/sun/xml/internal/messaging/saaj/soap -> org/w3c/dom
+    incoming edges:
+        com/sun/org/apache/xerces/internal/dom -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/dynamic -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/ver1_1 -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/ver1_2 -> com/sun/xml/internal/messaging/saaj/soap
+        java/lang -> com/sun/xml/internal/messaging/saaj/soap
+        java/util -> com/sun/xml/internal/messaging/saaj/soap
+        javax/activation -> com/sun/xml/internal/messaging/saaj/soap
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj/soap
+        org/w3c/dom -> com/sun/xml/internal/messaging/saaj/soap
+com/sun/xml/internal/messaging/saaj/soap/dynamic
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/soap/dynamic -> com/sun/xml/internal/messaging/saaj/soap
+    incoming edges:
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/dynamic
+com/sun/xml/internal/messaging/saaj/soap/impl
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/org/apache/xerces/internal/dom
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap/ver1_1
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap/ver1_2
+        com/sun/xml/internal/messaging/saaj/soap/impl -> java/util
+        com/sun/xml/internal/messaging/saaj/soap/impl -> javax/xml/soap
+        com/sun/xml/internal/messaging/saaj/soap/impl -> org/w3c/dom
+    incoming edges:
+        com/sun/org/apache/xerces/internal/dom -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap/ver1_1 -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap/ver1_2 -> com/sun/xml/internal/messaging/saaj/soap/impl
+        java/util -> com/sun/xml/internal/messaging/saaj/soap/impl
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj/soap/impl
+        org/w3c/dom -> com/sun/xml/internal/messaging/saaj/soap/impl
+com/sun/xml/internal/messaging/saaj/soap/name
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/soap/name -> java/lang
+        com/sun/xml/internal/messaging/saaj/soap/name -> javax/xml/soap
+    incoming edges:
+        java/lang -> com/sun/xml/internal/messaging/saaj/soap/name
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj/soap/name
+com/sun/xml/internal/messaging/saaj/soap/ver1_1
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/soap/ver1_1 -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/ver1_1 -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap/ver1_1 -> javax/xml/soap
+    incoming edges:
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/ver1_1
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap/ver1_1
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj/soap/ver1_1
+com/sun/xml/internal/messaging/saaj/soap/ver1_2
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/soap/ver1_2 -> com/sun/xml/internal/messaging/saaj/soap
+        com/sun/xml/internal/messaging/saaj/soap/ver1_2 -> com/sun/xml/internal/messaging/saaj/soap/impl
+        com/sun/xml/internal/messaging/saaj/soap/ver1_2 -> java/util
+        com/sun/xml/internal/messaging/saaj/soap/ver1_2 -> javax/xml/soap
+    incoming edges:
+        com/sun/xml/internal/messaging/saaj/soap -> com/sun/xml/internal/messaging/saaj/soap/ver1_2
+        com/sun/xml/internal/messaging/saaj/soap/impl -> com/sun/xml/internal/messaging/saaj/soap/ver1_2
+        java/util -> com/sun/xml/internal/messaging/saaj/soap/ver1_2
+        javax/xml/soap -> com/sun/xml/internal/messaging/saaj/soap/ver1_2
+com/sun/xml/internal/messaging/saaj/util
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/util -> java/io
+        com/sun/xml/internal/messaging/saaj/util -> java/lang
+        com/sun/xml/internal/messaging/saaj/util -> java/util
+        com/sun/xml/internal/messaging/saaj/util -> javax/xml/transform/stream
+        com/sun/xml/internal/messaging/saaj/util -> org/xml/sax
+        com/sun/xml/internal/messaging/saaj/util -> org/xml/sax/ext
+        com/sun/xml/internal/messaging/saaj/util -> org/xml/sax/helpers
+    incoming edges:
+        java/io -> com/sun/xml/internal/messaging/saaj/util
+        java/lang -> com/sun/xml/internal/messaging/saaj/util
+        java/util -> com/sun/xml/internal/messaging/saaj/util
+        javax/xml/transform/stream -> com/sun/xml/internal/messaging/saaj/util
+        org/xml/sax -> com/sun/xml/internal/messaging/saaj/util
+        org/xml/sax/ext -> com/sun/xml/internal/messaging/saaj/util
+        org/xml/sax/helpers -> com/sun/xml/internal/messaging/saaj/util
+com/sun/xml/internal/messaging/saaj/util/transform
+    outgoing edges:
+        com/sun/xml/internal/messaging/saaj/util/transform -> javax/xml/transform
+    incoming edges:
+        javax/xml/transform -> com/sun/xml/internal/messaging/saaj/util/transform
+com/sun/xml/internal/org/jvnet/fastinfoset
+    outgoing edges:
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/bind/v2/runtime/output
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/fastinfoset
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/fastinfoset/algorithm
+        com/sun/xml/internal/org/jvnet/fastinfoset -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset -> javax/xml/transform/sax
+    incoming edges:
+        com/sun/xml/internal/bind/v2/runtime/output -> com/sun/xml/internal/org/jvnet/fastinfoset
+        com/sun/xml/internal/fastinfoset -> com/sun/xml/internal/org/jvnet/fastinfoset
+        com/sun/xml/internal/fastinfoset/algorithm -> com/sun/xml/internal/org/jvnet/fastinfoset
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/org/jvnet/fastinfoset
+        javax/xml/transform/sax -> com/sun/xml/internal/org/jvnet/fastinfoset
+com/sun/xml/internal/org/jvnet/fastinfoset/sax
+    outgoing edges:
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax -> com/sun/xml/internal/fastinfoset/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax -> com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/sax -> com/sun/xml/internal/org/jvnet/fastinfoset/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers -> com/sun/xml/internal/org/jvnet/fastinfoset/sax
+com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers
+    outgoing edges:
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers -> com/sun/xml/internal/org/jvnet/fastinfoset/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers -> org/xml/sax
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers -> org/xml/sax/ext
+    incoming edges:
+        com/sun/xml/internal/org/jvnet/fastinfoset/sax -> com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers
+        org/xml/sax -> com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers
+        org/xml/sax/ext -> com/sun/xml/internal/org/jvnet/fastinfoset/sax/helpers
+com/sun/xml/internal/org/jvnet/fastinfoset/stax
+    outgoing edges:
+        com/sun/xml/internal/org/jvnet/fastinfoset/stax -> com/sun/xml/internal/fastinfoset/stax
+    incoming edges:
+        com/sun/xml/internal/fastinfoset/stax -> com/sun/xml/internal/org/jvnet/fastinfoset/stax
+com/sun/xml/internal/org/jvnet/mimepull
+    outgoing edges:
+        com/sun/xml/internal/org/jvnet/mimepull -> com/sun/xml/internal/org/jvnet/mimepull
+        com/sun/xml/internal/org/jvnet/mimepull -> java/io
+        com/sun/xml/internal/org/jvnet/mimepull -> java/lang
+        com/sun/xml/internal/org/jvnet/mimepull -> java/util
+    incoming edges:
+        com/sun/xml/internal/org/jvnet/mimepull -> com/sun/xml/internal/org/jvnet/mimepull
+        java/io -> com/sun/xml/internal/org/jvnet/mimepull
+        java/lang -> com/sun/xml/internal/org/jvnet/mimepull
+        java/util -> com/sun/xml/internal/org/jvnet/mimepull
+com/sun/xml/internal/org/jvnet/staxex
+    outgoing edges:
+        com/sun/xml/internal/org/jvnet/staxex -> com/sun/xml/internal/org/jvnet/staxex
+        com/sun/xml/internal/org/jvnet/staxex -> com/sun/xml/internal/stream/buffer/stax
+        com/sun/xml/internal/org/jvnet/staxex -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/org/jvnet/staxex -> java/io
+        com/sun/xml/internal/org/jvnet/staxex -> java/lang
+        com/sun/xml/internal/org/jvnet/staxex -> javax/activation
+    incoming edges:
+        com/sun/xml/internal/org/jvnet/staxex -> com/sun/xml/internal/org/jvnet/staxex
+        com/sun/xml/internal/stream/buffer/stax -> com/sun/xml/internal/org/jvnet/staxex
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/org/jvnet/staxex
+        java/io -> com/sun/xml/internal/org/jvnet/staxex
+        java/lang -> com/sun/xml/internal/org/jvnet/staxex
+        javax/activation -> com/sun/xml/internal/org/jvnet/staxex
+com/sun/xml/internal/stream/buffer
+    outgoing edges:
+        com/sun/xml/internal/stream/buffer -> javax/xml/transform/sax
+        com/sun/xml/internal/stream/buffer -> org/xml/sax
+    incoming edges:
+        javax/xml/transform/sax -> com/sun/xml/internal/stream/buffer
+        org/xml/sax -> com/sun/xml/internal/stream/buffer
+com/sun/xml/internal/stream/buffer/sax
+    outgoing edges:
+        com/sun/xml/internal/stream/buffer/sax -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/stream/buffer/sax -> org/xml/sax
+        com/sun/xml/internal/stream/buffer/sax -> org/xml/sax/ext
+    incoming edges:
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/stream/buffer/sax
+        org/xml/sax -> com/sun/xml/internal/stream/buffer/sax
+        org/xml/sax/ext -> com/sun/xml/internal/stream/buffer/sax
+com/sun/xml/internal/stream/buffer/stax
+    outgoing edges:
+        com/sun/xml/internal/stream/buffer/stax -> com/sun/xml/internal/org/jvnet/staxex
+        com/sun/xml/internal/stream/buffer/stax -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/stream/buffer/stax -> java/lang
+        com/sun/xml/internal/stream/buffer/stax -> java/util
+        com/sun/xml/internal/stream/buffer/stax -> javax/xml/namespace
+        com/sun/xml/internal/stream/buffer/stax -> javax/xml/stream
+    incoming edges:
+        com/sun/xml/internal/org/jvnet/staxex -> com/sun/xml/internal/stream/buffer/stax
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/stream/buffer/stax
+        java/lang -> com/sun/xml/internal/stream/buffer/stax
+        java/util -> com/sun/xml/internal/stream/buffer/stax
+        javax/xml/namespace -> com/sun/xml/internal/stream/buffer/stax
+        javax/xml/stream -> com/sun/xml/internal/stream/buffer/stax
+com/sun/xml/internal/txw2
+    outgoing edges:
+        com/sun/xml/internal/txw2 -> com/sun/xml/internal/txw2
+        com/sun/xml/internal/txw2 -> java/lang/reflect
+        com/sun/xml/internal/txw2 -> java/util
+    incoming edges:
+        com/sun/xml/internal/txw2 -> com/sun/xml/internal/txw2
+        java/lang/reflect -> com/sun/xml/internal/txw2
+        java/util -> com/sun/xml/internal/txw2
+com/sun/xml/internal/txw2/annotation
+com/sun/xml/internal/txw2/output
+    outgoing edges:
+        com/sun/xml/internal/txw2/output -> com/sun/xml/internal/txw2/output
+        com/sun/xml/internal/txw2/output -> com/sun/xml/internal/ws/wsdl/writer
+        com/sun/xml/internal/txw2/output -> javax/xml/stream
+        com/sun/xml/internal/txw2/output -> javax/xml/transform
+        com/sun/xml/internal/txw2/output -> org/xml/sax
+        com/sun/xml/internal/txw2/output -> org/xml/sax/ext
+        com/sun/xml/internal/txw2/output -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/txw2/output -> com/sun/xml/internal/txw2/output
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/txw2/output
+        javax/xml/stream -> com/sun/xml/internal/txw2/output
+        javax/xml/transform -> com/sun/xml/internal/txw2/output
+        org/xml/sax -> com/sun/xml/internal/txw2/output
+        org/xml/sax/ext -> com/sun/xml/internal/txw2/output
+        org/xml/sax/helpers -> com/sun/xml/internal/txw2/output
+com/sun/xml/internal/ws
+    outgoing edges:
+        com/sun/xml/internal/ws -> java/io
+    incoming edges:
+        java/io -> com/sun/xml/internal/ws
+com/sun/xml/internal/ws/addressing
+    outgoing edges:
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/addressing/v200408
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/util/xml
+    incoming edges:
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/addressing/v200408 -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/addressing
+com/sun/xml/internal/ws/addressing/model
+com/sun/xml/internal/ws/addressing/policy
+    outgoing edges:
+        com/sun/xml/internal/ws/addressing/policy -> com/sun/xml/internal/ws/policy/jaxws/spi
+        com/sun/xml/internal/ws/addressing/policy -> com/sun/xml/internal/ws/policy/spi
+    incoming edges:
+        com/sun/xml/internal/ws/policy/jaxws/spi -> com/sun/xml/internal/ws/addressing/policy
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/addressing/policy
+com/sun/xml/internal/ws/addressing/v200408
+    outgoing edges:
+        com/sun/xml/internal/ws/addressing/v200408 -> com/sun/xml/internal/ws/addressing
+    incoming edges:
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/addressing/v200408
+com/sun/xml/internal/ws/api
+    outgoing edges:
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/binding
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/model/wsdl
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/transport/http/client
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/xml/internal/ws/api -> java/lang
+        com/sun/xml/internal/ws/api -> java/security
+        com/sun/xml/internal/ws/api -> java/util
+        com/sun/xml/internal/ws/api -> javax/xml/ws
+    incoming edges:
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/binding -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/model/wsdl -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/transport/http/client -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/xml/internal/ws/api
+        java/lang -> com/sun/xml/internal/ws/api
+        java/security -> com/sun/xml/internal/ws/api
+        java/util -> com/sun/xml/internal/ws/api
+        javax/xml/ws -> com/sun/xml/internal/ws/api
+com/sun/xml/internal/ws/api/addressing
+    outgoing edges:
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/stream/buffer/sax
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/stream/buffer/stax
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/api/model/wsdl
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/api/addressing -> java/lang
+        com/sun/xml/internal/ws/api/addressing -> javax/xml/stream/util
+        com/sun/xml/internal/ws/api/addressing -> javax/xml/ws
+        com/sun/xml/internal/ws/api/addressing -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/stream/buffer/sax -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/stream/buffer/stax -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/api/model/wsdl -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/api/addressing
+        java/lang -> com/sun/xml/internal/ws/api/addressing
+        javax/xml/stream/util -> com/sun/xml/internal/ws/api/addressing
+        javax/xml/ws -> com/sun/xml/internal/ws/api/addressing
+        org/xml/sax/helpers -> com/sun/xml/internal/ws/api/addressing
+com/sun/xml/internal/ws/api/client
+    outgoing edges:
+        com/sun/xml/internal/ws/api/client -> com/sun/xml/internal/ws/api/client
+        com/sun/xml/internal/ws/api/client -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/client -> java/lang
+        com/sun/xml/internal/ws/api/client -> javax/xml/ws
+    incoming edges:
+        com/sun/xml/internal/ws/api/client -> com/sun/xml/internal/ws/api/client
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/client
+        java/lang -> com/sun/xml/internal/ws/api/client
+        javax/xml/ws -> com/sun/xml/internal/ws/api/client
+com/sun/xml/internal/ws/api/config/management
+    outgoing edges:
+        com/sun/xml/internal/ws/api/config/management -> com/sun/xml/internal/ws/api/server
+    incoming edges:
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/api/config/management
+com/sun/xml/internal/ws/api/config/management/policy
+    outgoing edges:
+        com/sun/xml/internal/ws/api/config/management/policy -> com/sun/xml/internal/ws/api/config/management/policy
+        com/sun/xml/internal/ws/api/config/management/policy -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/api/config/management/policy -> com/sun/xml/internal/ws/api/config/management/policy
+        java/lang -> com/sun/xml/internal/ws/api/config/management/policy
+com/sun/xml/internal/ws/api/fastinfoset
+    outgoing edges:
+        com/sun/xml/internal/ws/api/fastinfoset -> javax/xml/ws
+    incoming edges:
+        javax/xml/ws -> com/sun/xml/internal/ws/api/fastinfoset
+com/sun/xml/internal/ws/api/ha
+com/sun/xml/internal/ws/api/handler
+    outgoing edges:
+        com/sun/xml/internal/ws/api/handler -> com/sun/xml/internal/ws/handler
+    incoming edges:
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/api/handler
+com/sun/xml/internal/ws/api/message
+    outgoing edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/jaxb
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/saaj
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/source
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/stream
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/protocol/soap
+        com/sun/xml/internal/ws/api/message -> java/util
+    incoming edges:
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/jaxb -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/saaj -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/source -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/stream -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/protocol/soap -> com/sun/xml/internal/ws/api/message
+        java/util -> com/sun/xml/internal/ws/api/message
+com/sun/xml/internal/ws/api/message/stream
+com/sun/xml/internal/ws/api/model
+    outgoing edges:
+        com/sun/xml/internal/ws/api/model -> com/sun/xml/internal/ws/model
+        com/sun/xml/internal/ws/api/model -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/model -> com/sun/xml/internal/ws/api/model
+        java/lang -> com/sun/xml/internal/ws/api/model
+com/sun/xml/internal/ws/api/model/soap
+com/sun/xml/internal/ws/api/model/wsdl
+    outgoing edges:
+        com/sun/xml/internal/ws/api/model/wsdl -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/api/model/wsdl -> com/sun/xml/internal/ws/model/wsdl
+        com/sun/xml/internal/ws/api/model/wsdl -> com/sun/xml/internal/ws/policy/jaxws
+    incoming edges:
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/api/model/wsdl
+        com/sun/xml/internal/ws/model/wsdl -> com/sun/xml/internal/ws/api/model/wsdl
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/model/wsdl
+com/sun/xml/internal/ws/api/pipe
+    outgoing edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/encoding/fastinfoset
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/server/provider
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/server/sei
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/transport
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/transport/http/client
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/api/pipe -> java/lang
+        com/sun/xml/internal/ws/api/pipe -> java/util/concurrent
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/encoding/fastinfoset -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/server/provider -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/server/sei -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/transport -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/transport/http/client -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/api/pipe
+        java/lang -> com/sun/xml/internal/ws/api/pipe
+        java/util/concurrent -> com/sun/xml/internal/ws/api/pipe
+com/sun/xml/internal/ws/api/pipe/helper
+    outgoing edges:
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/handler
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/protocol/soap
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/transport
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/transport/http/client
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/api/pipe/helper -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/protocol/soap -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/transport -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/transport/http/client -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/api/pipe/helper
+        java/lang -> com/sun/xml/internal/ws/api/pipe/helper
+com/sun/xml/internal/ws/api/policy
+    outgoing edges:
+        com/sun/xml/internal/ws/api/policy -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/api/policy -> com/sun/xml/internal/ws/policy/sourcemodel
+    incoming edges:
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/policy
+        com/sun/xml/internal/ws/policy/sourcemodel -> com/sun/xml/internal/ws/api/policy
+com/sun/xml/internal/ws/api/server
+    outgoing edges:
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/api/config/management
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/server/provider
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/api/server -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/api/config/management -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/server/provider -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/api/server
+        java/lang -> com/sun/xml/internal/ws/api/server
+com/sun/xml/internal/ws/api/streaming
+    outgoing edges:
+        com/sun/xml/internal/ws/api/streaming -> com/sun/xml/internal/ws/api/streaming
+        com/sun/xml/internal/ws/api/streaming -> com/sun/xml/internal/ws/encoding/fastinfoset
+        com/sun/xml/internal/ws/api/streaming -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/api/streaming -> java/lang
+        com/sun/xml/internal/ws/api/streaming -> java/security
+    incoming edges:
+        com/sun/xml/internal/ws/api/streaming -> com/sun/xml/internal/ws/api/streaming
+        com/sun/xml/internal/ws/encoding/fastinfoset -> com/sun/xml/internal/ws/api/streaming
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/api/streaming
+        java/lang -> com/sun/xml/internal/ws/api/streaming
+        java/security -> com/sun/xml/internal/ws/api/streaming
+com/sun/xml/internal/ws/api/wsdl/parser
+    outgoing edges:
+        com/sun/xml/internal/ws/api/wsdl/parser -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/api/wsdl/parser -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/wsdl/parser -> com/sun/xml/internal/ws/wsdl/parser
+    incoming edges:
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/wsdl/parser
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/wsdl/parser
+        com/sun/xml/internal/ws/wsdl/parser -> com/sun/xml/internal/ws/api/wsdl/parser
+com/sun/xml/internal/ws/api/wsdl/writer
+    outgoing edges:
+        com/sun/xml/internal/ws/api/wsdl/writer -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/api/wsdl/writer -> com/sun/xml/internal/ws/wsdl/writer
+    incoming edges:
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/wsdl/writer
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/ws/api/wsdl/writer
+com/sun/xml/internal/ws/binding
+    outgoing edges:
+        com/sun/xml/internal/ws/binding -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/binding -> java/lang
+        com/sun/xml/internal/ws/binding -> java/util
+        com/sun/xml/internal/ws/binding -> javax/xml/ws
+        com/sun/xml/internal/ws/binding -> javax/xml/ws/soap
+    incoming edges:
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/binding
+        java/lang -> com/sun/xml/internal/ws/binding
+        java/util -> com/sun/xml/internal/ws/binding
+        javax/xml/ws -> com/sun/xml/internal/ws/binding
+        javax/xml/ws/soap -> com/sun/xml/internal/ws/binding
+com/sun/xml/internal/ws/client
+    outgoing edges:
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/client
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/client -> java/io
+        com/sun/xml/internal/ws/client -> java/lang
+        com/sun/xml/internal/ws/client -> java/security
+        com/sun/xml/internal/ws/client -> java/util
+        com/sun/xml/internal/ws/client -> java/util/concurrent
+        com/sun/xml/internal/ws/client -> javax/xml/ws
+        com/sun/xml/internal/ws/client -> javax/xml/ws/handler
+        com/sun/xml/internal/ws/client -> javax/xml/ws/spi
+    incoming edges:
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/client -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/client
+        java/io -> com/sun/xml/internal/ws/client
+        java/lang -> com/sun/xml/internal/ws/client
+        java/security -> com/sun/xml/internal/ws/client
+        java/util -> com/sun/xml/internal/ws/client
+        java/util/concurrent -> com/sun/xml/internal/ws/client
+        javax/xml/ws -> com/sun/xml/internal/ws/client
+        javax/xml/ws/handler -> com/sun/xml/internal/ws/client
+        javax/xml/ws/spi -> com/sun/xml/internal/ws/client
+com/sun/xml/internal/ws/client/dispatch
+    outgoing edges:
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/client/dispatch -> java/util/concurrent
+        com/sun/xml/internal/ws/client/dispatch -> javax/xml/ws
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/client/dispatch
+        java/util/concurrent -> com/sun/xml/internal/ws/client/dispatch
+        javax/xml/ws -> com/sun/xml/internal/ws/client/dispatch
+com/sun/xml/internal/ws/client/sei
+    outgoing edges:
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/client/sei -> java/lang/reflect
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/client/sei
+        java/lang/reflect -> com/sun/xml/internal/ws/client/sei
+com/sun/xml/internal/ws/config/management/policy
+    outgoing edges:
+        com/sun/xml/internal/ws/config/management/policy -> com/sun/xml/internal/ws/policy/spi
+    incoming edges:
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/config/management/policy
+com/sun/xml/internal/ws/developer
+    outgoing edges:
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/client/dispatch
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/client/sei
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/developer -> java/lang
+        com/sun/xml/internal/ws/developer -> javax/xml/ws
+    incoming edges:
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/client/dispatch -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/client/sei -> com/sun/xml/internal/ws/developer
+        com/sun/xml/internal/ws/developer -> com/sun/xml/internal/ws/developer
+        java/lang -> com/sun/xml/internal/ws/developer
+        javax/xml/ws -> com/sun/xml/internal/ws/developer
+com/sun/xml/internal/ws/encoding
+    outgoing edges:
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/org/jvnet/staxex
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/encoding -> java/lang
+        com/sun/xml/internal/ws/encoding -> javax/activation
+        com/sun/xml/internal/ws/encoding -> javax/xml/bind/attachment
+        com/sun/xml/internal/ws/encoding -> javax/xml/namespace
+        com/sun/xml/internal/ws/encoding -> javax/xml/stream
+    incoming edges:
+        com/sun/xml/internal/org/jvnet/staxex -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/encoding
+        java/lang -> com/sun/xml/internal/ws/encoding
+        javax/activation -> com/sun/xml/internal/ws/encoding
+        javax/xml/bind/attachment -> com/sun/xml/internal/ws/encoding
+        javax/xml/namespace -> com/sun/xml/internal/ws/encoding
+        javax/xml/stream -> com/sun/xml/internal/ws/encoding
+com/sun/xml/internal/ws/encoding/fastinfoset
+    outgoing edges:
+        com/sun/xml/internal/ws/encoding/fastinfoset -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/encoding/fastinfoset -> com/sun/xml/internal/ws/api/streaming
+        com/sun/xml/internal/ws/encoding/fastinfoset -> com/sun/xml/internal/ws/encoding/fastinfoset
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/encoding/fastinfoset
+        com/sun/xml/internal/ws/api/streaming -> com/sun/xml/internal/ws/encoding/fastinfoset
+        com/sun/xml/internal/ws/encoding/fastinfoset -> com/sun/xml/internal/ws/encoding/fastinfoset
+com/sun/xml/internal/ws/encoding/policy
+    outgoing edges:
+        com/sun/xml/internal/ws/encoding/policy -> com/sun/xml/internal/ws/policy/jaxws/spi
+        com/sun/xml/internal/ws/encoding/policy -> com/sun/xml/internal/ws/policy/spi
+    incoming edges:
+        com/sun/xml/internal/ws/policy/jaxws/spi -> com/sun/xml/internal/ws/encoding/policy
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/encoding/policy
+com/sun/xml/internal/ws/encoding/soap
+    outgoing edges:
+        com/sun/xml/internal/ws/encoding/soap -> com/sun/xml/internal/ws/util/exception
+    incoming edges:
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/encoding/soap
+com/sun/xml/internal/ws/encoding/soap/streaming
+com/sun/xml/internal/ws/encoding/xml
+    outgoing edges:
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/encoding/xml -> javax/activation
+    incoming edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/encoding/xml
+        javax/activation -> com/sun/xml/internal/ws/encoding/xml
+com/sun/xml/internal/ws/fault
+    outgoing edges:
+        com/sun/xml/internal/ws/fault -> com/sun/xml/internal/bind/marshaller
+        com/sun/xml/internal/ws/fault -> com/sun/xml/internal/ws/fault
+    incoming edges:
+        com/sun/xml/internal/bind/marshaller -> com/sun/xml/internal/ws/fault
+        com/sun/xml/internal/ws/fault -> com/sun/xml/internal/ws/fault
+com/sun/xml/internal/ws/handler
+    outgoing edges:
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/api/handler
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/handler
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/handler -> java/lang
+        com/sun/xml/internal/ws/handler -> java/util
+        com/sun/xml/internal/ws/handler -> javax/xml/ws
+        com/sun/xml/internal/ws/handler -> javax/xml/ws/handler
+        com/sun/xml/internal/ws/handler -> javax/xml/ws/handler/soap
+    incoming edges:
+        com/sun/xml/internal/ws/api/handler -> com/sun/xml/internal/ws/handler
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/handler
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/handler
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/handler
+        java/lang -> com/sun/xml/internal/ws/handler
+        java/util -> com/sun/xml/internal/ws/handler
+        javax/xml/ws -> com/sun/xml/internal/ws/handler
+        javax/xml/ws/handler -> com/sun/xml/internal/ws/handler
+        javax/xml/ws/handler/soap -> com/sun/xml/internal/ws/handler
+com/sun/xml/internal/ws/message
+    outgoing edges:
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/encoding/xml
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message/jaxb
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message/saaj
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message/stream
+        com/sun/xml/internal/ws/message -> java/lang
+        com/sun/xml/internal/ws/message -> javax/activation
+        com/sun/xml/internal/ws/message -> javax/xml/bind/attachment
+        com/sun/xml/internal/ws/message -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/encoding/xml -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message/jaxb -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message/saaj -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message/stream -> com/sun/xml/internal/ws/message
+        java/lang -> com/sun/xml/internal/ws/message
+        javax/activation -> com/sun/xml/internal/ws/message
+        javax/xml/bind/attachment -> com/sun/xml/internal/ws/message
+        org/xml/sax/helpers -> com/sun/xml/internal/ws/message
+com/sun/xml/internal/ws/message/jaxb
+    outgoing edges:
+        com/sun/xml/internal/ws/message/jaxb -> com/sun/xml/internal/bind/api
+        com/sun/xml/internal/ws/message/jaxb -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/jaxb -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message/jaxb -> javax/xml/bind/attachment
+        com/sun/xml/internal/ws/message/jaxb -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/xml/internal/bind/api -> com/sun/xml/internal/ws/message/jaxb
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/jaxb
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message/jaxb
+        javax/xml/bind/attachment -> com/sun/xml/internal/ws/message/jaxb
+        org/xml/sax/helpers -> com/sun/xml/internal/ws/message/jaxb
+com/sun/xml/internal/ws/message/saaj
+    outgoing edges:
+        com/sun/xml/internal/ws/message/saaj -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/saaj -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message/saaj -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/saaj
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message/saaj
+        java/lang -> com/sun/xml/internal/ws/message/saaj
+com/sun/xml/internal/ws/message/source
+    outgoing edges:
+        com/sun/xml/internal/ws/message/source -> com/sun/xml/internal/ws/api/message
+    incoming edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/source
+com/sun/xml/internal/ws/message/stream
+    outgoing edges:
+        com/sun/xml/internal/ws/message/stream -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/message/stream -> com/sun/xml/internal/ws/message
+        com/sun/xml/internal/ws/message/stream -> com/sun/xml/internal/ws/message/stream
+    incoming edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/message/stream
+        com/sun/xml/internal/ws/message -> com/sun/xml/internal/ws/message/stream
+        com/sun/xml/internal/ws/message/stream -> com/sun/xml/internal/ws/message/stream
+com/sun/xml/internal/ws/model
+    outgoing edges:
+        com/sun/xml/internal/ws/model -> com/sun/xml/internal/ws/api/model
+        com/sun/xml/internal/ws/model -> com/sun/xml/internal/ws/model
+        com/sun/xml/internal/ws/model -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/model -> java/lang
+        com/sun/xml/internal/ws/model -> java/lang/reflect
+        com/sun/xml/internal/ws/model -> java/security
+    incoming edges:
+        com/sun/xml/internal/ws/api/model -> com/sun/xml/internal/ws/model
+        com/sun/xml/internal/ws/model -> com/sun/xml/internal/ws/model
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/model
+        java/lang -> com/sun/xml/internal/ws/model
+        java/lang/reflect -> com/sun/xml/internal/ws/model
+        java/security -> com/sun/xml/internal/ws/model
+com/sun/xml/internal/ws/model/soap
+com/sun/xml/internal/ws/model/wsdl
+    outgoing edges:
+        com/sun/xml/internal/ws/model/wsdl -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/model/wsdl -> com/sun/xml/internal/ws/api/model/wsdl
+        com/sun/xml/internal/ws/model/wsdl -> com/sun/xml/internal/ws/model/wsdl
+        com/sun/xml/internal/ws/model/wsdl -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/model/wsdl
+        com/sun/xml/internal/ws/api/model/wsdl -> com/sun/xml/internal/ws/model/wsdl
+        com/sun/xml/internal/ws/model/wsdl -> com/sun/xml/internal/ws/model/wsdl
+        java/lang -> com/sun/xml/internal/ws/model/wsdl
+com/sun/xml/internal/ws/policy
+    outgoing edges:
+        com/sun/xml/internal/ws/policy -> com/sun/xml/internal/ws/policy
+        com/sun/xml/internal/ws/policy -> java/lang
+        com/sun/xml/internal/ws/policy -> java/util
+    incoming edges:
+        com/sun/xml/internal/ws/policy -> com/sun/xml/internal/ws/policy
+        java/lang -> com/sun/xml/internal/ws/policy
+        java/util -> com/sun/xml/internal/ws/policy
+com/sun/xml/internal/ws/policy/jaxws
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/model/wsdl
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/policy
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/wsdl/parser
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/api/wsdl/writer
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/policy/jaxws -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/api/model/wsdl -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/api/policy -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/api/wsdl/parser -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/api/wsdl/writer -> com/sun/xml/internal/ws/policy/jaxws
+        com/sun/xml/internal/ws/policy/jaxws -> com/sun/xml/internal/ws/policy/jaxws
+        java/lang -> com/sun/xml/internal/ws/policy/jaxws
+com/sun/xml/internal/ws/policy/jaxws/spi
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/jaxws/spi -> com/sun/xml/internal/ws/addressing/policy
+        com/sun/xml/internal/ws/policy/jaxws/spi -> com/sun/xml/internal/ws/encoding/policy
+    incoming edges:
+        com/sun/xml/internal/ws/addressing/policy -> com/sun/xml/internal/ws/policy/jaxws/spi
+        com/sun/xml/internal/ws/encoding/policy -> com/sun/xml/internal/ws/policy/jaxws/spi
+com/sun/xml/internal/ws/policy/privateutil
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/privateutil -> java/lang
+        com/sun/xml/internal/ws/policy/privateutil -> java/util
+    incoming edges:
+        java/lang -> com/sun/xml/internal/ws/policy/privateutil
+        java/util -> com/sun/xml/internal/ws/policy/privateutil
+com/sun/xml/internal/ws/policy/sourcemodel
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/sourcemodel -> com/sun/xml/internal/ws/api/policy
+        com/sun/xml/internal/ws/policy/sourcemodel -> com/sun/xml/internal/ws/policy/sourcemodel
+        com/sun/xml/internal/ws/policy/sourcemodel -> com/sun/xml/internal/ws/policy/spi
+        com/sun/xml/internal/ws/policy/sourcemodel -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/api/policy -> com/sun/xml/internal/ws/policy/sourcemodel
+        com/sun/xml/internal/ws/policy/sourcemodel -> com/sun/xml/internal/ws/policy/sourcemodel
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/policy/sourcemodel
+        java/lang -> com/sun/xml/internal/ws/policy/sourcemodel
+com/sun/xml/internal/ws/policy/sourcemodel/attach
+com/sun/xml/internal/ws/policy/sourcemodel/wspolicy
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/sourcemodel/wspolicy -> java/lang
+    incoming edges:
+        java/lang -> com/sun/xml/internal/ws/policy/sourcemodel/wspolicy
+com/sun/xml/internal/ws/policy/spi
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/addressing/policy
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/config/management/policy
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/encoding/policy
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/policy/sourcemodel
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/policy/spi
+    incoming edges:
+        com/sun/xml/internal/ws/addressing/policy -> com/sun/xml/internal/ws/policy/spi
+        com/sun/xml/internal/ws/config/management/policy -> com/sun/xml/internal/ws/policy/spi
+        com/sun/xml/internal/ws/encoding/policy -> com/sun/xml/internal/ws/policy/spi
+        com/sun/xml/internal/ws/policy/sourcemodel -> com/sun/xml/internal/ws/policy/spi
+        com/sun/xml/internal/ws/policy/spi -> com/sun/xml/internal/ws/policy/spi
+com/sun/xml/internal/ws/policy/subject
+    outgoing edges:
+        com/sun/xml/internal/ws/policy/subject -> java/lang
+    incoming edges:
+        java/lang -> com/sun/xml/internal/ws/policy/subject
+com/sun/xml/internal/ws/protocol/soap
+    outgoing edges:
+        com/sun/xml/internal/ws/protocol/soap -> com/sun/xml/internal/ws/api/message
+        com/sun/xml/internal/ws/protocol/soap -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/protocol/soap -> com/sun/xml/internal/ws/util/exception
+    incoming edges:
+        com/sun/xml/internal/ws/api/message -> com/sun/xml/internal/ws/protocol/soap
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/protocol/soap
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/protocol/soap
+com/sun/xml/internal/ws/protocol/xml
+    outgoing edges:
+        com/sun/xml/internal/ws/protocol/xml -> com/sun/xml/internal/ws/util/exception
+    incoming edges:
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/protocol/xml
+com/sun/xml/internal/ws/resources
+com/sun/xml/internal/ws/server
+    outgoing edges:
+        com/sun/xml/internal/ws/server -> com/sun/org/glassfish/gmbal
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/api/wsdl/parser
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/wsdl
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/wsdl/writer
+        com/sun/xml/internal/ws/server -> java/io
+        com/sun/xml/internal/ws/server -> java/lang
+        com/sun/xml/internal/ws/server -> java/security
+        com/sun/xml/internal/ws/server -> java/util
+        com/sun/xml/internal/ws/server -> javax/xml/ws
+        com/sun/xml/internal/ws/server -> javax/xml/ws/handler
+        com/sun/xml/internal/ws/server -> org/xml/sax
+    incoming edges:
+        com/sun/org/glassfish/gmbal -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/api/wsdl/parser -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/wsdl -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/ws/server
+        java/io -> com/sun/xml/internal/ws/server
+        java/lang -> com/sun/xml/internal/ws/server
+        java/security -> com/sun/xml/internal/ws/server
+        java/util -> com/sun/xml/internal/ws/server
+        javax/xml/ws -> com/sun/xml/internal/ws/server
+        javax/xml/ws/handler -> com/sun/xml/internal/ws/server
+        org/xml/sax -> com/sun/xml/internal/ws/server
+com/sun/xml/internal/ws/server/provider
+    outgoing edges:
+        com/sun/xml/internal/ws/server/provider -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/server/provider -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/server/provider -> com/sun/xml/internal/ws/server/provider
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/server/provider
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/server/provider
+        com/sun/xml/internal/ws/server/provider -> com/sun/xml/internal/ws/server/provider
+com/sun/xml/internal/ws/server/sei
+    outgoing edges:
+        com/sun/xml/internal/ws/server/sei -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/server/sei -> com/sun/xml/internal/ws/server/sei
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/server/sei
+        com/sun/xml/internal/ws/server/sei -> com/sun/xml/internal/ws/server/sei
+com/sun/xml/internal/ws/spi
+    outgoing edges:
+        com/sun/xml/internal/ws/spi -> java/security
+        com/sun/xml/internal/ws/spi -> javax/xml/ws/spi
+    incoming edges:
+        java/security -> com/sun/xml/internal/ws/spi
+        javax/xml/ws/spi -> com/sun/xml/internal/ws/spi
+com/sun/xml/internal/ws/streaming
+    outgoing edges:
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/streaming -> javax/xml/namespace
+        com/sun/xml/internal/ws/streaming -> javax/xml/stream
+    incoming edges:
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/streaming
+        javax/xml/namespace -> com/sun/xml/internal/ws/streaming
+        javax/xml/stream -> com/sun/xml/internal/ws/streaming
+com/sun/xml/internal/ws/transport
+    outgoing edges:
+        com/sun/xml/internal/ws/transport -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/transport -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/transport -> java/util
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/transport
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/transport
+        java/util -> com/sun/xml/internal/ws/transport
+com/sun/xml/internal/ws/transport/http
+    outgoing edges:
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/transport/http -> java/lang
+        com/sun/xml/internal/ws/transport/http -> java/util
+    incoming edges:
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/transport/http
+        java/lang -> com/sun/xml/internal/ws/transport/http
+        java/util -> com/sun/xml/internal/ws/transport/http
+com/sun/xml/internal/ws/transport/http/client
+    outgoing edges:
+        com/sun/xml/internal/ws/transport/http/client -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/transport/http/client -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/transport/http/client -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/transport/http/client -> java/io
+        com/sun/xml/internal/ws/transport/http/client -> javax/net/ssl
+    incoming edges:
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/transport/http/client
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/transport/http/client
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/transport/http/client
+        java/io -> com/sun/xml/internal/ws/transport/http/client
+        javax/net/ssl -> com/sun/xml/internal/ws/transport/http/client
+com/sun/xml/internal/ws/transport/http/server
+    outgoing edges:
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/net/httpserver
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/xml/internal/ws/api
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/transport/http/server -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/transport/http/server -> java/io
+        com/sun/xml/internal/ws/transport/http/server -> java/lang
+        com/sun/xml/internal/ws/transport/http/server -> javax/xml/ws
+        com/sun/xml/internal/ws/transport/http/server -> javax/xml/ws/spi/http
+    incoming edges:
+        com/sun/net/httpserver -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/xml/internal/ws/api -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/transport/http/server
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/transport/http/server
+        java/io -> com/sun/xml/internal/ws/transport/http/server
+        java/lang -> com/sun/xml/internal/ws/transport/http/server
+        javax/xml/ws -> com/sun/xml/internal/ws/transport/http/server
+        javax/xml/ws/spi/http -> com/sun/xml/internal/ws/transport/http/server
+com/sun/xml/internal/ws/util
+    outgoing edges:
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/transport/http
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/util -> java/io
+        com/sun/xml/internal/ws/util -> java/lang
+        com/sun/xml/internal/ws/util -> java/util
+        com/sun/xml/internal/ws/util -> java/util/concurrent
+        com/sun/xml/internal/ws/util -> javax/activation
+    incoming edges:
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/transport/http -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/util
+        java/io -> com/sun/xml/internal/ws/util
+        java/lang -> com/sun/xml/internal/ws/util
+        java/util -> com/sun/xml/internal/ws/util
+        java/util/concurrent -> com/sun/xml/internal/ws/util
+        javax/activation -> com/sun/xml/internal/ws/util
+com/sun/xml/internal/ws/util/exception
+    outgoing edges:
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/encoding/soap
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/handler
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/model
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/protocol/soap
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/protocol/xml
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/util
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/util/localization
+        com/sun/xml/internal/ws/util/exception -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/encoding/soap -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/handler -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/model -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/protocol/soap -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/protocol/xml -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/util -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/util/localization -> com/sun/xml/internal/ws/util/exception
+        java/lang -> com/sun/xml/internal/ws/util/exception
+com/sun/xml/internal/ws/util/localization
+    outgoing edges:
+        com/sun/xml/internal/ws/util/localization -> com/sun/xml/internal/ws/util/exception
+        com/sun/xml/internal/ws/util/localization -> com/sun/xml/internal/ws/util/localization
+    incoming edges:
+        com/sun/xml/internal/ws/util/exception -> com/sun/xml/internal/ws/util/localization
+        com/sun/xml/internal/ws/util/localization -> com/sun/xml/internal/ws/util/localization
+com/sun/xml/internal/ws/util/pipe
+    outgoing edges:
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/api/pipe
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/api/pipe/helper
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/api/server
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/client
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/wsdl
+        com/sun/xml/internal/ws/util/pipe -> java/io
+        com/sun/xml/internal/ws/util/pipe -> javax/xml/transform/stream
+        com/sun/xml/internal/ws/util/pipe -> org/w3c/dom/ls
+    incoming edges:
+        com/sun/xml/internal/ws/api/pipe -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/api/pipe/helper -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/api/server -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/client -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/wsdl -> com/sun/xml/internal/ws/util/pipe
+        java/io -> com/sun/xml/internal/ws/util/pipe
+        javax/xml/transform/stream -> com/sun/xml/internal/ws/util/pipe
+        org/w3c/dom/ls -> com/sun/xml/internal/ws/util/pipe
+com/sun/xml/internal/ws/util/xml
+    outgoing edges:
+        com/sun/xml/internal/ws/util/xml -> com/sun/org/apache/xml/internal/resolver
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/addressing
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/api/addressing
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/api/streaming
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/encoding
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/streaming
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/wsdl/writer
+        com/sun/xml/internal/ws/util/xml -> java/lang
+        com/sun/xml/internal/ws/util/xml -> java/util
+        com/sun/xml/internal/ws/util/xml -> javax/xml/stream
+        com/sun/xml/internal/ws/util/xml -> org/xml/sax
+        com/sun/xml/internal/ws/util/xml -> org/xml/sax/helpers
+    incoming edges:
+        com/sun/org/apache/xml/internal/resolver -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/addressing -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/api/addressing -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/api/streaming -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/encoding -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/streaming -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/ws/util/xml
+        java/lang -> com/sun/xml/internal/ws/util/xml
+        java/util -> com/sun/xml/internal/ws/util/xml
+        javax/xml/stream -> com/sun/xml/internal/ws/util/xml
+        org/xml/sax -> com/sun/xml/internal/ws/util/xml
+        org/xml/sax/helpers -> com/sun/xml/internal/ws/util/xml
+com/sun/xml/internal/ws/wsdl
+    outgoing edges:
+        com/sun/xml/internal/ws/wsdl -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/wsdl -> com/sun/xml/internal/ws/util/pipe
+        com/sun/xml/internal/ws/wsdl -> com/sun/xml/internal/ws/wsdl
+        com/sun/xml/internal/ws/wsdl -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/wsdl
+        com/sun/xml/internal/ws/util/pipe -> com/sun/xml/internal/ws/wsdl
+        com/sun/xml/internal/ws/wsdl -> com/sun/xml/internal/ws/wsdl
+        java/lang -> com/sun/xml/internal/ws/wsdl
+com/sun/xml/internal/ws/wsdl/parser
+    outgoing edges:
+        com/sun/xml/internal/ws/wsdl/parser -> com/sun/xml/internal/ws/api/wsdl/parser
+        com/sun/xml/internal/ws/wsdl/parser -> com/sun/xml/internal/ws/wsdl/parser
+        com/sun/xml/internal/ws/wsdl/parser -> java/io
+        com/sun/xml/internal/ws/wsdl/parser -> java/lang
+    incoming edges:
+        com/sun/xml/internal/ws/api/wsdl/parser -> com/sun/xml/internal/ws/wsdl/parser
+        com/sun/xml/internal/ws/wsdl/parser -> com/sun/xml/internal/ws/wsdl/parser
+        java/io -> com/sun/xml/internal/ws/wsdl/parser
+        java/lang -> com/sun/xml/internal/ws/wsdl/parser
+com/sun/xml/internal/ws/wsdl/writer
+    outgoing edges:
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/txw2/output
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/ws/api/wsdl/writer
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/ws/server
+        com/sun/xml/internal/ws/wsdl/writer -> com/sun/xml/internal/ws/util/xml
+        com/sun/xml/internal/ws/wsdl/writer -> javax/xml/bind
+    incoming edges:
+        com/sun/xml/internal/txw2/output -> com/sun/xml/internal/ws/wsdl/writer
+        com/sun/xml/internal/ws/api/wsdl/writer -> com/sun/xml/internal/ws/wsdl/writer
+        com/sun/xml/internal/ws/server -> com/sun/xml/internal/ws/wsdl/writer
+        com/sun/xml/internal/ws/util/xml -> com/sun/xml/internal/ws/wsdl/writer
+        javax/xml/bind -> com/sun/xml/internal/ws/wsdl/writer
+com/sun/xml/internal/ws/wsdl/writer/document
+com/sun/xml/internal/ws/wsdl/writer/document/http
+com/sun/xml/internal/ws/wsdl/writer/document/soap
+com/sun/xml/internal/ws/wsdl/writer/document/soap12
+com/sun/xml/internal/ws/wsdl/writer/document/xsd
+sun/applet/resources
+    outgoing edges:
+        sun/applet/resources -> java/util
+    incoming edges:
+        java/util -> sun/applet/resources
+sun/audio
+    outgoing edges:
+        sun/audio -> java/io
+        sun/audio -> java/lang
+        sun/audio -> java/security
+        sun/audio -> javax/sound/midi
+        sun/audio -> sun/audio
+    incoming edges:
+        java/io -> sun/audio
+        java/lang -> sun/audio
+        java/security -> sun/audio
+        javax/sound/midi -> sun/audio
+        sun/audio -> sun/audio
+sun/awt/image/codec
+    outgoing edges:
+        sun/awt/image/codec -> com/sun/image/codec/jpeg
+        sun/awt/image/codec -> java/lang
+    incoming edges:
+        com/sun/image/codec/jpeg -> sun/awt/image/codec
+        java/lang -> sun/awt/image/codec
+sun/awt/resources
+    outgoing edges:
+        sun/awt/resources -> java/util
+    incoming edges:
+        java/util -> sun/awt/resources
+sun/beans/editors
+sun/dc
+    outgoing edges:
+        sun/dc -> sun/dc/path
+        sun/dc -> sun/java2d/pipe
+    incoming edges:
+        sun/dc/path -> sun/dc
+        sun/java2d/pipe -> sun/dc
+sun/dc/path
+    outgoing edges:
+        sun/dc/path -> sun/dc
+        sun/dc/path -> sun/dc/pr
+    incoming edges:
+        sun/dc -> sun/dc/path
+        sun/dc/pr -> sun/dc/path
+sun/dc/pr
+    outgoing edges:
+        sun/dc/pr -> sun/dc/path
+        sun/dc/pr -> sun/java2d
+        sun/dc/pr -> sun/java2d/pipe
+    incoming edges:
+        sun/dc/path -> sun/dc/pr
+        sun/java2d -> sun/dc/pr
+        sun/java2d/pipe -> sun/dc/pr
+sun/instrument
+    outgoing edges:
+        sun/instrument -> java/lang/instrument
+        sun/instrument -> java/security
+    incoming edges:
+        java/lang/instrument -> sun/instrument
+        java/security -> sun/instrument
+sun/invoke/anon
+    outgoing edges:
+        sun/invoke/anon -> java/lang
+        sun/invoke/anon -> sun/invoke/anon
+    incoming edges:
+        java/lang -> sun/invoke/anon
+        sun/invoke/anon -> sun/invoke/anon
+sun/invoke/empty
+sun/java2d/cmm/kcms
+    outgoing edges:
+        sun/java2d/cmm/kcms -> java/lang
+        sun/java2d/cmm/kcms -> sun/java2d/cmm
+    incoming edges:
+        java/lang -> sun/java2d/cmm/kcms
+        sun/java2d/cmm -> sun/java2d/cmm/kcms
+sun/java2d/cmm/lcms
+    outgoing edges:
+        sun/java2d/cmm/lcms -> java/security
+        sun/java2d/cmm/lcms -> sun/java2d/cmm
+    incoming edges:
+        java/security -> sun/java2d/cmm/lcms
+        sun/java2d/cmm -> sun/java2d/cmm/lcms
+sun/jdbc/odbc
+    outgoing edges:
+        sun/jdbc/odbc -> java/io
+        sun/jdbc/odbc -> java/lang
+        sun/jdbc/odbc -> java/sql
+        sun/jdbc/odbc -> sun/jdbc/odbc
+        sun/jdbc/odbc -> sun/jdbc/odbc/ee
+    incoming edges:
+        java/io -> sun/jdbc/odbc
+        java/lang -> sun/jdbc/odbc
+        java/sql -> sun/jdbc/odbc
+        sun/jdbc/odbc -> sun/jdbc/odbc
+        sun/jdbc/odbc/ee -> sun/jdbc/odbc
+sun/jdbc/odbc/ee
+    outgoing edges:
+        sun/jdbc/odbc/ee -> java/lang
+        sun/jdbc/odbc/ee -> java/sql
+        sun/jdbc/odbc/ee -> javax/naming
+        sun/jdbc/odbc/ee -> javax/naming/spi
+        sun/jdbc/odbc/ee -> javax/sql
+        sun/jdbc/odbc/ee -> sun/jdbc/odbc
+        sun/jdbc/odbc/ee -> sun/jdbc/odbc/ee
+    incoming edges:
+        java/lang -> sun/jdbc/odbc/ee
+        java/sql -> sun/jdbc/odbc/ee
+        javax/naming -> sun/jdbc/odbc/ee
+        javax/naming/spi -> sun/jdbc/odbc/ee
+        javax/sql -> sun/jdbc/odbc/ee
+        sun/jdbc/odbc -> sun/jdbc/odbc/ee
+        sun/jdbc/odbc/ee -> sun/jdbc/odbc/ee
+sun/launcher
+    outgoing edges:
+        sun/launcher -> java/lang
+    incoming edges:
+        java/lang -> sun/launcher
+sun/launcher/resources
+    outgoing edges:
+        sun/launcher/resources -> java/util
+    incoming edges:
+        java/util -> sun/launcher/resources
+sun/management/resources
+    outgoing edges:
+        sun/management/resources -> java/util
+    incoming edges:
+        java/util -> sun/management/resources
+sun/management/snmp
+sun/management/snmp/jvminstr
+    outgoing edges:
+        sun/management/snmp/jvminstr -> com/sun/jmx/snmp/agent
+        sun/management/snmp/jvminstr -> java/lang
+        sun/management/snmp/jvminstr -> javax/management
+        sun/management/snmp/jvminstr -> sun/management/snmp/jvminstr
+        sun/management/snmp/jvminstr -> sun/management/snmp/jvmmib
+        sun/management/snmp/jvminstr -> sun/management/snmp/util
+    incoming edges:
+        com/sun/jmx/snmp/agent -> sun/management/snmp/jvminstr
+        java/lang -> sun/management/snmp/jvminstr
+        javax/management -> sun/management/snmp/jvminstr
+        sun/management/snmp/jvminstr -> sun/management/snmp/jvminstr
+        sun/management/snmp/jvmmib -> sun/management/snmp/jvminstr
+        sun/management/snmp/util -> sun/management/snmp/jvminstr
+sun/management/snmp/jvmmib
+    outgoing edges:
+        sun/management/snmp/jvmmib -> com/sun/jmx/snmp
+        sun/management/snmp/jvmmib -> com/sun/jmx/snmp/agent
+        sun/management/snmp/jvmmib -> sun/management/snmp/jvminstr
+    incoming edges:
+        com/sun/jmx/snmp -> sun/management/snmp/jvmmib
+        com/sun/jmx/snmp/agent -> sun/management/snmp/jvmmib
+        sun/management/snmp/jvminstr -> sun/management/snmp/jvmmib
+sun/management/snmp/util
+    outgoing edges:
+        sun/management/snmp/util -> com/sun/jmx/snmp/agent
+        sun/management/snmp/util -> java/util
+        sun/management/snmp/util -> sun/management/snmp/jvminstr
+        sun/management/snmp/util -> sun/management/snmp/util
+    incoming edges:
+        com/sun/jmx/snmp/agent -> sun/management/snmp/util
+        java/util -> sun/management/snmp/util
+        sun/management/snmp/jvminstr -> sun/management/snmp/util
+        sun/management/snmp/util -> sun/management/snmp/util
+sun/misc/resources
+    outgoing edges:
+        sun/misc/resources -> java/util
+    incoming edges:
+        java/util -> sun/misc/resources
+sun/net/ftp
+    outgoing edges:
+        sun/net/ftp -> java/io
+        sun/net/ftp -> java/lang
+        sun/net/ftp -> java/security
+        sun/net/ftp -> sun/net/ftp/impl
+    incoming edges:
+        java/io -> sun/net/ftp
+        java/lang -> sun/net/ftp
+        java/security -> sun/net/ftp
+        sun/net/ftp/impl -> sun/net/ftp
+sun/net/ftp/impl
+    outgoing edges:
+        sun/net/ftp/impl -> java/io
+        sun/net/ftp/impl -> java/security
+        sun/net/ftp/impl -> java/util
+        sun/net/ftp/impl -> sun/net/ftp
+    incoming edges:
+        java/io -> sun/net/ftp/impl
+        java/security -> sun/net/ftp/impl
+        java/util -> sun/net/ftp/impl
+        sun/net/ftp -> sun/net/ftp/impl
+sun/net/httpserver
+    outgoing edges:
+        sun/net/httpserver -> com/sun/net/httpserver
+        sun/net/httpserver -> com/sun/net/httpserver/spi
+        sun/net/httpserver -> java/io
+        sun/net/httpserver -> java/lang
+        sun/net/httpserver -> java/security
+        sun/net/httpserver -> java/util
+        sun/net/httpserver -> java/util/concurrent
+        sun/net/httpserver -> sun/net/httpserver
+    incoming edges:
+        com/sun/net/httpserver -> sun/net/httpserver
+        com/sun/net/httpserver/spi -> sun/net/httpserver
+        java/io -> sun/net/httpserver
+        java/lang -> sun/net/httpserver
+        java/security -> sun/net/httpserver
+        java/util -> sun/net/httpserver
+        java/util/concurrent -> sun/net/httpserver
+        sun/net/httpserver -> sun/net/httpserver
+sun/net/smtp
+    outgoing edges:
+        sun/net/smtp -> java/io
+        sun/net/smtp -> sun/net
+    incoming edges:
+        java/io -> sun/net/smtp
+        sun/net -> sun/net/smtp
+sun/net/spi
+    outgoing edges:
+        sun/net/spi -> java/net
+        sun/net/spi -> java/security
+    incoming edges:
+        java/net -> sun/net/spi
+        java/security -> sun/net/spi
+sun/net/www/content/audio
+    outgoing edges:
+        sun/net/www/content/audio -> java/net
+    incoming edges:
+        java/net -> sun/net/www/content/audio
+sun/net/www/content/image
+    outgoing edges:
+        sun/net/www/content/image -> java/net
+    incoming edges:
+        java/net -> sun/net/www/content/image
+sun/net/www/content/text
+    outgoing edges:
+        sun/net/www/content/text -> java/net
+    incoming edges:
+        java/net -> sun/net/www/content/text
+sun/net/www/protocol/file
+    outgoing edges:
+        sun/net/www/protocol/file -> java/net
+        sun/net/www/protocol/file -> sun/net/www
+    incoming edges:
+        java/net -> sun/net/www/protocol/file
+        sun/net/www -> sun/net/www/protocol/file
+sun/net/www/protocol/ftp
+    outgoing edges:
+        sun/net/www/protocol/ftp -> java/io
+        sun/net/www/protocol/ftp -> java/net
+        sun/net/www/protocol/ftp -> java/security
+        sun/net/www/protocol/ftp -> sun/net/www
+    incoming edges:
+        java/io -> sun/net/www/protocol/ftp
+        java/net -> sun/net/www/protocol/ftp
+        java/security -> sun/net/www/protocol/ftp
+        sun/net/www -> sun/net/www/protocol/ftp
+sun/net/www/protocol/gopher
+    outgoing edges:
+        sun/net/www/protocol/gopher -> java/io
+        sun/net/www/protocol/gopher -> java/lang
+        sun/net/www/protocol/gopher -> java/net
+    incoming edges:
+        java/io -> sun/net/www/protocol/gopher
+        java/lang -> sun/net/www/protocol/gopher
+        java/net -> sun/net/www/protocol/gopher
+sun/net/www/protocol/http/logging
+    outgoing edges:
+        sun/net/www/protocol/http/logging -> java/util/logging
+    incoming edges:
+        java/util/logging -> sun/net/www/protocol/http/logging
+sun/net/www/protocol/http/ntlm
+    outgoing edges:
+        sun/net/www/protocol/http/ntlm -> java/security
+        sun/net/www/protocol/http/ntlm -> sun/misc
+        sun/net/www/protocol/http/ntlm -> sun/net/www/protocol/http
+        sun/net/www/protocol/http/ntlm -> sun/net/www/protocol/http/ntlm
+    incoming edges:
+        java/security -> sun/net/www/protocol/http/ntlm
+        sun/misc -> sun/net/www/protocol/http/ntlm
+        sun/net/www/protocol/http -> sun/net/www/protocol/http/ntlm
+        sun/net/www/protocol/http/ntlm -> sun/net/www/protocol/http/ntlm
+sun/net/www/protocol/https
+    outgoing edges:
+        sun/net/www/protocol/https -> com/sun/net/ssl/internal/www/protocol/https
+        sun/net/www/protocol/https -> java/lang
+        sun/net/www/protocol/https -> java/net
+        sun/net/www/protocol/https -> java/security
+        sun/net/www/protocol/https -> javax/net/ssl
+        sun/net/www/protocol/https -> sun/net
+        sun/net/www/protocol/https -> sun/net/www/http
+        sun/net/www/protocol/https -> sun/net/www/protocol/http
+        sun/net/www/protocol/https -> sun/net/www/protocol/https
+    incoming edges:
+        com/sun/net/ssl/internal/www/protocol/https -> sun/net/www/protocol/https
+        java/lang -> sun/net/www/protocol/https
+        java/net -> sun/net/www/protocol/https
+        java/security -> sun/net/www/protocol/https
+        javax/net/ssl -> sun/net/www/protocol/https
+        sun/net -> sun/net/www/protocol/https
+        sun/net/www/http -> sun/net/www/protocol/https
+        sun/net/www/protocol/http -> sun/net/www/protocol/https
+        sun/net/www/protocol/https -> sun/net/www/protocol/https
+sun/net/www/protocol/jar
+    outgoing edges:
+        sun/net/www/protocol/jar -> java/io
+        sun/net/www/protocol/jar -> java/net
+        sun/net/www/protocol/jar -> java/security
+        sun/net/www/protocol/jar -> java/util/jar
+        sun/net/www/protocol/jar -> java/util/zip
+        sun/net/www/protocol/jar -> sun/net/www/protocol/jar
+    incoming edges:
+        java/io -> sun/net/www/protocol/jar
+        java/net -> sun/net/www/protocol/jar
+        java/security -> sun/net/www/protocol/jar
+        java/util/jar -> sun/net/www/protocol/jar
+        java/util/zip -> sun/net/www/protocol/jar
+        sun/net/www/protocol/jar -> sun/net/www/protocol/jar
+sun/net/www/protocol/mailto
+    outgoing edges:
+        sun/net/www/protocol/mailto -> java/net
+    incoming edges:
+        java/net -> sun/net/www/protocol/mailto
+sun/net/www/protocol/netdoc
+    outgoing edges:
+        sun/net/www/protocol/netdoc -> java/net
+    incoming edges:
+        java/net -> sun/net/www/protocol/netdoc
+sun/org/mozilla/classfile/internal
+    outgoing edges:
+        sun/org/mozilla/classfile/internal -> java/lang
+    incoming edges:
+        java/lang -> sun/org/mozilla/classfile/internal
+sun/org/mozilla/javascript/internal
+    outgoing edges:
+        sun/org/mozilla/javascript/internal -> com/sun/script/javascript
+        sun/org/mozilla/javascript/internal -> java/lang
+        sun/org/mozilla/javascript/internal -> java/security
+        sun/org/mozilla/javascript/internal -> java/util
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/ast
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/debug
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/jdk13
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/jdk15
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/optimizer
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/regexp
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/xml
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/xmlimpl
+    incoming edges:
+        com/sun/script/javascript -> sun/org/mozilla/javascript/internal
+        java/lang -> sun/org/mozilla/javascript/internal
+        java/security -> sun/org/mozilla/javascript/internal
+        java/util -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/ast -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/debug -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/jdk13 -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/jdk15 -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/optimizer -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/regexp -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/xml -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/xmlimpl -> sun/org/mozilla/javascript/internal
+sun/org/mozilla/javascript/internal/annotations
+sun/org/mozilla/javascript/internal/ast
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/ast -> java/lang
+        sun/org/mozilla/javascript/internal/ast -> java/util
+        sun/org/mozilla/javascript/internal/ast -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/ast -> sun/org/mozilla/javascript/internal/ast
+    incoming edges:
+        java/lang -> sun/org/mozilla/javascript/internal/ast
+        java/util -> sun/org/mozilla/javascript/internal/ast
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/ast
+        sun/org/mozilla/javascript/internal/ast -> sun/org/mozilla/javascript/internal/ast
+sun/org/mozilla/javascript/internal/debug
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/debug -> sun/org/mozilla/javascript/internal
+    incoming edges:
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/debug
+sun/org/mozilla/javascript/internal/jdk13
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/jdk13 -> java/lang/reflect
+        sun/org/mozilla/javascript/internal/jdk13 -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/jdk13 -> sun/org/mozilla/javascript/internal/jdk15
+    incoming edges:
+        java/lang/reflect -> sun/org/mozilla/javascript/internal/jdk13
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/jdk13
+        sun/org/mozilla/javascript/internal/jdk15 -> sun/org/mozilla/javascript/internal/jdk13
+sun/org/mozilla/javascript/internal/jdk15
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/jdk15 -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/jdk15 -> sun/org/mozilla/javascript/internal/jdk13
+    incoming edges:
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/jdk15
+        sun/org/mozilla/javascript/internal/jdk13 -> sun/org/mozilla/javascript/internal/jdk15
+sun/org/mozilla/javascript/internal/json
+sun/org/mozilla/javascript/internal/optimizer
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/optimizer -> java/lang
+        sun/org/mozilla/javascript/internal/optimizer -> sun/org/mozilla/javascript/internal
+    incoming edges:
+        java/lang -> sun/org/mozilla/javascript/internal/optimizer
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/optimizer
+sun/org/mozilla/javascript/internal/regexp
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/regexp -> java/lang
+        sun/org/mozilla/javascript/internal/regexp -> sun/org/mozilla/javascript/internal
+    incoming edges:
+        java/lang -> sun/org/mozilla/javascript/internal/regexp
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/regexp
+sun/org/mozilla/javascript/internal/serialize
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/serialize -> java/io
+    incoming edges:
+        java/io -> sun/org/mozilla/javascript/internal/serialize
+sun/org/mozilla/javascript/internal/xml
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/xml -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/xml -> sun/org/mozilla/javascript/internal/xml
+        sun/org/mozilla/javascript/internal/xml -> sun/org/mozilla/javascript/internal/xmlimpl
+    incoming edges:
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/xml
+        sun/org/mozilla/javascript/internal/xml -> sun/org/mozilla/javascript/internal/xml
+        sun/org/mozilla/javascript/internal/xmlimpl -> sun/org/mozilla/javascript/internal/xml
+sun/org/mozilla/javascript/internal/xmlimpl
+    outgoing edges:
+        sun/org/mozilla/javascript/internal/xmlimpl -> java/lang
+        sun/org/mozilla/javascript/internal/xmlimpl -> org/w3c/dom
+        sun/org/mozilla/javascript/internal/xmlimpl -> org/xml/sax
+        sun/org/mozilla/javascript/internal/xmlimpl -> sun/org/mozilla/javascript/internal
+        sun/org/mozilla/javascript/internal/xmlimpl -> sun/org/mozilla/javascript/internal/xml
+        sun/org/mozilla/javascript/internal/xmlimpl -> sun/org/mozilla/javascript/internal/xmlimpl
+    incoming edges:
+        java/lang -> sun/org/mozilla/javascript/internal/xmlimpl
+        org/w3c/dom -> sun/org/mozilla/javascript/internal/xmlimpl
+        org/xml/sax -> sun/org/mozilla/javascript/internal/xmlimpl
+        sun/org/mozilla/javascript/internal -> sun/org/mozilla/javascript/internal/xmlimpl
+        sun/org/mozilla/javascript/internal/xml -> sun/org/mozilla/javascript/internal/xmlimpl
+        sun/org/mozilla/javascript/internal/xmlimpl -> sun/org/mozilla/javascript/internal/xmlimpl
+sun/print/resources
+    outgoing edges:
+        sun/print/resources -> java/util
+    incoming edges:
+        java/util -> sun/print/resources
+sun/security/acl
+    outgoing edges:
+        sun/security/acl -> java/lang
+        sun/security/acl -> java/security
+        sun/security/acl -> java/security/acl
+        sun/security/acl -> java/util
+        sun/security/acl -> sun/security/acl
+    incoming edges:
+        java/lang -> sun/security/acl
+        java/security -> sun/security/acl
+        java/security/acl -> sun/security/acl
+        java/util -> sun/security/acl
+        sun/security/acl -> sun/security/acl
+sun/security/krb5/internal/tools
+sun/security/pkcs12
+    outgoing edges:
+        sun/security/pkcs12 -> java/security
+    incoming edges:
+        java/security -> sun/security/pkcs12
+sun/security/provider/certpath/ldap
+    outgoing edges:
+        sun/security/provider/certpath/ldap -> java/lang
+        sun/security/provider/certpath/ldap -> java/security/cert
+        sun/security/provider/certpath/ldap -> sun/security/provider/certpath
+    incoming edges:
+        java/lang -> sun/security/provider/certpath/ldap
+        java/security/cert -> sun/security/provider/certpath/ldap
+        sun/security/provider/certpath -> sun/security/provider/certpath/ldap
+sun/security/smartcardio
+    outgoing edges:
+        sun/security/smartcardio -> java/lang
+        sun/security/smartcardio -> java/security
+        sun/security/smartcardio -> javax/smartcardio
+    incoming edges:
+        java/lang -> sun/security/smartcardio
+        java/security -> sun/security/smartcardio
+        javax/smartcardio -> sun/security/smartcardio
+sun/security/tools
+    outgoing edges:
+        sun/security/tools -> java/lang
+        sun/security/tools -> java/util
+        sun/security/tools -> javax/net/ssl
+    incoming edges:
+        java/lang -> sun/security/tools
+        java/util -> sun/security/tools
+        javax/net/ssl -> sun/security/tools
+sun/security/validator
+    outgoing edges:
+        sun/security/validator -> sun/security/validator
+    incoming edges:
+        sun/security/validator -> sun/security/validator
+sun/swing/icon
+    outgoing edges:
+        sun/swing/icon -> javax/swing
+    incoming edges:
+        javax/swing -> sun/swing/icon
+sun/swing/plaf/windows
+    outgoing edges:
+        sun/swing/plaf/windows -> javax/swing
+    incoming edges:
+        javax/swing -> sun/swing/plaf/windows
+sun/text/resources
+    outgoing edges:
+        sun/text/resources -> java/util
+    incoming edges:
+        java/util -> sun/text/resources
+sun/tools/jar
+    outgoing edges:
+        sun/tools/jar -> java/io
+        sun/tools/jar -> java/util
+        sun/tools/jar -> sun/awt/image
+    incoming edges:
+        java/io -> sun/tools/jar
+        java/util -> sun/tools/jar
+        sun/awt/image -> sun/tools/jar
+sun/tools/jar/resources
+    outgoing edges:
+        sun/tools/jar/resources -> java/util
+    incoming edges:
+        java/util -> sun/tools/jar/resources
+sun/tracing
+    outgoing edges:
+        sun/tracing -> com/sun/tracing
+        sun/tracing -> java/lang/reflect
+        sun/tracing -> java/security
+        sun/tracing -> sun/tracing
+        sun/tracing -> sun/tracing/dtrace
+    incoming edges:
+        com/sun/tracing -> sun/tracing
+        java/lang/reflect -> sun/tracing
+        java/security -> sun/tracing
+        sun/tracing -> sun/tracing
+        sun/tracing/dtrace -> sun/tracing
+sun/tracing/dtrace
+    outgoing edges:
+        sun/tracing/dtrace -> com/sun/tracing
+        sun/tracing/dtrace -> sun/tracing
+    incoming edges:
+        com/sun/tracing -> sun/tracing/dtrace
+        sun/tracing -> sun/tracing/dtrace
+sun/util/logging/resources
+    outgoing edges:
+        sun/util/logging/resources -> java/util
+    incoming edges:
+        java/util -> sun/util/logging/resources
+sunw/util
