@@ -87,7 +87,7 @@ class IntegratedInferenceTest : TestCase() {
         }
     }
 
-    private fun doInferenceTest(testedJarSubstring: String) {
+    private fun doInferenceTest(testedJarSubstring: String, packageIsRestricted: (String) -> Boolean = {true}) {
         var annotationIndex: AnnotationKeyIndex? = null
 
         val progressMonitor = object : ProgressMonitor() {
@@ -132,7 +132,8 @@ class IntegratedInferenceTest : TestCase() {
                     false,
                     false,
                     hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
-                    hashMap(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>())
+                    hashMap(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
+                    packageIsRestricted
             )
         }
         catch (e: Throwable) {
@@ -305,6 +306,8 @@ class IntegratedInferenceTest : TestCase() {
     fun testVecmath() = doInferenceTest("vecmath-1.3.1.jar")
     fun testWstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
     fun testJpsServer() = doInferenceTest("jps-server.jar")
-    fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jdk_1_7_0_09_rt.jar")
+    fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jre-7u12-windows-rt.jar") { name ->
+        name.startsWith("java") || name.startsWith("javax") || name.startsWith("org")
+    }
     fun testExtensions() = doInferenceTest("extensions.jar")
 }
