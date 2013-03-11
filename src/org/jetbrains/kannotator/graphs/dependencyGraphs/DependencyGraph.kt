@@ -13,3 +13,15 @@ val <A, L> Graph<A, L>.sourceNodes: Collection<Node<A, L>>
     get() = nodes.filter { it.incomingEdges.empty }
 val <A, L> Graph<A, L>.sinkNodes: Collection<Node<A, L>>
     get() = nodes.filter { it.outgoingEdges.empty }
+
+fun <A, L> Graph<A, L>.extractNonAffectingNodes(nodeIsInteresting: (Node<A, L>) -> Boolean): Set<Node<A, L>> {
+    val interestingNodes = this.nodes.filter {nodeIsInteresting(it)}
+    val affectingNodes = HashSet(interestingNodes)
+
+    bfs(interestingNodes) {node ->
+        affectingNodes.add(node)
+        scheduleAll(node.successors)
+    }
+
+    return this.nodes.subtract(affectingNodes)
+}
