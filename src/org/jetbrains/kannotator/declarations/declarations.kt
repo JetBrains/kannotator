@@ -204,6 +204,9 @@ fun ClassName.isAnonymous(): Boolean {
 val ClassName.packageName: String
     get() = internal.prefixUpToLast('/')!!
 
+val ClassMember.packageName: String
+    get() = declaringClass.packageName
+
 data class FieldId(val fieldName: String) {
     public fun toString(): String = fieldName
 }
