@@ -3,9 +3,10 @@ package org.jetbrains.kannotator.graphs
 import java.util.ArrayList
 import java.util.HashMap
 import java.util.LinkedHashSet
+import kotlinlib.union
 
 open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> {
-    private val _nodes: MutableCollection<Node<T, L>> = ArrayList()
+    private val _nodes: MutableCollection<Node<T, L>> = LinkedHashSet()
     private val nodeMap: MutableMap<T, Node<T, L>>? = if (createNodeMap) HashMap<T, Node<T, L>>() else null
 
     override val nodes: Collection<Node<T, L>> = _nodes
@@ -15,6 +16,11 @@ open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> 
     fun addNode(node: Node<T, L>) {
         _nodes.add(node)
         nodeMap?.put(node.data, node)
+    }
+
+    fun removeNode(node: Node<T, L>) {
+        _nodes.remove(node)
+        nodeMap?.remove(node.data)
     }
 }
 
@@ -33,6 +39,14 @@ abstract class NodeImpl<out T, out L> : Node<T, L> {
         _outgoingEdges.add(edge)
     }
 
+    fun removeIncomingEdge(edge: Edge<T, L>) {
+        _incomingEdges.remove(edge)
+    }
+
+    fun removeOutgoingEdge(edge: Edge<T, L>) {
+        _outgoingEdges.remove(edge)
+    }
+
     open fun toString(): String {
         return "${data} in$incomingEdges out$outgoingEdges"
     }
@@ -42,8 +56,8 @@ class DefaultNodeImpl<out T, out L>(public override val data: T) : NodeImpl<T, L
 
 open class EdgeImpl<T, L>(
         public override val label: L,
-        public override val from: Node<T, L>,
-        public override val to: Node<T, L>
+        public override val from: NodeImpl<T, L>,
+        public override val to: NodeImpl<T, L>
 ) : Edge<T, L> {
     fun toString(): String {
         val prefix = if (label != null) "$label " else ""
@@ -92,5 +106,27 @@ abstract class GraphBuilder<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData,
         return edge
     }
 
+    fun removeNode(n: NodeImpl<NodeData, EdgeLabel>) {
+        val edges = n.incomingEdges.union(n.outgoingEdges)
+        for (e in edges) {
+            removeEdge(e as EdgeImpl<NodeData, EdgeLabel>)
+        }
+        graph.removeNode(n)
+    }
+
+    fun removeEdge(e: EdgeImpl<NodeData, EdgeLabel>) {
+        e.from.removeOutgoingEdge(e)
+        e.to.removeIncomingEdge(e)
+    }
+
     fun toGraph(): G = graph
+}
+
+fun <NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>> GraphBuilder<NodeKey, NodeData, EdgeLabel, G>.restrictGraphNodes(
+        nodeIsRestricted: (Node<NodeData, EdgeLabel>) -> Boolean
+) {
+    val restrictedNodes = graph.nodes.filter(nodeIsRestricted)
+    for (node in restrictedNodes) {
+        this.removeNode(node as NodeImpl<NodeData, EdgeLabel>)
+    }
 }

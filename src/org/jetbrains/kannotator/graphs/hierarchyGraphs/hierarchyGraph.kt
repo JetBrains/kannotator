@@ -35,5 +35,5 @@ class HierarchyGraphImpl<T>(createNodeMap: Boolean): GraphImpl<T, Any?>(createNo
 abstract class HierarchyNodeImpl<T>: NodeImpl<T, Any?>(), HierarchyNode<T>
 
 class HierarchyEdgeImpl<T>(
-        from: HierarchyNode<T>, to: HierarchyNode<T>
+        from: HierarchyNodeImpl<T>, to: HierarchyNodeImpl<T>
 ): EdgeImpl<T, Any?>(null, from, to), HierarchyEdge<T>
