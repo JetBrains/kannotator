@@ -20,7 +20,6 @@ import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import java.util.Collections
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import java.util.ArrayList
-import org.jetbrains.kannotator.funDependecy.DependencyGraph
 import java.util.HashSet
 import java.util.TreeMap
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
@@ -40,6 +39,11 @@ import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
+import org.jetbrains.kannotator.graphs.dependencyGraphs.buildPackageDependencyGraph
+import org.jetbrains.kannotator.funDependecy.*
+import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
+import org.jetbrains.kannotator.graphs.restrictGraphNodes
+import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
 
 open class ProgressMonitor {
     open fun processingStarted() {}
@@ -211,7 +215,8 @@ fun <K> inferAnnotations(
         showErrors: Boolean = true,
         loadOnly: Boolean = false,
         propagationOverrides: Map<K, Annotations<Any>>,
-        existingAnnotations: Map<K, Annotations<Any>>
+        existingAnnotations: Map<K, Annotations<Any>>,
+        packageIsRestricted: (String) -> Boolean = {true}
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
     
@@ -241,7 +246,22 @@ fun <K> inferAnnotations(
     }
 
     val fieldToDependencyInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
-    val methodGraph = buildFunctionDependencyGraph(declarationIndex, classSource)
+
+    val methodGraphBuilder = FunDependencyGraphBuilder(declarationIndex, classSource, fieldToDependencyInfosMap)
+    val methodGraph = methodGraphBuilder.build()
+
+    val packageGraphBuilder = PackageDependencyGraphBuilder(methodGraph)
+    val packageGraph = packageGraphBuilder.build()
+
+    val nonAffectingNodes = packageGraph.extractNonAffectingNodes { packageIsRestricted(it.data.name) }
+    packageGraphBuilder.restrictGraphNodes {it in nonAffectingNodes}
+
+    val classHierarchy = buildClassHierarchyGraph(classSource)
+    val methodHierarchy = buildMethodHierarchy(classHierarchy)
+    packageGraphBuilder.extendWithHierarchy(methodHierarchy)
+
+    methodGraphBuilder.restrictGraphNodes { packageGraph.findNode(Package(it.data.packageName)) == null }
+
     val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
 
     for ((key, inferrer) in inferrers) {
@@ -286,18 +306,16 @@ fun <K> inferAnnotations(
 
     progressMonitor.processingFinished()
 
-    return propagateAnnotations(classSource, inferrers, inferenceResult, propagationOverrides)
+    return propagateAnnotations(classSource, inferrers, inferenceResult, propagationOverrides, methodHierarchy)
 }
 
 private fun <K> propagateAnnotations(
         classSource: ClassSource,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         inferenceResult: InferenceResult<K>,
-        propagationOverrides: Map<K, Annotations<Any>>
+        propagationOverrides: Map<K, Annotations<Any>>,
+        methodHierarchy: HierarchyGraph<Method>
 ): InferenceResult<K> {
-    val classHierarchy = buildClassHierarchyGraph(classSource)
-    val methodHierarchy = buildMethodHierarchy(classHierarchy)
-
     val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { e ->
         val (key, annotations) = e
         propagateMetadata(methodHierarchy, inferrers[key]!!.lattice, annotations, propagationOverrides[key]!!)
