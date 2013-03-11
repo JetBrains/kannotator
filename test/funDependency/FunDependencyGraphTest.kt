@@ -3,7 +3,7 @@ package funDependency
 import java.io.File
 import java.util.Comparator
 import kotlinlib.*
-import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
+import org.jetbrains.kannotator.funDependecy.*
 import org.junit.Test
 import util.ClassPathDeclarationIndex
 import util.ClassesFromClassPath
@@ -66,7 +66,7 @@ class FunDependencyGraphTest {
             sb.println()
             sb.println("== No Outgoing Nodes == ")
 
-            for (node in graph.noOutgoingNodes.sort(functionNodeComparator)) {
+            for (node in graph.sinkNodes.sort(functionNodeComparator)) {
                 printFunctionNode(sb, node)
             }
         }.trim()

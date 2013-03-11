@@ -21,15 +21,16 @@ import org.jetbrains.kannotator.graphs.NodeImpl
 import org.jetbrains.kannotator.graphs.GraphBuilder
 import org.jetbrains.kannotator.graphs.DefaultNodeImpl
 import org.jetbrains.kannotator.graphs.GraphImpl
+import org.jetbrains.kannotator.graphs.Graph
 
-public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : DependencyGraph<Method, String> =
+public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : Graph<Method, String> =
         FunDependencyGraphBuilder(declarationIndex, classSource, buildFieldsDependencyInfos(declarationIndex, classSource)).build()
 
-private class FunDependencyGraphBuilder(
+public class FunDependencyGraphBuilder(
         private val declarationIndex: DeclarationIndex,
         private val classSource: ClassSource,
         private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
-): GraphBuilder<Method, Method, String, DependencyGraphImpl<Method, String>>(false, true) {
+): GraphBuilder<Method, Method, String, GraphImpl<Method, String>>(false, true) {
     private var currentFromNode : NodeImpl<Method, String>? = null
     private var currentClassName : ClassName? = null
 
@@ -55,10 +56,10 @@ private class FunDependencyGraphBuilder(
     }
 
 
-    override fun newGraph(): DependencyGraphImpl<Method, String> = DependencyGraphImpl(false)
+    override fun newGraph(): GraphImpl<Method, String> = GraphImpl(false)
     override fun newNode(data: Method): NodeImpl<Method, String> = DefaultNodeImpl(data)
 
-    public fun build(): DependencyGraph<Method, String> {
+    public fun build(): Graph<Method, String> {
         classSource.forEach {
             reader ->
             reader.accept(classVisitor, flags(SKIP_DEBUG, SKIP_FRAMES))
@@ -81,6 +82,6 @@ private class FunDependencyGraphBuilder(
             }
         }
 
-        return toGraph() as DependencyGraph<Method, String>
+        return toGraph()
     }
 }
