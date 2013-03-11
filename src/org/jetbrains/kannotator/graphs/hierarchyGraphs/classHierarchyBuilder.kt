@@ -49,7 +49,7 @@ class ClassHierarchyBuilder(
             }
         }
 
-        return toGraph() as HierarchyGraph<ClassData>
+        return toGraph()
     }
 }
 
