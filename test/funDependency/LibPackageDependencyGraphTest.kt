@@ -14,7 +14,6 @@ import org.jetbrains.kannotator.graphs.Node as GraphNode
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.graphs.dependencyGraphs.buildPackageDependencyGraph
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.funDependecy.extractNonAffectingNodes
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder

@@ -14,7 +14,6 @@ import org.jetbrains.kannotator.graphs.Node as GraphNode
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.graphs.dependencyGraphs.buildPackageDependencyGraph
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.funDependecy.extractNonAffectingNodes
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
@@ -30,11 +29,12 @@ class LibPackageNonAffectingDependencyGraphTest {
         val graph = packageGraphBuilder.build()
         val packageCount = graph.nodes.size
 
-        val nonAffectingNodes = graph.extractNonAffectingNodes {
+        val interestingNodes = graph.getTransitivelyInterestingNodes {
             val name = it.data.name
             name.startsWith("java") || name.startsWith("javax") || name.startsWith("org")
         }
-        packageGraphBuilder.removeGraphNodes {it in nonAffectingNodes}
+        val nonInterestingNodes = graph.nodes.subtract(interestingNodes)
+        packageGraphBuilder.removeGraphNodes {it !in interestingNodes}
 
         val classHierarchy = buildClassHierarchyGraph(classSource)
         val methodHierarchy = buildMethodHierarchy(classHierarchy)
@@ -53,8 +53,8 @@ class LibPackageNonAffectingDependencyGraphTest {
         val actual = buildString { sb ->
             sb.println()
             sb.println("== Non-Affecting Nodes == ")
-            sb.println("Found ${nonAffectingNodes.size} out of total $packageCount")
-            for (node in nonAffectingNodes.sort(functionNodeComparator)) {
+            sb.println("Found ${nonInterestingNodes.size} out of total $packageCount")
+            for (node in nonInterestingNodes.sort(functionNodeComparator)) {
                 printFunctionNode(sb, node)
             }
         }.trim()
