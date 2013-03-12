@@ -253,8 +253,8 @@ fun <K> inferAnnotations(
     val packageGraphBuilder = PackageDependencyGraphBuilder(methodGraph)
     val packageGraph = packageGraphBuilder.build()
 
-    val interestingNodes = packageGraph.getTransitivelyInterestingNodes { packageIsInteresting(it.data.name) }
-    packageGraphBuilder.removeGraphNodes {it !in interestingNodes}
+    val nonInterestingNodes = packageGraph.nodes subtract packageGraph.getTransitivelyInterestingNodes { packageIsInteresting(it.data.name) }
+    packageGraphBuilder.removeGraphNodes {it in nonInterestingNodes}
 
     val classHierarchy = buildClassHierarchyGraph(classSource)
     val methodHierarchy = buildMethodHierarchy(classHierarchy)
