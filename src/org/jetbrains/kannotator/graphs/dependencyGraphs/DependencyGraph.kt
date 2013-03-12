@@ -19,7 +19,7 @@ fun <A, L> Graph<A, L>.getTransitivelyInterestingNodes(nodeIsInteresting: (Node<
 
     bfs(interestingNodes) {node ->
         interestingNodes.add(node)
-        scheduleAll(node.successors)
+        node.successors
     }
 
     return interestingNodes

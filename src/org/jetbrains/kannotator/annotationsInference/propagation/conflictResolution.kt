@@ -46,7 +46,7 @@ private fun resolveAnnotationConflicts<A>(
                 annotationsToFix,
                 propagatedAnnotations)
 
-        scheduleAll(parentNodes)
+        parentNodes
     }.map { node -> node.method }
 }
 

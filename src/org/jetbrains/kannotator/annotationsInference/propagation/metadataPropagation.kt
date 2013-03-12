@@ -73,7 +73,7 @@ private fun propagateOverrides<A>(
                     val method = node.data
                     val currentPos = PositionsForMethod(method)[pos.relativePosition].position
                     annotationsToFix[currentPos] = ann
-                    scheduleAll(node.childNodes)
+                    node.childNodes
                 }
             }
         }

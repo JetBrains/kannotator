@@ -103,9 +103,7 @@ private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsn
             if (contains) break
         }
 
-        if (!contains) {
-            scheduleAll(superTypes)
-        }
+        if (contains) Collections.emptyList() else superTypes
     }
 
     return contains
