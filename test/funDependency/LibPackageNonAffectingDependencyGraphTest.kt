@@ -18,7 +18,7 @@ import org.jetbrains.kannotator.funDependecy.extractNonAffectingNodes
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
-import org.jetbrains.kannotator.graphs.restrictGraphNodes
+import org.jetbrains.kannotator.graphs.removeGraphNodes
 
 class LibPackageNonAffectingDependencyGraphTest {
     fun doTest(expectedResultPath: String, jarFile: File) {
@@ -34,7 +34,7 @@ class LibPackageNonAffectingDependencyGraphTest {
             val name = it.data.name
             name.startsWith("java") || name.startsWith("javax") || name.startsWith("org")
         }
-        packageGraphBuilder.restrictGraphNodes {it in nonAffectingNodes}
+        packageGraphBuilder.removeGraphNodes {it in nonAffectingNodes}
 
         val classHierarchy = buildClassHierarchyGraph(classSource)
         val methodHierarchy = buildMethodHierarchy(classHierarchy)

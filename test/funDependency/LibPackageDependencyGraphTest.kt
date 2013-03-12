@@ -54,18 +54,6 @@ class LibPackageDependencyGraphTest {
             for (node in graph.sinkNodes.sort(functionNodeComparator)) {
                 printFunctionNode(sb, node)
             }
-
-            /*val nonAffectingNodes = graph.extractNonAffectingNodes {
-                val name = it.data.name
-                name.startsWith("java") || name.startsWith("javax") || name.startsWith("org")
-            }
-
-            sb.println()
-            sb.println("== Non-Affecting Nodes == ")
-            sb.println("Found ${nonAffectingNodes.size} out of total ${graph.nodes.size}")
-            for (node in nonAffectingNodes.sort(functionNodeComparator)) {
-                printFunctionNode(sb, node)
-            }*/
         }.trim()
 
         val expectedFile = File(PATH + expectedResultPath)

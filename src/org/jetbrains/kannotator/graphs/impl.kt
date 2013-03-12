@@ -122,10 +122,10 @@ abstract class GraphBuilder<NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData,
     fun toGraph(): G = graph
 }
 
-fun <NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>> GraphBuilder<NodeKey, NodeData, EdgeLabel, G>.restrictGraphNodes(
-        nodeIsRestricted: (Node<NodeData, EdgeLabel>) -> Boolean
+fun <NodeKey, NodeData, EdgeLabel, G: GraphImpl<NodeData, EdgeLabel>> GraphBuilder<NodeKey, NodeData, EdgeLabel, G>.removeGraphNodes(
+        nodeToRemove: (Node<NodeData, EdgeLabel>) -> Boolean
 ) {
-    val restrictedNodes = graph.nodes.filter(nodeIsRestricted)
+    val restrictedNodes = graph.nodes.filter(nodeToRemove)
     for (node in restrictedNodes) {
         this.removeNode(node as NodeImpl<NodeData, EdgeLabel>)
     }

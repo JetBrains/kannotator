@@ -42,7 +42,7 @@ import org.jetbrains.kannotator.annotationsInference.engine.*
 import org.jetbrains.kannotator.graphs.dependencyGraphs.buildPackageDependencyGraph
 import org.jetbrains.kannotator.funDependecy.*
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
-import org.jetbrains.kannotator.graphs.restrictGraphNodes
+import org.jetbrains.kannotator.graphs.removeGraphNodes
 import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
 
 open class ProgressMonitor {
@@ -216,7 +216,7 @@ fun <K> inferAnnotations(
         loadOnly: Boolean = false,
         propagationOverrides: Map<K, Annotations<Any>>,
         existingAnnotations: Map<K, Annotations<Any>>,
-        packageIsRestricted: (String) -> Boolean = {true}
+        packageIsInteresting: (String) -> Boolean = {true}
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
     
@@ -253,14 +253,14 @@ fun <K> inferAnnotations(
     val packageGraphBuilder = PackageDependencyGraphBuilder(methodGraph)
     val packageGraph = packageGraphBuilder.build()
 
-    val nonAffectingNodes = packageGraph.extractNonAffectingNodes { packageIsRestricted(it.data.name) }
-    packageGraphBuilder.restrictGraphNodes {it in nonAffectingNodes}
+    val nonAffectingNodes = packageGraph.extractNonAffectingNodes { packageIsInteresting(it.data.name) }
+    packageGraphBuilder.removeGraphNodes {it in nonAffectingNodes}
 
     val classHierarchy = buildClassHierarchyGraph(classSource)
     val methodHierarchy = buildMethodHierarchy(classHierarchy)
     packageGraphBuilder.extendWithHierarchy(methodHierarchy)
 
-    methodGraphBuilder.restrictGraphNodes { packageGraph.findNode(Package(it.data.packageName)) == null }
+    methodGraphBuilder.removeGraphNodes { packageGraph.findNode(Package(it.data.packageName)) == null }
 
     val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
 

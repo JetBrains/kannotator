@@ -87,7 +87,7 @@ class IntegratedInferenceTest : TestCase() {
         }
     }
 
-    private fun doInferenceTest(testedJarSubstring: String, packageIsRestricted: (String) -> Boolean = {true}) {
+    private fun doInferenceTest(testedJarSubstring: String, packageIsInteresting: (String) -> Boolean = {true}) {
         var annotationIndex: AnnotationKeyIndex? = null
 
         val progressMonitor = object : ProgressMonitor() {
@@ -133,7 +133,7 @@ class IntegratedInferenceTest : TestCase() {
                     false,
                     hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
                     hashMap(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
-                    packageIsRestricted
+                    packageIsInteresting
             )
         }
         catch (e: Throwable) {
