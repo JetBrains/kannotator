@@ -6,7 +6,7 @@ import java.util.LinkedHashSet
 import kotlinlib.union
 
 open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> {
-    private val _nodes: MutableCollection<Node<T, L>> = LinkedHashSet()
+    private val _nodes: MutableCollection<Node<T, L>> = ArrayList()
     private val nodeMap: MutableMap<T, Node<T, L>>? = if (createNodeMap) HashMap<T, Node<T, L>>() else null
 
     override val nodes: Collection<Node<T, L>> = _nodes
@@ -25,18 +25,18 @@ open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> 
 }
 
 abstract class NodeImpl<out T, out L> : Node<T, L> {
-    private val _incomingEdges: MutableCollection<Edge<T, L>> = LinkedHashSet()
-    private val _outgoingEdges: MutableCollection<Edge<T, L>> = LinkedHashSet()
+    private val _incomingEdges: MutableCollection<Edge<T, L>> = ArrayList()
+    private val _outgoingEdges: MutableCollection<Edge<T, L>> = ArrayList()
 
     override val incomingEdges: Collection<Edge<T, L>> = _incomingEdges
     override val outgoingEdges: Collection<Edge<T, L>> = _outgoingEdges
 
     fun addIncomingEdge(edge: Edge<T, L>) {
-        _incomingEdges.add(edge)
+        if (!_incomingEdges.contains(edge)) _incomingEdges.add(edge)
     }
 
     fun addOutgoingEdge(edge: Edge<T, L>) {
-        _outgoingEdges.add(edge)
+        if (!_outgoingEdges.contains(edge)) _outgoingEdges.add(edge)
     }
 
     fun removeIncomingEdge(edge: Edge<T, L>) {
