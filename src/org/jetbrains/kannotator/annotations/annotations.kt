@@ -1,7 +1,10 @@
 package org.jetbrains.kannotator.declarations
 
 trait Annotations<out A: Any> {
+    val delegate: Annotations<A>?
+
     fun get(typePosition: AnnotationPosition): A?
+    fun positions(): Set<AnnotationPosition>
     fun forEach(body: (AnnotationPosition, A) -> Unit)
 }
 
