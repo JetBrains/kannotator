@@ -18,7 +18,7 @@ edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction int getIndex(edu.uc
 NOT_NULL
 edu.uci.ics.jung.graph.util.DefaultParallelEdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph<V,E>, E) 0
 NOT_NULL
-edu.uci.ics.jung.graph.util.EdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph<V,E>, E) 0
+@Propagated edu.uci.ics.jung.graph.util.EdgeIndexFunction void reset(edu.uci.ics.jung.graph.Graph<V,E>, E) 0
 NOT_NULL
 edu.uci.ics.jung.graph.util.EdgeType $VALUES
 NOT_NULL

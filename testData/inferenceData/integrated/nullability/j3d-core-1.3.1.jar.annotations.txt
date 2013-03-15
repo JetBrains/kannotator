@@ -84,7 +84,7 @@ javax.media.j3d.Appearance javax.media.j3d.TransparencyAttributes getTransparenc
 NULLABLE
 javax.media.j3d.Appearance void duplicateAttributes(javax.media.j3d.NodeComponent, boolean) 0
 NOT_NULL
-javax.media.j3d.Appearance void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
+@Propagated javax.media.j3d.Appearance void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
 javax.media.j3d.AppearanceRetained boolean equals(java.lang.Object) 0
 NULLABLE
@@ -152,9 +152,9 @@ javax.media.j3d.AuralAttributesRetained void update(javax.media.j3d.AuralAttribu
 NOT_NULL
 javax.media.j3d.BHInternalNode void computeBoundingHull(javax.media.j3d.BoundingBox) 0
 NOT_NULL
-javax.media.j3d.BHInternalNode void destroyTree(javax.media.j3d.BHNode[], int[]) 0
+@Propagated javax.media.j3d.BHInternalNode void destroyTree(javax.media.j3d.BHNode[], int[]) 0
 NOT_NULL
-javax.media.j3d.BHInternalNode void destroyTree(javax.media.j3d.BHNode[], int[]) 1
+@Propagated javax.media.j3d.BHInternalNode void destroyTree(javax.media.j3d.BHNode[], int[]) 1
 NOT_NULL
 javax.media.j3d.BHLeafNode void destroyTree(javax.media.j3d.BHNode[], int[]) 0
 NOT_NULL
@@ -170,9 +170,9 @@ javax.media.j3d.BHNode void combineBHull(javax.media.j3d.BHNode, javax.media.j3d
 NOT_NULL
 javax.media.j3d.BHNode void combineBHull(javax.media.j3d.BHNode, javax.media.j3d.BHNode) 1
 NOT_NULL
-javax.media.j3d.BHNode void destroyTree(javax.media.j3d.BHNode[], int[]) 0
+@Propagated javax.media.j3d.BHNode void destroyTree(javax.media.j3d.BHNode[], int[]) 0
 NOT_NULL
-javax.media.j3d.BHNode void destroyTree(javax.media.j3d.BHNode[], int[]) 1
+@Propagated javax.media.j3d.BHNode void destroyTree(javax.media.j3d.BHNode[], int[]) 1
 NOT_NULL
 javax.media.j3d.BHTree boolean aEncompassB(javax.media.j3d.BoundingBox, javax.media.j3d.BoundingBox) 0
 NOT_NULL
@@ -264,7 +264,7 @@ javax.media.j3d.Background javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.Background void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.Background void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.Background void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.Background void getColor(javax.vecmath.Color3f) 0
 NOT_NULL
@@ -288,7 +288,7 @@ javax.media.j3d.BackgroundRetained void initApplicationBounds(javax.media.j3d.Bo
 NULLABLE
 javax.media.j3d.BackgroundRetained void initImage(javax.media.j3d.ImageComponent2D) 0
 NULLABLE
-javax.media.j3d.BackgroundRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.BackgroundRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.BackgroundRetained void setGeometryBranch(javax.media.j3d.BranchGroupRetained) 0
 NOT_NULL
@@ -298,7 +298,7 @@ javax.media.j3d.BackgroundRetained void updateImmediateMirrorObject(java.lang.Ob
 NOT_NULL
 javax.media.j3d.BackgroundSound javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
-javax.media.j3d.BackgroundSound void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.BackgroundSound void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.Behavior javax.media.j3d.BoundingLeaf getSchedulingBoundingLeaf()
 NULLABLE
@@ -318,7 +318,7 @@ javax.media.j3d.BehaviorRetained javax.media.j3d.View getView()
 NULLABLE
 javax.media.j3d.BehaviorRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.BehaviorRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.BehaviorRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.BehaviorRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -408,9 +408,9 @@ javax.media.j3d.BoundingBox BoundingBox(javax.media.j3d.Bounds) 0
 NULLABLE
 javax.media.j3d.BoundingBox BoundingBox(javax.media.j3d.Bounds[]) 0
 NULLABLE
-javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.BoundingBox boolean intersect(javax.media.j3d.Bounds[]) 0
 NULLABLE
@@ -434,15 +434,15 @@ javax.media.j3d.BoundingBox void getLower(javax.vecmath.Point3d) 0
 NOT_NULL
 javax.media.j3d.BoundingBox void getUpper(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.BoundingBox void set(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.BoundingBox void set(javax.media.j3d.Bounds) 0
 NULLABLE
 javax.media.j3d.BoundingBox void setLower(javax.vecmath.Point3d) 0
 NOT_NULL
 javax.media.j3d.BoundingBox void setUpper(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.BoundingBox void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.BoundingBox void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
 NULLABLE
-javax.media.j3d.BoundingBox void transform(javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.BoundingBox void transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
 javax.media.j3d.BoundingBox void translate(javax.media.j3d.BoundingBox, javax.vecmath.Vector3d) 0
 NULLABLE
@@ -472,13 +472,13 @@ javax.media.j3d.BoundingPolytope BoundingPolytope(javax.media.j3d.Bounds[]) 0
 NULLABLE
 javax.media.j3d.BoundingPolytope BoundingPolytope(javax.vecmath.Vector4d[]) 0
 NOT_NULL
-javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds, javax.media.j3d.BoundingPolytope) 0
 NULLABLE
 javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds, javax.media.j3d.BoundingPolytope) 1
 NOT_NULL
-javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.BoundingPolytope boolean intersect(javax.media.j3d.Bounds[]) 0
 NULLABLE
@@ -504,17 +504,17 @@ javax.media.j3d.BoundingPolytope void setPlanes(javax.vecmath.Vector4d[]) 0
 NOT_NULL
 javax.media.j3d.BoundingPolytope void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
 NULLABLE
-javax.media.j3d.BoundingPolytope void transform(javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.BoundingPolytope void transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
 javax.media.j3d.BoundingSphere BoundingSphere(javax.media.j3d.Bounds) 0
 NULLABLE
 javax.media.j3d.BoundingSphere BoundingSphere(javax.media.j3d.Bounds[]) 0
 NULLABLE
-javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds, javax.media.j3d.BoundingSphere) 1
 NOT_NULL
-javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.BoundingSphere boolean intersect(javax.media.j3d.Bounds[]) 0
 NULLABLE
@@ -536,19 +536,19 @@ javax.media.j3d.BoundingSphere void combine(javax.media.j3d.Bounds[]) 0
 NULLABLE
 javax.media.j3d.BoundingSphere void getCenter(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.BoundingSphere void set(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.BoundingSphere void set(javax.media.j3d.Bounds) 0
 NULLABLE
 javax.media.j3d.BoundingSphere void setCenter(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.BoundingSphere void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.BoundingSphere void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
 NULLABLE
-javax.media.j3d.BoundingSphere void transform(javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.BoundingSphere void transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.Bounds boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Bounds boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.Bounds boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.Bounds boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
-javax.media.j3d.Bounds boolean intersect(javax.media.j3d.Bounds[]) 0
+@Propagated javax.media.j3d.Bounds boolean intersect(javax.media.j3d.Bounds[]) 0
 NULLABLE
 javax.media.j3d.Bounds boolean intersect_ptope_abox(javax.media.j3d.BoundingPolytope, javax.media.j3d.BoundingBox) 0
 NOT_NULL
@@ -562,29 +562,29 @@ javax.media.j3d.Bounds boolean intersect_ptope_sphere(javax.media.j3d.BoundingPo
 NOT_NULL
 javax.media.j3d.Bounds boolean intersect_ptope_sphere(javax.media.j3d.BoundingPolytope, javax.media.j3d.BoundingSphere) 1
 NOT_NULL
-javax.media.j3d.Bounds java.lang.Object clone()
+@Propagated javax.media.j3d.Bounds java.lang.Object clone()
 NOT_NULL
-javax.media.j3d.Bounds javax.media.j3d.Bounds closestIntersection(javax.media.j3d.Bounds[])
+@Propagated javax.media.j3d.Bounds javax.media.j3d.Bounds closestIntersection(javax.media.j3d.Bounds[])
 NULLABLE
-javax.media.j3d.Bounds javax.media.j3d.Bounds closestIntersection(javax.media.j3d.Bounds[]) 0
+@Propagated javax.media.j3d.Bounds javax.media.j3d.Bounds closestIntersection(javax.media.j3d.Bounds[]) 0
 NULLABLE
-javax.media.j3d.Bounds javax.media.j3d.Bounds copy(javax.media.j3d.Bounds)
+@Propagated javax.media.j3d.Bounds javax.media.j3d.Bounds copy(javax.media.j3d.Bounds)
 NOT_NULL
-javax.media.j3d.Bounds javax.media.j3d.Bounds copy(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Bounds javax.media.j3d.Bounds copy(javax.media.j3d.Bounds) 0
 NULLABLE
-javax.media.j3d.Bounds void combine(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Bounds void combine(javax.media.j3d.Bounds) 0
 NULLABLE
-javax.media.j3d.Bounds void combine(javax.media.j3d.Bounds[]) 0
+@Propagated javax.media.j3d.Bounds void combine(javax.media.j3d.Bounds[]) 0
 NULLABLE
 javax.media.j3d.Bounds void getWithLock(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.Bounds void set(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Bounds void set(javax.media.j3d.Bounds) 0
 NULLABLE
 javax.media.j3d.Bounds void test_point(javax.vecmath.Vector4d[], javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.Bounds void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.Bounds void transform(javax.media.j3d.Bounds, javax.media.j3d.Transform3D) 0
 NULLABLE
-javax.media.j3d.Bounds void transform(javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.Bounds void transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
 javax.media.j3d.BranchGroup javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
@@ -596,9 +596,9 @@ javax.media.j3d.BranchGroup javax.media.j3d.SceneGraphPath[] pickAll(javax.media
 NULLABLE
 javax.media.j3d.BranchGroup javax.media.j3d.SceneGraphPath[] pickAllSorted(javax.media.j3d.PickShape)
 NULLABLE
-javax.media.j3d.BranchGroupRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.BranchGroupRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.BranchGroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.BranchGroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.BranchGroupRetained void setAuxData(javax.media.j3d.SetLiveState, int, int) 0
 NOT_NULL
@@ -720,7 +720,7 @@ javax.media.j3d.ClipRetained void initApplicationBoundingLeaf(javax.media.j3d.Bo
 NULLABLE
 javax.media.j3d.ClipRetained void initApplicationBounds(javax.media.j3d.Bounds) 0
 NULLABLE
-javax.media.j3d.ClipRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.ClipRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.ClipRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -776,19 +776,19 @@ javax.media.j3d.CompressedGeometryHeader void copy(javax.media.j3d.CompressedGeo
 NOT_NULL
 javax.media.j3d.CompressedGeometryRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 0
 NOT_NULL
-javax.media.j3d.CompressedGeometryRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
+@Propagated javax.media.j3d.CompressedGeometryRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
-javax.media.j3d.CompressedGeometryRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
+@Propagated javax.media.j3d.CompressedGeometryRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
 javax.media.j3d.CompressedGeometryRenderMethod void renderCompressedGeo(javax.media.j3d.RenderAtomListInfo, javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D) 0
 NOT_NULL
 javax.media.j3d.CompressedGeometryRenderMethod void renderCompressedGeo(javax.media.j3d.RenderAtomListInfo, javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D) 1
 NOT_NULL
-javax.media.j3d.CompressedGeometryRetained boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.CompressedGeometryRetained boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.CompressedGeometryRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
+@Propagated javax.media.j3d.CompressedGeometryRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.CompressedGeometryRetained boolean intersect(javax.vecmath.Point3d[]) 0
+@Propagated javax.media.j3d.CompressedGeometryRetained boolean intersect(javax.vecmath.Point3d[]) 0
 NOT_NULL
 javax.media.j3d.CompressedGeometryRetained void createCompressedGeometry(javax.media.j3d.CompressedGeometryHeader, byte[], boolean) 0
 NOT_NULL
@@ -808,7 +808,7 @@ javax.media.j3d.ConeSound javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.ConeSound void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.ConeSound void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.ConeSound void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.ConeSoundRetained void getAngularAttenuation(float[], float[], float[]) 0
 NULLABLE
@@ -834,9 +834,9 @@ javax.media.j3d.ConeSoundRetained void updateMirrorObject(java.lang.Object[]) 0
 NOT_NULL
 javax.media.j3d.DecalGroup javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
-javax.media.j3d.DefaultRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 0
+@Propagated javax.media.j3d.DefaultRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 0
 NOT_NULL
-javax.media.j3d.DefaultRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
+@Propagated javax.media.j3d.DefaultRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
 javax.media.j3d.DefaultRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
@@ -884,7 +884,7 @@ javax.media.j3d.DisplayListRenderMethod boolean render(javax.media.j3d.RenderMol
 NOT_NULL
 javax.media.j3d.DisplayListRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
-javax.media.j3d.DisplayListRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
+@Propagated javax.media.j3d.DisplayListRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
 javax.media.j3d.DisplayListRenderMethod boolean renderSeparateDlistPerRinfo(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 0
 NOT_NULL
@@ -980,7 +980,7 @@ javax.media.j3d.FogRetained void initScope(javax.media.j3d.Group, int) 0
 NOT_NULL
 javax.media.j3d.FogRetained void insertScope(javax.media.j3d.Node, int) 0
 NOT_NULL
-javax.media.j3d.FogRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.FogRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.FogRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -1266,7 +1266,7 @@ javax.media.j3d.GeometryArrayRetained boolean edgeIntersectSphere(javax.media.j3
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained boolean inside(javax.vecmath.Point3d[], javax.media.j3d.PickPoint, int) 0
 NOT_NULL
-javax.media.j3d.GeometryArrayRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 0
+@Propagated javax.media.j3d.GeometryArrayRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 0
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 2
 NOT_NULL
@@ -1396,13 +1396,13 @@ javax.media.j3d.GeometryArrayRetained void addMorphUser(javax.media.j3d.MorphRet
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained void buildGA(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, javax.media.j3d.Transform3D, javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.GeometryArrayRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.GeometryArrayRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained void computeMinDistance(javax.vecmath.Point3d[], javax.vecmath.Point3d, javax.vecmath.Vector3d, double[], javax.vecmath.Point3d) 0
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained void computeMinDistance(javax.vecmath.Point3d[], javax.vecmath.Point3d, javax.vecmath.Vector3d, double[], javax.vecmath.Point3d) 3
 NOT_NULL
-javax.media.j3d.GeometryArrayRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
+@Propagated javax.media.j3d.GeometryArrayRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained void getColor(int, byte[]) 1
 NOT_NULL
@@ -1480,7 +1480,7 @@ javax.media.j3d.GeometryArrayRetained void getTextureCoordinates(int, int, javax
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained void mergeGeometryArrays(java.util.ArrayList) 0
 NOT_NULL
-javax.media.j3d.GeometryArrayRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.GeometryArrayRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.GeometryArrayRetained void setColor(int, byte[]) 1
 NOT_NULL
@@ -1554,7 +1554,7 @@ javax.media.j3d.GeometryDecompressor void decompress(int, int, byte[]) 2
 NOT_NULL
 javax.media.j3d.GeometryDecompressor void indexNormal(int, int, int, int, javax.vecmath.Vector3f) 4
 NOT_NULL
-javax.media.j3d.GeometryDecompressor void outputVertex(javax.vecmath.Point3f, javax.vecmath.Vector3f, javax.vecmath.Color4f, int) 0
+@Propagated javax.media.j3d.GeometryDecompressor void outputVertex(javax.vecmath.Point3f, javax.vecmath.Vector3f, javax.vecmath.Color4f, int) 0
 NOT_NULL
 javax.media.j3d.GeometryDecompressorRetained javax.media.j3d.GeometryRetained decompress(javax.media.j3d.CompressedGeometryRetained)
 NULLABLE
@@ -1584,25 +1584,25 @@ javax.media.j3d.GeometryDecompressorShape3D javax.media.j3d.Shape3D[] toTriangle
 NULLABLE
 javax.media.j3d.GeometryDecompressorShape3D javax.media.j3d.Shape3D[] toTriangleStripArrays(javax.media.j3d.CompressedGeometryRetained) 0
 NOT_NULL
-javax.media.j3d.GeometryDecompressorShape3D void outputVertex(javax.vecmath.Point3f, javax.vecmath.Vector3f, javax.vecmath.Color4f, int) 0
+@Propagated javax.media.j3d.GeometryDecompressorShape3D void outputVertex(javax.vecmath.Point3f, javax.vecmath.Vector3f, javax.vecmath.Color4f, int) 0
 NOT_NULL
-javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
+@Propagated javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
 NOT_NULL
 javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Bounds) 1
 NOT_NULL
 javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 0
 NOT_NULL
-javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 2
+@Propagated javax.media.j3d.GeometryRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 2
 NOT_NULL
-javax.media.j3d.GeometryRetained boolean intersect(javax.vecmath.Point3d[]) 0
+@Propagated javax.media.j3d.GeometryRetained boolean intersect(javax.vecmath.Point3d[]) 0
 NOT_NULL
 javax.media.j3d.GeometryRetained boolean isEquivalenceClass(javax.media.j3d.GeometryRetained) 0
 NOT_NULL
 javax.media.j3d.GeometryRetained void addUser(javax.media.j3d.Shape3DRetained) 0
 NOT_NULL
-javax.media.j3d.GeometryRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
+@Propagated javax.media.j3d.GeometryRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
 NOT_NULL
 javax.media.j3d.GeometryRetained void removeUser(javax.media.j3d.Shape3DRetained) 0
 NOT_NULL
@@ -1654,7 +1654,7 @@ javax.media.j3d.GeometryStructure void removeWakeupOnCollision(javax.media.j3d.W
 NOT_NULL
 javax.media.j3d.GeometryStructure void removeWakeupOnCollision(javax.media.j3d.WakeupOnCollisionMovement) 0
 NOT_NULL
-javax.media.j3d.GeometryUpdater void updateData(javax.media.j3d.Geometry) 0
+@Propagated javax.media.j3d.GeometryUpdater void updateData(javax.media.j3d.Geometry) 0
 NOT_NULL
 javax.media.j3d.GraphicsConfigTemplate3D boolean isGraphicsConfigSupported(java.awt.GraphicsConfiguration) 0
 NULLABLE
@@ -1738,7 +1738,7 @@ javax.media.j3d.GroupRetained javax.media.j3d.CachedTargets[] updateTransformSta
 NULLABLE
 javax.media.j3d.GroupRetained javax.media.j3d.Node getChild(int)
 NULLABLE
-javax.media.j3d.GroupRetained javax.media.j3d.TargetsInterface getClosestTargetsInterface(int)
+@Propagated javax.media.j3d.GroupRetained javax.media.j3d.TargetsInterface getClosestTargetsInterface(int)
 NOT_NULL
 javax.media.j3d.GroupRetained javax.media.j3d.TargetsInterface initSwitchStates(javax.media.j3d.SetLiveState, javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained, boolean)
 NULLABLE
@@ -1754,13 +1754,13 @@ javax.media.j3d.GroupRetained void childCheckSetLive(javax.media.j3d.NodeRetaine
 NOT_NULL
 javax.media.j3d.GroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
 NULLABLE
-javax.media.j3d.GroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 2
+@Propagated javax.media.j3d.GroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 2
 NOT_NULL
 javax.media.j3d.GroupRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.GroupRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.GroupRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.GroupRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.GroupRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.GroupRetained void doSetLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -1770,9 +1770,9 @@ javax.media.j3d.GroupRetained void merge(javax.media.j3d.CompileState) 0
 NOT_NULL
 javax.media.j3d.GroupRetained void processCollisionTarget(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.GroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.GroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.GroupRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
+@Propagated javax.media.j3d.GroupRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
 NOT_NULL
 javax.media.j3d.GroupRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -1988,9 +1988,9 @@ javax.media.j3d.IndexedGeometryArrayRetained int doIndicesCheck(int, int, int[],
 NOT_NULL
 javax.media.j3d.IndexedGeometryArrayRetained java.lang.Object cloneNonIndexedGeometry()
 NOT_NULL
-javax.media.j3d.IndexedGeometryArrayRetained void buildGA(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, javax.media.j3d.Transform3D, javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.IndexedGeometryArrayRetained void buildGA(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, javax.media.j3d.Transform3D, javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.IndexedGeometryArrayRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
+@Propagated javax.media.j3d.IndexedGeometryArrayRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
 NOT_NULL
 javax.media.j3d.IndexedGeometryArrayRetained void getColorIndices(int, int[]) 1
 NOT_NULL
@@ -2046,11 +2046,11 @@ javax.media.j3d.IndexedLineStripArrayRetained boolean intersect(javax.media.j3d.
 NOT_NULL
 javax.media.j3d.IndexedLineStripArrayRetained boolean intersect(javax.vecmath.Point3d[]) 0
 NOT_NULL
-javax.media.j3d.IndexedObject javax.media.j3d.VirtualUniverse getVirtualUniverse()
+@Propagated javax.media.j3d.IndexedObject javax.media.j3d.VirtualUniverse getVirtualUniverse()
 NULLABLE
 javax.media.j3d.IndexedPointArray javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
-javax.media.j3d.IndexedPointArrayRetained boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.IndexedPointArrayRetained boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.IndexedPointArrayRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
 NOT_NULL
@@ -2128,7 +2128,7 @@ javax.media.j3d.Interpolator void duplicateAttributes(javax.media.j3d.Node, bool
 NOT_NULL
 javax.media.j3d.J3DBuffer boolean checkNativeBufferAccess(java.nio.Buffer) 0
 NULLABLE
-javax.media.j3d.J3DGraphics2D void drawAndFlushImage(java.awt.image.BufferedImage, int, int, java.awt.image.ImageObserver) 0
+@Propagated javax.media.j3d.J3DGraphics2D void drawAndFlushImage(java.awt.image.BufferedImage, int, int, java.awt.image.ImageObserver) 0
 NOT_NULL
 javax.media.j3d.J3DGraphics2DImpl J3DGraphics2DImpl(javax.media.j3d.Canvas3D) 0
 NOT_NULL
@@ -2178,13 +2178,13 @@ javax.media.j3d.J3dQueryProps.MapIterator this$0
 NOT_NULL
 javax.media.j3d.J3dStructure void addMessage(javax.media.j3d.J3dMessage) 0
 NOT_NULL
-javax.media.j3d.J3dStructure void removeNodes(javax.media.j3d.J3dMessage) 0
+@Propagated javax.media.j3d.J3dStructure void removeNodes(javax.media.j3d.J3dMessage) 0
 NOT_NULL
 javax.media.j3d.LOD void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.LeafRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
+@Propagated javax.media.j3d.LeafRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
 NOT_NULL
-javax.media.j3d.LeafRetained void updateMirrorObject(java.lang.Object[]) 0
+@Propagated javax.media.j3d.LeafRetained void updateMirrorObject(java.lang.Object[]) 0
 NOT_NULL
 javax.media.j3d.Light javax.media.j3d.BoundingLeaf getInfluencingBoundingLeaf()
 NULLABLE
@@ -2226,7 +2226,7 @@ javax.media.j3d.LightRetained void clearMirrorObject(java.lang.Object[]) 0
 NOT_NULL
 javax.media.j3d.LightRetained void getColor(javax.vecmath.Color3f) 0
 NOT_NULL
-javax.media.j3d.LightRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
+@Propagated javax.media.j3d.LightRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
 NOT_NULL
 javax.media.j3d.LightRetained void initAddScope(javax.media.j3d.Group) 0
 NOT_NULL
@@ -2242,7 +2242,7 @@ javax.media.j3d.LightRetained void initScope(javax.media.j3d.Group, int) 0
 NOT_NULL
 javax.media.j3d.LightRetained void insertScope(javax.media.j3d.Group, int) 0
 NOT_NULL
-javax.media.j3d.LightRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.LightRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.LightRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -2298,23 +2298,23 @@ javax.media.j3d.LinkRetained javax.media.j3d.HashKey[] getNewKeys(java.lang.Stri
 NOT_NULL
 javax.media.j3d.LinkRetained javax.media.j3d.SharedGroup getSharedGroup()
 NULLABLE
-javax.media.j3d.LinkRetained void clearLive(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.LinkRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.LinkRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.LinkRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.LinkRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.LinkRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.LinkRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.LinkRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
+@Propagated javax.media.j3d.LinkRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
 NOT_NULL
-javax.media.j3d.LinkRetained void setLive(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.LinkRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.LinkRetained void setNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.LinkRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[]) 1
+@Propagated javax.media.j3d.LinkRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[]) 1
 NOT_NULL
-javax.media.j3d.LinkRetained void updatePickable(javax.media.j3d.HashKey[], boolean[]) 1
+@Propagated javax.media.j3d.LinkRetained void updatePickable(javax.media.j3d.HashKey[], boolean[]) 1
 NOT_NULL
 javax.media.j3d.Locale Locale(javax.media.j3d.VirtualUniverse) 0
 NOT_NULL
@@ -2636,7 +2636,7 @@ javax.media.j3d.Morph javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.Morph void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.Morph void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.Morph void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.Morph void setWeights(double[]) 0
 NOT_NULL
@@ -2658,7 +2658,7 @@ javax.media.j3d.MorphRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.MorphRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.MorphRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.MorphRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.MorphRetained void doErrorCheck(javax.media.j3d.GeometryArrayRetained, javax.media.j3d.GeometryArrayRetained) 0
 NOT_NULL
@@ -2674,13 +2674,13 @@ javax.media.j3d.MorphRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.MorphRetained void setWeights(double[]) 0
 NOT_NULL
-javax.media.j3d.MorphRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[]) 1
+@Propagated javax.media.j3d.MorphRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[]) 1
 NOT_NULL
 javax.media.j3d.MorphRetained void updateData(javax.media.j3d.Geometry) 0
 NOT_NULL
 javax.media.j3d.MorphRetained void updateImmediateMirrorObject(java.lang.Object[]) 0
 NOT_NULL
-javax.media.j3d.MorphRetained void updatePickable(javax.media.j3d.HashKey[], boolean[]) 1
+@Propagated javax.media.j3d.MorphRetained void updatePickable(javax.media.j3d.HashKey[], boolean[]) 1
 NOT_NULL
 javax.media.j3d.NativeConfigTemplate3D boolean hasDoubleBuffer(java.awt.GraphicsConfiguration) 0
 NOT_NULL
@@ -2702,7 +2702,7 @@ javax.media.j3d.NativeConfigTemplate3D java.awt.GraphicsConfiguration getBestCon
 NOT_NULL
 javax.media.j3d.NativeWSInfo int getCanvasVid(java.awt.GraphicsConfiguration) 0
 NOT_NULL
-javax.media.j3d.NnuId int equal(javax.media.j3d.NnuId) 0
+@Propagated javax.media.j3d.NnuId int equal(javax.media.j3d.NnuId) 0
 NOT_NULL
 javax.media.j3d.NnuIdManager boolean equals(javax.media.j3d.NnuId[], javax.media.j3d.NnuId, int[], int, int) 0
 NOT_NULL
@@ -2730,9 +2730,9 @@ javax.media.j3d.NnuIdManager void replace(javax.media.j3d.NnuId, javax.media.j3d
 NOT_NULL
 javax.media.j3d.NnuIdManager void sort(javax.media.j3d.NnuId[]) 0
 NOT_NULL
-javax.media.j3d.Node javax.media.j3d.Bounds getBounds()
+@Propagated javax.media.j3d.Node javax.media.j3d.Bounds getBounds()
 NULLABLE
-javax.media.j3d.Node javax.media.j3d.Node cloneNode(boolean)
+@Propagated javax.media.j3d.Node javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.Node javax.media.j3d.Node cloneTree(boolean, java.util.Hashtable) 1
 NOT_NULL
@@ -2752,7 +2752,7 @@ javax.media.j3d.Node void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.Node void getLocalToVworld(javax.media.j3d.SceneGraphPath, javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.NodeComponent javax.media.j3d.NodeComponent cloneNodeComponent()
+@Propagated javax.media.j3d.NodeComponent javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
 javax.media.j3d.NodeComponent void checkDuplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
@@ -2776,7 +2776,7 @@ javax.media.j3d.NodeComponentRetained void set(javax.media.j3d.NodeComponentReta
 NOT_NULL
 javax.media.j3d.NodeRetained int equal(javax.media.j3d.NnuId) 0
 NOT_NULL
-javax.media.j3d.NodeRetained javax.media.j3d.Bounds getBounds()
+@Propagated javax.media.j3d.NodeRetained javax.media.j3d.Bounds getBounds()
 NULLABLE
 javax.media.j3d.NodeRetained javax.media.j3d.Bounds getEffectiveBounds()
 NULLABLE
@@ -2784,7 +2784,7 @@ javax.media.j3d.NodeRetained javax.media.j3d.Bounds getLocalBounds(javax.media.j
 NOT_NULL
 javax.media.j3d.NodeRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.NodeRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.NodeRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.NodeRetained void computeLocalToVworld(javax.media.j3d.NodeRetained, javax.media.j3d.NodeRetained, javax.media.j3d.HashKey, javax.media.j3d.Transform3D) 1
 NOT_NULL
@@ -2802,13 +2802,13 @@ javax.media.j3d.NodeRetained void getLocalToVworld(javax.media.j3d.Transform3D, 
 NOT_NULL
 javax.media.j3d.NodeRetained void merge(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.NodeRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.NodeRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
-javax.media.j3d.NodeRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.NodeRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.NodeRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
+@Propagated javax.media.j3d.NodeRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
 NOT_NULL
-javax.media.j3d.NodeRetained void setAuxData(javax.media.j3d.SetLiveState, int, int) 0
+@Propagated javax.media.j3d.NodeRetained void setAuxData(javax.media.j3d.SetLiveState, int, int) 0
 NOT_NULL
 javax.media.j3d.NodeRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -2832,17 +2832,17 @@ javax.media.j3d.OrderedGroupRetained void childCheckSetLive(javax.media.j3d.Node
 NOT_NULL
 javax.media.j3d.OrderedGroupRetained void childCheckSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState, javax.media.j3d.NodeRetained) 2
 NOT_NULL
-javax.media.j3d.OrderedGroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.OrderedGroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
 NULLABLE
 javax.media.j3d.OrderedGroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 2
 NOT_NULL
 javax.media.j3d.OrderedGroupRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.OrderedGroupRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.OrderedGroupRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
 javax.media.j3d.OrderedGroupRetained void printTable(int[]) 0
 NOT_NULL
-javax.media.j3d.OrderedGroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.OrderedGroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.OrderedGroupRetained void setAuxData(javax.media.j3d.SetLiveState, int, int) 0
 NOT_NULL
@@ -2860,7 +2860,7 @@ javax.media.j3d.OrientedShape3D javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.OrientedShape3D void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.OrientedShape3D void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.OrientedShape3D void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.OrientedShape3D void getAlignmentAxis(javax.vecmath.Vector3f) 0
 NOT_NULL
@@ -2872,7 +2872,7 @@ javax.media.j3d.OrientedShape3DRenderMethod boolean render(javax.media.j3d.Rende
 NOT_NULL
 javax.media.j3d.OrientedShape3DRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
-javax.media.j3d.OrientedShape3DRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
+@Propagated javax.media.j3d.OrientedShape3DRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
 javax.media.j3d.OrientedShape3DRetained boolean projectToPlane(javax.vecmath.Vector3d, javax.vecmath.Vector3d) 0
 NOT_NULL
@@ -2930,21 +2930,21 @@ javax.media.j3d.PickBounds boolean intersect(javax.media.j3d.Bounds, javax.vecma
 NOT_NULL
 javax.media.j3d.PickBounds javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
 NOT_NULL
-javax.media.j3d.PickBounds javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.PickBounds javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.PickCone boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickCone boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickCone void getDirection(javax.vecmath.Vector3d) 0
 NOT_NULL
 javax.media.j3d.PickCone void getOrigin(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.PickConeRay boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickConeRay boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickConeRay javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
 NOT_NULL
 javax.media.j3d.PickConeRay javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.PickConeSegment boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickConeSegment boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickConeSegment javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
 NOT_NULL
@@ -2952,7 +2952,7 @@ javax.media.j3d.PickConeSegment javax.media.j3d.PickShape transform(javax.media.
 NOT_NULL
 javax.media.j3d.PickConeSegment void getEnd(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.PickCylinder boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickCylinder boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickCylinder boolean pointInPolytope(javax.media.j3d.BoundingPolytope, double, double, double) 0
 NOT_NULL
@@ -2960,13 +2960,13 @@ javax.media.j3d.PickCylinder void getDirection(javax.vecmath.Vector3d) 0
 NOT_NULL
 javax.media.j3d.PickCylinder void getOrigin(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.PickCylinderRay boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickCylinderRay boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickCylinderRay javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
 NOT_NULL
 javax.media.j3d.PickCylinderRay javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
-javax.media.j3d.PickCylinderSegment boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickCylinderSegment boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickCylinderSegment javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
 NOT_NULL
@@ -3012,13 +3012,13 @@ javax.media.j3d.PickSegment void set(javax.vecmath.Point3d, javax.vecmath.Point3
 NOT_NULL
 javax.media.j3d.PickSegment void set(javax.vecmath.Point3d, javax.vecmath.Point3d) 1
 NOT_NULL
-javax.media.j3d.PickShape boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
+@Propagated javax.media.j3d.PickShape boolean intersect(javax.media.j3d.Bounds, javax.vecmath.Point4d) 0
 NOT_NULL
 javax.media.j3d.PickShape double distance(javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.PickShape javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
+@Propagated javax.media.j3d.PickShape javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D)
 NOT_NULL
-javax.media.j3d.PickShape javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D) 0
+@Propagated javax.media.j3d.PickShape javax.media.j3d.PickShape transform(javax.media.j3d.Transform3D) 0
 NOT_NULL
 javax.media.j3d.Picking boolean inside(javax.media.j3d.BranchGroupRetained[], javax.media.j3d.BranchGroupRetained) 0
 NULLABLE
@@ -3086,7 +3086,7 @@ javax.media.j3d.Picking void sortGeomAtoms(javax.media.j3d.GeometryAtom[], javax
 NOT_NULL
 javax.media.j3d.PointArray javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
-javax.media.j3d.PointArrayRetained boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.PointArrayRetained boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.PointArrayRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
 NOT_NULL
@@ -3134,7 +3134,7 @@ javax.media.j3d.PointSound javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.PointSound void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.PointSound void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.PointSound void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.PointSound void setPosition(javax.vecmath.Point3f) 0
 NOT_NULL
@@ -3226,7 +3226,7 @@ javax.media.j3d.Raster javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
 javax.media.j3d.Raster void duplicateAttributes(javax.media.j3d.NodeComponent, boolean) 0
 NOT_NULL
-javax.media.j3d.Raster void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
+@Propagated javax.media.j3d.Raster void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
 javax.media.j3d.Raster void getDstOffset(java.awt.Point) 0
 NOT_NULL
@@ -3248,17 +3248,17 @@ javax.media.j3d.Raster void setSize(java.awt.Dimension) 0
 NOT_NULL
 javax.media.j3d.Raster void setSrcOffset(java.awt.Point) 0
 NOT_NULL
-javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
+@Propagated javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
 NOT_NULL
-javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Bounds) 1
+@Propagated javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Bounds) 1
 NOT_NULL
-javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 0
+@Propagated javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 0
 NOT_NULL
-javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 2
+@Propagated javax.media.j3d.RasterRetained boolean intersect(javax.media.j3d.Transform3D, javax.media.j3d.Transform3D, javax.media.j3d.GeometryRetained) 2
 NOT_NULL
-javax.media.j3d.RasterRetained boolean intersect(javax.vecmath.Point3d[]) 0
+@Propagated javax.media.j3d.RasterRetained boolean intersect(javax.vecmath.Point3d[]) 0
 NOT_NULL
 javax.media.j3d.RasterRetained javax.media.j3d.DepthComponent getDepthComponent()
 NULLABLE
@@ -3272,7 +3272,7 @@ javax.media.j3d.RasterRetained void computeObjCoord(javax.media.j3d.Canvas3D, ja
 NOT_NULL
 javax.media.j3d.RasterRetained void computeWinCoord(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, javax.vecmath.Point2d, javax.vecmath.Point3d) 1
 NOT_NULL
-javax.media.j3d.RasterRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
+@Propagated javax.media.j3d.RasterRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
 NOT_NULL
 javax.media.j3d.RasterRetained void getDstOffset(java.awt.Point) 0
 NOT_NULL
@@ -3482,11 +3482,11 @@ javax.media.j3d.RenderBin void updateRendererResource(javax.media.j3d.Renderer) 
 NULLABLE
 javax.media.j3d.RenderBin void updateTransparentInfo(javax.media.j3d.RenderAtom) 0
 NOT_NULL
-javax.media.j3d.RenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 0
+@Propagated javax.media.j3d.RenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 0
 NOT_NULL
-javax.media.j3d.RenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
+@Propagated javax.media.j3d.RenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
-javax.media.j3d.RenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
+@Propagated javax.media.j3d.RenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
 javax.media.j3d.RenderMolecule RenderMolecule(javax.media.j3d.GeometryAtom, javax.media.j3d.PolygonAttributesRetained, javax.media.j3d.LineAttributesRetained, javax.media.j3d.PointAttributesRetained, javax.media.j3d.MaterialRetained, javax.media.j3d.ColoringAttributesRetained, javax.media.j3d.TransparencyAttributesRetained, javax.media.j3d.RenderingAttributesRetained, javax.media.j3d.TextureUnitStateRetained[], javax.media.j3d.Transform3D[], int[], javax.media.j3d.RenderBin) 0
 NOT_NULL
@@ -3526,7 +3526,7 @@ javax.media.j3d.Renderer ACCUM_SAMPLES_X
 NOT_NULL
 javax.media.j3d.Renderer ACCUM_SAMPLES_Y
 NOT_NULL
-javax.media.j3d.RendererStructure void removeNodes(javax.media.j3d.J3dMessage) 0
+@Propagated javax.media.j3d.RendererStructure void removeNodes(javax.media.j3d.J3dMessage) 0
 NOT_NULL
 javax.media.j3d.RenderingAttributes javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
@@ -3536,7 +3536,7 @@ javax.media.j3d.RenderingAttributesRetained boolean equivalent(javax.media.j3d.R
 NULLABLE
 javax.media.j3d.RenderingAttributesRetained void set(javax.media.j3d.RenderingAttributesRetained) 0
 NOT_NULL
-javax.media.j3d.RenderingAttributesStructure void removeNodes(javax.media.j3d.J3dMessage) 0
+@Propagated javax.media.j3d.RenderingAttributesStructure void removeNodes(javax.media.j3d.J3dMessage) 0
 NOT_NULL
 javax.media.j3d.RenderingAttributesStructure void updateNodeComponent(java.lang.Object[]) 0
 NOT_NULL
@@ -3738,13 +3738,13 @@ javax.media.j3d.SceneGraphObjectRetained java.lang.Object clone()
 NULLABLE
 javax.media.j3d.SceneGraphObjectRetained javax.media.j3d.VirtualUniverse getVirtualUniverse()
 NULLABLE
-javax.media.j3d.SceneGraphObjectRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.SceneGraphObjectRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
 javax.media.j3d.SceneGraphObjectRetained void doSetLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.SceneGraphObjectRetained void merge(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.SceneGraphObjectRetained void merge(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.SceneGraphObjectRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.SceneGraphObjectRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.SceneGraphObjectRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -3836,7 +3836,7 @@ javax.media.j3d.Shape3D javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.Shape3D void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.Shape3D void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.Shape3D void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.Shape3DCompileRetained Shape3DCompileRetained(javax.media.j3d.Shape3DRetained[], int, int) 0
 NOT_NULL
@@ -3870,7 +3870,7 @@ javax.media.j3d.Shape3DRetained javax.media.j3d.Bounds getCollisionBounds(int)
 NULLABLE
 javax.media.j3d.Shape3DRetained javax.media.j3d.Bounds getEffectiveBounds()
 NULLABLE
-javax.media.j3d.Shape3DRetained javax.media.j3d.Bounds getLocalBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Shape3DRetained javax.media.j3d.Bounds getLocalBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.Shape3DRetained javax.media.j3d.Geometry getGeometry(int, int)
 NULLABLE
@@ -3886,13 +3886,13 @@ javax.media.j3d.Shape3DRetained void checkEquivalenceClass(javax.media.j3d.Geome
 NULLABLE
 javax.media.j3d.Shape3DRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.Shape3DRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.Shape3DRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.Shape3DRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Shape3DRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
 javax.media.j3d.Shape3DRetained void doSetLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.Shape3DRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
+@Propagated javax.media.j3d.Shape3DRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
 NOT_NULL
 javax.media.j3d.Shape3DRetained void initMirrorShape3D(javax.media.j3d.SetLiveState, javax.media.j3d.MorphRetained, int) 0
 NOT_NULL
@@ -3904,7 +3904,7 @@ javax.media.j3d.Shape3DRetained void initMirrorShape3D(javax.media.j3d.SetLiveSt
 NOT_NULL
 javax.media.j3d.Shape3DRetained void initializeGAtom(javax.media.j3d.Shape3DRetained) 0
 NOT_NULL
-javax.media.j3d.Shape3DRetained void merge(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.Shape3DRetained void merge(javax.media.j3d.CompileState) 0
 NOT_NULL
 javax.media.j3d.Shape3DRetained void searchGeometryAtoms(javax.media.j3d.UnorderList) 0
 NOT_NULL
@@ -3914,11 +3914,11 @@ javax.media.j3d.Shape3DRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.Shape3DRetained void setMorphGeometry(javax.media.j3d.Geometry, java.util.ArrayList) 1
 NOT_NULL
-javax.media.j3d.Shape3DRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[]) 1
+@Propagated javax.media.j3d.Shape3DRetained void updateCollidable(javax.media.j3d.HashKey[], boolean[]) 1
 NOT_NULL
 javax.media.j3d.Shape3DRetained void updateImmediateMirrorObject(java.lang.Object[]) 0
 NOT_NULL
-javax.media.j3d.Shape3DRetained void updatePickable(javax.media.j3d.HashKey[], boolean[]) 1
+@Propagated javax.media.j3d.Shape3DRetained void updatePickable(javax.media.j3d.HashKey[], boolean[]) 1
 NOT_NULL
 javax.media.j3d.SharedGroup javax.media.j3d.Link[] getLinks()
 NOT_NULL
@@ -3936,7 +3936,7 @@ javax.media.j3d.SharedGroupRetained void childCheckSetLive(javax.media.j3d.NodeR
 NOT_NULL
 javax.media.j3d.SharedGroupRetained void childCheckSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 2
 NOT_NULL
-javax.media.j3d.SharedGroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.SharedGroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
 NULLABLE
 javax.media.j3d.SharedGroupRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 2
 NOT_NULL
@@ -3978,11 +3978,11 @@ javax.media.j3d.SoundRetained void changeAtomList(javax.media.j3d.SoundScheduler
 NULLABLE
 javax.media.j3d.SoundRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.SoundRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
+@Propagated javax.media.j3d.SoundRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
 NOT_NULL
 javax.media.j3d.SoundRetained void initMirrorObject(javax.media.j3d.SoundRetained) 0
 NOT_NULL
-javax.media.j3d.SoundRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.SoundRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.SoundRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -4076,7 +4076,7 @@ javax.media.j3d.Soundscape javax.media.j3d.Node cloneNode(boolean)
 NOT_NULL
 javax.media.j3d.Soundscape void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
-javax.media.j3d.Soundscape void duplicateNode(javax.media.j3d.Node, boolean) 0
+@Propagated javax.media.j3d.Soundscape void duplicateNode(javax.media.j3d.Node, boolean) 0
 NOT_NULL
 javax.media.j3d.SoundscapeRetained javax.media.j3d.AuralAttributes getAuralAttributes()
 NULLABLE
@@ -4088,7 +4088,7 @@ javax.media.j3d.SoundscapeRetained void clearLive(javax.media.j3d.SetLiveState) 
 NOT_NULL
 javax.media.j3d.SoundscapeRetained void getMirrorObjects(java.util.ArrayList, javax.media.j3d.HashKey) 0
 NOT_NULL
-javax.media.j3d.SoundscapeRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
+@Propagated javax.media.j3d.SoundscapeRetained void mergeTransform(javax.media.j3d.TransformGroupRetained) 0
 NOT_NULL
 javax.media.j3d.SoundscapeRetained void setLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -4128,17 +4128,17 @@ javax.media.j3d.SwitchRetained javax.media.j3d.CachedTargets getCachedTargets(in
 NULLABLE
 javax.media.j3d.SwitchRetained javax.media.j3d.Node currentChild()
 NULLABLE
-javax.media.j3d.SwitchRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.SwitchRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 0
 NULLABLE
 javax.media.j3d.SwitchRetained void childDoSetLive(javax.media.j3d.NodeRetained, int, javax.media.j3d.SetLiveState) 2
 NOT_NULL
 javax.media.j3d.SwitchRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.SwitchRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.SwitchRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
-javax.media.j3d.SwitchRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.SwitchRetained void computeCombineBounds(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.SwitchRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
+@Propagated javax.media.j3d.SwitchRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
 javax.media.j3d.SwitchRetained void setAuxData(javax.media.j3d.SetLiveState, int, int) 0
 NOT_NULL
@@ -4170,9 +4170,9 @@ javax.media.j3d.Targets javax.media.j3d.CachedTargets snapShotInit()
 NOT_NULL
 javax.media.j3d.Targets javax.media.j3d.CachedTargets snapShotRemove(javax.media.j3d.CachedTargets)
 NOT_NULL
-javax.media.j3d.TargetsInterface java.util.ArrayList getTargetsData(int, int)
+@Propagated javax.media.j3d.TargetsInterface java.util.ArrayList getTargetsData(int, int)
 NULLABLE
-javax.media.j3d.TargetsInterface javax.media.j3d.CachedTargets getCachedTargets(int, int, int)
+@Propagated javax.media.j3d.TargetsInterface javax.media.j3d.CachedTargets getCachedTargets(int, int, int)
 NULLABLE
 javax.media.j3d.TexCoordGeneration javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
@@ -4214,11 +4214,11 @@ javax.media.j3d.Text3DRenderMethod boolean render(javax.media.j3d.RenderMolecule
 NOT_NULL
 javax.media.j3d.Text3DRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
-javax.media.j3d.Text3DRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
+@Propagated javax.media.j3d.Text3DRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
-javax.media.j3d.Text3DRetained boolean intersect(javax.media.j3d.Bounds) 0
+@Propagated javax.media.j3d.Text3DRetained boolean intersect(javax.media.j3d.Bounds) 0
 NOT_NULL
-javax.media.j3d.Text3DRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
+@Propagated javax.media.j3d.Text3DRetained boolean intersect(javax.media.j3d.PickShape, double[], javax.vecmath.Point3d) 0
 NOT_NULL
 javax.media.j3d.Text3DRetained boolean intersect(javax.vecmath.Point3d[]) 0
 NOT_NULL
@@ -4226,7 +4226,7 @@ javax.media.j3d.Text3DRetained java.util.ArrayList getUniqueSource(java.util.Arr
 NOT_NULL
 javax.media.j3d.Text3DRetained java.util.ArrayList getUniqueSource(java.util.ArrayList) 0
 NOT_NULL
-javax.media.j3d.Text3DRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
+@Propagated javax.media.j3d.Text3DRetained void execute(javax.media.j3d.Canvas3D, javax.media.j3d.RenderAtom, boolean, boolean, float, boolean, int, boolean, int) 0
 NOT_NULL
 javax.media.j3d.Text3DRetained void getBoundingBox(javax.media.j3d.BoundingBox) 0
 NOT_NULL
@@ -4256,7 +4256,7 @@ javax.media.j3d.Texture2D javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
 javax.media.j3d.Texture2D void duplicateAttributes(javax.media.j3d.NodeComponent, boolean) 0
 NOT_NULL
-javax.media.j3d.Texture2D void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
+@Propagated javax.media.j3d.Texture2D void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
 javax.media.j3d.Texture2DRetained javax.media.j3d.ImageComponent2D getDetailImage()
 NULLABLE
@@ -4280,7 +4280,7 @@ javax.media.j3d.Texture3D javax.media.j3d.NodeComponent cloneNodeComponent()
 NOT_NULL
 javax.media.j3d.Texture3D void duplicateAttributes(javax.media.j3d.NodeComponent, boolean) 0
 NOT_NULL
-javax.media.j3d.Texture3D void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
+@Propagated javax.media.j3d.Texture3D void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
 javax.media.j3d.Texture3DRetained void reloadTextureImage(javax.media.j3d.Canvas3D, int, int, javax.media.j3d.ImageComponentRetained, int) 0
 NOT_NULL
@@ -4366,15 +4366,15 @@ javax.media.j3d.TextureCubeMap javax.media.j3d.ImageComponent getImage(int, int)
 NULLABLE
 javax.media.j3d.TextureCubeMap javax.media.j3d.ImageComponent[] getImages(int)
 NULLABLE
-javax.media.j3d.TextureCubeMap void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
+@Propagated javax.media.j3d.TextureCubeMap void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
 javax.media.j3d.TextureCubeMap void setImage(int, int, javax.media.j3d.ImageComponent2D) 2
 NOT_NULL
-javax.media.j3d.TextureCubeMap void setImage(int, javax.media.j3d.ImageComponent) 1
+@Propagated javax.media.j3d.TextureCubeMap void setImage(int, javax.media.j3d.ImageComponent) 1
 NOT_NULL
 javax.media.j3d.TextureCubeMap void setImages(int, javax.media.j3d.ImageComponent2D[]) 1
 NOT_NULL
-javax.media.j3d.TextureCubeMap void setImages(javax.media.j3d.ImageComponent[]) 0
+@Propagated javax.media.j3d.TextureCubeMap void setImages(javax.media.j3d.ImageComponent[]) 0
 NOT_NULL
 javax.media.j3d.TextureCubeMapRetained javax.media.j3d.ImageComponent getImage(int, int)
 NULLABLE
@@ -4388,7 +4388,7 @@ javax.media.j3d.TextureCubeMapRetained void setImage(int, int, javax.media.j3d.I
 NOT_NULL
 javax.media.j3d.TextureCubeMapRetained void setImages(int, javax.media.j3d.ImageComponent[]) 1
 NOT_NULL
-javax.media.j3d.TextureCubeMapRetained void updateTextureDimensions(javax.media.j3d.Canvas3D) 0
+@Propagated javax.media.j3d.TextureCubeMapRetained void updateTextureDimensions(javax.media.j3d.Canvas3D) 0
 NOT_NULL
 javax.media.j3d.TextureCubeMapRetained void updateTextureImage(javax.media.j3d.Canvas3D, int, int, int, int, int, int, int, int, byte[]) 0
 NOT_NULL
@@ -4430,7 +4430,7 @@ javax.media.j3d.TextureRetained void reloadTextureImage(javax.media.j3d.Canvas3D
 NOT_NULL
 javax.media.j3d.TextureRetained void reloadTextureImage(javax.media.j3d.Canvas3D, int, int, javax.media.j3d.ImageComponentRetained, int) 3
 NOT_NULL
-javax.media.j3d.TextureRetained void reloadTextureSubImage(javax.media.j3d.Canvas3D, int, int, javax.media.j3d.ImageComponentUpdateInfo, javax.media.j3d.ImageComponentRetained) 0
+@Propagated javax.media.j3d.TextureRetained void reloadTextureSubImage(javax.media.j3d.Canvas3D, int, int, javax.media.j3d.ImageComponentUpdateInfo, javax.media.j3d.ImageComponentRetained) 0
 NOT_NULL
 javax.media.j3d.TextureRetained void reloadTextureSubImage(javax.media.j3d.Canvas3D, int, int, javax.media.j3d.ImageComponentUpdateInfo, javax.media.j3d.ImageComponentRetained) 3
 NOT_NULL
@@ -4464,7 +4464,7 @@ javax.media.j3d.TextureUnitState javax.media.j3d.TextureAttributes getTextureAtt
 NULLABLE
 javax.media.j3d.TextureUnitState void duplicateAttributes(javax.media.j3d.NodeComponent, boolean) 0
 NOT_NULL
-javax.media.j3d.TextureUnitState void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
+@Propagated javax.media.j3d.TextureUnitState void duplicateNodeComponent(javax.media.j3d.NodeComponent) 0
 NOT_NULL
 javax.media.j3d.TextureUnitStateRetained boolean equals(javax.media.j3d.TextureUnitStateRetained) 0
 NULLABLE
@@ -4812,7 +4812,7 @@ javax.media.j3d.TransformInterpolator TransformInterpolator(javax.media.j3d.Alph
 NOT_NULL
 javax.media.j3d.TransformInterpolator javax.media.j3d.Transform3D getTransformAxis()
 NOT_NULL
-javax.media.j3d.TransformInterpolator void computeTransform(float, javax.media.j3d.Transform3D) 1
+@Propagated javax.media.j3d.TransformInterpolator void computeTransform(float, javax.media.j3d.Transform3D) 1
 NOT_NULL
 javax.media.j3d.TransformInterpolator void duplicateAttributes(javax.media.j3d.Node, boolean) 0
 NOT_NULL
@@ -4884,7 +4884,7 @@ javax.media.j3d.VertexArrayRenderMethod boolean render(javax.media.j3d.RenderMol
 NOT_NULL
 javax.media.j3d.VertexArrayRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 1
 NOT_NULL
-javax.media.j3d.VertexArrayRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
+@Propagated javax.media.j3d.VertexArrayRenderMethod boolean render(javax.media.j3d.RenderMolecule, javax.media.j3d.Canvas3D, int, javax.media.j3d.RenderAtomListInfo, int) 3
 NULLABLE
 javax.media.j3d.VertexArrayRenderMethod void renderGeo(javax.media.j3d.RenderAtomListInfo, javax.media.j3d.RenderMolecule, int, javax.media.j3d.Canvas3D) 0
 NOT_NULL
@@ -4962,7 +4962,7 @@ javax.media.j3d.ViewSpecificGroup void duplicateAttributes(javax.media.j3d.Node,
 NOT_NULL
 javax.media.j3d.ViewSpecificGroupRetained void clearLive(javax.media.j3d.SetLiveState) 0
 NOT_NULL
-javax.media.j3d.ViewSpecificGroupRetained void compile(javax.media.j3d.CompileState) 0
+@Propagated javax.media.j3d.ViewSpecificGroupRetained void compile(javax.media.j3d.CompileState) 0
 NOT_NULL
 javax.media.j3d.ViewSpecificGroupRetained void removeNodeData(javax.media.j3d.SetLiveState) 0
 NOT_NULL
@@ -4982,25 +4982,25 @@ javax.media.j3d.VirtualUniverse void removeLocale(javax.media.j3d.Locale) 0
 NOT_NULL
 javax.media.j3d.WakeupAnd WakeupAnd(javax.media.j3d.WakeupCriterion[]) 0
 NOT_NULL
-javax.media.j3d.WakeupAnd void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
+@Propagated javax.media.j3d.WakeupAnd void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
 NOT_NULL
 javax.media.j3d.WakeupAndOfOrs WakeupAndOfOrs(javax.media.j3d.WakeupOr[]) 0
 NOT_NULL
-javax.media.j3d.WakeupAndOfOrs void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
+@Propagated javax.media.j3d.WakeupAndOfOrs void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
 NOT_NULL
-javax.media.j3d.WakeupCondition void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
+@Propagated javax.media.j3d.WakeupCondition void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
 NOT_NULL
 javax.media.j3d.WakeupCriteriaEnumerator WakeupCriteriaEnumerator(javax.media.j3d.WakeupCondition, int) 0
 NOT_NULL
 javax.media.j3d.WakeupCriteriaEnumerator void reset(javax.media.j3d.WakeupCondition, int) 0
 NOT_NULL
-javax.media.j3d.WakeupCriterion void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupCriterion void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupCriterion void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
 NOT_NULL
-javax.media.j3d.WakeupCriterion void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupCriterion void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupCriterion void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupCriterion void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupIndexedList boolean contains(javax.media.j3d.WakeupCondition) 0
 NOT_NULL
@@ -5036,13 +5036,13 @@ javax.media.j3d.WakeupOnActivation void addBehaviorCondition(javax.media.j3d.Beh
 NOT_NULL
 javax.media.j3d.WakeupOnActivation void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnActivation void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnActivation void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnBehaviorPost void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnBehaviorPost void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnBehaviorPost void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnBehaviorPost void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnCollisionEntry WakeupOnCollisionEntry(javax.media.j3d.Bounds) 0
 NOT_NULL
@@ -5080,11 +5080,11 @@ javax.media.j3d.WakeupOnCollisionEntry javax.media.j3d.SceneGraphPath getSceneGr
 NOT_NULL
 javax.media.j3d.WakeupOnCollisionEntry javax.media.j3d.SceneGraphPath getTriggeringPath()
 NULLABLE
-javax.media.j3d.WakeupOnCollisionEntry void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionEntry void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnCollisionEntry void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionEntry void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnCollisionEntry void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionEntry void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnCollisionEntry void setTarget(javax.media.j3d.BHLeafInterface) 0
 NOT_NULL
@@ -5104,11 +5104,11 @@ javax.media.j3d.WakeupOnCollisionExit javax.media.j3d.SceneGraphPath getArmingPa
 NULLABLE
 javax.media.j3d.WakeupOnCollisionExit javax.media.j3d.SceneGraphPath getTriggeringPath()
 NULLABLE
-javax.media.j3d.WakeupOnCollisionExit void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionExit void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnCollisionExit void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionExit void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnCollisionExit void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionExit void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnCollisionExit void setTarget(javax.media.j3d.BHLeafInterface) 0
 NOT_NULL
@@ -5128,11 +5128,11 @@ javax.media.j3d.WakeupOnCollisionMovement javax.media.j3d.SceneGraphPath getArmi
 NULLABLE
 javax.media.j3d.WakeupOnCollisionMovement javax.media.j3d.SceneGraphPath getTriggeringPath()
 NULLABLE
-javax.media.j3d.WakeupOnCollisionMovement void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionMovement void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnCollisionMovement void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionMovement void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnCollisionMovement void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnCollisionMovement void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnCollisionMovement void setTarget(javax.media.j3d.BHLeafInterface) 0
 NOT_NULL
@@ -5140,19 +5140,19 @@ javax.media.j3d.WakeupOnDeactivation void addBehaviorCondition(javax.media.j3d.B
 NOT_NULL
 javax.media.j3d.WakeupOnDeactivation void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnDeactivation void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnDeactivation void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnElapsedFrames void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnElapsedFrames void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnElapsedFrames void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnElapsedFrames void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnElapsedTime void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnElapsedTime void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnElapsedTime void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnElapsedTime void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnElapsedTime void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnElapsedTime void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnElapsedTimeHeap java.lang.Object clone()
 NOT_NULL
@@ -5164,7 +5164,7 @@ javax.media.j3d.WakeupOnSensorEntry void addBehaviorCondition(javax.media.j3d.Be
 NOT_NULL
 javax.media.j3d.WakeupOnSensorEntry void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnSensorEntry void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnSensorEntry void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnSensorExit WakeupOnSensorExit(javax.media.j3d.Bounds) 0
 NOT_NULL
@@ -5172,15 +5172,15 @@ javax.media.j3d.WakeupOnSensorExit void addBehaviorCondition(javax.media.j3d.Beh
 NOT_NULL
 javax.media.j3d.WakeupOnSensorExit void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnSensorExit void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnSensorExit void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnTransformChange WakeupOnTransformChange(javax.media.j3d.TransformGroup) 0
 NOT_NULL
-javax.media.j3d.WakeupOnTransformChange void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnTransformChange void addBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnTransformChange void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnTransformChange void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnTransformChange void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnTransformChange void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnViewPlatformEntry WakeupOnViewPlatformEntry(javax.media.j3d.Bounds) 0
 NOT_NULL
@@ -5190,7 +5190,7 @@ javax.media.j3d.WakeupOnViewPlatformEntry void addBehaviorCondition(javax.media.
 NOT_NULL
 javax.media.j3d.WakeupOnViewPlatformEntry void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnViewPlatformEntry void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnViewPlatformEntry void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnViewPlatformEntry void updateTransformRegion(javax.media.j3d.BehaviorRetained) 0
 NOT_NULL
@@ -5202,15 +5202,15 @@ javax.media.j3d.WakeupOnViewPlatformExit void addBehaviorCondition(javax.media.j
 NOT_NULL
 javax.media.j3d.WakeupOnViewPlatformExit void removeBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
-javax.media.j3d.WakeupOnViewPlatformExit void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
+@Propagated javax.media.j3d.WakeupOnViewPlatformExit void resetBehaviorCondition(javax.media.j3d.BehaviorStructure) 0
 NOT_NULL
 javax.media.j3d.WakeupOnViewPlatformExit void updateTransformRegion(javax.media.j3d.BehaviorRetained) 0
 NOT_NULL
 javax.media.j3d.WakeupOr WakeupOr(javax.media.j3d.WakeupCriterion[]) 0
 NOT_NULL
-javax.media.j3d.WakeupOr void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
+@Propagated javax.media.j3d.WakeupOr void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
 NOT_NULL
 javax.media.j3d.WakeupOrOfAnds WakeupOrOfAnds(javax.media.j3d.WakeupAnd[]) 0
 NOT_NULL
-javax.media.j3d.WakeupOrOfAnds void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
+@Propagated javax.media.j3d.WakeupOrOfAnds void buildTree(javax.media.j3d.WakeupCondition, int, javax.media.j3d.BehaviorRetained) 2
 NOT_NULL

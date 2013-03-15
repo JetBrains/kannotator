@@ -2,19 +2,19 @@ edu.uci.ics.jung.visualization.BasicTransformer edu.uci.ics.jung.visualization.t
 NULLABLE
 edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape transform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape transform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.BasicTransformer java.awt.Shape transform(java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)
 NULLABLE
-edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)
 NULLABLE
-edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.BasicTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
 edu.uci.ics.jung.visualization.BasicVisualizationServer BasicVisualizationServer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
 NOT_NULL
@@ -32,7 +32,7 @@ edu.uci.ics.jung.visualization.BasicVisualizationServer void paintComponent(java
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer void renderGraph(java.awt.Graphics2D) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.BasicVisualizationServer void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
+@Propagated edu.uci.ics.jung.visualization.BasicVisualizationServer void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.BasicVisualizationServer void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
 NOT_NULL
@@ -100,15 +100,15 @@ edu.uci.ics.jung.visualization.Layer LAYOUT
 NOT_NULL
 edu.uci.ics.jung.visualization.Layer VIEW
 NOT_NULL
-edu.uci.ics.jung.visualization.MultiLayerTransformer edu.uci.ics.jung.visualization.transform.MutableTransformer getTransformer(edu.uci.ics.jung.visualization.Layer)
+@Propagated edu.uci.ics.jung.visualization.MultiLayerTransformer edu.uci.ics.jung.visualization.transform.MutableTransformer getTransformer(edu.uci.ics.jung.visualization.Layer)
 NULLABLE
-edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.Shape inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.Shape inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.Shape transform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.Shape transform(edu.uci.ics.jung.visualization.Layer, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.geom.Point2D inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)
+@Propagated edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.geom.Point2D inverseTransform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)
 NULLABLE
-edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.geom.Point2D transform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)
+@Propagated edu.uci.ics.jung.visualization.MultiLayerTransformer java.awt.geom.Point2D transform(edu.uci.ics.jung.visualization.Layer, java.awt.geom.Point2D)
 NULLABLE
 edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.Shape bottomEdge(java.awt.image.BufferedImage, java.awt.geom.GeneralPath, int)
 NOT_NULL
@@ -144,13 +144,13 @@ edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.geom.Point2D detectL
 NULLABLE
 edu.uci.ics.jung.visualization.PivotingImageShaper java.awt.geom.Point2D detectLine(java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Point2D, java.awt.geom.Line2D, java.awt.geom.GeneralPath) 3
 NOT_NULL
-edu.uci.ics.jung.visualization.PluggableRenderContext void setEdgeLabelTransformer(org.apache.commons.collections15.Transformer<E,java.lang.String>) 0
+@Propagated edu.uci.ics.jung.visualization.PluggableRenderContext void setEdgeLabelTransformer(org.apache.commons.collections15.Transformer<E,java.lang.String>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.PluggableRenderContext void setEdgeShapeTransformer(org.apache.commons.collections15.Transformer<edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>,java.awt.Shape>) 0
+@Propagated edu.uci.ics.jung.visualization.PluggableRenderContext void setEdgeShapeTransformer(org.apache.commons.collections15.Transformer<edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>,java.awt.Shape>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.PluggableRenderContext void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
+@Propagated edu.uci.ics.jung.visualization.PluggableRenderContext void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.PluggableRenderContext void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
+@Propagated edu.uci.ics.jung.visualization.PluggableRenderContext void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.PluggableRenderContext void setScreenDevice(javax.swing.JComponent) 0
 NOT_NULL
@@ -168,11 +168,11 @@ edu.uci.ics.jung.visualization.RenderContext void setEdgeLabelTransformer(org.ap
 NOT_NULL
 edu.uci.ics.jung.visualization.RenderContext void setEdgeShapeTransformer(org.apache.commons.collections15.Transformer<edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>,java.awt.Shape>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.RenderContext void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
+@Propagated edu.uci.ics.jung.visualization.RenderContext void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.RenderContext void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
+@Propagated edu.uci.ics.jung.visualization.RenderContext void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.RenderContext void setScreenDevice(javax.swing.JComponent) 0
+@Propagated edu.uci.ics.jung.visualization.RenderContext void setScreenDevice(javax.swing.JComponent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.RenderContext.DirectedEdgeArrowPredicate boolean evaluate(edu.uci.ics.jung.graph.util.Context<edu.uci.ics.jung.graph.Graph<V,E>,E>) 0
 NOT_NULL
@@ -188,21 +188,21 @@ edu.uci.ics.jung.visualization.VisualizationImageServer java.awt.Image getImage(
 NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationImageServer java.awt.Image getImage(java.awt.geom.Point2D, java.awt.Dimension) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
+@Propagated edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
+@Propagated edu.uci.ics.jung.visualization.VisualizationModel void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Dimension) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationServer edu.uci.ics.jung.visualization.RenderContext<V,E> getRenderContext()
+@Propagated edu.uci.ics.jung.visualization.VisualizationServer edu.uci.ics.jung.visualization.RenderContext<V,E> getRenderContext()
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationServer java.awt.geom.Point2D getCenter()
+@Propagated edu.uci.ics.jung.visualization.VisualizationServer java.awt.geom.Point2D getCenter()
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationServer void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
+@Propagated edu.uci.ics.jung.visualization.VisualizationServer void setGraphLayout(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationServer void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
+@Propagated edu.uci.ics.jung.visualization.VisualizationServer void setPickedEdgeState(edu.uci.ics.jung.visualization.picking.PickedState<E>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationServer void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
+@Propagated edu.uci.ics.jung.visualization.VisualizationServer void setPickedVertexState(edu.uci.ics.jung.visualization.picking.PickedState<V>) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.VisualizationServer.Paintable void paint(java.awt.Graphics) 0
+@Propagated edu.uci.ics.jung.visualization.VisualizationServer.Paintable void paint(java.awt.Graphics) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.VisualizationViewer VisualizationViewer(edu.uci.ics.jung.algorithms.layout.Layout<V,E>) 0
 NOT_NULL
@@ -308,7 +308,7 @@ edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse.3 void itemStateC
 NOT_NULL
 edu.uci.ics.jung.visualization.control.AbstractModalGraphMouse.ModeListener void itemStateChanged(java.awt.event.ItemEvent) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin void handlePopup(java.awt.event.MouseEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin void handlePopup(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.AbstractPopupGraphMousePlugin void mousePressed(java.awt.event.MouseEvent) 0
 NOT_NULL
@@ -346,9 +346,9 @@ edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void transformEdg
 NOT_NULL
 edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin void transformEdgeShape(java.awt.geom.Point2D, java.awt.geom.Point2D) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.ArrowPaintable void paint(java.awt.Graphics) 0
+@Propagated edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.ArrowPaintable void paint(java.awt.Graphics) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.EdgePaintable void paint(java.awt.Graphics) 0
+@Propagated edu.uci.ics.jung.visualization.control.EditingGraphMousePlugin.EdgePaintable void paint(java.awt.Graphics) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.EditingModalGraphMouse EditingModalGraphMouse(edu.uci.ics.jung.visualization.RenderContext<V,E>, org.apache.commons.collections15.Factory<V>, org.apache.commons.collections15.Factory<E>) 0
 NOT_NULL
@@ -368,7 +368,7 @@ edu.uci.ics.jung.visualization.control.EditingPopupGraphMousePlugin void handleP
 NOT_NULL
 edu.uci.ics.jung.visualization.control.GraphMouseAdapter boolean checkModifiers(java.awt.event.MouseEvent) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.GraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.GraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.LabelEditingGraphMousePlugin void mouseClicked(java.awt.event.MouseEvent) 0
 NOT_NULL
@@ -436,7 +436,7 @@ edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin double angleBetw
 NOT_NULL
 edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin double angleBetween(java.awt.geom.Point2D, java.awt.geom.Point2D) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent) 0
 NOT_NULL
@@ -444,11 +444,11 @@ edu.uci.ics.jung.visualization.control.RotatingGraphMousePlugin void mouseReleas
 NOT_NULL
 edu.uci.ics.jung.visualization.control.SatelliteAnimatedPickingGraphMousePlugin void mouseReleased(java.awt.event.MouseEvent) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.SatelliteRotatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.SatelliteScalingGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.SatelliteShearingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.SatelliteTranslatingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
 NOT_NULL
@@ -466,13 +466,13 @@ edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer SatelliteVis
 NOT_NULL
 edu.uci.ics.jung.visualization.control.SatelliteVisualizationViewer.ViewLens void paint(java.awt.Graphics) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.ScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer<?,?>, float, java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.control.ScalingControl void scale(edu.uci.ics.jung.visualization.VisualizationServer<?,?>, float, java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin boolean checkModifiers(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.ScalingGraphMousePlugin void mouseWheelMoved(java.awt.event.MouseWheelEvent) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
+@Propagated edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin void mouseDragged(java.awt.event.MouseEvent) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.control.ShearingGraphMousePlugin void mousePressed(java.awt.event.MouseEvent) 0
 NOT_NULL
@@ -582,15 +582,15 @@ edu.uci.ics.jung.visualization.picking.ClosestShapePickSupport java.util.Collect
 NULLABLE
 edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
 NULLABLE
-edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+@Propagated edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
 NULLABLE
-edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+@Propagated edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.picking.LayoutLensShapePickSupport java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.picking.ShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
 NULLABLE
@@ -624,15 +624,15 @@ edu.uci.ics.jung.visualization.picking.ShapePickSupport.Style LOWEST
 NOT_NULL
 edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
 NULLABLE
-edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+@Propagated edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport E getEdge(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double)
 NULLABLE
-edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
+@Propagated edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport V getVertex(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, double, double) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.picking.ViewLensShapePickSupport java.util.Collection<V> getVertices(edu.uci.ics.jung.algorithms.layout.Layout<V,E>, java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.BasicEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
 NULLABLE
@@ -718,9 +718,9 @@ edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.aw
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.CenterEdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
 NOT_NULL
@@ -744,21 +744,21 @@ edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer java.awt.Com
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.DefaultVertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, V) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.geom.Line2D, java.awt.Shape) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape)
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape, boolean)
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport java.awt.geom.AffineTransform getReverseArrowTransform(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape, java.awt.Shape, boolean)
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T)
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.EdgeLabelRenderer java.awt.Component getEdgeLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer boolean vertexHit(edu.uci.ics.jung.visualization.RenderContext<V,E>, java.awt.Shape) 0
 NOT_NULL
@@ -770,53 +770,53 @@ edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintVertex
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.GradientVertexRenderer void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer void renderEdgeLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer void renderEdgeLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer void renderVertexLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer void renderVertexLabel(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.Edge edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport getEdgeArrowRenderingSupport()
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Edge edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport getEdgeArrowRenderingSupport()
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.Renderer.Edge void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Edge void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.Edge void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Edge void paintEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP edu.uci.ics.jung.visualization.renderers.EdgeArrowRenderingSupport getEdgeArrowRenderingSupport()
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP void paintEdge(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP void paintEdge(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP void paintEdge(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Edge.NOOP void paintEdge(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.EdgeLabel void labelEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E, java.lang.String) 3
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.EdgeLabel void labelEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E, java.lang.String) 3
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.Renderer.EdgeLabel.NOOP void labelEdge(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object, java.lang.String) 3
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.EdgeLabel.NOOP void labelEdge(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object, java.lang.String) 3
 NULLABLE
-edu.uci.ics.jung.visualization.renderers.Renderer.Vertex void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Vertex void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.Vertex void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Vertex void paintVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.Vertex.NOOP void paintVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Vertex.NOOP void paintVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.Vertex.NOOP void paintVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.Vertex.NOOP void paintVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel void labelVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V, java.lang.String) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel void labelVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V, java.lang.String) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel void labelVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V, java.lang.String) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel void labelVertex(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, V, java.lang.String) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition()
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner getPositioner()
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP void labelVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object, java.lang.String) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP void labelVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object, java.lang.String) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP void labelVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object, java.lang.String) 1
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP void labelVertex(edu.uci.ics.jung.visualization.RenderContext, edu.uci.ics.jung.algorithms.layout.Layout, java.lang.Object, java.lang.String) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.NOOP.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position $VALUES
 NOT_NULL
@@ -840,9 +840,9 @@ edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position SW
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position W
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
+@Propagated edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Positioner edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.ReshapingEdgeRenderer void drawSimpleEdge(edu.uci.ics.jung.visualization.RenderContext<V,E>, edu.uci.ics.jung.algorithms.layout.Layout<V,E>, E) 0
 NOT_NULL
@@ -864,11 +864,11 @@ edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer void labelVe
 NOT_NULL
 edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
+@Propagated edu.uci.ics.jung.visualization.renderers.VertexLabelAsShapeRenderer.1 edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position getPosition(float, float, java.awt.Dimension) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T)
+@Propagated edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T)
 NOT_NULL
-edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 0
+@Propagated edu.uci.ics.jung.visualization.renderers.VertexLabelRenderer java.awt.Component getVertexLabelRendererComponent(javax.swing.JComponent, java.lang.Object, java.awt.Font, boolean, T) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.subLayout.GraphCollapser boolean contains(edu.uci.ics.jung.graph.Graph, java.lang.Object) 0
 NOT_NULL
@@ -912,25 +912,25 @@ edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.Shape transf
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.Shape transform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)
 NULLABLE
 edu.uci.ics.jung.visualization.transform.AffineTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape inverseTransform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape transform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape transform(java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape transform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.Shape transform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)
 NULLABLE
-edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.BidirectionalTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
 edu.uci.ics.jung.visualization.transform.HyperbolicTransformer HyperbolicTransformer(java.awt.Component) 0
 NOT_NULL
@@ -952,21 +952,21 @@ edu.uci.ics.jung.visualization.transform.LensTransformer LensTransformer(java.aw
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer double getDistanceFromCenter(java.awt.geom.Point2D) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape inverseTransform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape transform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape transform(java.awt.Shape)
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.Shape transform(java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D getViewCenter()
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)
+@Propagated edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D)
 NULLABLE
-edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.LensTransformer java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
 edu.uci.ics.jung.visualization.transform.LensTransformer void access$000(edu.uci.ics.jung.visualization.transform.LensTransformer, java.awt.Component) 0
 NOT_NULL
@@ -1000,39 +1000,39 @@ edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void setScale(
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.MutableAffineTransformer void shear(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformer void rotate(double, java.awt.geom.Point2D) 1
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformer void rotate(double, java.awt.geom.Point2D) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformer void scale(double, double, java.awt.geom.Point2D) 2
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformer void scale(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformer void setScale(double, double, java.awt.geom.Point2D) 2
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformer void setScale(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformer void shear(double, double, java.awt.geom.Point2D) 2
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformer void shear(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator MutableTransformerDecorator(edu.uci.ics.jung.visualization.transform.MutableTransformer) 0
 NULLABLE
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape inverseTransform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape inverseTransform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape inverseTransform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape transform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape transform(java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape transform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.Shape transform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D inverseTransform(java.awt.geom.Point2D) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D transform(java.awt.geom.Point2D)
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D transform(java.awt.geom.Point2D)
 NULLABLE
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator java.awt.geom.Point2D transform(java.awt.geom.Point2D) 0
 NULLABLE
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void rotate(double, java.awt.geom.Point2D) 1
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void rotate(double, java.awt.geom.Point2D) 1
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void scale(double, double, java.awt.geom.Point2D) 2
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void scale(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void setScale(double, double, java.awt.geom.Point2D) 2
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void setScale(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void shear(double, double, java.awt.geom.Point2D) 2
+@Propagated edu.uci.ics.jung.visualization.transform.MutableTransformerDecorator void shear(double, double, java.awt.geom.Point2D) 2
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper boolean drawImage(java.awt.Image, java.awt.geom.AffineTransform, java.awt.image.ImageObserver) 1
+@Propagated edu.uci.ics.jung.visualization.transform.shape.Graphics2DWrapper boolean drawImage(java.awt.Image, java.awt.geom.AffineTransform, java.awt.image.ImageObserver) 1
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.GraphicsDecorator void draw(java.awt.Component, javax.swing.CellRendererPane, int, int, int, int, boolean) 0
 NOT_NULL
@@ -1066,7 +1066,7 @@ edu.uci.ics.jung.visualization.transform.shape.Intersector Intersector(java.awt.
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.Intersector void intersectLine(java.awt.geom.Line2D) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 0
+@Propagated edu.uci.ics.jung.visualization.transform.shape.MagnifyIconGraphics void draw(javax.swing.Icon, java.awt.Component, java.awt.Shape, int, int) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.MagnifyImageLensSupport MagnifyImageLensSupport(edu.uci.ics.jung.visualization.VisualizationViewer<V,E>) 0
 NOT_NULL
@@ -1106,17 +1106,17 @@ edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.
 NULLABLE
 edu.uci.ics.jung.visualization.transform.shape.MagnifyShapeTransformer java.awt.geom.Point2D _transform(java.awt.geom.Point2D) 0
 NULLABLE
-edu.uci.ics.jung.visualization.transform.shape.ShapeFlatnessTransformer java.awt.Shape transform(java.awt.Shape, float)
+@Propagated edu.uci.ics.jung.visualization.transform.shape.ShapeFlatnessTransformer java.awt.Shape transform(java.awt.Shape, float)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.ShapeFlatnessTransformer java.awt.Shape transform(java.awt.Shape, float) 0
+@Propagated edu.uci.ics.jung.visualization.transform.shape.ShapeFlatnessTransformer java.awt.Shape transform(java.awt.Shape, float) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape inverseTransform(java.awt.Shape) 0
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape transform(java.awt.Shape)
+@Propagated edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape transform(java.awt.Shape)
 NOT_NULL
-edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape transform(java.awt.Shape) 0
+@Propagated edu.uci.ics.jung.visualization.transform.shape.ShapeTransformer java.awt.Shape transform(java.awt.Shape) 0
 NOT_NULL
 edu.uci.ics.jung.visualization.transform.shape.TransformingGraphics boolean drawImage(java.awt.Image, java.awt.geom.AffineTransform, java.awt.image.ImageObserver) 1
 NOT_NULL

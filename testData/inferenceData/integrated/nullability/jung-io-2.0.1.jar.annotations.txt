@@ -288,9 +288,9 @@ edu.uci.ics.jung.io.graphml.KeyMap void applyKeys(edu.uci.ics.jung.io.graphml.Me
 NOT_NULL
 edu.uci.ics.jung.io.graphml.KeyMap.1 $SwitchMap$edu$uci$ics$jung$io$graphml$Key$ForType
 NOT_NULL
-edu.uci.ics.jung.io.graphml.Metadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
+@Propagated edu.uci.ics.jung.io.graphml.Metadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()
 NOT_NULL
-edu.uci.ics.jung.io.graphml.Metadata java.util.Map<java.lang.String,java.lang.String> getProperties()
+@Propagated edu.uci.ics.jung.io.graphml.Metadata java.util.Map<java.lang.String,java.lang.String> getProperties()
 NOT_NULL
 edu.uci.ics.jung.io.graphml.Metadata.MetadataType $VALUES
 NOT_NULL
@@ -332,7 +332,7 @@ edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
-edu.uci.ics.jung.io.graphml.parser.ElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
+@Propagated edu.uci.ics.jung.io.graphml.parser.ElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)
 NULLABLE
 edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)
 NOT_NULL

@@ -26,13 +26,13 @@ org.jetbrains.jps.builders.java.dependencyView.TypeRepr java.util.Collection<org
 MUTABLE
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType> createClassType(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.util.Collection<java.lang.String>, java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType>) 2
 MUTABLE
-org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+@Propagated org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
 MUTABLE
-org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+@Propagated org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
 MUTABLE
 org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
 MUTABLE
-org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+@Propagated org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
 MUTABLE
 org.jetbrains.jps.incremental.FSOperations void markDirtyFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>, org.jetbrains.jps.incremental.storage.Timestamps, boolean, gnu.trove.THashSet<java.io.File>, java.io.FileFilter) 4
 MUTABLE

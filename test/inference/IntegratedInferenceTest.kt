@@ -163,9 +163,14 @@ class IntegratedInferenceTest : TestCase() {
                 pos, ann -> map.put(pos.toAnnotationKey(), ann)
             }
 
+            val propagatedKeys = inferenceResult.propagatedPositions[inferrerKey]!!.map { it.toAnnotationKey() }
+
             PrintStream(FileOutputStream(outFile)) use {
                 p ->
                 for ((key, ann) in map) {
+                    if (key in propagatedKeys) {
+                        p.print("@Propagated ")
+                    }
                     p.println(key)
                     p.println(ann)
                 }

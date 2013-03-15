@@ -1,28 +1,28 @@
 edu.uci.ics.jung.graph.AbstractGraph E findEdge(V, V)
 NULLABLE
-edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E)
+@Propagated edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E)
 NULLABLE
 edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E) 0
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 0
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 0
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 1
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 1
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 2
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 2
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 2
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 2
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>) 1
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
@@ -32,7 +32,7 @@ edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair<V> getVali
 NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair<V> getValidatedEndpoints(E, edu.uci.ics.jung.graph.util.Pair<? extends V>) 1
 NOT_NULL
-edu.uci.ics.jung.graph.AbstractGraph java.util.Collection<E> findEdgeSet(V, V)
+@Propagated edu.uci.ics.jung.graph.AbstractGraph java.util.Collection<E> findEdgeSet(V, V)
 NULLABLE
 edu.uci.ics.jung.graph.AbstractTypedGraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(E)
 NULLABLE
@@ -84,9 +84,9 @@ edu.uci.ics.jung.graph.DirectedSparseGraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.DirectedSparseGraph V getSource(E)
 NULLABLE
-edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.DirectedSparseGraph boolean addVertex(V) 0
 NOT_NULL
@@ -118,9 +118,9 @@ edu.uci.ics.jung.graph.DirectedSparseMultigraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.DirectedSparseMultigraph V getSource(E)
 NULLABLE
-edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addVertex(V) 0
 NOT_NULL
@@ -154,7 +154,7 @@ edu.uci.ics.jung.graph.OrderedKAryTree V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E)
 NULLABLE
-edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E) 0
+@Propagated edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E) 0
 NOT_NULL
 edu.uci.ics.jung.graph.OrderedKAryTree V getParent(V)
 NULLABLE
@@ -276,9 +276,9 @@ edu.uci.ics.jung.graph.SparseGraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.SparseGraph V getSource(E)
 NULLABLE
-edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.SparseGraph boolean addVertex(V) 0
 NOT_NULL
@@ -312,9 +312,9 @@ edu.uci.ics.jung.graph.SparseMultigraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.SparseMultigraph V getSource(E)
 NULLABLE
-edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.SparseMultigraph boolean addVertex(V) 0
 NOT_NULL
@@ -352,9 +352,9 @@ edu.uci.ics.jung.graph.UndirectedSparseGraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.UndirectedSparseGraph V getSource(E)
 NULLABLE
-edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addVertex(V) 0
 NOT_NULL
@@ -384,15 +384,15 @@ edu.uci.ics.jung.graph.UndirectedSparseMultigraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph V getSource(E)
 NULLABLE
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 2
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 2
 NOT_NULL
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
-edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addVertex(V) 0
 NOT_NULL

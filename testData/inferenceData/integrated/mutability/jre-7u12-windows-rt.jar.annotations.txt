@@ -6,7 +6,7 @@ com.sun.corba.se.impl.io.IIOPInputStream void inputRemoteMembersForReadFields(ja
 MUTABLE
 com.sun.corba.se.impl.io.IIOPInputStream void readFields(java.util.Map) 0
 MUTABLE
-com.sun.corba.se.impl.io.InputStreamHook void readFields(java.util.Map) 0
+@Propagated com.sun.corba.se.impl.io.InputStreamHook void readFields(java.util.Map) 0
 MUTABLE
 com.sun.corba.se.impl.ior.EncapsulationUtility void readIdentifiableSequence(java.util.List, com.sun.corba.se.spi.ior.IdentifiableFactoryFinder, org.omg.CORBA_2_3.portable.InputStream) 0
 MUTABLE
@@ -18,7 +18,7 @@ com.sun.corba.se.impl.oa.poa.POAImpl.DestroyThread void performDestroy(com.sun.c
 MUTABLE
 com.sun.corba.se.impl.orbutil.graph.GraphImpl.1 void visit(com.sun.corba.se.impl.orbutil.graph.Graph, com.sun.corba.se.impl.orbutil.graph.Node, com.sun.corba.se.impl.orbutil.graph.NodeData) 0
 MUTABLE
-com.sun.corba.se.impl.orbutil.graph.GraphImpl.NodeVisitor void visit(com.sun.corba.se.impl.orbutil.graph.Graph, com.sun.corba.se.impl.orbutil.graph.Node, com.sun.corba.se.impl.orbutil.graph.NodeData) 0
+@Propagated com.sun.corba.se.impl.orbutil.graph.GraphImpl.NodeVisitor void visit(com.sun.corba.se.impl.orbutil.graph.Graph, com.sun.corba.se.impl.orbutil.graph.Node, com.sun.corba.se.impl.orbutil.graph.NodeData) 0
 MUTABLE
 com.sun.corba.se.impl.presentation.rmi.PresentationManagerImpl java.util.Set access$000(com.sun.corba.se.impl.presentation.rmi.PresentationManagerImpl, java.lang.Class, com.sun.corba.se.impl.presentation.rmi.PresentationManagerImpl.NodeImpl, com.sun.corba.se.impl.orbutil.graph.Graph) 3
 MUTABLE
@@ -30,7 +30,7 @@ com.sun.corba.se.impl.transport.CorbaContactInfoListImpl void addRemoteContactIn
 MUTABLE
 com.sun.corba.se.impl.transport.SocketOrChannelAcceptorImpl void addToIORTemplate(com.sun.corba.se.spi.ior.IORTemplate, com.sun.corba.se.impl.oa.poa.Policies, java.lang.String) 0
 MUTABLE
-com.sun.corba.se.spi.transport.CorbaAcceptor void addToIORTemplate(com.sun.corba.se.spi.ior.IORTemplate, com.sun.corba.se.impl.oa.poa.Policies, java.lang.String) 0
+@Propagated com.sun.corba.se.spi.transport.CorbaAcceptor void addToIORTemplate(com.sun.corba.se.spi.ior.IORTemplate, com.sun.corba.se.impl.oa.poa.Policies, java.lang.String) 0
 MUTABLE
 com.sun.jmx.mbeanserver.MXBeanSupport void transitiveInterfaces(java.lang.Class<?>, java.util.Set<java.lang.Class<?>>) 1
 MUTABLE
@@ -38,7 +38,7 @@ com.sun.jmx.mbeanserver.Repository void addAllMatching(java.util.Map<java.lang.S
 MUTABLE
 com.sun.jmx.mbeanserver.Repository void addMoiToTb(javax.management.DynamicMBean, javax.management.ObjectName, java.lang.String, java.util.Map<java.lang.String,com.sun.jmx.mbeanserver.NamedObject>, com.sun.jmx.mbeanserver.Repository.RegistrationContext) 3
 MUTABLE
-com.sun.jmx.remote.internal.NotificationBufferFilter void apply(java.util.List<javax.management.remote.TargetedNotification>, javax.management.ObjectName, javax.management.Notification) 0
+@Propagated com.sun.jmx.remote.internal.NotificationBufferFilter void apply(java.util.List<javax.management.remote.TargetedNotification>, javax.management.ObjectName, javax.management.Notification) 0
 MUTABLE
 com.sun.jmx.remote.internal.ServerNotifForwarder.2 void apply(java.util.List<javax.management.remote.TargetedNotification>, javax.management.ObjectName, javax.management.Notification) 0
 MUTABLE
@@ -154,7 +154,7 @@ java.nio.file.FileTreeWalker java.nio.file.FileVisitResult walk(java.nio.file.Pa
 MUTABLE
 java.security.Provider void removeInvalidServices(java.util.Map<java.security.Provider.ServiceKey,java.security.Provider.Service>) 0
 MUTABLE
-java.security.cert.PKIXCertPathChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
+@Propagated java.security.cert.PKIXCertPathChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
 java.text.MessageFormat java.lang.StringBuffer subformat(java.lang.Object[], java.lang.StringBuffer, java.text.FieldPosition, java.util.List) 3
 MUTABLE
@@ -192,9 +192,9 @@ java.util.concurrent.ArrayBlockingQueue int drainTo(java.util.Collection<? super
 MUTABLE
 java.util.concurrent.ArrayBlockingQueue int drainTo(java.util.Collection<? super E>, int) 0
 MUTABLE
-java.util.concurrent.BlockingQueue int drainTo(java.util.Collection<? super E>) 0
+@Propagated java.util.concurrent.BlockingQueue int drainTo(java.util.Collection<? super E>) 0
 MUTABLE
-java.util.concurrent.BlockingQueue int drainTo(java.util.Collection<? super E>, int) 0
+@Propagated java.util.concurrent.BlockingQueue int drainTo(java.util.Collection<? super E>, int) 0
 MUTABLE
 java.util.concurrent.DelayQueue int drainTo(java.util.Collection<? super E>) 0
 MUTABLE
@@ -250,9 +250,9 @@ javax.management.remote.rmi.RMIConnector javax.management.remote.rmi.RMIServer a
 MUTABLE
 javax.management.remote.rmi.RMIConnector javax.management.remote.rmi.RMIServer findRMIServer(javax.management.remote.JMXServiceURL, java.util.Map<java.lang.String,java.lang.Object>) 1
 MUTABLE
-javax.swing.GroupLayout.Group void insertAutopadding(int, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, boolean) 2
+@Propagated javax.swing.GroupLayout.Group void insertAutopadding(int, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, boolean) 2
 MUTABLE
-javax.swing.GroupLayout.Group void insertAutopadding(int, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, boolean) 4
+@Propagated javax.swing.GroupLayout.Group void insertAutopadding(int, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, boolean) 4
 MUTABLE
 javax.swing.GroupLayout.ParallelGroup void insertAutopadding(int, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.AutoPreferredGapSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, java.util.List<javax.swing.GroupLayout.ComponentSpring>, boolean) 2
 MUTABLE
@@ -314,9 +314,9 @@ sun.security.jgss.GSSUtil void populateCredentials(java.util.Set<java.lang.Objec
 MUTABLE
 sun.security.provider.SunEntries void putEntries(java.util.Map<java.lang.Object,java.lang.Object>) 0
 MUTABLE
-sun.security.provider.certpath.AlgorithmChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
+@Propagated sun.security.provider.certpath.AlgorithmChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
-sun.security.provider.certpath.BasicChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
+@Propagated sun.security.provider.certpath.BasicChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
 sun.security.provider.certpath.Builder boolean addMatchingCerts(java.security.cert.X509CertSelector, java.util.Collection<java.security.cert.CertStore>, java.util.Collection<java.security.cert.X509Certificate>, boolean) 2
 MUTABLE
@@ -324,7 +324,7 @@ sun.security.provider.certpath.ConstraintsChecker void check(java.security.cert.
 MUTABLE
 sun.security.provider.certpath.CrlRevocationChecker void buildToNewKey(java.security.cert.X509Certificate, java.security.PublicKey, java.util.Set<java.security.cert.X509Certificate>) 2
 MUTABLE
-sun.security.provider.certpath.CrlRevocationChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
+@Propagated sun.security.provider.certpath.CrlRevocationChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
 sun.security.provider.certpath.CrlRevocationChecker void verifyRevocationStatus(java.security.cert.X509Certificate, java.security.PublicKey, boolean, boolean, java.util.Set<java.security.cert.X509Certificate>, java.util.Set<java.security.cert.TrustAnchor>) 4
 MUTABLE
@@ -340,7 +340,7 @@ sun.security.provider.certpath.IndexedCollectionCertStore void matchX509Certs(ja
 MUTABLE
 sun.security.provider.certpath.KeyChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
-sun.security.provider.certpath.OCSPChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
+@Propagated sun.security.provider.certpath.OCSPChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
 sun.security.provider.certpath.PolicyChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
@@ -356,7 +356,7 @@ sun.security.provider.certpath.SunCertPathBuilder void depthFirstSearchForward(j
 MUTABLE
 sun.security.provider.certpath.SunCertPathBuilder void depthFirstSearchReverse(javax.security.auth.x500.X500Principal, sun.security.provider.certpath.ReverseState, sun.security.provider.certpath.ReverseBuilder, java.util.List<java.util.List<sun.security.provider.certpath.Vertex>>, java.util.LinkedList<java.security.cert.X509Certificate>) 3
 MUTABLE
-sun.security.provider.certpath.UntrustedChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
+@Propagated sun.security.provider.certpath.UntrustedChecker void check(java.security.cert.Certificate, java.util.Collection<java.lang.String>) 1
 MUTABLE
 sun.security.rsa.SunRsaSignEntries void putEntries(java.util.Map<java.lang.Object,java.lang.Object>) 0
 MUTABLE
