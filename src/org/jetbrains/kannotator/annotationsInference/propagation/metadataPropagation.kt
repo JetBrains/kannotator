@@ -21,6 +21,9 @@ import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.jetbrains.kannotator.classHierarchy.*
 import org.jetbrains.kannotator.declarations.MethodTypePosition
 
+public val JB_PROPAGATED: String = "org.jetbrains.kannotator.runtime.annotations.Propagated"
+public val JB_PROPAGATION_KIND: String = "org.jetbrains.kannotator.runtime.annotations.PropagationKind"
+
 fun propagateMetadata<A>(
         graph: HierarchyGraph<Method>,
         lattice: AnnotationLattice<A>,

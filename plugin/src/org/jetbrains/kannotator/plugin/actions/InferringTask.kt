@@ -140,6 +140,12 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                                     "Only nullability annotations are supported by now") as
                             Annotations<NullabilityAnnotation>
 
+                    val propagatedNullabilityPositions =
+                            checkNotNull(
+                                    inferenceResult.propagatedPositions["nullability"],
+                                    "Only nullability annotations are supported by now"
+                            )
+
                     val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayList(file)))
 
                     writeAnnotationsToXMLByPackage(
@@ -147,7 +153,8 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             declarationIndex,
                             null,
                             libIoOutputDir,
-                            inferredNullabilityAnnotations)
+                            inferredNullabilityAnnotations,
+                            propagatedNullabilityPositions)
 
                     inferringProgressIndicator.savingFinished()
                 } catch (e: OutOfMemoryError) {

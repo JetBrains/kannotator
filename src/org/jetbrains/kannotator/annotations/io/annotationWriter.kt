@@ -63,6 +63,8 @@ import org.jetbrains.kannotator.declarations.getInternalPackageName
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
 import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.annotationsInference.propagation.*
+import org.jetbrains.kannotator.runtime.annotations.PropagationKind
 
 fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
@@ -161,15 +163,21 @@ private fun escape(str: String): String {
 
 fun methodsToAnnotationsMap(
         members: Collection<ClassMember>,
-        nullability: Annotations<NullabilityAnnotation>): Map<AnnotationPosition, MutableList<AnnotationData>> {
-
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>
+): Map<AnnotationPosition, MutableList<AnnotationData>> {
     val annotations = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
 
     fun processPosition(pos: AnnotationPosition) {
         val nullAnnotation = nullability[pos]
         if (nullAnnotation == NullabilityAnnotation.NOT_NULL) {
             val data = AnnotationDataImpl(JB_NOT_NULL, hashMap())
-            annotations[pos] = arrayList<AnnotationData>(data)
+            annotations[pos] = arrayListOf<AnnotationData>(data)
+            if (pos in propagatedNullabilityPositions) {
+                val map = HashMap<String, String>()
+                map["value"] = "$JB_PROPAGATION_KIND.NULLABILITY"
+                annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
+            }
         }
     }
 
@@ -191,6 +199,7 @@ fun AnnotationPosition.getPackageName(): String? {
 fun buildAnnotationsDataMap(
         declIndex: DeclarationIndex,
         nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
         classPrefixesToOmit: Set<String>,
         includedClassNames: Set<String>,
         includedPositions: Set<AnnotationPosition>
@@ -209,7 +218,8 @@ fun buildAnnotationsDataMap(
             members.sortByToString().filter { method ->
                 !classPrefixesToOmit.any{p -> method.declaringClass.internal.startsWith(p)}
             },
-            nullability
+            nullability,
+            propagatedNullabilityPositions
     )
 }
 
@@ -219,16 +229,17 @@ fun writeAnnotationsToXMLByPackage(
         srcRoot: File?,
         destRoot: File,
         nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
         classPrefixesToOmit: Set<String> = Collections.emptySet(),
         includedClassNames: Set<String> = Collections.emptySet(),
         includedPositions: Set<AnnotationPosition> = Collections.emptySet()
 ) {
-    val annotations = buildAnnotationsDataMap(declIndex, nullability, classPrefixesToOmit, includedClassNames, includedPositions)
+    val annotations = buildAnnotationsDataMap(declIndex, nullability, propagatedNullabilityPositions, classPrefixesToOmit, includedClassNames, includedPositions)
     val annotationsByPackage = HashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
     for ((pos, data) in annotations) {
         val packageName = pos.getPackageName()
         if (packageName != null) {
-            val map = annotationsByPackage.getOrPut(packageName!!, {hashMap()})
+            val map = annotationsByPackage.getOrPut(packageName!!, {HashMap()})
             map[pos] = data
         }
     }

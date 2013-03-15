@@ -44,6 +44,7 @@ fun main(args: Array<String>) {
             File("lib/jdk-annotations"),
             targetDir,
             annotations,
+            Collections.emptySet(),
             hashSet(
                     "java/beans/beancontext",
                     "javax/management/openmbean",
