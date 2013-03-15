@@ -9,6 +9,8 @@ import util.Classes
 import org.jetbrains.kannotator.annotationsInference.propagation.resolveAllAnnotationConflicts
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.classHierarchy.*
+import org.jetbrains.kannotator.declarations.AnnotationPosition
+import java.util.HashSet
 
 class ConflictResolutionTest: TestCase() {
 
@@ -19,7 +21,7 @@ class ConflictResolutionTest: TestCase() {
 
             val result = AnnotationsImpl(initialAnnotations)
 
-            resolveAllAnnotationConflicts(leafMethodNodes, NullabiltyLattice, result)
+            resolveAllAnnotationConflicts(leafMethodNodes, NullabiltyLattice, result, HashSet<AnnotationPosition>())
 
             result
         }

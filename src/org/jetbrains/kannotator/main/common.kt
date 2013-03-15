@@ -204,7 +204,8 @@ trait AnnotationInferrer<A: Any, I: Qualifier> {
 
 data class InferenceResult<K>(
         val existingAnnotationsMap: Map<K, Annotations<Any>>,
-        val inferredAnnotationsMap: Map<K, Annotations<Any>>
+        val inferredAnnotationsMap: Map<K, Annotations<Any>>,
+        val propagatedPositions: Map<K, Set<AnnotationPosition>>
 )
 
 fun <K> inferAnnotations(
@@ -216,7 +217,8 @@ fun <K> inferAnnotations(
         loadOnly: Boolean = false,
         propagationOverrides: Map<K, Annotations<Any>>,
         existingAnnotations: Map<K, Annotations<Any>>,
-        packageIsInteresting: (String) -> Boolean = {true}
+        packageIsInteresting: (String) -> Boolean,
+        existingPositionsToExclude: Map<K, Set<AnnotationPosition>>
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
     
@@ -231,7 +233,23 @@ fun <K> inferAnnotations(
     progressMonitor.annotationIndexLoaded(declarationIndex)
 
     val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
-    val resultingAnnotationsMap = loadedAnnotationsMap.mapValues {entry -> AnnotationsImpl<Any>(entry.value)}
+    val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { entry ->
+        val positionsToExclude = existingPositionsToExclude[entry.key]!!
+        val loadedAnn = entry.value
+
+        if (positionsToExclude.empty) loadedAnn
+        else {
+            val newAnn = AnnotationsImpl<Any>(loadedAnn.delegate)
+
+            loadedAnn.forEach { (pos, ann) ->
+                if (pos !in positionsToExclude) newAnn[pos] = ann
+            }
+
+            newAnn
+        }
+    }
+
+    val resultingAnnotationsMap = filteredLoadedAnnotationsMap.mapValues {entry -> AnnotationsImpl<Any>(entry.value)}
     for (key in inferrers.keySet()) {
         val inferrerExistingAnnotations = existingAnnotations[key]
         if (inferrerExistingAnnotations != null) {
@@ -239,7 +257,9 @@ fun <K> inferAnnotations(
         }
     }
 
-    val inferenceResult = InferenceResult(loadedAnnotationsMap, resultingAnnotationsMap)
+    val inferenceResult = InferenceResult(
+            loadedAnnotationsMap, resultingAnnotationsMap, inferrers.mapValues{e -> HashSet<AnnotationPosition>()}
+    )
 
     if (loadOnly) {
         return inferenceResult
@@ -306,11 +326,10 @@ fun <K> inferAnnotations(
 
     progressMonitor.processingFinished()
 
-    return propagateAnnotations(classSource, inferrers, inferenceResult, propagationOverrides, methodHierarchy)
+    return propagateAnnotations(inferrers, inferenceResult, propagationOverrides, methodHierarchy)
 }
 
 private fun <K> propagateAnnotations(
-        classSource: ClassSource,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         inferenceResult: InferenceResult<K>,
         propagationOverrides: Map<K, Annotations<Any>>,
@@ -318,7 +337,13 @@ private fun <K> propagateAnnotations(
 ): InferenceResult<K> {
     val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { e ->
         val (key, annotations) = e
-        propagateMetadata(methodHierarchy, inferrers[key]!!.lattice, annotations, propagationOverrides[key]!!)
+        propagateMetadata(
+                methodHierarchy,
+                inferrers[key]!!.lattice,
+                annotations,
+                inferenceResult.propagatedPositions[key]!! as MutableSet<AnnotationPosition>,
+                propagationOverrides[key]!!
+        )
     }
 
     return inferenceResult.copy(inferredAnnotationsMap = propagatedAnnotations)

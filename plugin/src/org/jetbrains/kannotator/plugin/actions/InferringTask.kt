@@ -31,6 +31,7 @@ import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import java.util.Collections
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -116,6 +117,8 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                         inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
                     }
 
+                    val positionsToExclude = inferrerMap.mapValues {entry -> Collections.emptySet<AnnotationPosition>()}
+
                     // TODO: Add existing annotations from dependent libraries
                     val inferenceResult = inferAnnotations(
                             FileBasedClassSource(arrayList(file)), ArrayList<File>(),
@@ -123,8 +126,11 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             inferringProgressIndicator,
                             false,
                             false,
-                            hashMap("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()),
-                            hashMap("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()))
+                            hashMapOf("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()),
+                            hashMapOf("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()),
+                            {true},
+                            positionsToExclude
+                    )
 
                     inferringProgressIndicator.savingStarted()
 

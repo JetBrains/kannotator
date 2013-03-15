@@ -20,6 +20,7 @@ import org.objectweb.asm.Type
 import util.getClassReader
 import util.junit.getTestName
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
+import java.util.Collections
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
 
@@ -33,12 +34,15 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         return inferAnnotations<String>(
                 FileBasedClassSource(getClassFiles()),
                 ArrayList<File>(),
-                hashMap(Pair("inferrer", getInferrer() as AnnotationInferrer<Any, Qualifier>)),
+                hashMapOf(Pair("inferrer", getInferrer() as AnnotationInferrer<Any, Qualifier>)),
                 ProgressMonitor(),
                 false,
                 false,
-                hashMap("inferrer" to AnnotationsImpl<A>()),
-                hashMap(Pair("inferrer", annotations))).inferredAnnotationsMap["inferrer"]!!
+                hashMapOf("inferrer" to AnnotationsImpl<A>()),
+                hashMapOf("inferrer" to annotations),
+                {true},
+                hashMapOf("inferrer" to Collections.emptySet<AnnotationPosition>())
+        ).inferredAnnotationsMap["inferrer"]!!
     }
 
     protected fun doFieldTest() {

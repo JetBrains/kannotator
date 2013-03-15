@@ -116,24 +116,27 @@ class IntegratedInferenceTest : TestCase() {
         val jar = jars.first()
         println("start: $jar")
 
+        val positionsToExclude = INFERRERS.mapValues {entry -> Collections.emptySet<AnnotationPosition>()}
+
         inferAnnotations(FileBasedClassSource(
-                arrayList(jar)), annotationFiles, INFERRERS, progressMonitor, false, true, Collections.emptyMap(), Collections.emptyMap()
+                arrayListOf(jar)), annotationFiles, INFERRERS, progressMonitor, false, true, Collections.emptyMap(), Collections.emptyMap(), {true}, positionsToExclude
         )
 
         val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
-        val propagationOverrides = loadAnnotationsFromLogs(arrayList(propagationOverridesFile), annotationIndex!!)
+        val propagationOverrides = loadAnnotationsFromLogs(arrayListOf(propagationOverridesFile), annotationIndex!!)
 
         val inferenceResult = try {
             inferAnnotations(
-                    FileBasedClassSource(arrayList(jar)),
+                    FileBasedClassSource(arrayListOf(jar)),
                     annotationFiles,
                     INFERRERS,
                     progressMonitor,
                     false,
                     false,
-                    hashMap(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
-                    hashMap(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
-                    packageIsInteresting
+                    hashMapOf(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
+                    hashMapOf(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
+                    packageIsInteresting,
+                    positionsToExclude
             )
         }
         catch (e: Throwable) {
@@ -244,7 +247,6 @@ class IntegratedInferenceTest : TestCase() {
         }
 
         val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
-
         writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
     }
 
@@ -273,9 +275,11 @@ class IntegratedInferenceTest : TestCase() {
         writeAnnotations(stringWriter,
                 methods.sortByToString().map {
                     m ->
-                    PositionsForMethod(m).forReturnType().position to arrayList(kotlinSignatureToAnnotationData(
-                            renderMethodSignature(m, nullability , mutability)
-                    ))
+                    PositionsForMethod(m).forReturnType().position to arrayListOf(
+                            kotlinSignatureToAnnotationData(
+                                renderMethodSignature(m, nullability , mutability)
+                        )
+                    )
                 }.toMap()
         )
 

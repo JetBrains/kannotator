@@ -12,13 +12,15 @@ import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.index.ClassSource
 import util.Classes
+import java.util.HashSet
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
 
 class FullPropagationTest: TestCase() {
 
     fun doTest(classSource: ClassSource) {
         doPropagationTest(classSource) {
             methodHierarchy, initialAnnotations ->
-            propagateMetadata(methodHierarchy, NullabiltyLattice, initialAnnotations)
+            propagateMetadata(methodHierarchy, NullabiltyLattice, initialAnnotations, HashSet<AnnotationPosition>(), AnnotationsImpl<NullabilityAnnotation>())
         }
     }
 
