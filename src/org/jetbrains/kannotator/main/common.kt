@@ -44,6 +44,8 @@ import org.jetbrains.kannotator.funDependecy.*
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
 import org.jetbrains.kannotator.graphs.removeGraphNodes
 import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
+import org.jetbrains.kannotator.annotations.io.AnnotationData
+import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 
 open class ProgressMonitor {
     open fun processingStarted() {}
@@ -56,10 +58,18 @@ open class ProgressMonitor {
     open fun processingFinished() {}
 }
 
-private fun List<AnnotationNode?>.extractClassNamesTo(classNames: MutableSet<String>) {
-    classNames.addAll(this.filterNotNull().map{node ->
-        Type.getType(node.desc).getClassName()!!}
-    )
+private fun List<AnnotationNode?>.extractAnnotationDataMapTo(annotationsMap: MutableMap<String, AnnotationData>) {
+    this.filterNotNull().toMutableMap(annotationsMap){node ->
+        val className = Type.getType(node.desc).getClassName()!!
+        val attributes = HashMap<String, String>()
+        val values = node.values
+        if (values != null) {
+            for (i in values.indices step 2) {
+                attributes[values[i].toString()] = values[i + 1].toString()
+            }
+        }
+
+        className to AnnotationDataImpl(className, attributes)}
 }
 
 public fun <K> loadMethodAnnotationsFromByteCode(
@@ -73,33 +83,33 @@ public fun <K> loadMethodAnnotationsFromByteCode(
         PositionsForMethod(method).forEachValidPosition {
             position ->
             val declPos = position.relativePosition
-            val classNames =
+            val annotationsMap =
             when (declPos) {
                 RETURN_TYPE -> {
-                    val classNames = HashSet<String>()
-                    methodNode.visibleAnnotations?.extractClassNamesTo(classNames)
-                    methodNode.invisibleAnnotations?.extractClassNamesTo(classNames)
-                    classNames
+                    val annotationsMap = HashMap<String, AnnotationData>()
+                    methodNode.visibleAnnotations?.extractAnnotationDataMapTo(annotationsMap)
+                    methodNode.invisibleAnnotations?.extractAnnotationDataMapTo(annotationsMap)
+                    annotationsMap
                 }
                 is ParameterPosition -> {
-                    val classNames = HashSet<String>()
+                    val annotationsMap = HashMap<String, AnnotationData>()
                     val index = if (method.isStatic()) declPos.index else declPos.index - 1
                     if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size) {
-                        methodNode.visibleParameterAnnotations!![index]?.filterNotNull()?.extractClassNamesTo(classNames)
+                        methodNode.visibleParameterAnnotations!![index]?.filterNotNull()?.extractAnnotationDataMapTo(annotationsMap)
                     }
 
                     if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size) {
-                        methodNode.invisibleParameterAnnotations!![index]?.filterNotNull()?.extractClassNamesTo(classNames)
+                        methodNode.invisibleParameterAnnotations!![index]?.filterNotNull()?.extractAnnotationDataMapTo(annotationsMap)
                     }
-                    classNames
+                    annotationsMap
                 }
-                else -> Collections.emptySet<String>()
+                else -> Collections.emptyMap<String, AnnotationData>()
             }
 
-            if (!classNames.empty) {
+            if (!annotationsMap.empty) {
                 for ((inferrerKey, inferrer) in inferrers) {
                     val internalAnnotations = internalAnnotationsMap[inferrerKey]!!
-                    val annotation = inferrer.resolveAnnotation(classNames)
+                    val annotation = inferrer.resolveAnnotation(annotationsMap)
                     if (annotation != null) {
                         internalAnnotations[position] = annotation
                     }
@@ -121,14 +131,14 @@ public fun <K> loadFieldAnnotationsFromByteCode(
     for ((field, node) in fieldNodes) {
         val position = getFieldTypePosition(field)
 
-        val classNames = HashSet<String>()
-        node.visibleAnnotations?.extractClassNamesTo(classNames)
-        node.invisibleAnnotations?.extractClassNamesTo(classNames)
+        val annotationsMap = HashMap<String, AnnotationData>()
+        node.visibleAnnotations?.extractAnnotationDataMapTo(annotationsMap)
+        node.invisibleAnnotations?.extractAnnotationDataMapTo(annotationsMap)
 
-        if (!classNames.empty) {
+        if (!annotationsMap.empty) {
             for ((inferrerKey, inferrer) in inferrers) {
                 val internalAnnotations = internalAnnotationsMap[inferrerKey]!!
-                val annotation = inferrer.resolveAnnotation(classNames)
+                val annotation = inferrer.resolveAnnotation(annotationsMap)
                 if (annotation != null) {
                     internalAnnotations[position] = annotation
                 }
@@ -155,7 +165,7 @@ private fun <K> loadExternalAnnotations(
                 key, annotations ->
                 val position = keyIndex.findPositionByAnnotationKeyString(key)
                 if (position != null) {
-                    val classNames = annotations.mapTo(HashSet<String>(), {data -> data.annotationClassFqn})
+                    val classNames = annotations.toMap({data -> data.annotationClassFqn to data})
                     for ((inferrerKey, inferrer) in inferrers) {
                         val externalAnnotations = externalAnnotationsMap[inferrerKey]!!
                         val annotation = inferrer.resolveAnnotation(classNames)
@@ -183,7 +193,7 @@ private fun <K> loadAnnotations(
         loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
 
 trait AnnotationInferrer<A: Any, I: Qualifier> {
-    fun resolveAnnotation(classNames: Set<String>): A?
+    fun resolveAnnotation(classNames: Map<String, AnnotationData>): A?
 
     fun inferAnnotationsFromFieldValue(field: Field): Annotations<A>
 

@@ -12,11 +12,26 @@ import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
+import org.jetbrains.kannotator.annotations.io.AnnotationData
 
-class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation, Nullability> {
+abstract class AbstractInferrer<A, Q: Qualifier>: AnnotationInferrer<A, Q> {
+    protected fun checkPropagation(annotationsMap: Map<String, AnnotationData>, kind: String): Boolean {
+        val propagatedAnn = annotationsMap[JB_PROPAGATED]
+        if (propagatedAnn != null) {
+            val propagatedKinds = propagatedAnn.attributes["value"]
+            return (propagatedKinds != null && propagatedKinds.contains(kind))
+        }
+        return false
+    }
+}
+
+class NullabilityInferrer: AbstractInferrer<NullabilityAnnotation, Nullability>() {
     private val methodToFieldNullabilityInfo = HashMap<Method, Map<Field, Nullability>>()
 
-    override fun resolveAnnotation(classNames: Set<String>) = classNamesToNullabilityAnnotation(classNames)
+    override fun resolveAnnotation(annotationsMap: Map<String, AnnotationData>): NullabilityAnnotation? {
+        if (checkPropagation(annotationsMap, "NULLABILITY")) return null
+        return classNamesToNullabilityAnnotation(annotationsMap.keySet())
+    }
 
     override fun inferAnnotationsFromFieldValue(field: Field): Annotations<NullabilityAnnotation> {
         val result = AnnotationsImpl<NullabilityAnnotation>()
@@ -66,9 +81,11 @@ class NullabilityInferrer: AnnotationInferrer<NullabilityAnnotation, Nullability
 
 public val MUTABILITY_INFERRER_OBJECT: AnnotationInferrer<MutabilityAnnotation, Mutability> = MUTABILITY_INFERRER
 
-object MUTABILITY_INFERRER: AnnotationInferrer<MutabilityAnnotation, Mutability> {
-    override fun resolveAnnotation(classNames: Set<String>) =
-            classNamesToMutabilityAnnotation(classNames)
+object MUTABILITY_INFERRER: AbstractInferrer<MutabilityAnnotation, Mutability>() {
+    override fun resolveAnnotation(annotationsMap: Map<String, AnnotationData>): MutabilityAnnotation? {
+        if (checkPropagation(annotationsMap, "MUTABILITY")) return null
+        return classNamesToMutabilityAnnotation(annotationsMap.keySet())
+    }
 
     override fun inferAnnotationsFromFieldValue(field: Field): Annotations<MutabilityAnnotation> =
             AnnotationsImpl<MutabilityAnnotation>()
