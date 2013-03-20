@@ -94,7 +94,7 @@ com.google.common.base.CharMatcher WHITESPACE
 NOT_NULL
 com.google.common.base.CharMatcher boolean apply(java.lang.Character) 0
 NOT_NULL
-com.google.common.base.CharMatcher boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher boolean matchesAllOf(java.lang.CharSequence) 0
 NOT_NULL
@@ -178,17 +178,17 @@ com.google.common.base.CharMatcher java.lang.String trimTrailingFrom(java.lang.C
 NOT_NULL
 @Propagated com.google.common.base.CharMatcher void setBits(com.google.common.base.CharMatcher.LookupTable) 0
 NOT_NULL
-com.google.common.base.CharMatcher.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.1 boolean apply(java.lang.Object) 0
 NULLABLE
-com.google.common.base.CharMatcher.10 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.10 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.10 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
 com.google.common.base.CharMatcher.10 void setBits(com.google.common.base.CharMatcher.LookupTable) 0
 NOT_NULL
-com.google.common.base.CharMatcher.11 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.11 boolean apply(java.lang.Object) 0
 NULLABLE
-com.google.common.base.CharMatcher.12 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.12 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.12 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
@@ -196,9 +196,9 @@ com.google.common.base.CharMatcher.12 void setBits(com.google.common.base.CharMa
 NOT_NULL
 com.google.common.base.CharMatcher.13 boolean apply(java.lang.Character) 0
 NOT_NULL
-com.google.common.base.CharMatcher.13 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.13 boolean apply(java.lang.Object) 0
 NULLABLE
-com.google.common.base.CharMatcher.14 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.14 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.14 boolean matchesAllOf(java.lang.CharSequence) 0
 NOT_NULL
@@ -206,27 +206,27 @@ com.google.common.base.CharMatcher.14 boolean matchesNoneOf(java.lang.CharSequen
 NOT_NULL
 com.google.common.base.CharMatcher.14 int countIn(java.lang.CharSequence) 0
 NOT_NULL
-com.google.common.base.CharMatcher.15 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.15 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.15 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
-com.google.common.base.CharMatcher.16 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.16 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.16 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
 com.google.common.base.CharMatcher.16 table
 NOT_NULL
-com.google.common.base.CharMatcher.2 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.2 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.2 com.google.common.base.CharMatcher precomputed()
 NOT_NULL
-com.google.common.base.CharMatcher.3 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.3 boolean apply(java.lang.Object) 0
 NULLABLE
-com.google.common.base.CharMatcher.4 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.4 boolean apply(java.lang.Object) 0
 NULLABLE
-com.google.common.base.CharMatcher.5 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.5 boolean apply(java.lang.Object) 0
 NULLABLE
-com.google.common.base.CharMatcher.6 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.6 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.6 boolean matchesAllOf(java.lang.CharSequence) 0
 NOT_NULL
@@ -268,7 +268,7 @@ com.google.common.base.CharMatcher.6 java.lang.String trimFrom(java.lang.CharSeq
 NOT_NULL
 com.google.common.base.CharMatcher.6 java.lang.String trimFrom(java.lang.CharSequence) 0
 NOT_NULL
-com.google.common.base.CharMatcher.7 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.7 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.7 boolean matchesAllOf(java.lang.CharSequence) 0
 NOT_NULL
@@ -306,7 +306,7 @@ com.google.common.base.CharMatcher.7 java.lang.String trimFrom(java.lang.CharSeq
 NOT_NULL
 @Propagated com.google.common.base.CharMatcher.7 void setBits(com.google.common.base.CharMatcher.LookupTable) 0
 NOT_NULL
-com.google.common.base.CharMatcher.8 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.8 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.8 com.google.common.base.CharMatcher and(com.google.common.base.CharMatcher) 0
 NOT_NULL
@@ -320,7 +320,7 @@ com.google.common.base.CharMatcher.8 java.lang.String replaceFrom(java.lang.Char
 NOT_NULL
 com.google.common.base.CharMatcher.8 void setBits(com.google.common.base.CharMatcher.LookupTable) 0
 NOT_NULL
-com.google.common.base.CharMatcher.9 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.9 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.9 com.google.common.base.CharMatcher and(com.google.common.base.CharMatcher)
 NOT_NULL
@@ -336,7 +336,7 @@ com.google.common.base.CharMatcher.And And(com.google.common.base.CharMatcher, c
 NOT_NULL
 com.google.common.base.CharMatcher.And And(com.google.common.base.CharMatcher, com.google.common.base.CharMatcher, java.lang.String) 1
 NOT_NULL
-com.google.common.base.CharMatcher.And boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.And boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.And com.google.common.base.CharMatcher and(com.google.common.base.CharMatcher)
 NOT_NULL
@@ -356,7 +356,7 @@ com.google.common.base.CharMatcher.Or Or(com.google.common.base.CharMatcher, com
 NOT_NULL
 com.google.common.base.CharMatcher.Or Or(com.google.common.base.CharMatcher, com.google.common.base.CharMatcher, java.lang.String) 1
 NOT_NULL
-com.google.common.base.CharMatcher.Or boolean apply(java.lang.Object) 0
+@Propagated com.google.common.base.CharMatcher.Or boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.CharMatcher.Or com.google.common.base.CharMatcher or(com.google.common.base.CharMatcher)
 NOT_NULL
@@ -636,7 +636,7 @@ com.google.common.base.Functions.ToStringFunction $VALUES
 NOT_NULL
 com.google.common.base.Functions.ToStringFunction INSTANCE
 NOT_NULL
-com.google.common.base.Functions.ToStringFunction java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.base.Functions.ToStringFunction java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.Functions.ToStringFunction java.lang.String apply(java.lang.Object) 0
 NOT_NULL
@@ -1420,7 +1420,7 @@ com.google.common.base.Suppliers.SupplierFunction INSTANCE
 NOT_NULL
 com.google.common.base.Suppliers.SupplierFunction java.lang.Object apply(com.google.common.base.Supplier<?>) 0
 NOT_NULL
-com.google.common.base.Suppliers.SupplierFunction java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.base.Suppliers.SupplierFunction java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.base.Suppliers.SupplierFunction java.lang.String toString()
 NOT_NULL
@@ -2172,7 +2172,7 @@ com.google.common.cache.LocalCache.LocalLoadingCache LocalLoadingCache(com.googl
 NOT_NULL
 com.google.common.cache.LocalCache.LocalLoadingCache LocalLoadingCache(com.google.common.cache.CacheBuilder<? super K,? super V>, com.google.common.cache.CacheLoader<? super K,V>) 1
 NOT_NULL
-com.google.common.cache.LocalCache.LocalLoadingCache V apply(K) 0
+@Propagated com.google.common.cache.LocalCache.LocalLoadingCache V apply(K) 0
 NULLABLE
 com.google.common.cache.LocalCache.LocalLoadingCache V get(K) 0
 NOT_NULL
@@ -3212,9 +3212,9 @@ com.google.common.collect.ArrayTable V get(java.lang.Object, java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ArrayTable V get(java.lang.Object, java.lang.Object) 1
 NULLABLE
-com.google.common.collect.ArrayTable V put(R, C, V) 0
+@Propagated com.google.common.collect.ArrayTable V put(R, C, V) 0
 NULLABLE
-com.google.common.collect.ArrayTable V put(R, C, V) 1
+@Propagated com.google.common.collect.ArrayTable V put(R, C, V) 1
 NULLABLE
 @Propagated com.google.common.collect.ArrayTable V put(R, C, V) 2
 NULLABLE
@@ -3276,7 +3276,7 @@ com.google.common.collect.ArrayTable java.util.Collection<V> values()
 NOT_NULL
 com.google.common.collect.ArrayTable java.util.Map<C,V> row(R)
 NOT_NULL
-com.google.common.collect.ArrayTable java.util.Map<C,V> row(R) 0
+@Propagated com.google.common.collect.ArrayTable java.util.Map<C,V> row(R) 0
 NULLABLE
 com.google.common.collect.ArrayTable java.util.Map<C,java.util.Map<R,V>> columnMap()
 NOT_NULL
@@ -3604,7 +3604,7 @@ com.google.common.collect.ComparisonChain.1 com.google.common.collect.Comparison
 NULLABLE
 com.google.common.collect.ComparisonChain.1 com.google.common.collect.ComparisonChain compare(T, T, java.util.Comparator<T>) 1
 NULLABLE
-com.google.common.collect.ComparisonChain.1 com.google.common.collect.ComparisonChain compare(T, T, java.util.Comparator<T>) 2
+@Propagated com.google.common.collect.ComparisonChain.1 com.google.common.collect.ComparisonChain compare(T, T, java.util.Comparator<T>) 2
 NULLABLE
 com.google.common.collect.ComparisonChain.1 com.google.common.collect.ComparisonChain compare(double, double)
 NOT_NULL
@@ -3752,7 +3752,7 @@ com.google.common.collect.ConcurrentHashMultiset boolean removeExactly(java.lang
 NULLABLE
 com.google.common.collect.ConcurrentHashMultiset boolean retainAll(java.util.Collection) 0
 NOT_NULL
-com.google.common.collect.ConcurrentHashMultiset boolean setCount(E, int, int) 0
+@Propagated com.google.common.collect.ConcurrentHashMultiset boolean setCount(E, int, int) 0
 NULLABLE
 com.google.common.collect.ConcurrentHashMultiset com.google.common.collect.ConcurrentHashMultiset<E> create()
 NOT_NULL
@@ -3766,13 +3766,13 @@ com.google.common.collect.ConcurrentHashMultiset com.google.common.collect.Concu
 NOT_NULL
 com.google.common.collect.ConcurrentHashMultiset countMap
 NOT_NULL
-com.google.common.collect.ConcurrentHashMultiset int add(E, int) 0
+@Propagated com.google.common.collect.ConcurrentHashMultiset int add(E, int) 0
 NULLABLE
 com.google.common.collect.ConcurrentHashMultiset int count(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ConcurrentHashMultiset int remove(java.lang.Object, int) 0
 NULLABLE
-com.google.common.collect.ConcurrentHashMultiset int setCount(E, int) 0
+@Propagated com.google.common.collect.ConcurrentHashMultiset int setCount(E, int) 0
 NULLABLE
 com.google.common.collect.ConcurrentHashMultiset java.util.Iterator iterator()
 NOT_NULL
@@ -4608,13 +4608,13 @@ com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect
 NULLABLE
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType)
 NOT_NULL
-com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
+@Propagated com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
 NULLABLE
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType) 1
 NOT_NULL
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType)
 NOT_NULL
-com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
+@Propagated com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
 NULLABLE
 com.google.common.collect.EmptyImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType) 1
 NOT_NULL
@@ -4726,7 +4726,7 @@ com.google.common.collect.EmptyImmutableTable java.util.Map columnMap()
 NOT_NULL
 com.google.common.collect.EmptyImmutableTable java.util.Map row(java.lang.Object)
 NOT_NULL
-com.google.common.collect.EmptyImmutableTable java.util.Map row(java.lang.Object) 0
+@Propagated com.google.common.collect.EmptyImmutableTable java.util.Map row(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.EmptyImmutableTable java.util.Map rowMap()
 NOT_NULL
@@ -4758,11 +4758,11 @@ com.google.common.collect.EnumBiMap java.lang.Class<V> inferValueType(java.util.
 NOT_NULL
 com.google.common.collect.EnumBiMap java.lang.Object checkKey(java.lang.Object)
 NOT_NULL
-com.google.common.collect.EnumBiMap java.lang.Object checkKey(java.lang.Object) 0
+@Propagated com.google.common.collect.EnumBiMap java.lang.Object checkKey(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.EnumBiMap java.lang.Object checkValue(java.lang.Object)
 NOT_NULL
-com.google.common.collect.EnumBiMap java.lang.Object checkValue(java.lang.Object) 0
+@Propagated com.google.common.collect.EnumBiMap java.lang.Object checkValue(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.EnumBiMap java.util.Set entrySet()
 NOT_NULL
@@ -4802,7 +4802,7 @@ com.google.common.collect.EnumHashBiMap com.google.common.collect.EnumHashBiMap<
 NOT_NULL
 com.google.common.collect.EnumHashBiMap java.lang.Object checkKey(java.lang.Object)
 NOT_NULL
-com.google.common.collect.EnumHashBiMap java.lang.Object checkKey(java.lang.Object) 0
+@Propagated com.google.common.collect.EnumHashBiMap java.lang.Object checkKey(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.EnumHashBiMap java.lang.Object forcePut(java.lang.Object, java.lang.Object)
 NULLABLE
@@ -4940,7 +4940,7 @@ com.google.common.collect.FluentIterable.FromIterableFunction com.google.common.
 NOT_NULL
 com.google.common.collect.FluentIterable.FromIterableFunction java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.collect.FluentIterable.FromIterableFunction java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.FluentIterable.FromIterableFunction java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ForwardingCollection T[] standardToArray(T[])
 NOT_NULL
@@ -5486,11 +5486,11 @@ com.google.common.collect.HashBasedTable com.google.common.collect.HashBasedTabl
 NOT_NULL
 com.google.common.collect.HashBasedTable com.google.common.collect.HashBasedTable<R,C,V> create(int, int)
 NOT_NULL
-com.google.common.collect.HashBasedTable java.lang.Object put(java.lang.Object, java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.HashBasedTable java.lang.Object put(java.lang.Object, java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.HashBasedTable java.lang.Object put(java.lang.Object, java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.HashBasedTable java.lang.Object put(java.lang.Object, java.lang.Object, java.lang.Object) 1
 NULLABLE
-com.google.common.collect.HashBasedTable java.lang.Object put(java.lang.Object, java.lang.Object, java.lang.Object) 2
+@Propagated com.google.common.collect.HashBasedTable java.lang.Object put(java.lang.Object, java.lang.Object, java.lang.Object) 2
 NULLABLE
 com.google.common.collect.HashBasedTable java.util.Collection values()
 NOT_NULL
@@ -5502,7 +5502,7 @@ com.google.common.collect.HashBasedTable java.util.Map columnMap()
 NOT_NULL
 com.google.common.collect.HashBasedTable java.util.Map row(java.lang.Object)
 NOT_NULL
-com.google.common.collect.HashBasedTable java.util.Map row(java.lang.Object) 0
+@Propagated com.google.common.collect.HashBasedTable java.util.Map row(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.HashBasedTable java.util.Map rowMap()
 NOT_NULL
@@ -6634,7 +6634,7 @@ com.google.common.collect.ImmutableMultimap.Builder com.google.common.collect.Im
 NOT_NULL
 com.google.common.collect.ImmutableMultimap.Builder.1 K apply(java.util.Map.Entry<K,java.util.Collection<V>>) 0
 NOT_NULL
-com.google.common.collect.ImmutableMultimap.Builder.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.ImmutableMultimap.Builder.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ImmutableMultimap.BuilderMultimap java.util.Collection<V> createCollection()
 NOT_NULL
@@ -7080,7 +7080,7 @@ com.google.common.collect.ImmutableSetMultimap.Builder com.google.common.collect
 NOT_NULL
 com.google.common.collect.ImmutableSetMultimap.Builder.1 K apply(java.util.Map.Entry<K,java.util.Collection<V>>) 0
 NOT_NULL
-com.google.common.collect.ImmutableSetMultimap.Builder.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.ImmutableSetMultimap.Builder.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.ImmutableSetMultimap.BuilderMultimap java.util.Collection<V> createCollection()
 NOT_NULL
@@ -8082,7 +8082,7 @@ com.google.common.collect.Iterables.13 java.util.Iterator<T> iterator()
 NOT_NULL
 com.google.common.collect.Iterables.14 java.util.Iterator<T> iterator()
 NOT_NULL
-com.google.common.collect.Iterables.15 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Iterables.15 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Iterables.15 java.util.Iterator<? extends T> apply(java.lang.Iterable<? extends T>) 0
 NOT_NULL
@@ -8360,9 +8360,9 @@ com.google.common.collect.LexicographicalOrdering int compare(java.lang.Iterable
 NOT_NULL
 com.google.common.collect.LexicographicalOrdering int compare(java.lang.Iterable<T>, java.lang.Iterable<T>) 1
 NOT_NULL
-com.google.common.collect.LexicographicalOrdering int compare(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.LexicographicalOrdering int compare(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.LexicographicalOrdering int compare(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.LexicographicalOrdering int compare(java.lang.Object, java.lang.Object) 1
 NULLABLE
 @Propagated com.google.common.collect.LinkedHashMultimap boolean containsEntry(java.lang.Object, java.lang.Object) 0
 NULLABLE
@@ -9294,9 +9294,9 @@ com.google.common.collect.MapConstraints.NotNullMapConstraint INSTANCE
 NOT_NULL
 com.google.common.collect.MapConstraints.NotNullMapConstraint java.lang.String toString()
 NOT_NULL
-com.google.common.collect.MapConstraints.NotNullMapConstraint void checkKeyValue(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.MapConstraints.NotNullMapConstraint void checkKeyValue(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.MapConstraints.NotNullMapConstraint void checkKeyValue(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.MapConstraints.NotNullMapConstraint void checkKeyValue(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.MapDifference boolean equals(java.lang.Object) 0
 NULLABLE
@@ -9396,7 +9396,7 @@ com.google.common.collect.MapMaker.NullComputingConcurrentMap V compute(K) 0
 NOT_NULL
 com.google.common.collect.MapMaker.NullComputingConcurrentMap V get(java.lang.Object)
 NOT_NULL
-com.google.common.collect.MapMaker.NullComputingConcurrentMap V get(java.lang.Object) 0
+@Propagated com.google.common.collect.MapMaker.NullComputingConcurrentMap V get(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.MapMaker.NullComputingConcurrentMap computingFunction
 NOT_NULL
@@ -10278,19 +10278,19 @@ NULLABLE
 NULLABLE
 @Propagated com.google.common.collect.Maps.2 V2 transformEntry(K, V1) 1
 NULLABLE
-com.google.common.collect.Maps.3 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Maps.3 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Maps.3 boolean apply(java.util.Map.Entry<K,V>) 0
 NOT_NULL
-com.google.common.collect.Maps.4 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Maps.4 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Maps.4 boolean apply(java.util.Map.Entry<K,V>) 0
 NOT_NULL
-com.google.common.collect.Maps.5 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Maps.5 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Maps.5 boolean apply(java.util.Map.Entry<K,V>) 0
 NOT_NULL
-com.google.common.collect.Maps.6 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Maps.6 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Maps.6 boolean apply(java.util.Map.Entry<K,V>) 0
 NOT_NULL
@@ -10940,11 +10940,11 @@ NULLABLE
 NULLABLE
 @Propagated com.google.common.collect.Multimaps.3 V2 transformEntry(K, V1) 1
 NULLABLE
-com.google.common.collect.Multimaps.4 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.4 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.4 boolean apply(java.util.Map.Entry<K,V>) 0
 NOT_NULL
-com.google.common.collect.Multimaps.5 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.5 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.5 boolean apply(java.util.Map.Entry<K,V>) 0
 NOT_NULL
@@ -11044,7 +11044,7 @@ com.google.common.collect.Multimaps.FilteredMultimap java.util.Collection<V> rep
 NOT_NULL
 com.google.common.collect.Multimaps.FilteredMultimap java.util.Map<K,java.util.Collection<V>> createAsMap()
 NOT_NULL
-com.google.common.collect.Multimaps.FilteredMultimap.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.FilteredMultimap.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.1 boolean apply(java.util.Collection<?>) 0
 NOT_NULL
@@ -11052,7 +11052,7 @@ com.google.common.collect.Multimaps.FilteredMultimap.2 java.lang.Object transfor
 NOT_NULL
 @Propagated com.google.common.collect.Multimaps.FilteredMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.Multimaps.FilteredMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.Multimaps.FilteredMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.2 java.util.Collection<V> transformEntry(K, java.util.Collection<V>)
 NOT_NULL
@@ -11078,7 +11078,7 @@ com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet boolean remove
 NOT_NULL
 @Propagated com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
-com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.AsMap.KeySet.1 boolean apply(java.util.Map.Entry<K,java.util.Collection<V>>) 0
 NOT_NULL
@@ -11088,11 +11088,11 @@ NULLABLE
 NOT_NULL
 @Propagated com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
-com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values.1 boolean apply(java.util.Map.Entry<K,java.util.Collection<V>>) 0
 NOT_NULL
-com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values.2 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values.2 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.AsMap.Values.2 boolean apply(java.util.Map.Entry<K,java.util.Collection<V>>) 0
 NOT_NULL
@@ -11104,7 +11104,7 @@ com.google.common.collect.Multimaps.FilteredMultimap.Keys.EntrySet boolean remov
 NOT_NULL
 @Propagated com.google.common.collect.Multimaps.FilteredMultimap.Keys.EntrySet boolean retainAll(java.util.Collection<?>) 0
 NOT_NULL
-com.google.common.collect.Multimaps.FilteredMultimap.Keys.EntrySet.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.FilteredMultimap.Keys.EntrySet.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.FilteredMultimap.Keys.EntrySet.1 boolean apply(java.util.Map.Entry<K,java.util.Collection<V>>) 0
 NOT_NULL
@@ -11318,7 +11318,7 @@ com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.lang.Objec
 NOT_NULL
 @Propagated com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.lang.Object transformEntry(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.util.Collection<V2> transformEntry(K, java.util.Collection<V1>)
 NOT_NULL
@@ -11326,7 +11326,7 @@ com.google.common.collect.Multimaps.TransformedEntriesMultimap.2 java.util.Colle
 NOT_NULL
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.3 V2 apply(java.util.Map.Entry<K,V1>) 0
 NOT_NULL
-com.google.common.collect.Multimaps.TransformedEntriesMultimap.3 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Multimaps.TransformedEntriesMultimap.3 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Multimaps.TransformedEntriesMultimap.TransformedEntries TransformedEntries(com.google.common.collect.Maps.EntryTransformer<? super K,? super V1,V2>) 0
 NOT_NULL
@@ -11622,9 +11622,9 @@ com.google.common.collect.Multisets.2 int compare(com.google.common.collect.Mult
 NOT_NULL
 com.google.common.collect.Multisets.2 int compare(com.google.common.collect.Multiset.Entry<?>, com.google.common.collect.Multiset.Entry<?>) 1
 NOT_NULL
-com.google.common.collect.Multisets.2 int compare(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.Multisets.2 int compare(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.Multisets.2 int compare(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.Multisets.2 int compare(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.Multisets.AbstractEntry boolean equals(java.lang.Object) 0
 NULLABLE
@@ -11766,7 +11766,7 @@ NOT_NULL
 NOT_NULL
 com.google.common.collect.MutableClassToInstanceMap.1 void checkKeyValue(java.lang.Class<?>, java.lang.Object) 0
 NOT_NULL
-com.google.common.collect.MutableClassToInstanceMap.1 void checkKeyValue(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.MutableClassToInstanceMap.1 void checkKeyValue(java.lang.Object, java.lang.Object) 0
 NULLABLE
 @Propagated com.google.common.collect.MutableClassToInstanceMap.1 void checkKeyValue(java.lang.Object, java.lang.Object) 1
 NULLABLE
@@ -11780,9 +11780,9 @@ com.google.common.collect.NaturalOrdering int compare(java.lang.Comparable, java
 NOT_NULL
 com.google.common.collect.NaturalOrdering int compare(java.lang.Comparable, java.lang.Comparable) 1
 NOT_NULL
-com.google.common.collect.NaturalOrdering int compare(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.NaturalOrdering int compare(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.NaturalOrdering int compare(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.NaturalOrdering int compare(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.NaturalOrdering java.lang.Object readResolve()
 NOT_NULL
@@ -12056,7 +12056,7 @@ com.google.common.collect.Range Range(com.google.common.collect.Cut<C>, com.goog
 NOT_NULL
 com.google.common.collect.Range boolean apply(C) 0
 NOT_NULL
-com.google.common.collect.Range boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Range boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Range boolean contains(C) 0
 NOT_NULL
@@ -12106,7 +12106,7 @@ com.google.common.collect.RangeMap com.google.common.collect.RangeMap<K,V> creat
 NOT_NULL
 com.google.common.collect.RangeMap java.lang.Object apply(java.lang.Object)
 NULLABLE
-com.google.common.collect.RangeMap java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.RangeMap java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.RangeMap void clear(com.google.common.collect.Range<K>) 0
 NOT_NULL
@@ -12484,11 +12484,11 @@ com.google.common.collect.RegularImmutableSortedMultiset com.google.common.colle
 NOT_NULL
 com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.Multiset.Entry<E> lastEntry()
 NOT_NULL
-com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
+@Propagated com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
 NULLABLE
 com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.SortedMultiset headMultiset(java.lang.Object, com.google.common.collect.BoundType) 1
 NOT_NULL
-com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
+@Propagated com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType) 0
 NULLABLE
 com.google.common.collect.RegularImmutableSortedMultiset com.google.common.collect.SortedMultiset tailMultiset(java.lang.Object, com.google.common.collect.BoundType) 1
 NOT_NULL
@@ -12572,7 +12572,7 @@ com.google.common.collect.RegularImmutableTable java.util.Collection values()
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.1 java.lang.Object apply(com.google.common.collect.Table.Cell<java.lang.Object,java.lang.Object,java.lang.Object>) 0
 NOT_NULL
-com.google.common.collect.RegularImmutableTable.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.RegularImmutableTable.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable DenseImmutableTable(com.google.common.collect.ImmutableSet<com.google.common.collect.Table.Cell<R,C,V>>, com.google.common.collect.ImmutableSet<R>, com.google.common.collect.ImmutableSet<C>) 0
 NOT_NULL
@@ -12650,7 +12650,7 @@ com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Ma
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map row(java.lang.Object)
 NOT_NULL
-com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map row(java.lang.Object) 0
+@Propagated com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map row(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.RegularImmutableTable.DenseImmutableTable java.util.Map rowMap()
 NOT_NULL
@@ -12778,7 +12778,7 @@ com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.M
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map row(java.lang.Object)
 NOT_NULL
-com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map row(java.lang.Object) 0
+@Propagated com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map row(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable java.util.Map rowMap()
 NOT_NULL
@@ -12794,7 +12794,7 @@ com.google.common.collect.RegularImmutableTable.SparseImmutableTable rowMap
 NOT_NULL
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.collect.RegularImmutableTable.SparseImmutableTable.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.RegularImmutableTable.SparseImmutableTable.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.RegularImmutableTable.SparseImmutableTable.1 java.util.Map<B,V> apply(com.google.common.collect.ImmutableMap.Builder<B,V>)
 NOT_NULL
@@ -12806,7 +12806,7 @@ com.google.common.collect.ReverseNaturalOrdering com.google.common.collect.Order
 NOT_NULL
 com.google.common.collect.ReverseNaturalOrdering int compare(java.lang.Comparable, java.lang.Comparable) 0
 NOT_NULL
-com.google.common.collect.ReverseNaturalOrdering int compare(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.ReverseNaturalOrdering int compare(java.lang.Object, java.lang.Object) 0
 NULLABLE
 @Propagated com.google.common.collect.ReverseNaturalOrdering int compare(java.lang.Object, java.lang.Object) 1
 NULLABLE
@@ -13316,7 +13316,7 @@ com.google.common.collect.SingletonImmutableTable java.util.Map columnMap()
 NOT_NULL
 com.google.common.collect.SingletonImmutableTable java.util.Map row(java.lang.Object)
 NOT_NULL
-com.google.common.collect.SingletonImmutableTable java.util.Map row(java.lang.Object) 0
+@Propagated com.google.common.collect.SingletonImmutableTable java.util.Map row(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.SingletonImmutableTable java.util.Map rowMap()
 NOT_NULL
@@ -13544,11 +13544,11 @@ com.google.common.collect.StandardTable V get(java.lang.Object, java.lang.Object
 NULLABLE
 com.google.common.collect.StandardTable V get(java.lang.Object, java.lang.Object) 1
 NULLABLE
-com.google.common.collect.StandardTable V put(R, C, V) 0
+@Propagated com.google.common.collect.StandardTable V put(R, C, V) 0
 NULLABLE
-com.google.common.collect.StandardTable V put(R, C, V) 1
+@Propagated com.google.common.collect.StandardTable V put(R, C, V) 1
 NULLABLE
-com.google.common.collect.StandardTable V put(R, C, V) 2
+@Propagated com.google.common.collect.StandardTable V put(R, C, V) 2
 NULLABLE
 com.google.common.collect.StandardTable V remove(java.lang.Object, java.lang.Object)
 NULLABLE
@@ -13584,7 +13584,7 @@ com.google.common.collect.StandardTable java.util.Map access$1100(com.google.com
 NOT_NULL
 com.google.common.collect.StandardTable java.util.Map<C,V> row(R)
 NOT_NULL
-com.google.common.collect.StandardTable java.util.Map<C,V> row(R) 0
+@Propagated com.google.common.collect.StandardTable java.util.Map<C,V> row(R) 0
 NULLABLE
 com.google.common.collect.StandardTable java.util.Map<C,java.util.Map<R,V>> columnMap()
 NOT_NULL
@@ -13646,7 +13646,7 @@ com.google.common.collect.StandardTable.Column.KeySet boolean retainAll(java.uti
 NOT_NULL
 com.google.common.collect.StandardTable.Column.KeySet java.util.Iterator<R> iterator()
 NOT_NULL
-com.google.common.collect.StandardTable.Column.KeySet.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.StandardTable.Column.KeySet.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.StandardTable.Column.KeySet.1 boolean apply(java.util.Map.Entry<R,V>) 0
 NOT_NULL
@@ -13658,11 +13658,11 @@ com.google.common.collect.StandardTable.Column.Values boolean retainAll(java.uti
 NOT_NULL
 com.google.common.collect.StandardTable.Column.Values java.util.Iterator<V> iterator()
 NOT_NULL
-com.google.common.collect.StandardTable.Column.Values.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.StandardTable.Column.Values.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.StandardTable.Column.Values.1 boolean apply(java.util.Map.Entry<R,V>) 0
 NOT_NULL
-com.google.common.collect.StandardTable.Column.Values.2 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.collect.StandardTable.Column.Values.2 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.StandardTable.Column.Values.2 boolean apply(java.util.Map.Entry<R,V>) 0
 NOT_NULL
@@ -14552,11 +14552,11 @@ com.google.common.collect.Tables.TransformedTable.1 com.google.common.collect.Ta
 NOT_NULL
 com.google.common.collect.Tables.TransformedTable.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.collect.Tables.TransformedTable.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Tables.TransformedTable.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Tables.TransformedTable.2 java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.collect.Tables.TransformedTable.2 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Tables.TransformedTable.2 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Tables.TransformedTable.2 java.util.Map<C,V2> apply(java.util.Map<C,V1>)
 NOT_NULL
@@ -14564,7 +14564,7 @@ com.google.common.collect.Tables.TransformedTable.2 java.util.Map<C,V2> apply(ja
 NOT_NULL
 com.google.common.collect.Tables.TransformedTable.3 java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.collect.Tables.TransformedTable.3 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Tables.TransformedTable.3 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Tables.TransformedTable.3 java.util.Map<R,V2> apply(java.util.Map<R,V1>)
 NOT_NULL
@@ -14624,7 +14624,7 @@ com.google.common.collect.Tables.TransposeTable.1 com.google.common.collect.Tabl
 NOT_NULL
 com.google.common.collect.Tables.TransposeTable.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.collect.Tables.TransposeTable.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.Tables.TransposeTable.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.Tables.TransposeTable.CellSet CellSet(com.google.common.collect.Tables.TransposeTable) 0
 NOT_NULL
@@ -14736,7 +14736,7 @@ NOT_NULL
 NOT_NULL
 com.google.common.collect.TreeBasedTable java.util.Map row(java.lang.Object)
 NOT_NULL
-com.google.common.collect.TreeBasedTable java.util.Map row(java.lang.Object) 0
+@Propagated com.google.common.collect.TreeBasedTable java.util.Map row(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.TreeBasedTable java.util.Map rowMap()
 NOT_NULL
@@ -14752,7 +14752,7 @@ com.google.common.collect.TreeBasedTable java.util.SortedSet<R> rowKeySet()
 NOT_NULL
 @Propagated com.google.common.collect.TreeBasedTable void putAll(com.google.common.collect.Table) 0
 NOT_NULL
-com.google.common.collect.TreeBasedTable.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.collect.TreeBasedTable.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.collect.TreeBasedTable.1 java.util.Iterator<C> apply(java.util.Map<C,V>) 0
 NOT_NULL
@@ -15138,9 +15138,9 @@ com.google.common.collect.TreeRangeSet.AsRanges boolean equals(java.lang.Object)
 NULLABLE
 com.google.common.collect.UsingToStringOrdering INSTANCE
 NOT_NULL
-com.google.common.collect.UsingToStringOrdering int compare(java.lang.Object, java.lang.Object) 0
+@Propagated com.google.common.collect.UsingToStringOrdering int compare(java.lang.Object, java.lang.Object) 0
 NULLABLE
-com.google.common.collect.UsingToStringOrdering int compare(java.lang.Object, java.lang.Object) 1
+@Propagated com.google.common.collect.UsingToStringOrdering int compare(java.lang.Object, java.lang.Object) 1
 NULLABLE
 com.google.common.collect.UsingToStringOrdering java.lang.Object readResolve()
 NOT_NULL
@@ -16856,9 +16856,9 @@ com.google.common.net.MediaType.1 com.google.common.collect.ImmutableMultiset<ja
 NOT_NULL
 com.google.common.net.MediaType.1 java.lang.Object apply(java.lang.Object)
 NOT_NULL
-com.google.common.net.MediaType.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.net.MediaType.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
-com.google.common.net.MediaType.2 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.net.MediaType.2 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.net.MediaType.2 java.lang.String apply(java.lang.String) 0
 NOT_NULL
@@ -17952,7 +17952,7 @@ com.google.common.reflect.TypeToken.InterfaceSet java.lang.Object readResolve()
 NOT_NULL
 com.google.common.reflect.TypeToken.InterfaceSet.1 boolean apply(java.lang.Class<?>) 0
 NOT_NULL
-com.google.common.reflect.TypeToken.InterfaceSet.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.reflect.TypeToken.InterfaceSet.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.reflect.TypeToken.SimpleTypeToken SimpleTypeToken(java.lang.reflect.Type) 0
 NOT_NULL
@@ -18048,11 +18048,11 @@ com.google.common.reflect.TypeToken.TypeFilter INTERFACE_ONLY
 NOT_NULL
 com.google.common.reflect.TypeToken.TypeFilter.1 boolean apply(com.google.common.reflect.TypeToken<?>) 0
 NOT_NULL
-com.google.common.reflect.TypeToken.TypeFilter.1 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.reflect.TypeToken.TypeFilter.1 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.reflect.TypeToken.TypeFilter.2 boolean apply(com.google.common.reflect.TypeToken<?>) 0
 NOT_NULL
-com.google.common.reflect.TypeToken.TypeFilter.2 boolean apply(java.lang.Object) 0
+@Propagated com.google.common.reflect.TypeToken.TypeFilter.2 boolean apply(java.lang.Object) 0
 NULLABLE
 com.google.common.reflect.TypeToken.TypeSet com.google.common.reflect.TypeToken<T>.TypeSet classes()
 NOT_NULL
@@ -18128,7 +18128,7 @@ com.google.common.reflect.Types void access$100(java.lang.reflect.Type[], java.l
 NOT_NULL
 com.google.common.reflect.Types void disallowPrimitiveType(java.lang.reflect.Type[], java.lang.String) 0
 NOT_NULL
-com.google.common.reflect.Types.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.reflect.Types.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.reflect.Types.1 java.lang.String apply(java.lang.reflect.Type) 0
 NOT_NULL
@@ -18436,7 +18436,7 @@ com.google.common.util.concurrent.AtomicLongMap void putAll(java.util.Map<? exte
 NOT_NULL
 com.google.common.util.concurrent.AtomicLongMap.1 java.lang.Long apply(java.util.concurrent.atomic.AtomicLong) 0
 NOT_NULL
-com.google.common.util.concurrent.AtomicLongMap.1 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.util.concurrent.AtomicLongMap.1 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.util.concurrent.Atomics java.util.concurrent.atomic.AtomicReference<V> newReference()
 NOT_NULL
@@ -18538,7 +18538,7 @@ com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode void c
 NOT_NULL
 com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode void checkAcquiredLocks(com.google.common.util.concurrent.CycleDetectingLockFactory.Policy, java.util.List<com.google.common.util.concurrent.CycleDetectingLockFactory.LockGraphNode>) 1
 NOT_NULL
-com.google.common.util.concurrent.CycleDetectingLockFactory.OrderedLockGraphNodesCreator java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.util.concurrent.CycleDetectingLockFactory.OrderedLockGraphNodesCreator java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.util.concurrent.CycleDetectingLockFactory.OrderedLockGraphNodesCreator java.lang.String getLockName(java.lang.Enum<?>) 0
 NOT_NULL
@@ -18764,7 +18764,7 @@ NULLABLE
 NOT_NULL
 com.google.common.util.concurrent.Futures.7 java.lang.Boolean apply(java.lang.reflect.Constructor<?>) 0
 NOT_NULL
-com.google.common.util.concurrent.Futures.7 java.lang.Object apply(java.lang.Object) 0
+@Propagated com.google.common.util.concurrent.Futures.7 java.lang.Object apply(java.lang.Object) 0
 NULLABLE
 com.google.common.util.concurrent.Futures.ChainingListenableFuture ChainingListenableFuture(com.google.common.util.concurrent.AsyncFunction, com.google.common.util.concurrent.ListenableFuture, com.google.common.util.concurrent.Futures.1) 0
 NOT_NULL

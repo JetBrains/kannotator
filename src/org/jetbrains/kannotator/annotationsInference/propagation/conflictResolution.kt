@@ -77,10 +77,7 @@ private fun resolveConflictsInParents<A>(
             if (fromChild != null) {
                 if (inParent != null) {
                     val unifiedAnn = lattice.unify<A>(relativePosition, inParent, fromChild)
-                    if (annotationsToFix[positionInParent] != unifiedAnn) {
-                        annotationsToFix[positionInParent] = unifiedAnn
-                        propagatedPositionsToFill.add(positionInParent)
-                    }
+                    updateAnnotations(annotationsToFix, positionInParent, unifiedAnn, propagatedPositionsToFill)
                 }
                 else {
                     propagatedAnnotations[positionInParent] = fromChild
@@ -90,6 +87,7 @@ private fun resolveConflictsInParents<A>(
                             annotationsToFix[positionInParent] = fromChild
                             propagatedPositionsToFill.add(positionInParent)
                         }
+                        updateAnnotations(annotationsToFix, positionInParent, fromChild!!, propagatedPositionsToFill)
                     }
                 }
             }

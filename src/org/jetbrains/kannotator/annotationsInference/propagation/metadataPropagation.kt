@@ -63,6 +63,17 @@ fun propagateMetadata<A>(
     return result
 }
 
+fun updateAnnotations<A>(
+        annotationsToFix: MutableAnnotations<A>,
+        pos: AnnotationPosition,
+        newAnnotation: A,
+        propagatedPositionsToFill: MutableSet<AnnotationPosition>) {
+    if (annotationsToFix[pos] != newAnnotation) {
+        annotationsToFix[pos] = newAnnotation
+        propagatedPositionsToFill.add(pos)
+    }
+}
+
 private fun propagateOverrides<A>(
         graph: HierarchyGraph<Method>,
         propagationOverrides: Annotations<A>,
@@ -77,10 +88,8 @@ private fun propagateOverrides<A>(
                     val node = it as HierarchyNode<Method>
                     val method = node.data
                     val currentPos = PositionsForMethod(method)[pos.relativePosition].position
-                    if (annotationsToFix[currentPos] != ann) {
-                        annotationsToFix[currentPos] = ann
-                        propagatedPositionsToFill.add(pos)
-                    }
+                    updateAnnotations(annotationsToFix, currentPos, ann, propagatedPositionsToFill)
+
                     node.childNodes
                 }
             }
@@ -118,10 +127,7 @@ private fun propagateParameterAnnotations<A>(
                 val unifiedAnnotation = lattice.unify<A>(declPos, annotations)
                 for (positions in positionsForMethods) {
                     val pos = positions[declPos].position
-                    if (annotationsToFix[pos] != unifiedAnnotation) {
-                        annotationsToFix[pos] = unifiedAnnotation
-                        propagatedPositionsToFill.add(pos)
-                    }
+                    updateAnnotations(annotationsToFix, pos, unifiedAnnotation, propagatedPositionsToFill)
                 }
             }
         }

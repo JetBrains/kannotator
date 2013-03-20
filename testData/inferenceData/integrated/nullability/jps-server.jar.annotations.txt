@@ -6224,7 +6224,7 @@ org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void removeData(java
 NOT_NULL
 org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.Object, java.lang.Object) 0
 NOT_NULL
-org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.Object, java.lang.Object) 1
+@Propagated org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.Object, java.lang.Object) 1
 NULLABLE
 org.jetbrains.jps.incremental.storage.OneToManyPathsMapping void update(java.lang.String, java.lang.String) 0
 NOT_NULL
