@@ -2,6 +2,7 @@ package org.jetbrains.kannotator.controlFlow.builder.analysis
 
 import java.util.HashMap
 import kotlinlib.mapMerge
+import kotlinlib.mapValues
 
 public trait Qualifier
 
@@ -47,7 +48,7 @@ public class MultiQualifierSet<K: Any>(val qualifierSets: Map<K, QualifierSet<Qu
     public override val id: Any = MULTI_QUALIFIER_KEY
 
     public override val initial: MultiQualifier<K> =
-            MultiQualifier(qualifierSets.mapValues { e -> e.value.initial })
+            MultiQualifier(qualifierSets.mapValues { (key, qualifierSet) -> qualifierSet.initial })
 
     public override fun merge(q1: MultiQualifier<K>, q2: MultiQualifier<K>): MultiQualifier<K> {
         val map = mapMerge(q1.qualifiers, q2.qualifiers, qualifierSets.keySet()) {(key, v1, v2) ->
@@ -63,6 +64,6 @@ public class MultiQualifierEvaluator<K: Any>(
         val evaluators: Map<K, QualifierEvaluator<*>>
 ): QualifierEvaluator<MultiQualifier<K>> {
     override fun evaluateQualifier(baseValue: TypedValue): MultiQualifier<K> {
-        return MultiQualifier(evaluators.mapValues { e -> e.value.evaluateQualifier(baseValue) })
+        return MultiQualifier(evaluators.mapValues { (key, eval) -> eval.evaluateQualifier(baseValue) })
     }
 }

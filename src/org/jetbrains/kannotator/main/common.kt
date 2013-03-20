@@ -157,7 +157,7 @@ private fun <K> loadExternalAnnotations(
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         showErrorIfPositionNotFound: Boolean = true
 ): Map<K, MutableAnnotations<Any>> {
-    val externalAnnotationsMap = inferrers.mapValues { entry -> AnnotationsImpl<Any>(delegatingAnnotations[entry.key]) }
+    val externalAnnotationsMap = inferrers.mapValues { (key, inferrer) -> AnnotationsImpl<Any>(delegatingAnnotations[key]) }
 
     for (annotationFile in annotationFiles) {
         FileReader(annotationFile) use {
@@ -243,9 +243,8 @@ fun <K> inferAnnotations(
     progressMonitor.annotationIndexLoaded(declarationIndex)
 
     val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
-    val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { entry ->
-        val positionsToExclude = existingPositionsToExclude[entry.key]!!
-        val loadedAnn = entry.value
+    val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { (key, loadedAnn) ->
+        val positionsToExclude = existingPositionsToExclude[key]!!
 
         if (positionsToExclude.empty) loadedAnn
         else {
@@ -259,7 +258,7 @@ fun <K> inferAnnotations(
         }
     }
 
-    val resultingAnnotationsMap = filteredLoadedAnnotationsMap.mapValues {entry -> AnnotationsImpl<Any>(entry.value)}
+    val resultingAnnotationsMap = filteredLoadedAnnotationsMap.mapValues {(key, ann) -> AnnotationsImpl<Any>(ann)}
     for (key in inferrers.keySet()) {
         val inferrerExistingAnnotations = existingAnnotations[key]
         if (inferrerExistingAnnotations != null) {
@@ -345,8 +344,7 @@ private fun <K> propagateAnnotations(
         propagationOverrides: Map<K, Annotations<Any>>,
         methodHierarchy: HierarchyGraph<Method>
 ): InferenceResult<K> {
-    val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { e ->
-        val (key, annotations) = e
+    val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { (key, annotations) ->
         propagateMetadata(
                 methodHierarchy,
                 inferrers[key]!!.lattice,
@@ -380,15 +378,15 @@ private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
         val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<Any>>(
                 method.declaringClass,
                 MultiQualifierSet(inferrers.mapKeysAndValues (
-                        {it.value.qualifierSet.id}, {it.value.qualifierSet}
+                        {(key, inferrer) -> inferrer.qualifierSet.id}, {(key, inferrer) -> inferrer.qualifierSet}
                 )),
                 MultiFrameTransformer<Any, QualifiedValueSet<Qualifier>>(inferrers.mapKeysAndValues (
-                        {it.value.qualifierSet.id},
-                        {it.value.getFrameTransformer(annotationsMap[it.key]!!, declarationIndex)}
+                        {(key, inferrer) -> inferrer.qualifierSet.id},
+                        {(key, inferrer) -> inferrer.getFrameTransformer(annotationsMap[key]!!, declarationIndex)}
                 )),
                 MultiQualifierEvaluator(inferrers.mapKeysAndValues (
-                        {it.value.qualifierSet.id},
-                        {it.value.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[it.key]!!, declarationIndex)}
+                        {(key, inferrer) -> inferrer.qualifierSet.id},
+                        {(key, inferrer) -> inferrer.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[key]!!, declarationIndex)}
                 ))
         )
 
