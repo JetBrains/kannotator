@@ -116,10 +116,8 @@ class IntegratedInferenceTest : TestCase() {
         val jar = jars.first()
         println("start: $jar")
 
-        val positionsToExclude = INFERRERS.mapValues {entry -> Collections.emptySet<AnnotationPosition>()}
-
         inferAnnotations(FileBasedClassSource(
-                arrayListOf(jar)), annotationFiles, INFERRERS, progressMonitor, false, true, Collections.emptyMap(), Collections.emptyMap(), {true}, positionsToExclude
+                arrayListOf(jar)), annotationFiles, INFERRERS, progressMonitor, false, true, Collections.emptyMap(), Collections.emptyMap(), {true}, Collections.emptyMap()
         )
 
         val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
@@ -136,7 +134,7 @@ class IntegratedInferenceTest : TestCase() {
                     hashMapOf(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
                     hashMapOf(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
                     packageIsInteresting,
-                    positionsToExclude
+                    Collections.emptyMap()
             )
         }
         catch (e: Throwable) {

@@ -244,9 +244,9 @@ fun <K> inferAnnotations(
 
     val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
     val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { (key, loadedAnn) ->
-        val positionsToExclude = existingPositionsToExclude[key]!!
+        val positionsToExclude = existingPositionsToExclude[key]
 
-        if (positionsToExclude.empty) loadedAnn
+        if (positionsToExclude == null || positionsToExclude.empty) loadedAnn
         else {
             val newAnn = AnnotationsImpl<Any>(loadedAnn.delegate)
 

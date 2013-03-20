@@ -41,7 +41,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
                 hashMapOf("inferrer" to AnnotationsImpl<A>()),
                 hashMapOf("inferrer" to annotations),
                 {true},
-                hashMapOf("inferrer" to Collections.emptySet<AnnotationPosition>())
+                Collections.emptyMap()
         ).inferredAnnotationsMap["inferrer"]!!
     }
 
