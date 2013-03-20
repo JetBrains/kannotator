@@ -141,7 +141,7 @@ class IntegratedInferenceTest : TestCase() {
             throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
         }
 
-        for ((inferrerKey, annotations) in inferenceResult.inferredAnnotationsMap) {
+        for ((inferrerKey, group) in inferenceResult.groupByKey) {
             val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
@@ -151,17 +151,17 @@ class IntegratedInferenceTest : TestCase() {
                     testName,
                     File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"),
                     annotationIndex!!,
-                    annotations,
-                    inferenceResult.existingAnnotationsMap[inferrerKey]!!,
+                    group.inferredAnnotations,
+                    group.existingAnnotations,
                     INFERRERS[inferrerKey]!!
             )
 
             val map = TreeMap<String, Any>()
-            annotations forEach {
+            group.inferredAnnotations forEach {
                 pos, ann -> map.put(pos.toAnnotationKey(), ann)
             }
 
-            val propagatedKeys = inferenceResult.propagatedPositions[inferrerKey]!!.map { it.toAnnotationKey() }
+            val propagatedKeys = group.propagatedPositions.map { it.toAnnotationKey() }
 
             PrintStream(FileOutputStream(outFile)) use {
                 p ->
@@ -179,8 +179,8 @@ class IntegratedInferenceTest : TestCase() {
             outFile.delete()
         }
 
-        val nullability = inferenceResult.inferredAnnotationsMap[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
-        val mutability = inferenceResult.inferredAnnotationsMap[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
+        val nullability = inferenceResult.groupByKey[InferrerKey.NULLABILITY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
+        val mutability = inferenceResult.groupByKey[InferrerKey.MUTABILITY]!!.inferredAnnotations as Annotations<MutabilityAnnotation>
 
         val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
 

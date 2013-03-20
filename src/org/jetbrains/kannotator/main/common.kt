@@ -212,11 +212,13 @@ trait AnnotationInferrer<A: Any, I: Qualifier> {
     fun getQualifierEvaluator(positions: PositionsForMethod, annotations: Annotations<A>, declarationIndex: DeclarationIndex): QualifierEvaluator<I>
 }
 
-data class InferenceResult<K>(
-        val existingAnnotationsMap: Map<K, Annotations<Any>>,
-        val inferredAnnotationsMap: Map<K, Annotations<Any>>,
-        val propagatedPositions: Map<K, Set<AnnotationPosition>>
+data class InferenceResultGroup<A: Any>(
+        val existingAnnotations: Annotations<A>,
+        val inferredAnnotations: Annotations<A>,
+        val propagatedPositions: Set<AnnotationPosition>
 )
+
+data class InferenceResult<K>(val groupByKey: Map<K, InferenceResultGroup<Any>>)
 
 fun <K> inferAnnotations(
         classSource: ClassSource,
@@ -267,7 +269,13 @@ fun <K> inferAnnotations(
     }
 
     val inferenceResult = InferenceResult(
-            loadedAnnotationsMap, resultingAnnotationsMap, inferrers.mapValues{e -> HashSet<AnnotationPosition>()}
+            inferrers.mapValues { (key, inferrer) ->
+                InferenceResultGroup<Any>(
+                        loadedAnnotationsMap[key]!!,
+                        resultingAnnotationsMap[key]!!,
+                        HashSet<AnnotationPosition>()
+                )
+            }
     )
 
     if (loadOnly) {
@@ -344,17 +352,19 @@ private fun <K> propagateAnnotations(
         propagationOverrides: Map<K, Annotations<Any>>,
         methodHierarchy: HierarchyGraph<Method>
 ): InferenceResult<K> {
-    val propagatedAnnotations = inferenceResult.inferredAnnotationsMap.mapValues { (key, annotations) ->
-        propagateMetadata(
+    val map = (inferenceResult.groupByKey as MutableMap<K, InferenceResultGroup<Any>>)
+    for ((key, group) in map) {
+        val propagatedAnnotations = propagateMetadata(
                 methodHierarchy,
                 inferrers[key]!!.lattice,
-                annotations,
-                inferenceResult.propagatedPositions[key]!! as MutableSet<AnnotationPosition>,
+                group.inferredAnnotations,
+                group.propagatedPositions as MutableSet<AnnotationPosition>,
                 propagationOverrides[key]!!
         )
+        map[key] = group.copy(inferredAnnotations = propagatedAnnotations)
     }
 
-    return inferenceResult.copy(inferredAnnotationsMap = propagatedAnnotations)
+    return inferenceResult
 }
 
 private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(

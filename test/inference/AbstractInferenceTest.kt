@@ -42,7 +42,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
                 hashMapOf("inferrer" to annotations),
                 {true},
                 Collections.emptyMap()
-        ).inferredAnnotationsMap["inferrer"]!!
+        ).groupByKey["inferrer"]!!.inferredAnnotations
     }
 
     protected fun doFieldTest() {
