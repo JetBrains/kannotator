@@ -32,6 +32,7 @@ import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import java.util.Collections
+import com.intellij.openapi.progress.PerformInBackgroundOption
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -41,7 +42,8 @@ data class InferringTaskParams(
         val outputPath: String,
         val libJarFiles: Map<Library, Set<File>>)
 
-public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) : Backgroundable(taskProject, "Infer Annotations", true) {
+public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
+        Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
