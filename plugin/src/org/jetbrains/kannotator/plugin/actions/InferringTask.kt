@@ -19,8 +19,6 @@ import java.util.ArrayList
 import java.util.HashMap
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.*
@@ -28,7 +26,6 @@ import org.jetbrains.kannotator.plugin.ideaUtils.runComputableInsideWriteAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideReadAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
 import org.jetbrains.kannotator.declarations.*
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import java.util.Collections
@@ -95,6 +92,8 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         fun savingFinished() {
             indicator.setText2("")
         }
+
+        fun isCanceled() = indicator.isCanceled()
     }
 
     override fun run(indicator: ProgressIndicator) {
@@ -103,12 +102,58 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         val outputDirectory = checkNotNull(LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(taskParams.outputPath),
                 "Output folder ${taskParams.outputPath} is expected to be created before activating task")
 
+        processFiles(outputDirectory, inferringProgressIndicator)
+
+        if (!taskParams.libJarFiles.isEmpty()) {
+            runInsideReadAction {
+                if (taskParams.addAnnotationsRoots) {
+                    outputDirectory.refresh(true, true, runnable {
+                        runInsideWriteAction { ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true) }
+                    })
+                }
+                else {
+                    outputDirectory.refresh(true, true)
+                }
+            }
+        }
+    }
+
+    override fun onSuccess() {
+        val project = getProject()!!
+
+        if (project.isDisposed() || !project.isOpen()) {
+            return
+        }
+
+        val numberOfFiles = taskParams.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
+
+        Notifications.Bus.notify(Notification(
+                "KAnnotator", "Annotating finished successfully", "$numberOfFiles file(s) were annotated",
+                NotificationType.INFORMATION), project)
+    }
+
+    public override fun onCancel() {
+        val project = getProject()!!
+
+        if (project.isDisposed() || !project.isOpen()) {
+            return
+        }
+
+        Notifications.Bus.notify(
+                Notification("KAnnotator", "Annotating was canceled", "Annotating was canceled", NotificationType.INFORMATION), project)
+    }
+
+    private fun processFiles(outputDirectory: VirtualFile, inferringProgressIndicator: InferringProgressIndicator) {
         for ((lib, files) in taskParams.libJarFiles) {
             val libOutputDir = createOutputDirectory(lib, outputDirectory)
             val libIoOutputDir = VfsUtilCore.virtualToIoFile(libOutputDir)
 
             for (file in files) {
                 inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
+
+                if (inferringProgressIndicator.isCanceled()) {
+                    return
+                }
 
                 try {
                     val inferrerMap = HashMap<String, AnnotationInferrer<Any, Qualifier>>()
@@ -123,7 +168,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
                     // TODO: Add existing annotations from dependent libraries
                     val inferenceResult = inferAnnotations(
-                            FileBasedClassSource(arrayList(file)), ArrayList<File>(),
+                            FileBasedClassSource(arrayListOf(file)), ArrayList<File>(),
                             inferrerMap,
                             inferringProgressIndicator,
                             false,
@@ -148,7 +193,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                                     "Only nullability annotations are supported by now"
                             )
 
-                    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayList(file)))
+                    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(file)))
 
                     writeAnnotationsToXMLByPackage(
                             declarationIndex,
@@ -171,76 +216,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                 assignAnnotationsToLibrary(lib, libOutputDir)
             }
         }
-
-        if (!taskParams.libJarFiles.isEmpty()) {
-            runInsideReadAction {
-                if (taskParams.addAnnotationsRoots) {
-                    outputDirectory.refresh(true, true, runnable {
-                        runInsideWriteAction {
-                            ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
-                        }
-                    })
-                }
-                else {
-                    outputDirectory.refresh(true, true)
-                }
-            }
-        }
     }
-
-    override fun onSuccess() {
-        val project = getProject()!!
-
-        if (project.isDisposed() || !project.isOpen()) {
-            return
-        }
-
-//        val messageView = MessageView.SERVICE.getInstance(myProject)!!
-//        val messageViewContentManager = messageView.getContentManager()!!
-//        val contentFactory = ContentFactory.SERVICE.getInstance()!!
-//        val toolWindowManager = ToolWindowManager.getInstance(project)!!
-//
-//        val content = contentFactory.createContent(createMessageOutput(), INFERRING_RESULT_TAB_TITLE, true)
-//
-//        ContentsUtil.addOrReplaceContent(messageViewContentManager, content, true)
-//
-//        toolWindowManager.getToolWindow(ToolWindowId.MESSAGES_WINDOW)!!.activate(null)
-
-        val numberOfFiles = taskParams.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
-
-        Notifications.Bus.notify(Notification(
-                "KAnnotator", "Annotating finished successfully", "$numberOfFiles file(s) were annotated",
-                NotificationType.INFORMATION), project)
-    }
-
-//    private fun createMessageOutput() : JPanel {
-//        val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
-//
-//        fun createToolbar() : ActionToolbar {
-//            val group = DefaultActionGroup()
-//            group.add(object: CloseTabToolbarAction() {
-//                public override fun actionPerformed(e: AnActionEvent?) {
-//                    val messageView = MessageView.SERVICE.getInstance(getProject())!!
-//                    val contents = messageView.getContentManager()!!.getContents()
-//                    for (content in contents) {
-//                        if (content.getComponent() == simpleToolWindowPanel) {
-//                            messageView.getContentManager()!!.removeContent(content, true)
-//                            return
-//                        }
-//                    }
-//                }
-//            })
-//
-//            group.add(PinToolwindowTabAction.getPinAction())
-//
-//            return ActionManager.getInstance()!!.createActionToolbar(ActionPlaces.UNKNOWN, group, false)
-//        }
-//
-//        simpleToolWindowPanel.add(PanelWithText(successMessage))
-//        simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
-//
-//        return simpleToolWindowPanel
-//    }
 
     private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
         return runComputableInsideWriteAction {
