@@ -1,36 +1,23 @@
 package inference
 
-import kotlin.test.assertTrue
-import kotlinlib.minus
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.objectweb.asm.ClassReader
-import util.junit.getTestName
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.index.ClassSource
-import util.ClassPathDeclarationIndex
-import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import java.util.ArrayList
 import java.io.File
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
-import org.jetbrains.kannotator.main.inferAnnotations
 import org.jetbrains.kannotator.main.AnnotationInferrer
-import org.jetbrains.kannotator.main.ProgressMonitor
-import org.jetbrains.kannotator.declarations.getFieldTypePosition
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.setIfNotNull
 import org.jetbrains.kannotator.main.NullabilityInferrer
 
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
-        val utilClass = "out/production/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"
-        val classSource = FileBasedClassSource(arrayList(File(utilClass)))
+        val utilClass = "out/test/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"
+        val classSource = FileBasedClassSource(arrayListOf(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationNames -> classNamesToNullabilityAnnotation(annotationNames)
         }
@@ -38,7 +25,7 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
     }
 
     protected override fun getClassFiles(): Collection<File> {
-        return arrayList(File("out/production/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"))
+        return arrayListOf(File("out/test/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"))
     }
 
     protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {

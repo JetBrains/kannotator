@@ -11,9 +11,9 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.Mutabili
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {
     protected override fun getClassFiles(): Collection<File> {
-        return arrayList(
-                "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class",
-                "out/production/kannotator/inferenceData/MutabilityInferenceTestClass.class").map { File(it) }
+        return arrayListOf(
+                "out/test/kannotator/inferenceData/MutabilityInferenceTestLib.class",
+                "out/test/kannotator/inferenceData/MutabilityInferenceTestClass.class").map { File(it) }
     }
 
     protected override fun getInferrer(): AnnotationInferrer<MutabilityAnnotation, *> {
@@ -29,8 +29,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
     }
 
     protected override fun getInitialAnnotations(): Annotations<MutabilityAnnotation> {
-        val utilClass = "out/production/kannotator/inferenceData/MutabilityInferenceTestLib.class"
-        val classSource = FileBasedClassSource(arrayList(File(utilClass)))
+        val utilClass = "out/test/kannotator/inferenceData/MutabilityInferenceTestLib.class"
+        val classSource = FileBasedClassSource(arrayListOf(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) { annotationNames ->
             if ("org.jetbrains.kannotator.runtime.annotations.Mutable" in annotationNames)
                 MutabilityAnnotation.MUTABLE
