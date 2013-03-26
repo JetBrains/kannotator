@@ -17,7 +17,7 @@ public class KannotatorSettings implements PersistentStateComponent<KannotatorSe
     @NonNls
     public static final String COMPONENT_NAME = "KannotatorSettings";
 
-    private boolean disableCheckUntilNextVersion;
+    private String dismissedInVersion;
 
     @Nullable
     @Override
@@ -35,11 +35,12 @@ public class KannotatorSettings implements PersistentStateComponent<KannotatorSe
         return ServiceManager.getService(project, KannotatorSettings.class).getState();
     }
 
-    public boolean isDisableCheckUntilNextVersion() {
-        return disableCheckUntilNextVersion;
+    @Nullable
+    public String getDismissedInVersion() {
+        return dismissedInVersion;
     }
 
-    public void setDisableCheckUntilNextVersion(boolean disableCheckUntilNextVersion) {
-        this.disableCheckUntilNextVersion = disableCheckUntilNextVersion;
+    public void setDismissedInVersion(@Nullable String pluginVersion) {
+        dismissedInVersion = pluginVersion;
     }
 }

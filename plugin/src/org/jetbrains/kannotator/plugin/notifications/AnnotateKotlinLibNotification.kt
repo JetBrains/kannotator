@@ -25,7 +25,7 @@ public class AnnotateKotlinLibNotification(val project: Project): EditorNotifica
         }
 
         val kannotatorSettings = KannotatorSettings.getOptions(project)!!
-        if (kannotatorSettings.isDisableCheckUntilNextVersion()) {
+        if (getPluginVersion() == kannotatorSettings.getDismissedInVersion()) {
             return null
         }
 
@@ -34,7 +34,14 @@ public class AnnotateKotlinLibNotification(val project: Project): EditorNotifica
         }
 
         val panel = EditorNotificationPanel()
-        panel.setText("Do you want to automatically annotate libraries in your project with kannotator plugin?")
+        val message = if (kannotatorSettings.getDismissedInVersion() == null) {
+            "Do you want to automatically annotate libraries in your project with kannotator plugin?"
+        }
+        else {
+            "Do you want to automatically annotate libraries in your project with updated kannotator plugin?"
+        }
+
+        panel.setText(message)
         panel.createActionLabel("Annotate", runnable {
             AnnotateJarAction().annotateJars(project)
             dismissNotification(kannotatorSettings)
@@ -49,7 +56,12 @@ public class AnnotateKotlinLibNotification(val project: Project): EditorNotifica
     override fun getKey() : Key<EditorNotificationPanel> = KEY
 
     private fun dismissNotification(settings: KannotatorSettings) {
-        settings.setDisableCheckUntilNextVersion(true);
+        settings.setDismissedInVersion(getPluginVersion());
         EditorNotifications.getInstance(project)!!.updateAllNotifications()
+    }
+
+    public fun getPluginVersion() : String {
+        val pluginDescriptor = PluginManager.getPlugin(PluginId.getId("org.jetbrains.kannotator"));
+        return pluginDescriptor!!.getVersion()!!;
     }
 }
