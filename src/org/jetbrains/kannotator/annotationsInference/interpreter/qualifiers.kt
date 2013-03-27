@@ -19,7 +19,7 @@ public trait QualifierEvaluator<out Q: Qualifier> {
     fun evaluateQualifier(baseValue: TypedValue): Q
 }
 
-public class MultiQualifier<K: Any>(val qualifiers: Map<K, Qualifier>): Qualifier {
+public class MultiQualifier<K: AnalysisType>(val qualifiers: Map<K, Qualifier>): Qualifier {
     public fun copy(key: K, qualifier: Qualifier): MultiQualifier<K> {
         val map = HashMap<K, Qualifier>(qualifiers)
         map.put(key, qualifier)
@@ -40,7 +40,7 @@ public class MultiQualifier<K: Any>(val qualifiers: Map<K, Qualifier>): Qualifie
     public fun hashCode(): Int = qualifiers.hashCode()
 }
 
-public class MultiQualifierSet<K: Any>(val qualifierSets: Map<K, QualifierSet<Qualifier>>): QualifierSet<MultiQualifier<K>> {
+public class MultiQualifierSet<K: AnalysisType>(val qualifierSets: Map<K, QualifierSet<Qualifier>>): QualifierSet<MultiQualifier<K>> {
     class object {
         private object MULTI_QUALIFIER_KEY
     }
@@ -60,7 +60,7 @@ public class MultiQualifierSet<K: Any>(val qualifierSets: Map<K, QualifierSet<Qu
     public override fun contains(q: Qualifier): Boolean = q is MultiQualifier<*>
 }
 
-public class MultiQualifierEvaluator<K: Any>(
+public class MultiQualifierEvaluator<K: AnalysisType>(
         val evaluators: Map<K, QualifierEvaluator<*>>
 ): QualifierEvaluator<MultiQualifier<K>> {
     override fun evaluateQualifier(baseValue: TypedValue): MultiQualifier<K> {

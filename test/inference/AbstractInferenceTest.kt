@@ -21,8 +21,10 @@ import util.getClassReader
 import util.junit.getTestName
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import java.util.Collections
+import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
+    protected abstract val analysisType: AnalysisType
 
     protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
 
@@ -31,18 +33,18 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
     protected abstract fun getClassFiles(): Collection<File>
 
     private fun doInferAnnotations(annotations: Annotations<A>) : Annotations<Any> {
-        return inferAnnotations<String>(
+        return inferAnnotations<AnalysisType>(
                 FileBasedClassSource(getClassFiles()),
                 ArrayList<File>(),
-                hashMapOf(Pair("inferrer", getInferrer() as AnnotationInferrer<Any, Qualifier>)),
+                hashMapOf(Pair(analysisType, getInferrer() as AnnotationInferrer<Any, Qualifier>)),
                 ProgressMonitor(),
                 false,
                 false,
-                hashMapOf("inferrer" to AnnotationsImpl<A>()),
-                hashMapOf("inferrer" to annotations),
+                hashMapOf(analysisType to AnnotationsImpl<A>()),
+                hashMapOf(analysisType to annotations),
                 {true},
                 Collections.emptyMap()
-        ).groupByKey["inferrer"]!!.inferredAnnotations
+        ).groupByKey[analysisType]!!.inferredAnnotations
     }
 
     protected fun doFieldTest() {

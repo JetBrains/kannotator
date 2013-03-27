@@ -72,7 +72,7 @@ private fun List<AnnotationNode?>.extractAnnotationDataMapTo(annotationsMap: Mut
         className to AnnotationDataImpl(className, attributes)}
 }
 
-public fun <K> loadMethodAnnotationsFromByteCode(
+public fun <K: AnalysisType> loadMethodAnnotationsFromByteCode(
         methodNodes: Map<Method, MethodNode>,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>
 ): Map<K, Annotations<Any>> {
@@ -122,7 +122,7 @@ public fun <K> loadMethodAnnotationsFromByteCode(
     return internalAnnotationsMap
 }
 
-public fun <K> loadFieldAnnotationsFromByteCode(
+public fun <K: AnalysisType> loadFieldAnnotationsFromByteCode(
         fieldNodes: Map<Field, FieldNode>,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>
 ): Map<K, Annotations<Any>> {
@@ -150,7 +150,7 @@ public fun <K> loadFieldAnnotationsFromByteCode(
     return internalAnnotationsMap
 }
 
-private fun <K> loadExternalAnnotations(
+private fun <K: AnalysisType> loadExternalAnnotations(
         delegatingAnnotations: Map<K, Annotations<Any>>,
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
@@ -183,7 +183,7 @@ private fun <K> loadExternalAnnotations(
     return externalAnnotationsMap
 }
 
-private fun <K> loadAnnotations(
+private fun <K: AnalysisType> loadAnnotations(
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
         methodNodes: Map<Method, MethodNode>,
@@ -218,9 +218,9 @@ data class InferenceResultGroup<A: Any>(
         val propagatedPositions: Set<AnnotationPosition>
 )
 
-data class InferenceResult<K>(val groupByKey: Map<K, InferenceResultGroup<Any>>)
+data class InferenceResult<K: AnalysisType>(val groupByKey: Map<K, InferenceResultGroup<Any>>)
 
-fun <K> inferAnnotations(
+fun <K: AnalysisType> inferAnnotations(
         classSource: ClassSource,
         existingAnnotationFiles: Collection<File>,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
@@ -346,7 +346,7 @@ fun <K> inferAnnotations(
     return propagateAnnotations(inferrers, inferenceResult, propagationOverrides, methodHierarchy)
 }
 
-private fun <K> propagateAnnotations(
+private fun <K: AnalysisType> propagateAnnotations(
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         inferenceResult: InferenceResult<K>,
         propagationOverrides: Map<K, Annotations<Any>>,
@@ -367,7 +367,7 @@ private fun <K> propagateAnnotations(
     return inferenceResult
 }
 
-private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
+private fun <K: AnalysisType, A> inferAnnotationsOnMutuallyRecursiveMethods(
         declarationIndex: DeclarationIndex,
         annotationsMap: Map<K, MutableAnnotations<A>>,
         methods: Collection<Method>,
@@ -385,17 +385,15 @@ private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
 
         progressMonitor.processingStepStarted(method)
 
-        val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<Any>>(
+        val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<K>>(
                 method.declaringClass,
-                MultiQualifierSet(inferrers.mapKeysAndValues (
-                        {(key, inferrer) -> inferrer.qualifierSet.id}, {(key, inferrer) -> inferrer.qualifierSet}
+                MultiQualifierSet(inferrers.mapValues (
+                        {(key, inferrer) -> inferrer.qualifierSet}
                 )),
-                MultiFrameTransformer<Any, QualifiedValueSet<Qualifier>>(inferrers.mapKeysAndValues (
-                        {(key, inferrer) -> inferrer.qualifierSet.id},
+                MultiFrameTransformer<K, QualifiedValueSet<Qualifier>>(inferrers.mapValues (
                         {(key, inferrer) -> inferrer.getFrameTransformer(annotationsMap[key]!!, declarationIndex)}
                 )),
-                MultiQualifierEvaluator(inferrers.mapKeysAndValues (
-                        {(key, inferrer) -> inferrer.qualifierSet.id},
+                MultiQualifierEvaluator(inferrers.mapValues (
                         {(key, inferrer) -> inferrer.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[key]!!, declarationIndex)}
                 ))
         )
@@ -403,7 +401,7 @@ private fun <K, A> inferAnnotationsOnMutuallyRecursiveMethods(
         for ((key, inferrer) in inferrers) {
             val annotations = annotationsMap[key]!!
 
-            val inferredAnnotations = inferrer.inferAnnotationsFromMethod<MultiQualifier<Any>>(
+            val inferredAnnotations = inferrer.inferAnnotationsFromMethod<MultiQualifier<K>>(
                     method, methodNodes(method), analysisResult, fieldDependencyInfoProvider, declarationIndex, annotations)
 
             var changed = false

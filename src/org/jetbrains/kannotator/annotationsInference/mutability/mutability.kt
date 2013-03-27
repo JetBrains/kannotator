@@ -23,7 +23,9 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.Mutabili
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Mutability.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
 
-object MUTABILITY_KEY
+object MUTABILITY_KEY: Object(), AnalysisType {
+    public override fun toString(): String = "mutability"
+}
 
 public enum class Mutability: Qualifier {
     READ_ONLY

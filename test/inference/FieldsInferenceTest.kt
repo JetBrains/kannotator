@@ -12,9 +12,13 @@ import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
+import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
+    protected override val analysisType: AnalysisType = NULLABILITY_KEY
+
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
         val utilClass = "out/test/kannotator/inferenceData/NullabilityFieldsInferenceTestClass.class"
         val classSource = FileBasedClassSource(arrayListOf(File(utilClass)))

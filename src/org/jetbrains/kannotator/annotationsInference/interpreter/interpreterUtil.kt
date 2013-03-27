@@ -21,6 +21,7 @@ import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.Field
 
 trait Annotation
+trait AnalysisType
 
 public fun <A: Annotation> generateAssertsForCallArguments(
         instructionNode: AbstractInsnNode?,
@@ -153,7 +154,7 @@ fun <Q: Qualifier, I: Qualifier> QualifiedValue<Q>.copy(qualifierSet: QualifierS
         return this.copy(qualifier as Q)
     }
     if (thisQualifier is MultiQualifier<*>) {
-        val thisQualifierCopy = (thisQualifier as MultiQualifier<Qualifier>).copy(qualifierSet.id, qualifier)
+        val thisQualifierCopy = (thisQualifier as MultiQualifier<AnalysisType>).copy(qualifierSet.id, qualifier)
         return this.copy(thisQualifierCopy as Q)
     }
     throw IllegalArgumentException("Can't extract qualifier")
@@ -250,7 +251,7 @@ open class BasicFrameTransformer<Q: Qualifier>: DefaultFrameTransformer<Qualifie
     }
 }
 
-class MultiFrameTransformer<K, V: CopyableValue<V>>(
+class MultiFrameTransformer<K: AnalysisType, V: CopyableValue<V>>(
         val transformers: Map<K, FrameTransformer<V>>
 ): FrameTransformer<V> {
     public override fun getPseudoResults(

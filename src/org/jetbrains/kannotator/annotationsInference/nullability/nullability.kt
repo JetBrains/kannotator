@@ -30,7 +30,9 @@ import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrateg
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
 import org.jetbrains.kannotator.annotationsInference.propagation.unify
 
-object NULLABILITY_KEY
+object NULLABILITY_KEY: Object(), AnalysisType {
+    public override fun toString(): String = "nullability"
+}
 
 public enum class Nullability: Qualifier {
     // can't prove anything yet

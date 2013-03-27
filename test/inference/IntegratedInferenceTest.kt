@@ -61,6 +61,8 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.Mutabili
 import org.jetbrains.kannotator.funDependecy
 import org.jetbrains.kannotator.declarations.isStatic
 import org.jetbrains.kannotator.declarations.isProtected
+import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -131,8 +133,8 @@ class IntegratedInferenceTest : TestCase() {
                     progressMonitor,
                     false,
                     false,
-                    hashMapOf(InferrerKey.NULLABILITY to propagationOverrides, InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
-                    hashMapOf(InferrerKey.NULLABILITY to AnnotationsImpl<NullabilityAnnotation>(), InferrerKey.MUTABILITY to AnnotationsImpl<MutabilityAnnotation>()),
+                    hashMapOf(NULLABILITY_KEY to propagationOverrides, MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                    hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
                     packageIsInteresting,
                     Collections.emptyMap()
             )
@@ -179,8 +181,8 @@ class IntegratedInferenceTest : TestCase() {
             outFile.delete()
         }
 
-        val nullability = inferenceResult.groupByKey[InferrerKey.NULLABILITY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
-        val mutability = inferenceResult.groupByKey[InferrerKey.MUTABILITY]!!.inferredAnnotations as Annotations<MutabilityAnnotation>
+        val nullability = inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
+        val mutability = inferenceResult.groupByKey[MUTABILITY_KEY]!!.inferredAnnotations as Annotations<MutabilityAnnotation>
 
         val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
 
@@ -225,7 +227,7 @@ class IntegratedInferenceTest : TestCase() {
 
         val mutability = AnnotationsImpl<MutabilityAnnotation>()
 
-        for ((inferrerKey, annotations) in mapOf(Pair(InferrerKey.NULLABILITY, nullability), Pair(InferrerKey.MUTABILITY, mutability) )) {
+        for ((inferrerKey, annotations) in mapOf(Pair(NULLABILITY_KEY, nullability), Pair(MUTABILITY_KEY, mutability) )) {
             val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")

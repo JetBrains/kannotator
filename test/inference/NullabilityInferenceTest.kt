@@ -8,8 +8,12 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
 
 class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
+    protected override val analysisType: AnalysisType = NULLABILITY_KEY
+
     protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {
         return NullabilityInferrer()
     }

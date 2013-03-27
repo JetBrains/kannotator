@@ -30,6 +30,9 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import java.util.Collections
 import com.intellij.openapi.progress.PerformInBackgroundOption
+import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -156,12 +159,12 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                 }
 
                 try {
-                    val inferrerMap = HashMap<String, AnnotationInferrer<Any, Qualifier>>()
+                    val inferrerMap = HashMap<AnalysisType, AnnotationInferrer<Any, Qualifier>>()
                     if (taskParams.inferNullabilityAnnotations) {
-                        inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>
+                        inferrerMap[NULLABILITY_KEY] = NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>
                     }
                     if (taskParams.inferKotlinAnnotations) {
-                        inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
+                        inferrerMap[MUTABILITY_KEY] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
                     }
 
                     // TODO: Add existing annotations from dependent libraries
@@ -171,8 +174,8 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             inferringProgressIndicator,
                             false,
                             false,
-                            hashMapOf("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()),
-                            hashMapOf("nullability" to AnnotationsImpl<NullabilityAnnotation>(), "mutability" to AnnotationsImpl<MutabilityAnnotation>()),
+                            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
                             {true},
                             Collections.emptyMap()
                     )
@@ -181,13 +184,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
                     val inferredNullabilityAnnotations =
                             checkNotNull(
-                                    inferenceResult.groupByKey["nullability"]!!.inferredAnnotations,
+                                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations,
                                     "Only nullability annotations are supported by now") as
                             Annotations<NullabilityAnnotation>
 
                     val propagatedNullabilityPositions =
                             checkNotNull(
-                                    inferenceResult.groupByKey["nullability"]!!.propagatedPositions,
+                                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions,
                                     "Only nullability annotations are supported by now"
                             )
 

@@ -40,6 +40,8 @@ import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnno
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.index.loadMethodParameterNames
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 
 class KotlinSignatureRendererTest : TestCase() {
 
@@ -91,8 +93,8 @@ class KotlinSignatureRendererTest : TestCase() {
             if (annotations != null) {
                 for (annotation in annotations) {
                     if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
-                        val nullability = fieldAnnotations[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
-                        val mutability = fieldAnnotations[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
+                        val nullability = fieldAnnotations[NULLABILITY_KEY] as Annotations<NullabilityAnnotation>
+                        val mutability = fieldAnnotations[MUTABILITY_KEY] as Annotations<MutabilityAnnotation>
                         errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), field, nullability, mutability))
                     }
                 }
@@ -106,8 +108,8 @@ class KotlinSignatureRendererTest : TestCase() {
             if (annotations != null) {
                 for (annotation in annotations) {
                     if (annotation.desc == "Ljet/runtime/typeinfo/KotlinSignature;") {
-                        val nullability = methodAnnotations[InferrerKey.NULLABILITY] as Annotations<NullabilityAnnotation>
-                        val mutability = methodAnnotations[InferrerKey.MUTABILITY] as Annotations<MutabilityAnnotation>
+                        val nullability = methodAnnotations[NULLABILITY_KEY] as Annotations<NullabilityAnnotation>
+                        val mutability = methodAnnotations[MUTABILITY_KEY] as Annotations<MutabilityAnnotation>
                         errors.add(checkSignature(annotation.values!!.get(1)!!.toString(), method, nullability, mutability))
                     }
                 }
