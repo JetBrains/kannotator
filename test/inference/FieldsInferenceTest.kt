@@ -12,8 +12,8 @@ import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
-import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {

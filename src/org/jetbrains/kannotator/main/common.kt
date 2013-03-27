@@ -46,6 +46,7 @@ import org.jetbrains.kannotator.graphs.removeGraphNodes
 import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 open class ProgressMonitor {
     open fun processingStarted() {}

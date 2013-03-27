@@ -19,9 +19,9 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.Field
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 trait Annotation
-trait AnalysisType
 
 public fun <A: Annotation> generateAssertsForCallArguments(
         instructionNode: AbstractInsnNode?,

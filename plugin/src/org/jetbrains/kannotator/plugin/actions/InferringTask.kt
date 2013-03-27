@@ -32,7 +32,7 @@ import java.util.Collections
 import com.intellij.openapi.progress.PerformInBackgroundOption
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
-import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,

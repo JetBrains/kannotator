@@ -5,5 +5,5 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Propagated {
-    public PropagationKind[] value();
+    public Class<AnalysisType>[] value();
 }

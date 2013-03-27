@@ -15,6 +15,7 @@ import org.jetbrains.kannotator.annotationsInference.nullability.*
 import java.util.LinkedHashMap
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
 
 fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
@@ -125,7 +126,7 @@ fun methodsToAnnotationsMap(
             annotations[pos] = arrayListOf<AnnotationData>(data)
             if (pos in propagatedNullabilityPositions) {
                 val map = HashMap<String, String>()
-                map["value"] = "$JB_PROPAGATION_KIND.NULLABILITY"
+                map["value"] = "{${javaClass<NullabilityKey>().getName()}.class}"
                 annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
             }
         }

@@ -22,10 +22,13 @@ import kotlinlib.bfs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Mutability.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
-object MUTABILITY_KEY: Object(), AnalysisType {
+class MutabilityKey: Object(), AnalysisType {
     public override fun toString(): String = "mutability"
 }
+
+val MUTABILITY_KEY = MutabilityKey()
 
 public enum class Mutability: Qualifier {
     READ_ONLY

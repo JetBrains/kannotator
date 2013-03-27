@@ -8,7 +8,7 @@ import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
-import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {

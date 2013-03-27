@@ -144,7 +144,7 @@ class IntegratedInferenceTest : TestCase() {
         }
 
         for ((inferrerKey, group) in inferenceResult.groupByKey) {
-            val testName = inferrerKey.toString().toLowerCase()
+            val testName = inferrerKey.toString()!!.toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()
@@ -228,7 +228,7 @@ class IntegratedInferenceTest : TestCase() {
         val mutability = AnnotationsImpl<MutabilityAnnotation>()
 
         for ((inferrerKey, annotations) in mapOf(Pair(NULLABILITY_KEY, nullability), Pair(MUTABILITY_KEY, mutability) )) {
-            val testName = inferrerKey.toString().toLowerCase()
+            val testName = inferrerKey.toString()!!.toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()

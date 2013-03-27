@@ -21,7 +21,7 @@ import util.getClassReader
 import util.junit.getTestName
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import java.util.Collections
-import org.jetbrains.kannotator.controlFlow.builder.analysis.AnalysisType
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
     protected abstract val analysisType: AnalysisType

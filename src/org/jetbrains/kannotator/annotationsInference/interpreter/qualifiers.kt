@@ -3,6 +3,7 @@ package org.jetbrains.kannotator.controlFlow.builder.analysis
 import java.util.HashMap
 import kotlinlib.mapMerge
 import kotlinlib.mapValues
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 public trait Qualifier
 
