@@ -181,13 +181,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
                     val inferredNullabilityAnnotations =
                             checkNotNull(
-                                    inferenceResult.inferredAnnotationsMap["nullability"],
+                                    inferenceResult.groupByKey["nullability"]!!.inferredAnnotations,
                                     "Only nullability annotations are supported by now") as
                             Annotations<NullabilityAnnotation>
 
                     val propagatedNullabilityPositions =
                             checkNotNull(
-                                    inferenceResult.propagatedPositions["nullability"],
+                                    inferenceResult.groupByKey["nullability"]!!.propagatedPositions,
                                     "Only nullability annotations are supported by now"
                             )
 
