@@ -15,7 +15,7 @@ fun <K, V, R, M: MutableMap<K, R>> mapMergeTo(
         merger: (key: K, v1: V, v2: V) -> R
 ): M {
     for (key in keys) {
-        resultMap.put(key, merger(key, m1.get(key), m2.get(key)))
+        resultMap.put(key, merger(key, m1.get(key)!!, m2.get(key)!!))
     }
 
     return resultMap
