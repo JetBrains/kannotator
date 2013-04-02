@@ -99,8 +99,9 @@ private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsn
         for (intf in currentClass.getInterfaces()) {
             superTypes.add(intf as Class<Any>)
         }
-        if (currentClass.getSuperclass() != null) {
-            superTypes.add(currentClass.getSuperclass())
+        val superClass = currentClass.getSuperclass()
+        if (superClass != null) {
+            superTypes.add(superClass as Class<Any>)
         }
 
         for (superType in superTypes) {
