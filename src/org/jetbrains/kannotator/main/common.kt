@@ -386,14 +386,16 @@ private fun <K: AnalysisType, A> inferAnnotationsOnMutuallyRecursiveMethods(
 
         progressMonitor.processingStepStarted(method)
 
+        val t = inferrers.mapValues (
+                {(key, inferrer) -> inferrer.getFrameTransformer(annotationsMap[key]!!, declarationIndex) as FrameTransformer<QualifiedValueSet<MultiQualifier<K>>>}
+        )
+
         val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<K>>(
                 method.declaringClass,
                 MultiQualifierSet(inferrers.mapValues (
                         {(key, inferrer) -> inferrer.qualifierSet}
                 )),
-                MultiFrameTransformer<K, QualifiedValueSet<Qualifier>>(inferrers.mapValues (
-                        {(key, inferrer) -> inferrer.getFrameTransformer(annotationsMap[key]!!, declarationIndex)}
-                )),
+                MultiFrameTransformer<K, QualifiedValueSet<MultiQualifier<K>>>(t),
                 MultiQualifierEvaluator(inferrers.mapValues (
                         {(key, inferrer) -> inferrer.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[key]!!, declarationIndex)}
                 ))
