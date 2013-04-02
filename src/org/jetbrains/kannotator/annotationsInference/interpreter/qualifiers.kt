@@ -52,7 +52,7 @@ public class MultiQualifierSet<K: AnalysisType>(val qualifierSets: Map<K, Qualif
             MultiQualifier(qualifierSets.mapValues { (key, qualifierSet) -> qualifierSet.initial })
 
     public override fun merge(q1: MultiQualifier<K>, q2: MultiQualifier<K>): MultiQualifier<K> {
-        val map = mapMerge(q1.qualifiers, q2.qualifiers, qualifierSets.keySet()) {(key, v1, v2) ->
+        val map = mapMerge(q1.qualifiers, q2.qualifiers) {(key, v1, v2) ->
             qualifierSets[key]!!.merge(v1, v2)
         }
         return MultiQualifier(map)
