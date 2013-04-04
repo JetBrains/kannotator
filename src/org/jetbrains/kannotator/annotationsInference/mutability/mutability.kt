@@ -36,7 +36,7 @@ public enum class Mutability: Qualifier {
 }
 
 object MutabilitySet: QualifierSet<Mutability> {
-    public override val id: Any = MUTABILITY_KEY
+    public override val id: AnalysisType = MUTABILITY_KEY
     public override val initial: Mutability = READ_ONLY
 
     public override fun merge(q1: Mutability, q2: Mutability): Mutability {

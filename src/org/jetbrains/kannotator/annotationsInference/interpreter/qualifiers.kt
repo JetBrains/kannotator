@@ -8,7 +8,7 @@ import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 public trait Qualifier
 
 public trait QualifierSet<Q: Qualifier> {
-    public val id: Any
+    public val id: AnalysisType
     public val initial: Q
 
     public fun merge(q1: Q, q2: Q): Q
@@ -43,10 +43,10 @@ public class MultiQualifier<K: AnalysisType>(val qualifiers: Map<K, Qualifier>):
 
 public class MultiQualifierSet<K: AnalysisType>(val qualifierSets: Map<K, QualifierSet<Qualifier>>): QualifierSet<MultiQualifier<K>> {
     class object {
-        private object MULTI_QUALIFIER_KEY
+        private object MULTI_QUALIFIER_KEY : AnalysisType
     }
 
-    public override val id: Any = MULTI_QUALIFIER_KEY
+    public override val id: AnalysisType = MULTI_QUALIFIER_KEY
 
     public override val initial: MultiQualifier<K> =
             MultiQualifier(qualifierSets.mapValues { (key, qualifierSet) -> qualifierSet.initial })

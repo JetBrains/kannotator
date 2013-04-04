@@ -55,7 +55,7 @@ public enum class Nullability: Qualifier {
 }
 
 public object NullabilitySet: QualifierSet<Nullability> {
-    public override val id: Any = NULLABILITY_KEY
+    public override val id: AnalysisType = NULLABILITY_KEY
     public override val initial: Nullability = UNKNOWN
 
     // Can assume that EMPTY and DISCARD do not appear as argument
