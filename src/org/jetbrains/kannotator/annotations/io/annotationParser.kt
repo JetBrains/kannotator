@@ -12,6 +12,9 @@ import java.io.BufferedReader
 import java.io.FileReader
 import org.jetbrains.kannotator.annotationsInference.nullability.*
 import org.jetbrains.kannotator.declarations.*
+import java.util.regex.Pattern
+
+private val ANNOTATION_KEY_PATTERN = Pattern.compile("""(@\w*\s)?(.*)""")
 
 trait AnnotationData {
     val annotationClassFqn: String
@@ -117,7 +120,12 @@ fun loadAnnotationsFromLogs(
             val it = br.lineIterator()
 
             while (it.hasNext()) {
-                val key = it.next()
+                val firstLine = it.next()
+                val matcher = ANNOTATION_KEY_PATTERN.matcher(firstLine)
+                if (!matcher.find()) {
+                    throw IllegalStateException("Wrong format of input string: $firstLine")
+                }
+                val key = matcher.group(2)!!
                 val value = it.next()
 
                 val pos = keyIndex.findPositionByAnnotationKeyString(key)
