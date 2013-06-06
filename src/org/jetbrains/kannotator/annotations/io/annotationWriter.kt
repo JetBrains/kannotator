@@ -144,7 +144,7 @@ fun methodsToAnnotationsMap(
 
 fun AnnotationPosition.getPackageName(): String? {
     val member = member
-    return if (member is Method) member.getInternalPackageName() else null
+    return if (member is Method || member is Field) member.getInternalPackageName() else null
 }
 
 fun buildAnnotationsDataMap(
