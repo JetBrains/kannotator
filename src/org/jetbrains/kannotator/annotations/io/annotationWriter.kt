@@ -20,47 +20,68 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
 fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
     val printer = XmlPrinter(sb)
-    printer.openTag("root")
-    printer.pushIndent()
-    for ((typePosition, annotationDatas) in annotations) {
-        printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
-        printer.pushIndent()
-        for (annotationData in annotationDatas) {
-            if (annotationData.attributes.size() < 1) {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
-            } else {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
-                for ((name, value) in annotationData.attributes) {
-                    val attributesMap = LinkedHashMap<String, String>()
-                    attributesMap.put("name", name)
-                    attributesMap.put("val", value)
-                    printer.pushIndent()
-                    printer.openTag("val", attributesMap, true, '"')
-                    printer.popIndent()
+    printer.tag("root") {
+        for ((typePosition, annotationDatas) in annotations) {
+            printer.tag("item", hashMapOf("name" to typePosition.toAnnotationKey())) {
+                for (annotationData in annotationDatas) {
+                    if (annotationData.attributes.size() < 1) {
+                        printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn), true)
+                    } else {
+                        printer.tag("annotation", hashMapOf("name" to annotationData.annotationClassFqn)) {
+                            for ((name, value) in annotationData.attributes) {
+                                val attributesMap = LinkedHashMap<String, String>()
+                                attributesMap.put("name", name)
+                                attributesMap.put("val", value)
+                                printer.openTag("val", attributesMap, true, '"')
+                            }
+                        }
+                    }
                 }
-                printer.closeTag("annotation")
             }
         }
-        printer.popIndent()
-        printer.closeTag("item")
     }
-    printer.popIndent()
-    printer.closeTag("root")
 
     writer.write(sb.toString())
     writer.close()
 
 }
 
-class XmlPrinter(val sb: StringBuilder) {
-    private val INDENTATION_UNIT = "    ";
-    private var indent = "";
+public open class IndentationPrinter() {
+    private val INDENTATION_UNIT = "    "
+    protected var indent: String = ""
+        private set
+
+    public fun pushIndent() {
+        indent += INDENTATION_UNIT;
+    }
+
+    public fun popIndent() {
+        if (indent.length() < INDENTATION_UNIT.length()) {
+            throw IllegalStateException("No indentation to pop");
+        }
+
+        indent = indent.substring(INDENTATION_UNIT.length());
+    }
+}
+
+
+class XmlPrinter(val sb: StringBuilder) : IndentationPrinter() {
+
 
     public fun println() {
         sb.println()
     }
 
-    fun openTag(tagName: String, attributes: Map<String, String>? = null, isClosed: Boolean = false, quoteChar : Char = '\'') {
+
+    public fun tag(tagName: String, attributes: Map<String, String>? = null, block: XmlPrinter.()->Unit) {
+        openTag(tagName, attributes)
+        pushIndent()
+        block()
+        popIndent()
+        closeTag(tagName)
+    }
+
+    fun openTag(tagName: String, attributes: Map<String, String>? = null, isClosed: Boolean = false, quoteChar: Char = '\'') {
         sb.append(indent)
         sb.append("<").append(tagName)
         if (attributes != null) {
@@ -81,18 +102,6 @@ class XmlPrinter(val sb: StringBuilder) {
         sb.append(indent);
         sb.append("</").append(tagName).append(">")
         println()
-    }
-
-    public fun pushIndent() {
-        indent += INDENTATION_UNIT;
-    }
-
-    public fun popIndent() {
-        if (indent.length() < INDENTATION_UNIT.length()) {
-            throw IllegalStateException("No indentation to pop");
-        }
-
-        indent = indent.substring(INDENTATION_UNIT.length());
     }
 }
 
@@ -134,7 +143,7 @@ fun methodsToAnnotationsMap(
 
     for (m in members) {
         if (m is Method) {
-            PositionsForMethod(m).forEachValidPosition {pos -> processPosition(pos)}
+            PositionsForMethod(m).forEachValidPosition { pos -> processPosition(pos) }
         } else if (m is Field) {
             processPosition(getFieldTypePosition(m))
         }
@@ -167,7 +176,7 @@ fun buildAnnotationsDataMap(
 
     return methodsToAnnotationsMap(
             members.sortByToString().filter { method ->
-                !classPrefixesToOmit.any{p -> method.declaringClass.internal.startsWith(p)}
+                !classPrefixesToOmit.any{ p -> method.declaringClass.internal.startsWith(p) }
             },
             nullability,
             propagatedNullabilityPositions
@@ -190,7 +199,7 @@ fun writeAnnotationsToXMLByPackage(
     for ((pos, data) in annotations) {
         val packageName = pos.getPackageName()
         if (packageName != null) {
-            val map = annotationsByPackage.getOrPut(packageName!!, {HashMap()})
+            val map = annotationsByPackage.getOrPut(packageName!!, { HashMap() })
             map[pos] = data
         }
     }

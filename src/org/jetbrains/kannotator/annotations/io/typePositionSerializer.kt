@@ -62,7 +62,7 @@ private fun PositionWithinDeclaration.toAnnotationKeySuffix(method: Method): Str
     }
 }
 
-private fun correctIfNotStatic(method: Method, parameterIndex: Int): Int {
+public fun correctIfNotStatic(method: Method, parameterIndex: Int): Int {
     // 'this' has index 0
     return if (method.isStatic()) parameterIndex else parameterIndex - 1
 }
