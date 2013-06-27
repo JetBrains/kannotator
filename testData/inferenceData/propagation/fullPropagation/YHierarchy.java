@@ -20,6 +20,8 @@ public class YHierarchy {
     public interface B extends A, A1 {
         @Nullable
         Object m(@ExpectNullable Object x, @Nullable Object y, @ExpectNotNull Object z);
+
+        void dummy(); // Dummy method to avoid interpreting this interface as SAM -> propagation errors on loading
     }
 
     public interface C extends B {

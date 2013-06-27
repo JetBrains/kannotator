@@ -19,6 +19,8 @@ public class XHierarchyAnnotatedMiddle {
     public interface Middle extends Top1, Top2 {
         @NotNull
         Object m(@Nullable Object x, @NotNull Object y, Object z);
+
+        void dummy(); // Dummy method to avoid interpreting this interface as SAM -> propagation errors on loading
     }
 
     public interface Leaf1 extends Middle {
