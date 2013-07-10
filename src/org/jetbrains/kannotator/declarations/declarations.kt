@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
-import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
 import java.util.ArrayList
@@ -202,7 +201,7 @@ fun ClassName.isAnonymous(): Boolean {
 }
 
 val ClassName.packageName: String
-    get() = internal.prefixUpToLast('/')!!
+    get() = internal.prefixUpToLast('/') ?: ""
 
 val ClassMember.packageName: String
     get() = declaringClass.packageName

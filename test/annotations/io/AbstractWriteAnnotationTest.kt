@@ -1,7 +1,6 @@
 package annotations.io
 
 import java.io.File
-import java.util.HashMap
 import kotlinlib.prefixUpTo
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
@@ -21,33 +20,39 @@ import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import java.util.LinkedHashMap
+import kotlinlib.recurseFiltered
+import java.util.ArrayList
 
 public open class AbstractWriteAnnotationTest {
 
-    protected fun readAnnotationsForAllPositionsInJarFile(jarFile: File, annotationFile: File): Map<AnnotationPosition, List<AnnotationData>> {
-        val classToReaderMap = classToReaderMap(jarFile)
-        println("Processing ${annotationFile.getAbsolutePath()}")
+    protected fun readAnnotationsForAllPositionsInJarFile(jarFile: File, dirOrFileWithAnnotations: File): Map<AnnotationPosition, List<AnnotationData>> {
         val typePositionAndAnnotationData = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
-        parseAnnotations(annotationFile.reader(), { key, annotationData ->
-            val classReader = classToReaderMap.get(key.prefixUpTo(' '))
-            if (classReader != null) {
-                forAllClassAnnotationPositions(classReader) { annotationPosition ->
-                    if (annotationPosition.toAnnotationKey() == key) {
-                        for (data in annotationData) {
-                            typePositionAndAnnotationData.put(annotationPosition, arrayListOf(data))
+        dirOrFileWithAnnotations.recurseFiltered({ it.extension == "xml" }) {
+            annotationFile ->
+            val classToReaderMap = classToReaderMap(jarFile)
+            println("Processing ${annotationFile.getAbsolutePath()}")
+            parseAnnotations(annotationFile.reader(), { key, annotationData ->
+                val classReader = classToReaderMap.get(key.prefixUpTo(' '))
+                if (classReader != null) {
+                    forAllClassAnnotationPositions(classReader) { annotationPosition ->
+                        if (annotationPosition.toAnnotationKey() == key) {
+                            for (data in annotationData) {
+                                val dataList = typePositionAndAnnotationData.getOrPut(annotationPosition, { ArrayList() })
+                                dataList.add(data)
+                            }
                         }
                     }
                 }
-            }
-            else {
-                println("Cannot find class reader for ${key.prefixUpTo(' ')} class")
-            }
-        }, { str -> println(str) })
+                else {
+                    println("Cannot find class reader for ${key.prefixUpTo(' ')} class")
+                }
+            }, { str -> println(str) })
+        }
         return typePositionAndAnnotationData
     }
 
     private fun classToReaderMap(jarFile: File): Map<String, ClassReader> {
-        val classToReaderMap = HashMap<String, ClassReader>()
+        val classToReaderMap = LinkedHashMap<String, ClassReader>()
         visitAllInJar(jarFile, {
             className, classReader ->
             classToReaderMap.put(className, classReader)

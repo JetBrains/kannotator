@@ -1,6 +1,18 @@
 <root>
-    <item name='org.objectweb.asm.ClassVisitor ClassVisitor(int, org.objectweb.asm.ClassVisitor) 1'>
+    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[])'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor void visitOuterClass(java.lang.String, java.lang.String, java.lang.String) 0'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
@@ -9,15 +21,6 @@
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor void visitOuterClass(java.lang.String, java.lang.String, java.lang.String) 2'>
-        <annotation name='org.jetbrains.annotations.Nullable'/>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 0'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 1'>
-        <annotation name='org.jetbrains.annotations.Nullable'/>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 2'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor void visit(int, int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2'>
@@ -47,22 +50,25 @@
     <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object) 4'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
+    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.FieldVisitor visitField(int, java.lang.String, java.lang.String, java.lang.String, java.lang.Object)'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 1'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
+    <item name='org.objectweb.asm.ClassVisitor void visitInnerClass(java.lang.String, java.lang.String, java.lang.String, int) 2'>
+        <annotation name='org.jetbrains.annotations.Nullable'/>
+    </item>
     <item name='org.objectweb.asm.ClassVisitor void visitSource(java.lang.String, java.lang.String) 0'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor void visitSource(java.lang.String, java.lang.String) 1'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
-    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 1'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 2'>
-        <annotation name='org.jetbrains.annotations.NotNull'/>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 3'>
-        <annotation name='org.jetbrains.annotations.Nullable'/>
-    </item>
-    <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.MethodVisitor visitMethod(int, java.lang.String, java.lang.String, java.lang.String, java.lang.String[]) 4'>
+    <item name='org.objectweb.asm.ClassVisitor ClassVisitor(int, org.objectweb.asm.ClassVisitor) 1'>
         <annotation name='org.jetbrains.annotations.Nullable'/>
     </item>
     <item name='org.objectweb.asm.ClassVisitor org.objectweb.asm.AnnotationVisitor visitAnnotation(java.lang.String, boolean) 0'>

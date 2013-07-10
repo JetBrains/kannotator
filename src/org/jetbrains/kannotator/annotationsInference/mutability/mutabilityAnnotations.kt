@@ -9,8 +9,8 @@ enum class MutabilityAnnotation : Annotation {
     READ_ONLY
 }
 
-private val JB_MUTABLE = "org.jetbrains.kannotator.runtime.annotations.Mutable"
-private val JB_READ_ONLY = "org.jetbrains.kannotator.runtime.annotations.ReadOnly"
+public val JB_MUTABLE: String = "org.jetbrains.kannotator.runtime.annotations.Mutable"
+public val JB_READ_ONLY: String = "org.jetbrains.kannotator.runtime.annotations.ReadOnly"
 
 fun classNamesToMutabilityAnnotation(canonicalClassNames: Set<String>) : MutabilityAnnotation? {
     val containsMutable = canonicalClassNames.contains(JB_MUTABLE)

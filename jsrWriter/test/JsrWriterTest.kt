@@ -22,6 +22,11 @@ import org.jetbrains.kannotator.annotationsInference.nullability.*
 import java.util.LinkedHashMap
 import org.jetbrains.kannotator.declarations.*
 import java.util.HashMap
+import org.jetbrains.kannotator.main.InferenceResult
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
+import org.junit.ComparisonFailure
 
 public class JsrWriterTest : AbstractWriteAnnotationTest() {
 
@@ -41,25 +46,46 @@ public class JsrWriterTest : AbstractWriteAnnotationTest() {
         val originalClassFile = File(dataDir, "ClassVisitor.class")
         val classFileCopy = File(tempFilesDir, originalClassFile.name)
         originalClassFile.copyTo(classFileCopy)
-
+                                                           g
         insertAnnotationInClassFile(classFileCopy.getAbsolutePath(), annotationsInJsrFormatFile.getAbsolutePath())
 
-        val inferenceResult = inferAnnotations(FileBasedClassSource(arrayListOf(classFileCopy)),
-                Collections.emptyList(), INFERRERS, ProgressMonitor(), true, true,
-                Collections.emptyMap(), Collections.emptyMap(), { true }, Collections.emptyMap()
-        )
-
-        val nullability = inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
-        val members = LinkedHashSet<ClassMember>()
-        nullability.forEach {(pos, annotation) -> if (!members.contains(pos.member)) members.add(pos.member) }
-
-        val methodsToAnnotationsMap = methodsToAnnotationsMapForNullabilityAnnotations(members, nullability)
-
         val annotationsReadFromModifiedClassFile = File(tempFilesDir, "annotations.xml")
-        writeAnnotations(FileWriter(annotationsReadFromModifiedClassFile), methodsToAnnotationsMap)
+        writeExistingAnnotations(classFileCopy, annotationsReadFromModifiedClassFile, NULLABILITY_KEY)
+
         val result = annotationsReadFromModifiedClassFile.readText().trim().toUnixSeparators()
         val expected = originalAnnotationsFile.readText().trim().toUnixSeparators()
+        // files can have same entries in different order
+        if (!expected.split("\n").toSet().equals(result.split("\n").toSet())) {
+            throw ComparisonFailure(null, expected, result)
+        }
+        tempFilesDir.deleteRecursively()
+    }
+
+    Test fun testSimple() {
+        val testDir = "jsrWriter/testData/simple"
+        val tempFilesDir = File("$testDir/temp")
+        val jarPath = "$tempFilesDir/result.jar"
+        val jarFile = File(jarPath)
+        tempFilesDir.mkdirs()
+        val tempFilesDirPath = tempFilesDir.getPath()
+        val outClassesDir = "$tempFilesDir/class"
+        File(outClassesDir).mkdirs()
+        compileFiles("$testDir/data/src", outClassesDir, jarPath)
+        readExistingAnnotations(jarFile)
+        writeExistingAnnotations(jarFile, File("$tempFilesDirPath/nullability_annotations.xml"), NULLABILITY_KEY)
+        writeExistingAnnotations(jarFile, File("$tempFilesDirPath/mutability_annotations.xml"), MUTABILITY_KEY)
+        val data = readAnnotationsForAllPositionsInJarFile(jarFile, tempFilesDir)
+        val outFilePath = "$tempFilesDirPath/out.jaif"
+        writeAnnotationsJSRStyleGroupedByPackage(FileWriter(outFilePath), data)
+        val result = File(outFilePath).readText().trim().toUnixSeparators()
+        val expected = File("$testDir/data/expected.jaif").readText().trim().toUnixSeparators()
         Assert.assertEquals(expected, result)
+        tempFilesDir.deleteRecursively()
+    }
+
+    fun compileFiles(srcPath: String, dstPath: String, jarPath: String) {
+        execCmd("javac -d $dstPath -sourcepath src -cp lib/jetbrains-annotations.jar $srcPath/A.java $srcPath/somep/A.java")
+        execCmd("jar -cvf $jarPath $dstPath")
     }
 
     // annotations-file-utilities are called from another process, because they use some hacked version of javac and asm
@@ -71,12 +97,16 @@ public class JsrWriterTest : AbstractWriteAnnotationTest() {
         val classPathEntry = "$PATH_TO_ANNOTATION_FILE_UTILITIES_JAR${File.pathSeparator}$PATH_TO_HACKED_JAVAC_JAR"
         val cmd = "java -ea -Xbootclasspath/p:$classPathEntry -classpath $classPathEntry " +
         "$INSERT_ANNOTATION_TO_BYTECODE_MAIN_CLASS $classFile $jsrAnnotationFile"
+        execCmd(cmd)
+    }
+
+    private fun execCmd(cmd: String) {
         println("Executing $cmd")
         val rt = Runtime.getRuntime()
         val process = rt.exec(cmd)
         printProcessOutput(process)
         val exitVal = process.waitFor()
-        println("Process exitValue: " + exitVal);
+        println("Process exitValue: " + exitVal)
     }
 
     private fun printProcessOutput(process: Process) {
@@ -100,21 +130,26 @@ public class JsrWriterTest : AbstractWriteAnnotationTest() {
         return sb.toString()
     }
 
-    fun methodsToAnnotationsMapForNullabilityAnnotations(
+    fun <K> methodsToAnnotationsMapForMutabilityOrNullabilityAnnotations(
             members: Collection<ClassMember>,
-            nullability: Annotations<NullabilityAnnotation>
+            annotations: Annotations<K>
     ): Map<AnnotationPosition, MutableList<AnnotationData>> {
-        val annotations = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
+        val result = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
 
         fun processPosition(pos: AnnotationPosition) {
-            val nullAnnotation = nullability[pos]
-            val data: AnnotationData
-            if (nullAnnotation == NullabilityAnnotation.NOT_NULL) {
+            val annotation: K? = annotations[pos]
+            var data: AnnotationData? = null
+            if (annotation == NullabilityAnnotation.NOT_NULL) {
                 data = AnnotationDataImpl(JB_NOT_NULL, HashMap())
-                annotations[pos] = arrayListOf<AnnotationData>(data)
-            } else if (nullAnnotation == NullabilityAnnotation.NULLABLE) {
+            } else if (annotation == NullabilityAnnotation.NULLABLE) {
                 data = AnnotationDataImpl(JB_NULLABLE, HashMap())
-                annotations[pos] = arrayListOf<AnnotationData>(data)
+            }  else if (annotation == MutabilityAnnotation.MUTABLE) {
+                data = AnnotationDataImpl(JB_MUTABLE, HashMap())
+            }  else if (annotation == MutabilityAnnotation.READ_ONLY) {
+                data = AnnotationDataImpl(JB_READ_ONLY, HashMap())
+            }
+            if (data != null) {
+                result[pos] = arrayListOf<AnnotationData>(data!!)
             }
         }
 
@@ -125,7 +160,26 @@ public class JsrWriterTest : AbstractWriteAnnotationTest() {
                 processPosition(getFieldTypePosition(m))
             }
         }
-        return annotations
+        return result
+    }
+
+    fun readExistingAnnotations(jarOrClassFile: File): InferenceResult<AnalysisType> {
+        return inferAnnotations(FileBasedClassSource(arrayListOf(jarOrClassFile)),
+                Collections.emptyList(), INFERRERS, ProgressMonitor(), true, true,
+                Collections.emptyMap(), Collections.emptyMap(), { true }, Collections.emptyMap()
+        )
+    }
+
+    fun <K : AnalysisType> writeExistingAnnotations(classOrJarFile: File, dst: File, key: K) {
+        val inferenceResult = readExistingAnnotations(classOrJarFile)
+
+        val annotations = inferenceResult.groupByKey[key]!!.inferredAnnotations
+        val members = LinkedHashSet<ClassMember>()
+        annotations.forEach {(pos, annotation) -> if (!members.contains(pos.member)) members.add(pos.member) }
+
+        val methodsToAnnotationsMap = methodsToAnnotationsMapForMutabilityOrNullabilityAnnotations(members, annotations)
+
+        writeAnnotations(FileWriter(dst), methodsToAnnotationsMap)
     }
 
 }

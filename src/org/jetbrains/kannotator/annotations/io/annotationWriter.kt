@@ -16,6 +16,7 @@ import java.util.LinkedHashMap
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
+import java.util.ArrayList
 
 fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
@@ -134,7 +135,7 @@ fun methodsToAnnotationsMap(
             val data = AnnotationDataImpl(JB_NOT_NULL, hashMap())
             annotations[pos] = arrayListOf<AnnotationData>(data)
             if (pos in propagatedNullabilityPositions) {
-                val map = HashMap<String, String>()
+                val map = LinkedHashMap<String, String>()
                 map["value"] = "{${javaClass<NullabilityKey>().getName()}.class}"
                 annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
             }
@@ -195,15 +196,7 @@ fun writeAnnotationsToXMLByPackage(
         includedPositions: Set<AnnotationPosition> = Collections.emptySet()
 ) {
     val annotations = buildAnnotationsDataMap(declIndex, nullability, propagatedNullabilityPositions, classPrefixesToOmit, includedClassNames, includedPositions)
-    val annotationsByPackage = HashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
-    for ((pos, data) in annotations) {
-        val packageName = pos.getPackageName()
-        if (packageName != null) {
-            val map = annotationsByPackage.getOrPut(packageName!!, { HashMap() })
-            map[pos] = data
-        }
-    }
-
+    val annotationsByPackage = groupAnnotationsByPackage(annotations)
     for ((path, pathAnnotations) in annotationsByPackage) {
         println(path)
 
@@ -235,4 +228,16 @@ fun writeAnnotationsToXMLByPackage(
         val writer = FileWriter(outFile)
         writeAnnotations(writer, pathAnnotations)
     }
+}
+
+public fun groupAnnotationsByPackage(annotations: Map<AnnotationPosition, Collection<AnnotationData>>): LinkedHashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>> {
+    val annotationsByPackage = LinkedHashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
+    for ((pos, data) in annotations) {
+        val packageName = pos.getPackageName()
+        if (packageName != null) {
+            val map = annotationsByPackage.getOrPut(packageName!!, { LinkedHashMap() })
+            map[pos] = ArrayList(data)
+        }
+    }
+    return annotationsByPackage
 }
