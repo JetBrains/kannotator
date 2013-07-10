@@ -28,6 +28,7 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
 import org.junit.ComparisonFailure
 import org.jetbrains.kannotator.annotations.io.readAnnotationsForAllPositionsInJarFile
+import annotations.io.runner.main
 
 public class JsrWriterTest() {
 
@@ -47,7 +48,6 @@ public class JsrWriterTest() {
         val originalClassFile = File(dataDir, "ClassVisitor.class")
         val classFileCopy = File(tempFilesDir, originalClassFile.name)
         originalClassFile.copyTo(classFileCopy)
-                                                           g
         insertAnnotationInClassFile(classFileCopy.getAbsolutePath(), annotationsInJsrFormatFile.getAbsolutePath())
 
         val annotationsReadFromModifiedClassFile = File(tempFilesDir, "annotations.xml")
@@ -83,6 +83,30 @@ public class JsrWriterTest() {
         Assert.assertEquals(expected, result)
         tempFilesDir.deleteRecursively()
     }
+
+    Test fun testRunner() {
+        val testDir = "jsrWriter/testData/main"
+        val dataDir = "$testDir/data"
+        val tempFilesDir = File("$testDir/temp")
+        val resultingFile = "$tempFilesDir/output.jaif"
+        main(array("$dataDir/some.jar", "$dataDir/annotations", resultingFile))
+        val result = File(resultingFile).readText().trim().toUnixSeparators()
+        val expected = File("$dataDir/expected.jaif").readText().trim().toUnixSeparators()
+        Assert.assertEquals(expected, result)
+        tempFilesDir.deleteRecursively()
+    }
+
+
+    Test fun testWholeAsm() {
+        val tempFilesDir = File("jsrWriter/testData/wholeAsm/temp")
+        val resultingFile = "$tempFilesDir/output.jaif"
+        main(array("lib/asm-debug-all-4.0.jar", "lib/asm.annotations", resultingFile))
+        val result = File(resultingFile).readText().trim().toUnixSeparators()
+        val expected = File("jsrWriter/testData/wholeAsm/expected.jaif").readText().trim().toUnixSeparators()
+        Assert.assertEquals(expected, result)
+        tempFilesDir.deleteRecursively()
+    }
+
 
     fun compileFiles(srcPath: String, dstPath: String, jarPath: String) {
         execCmd("javac -d $dstPath -sourcepath src -cp lib/jetbrains-annotations.jar $srcPath/A.java $srcPath/somep/A.java")

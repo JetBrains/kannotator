@@ -19,8 +19,9 @@ import org.objectweb.asm.Opcodes
 import java.util.LinkedHashMap
 import kotlinlib.recurseFiltered
 import java.util.ArrayList
+import java.util.Collections
 
-public fun readAnnotationsForAllPositionsInJarFile(jarFile: File, dirOrFileWithAnnotations: File): Map<AnnotationPosition, List<AnnotationData>> {
+public fun readAnnotationsForAllPositionsInJarFile(jarFile: File, dirOrFileWithAnnotations: File, allowedAnnotations: (String) -> Boolean = { true }): Map<AnnotationPosition, List<AnnotationData>> {
     val typePositionAndAnnotationData = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
     dirOrFileWithAnnotations.recurseFiltered({ it.extension == "xml" }) {
         annotationFile ->
@@ -32,6 +33,9 @@ public fun readAnnotationsForAllPositionsInJarFile(jarFile: File, dirOrFileWithA
                 forAllClassAnnotationPositions(classReader) { annotationPosition ->
                     if (annotationPosition.toAnnotationKey() == key) {
                         for (data in annotationData) {
+                            if (!allowedAnnotations(data.annotationClassFqn)) {
+                                continue
+                            }
                             val dataList = typePositionAndAnnotationData.getOrPut(annotationPosition, { ArrayList() })
                             dataList.add(data)
                         }

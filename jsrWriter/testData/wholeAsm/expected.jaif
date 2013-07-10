@@ -1,0 +1,702 @@
+package org.jetbrains.annotations:
+annotation @NotNull:
+annotation @Nullable:
+package org.objectweb.asm:
+class ClassReader:
+    method getClassName()Ljava/lang/String;:
+    method getClassName()Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+class ClassVisitor:
+    method <init>(ILorg/objectweb/asm/ClassVisitor;)V:
+        parameter 1:
+            @org.jetbrains.annotations.Nullable
+    field cv:
+        @org.jetbrains.annotations.Nullable
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitField(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lorg/objectweb/asm/FieldVisitor;:
+    method visitField(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Object;)Lorg/objectweb/asm/FieldVisitor;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+        parameter 4:
+            @org.jetbrains.annotations.Nullable
+    method visitMethod(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lorg/objectweb/asm/MethodVisitor;:
+    method visitMethod(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)Lorg/objectweb/asm/MethodVisitor;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+        parameter 4:
+            @org.jetbrains.annotations.Nullable
+    method visit(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V:
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+        parameter 4:
+            @org.jetbrains.annotations.Nullable
+        parameter 5:
+            @org.jetbrains.annotations.Nullable
+    method visitAttribute(Lorg/objectweb/asm/Attribute;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitInnerClass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.Nullable
+        parameter 2:
+            @org.jetbrains.annotations.Nullable
+    method visitOuterClass(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.Nullable
+        parameter 2:
+            @org.jetbrains.annotations.Nullable
+    method visitSource(Ljava/lang/String;Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.Nullable
+        parameter 1:
+            @org.jetbrains.annotations.Nullable
+class FieldVisitor:
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+class MethodVisitor:
+    method <init>(ILorg/objectweb/asm/MethodVisitor;)V:
+        parameter 1:
+            @org.jetbrains.annotations.Nullable
+    field mv:
+        @org.jetbrains.annotations.Nullable
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitAnnotationDefault()Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitAnnotationDefault()Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+    method visitParameterAnnotation(ILjava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitParameterAnnotation(ILjava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method visitAttribute(Lorg/objectweb/asm/Attribute;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitFieldInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitFrame(II[Ljava/lang/Object;I[Ljava/lang/Object;)V:
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 4:
+            @org.jetbrains.annotations.NotNull
+    method visitInvokeDynamicInsn(Ljava/lang/String;Ljava/lang/String;Lorg/objectweb/asm/Handle;[Ljava/lang/Object;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitJumpInsn(ILorg/objectweb/asm/Label;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method visitLabel(Lorg/objectweb/asm/Label;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitLdcInsn(Ljava/lang/Object;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitLineNumber(ILorg/objectweb/asm/Label;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method visitLocalVariable(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/objectweb/asm/Label;Lorg/objectweb/asm/Label;I)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.Nullable
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+        parameter 4:
+            @org.jetbrains.annotations.NotNull
+    method visitLookupSwitchInsn(Lorg/objectweb/asm/Label;[I[Lorg/objectweb/asm/Label;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+    method visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitMultiANewArrayInsn(Ljava/lang/String;I)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitTableSwitchInsn(IILorg/objectweb/asm/Label;[Lorg/objectweb/asm/Label;)V:
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitTryCatchBlock(Lorg/objectweb/asm/Label;Lorg/objectweb/asm/Label;Lorg/objectweb/asm/Label;Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+    method visitTypeInsn(ILjava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+class Type:
+    field BOOLEAN_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field BYTE_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field CHAR_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field DOUBLE_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field FLOAT_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field INT_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field LONG_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field SHORT_TYPE:
+        @org.jetbrains.annotations.NotNull
+    field VOID_TYPE:
+        @org.jetbrains.annotations.NotNull
+    method equals(Ljava/lang/Object;)Z:
+        parameter 0:
+            @org.jetbrains.annotations.Nullable
+    method getArgumentsAndReturnSizes(Ljava/lang/String;)I:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getClassName()Ljava/lang/String;:
+    method getClassName()Ljava/lang/String;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+    method getConstructorDescriptor(Ljava/lang/reflect/Constructor;)Ljava/lang/String;:
+    method getConstructorDescriptor(Ljava/lang/reflect/Constructor;)Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getDescriptor()Ljava/lang/String;:
+    method getDescriptor()Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getDescriptor(Ljava/lang/Class;)Ljava/lang/String;:
+    method getDescriptor(Ljava/lang/Class;)Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getInternalName()Ljava/lang/String;:
+    method getInternalName()Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getInternalName(Ljava/lang/Class;)Ljava/lang/String;:
+    method getInternalName(Ljava/lang/Class;)Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getMethodDescriptor(Ljava/lang/reflect/Method;)Ljava/lang/String;:
+    method getMethodDescriptor(Ljava/lang/reflect/Method;)Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getMethodDescriptor(Lorg/objectweb/asm/Type;[Lorg/objectweb/asm/Type;)Ljava/lang/String;:
+    method getMethodDescriptor(Lorg/objectweb/asm/Type;[Lorg/objectweb/asm/Type;)Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method toString()Ljava/lang/String;:
+    method toString()Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getElementType()Lorg/objectweb/asm/Type;:
+    method getElementType()Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getMethodType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:
+    method getMethodType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getMethodType(Lorg/objectweb/asm/Type;[Lorg/objectweb/asm/Type;)Lorg/objectweb/asm/Type;:
+    method getMethodType(Lorg/objectweb/asm/Type;[Lorg/objectweb/asm/Type;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method getObjectType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:
+    method getObjectType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getReturnType()Lorg/objectweb/asm/Type;:
+    method getReturnType()Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getReturnType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:
+    method getReturnType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getReturnType(Ljava/lang/reflect/Method;)Lorg/objectweb/asm/Type;:
+    method getReturnType(Ljava/lang/reflect/Method;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getType(Ljava/lang/Class;)Lorg/objectweb/asm/Type;:
+    method getType(Ljava/lang/Class;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:
+    method getType(Ljava/lang/String;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getType(Ljava/lang/reflect/Constructor;)Lorg/objectweb/asm/Type;:
+    method getType(Ljava/lang/reflect/Constructor;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getType(Ljava/lang/reflect/Method;)Lorg/objectweb/asm/Type;:
+    method getType(Ljava/lang/reflect/Method;)Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getArgumentTypes()[Lorg/objectweb/asm/Type;:
+    method getArgumentTypes()[Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getArgumentTypes(Ljava/lang/String;)[Lorg/objectweb/asm/Type;:
+    method getArgumentTypes(Ljava/lang/String;)[Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method getArgumentTypes(Ljava/lang/reflect/Method;)[Lorg/objectweb/asm/Type;:
+    method getArgumentTypes(Ljava/lang/reflect/Method;)[Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+package org.objectweb.asm.commons:
+class Method:
+    method getReturnType()Lorg/objectweb/asm/Type;:
+    method getReturnType()Lorg/objectweb/asm/Type;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method getMethod(Ljava/lang/String;Z)Lorg/objectweb/asm/commons/Method;:
+    method getMethod(Ljava/lang/String;Z)Lorg/objectweb/asm/commons/Method;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+package org.objectweb.asm.signature:
+class SignatureVisitor:
+    method visitArrayType()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitArrayType()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitClassBound()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitClassBound()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitExceptionType()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitExceptionType()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitInterface()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitInterface()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitInterfaceBound()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitInterfaceBound()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitParameterType()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitParameterType()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitReturnType()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitReturnType()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitSuperclass()Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitSuperclass()Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitTypeArgument(C)Lorg/objectweb/asm/signature/SignatureVisitor;:
+    method visitTypeArgument(C)Lorg/objectweb/asm/signature/SignatureVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitClassType(Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitInnerClassType(Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitTypeVariable(Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+package org.objectweb.asm.tree.analysis:
+class Analyzer:
+    method newControlFlowExceptionEdge(ILorg/objectweb/asm/tree/TryCatchBlockNode;)Z:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method analyze(Ljava/lang/String;Lorg/objectweb/asm/tree/MethodNode;)[Lorg/objectweb/asm/tree/analysis/Frame;:
+    method analyze(Ljava/lang/String;Lorg/objectweb/asm/tree/MethodNode;)[Lorg/objectweb/asm/tree/analysis/Frame;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method getFrames()[Lorg/objectweb/asm/tree/analysis/Frame;:
+    method getFrames()[Lorg/objectweb/asm/tree/analysis/Frame;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+class BasicInterpreter:
+    method binaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method binaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+    method copyOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method copyOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method merge(Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method merge(Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method naryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method naryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method newOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method newOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method newValue(Lorg/objectweb/asm/Type;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+        parameter 0:
+            @org.jetbrains.annotations.Nullable
+    method ternaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method ternaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method unaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:
+    method unaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;)Lorg/objectweb/asm/tree/analysis/BasicValue;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method returnOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/BasicValue;Lorg/objectweb/asm/tree/analysis/BasicValue;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+class Interpreter:
+    method binaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method binaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method copyOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method copyOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method naryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method naryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Ljava/util/List;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method newOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method newOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method newValue(Lorg/objectweb/asm/Type;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method newValue(Lorg/objectweb/asm/Type;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.Nullable
+    method ternaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method ternaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method unaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:
+    method unaryOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;)Lorg/objectweb/asm/tree/analysis/Value;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method returnOperation(Lorg/objectweb/asm/tree/AbstractInsnNode;Lorg/objectweb/asm/tree/analysis/Value;Lorg/objectweb/asm/tree/analysis/Value;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+package org.objectweb.asm.tree:
+class AnnotationNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+class ClassNode:
+    field fields:
+        @org.jetbrains.annotations.NotNull
+    field methods:
+        @org.jetbrains.annotations.NotNull
+    field name:
+        @org.jetbrains.annotations.NotNull
+class FieldInsnNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+    field name:
+        @org.jetbrains.annotations.NotNull
+    field owner:
+        @org.jetbrains.annotations.NotNull
+class FieldNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+    field name:
+        @org.jetbrains.annotations.NotNull
+class InsnList:
+    method iterator()Ljava/util/ListIterator;:
+    method iterator()Ljava/util/ListIterator;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method get(I)Lorg/objectweb/asm/tree/AbstractInsnNode;:
+    method get(I)Lorg/objectweb/asm/tree/AbstractInsnNode;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+class InvokeDynamicInsnNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+class JumpInsnNode:
+    field label:
+        @org.jetbrains.annotations.NotNull
+class LabelNode:
+    method getLabel()Lorg/objectweb/asm/Label;:
+    method getLabel()Lorg/objectweb/asm/Label;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+class LineNumberNode:
+    field start:
+        @org.jetbrains.annotations.NotNull
+class LocalVariableNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+    field end:
+        @org.jetbrains.annotations.NotNull
+    field name:
+        @org.jetbrains.annotations.NotNull
+    field start:
+        @org.jetbrains.annotations.NotNull
+class MethodInsnNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+class MethodNode:
+    method <init>(IILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V:
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+        parameter 4:
+            @org.jetbrains.annotations.Nullable
+        parameter 5:
+            @org.jetbrains.annotations.Nullable
+    method <init>(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+        parameter 4:
+            @org.jetbrains.annotations.Nullable
+    field annotationDefault:
+        @org.jetbrains.annotations.Nullable
+    field attrs:
+        @org.jetbrains.annotations.Nullable
+    field desc:
+        @org.jetbrains.annotations.NotNull
+    field exceptions:
+        @org.jetbrains.annotations.NotNull
+    field instructions:
+        @org.jetbrains.annotations.NotNull
+    field invisibleAnnotations:
+        @org.jetbrains.annotations.Nullable
+    field invisibleParameterAnnotations:
+        @org.jetbrains.annotations.Nullable
+    field localVariables:
+        @org.jetbrains.annotations.Nullable
+    field name:
+        @org.jetbrains.annotations.NotNull
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitAnnotation(Ljava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitAnnotationDefault()Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitAnnotationDefault()Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+    method visitParameterAnnotation(ILjava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:
+    method visitParameterAnnotation(ILjava/lang/String;Z)Lorg/objectweb/asm/AnnotationVisitor;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method getLabelNode(Lorg/objectweb/asm/Label;)Lorg/objectweb/asm/tree/LabelNode;:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    field signature:
+        @org.jetbrains.annotations.Nullable
+    field tryCatchBlocks:
+        @org.jetbrains.annotations.NotNull
+    field visibleAnnotations:
+        @org.jetbrains.annotations.Nullable
+    field visibleParameterAnnotations:
+        @org.jetbrains.annotations.Nullable
+    method accept(Lorg/objectweb/asm/ClassVisitor;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method accept(Lorg/objectweb/asm/MethodVisitor;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitAttribute(Lorg/objectweb/asm/Attribute;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitFieldInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitFrame(II[Ljava/lang/Object;I[Ljava/lang/Object;)V:
+        parameter 2:
+            @org.jetbrains.annotations.Nullable
+        parameter 4:
+            @org.jetbrains.annotations.Nullable
+    method visitInvokeDynamicInsn(Ljava/lang/String;Ljava/lang/String;Lorg/objectweb/asm/Handle;[Ljava/lang/Object;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitJumpInsn(ILorg/objectweb/asm/Label;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method visitLabel(Lorg/objectweb/asm/Label;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitLdcInsn(Ljava/lang/Object;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitLineNumber(ILorg/objectweb/asm/Label;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+    method visitLocalVariable(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/objectweb/asm/Label;Lorg/objectweb/asm/Label;I)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.Nullable
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+        parameter 4:
+            @org.jetbrains.annotations.NotNull
+    method visitLookupSwitchInsn(Lorg/objectweb/asm/Label;[I[Lorg/objectweb/asm/Label;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+    method visitMethodInsn(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitMultiANewArrayInsn(Ljava/lang/String;I)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+    method visitTableSwitchInsn(IILorg/objectweb/asm/Label;[Lorg/objectweb/asm/Label;)V:
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.NotNull
+    method visitTryCatchBlock(Lorg/objectweb/asm/Label;Lorg/objectweb/asm/Label;Lorg/objectweb/asm/Label;Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+    method visitTypeInsn(ILjava/lang/String;)V:
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+class MultiANewArrayInsnNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+class TryCatchBlockNode:
+    method <init>(Lorg/objectweb/asm/tree/LabelNode;Lorg/objectweb/asm/tree/LabelNode;Lorg/objectweb/asm/tree/LabelNode;Ljava/lang/String;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.annotations.NotNull
+        parameter 2:
+            @org.jetbrains.annotations.NotNull
+        parameter 3:
+            @org.jetbrains.annotations.Nullable
+    field end:
+        @org.jetbrains.annotations.NotNull
+    field handler:
+        @org.jetbrains.annotations.Nullable
+    field start:
+        @org.jetbrains.annotations.NotNull
+    field type:
+        @org.jetbrains.annotations.Nullable
+    method accept(Lorg/objectweb/asm/MethodVisitor;)V:
+        parameter 0:
+            @org.jetbrains.annotations.NotNull
+class TypeInsnNode:
+    field desc:
+        @org.jetbrains.annotations.NotNull
+package org.objectweb.asm.util:
+class Printer:
+    field OPCODES:
+        @org.jetbrains.annotations.NotNull
+class TraceSignatureVisitor:
+    method getDeclaration()Ljava/lang/String;:
+    method getDeclaration()Ljava/lang/String;:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull

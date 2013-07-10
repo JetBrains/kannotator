@@ -1,0 +1,42 @@
+package org.jetbrains.kannotator.runtime.annotations:
+annotation @ReadOnly:
+annotation @Mutable:
+package org.jetbrains.annotations:
+annotation @NotNull:
+annotation @Nullable:
+package :
+class A:
+    method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:
+        parameter 0:
+            @org.jetbrains.kannotator.runtime.annotations.Mutable @org.jetbrains.annotations.Nullable
+        parameter 1:
+            @org.jetbrains.kannotator.runtime.annotations.ReadOnly @org.jetbrains.annotations.NotNull
+    method g(Ljava/lang/Integer;I)I:
+        parameter 0:
+            @org.jetbrains.kannotator.runtime.annotations.Mutable @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.kannotator.runtime.annotations.ReadOnly @org.jetbrains.annotations.Nullable
+    method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:
+    method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+    method f()I:
+    method f()I:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
+package somep:
+class A:
+    method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:
+        parameter 0:
+            @org.jetbrains.kannotator.runtime.annotations.Mutable @org.jetbrains.annotations.Nullable
+        parameter 1:
+            @org.jetbrains.kannotator.runtime.annotations.ReadOnly @org.jetbrains.annotations.NotNull
+    method g(Ljava/lang/Integer;I)I:
+        parameter 0:
+            @org.jetbrains.kannotator.runtime.annotations.Mutable @org.jetbrains.annotations.NotNull
+        parameter 1:
+            @org.jetbrains.kannotator.runtime.annotations.ReadOnly @org.jetbrains.annotations.Nullable
+    method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:
+    method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:         @org.jetbrains.annotations.Nullable
+        return:             @org.jetbrains.annotations.Nullable
+    method f()I:
+    method f()I:         @org.jetbrains.annotations.NotNull
+        return:             @org.jetbrains.annotations.NotNull
