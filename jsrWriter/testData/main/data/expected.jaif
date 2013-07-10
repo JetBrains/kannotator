@@ -6,6 +6,8 @@ annotation @NotNull:
 annotation @Nullable:
 package :
 class A:
+    field i:
+        @org.jetbrains.kannotator.runtime.annotations.Mutable
     method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:
         parameter 0:
             @org.jetbrains.kannotator.runtime.annotations.Mutable @org.jetbrains.annotations.Nullable
@@ -34,6 +36,8 @@ class A:
             @org.jetbrains.kannotator.runtime.annotations.Mutable @org.jetbrains.annotations.NotNull
         parameter 1:
             @org.jetbrains.kannotator.runtime.annotations.ReadOnly @org.jetbrains.annotations.Nullable
+    field i:
+        @org.jetbrains.annotations.Nullable
     method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:
     method c(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Integer;:         @org.jetbrains.annotations.Nullable
         return:             @org.jetbrains.annotations.Nullable
