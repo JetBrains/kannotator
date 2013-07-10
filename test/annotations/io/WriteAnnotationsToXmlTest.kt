@@ -6,8 +6,9 @@ import junit.framework.Assert
 import org.jetbrains.kannotator.annotations.io.writeAnnotations
 import org.junit.Test
 import kotlinlib.toUnixSeparators
+import org.jetbrains.kannotator.annotations.io.readAnnotationsForAllPositionsInJarFile
 
-public class WriteAnnotationToXmlTest : AbstractWriteAnnotationTest() {
+public class WriteAnnotationToXmlTest() {
     Test fun testAll() {
         doTest(File("lib/asm-debug-all-4.0.jar"), File("testData/annotations/write/annotations.xml"))
     }

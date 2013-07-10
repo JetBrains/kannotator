@@ -27,8 +27,9 @@ import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
 import org.junit.ComparisonFailure
+import org.jetbrains.kannotator.annotations.io.readAnnotationsForAllPositionsInJarFile
 
-public class JsrWriterTest : AbstractWriteAnnotationTest() {
+public class JsrWriterTest() {
 
     Test fun testReadingAnnotationsBackAfterInsertAnnotationsUtility() {
         val jarFile = File("lib/asm-debug-all-4.0.jar")
