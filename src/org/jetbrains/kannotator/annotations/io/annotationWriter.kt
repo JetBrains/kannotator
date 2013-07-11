@@ -157,7 +157,7 @@ fun AnnotationPosition.getPackageName(): String? {
     return if (member is Method || member is Field) member.getInternalPackageName() else null
 }
 
-fun buildAnnotationsDataMap(
+public fun buildAnnotationsDataMap(
         declIndex: DeclarationIndex,
         nullability: Annotations<NullabilityAnnotation>,
         propagatedNullabilityPositions: Set<AnnotationPosition>,
