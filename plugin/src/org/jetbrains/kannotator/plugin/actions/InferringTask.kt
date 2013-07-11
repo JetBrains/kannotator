@@ -33,6 +33,8 @@ import com.intellij.openapi.progress.PerformInBackgroundOption
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.jetbrains.kannotator.NO_ERROR_HANDLING
+import org.jetbrains.kannotator.simpleErrorHandler
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -172,7 +174,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             FileBasedClassSource(arrayListOf(file)), ArrayList<File>(),
                             inferrerMap,
                             inferringProgressIndicator,
-                            false,
+                            NO_ERROR_HANDLING,
                             false,
                             hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
                             hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
@@ -202,7 +204,10 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             null,
                             libIoOutputDir,
                             inferredNullabilityAnnotations,
-                            propagatedNullabilityPositions)
+                            propagatedNullabilityPositions,
+                            simpleErrorHandler {
+                                kind, message -> throw IllegalArgumentException(message)
+                            })
 
                     inferringProgressIndicator.savingFinished()
                 } catch (e: OutOfMemoryError) {

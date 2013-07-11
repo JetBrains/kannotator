@@ -13,6 +13,7 @@ import java.io.FileReader
 import org.jetbrains.kannotator.annotationsInference.nullability.*
 import org.jetbrains.kannotator.declarations.*
 import java.util.regex.Pattern
+import org.jetbrains.kannotator.ErrorHandler
 
 private val ANNOTATION_KEY_PATTERN = Pattern.compile("""(@\w*\s)?(.*)""")
 
@@ -26,7 +27,7 @@ class AnnotationDataImpl(
         override val attributes: MutableMap<String, String>): AnnotationData
 
 
-fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<AnnotationData>) -> Unit, errorHandler: (String) -> Unit) {
+fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<AnnotationData>) -> Unit, errorHandler: ErrorHandler) {
     val text = escapeAttributes(xml.readText())
     val parser = SAXParserFactory.newInstance()!!.newSAXParser()!!
     parser.parse(text.getBytes().inputStream, object: HandlerBase(){
@@ -45,7 +46,7 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
                             currentItemElement = ItemElement(nameAttrValue, ArrayList())
                         }
                         else {
-                            errorHandler("NAME attribute for ITEM element is null")
+                            errorHandler.error("NAME attribute for ITEM element is null")
                         }
                     }
                     "annotation" -> {
@@ -54,7 +55,7 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
                             currentItemElement!!.annotations.add(AnnotationDataImpl(nameAttrValue, hashMap()))
                         }
                         else {
-                            errorHandler("NAME attribute for ANNOTATION element is null")
+                            errorHandler.error("NAME attribute for ANNOTATION element is null")
                         }
                     }
                     "val" -> {
@@ -66,20 +67,20 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
                                 last().attributes.put(nameAttrValue, valAttrValue)
                             }
                             else {
-                                errorHandler("VAL attribute for VAL element is null")
+                                errorHandler.error("VAL attribute for VAL element is null")
                             }
                         }
                         else {
-                            errorHandler("NAME attribute for VAL element is null")
+                            errorHandler.error("NAME attribute for VAL element is null")
                         }
                     }
                     else -> {
-                        errorHandler("$name tag isn't parsed ")
+                        errorHandler.error("$name tag isn't parsed ")
                     }
                 }
             }
             else {
-                errorHandler("attributes for $name element are null")
+                errorHandler.error("attributes for $name element are null")
             }
         }
 

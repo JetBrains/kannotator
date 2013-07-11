@@ -19,6 +19,7 @@ import java.util.regex.Pattern
 import junit.framework.Assert.*
 import org.jetbrains.kannotator.util.processJar
 import org.jetbrains.kannotator.asm.util.forEachMethod
+import org.jetbrains.kannotator.simpleErrorHandler
 
 class AnnotationKeyStringMatchingTest : TestCase() {
 
@@ -95,8 +96,9 @@ fun addFromAnnotationFile(annotationFile: File, allKeyStrings: MutableSet<String
                     annotationKey, data ->
                     allKeyStrings.add(annotationKey)
                 },
-                {
-                    throw IllegalArgumentException(it)
+                simpleErrorHandler {
+                    kind, message ->
+                    throw IllegalArgumentException("$kind, $message")
                 })
     }
 }

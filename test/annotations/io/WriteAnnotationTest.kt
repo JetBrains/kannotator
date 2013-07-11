@@ -30,6 +30,7 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import kotlinlib.toUnixSeparators
 import org.jetbrains.kannotator.declarations.Access
+import org.jetbrains.kannotator.PRINT_TO_CONSOLE
 import java.util.LinkedHashMap
 
 public class WriteAnnotationTest {
@@ -74,7 +75,7 @@ public class WriteAnnotationTest {
                     else {
                         println("Cannot find class reader for ${key.prefixUpTo(' ')} class")
                     }
-                }, { str -> println(str) })
+                }, PRINT_TO_CONSOLE)
 
 
                 val actualFile = File.createTempFile("writeAnnotations", file.getName())

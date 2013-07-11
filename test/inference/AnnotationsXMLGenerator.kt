@@ -11,6 +11,7 @@ import java.io.BufferedReader
 import java.io.FileReader
 import java.util.Collections
 import org.jetbrains.kannotator.main.loadPositionsOfConflictExceptions
+import org.jetbrains.kannotator.PRINT_TO_CONSOLE
 
 fun main(args: Array<String>) {
     val jarName = if (args.size == 1) args[0] else "lib/jdk_1_7_0_09_rt.jar"
@@ -45,6 +46,7 @@ fun main(args: Array<String>) {
             targetDir,
             annotations,
             Collections.emptySet(),
+            PRINT_TO_CONSOLE,
             hashSet(
                     "java/beans/beancontext",
                     "javax/management/openmbean",

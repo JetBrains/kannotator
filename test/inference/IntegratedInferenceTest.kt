@@ -63,6 +63,7 @@ import org.jetbrains.kannotator.declarations.isStatic
 import org.jetbrains.kannotator.declarations.isProtected
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.NO_ERROR_HANDLING
 
 class IntegratedInferenceTest : TestCase() {
     private fun <A: Any> reportConflicts(
@@ -119,7 +120,8 @@ class IntegratedInferenceTest : TestCase() {
         println("start: $jar")
 
         inferAnnotations(FileBasedClassSource(
-                arrayListOf(jar)), annotationFiles, INFERRERS, progressMonitor, false, true, Collections.emptyMap(), Collections.emptyMap(), {true}, Collections.emptyMap()
+                arrayListOf(jar)), annotationFiles, INFERRERS, progressMonitor, NO_ERROR_HANDLING, true,
+                Collections.emptyMap(), Collections.emptyMap(), {true}, Collections.emptyMap()
         )
 
         val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
@@ -131,7 +133,7 @@ class IntegratedInferenceTest : TestCase() {
                     annotationFiles,
                     INFERRERS,
                     progressMonitor,
-                    false,
+                    NO_ERROR_HANDLING,
                     false,
                     hashMapOf(NULLABILITY_KEY to propagationOverrides, MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
                     hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),

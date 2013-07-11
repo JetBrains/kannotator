@@ -16,6 +16,7 @@ import java.util.LinkedHashMap
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
+import org.jetbrains.kannotator.ErrorHandler
 
 fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
@@ -181,6 +182,7 @@ fun writeAnnotationsToXMLByPackage(
         destRoot: File,
         nullability: Annotations<NullabilityAnnotation>,
         propagatedNullabilityPositions: Set<AnnotationPosition>,
+        errorHandler: ErrorHandler,
         classPrefixesToOmit: Set<String> = Collections.emptySet(),
         includedClassNames: Set<String> = Collections.emptySet(),
         includedPositions: Set<AnnotationPosition> = Collections.emptySet()
@@ -217,7 +219,7 @@ fun writeAnnotationsToXMLByPackage(
                                 }
                             }
                         }
-                    }, { error(it) })
+                    }, errorHandler)
                 }
             }
         }

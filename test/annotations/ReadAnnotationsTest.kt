@@ -7,6 +7,7 @@ import org.junit.Test
 import org.junit.Assert.fail
 import org.junit.Assert.assertEquals
 import util.assertEqualsOrCreate
+import org.jetbrains.kannotator.simpleErrorHandler
 
 class ReadAnnotationsTest {
 
@@ -21,9 +22,9 @@ class ReadAnnotationsTest {
 
             }
             actualSB.println()
-        }, {
-            error ->
-            actualSB.println(error)
+        }, simpleErrorHandler{
+            kind, message ->
+            actualSB.println(message)
             actualSB.println()
         })
 

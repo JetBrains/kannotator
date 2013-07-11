@@ -8,27 +8,17 @@ import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.asm.util.createMethodNodeStub
 import org.jetbrains.kannotator.declarations.*
-import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
-import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.index.FieldDependencyInfo
 import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
 import java.util.Collections
-import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import java.util.ArrayList
 import java.util.HashSet
-import java.util.TreeMap
-import org.jetbrains.kannotator.annotations.io.toAnnotationKey
-import kotlin.all
-import org.jetbrains.kannotator.declarations.copyAllChanged
 import org.objectweb.asm.tree.AnnotationNode
 import org.objectweb.asm.Type
-import org.jetbrains.kannotator.declarations.FieldTypePosition
-import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.index.ClassSource
 import java.io.BufferedReader
 import org.objectweb.asm.tree.FieldNode
@@ -37,9 +27,7 @@ import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
-import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
-import org.jetbrains.kannotator.graphs.dependencyGraphs.buildPackageDependencyGraph
 import org.jetbrains.kannotator.funDependecy.*
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
 import org.jetbrains.kannotator.graphs.removeGraphNodes
@@ -47,6 +35,7 @@ import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.jetbrains.kannotator.ErrorHandler
 
 open class ProgressMonitor {
     open fun processingStarted() {}
@@ -156,7 +145,7 @@ private fun <K: AnalysisType> loadExternalAnnotations(
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
-        showErrorIfPositionNotFound: Boolean = true
+        errorHandler: ErrorHandler
 ): Map<K, MutableAnnotations<Any>> {
     val externalAnnotationsMap = inferrers.mapValues { (key, inferrer) -> AnnotationsImpl<Any>(delegatingAnnotations[key]) }
 
@@ -174,10 +163,10 @@ private fun <K: AnalysisType> loadExternalAnnotations(
                             externalAnnotations[position] = annotation
                         }
                     }
-                } else if (showErrorIfPositionNotFound) {
-                    error("Position not found for $key")
+                } else {
+                    errorHandler.error("Position not found for $key")
                 }
-            }, {error(it)})
+            }, errorHandler)
         }
     }
 
@@ -189,9 +178,9 @@ private fun <K: AnalysisType> loadAnnotations(
         keyIndex: AnnotationKeyIndex,
         methodNodes: Map<Method, MethodNode>,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
-        showErrorIfPositionNotFound: Boolean = true
+        errorHandler: ErrorHandler
 ): Map<K, MutableAnnotations<Any>> =
-        loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, showErrorIfPositionNotFound)
+        loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, errorHandler)
 
 trait AnnotationInferrer<A: Any, I: Qualifier> {
     fun resolveAnnotation(classNames: Map<String, AnnotationData>): A?
@@ -226,7 +215,7 @@ fun <K: AnalysisType> inferAnnotations(
         existingAnnotationFiles: Collection<File>,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         progressMonitor: ProgressMonitor = ProgressMonitor(),
-        showErrors: Boolean = true,
+        errorHandler: ErrorHandler,
         loadOnly: Boolean = false,
         propagationOverrides: Map<K, Annotations<Any>>,
         existingAnnotations: Map<K, Annotations<Any>>,
@@ -245,7 +234,7 @@ fun <K: AnalysisType> inferAnnotations(
 
     progressMonitor.annotationIndexLoaded(declarationIndex)
 
-    val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, showErrors)
+    val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, errorHandler)
     val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { (key, loadedAnn) ->
         val positionsToExclude = existingPositionsToExclude[key]
 
@@ -477,8 +466,3 @@ fun <A: Any> processAnnotationInferenceConflicts(
     }
     return conflicts
 }
-
-fun error(message: String) {
-    System.err.println(message)
-}
-

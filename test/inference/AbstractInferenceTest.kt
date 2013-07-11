@@ -22,6 +22,7 @@ import util.junit.getTestName
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import java.util.Collections
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.jetbrains.kannotator.NO_ERROR_HANDLING
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
     protected abstract val analysisType: AnalysisType
@@ -38,7 +39,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
                 ArrayList<File>(),
                 hashMapOf(Pair(analysisType, getInferrer() as AnnotationInferrer<Any, Qualifier>)),
                 ProgressMonitor(),
-                false,
+                NO_ERROR_HANDLING,
                 false,
                 hashMapOf(analysisType to AnnotationsImpl<A>()),
                 hashMapOf(analysisType to annotations),
