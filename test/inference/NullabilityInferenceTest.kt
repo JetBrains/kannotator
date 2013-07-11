@@ -8,9 +8,13 @@ import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
-    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation> {
+    protected override val analysisType: AnalysisType = NULLABILITY_KEY
+
+    protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {
         return NullabilityInferrer()
     }
 
@@ -24,12 +28,12 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     protected override fun getClassFiles(): Collection<File> {
         return arrayList(
-                "out/production/kannotator/inferenceData/NullabilityInferenceTestLib.class",
-                "out/production/kannotator/inferenceData/NullabilityInferenceTestClass.class").map { File(it) }
+                "out/test/kannotator/inferenceData/NullabilityInferenceTestLib.class",
+                "out/test/kannotator/inferenceData/NullabilityInferenceTestClass.class").map { File(it) }
     }
 
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
-        val utilClass = "out/production/kannotator/inferenceData/NullabilityInferenceTestLib.class"
+        val utilClass = "out/test/kannotator/inferenceData/NullabilityInferenceTestLib.class"
         val classSource = FileBasedClassSource(arrayList(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationNames -> classNamesToNullabilityAnnotation(annotationNames)
@@ -144,4 +148,13 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     // TODO
     fun todotestMonitorValueThroughField() = doTest()
+
+    fun testNotInstanceOf() = doTest()
+    fun testNotInstanceOfWithAssignment() = doTest()
+
+    fun testMultipleInstanceOf() = doTest()
+
+    fun testTrimStringList() = doTest()
+
+    fun testUnmodifiableCollectionSubclass() = doTest()
 }

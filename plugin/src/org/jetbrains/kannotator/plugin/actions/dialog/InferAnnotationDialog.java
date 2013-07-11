@@ -12,7 +12,6 @@ import com.intellij.openapi.util.Computable;
 import com.intellij.openapi.util.io.FileUtil;
 import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.refactoring.RefactoringBundle;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.components.JBScrollPane;
 import jet.runtime.typeinfo.KotlinSignature;
@@ -35,6 +34,8 @@ public class InferAnnotationDialog extends DialogWrapper {
     JBScrollPane jarsTreeScrollPane;
     JLabel outputDirectoryLabel;
     JLabel jarsTreeLabel;
+    JCheckBox addLibrariesRootAutomaticallyCheckbox;
+    JCheckBox removeAllOtherAnnotationsRootsCheckbox;
 
     // Not from gui designer
     LibraryCheckboxTree libraryTree;
@@ -60,7 +61,7 @@ public class InferAnnotationDialog extends DialogWrapper {
         contentPanel.setPreferredSize(new Dimension(440, 500));
 
         outputDirectory.addBrowseFolderListener(
-                RefactoringBundle.message("select.target.directory"),
+                "Select output directory",
                 "Inferred annotation will be written to this folder",
                 null, FileChooserDescriptorFactory.createSingleFolderDescriptor());
 
@@ -98,8 +99,6 @@ public class InferAnnotationDialog extends DialogWrapper {
     }
 
     protected void setDefaultValues() {
-        nullabilityCheckBox.setSelected(true);
-        kotlinSignaturesCheckBox.setSelected(true);
         outputDirectory.getTextField().setText(new File(FileUtil.toSystemDependentName(project.getBaseDir().getPath()), "annotations").getAbsolutePath());
     }
 
@@ -162,6 +161,14 @@ public class InferAnnotationDialog extends DialogWrapper {
 
     public boolean shouldInferKotlinAnnotations() {
         return kotlinSignaturesCheckBox.isSelected();
+    }
+
+    public boolean shouldAddAnnotationsRoots() {
+        return addLibrariesRootAutomaticallyCheckbox.isSelected();
+    }
+
+    public boolean shouldRemoveAllOtherRoots() {
+        return removeAllOtherAnnotationsRootsCheckbox.isSelected();
     }
 
     protected void updateControls() {

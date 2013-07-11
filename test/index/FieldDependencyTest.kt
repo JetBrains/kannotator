@@ -18,8 +18,8 @@ class FieldDependencyTest {
     }
 
     private val fieldInfoComparator = object : Comparator<FieldDependencyInfo> {
-        public override fun compare(o1: FieldDependencyInfo?, o2: FieldDependencyInfo?): Int {
-            return o2?.field?.name?.compareTo(o1?.field?.name ?: "") ?: -1
+        public override fun compare(o1: FieldDependencyInfo, o2: FieldDependencyInfo): Int {
+            return o2.field?.name?.compareTo(o1.field?.name ?: "") ?: -1
         }
 
         public override fun equals(obj: Any?): Boolean {

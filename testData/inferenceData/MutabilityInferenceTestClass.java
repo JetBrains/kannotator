@@ -1,8 +1,8 @@
 package inferenceData;
 
 import inferenceData.annotations.ExpectMutable;
-
 import java.util.*;
+import java.util.List;
 
 public class MutabilityInferenceTestClass {
 
@@ -49,5 +49,38 @@ public class MutabilityInferenceTestClass {
 
     public void testInvokeProcessReadableAndMutable(@ExpectMutable Collection<String> collection, List<String> list) {
         MutabilityInferenceTestLib.processReadableAndMutable(list, collection);
+    }
+
+    private void foo() throws Exception {
+
+    }
+
+    public void testWalk(@ExpectMutable List<Object> ancestors) {
+        Exception exc = null;
+        try {
+            foo();
+        } catch (Exception x2) {
+            exc = x2;
+        }
+
+        if (exc != null) {
+            return;
+        }
+
+        ancestors.add("");
+    }
+
+    public void testScopeExit(@ExpectMutable List<Object> ancestors, boolean c) {
+        Exception exc = null;
+        if (c) {
+            Exception x2 = new Exception();
+            exc = x2;
+        }
+
+        if (exc != null) {
+            return;
+        }
+
+        ancestors.add("");
     }
 }

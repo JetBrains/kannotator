@@ -1,40 +1,49 @@
 package org.jetbrains.kannotator.plugin.actions
 
-import com.intellij.ide.actions.CloseTabToolbarAction
-import com.intellij.openapi.actionSystem.*
+import com.intellij.notification.Notification
+import com.intellij.notification.NotificationType
+import com.intellij.notification.Notifications
 import com.intellij.openapi.progress.ProgressIndicator
 import com.intellij.openapi.progress.Task.Backgroundable
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.roots.AnnotationOrderRootType
+import com.intellij.openapi.roots.ex.ProjectRootManagerEx
 import com.intellij.openapi.roots.libraries.Library
-import com.intellij.openapi.ui.PanelWithText
-import com.intellij.openapi.ui.SimpleToolWindowPanel
 import com.intellij.openapi.util.Disposer
+import com.intellij.openapi.util.EmptyRunnable
 import com.intellij.openapi.vfs.LocalFileSystem
+import com.intellij.openapi.vfs.VfsUtilCore
 import com.intellij.openapi.vfs.VirtualFile
-import com.intellij.openapi.wm.ToolWindowId
-import com.intellij.openapi.wm.ToolWindowManager
-import com.intellij.ui.content.ContentFactory
-import com.intellij.ui.content.MessageView
-import com.intellij.ui.content.tabs.PinToolwindowTabAction
-import com.intellij.util.ContentsUtil
 import java.io.File
 import java.util.ArrayList
 import java.util.HashMap
-import javax.swing.JPanel
-import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.*
 import org.jetbrains.kannotator.plugin.ideaUtils.runComputableInsideWriteAction
+import org.jetbrains.kannotator.plugin.ideaUtils.runInsideReadAction
 import org.jetbrains.kannotator.plugin.ideaUtils.runInsideWriteAction
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import java.util.Collections
+import com.intellij.openapi.progress.PerformInBackgroundOption
+import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
         val inferKotlinAnnotations: Boolean,
+        val addAnnotationsRoots: Boolean,
+        val removeOtherRoots: Boolean,
         val outputPath: String,
         val libJarFiles: Map<Library, Set<File>>)
 
-public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) : Backgroundable(taskProject, "Infer Annotations", true) {
+public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
+        Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
@@ -78,43 +87,37 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         override fun processingFinished() {
             numberOfJarsFinished++
         }
+
+        fun savingStarted() {
+            indicator.setText2("Saving...")
+        }
+
+        fun savingFinished() {
+            indicator.setText2("")
+        }
+
+        fun isCanceled() = indicator.isCanceled()
     }
 
     override fun run(indicator: ProgressIndicator) {
         val inferringProgressIndicator = InferringProgressIndicator(indicator, taskParams)
 
-        for ((lib, files) in taskParams.libJarFiles) {
-            val libOutputDir = createOutputDirectory(lib)
+        val outputDirectory = checkNotNull(LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(taskParams.outputPath),
+                "Output folder ${taskParams.outputPath} is expected to be created before activating task")
 
-            for (file in files) {
-                inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
+        processFiles(outputDirectory, inferringProgressIndicator)
 
-                try {
-                    val inferrerMap = HashMap<String, AnnotationInferrer<Any>>()
-                    if (taskParams.inferNullabilityAnnotations) {
-                        inferrerMap["nullability"] = NullabilityInferrer() as AnnotationInferrer<Any>
-                    }
-                    if (taskParams.inferKotlinAnnotations) {
-                        inferrerMap["kotlin"] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any>
-                    }
-
-                    // TODO: Add existing annotations from dependent libraries
-                    inferAnnotations(
-                            FileBasedClassSource(arrayList(file)), ArrayList<File>(),
-                            inferrerMap,
-                            inferringProgressIndicator,
-                            false)
-
-                    // TODO: Store collected annotations
-                } catch (e: OutOfMemoryError) {
-                    // Don't wrap OutOfMemoryError
-                    throw e
-                } catch (e: Throwable) {
-                    throw InferringError(file, e)
+        if (!taskParams.libJarFiles.isEmpty()) {
+            runInsideReadAction {
+                if (taskParams.addAnnotationsRoots) {
+                    outputDirectory.refresh(true, true, runnable {
+                        runInsideWriteAction { ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true) }
+                    })
+                }
+                else {
+                    outputDirectory.refresh(true, true)
                 }
             }
-
-            assignAnnotationsToLibrary(lib, libOutputDir)
         }
     }
 
@@ -125,52 +128,99 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
             return
         }
 
-        val messageView = MessageView.SERVICE.getInstance(myProject)!!
-        val messageViewContentManager = messageView.getContentManager()!!
-        val contentFactory = ContentFactory.SERVICE.getInstance()!!
-        val toolWindowManager = ToolWindowManager.getInstance(project)!!
+        val numberOfFiles = taskParams.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
 
-        val content = contentFactory.createContent(createMessageOutput(), INFERRING_RESULT_TAB_TITLE, true)
-
-        ContentsUtil.addOrReplaceContent(messageViewContentManager, content, true)
-
-        toolWindowManager.getToolWindow(ToolWindowId.MESSAGES_WINDOW)!!.activate(null)
+        Notifications.Bus.notify(Notification(
+                "KAnnotator", "Annotating finished successfully", "$numberOfFiles file(s) were annotated",
+                NotificationType.INFORMATION), project)
     }
 
-    private fun createMessageOutput() : JPanel {
-        val simpleToolWindowPanel = SimpleToolWindowPanel(false, true)
+    public override fun onCancel() {
+        val project = getProject()!!
 
-        fun createToolbar() : ActionToolbar {
-            val group = DefaultActionGroup()
-            group.add(object: CloseTabToolbarAction() {
-                public override fun actionPerformed(e: AnActionEvent?) {
-                    val messageView = MessageView.SERVICE.getInstance(getProject())!!
-                    val contents = messageView.getContentManager()!!.getContents()
-                    for (content in contents) {
-                        if (content.getComponent() == simpleToolWindowPanel) {
-                            messageView.getContentManager()!!.removeContent(content, true)
-                            return
-                        }
-                    }
-                }
-            })
-
-            group.add(PinToolwindowTabAction.getPinAction())
-
-            return ActionManager.getInstance()!!.createActionToolbar(ActionPlaces.UNKNOWN, group, false)
+        if (project.isDisposed() || !project.isOpen()) {
+            return
         }
 
-        simpleToolWindowPanel.add(PanelWithText(successMessage))
-        simpleToolWindowPanel.setToolbar(createToolbar().getComponent())
-
-        return simpleToolWindowPanel
+        Notifications.Bus.notify(
+                Notification("KAnnotator", "Annotating was canceled", "Annotating was canceled", NotificationType.INFORMATION), project)
     }
 
-    private fun createOutputDirectory(library: Library): VirtualFile {
-        return runComputableInsideWriteAction {
-            val outputDirectory = checkNotNull(LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(taskParams.outputPath),
-                    "Output folder ${taskParams.outputPath} is expected to be created before activating task")
+    private fun processFiles(outputDirectory: VirtualFile, inferringProgressIndicator: InferringProgressIndicator) {
+        for ((lib, files) in taskParams.libJarFiles) {
+            val libOutputDir = createOutputDirectory(lib, outputDirectory)
+            val libIoOutputDir = VfsUtilCore.virtualToIoFile(libOutputDir)
 
+            for (file in files) {
+                inferringProgressIndicator.startJarProcessing(file.getName(), lib.getName() ?: "<no-name>")
+
+                if (inferringProgressIndicator.isCanceled()) {
+                    return
+                }
+
+                try {
+                    val inferrerMap = HashMap<AnalysisType, AnnotationInferrer<Any, Qualifier>>()
+                    if (taskParams.inferNullabilityAnnotations) {
+                        inferrerMap[NULLABILITY_KEY] = NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>
+                    }
+                    if (taskParams.inferKotlinAnnotations) {
+                        inferrerMap[MUTABILITY_KEY] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
+                    }
+
+                    // TODO: Add existing annotations from dependent libraries
+                    val inferenceResult = inferAnnotations(
+                            FileBasedClassSource(arrayListOf(file)), ArrayList<File>(),
+                            inferrerMap,
+                            inferringProgressIndicator,
+                            false,
+                            false,
+                            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                            {true},
+                            Collections.emptyMap()
+                    )
+
+                    inferringProgressIndicator.savingStarted()
+
+                    val inferredNullabilityAnnotations =
+                            checkNotNull(
+                                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations,
+                                    "Only nullability annotations are supported by now") as
+                            Annotations<NullabilityAnnotation>
+
+                    val propagatedNullabilityPositions =
+                            checkNotNull(
+                                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions,
+                                    "Only nullability annotations are supported by now"
+                            )
+
+                    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(file)))
+
+                    writeAnnotationsToXMLByPackage(
+                            declarationIndex,
+                            declarationIndex,
+                            null,
+                            libIoOutputDir,
+                            inferredNullabilityAnnotations,
+                            propagatedNullabilityPositions)
+
+                    inferringProgressIndicator.savingFinished()
+                } catch (e: OutOfMemoryError) {
+                    // Don't wrap OutOfMemoryError
+                    throw e
+                } catch (e: Throwable) {
+                    throw InferringError(file, e)
+                }
+            }
+
+            if (taskParams.addAnnotationsRoots) {
+                assignAnnotationsToLibrary(lib, libOutputDir)
+            }
+        }
+    }
+
+    private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
+        return runComputableInsideWriteAction {
             val libraryDirName = library.getName() ?: "no-name"
 
             // Drop directory if it already exist
@@ -184,8 +234,10 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         runInsideWriteAction {
             val modifiableModel = library.getModifiableModel()
             try {
-                for (annotationRoot in modifiableModel.getFiles(AnnotationOrderRootType.getInstance())) {
-                    modifiableModel.removeRoot(annotationRoot.getUrl(), AnnotationOrderRootType.getInstance())
+                if (taskParams.removeOtherRoots) {
+                    for (annotationRoot in modifiableModel.getFiles(AnnotationOrderRootType.getInstance())) {
+                        modifiableModel.removeRoot(annotationRoot.getUrl(), AnnotationOrderRootType.getInstance())
+                    }
                 }
 
                 modifiableModel.addRoot(annotationRootDir, AnnotationOrderRootType.getInstance())

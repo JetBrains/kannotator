@@ -10,14 +10,24 @@ edu.uci.ics.jung.algorithms.layout3d.AbstractLayout.1 java.lang.Object transform
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.AbstractLayout.1 javax.vecmath.Point3f transform(V)
 NOT_NULL
+@Propagated edu.uci.ics.jung.algorithms.layout3d.FRLayout void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.FRLayout.1 java.lang.Object create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.FRLayout.1 javax.vecmath.Vector3f create()
+NOT_NULL
+@Propagated edu.uci.ics.jung.algorithms.layout3d.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f)
+NULLABLE
+@Propagated edu.uci.ics.jung.algorithms.layout3d.GraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f) 0
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.ISOMVertexData create()
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.ISOMLayout.1 java.lang.Object create()
 NOT_NULL
+@Propagated edu.uci.ics.jung.algorithms.layout3d.Layout void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NULLABLE
+@Propagated edu.uci.ics.jung.algorithms.layout3d.Layout void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f)
 NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.RadiusGraphElementAccessor V getVertex(edu.uci.ics.jung.algorithms.layout3d.Layout<V,E>, javax.vecmath.Point3f) 0
@@ -36,6 +46,8 @@ edu.uci.ics.jung.algorithms.layout3d.SpringLayout void calcEdgeLength(edu.uci.ic
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout void calcEdgeLength(edu.uci.ics.jung.algorithms.layout3d.SpringLayout.SpringEdgeData<E>, edu.uci.ics.jung.algorithms.layout3d.SpringLayout.LengthFunction<E>) 1
 NOT_NULL
+@Propagated edu.uci.ics.jung.algorithms.layout3d.SpringLayout void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout.1 edu.uci.ics.jung.algorithms.layout3d.SpringLayout.SpringEdgeData<E> transform(E)
 NOT_NULL
 edu.uci.ics.jung.algorithms.layout3d.SpringLayout.1 java.lang.Object transform(java.lang.Object)
@@ -84,13 +96,25 @@ edu.uci.ics.jung.visualization3d.control.PickMouseBehavior void processMouseEven
 NOT_NULL
 edu.uci.ics.jung.visualization3d.control.PickMouseBehavior void processStimulus(java.util.Enumeration) 0
 NOT_NULL
-edu.uci.ics.jung.visualization3d.control.PickRotateBehavior void setupCallback(com.sun.j3d.utils.picking.behaviors.PickingCallback) 0
-NULLABLE
+edu.uci.ics.jung.visualization3d.control.PickRotateBehavior PickRotateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickRotateBehavior PickRotateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds, int) 0
+NOT_NULL
 edu.uci.ics.jung.visualization3d.control.PickSphereBehavior PickSphereBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
 NOT_NULL
-edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior void setupCallback(com.sun.j3d.utils.picking.behaviors.PickingCallback) 0
-NULLABLE
-edu.uci.ics.jung.visualization3d.control.PickZoomBehavior void setupCallback(com.sun.j3d.utils.picking.behaviors.PickingCallback) 0
-NULLABLE
+edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior PickTranslateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickTranslateBehavior PickTranslateBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds, int) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickZoomBehavior PickZoomBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds) 0
+NOT_NULL
+edu.uci.ics.jung.visualization3d.control.PickZoomBehavior PickZoomBehavior(javax.media.j3d.BranchGroup, javax.media.j3d.Canvas3D, javax.media.j3d.Bounds, int) 0
+NOT_NULL
 edu.uci.ics.jung.visualization3d.decorators.PickableVertexPaintTransformer PickableVertexPaintTransformer(edu.uci.ics.jung.visualization.picking.PickedInfo<V>, java.awt.Paint, java.awt.Paint) 0
 NOT_NULL
+@Propagated edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NULLABLE
+@Propagated edu.uci.ics.jung.visualization3d.layout.LayoutDecorator void setSize(javax.media.j3d.BoundingSphere) 0
+NULLABLE
+@Propagated edu.uci.ics.jung.visualization3d.layout.LayoutEventBroadcaster void setGraph(edu.uci.ics.jung.graph.Graph<V,E>) 0
+NULLABLE

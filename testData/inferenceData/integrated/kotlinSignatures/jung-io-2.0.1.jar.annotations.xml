@@ -1,0 +1,457 @@
+<root>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void addDatum(java.util.Map&lt;java.lang.String,edu.uci.ics.jung.io.GraphMLMetadata&lt;T&gt;&gt;, T, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; addDatum(metadata : Map&lt;String?, GraphMLMetadata&lt;T&gt;?&gt;, current_elt : T?, text : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void addExtraData(java.util.Map&lt;java.lang.String,java.lang.String&gt;, java.util.Map&lt;java.lang.String,edu.uci.ics.jung.io.GraphMLMetadata&lt;T&gt;&gt;, T)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun &lt;T&gt; addExtraData(atts : Map&lt;String?, String?&gt;, metadata_map : MutableMap&lt;String?, GraphMLMetadata&lt;T&gt;?&gt;, current_elt : T?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void assignEdgeSourceTarget(E, org.xml.sax.Attributes, java.util.Map&lt;java.lang.String,java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun assignEdgeSourceTarget(e : E?, atts : Attributes?, edge_atts : MutableMap&lt;String?, String?&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void createEdge(org.xml.sax.Attributes, edu.uci.ics.jung.io.GraphMLReader.TagState)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createEdge(atts : Attributes, state : GraphMLReader.TagState?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void createKey(org.xml.sax.Attributes)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createKey(atts : Attributes) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void createVertex(org.xml.sax.Attributes)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createVertex(atts : Attributes) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void endElement(java.lang.String, java.lang.String, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun endElement(uri : String?, name : String?, qName : String) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader java.util.Map&lt;java.lang.String,java.lang.String&gt; getAttributeMap(org.xml.sax.Attributes)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getAttributeMap(atts : Attributes) : MutableMap&lt;String?, String?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void handleData(org.xml.sax.Attributes)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun handleData(atts : Attributes) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void load(java.io.Reader, G)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun load(reader : Reader, g : G?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader java.util.List&lt;G&gt; loadMultiple(java.io.Reader, org.apache.commons.collections15.Factory&lt;G&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun loadMultiple(reader : Reader, graph_factory : Factory&lt;G&gt;?) : MutableList&lt;G&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void parse(java.io.Reader)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(reader : Reader) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLReader void startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun startElement(uri : String?, name : String?, qName : String, atts : Attributes?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter.1 java.lang.Object transform(java.lang.Object)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(x0 : Any) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter.1 java.lang.String transform(V)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun transform(v : V) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter void save(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.io.Writer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(graph : Hypergraph&lt;V, E&gt;, w : Writer?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter void writeEdgeData(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.io.Writer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writeEdgeData(g : Hypergraph&lt;V, E&gt;, w : Writer?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter void writeIndentedText(java.io.BufferedWriter, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writeIndentedText(w : BufferedWriter, to_write : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter void writeKeySpecification(java.lang.String, java.lang.String, edu.uci.ics.jung.io.GraphMLMetadata&lt;?&gt;, java.io.BufferedWriter)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writeKeySpecification(key : String?, type : String?, ds : GraphMLMetadata&lt;*&gt;, bw : BufferedWriter) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.GraphMLWriter void writeVertexData(edu.uci.ics.jung.graph.Hypergraph&lt;V,E&gt;, java.io.BufferedWriter)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun writeVertexData(graph : Hypergraph&lt;V, E&gt;, w : BufferedWriter?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.MatrixFile cern.colt.matrix.DoubleMatrix2D createMatrixFromFile(java.io.BufferedReader)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createMatrixFromFile(reader : BufferedReader) : DoubleMatrix2D&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.MatrixFile edu.uci.ics.jung.graph.Graph&lt;V,E&gt; load(java.io.BufferedReader)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun load(reader : BufferedReader) : Graph&lt;V, E&gt;?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader.ListTagPred boolean evaluate(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(s : String?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader.StartsWithPredicate boolean evaluate(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun evaluate(str : String?) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader E createAddEdge(java.util.StringTokenizer, V, edu.uci.ics.jung.graph.util.EdgeType, edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.List&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun createAddEdge(st : StringTokenizer, v1 : V?, directed : EdgeType?, g : Graph&lt;V, E&gt;, id : List&lt;V&gt;?, edge_factory : Factory&lt;E&gt;) : E?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader G load(java.io.Reader, org.apache.commons.collections15.Factory&lt;? extends G&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun load(reader : Reader?, graph_factory : Factory&lt;out G&gt;) : G?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader G load(java.lang.String, G)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun load(filename : String?, g : G) : G?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader G load(java.lang.String, org.apache.commons.collections15.Factory&lt;? extends G&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun load(filename : String?, graph_factory : Factory&lt;out G&gt;) : G?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader java.lang.String readArcsOrEdges(java.lang.String, java.io.BufferedReader, edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.util.List&lt;V&gt;, org.apache.commons.collections15.Factory&lt;E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun readArcsOrEdges(curLine : String?, br : BufferedReader?, g : Graph&lt;V, E&gt;?, id : List&lt;V&gt;?, edge_factory : Factory&lt;E&gt;?) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader void readVertex(java.lang.String, java.util.List&lt;V&gt;, int)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun readVertex(curLine : String, id : List&lt;V&gt;?, num_vertices : Int) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetReader java.lang.String skip(java.io.BufferedReader, org.apache.commons.collections15.Predicate&lt;java.lang.String&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun skip(br : BufferedReader, p : Predicate&lt;String?&gt;?) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.io.Writer)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(g : Graph&lt;V, E&gt;, w : Writer?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.io.Writer, org.apache.commons.collections15.Transformer&lt;V,java.lang.String&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(g : Graph&lt;V, E&gt;, w : Writer?, vs : Transformer&lt;V, String?&gt;?, nev : Transformer&lt;E, Number?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.io.Writer, org.apache.commons.collections15.Transformer&lt;V,java.lang.String&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Number&gt;, org.apache.commons.collections15.Transformer&lt;V,java.awt.geom.Point2D&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(graph : Graph&lt;V, E&gt;, w : Writer?, vs : Transformer&lt;V, String?&gt;?, nev : Transformer&lt;E, Number?&gt;?, vld : Transformer&lt;V, Point2D?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(g : Graph&lt;V, E&gt;, filename : String?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.lang.String, org.apache.commons.collections15.Transformer&lt;V,java.lang.String&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Number&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(g : Graph&lt;V, E&gt;, filename : String?, vs : Transformer&lt;V, String?&gt;?, nev : Transformer&lt;E, Number?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.PajekNetWriter void save(edu.uci.ics.jung.graph.Graph&lt;V,E&gt;, java.lang.String, org.apache.commons.collections15.Transformer&lt;V,java.lang.String&gt;, org.apache.commons.collections15.Transformer&lt;E,java.lang.Number&gt;, org.apache.commons.collections15.Transformer&lt;V,java.awt.geom.Point2D&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun save(g : Graph&lt;V, E&gt;, filename : String?, vs : Transformer&lt;V, String?&gt;?, nev : Transformer&lt;E, Number?&gt;?, vld : Transformer&lt;V, Point2D?&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.AbstractMetadata void addData(edu.uci.ics.jung.io.graphml.DataMetadata)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addData(data : DataMetadata) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.AbstractMetadata java.util.Map&lt;java.lang.String,java.lang.String&gt; getProperties()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getProperties() : MutableMap&lt;String?, String?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.EdgeMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.EndpointMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMLDocument java.util.List&lt;edu.uci.ics.jung.io.graphml.GraphMetadata&gt; getGraphMetadata()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getGraphMetadata() : MutableList&lt;GraphMetadata?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMLDocument edu.uci.ics.jung.io.graphml.KeyMap getKeyMap()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getKeyMap() : KeyMap&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMLReader2 GraphMLReader2(java.io.Reader, org.apache.commons.collections15.Transformer&lt;edu.uci.ics.jung.io.graphml.GraphMetadata,G&gt;, org.apache.commons.collections15.Transformer&lt;edu.uci.ics.jung.io.graphml.NodeMetadata,V&gt;, org.apache.commons.collections15.Transformer&lt;edu.uci.ics.jung.io.graphml.EdgeMetadata,E&gt;, org.apache.commons.collections15.Transformer&lt;edu.uci.ics.jung.io.graphml.HyperEdgeMetadata,E&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun GraphMLReader2(fileReader : Reader, graphTransformer : Transformer&lt;GraphMetadata?, G&gt;, vertexTransformer : Transformer&lt;NodeMetadata?, V&gt;, edgeTransformer : Transformer&lt;EdgeMetadata?, E&gt;, hyperEdgeTransformer : Transformer&lt;HyperEdgeMetadata?, E&gt;)&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMLReader2 edu.uci.ics.jung.io.graphml.GraphMLDocument getGraphMLDocument()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getGraphMLDocument() : GraphMLDocument&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMetadata java.util.Map&lt;java.lang.Object,edu.uci.ics.jung.io.graphml.EdgeMetadata&gt; getEdgeMap()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEdgeMap() : MutableMap&lt;Any?, EdgeMetadata?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMetadata java.util.Map&lt;java.lang.Object,edu.uci.ics.jung.io.graphml.HyperEdgeMetadata&gt; getHyperEdgeMap()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getHyperEdgeMap() : MutableMap&lt;Any?, HyperEdgeMetadata?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.GraphMetadata java.util.Map&lt;java.lang.Object,edu.uci.ics.jung.io.graphml.NodeMetadata&gt; getNodeMap()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getNodeMap() : MutableMap&lt;Any?, NodeMetadata?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.HyperEdgeMetadata java.util.List&lt;edu.uci.ics.jung.io.graphml.EndpointMetadata&gt; getEndpoints()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getEndpoints() : MutableList&lt;EndpointMetadata?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.HyperEdgeMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.Key void applyKey(edu.uci.ics.jung.io.graphml.Metadata)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun applyKey(metadata : Metadata) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.KeyMap void addKey(edu.uci.ics.jung.io.graphml.Key)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addKey(key : Key) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.KeyMap void applyKeys(edu.uci.ics.jung.io.graphml.Metadata)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun applyKeys(metadata : Metadata) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.KeyMap java.util.List&lt;edu.uci.ics.jung.io.graphml.Key&gt; getKeyList(edu.uci.ics.jung.io.graphml.Metadata.MetadataType)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getKeyList(type : Metadata.MetadataType?) : MutableList&lt;Key?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.Metadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.Metadata java.util.Map&lt;java.lang.String,java.lang.String&gt; getProperties()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getProperties() : MutableMap&lt;String?, String?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.NodeMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.NodeMetadata java.util.List&lt;edu.uci.ics.jung.io.graphml.PortMetadata&gt; getPorts()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getPorts() : MutableList&lt;PortMetadata?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.PortMetadata edu.uci.ics.jung.io.graphml.Metadata.MetadataType getMetadataType()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getMetadataType() : Metadata.MetadataType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.AbstractElementParser void applyKeys(edu.uci.ics.jung.io.graphml.Metadata)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun applyKeys(metadata : Metadata) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.AbstractElementParser edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParser(localName : String?) : ElementParser&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.AbstractElementParser edu.uci.ics.jung.io.graphml.parser.ElementParser getUnknownParser()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getUnknownParser() : ElementParser&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.AbstractElementParser void verifyMatch(javax.xml.stream.events.StartElement, javax.xml.stream.events.EndElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun verifyMatch(start : StartElement, end : EndElement) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.DataElementParser edu.uci.ics.jung.io.graphml.DataMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : DataMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.DataElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.EdgeElementParser edu.uci.ics.jung.io.graphml.EdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : EdgeMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.EdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.ElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(p0 : XMLEventReader?, p1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getParser(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getParser(localName : String?) : ElementParser&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.ElementParserRegistry edu.uci.ics.jung.io.graphml.parser.ElementParser getUnknownElementParser()'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun getUnknownElementParser() : ElementParser&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.EndpointElementParser edu.uci.ics.jung.io.graphml.EndpointMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : EndpointMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.EndpointElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser void addEdgesToGraph(G, java.util.Collection&lt;edu.uci.ics.jung.io.graphml.EdgeMetadata&gt;, java.util.Map&lt;java.lang.String,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addEdgesToGraph(graph : G?, metadata : Collection&lt;EdgeMetadata?&gt;, idToVertexMap : Map&lt;String?, V&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser void addHyperEdgesToGraph(G, java.util.Collection&lt;edu.uci.ics.jung.io.graphml.HyperEdgeMetadata&gt;, java.util.Map&lt;java.lang.String,V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addHyperEdgesToGraph(graph : G?, metadata : Collection&lt;HyperEdgeMetadata?&gt;, idToVertexMap : Map&lt;String?, V&gt;?) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser void addVerticesToGraph(G, java.util.Collection&lt;V&gt;)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun addVerticesToGraph(graph : G?, vertices : Collection&lt;V&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser edu.uci.ics.jung.io.graphml.GraphMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : GraphMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.GraphElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.GraphMLEventFilter boolean accept(javax.xml.stream.events.XMLEvent)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun accept(event : XMLEvent) : Boolean&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser edu.uci.ics.jung.io.graphml.HyperEdgeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : HyperEdgeMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.HyperEdgeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key.ForType convertFor(java.lang.String)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun convertFor(value : String?) : Key.ForType&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.KeyElementParser edu.uci.ics.jung.io.graphml.Key parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : Key?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.KeyElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.NodeElementParser edu.uci.ics.jung.io.graphml.NodeMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : NodeMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.NodeElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.PortElementParser edu.uci.ics.jung.io.graphml.PortMetadata parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : PortMetadata?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.PortElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(x0 : XMLEventReader?, x1 : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.StringElementParser java.lang.String parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : String?&quot;"/>
+        </annotation>
+    </item>
+    <item name='edu.uci.ics.jung.io.graphml.parser.UnknownElementParser java.lang.Object parse(javax.xml.stream.XMLEventReader, javax.xml.stream.events.StartElement)'>
+        <annotation name='jet.runtime.typeinfo.KotlinSignature'>
+            <val name="value" val="&quot;fun parse(xmlEventReader : XMLEventReader?, start : StartElement?) : Any?&quot;"/>
+        </annotation>
+    </item>
+</root>

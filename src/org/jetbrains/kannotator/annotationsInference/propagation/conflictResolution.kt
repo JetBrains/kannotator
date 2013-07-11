@@ -2,8 +2,6 @@ package org.jetbrains.kannotator.annotationsInference.propagation
 
 import java.util.HashSet
 import kotlinlib.*
-import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
-import org.jetbrains.kannotator.classHierarchy.HierarchyNode
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
@@ -15,15 +13,19 @@ import org.jetbrains.kannotator.declarations.getValidPositions
 import java.util.LinkedHashSet
 import org.jetbrains.kannotator.classHierarchy.parentNodes
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
+import org.jetbrains.kannotator.graphs.Node
+import org.jetbrains.kannotator.classHierarchy.HierarchyNode
+import org.jetbrains.kannotator.declarations.AnnotationPosition
 
 fun resolveAllAnnotationConflicts<A>(
         leafMethodNodes: Collection<HierarchyNode<Method>>,
         lattice: AnnotationLattice<A>,
-        annotationsToFix: MutableAnnotations<A>
+        annotationsToFix: MutableAnnotations<A>,
+        propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ): Set<Method> {
     val visited = HashSet<Method>()
     for (leafMethodNode in leafMethodNodes) {
-        visited.addAll(resolveAnnotationConflicts(leafMethodNode, lattice, annotationsToFix))
+        visited.addAll(resolveAnnotationConflicts(leafMethodNode, lattice, annotationsToFix, propagatedPositionsToFill))
     }
     return visited
 }
@@ -31,22 +33,24 @@ fun resolveAllAnnotationConflicts<A>(
 private fun resolveAnnotationConflicts<A>(
         leafMethod: HierarchyNode<Method>,
         lattice: AnnotationLattice<A>,
-        annotationsToFix: MutableAnnotations<A>
+        annotationsToFix: MutableAnnotations<A>,
+        propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ): Collection<Method> {
     val propagatedAnnotations = AnnotationsImpl(annotationsToFix)
 
     return bfs(arrayList(leafMethod)) {
         node ->
-        val parentNodes = node.parentNodes()
+        val parentNodes = node.parentNodes
 
         resolveConflictsInParents(
                 node.method,
                 parentNodes.map {node -> node.method},
                 lattice,
                 annotationsToFix,
-                propagatedAnnotations)
+                propagatedAnnotations,
+                propagatedPositionsToFill)
 
-        scheduleAll(parentNodes)
+        parentNodes
     }.map { node -> node.method }
 }
 
@@ -55,7 +59,8 @@ private fun resolveConflictsInParents<A>(
         immediateOverridden: Collection<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>,
-        propagatedAnnotations: MutableAnnotations<A>
+        propagatedAnnotations: MutableAnnotations<A>,
+        propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ) {
     val typePositions = PositionsForMethod(method).getValidPositions()
 
@@ -71,14 +76,18 @@ private fun resolveConflictsInParents<A>(
 
             if (fromChild != null) {
                 if (inParent != null) {
-                    annotationsToFix[positionInParent] = lattice.unify<A>(
-                            relativePosition, inParent, fromChild)
+                    val unifiedAnn = lattice.unify<A>(relativePosition, inParent, fromChild)
+                    updateAnnotations(annotationsToFix, positionInParent, unifiedAnn, propagatedPositionsToFill)
                 }
                 else {
                     propagatedAnnotations[positionInParent] = fromChild
                     // propagate return value annotation up the graph
                     if (relativePosition == RETURN_TYPE) {
-                        annotationsToFix[positionInParent] = fromChild
+                        if (annotationsToFix[positionInParent] != fromChild) {
+                            annotationsToFix[positionInParent] = fromChild
+                            propagatedPositionsToFill.add(positionInParent)
+                        }
+                        updateAnnotations(annotationsToFix, positionInParent, fromChild!!, propagatedPositionsToFill)
                     }
                 }
             }
@@ -86,5 +95,5 @@ private fun resolveConflictsInParents<A>(
     }
 }
 
-private val HierarchyNode<Method>.method: Method
+private val Node<Method, *>.method: Method
     get() = data

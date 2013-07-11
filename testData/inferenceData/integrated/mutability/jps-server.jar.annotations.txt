@@ -1,0 +1,74 @@
+org.jetbrains.jps.ProjectPaths void access$200(java.util.Set, java.lang.String) 0
+MUTABLE
+org.jetbrains.jps.ProjectPaths void addFile(java.util.Set<java.io.File>, java.lang.String) 0
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.ClassRepr void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 1
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Differential.DelayedWorks boolean doWork(java.util.Collection<java.io.File>) 0
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void addOverriddenFields(org.jetbrains.jps.builders.java.dependencyView.FieldRepr, org.jetbrains.jps.builders.java.dependencyView.ClassRepr, java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.FieldRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>>) 2
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void addOverridenMethods(org.jetbrains.jps.builders.java.dependencyView.ClassRepr, org.jetbrains.jps.builders.java.dependencyView.MethodRepr.Predicate, java.util.Collection<com.intellij.openapi.util.Pair<org.jetbrains.jps.builders.java.dependencyView.MethodRepr,org.jetbrains.jps.builders.java.dependencyView.ClassRepr>>) 2
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void affectFieldUsages(org.jetbrains.jps.builders.java.dependencyView.FieldRepr, gnu.trove.TIntHashSet, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>, gnu.trove.TIntHashSet) 3
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void affectMethodUsages(org.jetbrains.jps.builders.java.dependencyView.MethodRepr, gnu.trove.TIntHashSet, org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>, gnu.trove.TIntHashSet) 3
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void affectSubclasses(int, java.util.Collection<java.io.File>, java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>, gnu.trove.TIntHashSet, boolean) 1
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.Mappings.Util void affectSubclasses(int, java.util.Collection<java.io.File>, java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>, gnu.trove.TIntHashSet, boolean) 2
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.RW java.util.Collection<T> readMany(java.io.BufferedReader, org.jetbrains.jps.builders.java.dependencyView.RW.Reader<T>, java.util.Collection<T>) 2
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.RW java.util.Collection<X> read(com.intellij.util.io.DataExternalizer<X>, java.util.Collection<X>, java.io.DataInput) 1
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType> createClassType(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.lang.String[], java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType>) 2
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType> createClassType(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, java.util.Collection<java.lang.String>, java.util.Collection<org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType>) 2
+MUTABLE
+@Propagated org.jetbrains.jps.builders.java.dependencyView.TypeRepr.AbstractType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+MUTABLE
+@Propagated org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ArrayType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+MUTABLE
+org.jetbrains.jps.builders.java.dependencyView.TypeRepr.ClassType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+MUTABLE
+@Propagated org.jetbrains.jps.builders.java.dependencyView.TypeRepr.PrimitiveType void updateClassUsages(org.jetbrains.jps.builders.java.dependencyView.DependencyContext, int, java.util.Set<org.jetbrains.jps.builders.java.dependencyView.UsageRepr.Usage>) 2
+MUTABLE
+org.jetbrains.jps.incremental.FSOperations void markDirtyFiles(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildTarget<?>, org.jetbrains.jps.incremental.storage.Timestamps, boolean, gnu.trove.THashSet<java.io.File>, java.io.FileFilter) 4
+MUTABLE
+org.jetbrains.jps.incremental.FSOperations void traverseRecursively(org.jetbrains.jps.incremental.CompileContext, org.jetbrains.jps.builders.BuildRootDescriptor, java.io.File, org.jetbrains.jps.incremental.storage.Timestamps, boolean, java.util.Set<java.io.File>, java.io.FileFilter) 5
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.ArtifactSourceFilesState void markDirtyFiles(java.util.Set<java.io.File>, boolean, org.jetbrains.jps.incremental.CompileContext) 0
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.ArtifactSourceFilesState void processRecursively(java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.ArtifactRootDescriptor, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, java.util.Set<java.io.File>, boolean) 3
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter void access$000(org.jetbrains.jps.model.artifact.JpsArtifact, java.util.Set, java.util.Set, boolean) 1
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter void access$000(org.jetbrains.jps.model.artifact.JpsArtifact, java.util.Set, java.util.Set, boolean) 2
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter void collectIncludedArtifacts(org.jetbrains.jps.model.artifact.JpsArtifact, java.util.Set<org.jetbrains.jps.model.artifact.JpsArtifact>, java.util.Set<org.jetbrains.jps.model.artifact.JpsArtifact>, boolean) 1
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.ArtifactSorter void collectIncludedArtifacts(org.jetbrains.jps.model.artifact.JpsArtifact, java.util.Set<org.jetbrains.jps.model.artifact.JpsArtifact>, java.util.Set<org.jetbrains.jps.model.artifact.JpsArtifact>, boolean) 2
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.lang.String access$200(java.util.jar.JarOutputStream, java.util.Set, java.lang.String) 1
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.lang.String addParentDirectories(java.util.jar.JarOutputStream, java.util.Set<java.lang.String>, java.lang.String) 1
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder java.util.jar.Manifest loadManifest(org.jetbrains.jps.incremental.artifacts.instructions.JarInfo, java.util.List<java.lang.String>) 1
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder void access$300(java.util.zip.ZipOutputStream, java.lang.String, java.util.Set) 2
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder void addDirectoryEntry(java.util.zip.ZipOutputStream, java.lang.String, java.util.Set<java.lang.String>) 2
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder void addFileOrDirRecursively(java.util.zip.ZipOutputStream, java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, java.lang.String, java.lang.String, java.util.Set<java.lang.String>, java.util.List<java.lang.String>, int) 5
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder void addFileOrDirRecursively(java.util.zip.ZipOutputStream, java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, java.lang.String, java.lang.String, java.util.Set<java.lang.String>, java.util.List<java.lang.String>, int) 6
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder void addFileToJar(java.util.jar.JarOutputStream, java.io.File, java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, java.lang.String, java.lang.String, java.util.Set<java.lang.String>, java.util.List<java.lang.String>, int) 6
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JarsBuilder void addFileToJar(java.util.jar.JarOutputStream, java.io.File, java.io.File, org.jetbrains.jps.incremental.artifacts.instructions.SourceFileFilter, java.lang.String, java.lang.String, java.util.Set<java.lang.String>, java.util.List<java.lang.String>, int) 7
+MUTABLE
+org.jetbrains.jps.incremental.artifacts.impl.JpsArtifactUtil boolean processPackagingElements(org.jetbrains.jps.model.artifact.elements.JpsPackagingElement, com.intellij.util.Processor<org.jetbrains.jps.model.artifact.elements.JpsPackagingElement>, java.util.Set<org.jetbrains.jps.model.artifact.elements.JpsPackagingElement>) 2
+MUTABLE
+org.jetbrains.jps.javac.JavacServerBootstrap void appendParam(java.util.List<java.lang.String>, java.lang.String) 0
+MUTABLE

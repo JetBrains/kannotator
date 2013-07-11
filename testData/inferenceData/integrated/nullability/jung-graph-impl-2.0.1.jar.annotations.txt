@@ -1,8 +1,28 @@
 edu.uci.ics.jung.graph.AbstractGraph E findEdge(V, V)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E)
+NULLABLE
 edu.uci.ics.jung.graph.AbstractGraph V getOpposite(V, E) 0
 NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 1
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V) 2
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 2
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>) 1
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
 NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
@@ -12,6 +32,8 @@ edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair<V> getVali
 NOT_NULL
 edu.uci.ics.jung.graph.AbstractGraph edu.uci.ics.jung.graph.util.Pair<V> getValidatedEndpoints(E, edu.uci.ics.jung.graph.util.Pair<? extends V>) 1
 NOT_NULL
+@Propagated edu.uci.ics.jung.graph.AbstractGraph java.util.Collection<E> findEdgeSet(V, V)
+NULLABLE
 edu.uci.ics.jung.graph.AbstractTypedGraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(E)
 NULLABLE
 edu.uci.ics.jung.graph.DelegateForest E getParentEdge(V)
@@ -20,8 +42,6 @@ edu.uci.ics.jung.graph.DelegateForest V getParent(V)
 NULLABLE
 edu.uci.ics.jung.graph.DelegateForest V getRoot()
 NULLABLE
-edu.uci.ics.jung.graph.DelegateForest boolean addEdge(E, java.util.Collection<? extends V>) 1
-NOT_NULL
 edu.uci.ics.jung.graph.DelegateForest java.util.Collection<V> getRoots()
 NOT_NULL
 edu.uci.ics.jung.graph.DelegateForest java.util.Collection<edu.uci.ics.jung.graph.Tree<V,E>> getTrees()
@@ -32,8 +52,6 @@ edu.uci.ics.jung.graph.DelegateTree DelegateTree(org.apache.commons.collections1
 NOT_NULL
 edu.uci.ics.jung.graph.DelegateTree V getParent(V)
 NULLABLE
-edu.uci.ics.jung.graph.DelegateTree boolean addEdge(E, java.util.Collection<? extends V>) 1
-NOT_NULL
 edu.uci.ics.jung.graph.DelegateTree java.util.Collection<V> getChildren(V)
 NULLABLE
 edu.uci.ics.jung.graph.DelegateTree java.util.List<V> getPath(V)
@@ -66,6 +84,10 @@ edu.uci.ics.jung.graph.DirectedSparseGraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.DirectedSparseGraph V getSource(E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.DirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.DirectedSparseGraph boolean addVertex(V) 0
 NOT_NULL
 edu.uci.ics.jung.graph.DirectedSparseGraph edu.uci.ics.jung.graph.util.Pair<V> getEndpoints(E)
@@ -96,6 +118,10 @@ edu.uci.ics.jung.graph.DirectedSparseMultigraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.DirectedSparseMultigraph V getSource(E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.DirectedSparseMultigraph boolean addVertex(V) 0
 NOT_NULL
 edu.uci.ics.jung.graph.DirectedSparseMultigraph java.util.Collection<E> getInEdges(V)
@@ -128,6 +154,8 @@ edu.uci.ics.jung.graph.OrderedKAryTree V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.OrderedKAryTree V getOpposite(V, E) 0
+NOT_NULL
 edu.uci.ics.jung.graph.OrderedKAryTree V getParent(V)
 NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree V getSource(E)
@@ -158,8 +186,6 @@ edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, java.util.Collection<?
 NOT_NULL
 edu.uci.ics.jung.graph.OrderedKAryTree boolean addEdge(E, java.util.Collection<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
 NOT_NULL
-edu.uci.ics.jung.graph.OrderedKAryTree boolean isSuccessor(V, V) 0
-NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree edu.uci.ics.jung.graph.util.Pair<V> getEndpoints(E)
 NULLABLE
 edu.uci.ics.jung.graph.OrderedKAryTree java.util.Collection<E> getChildEdges(V)
@@ -250,6 +276,10 @@ edu.uci.ics.jung.graph.SparseGraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.SparseGraph V getSource(E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.SparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.SparseGraph boolean addVertex(V) 0
 NOT_NULL
 edu.uci.ics.jung.graph.SparseGraph edu.uci.ics.jung.graph.util.EdgeType getEdgeType(E)
@@ -282,6 +312,10 @@ edu.uci.ics.jung.graph.SparseMultigraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.SparseMultigraph V getSource(E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.SparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.SparseMultigraph boolean addVertex(V) 0
 NOT_NULL
 edu.uci.ics.jung.graph.SparseMultigraph java.util.Collection<E> getInEdges(V)
@@ -318,6 +352,10 @@ edu.uci.ics.jung.graph.UndirectedSparseGraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.UndirectedSparseGraph V getSource(E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.UndirectedSparseGraph boolean addVertex(V) 0
 NOT_NULL
 edu.uci.ics.jung.graph.UndirectedSparseGraph java.util.Collection<E> findEdgeSet(V, V)
@@ -346,6 +384,16 @@ edu.uci.ics.jung.graph.UndirectedSparseMultigraph V getDest(E)
 NULLABLE
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph V getSource(E)
 NULLABLE
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, V, V, edu.uci.ics.jung.graph.util.EdgeType) 2
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 0
+NOT_NULL
+@Propagated edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addEdge(E, edu.uci.ics.jung.graph.util.Pair<? extends V>, edu.uci.ics.jung.graph.util.EdgeType) 1
+NOT_NULL
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph boolean addVertex(V) 0
 NOT_NULL
 edu.uci.ics.jung.graph.UndirectedSparseMultigraph java.util.Collection<E> getInEdges(V)

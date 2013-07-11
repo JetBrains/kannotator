@@ -2,9 +2,8 @@ package inferenceData;
 
 import inferenceData.annotations.ExpectNotNull;
 import inferenceData.annotations.ExpectNullable;
-import org.jetbrains.annotations.NotNull;
 
-import java.util.Collection;
+import java.util.*;
 
 public class NullabilityInferenceTestClass {
     @ExpectNullable
@@ -98,7 +97,7 @@ public class NullabilityInferenceTestClass {
         }
     }
 
-    public void testInvocationOnNullParameter(@ExpectNullable String a) {
+    public void testInvocationOnNullParameter(@ExpectNotNull String a) {
         if (a == null) {
             a.getBytes();
         }
@@ -134,7 +133,7 @@ public class NullabilityInferenceTestClass {
     }
 
     @ExpectNotNull
-    public String testInstanceofAndReturn(Object a) {
+    public String testInstanceofAndReturn(@ExpectNullable Object a) {
         if (a instanceof String) {
             return (String) a;
         }
@@ -279,8 +278,8 @@ public class NullabilityInferenceTestClass {
         return o;
     }
 
-    @ExpectNullable
-    public Object testConflict(@ExpectNullable Object o) {
+    @ExpectNotNull
+    public Object testConflict(@ExpectNotNull Object o) {
         if (o == null) {
             o.toString();
         }
@@ -304,7 +303,7 @@ public class NullabilityInferenceTestClass {
     }
 
     @ExpectNullable
-    public Object testNullableAfterInstanceOf(Object o) {
+    public Object testNullableAfterInstanceOf(@ExpectNullable Object o) {
         if (o instanceof Integer) {
             return o;
         } else if (o instanceof Double) {
@@ -312,6 +311,30 @@ public class NullabilityInferenceTestClass {
         }
 
         return new Object();
+    }
+
+    @ExpectNotNull
+    public String testNotInstanceOf(@ExpectNullable Object o) {
+        if (!(o instanceof String)) {
+            return "";
+        }
+        return (String)o;
+    }
+
+    @ExpectNotNull
+    public String testNotInstanceOfWithAssignment(@ExpectNullable Object o) {
+        if (!(o instanceof String)) {
+            o = "";
+        }
+        return (String)o;
+    }
+
+    public String testMultipleInstanceOf(@ExpectNotNull Object o) {
+        if (o instanceof Integer) {
+            return "N" + ((Integer)o).intValue();
+        } else {
+            throw new NullPointerException();
+        }
     }
 
     public Object getUnannotatedObject() {
@@ -331,5 +354,42 @@ public class NullabilityInferenceTestClass {
 
     static Object staticMethod() {
         return null;
+    }
+
+    @ExpectNotNull
+    public <L extends List<String>> L testTrimStringList(@ExpectNotNull L strings)
+    {
+        for (ListIterator<String> listIt = strings.listIterator(); listIt.hasNext(); )
+        {
+            String string = listIt.next().trim();
+            listIt.set(string);
+        }
+        return strings;
+    }
+
+    @ExpectNotNull
+    public int[] testAssertsWithExceptions(@ExpectNotNull int[] a, int[] b) {
+        if (a.length != 10) {
+            throw new IllegalArgumentException("");
+        }
+        if (b == null || b.length != 10) {
+            b = new int[10];
+        } else {
+            b[0]++;
+        }
+
+        return b;
+    }
+
+    public <V> Collection<V> testUnmodifiableCollectionSubclass(Collection<V> collection) {
+        if (collection instanceof SortedSet) {
+            return Collections.unmodifiableSortedSet((SortedSet<V>) collection);
+        } else if (collection instanceof Set) {
+            return Collections.unmodifiableSet((Set<V>) collection);
+        } else if (collection instanceof List) {
+            return Collections.unmodifiableList((List<V>) collection);
+        } else {
+            return Collections.unmodifiableCollection(collection);
+        }
     }
 }

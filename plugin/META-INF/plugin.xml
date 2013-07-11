@@ -1,29 +1,14 @@
-<idea-plugin version="2">
+<idea-plugin version="2" url="http://kotlin.jetbrains.org">
     <id>org.jetbrains.kannotator</id>
     <name>KAnnotator</name>
     <version>@snapshot@</version>
     <vendor url="http://www.jetbrains.com">JetBrains Inc.</vendor>
     <description>
         <![CDATA[
-Automatic inference of nullability and kotlin annotations from the set of jar files
+Automatic inference of nullability and kotlin annotations from a set of jar files
 ]]>
     </description>
-    <idea-version since-build="123.4" until-build="123.9999"/>
-    <!--
-     please see http://confluence.jetbrains.net/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-           on how to target different products
-    -->
-    <!--
-     uncomment to enable plugin in all products
-      <depends>com.intellij.modules.lang</depends>
-
-    -->
-    <application-components>
-        <!--  Add your application components here  -->
-    </application-components>
-    <project-components>
-        <!--  Add your project components here  -->
-    </project-components>
+    <idea-version since-build="123.4" until-build="129.9999"/>
 
     <actions>
         <action id="annotate.jar" class="org.jetbrains.kannotator.plugin.actions.AnnotateJarAction" text="Annotate Jar Files..."
@@ -31,4 +16,13 @@ Automatic inference of nullability and kotlin annotations from the set of jar fi
             <add-to-group group-id="AnalyzeActions" anchor="last"/>
         </action>
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <errorHandler implementation="org.jetbrains.kannotator.plugin.KannotatorReportSubmitter"/>
+
+        <editorNotificationProvider implementation="org.jetbrains.kannotator.plugin.notifications.AnnotateKotlinLibNotification"/>
+
+        <projectService serviceInterface="org.jetbrains.kannotator.plugin.persistentState.KannotatorSettings"
+                        serviceImplementation="org.jetbrains.kannotator.plugin.persistentState.KannotatorSettings"/>
+    </extensions>
 </idea-plugin>

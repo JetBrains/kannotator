@@ -26,11 +26,19 @@ com.google.common.collect.Iterators boolean retainAll(java.util.Iterator<?>, jav
 MUTABLE
 com.google.common.collect.Iterators void clear(java.util.Iterator<?>) 0
 MUTABLE
+com.google.common.collect.Lists boolean addAllImpl(java.util.List<E>, int, java.lang.Iterable<? extends E>) 0
+MUTABLE
 com.google.common.collect.Maps boolean removeEntryImpl(java.util.Collection<java.util.Map.Entry<K,V>>, java.lang.Object) 0
 MUTABLE
 com.google.common.collect.Maps void putAllImpl(java.util.Map<K,V>, java.util.Map<? extends K,? extends V>) 0
 MUTABLE
 com.google.common.collect.Multisets boolean addAllImpl(com.google.common.collect.Multiset<E>, java.util.Collection<? extends E>) 0
+MUTABLE
+com.google.common.collect.Multisets boolean removeOccurrences(com.google.common.collect.Multiset<?>, com.google.common.collect.Multiset<?>) 0
+MUTABLE
+com.google.common.collect.Multisets boolean removeOccurrencesImpl(com.google.common.collect.Multiset<E>, com.google.common.collect.Multiset<?>) 0
+MUTABLE
+com.google.common.collect.Multisets int setCountImpl(com.google.common.collect.Multiset<E>, E, int) 0
 MUTABLE
 com.google.common.collect.Queues int drain(java.util.concurrent.BlockingQueue<E>, java.util.Collection<? super E>, int, long, java.util.concurrent.TimeUnit) 1
 MUTABLE
@@ -40,9 +48,17 @@ com.google.common.collect.Serialization void populateMap(java.util.Map<K,V>, jav
 MUTABLE
 com.google.common.collect.Serialization void populateMap(java.util.Map<K,V>, java.io.ObjectInputStream, int) 0
 MUTABLE
+com.google.common.collect.Serialization void populateMultiset(com.google.common.collect.Multiset<E>, java.io.ObjectInputStream) 0
+MUTABLE
+com.google.common.collect.Serialization void populateMultiset(com.google.common.collect.Multiset<E>, java.io.ObjectInputStream, int) 0
+MUTABLE
 com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Collection<?>) 0
 MUTABLE
 com.google.common.collect.Sets boolean removeAllImpl(java.util.Set<?>, java.util.Iterator<?>) 0
+MUTABLE
+com.google.common.collect.Sets.1 S copyInto(S) 0
+MUTABLE
+com.google.common.collect.Sets.SetView S copyInto(S) 0
 MUTABLE
 com.google.common.primitives.Primitives void add(java.util.Map<java.lang.Class<?>,java.lang.Class<?>>, java.util.Map<java.lang.Class<?>,java.lang.Class<?>>, java.lang.Class<?>, java.lang.Class<?>) 0
 MUTABLE

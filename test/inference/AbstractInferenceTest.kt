@@ -6,7 +6,7 @@ import java.util.HashMap
 import junit.framework.TestCase
 import kotlin.test.assertEquals
 import kotlinlib.*
-import org.jetbrains.kannotator.annotationsInference.Annotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import org.jetbrains.kannotator.asm.util.forEachField
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.ClassSource
@@ -19,23 +19,32 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 import util.getClassReader
 import util.junit.getTestName
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
+import java.util.Collections
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
+    protected abstract val analysisType: AnalysisType
 
     protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
 
     protected abstract fun getInitialAnnotations(): Annotations<A>
-    protected abstract fun getInferrer(): AnnotationInferrer<A>
+    protected abstract fun getInferrer(): AnnotationInferrer<A, *>
     protected abstract fun getClassFiles(): Collection<File>
 
     private fun doInferAnnotations(annotations: Annotations<A>) : Annotations<Any> {
-        return inferAnnotations<String>(
+        return inferAnnotations<AnalysisType>(
                 FileBasedClassSource(getClassFiles()),
                 ArrayList<File>(),
-                hashMap(Pair("inferrer", getInferrer() as AnnotationInferrer<Any>)),
+                hashMapOf(Pair(analysisType, getInferrer() as AnnotationInferrer<Any, Qualifier>)),
                 ProgressMonitor(),
                 false,
-                hashMap(Pair("inferrer", annotations)))["inferrer"]!!
+                false,
+                hashMapOf(analysisType to AnnotationsImpl<A>()),
+                hashMapOf(analysisType to annotations),
+                {true},
+                Collections.emptyMap()
+        ).groupByKey[analysisType]!!.inferredAnnotations
     }
 
     protected fun doFieldTest() {

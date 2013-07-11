@@ -1,0 +1,466 @@
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class<T>, org.picocontainer.PicoContainer)
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class<T>, org.picocontainer.PicoContainer) 0
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class<T>, org.picocontainer.PicoContainer) 1
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class<T>, org.picocontainer.PicoContainer, boolean)
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class<T>, org.picocontainer.PicoContainer, boolean) 0
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.Class<T>, org.picocontainer.PicoContainer, boolean) 1
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.String, org.picocontainer.PicoContainer)
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean T instantiate(java.lang.String, org.picocontainer.PicoContainer) 1
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean java.lang.Class<T> findClass(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.AbstractExtensionPointBean java.lang.Class<T> findClassNoExceptions(java.lang.String)
+NULLABLE
+com.intellij.openapi.extensions.EPAvailabilityListenerExtension EXTENSION_POINT_NAME
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionException ExtensionException(java.lang.Class) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionException java.lang.Class getExtensionClass()
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionException myExtensionClass
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint T getExtension()
+NULLABLE
+com.intellij.openapi.extensions.ExtensionPoint T[] getExtensions()
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint boolean hasExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>, com.intellij.openapi.Disposable) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>, com.intellij.openapi.Disposable) 1
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void registerExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void registerExtension(T, com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void registerExtension(T, com.intellij.openapi.extensions.LoadingOrder) 1
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void removeExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint void unregisterExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint.Kind $VALUES
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint.Kind BEAN_CLASS
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPoint.Kind INTERFACE
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPointListener void extensionAdded(T, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPointListener void extensionAdded(T, com.intellij.openapi.extensions.PluginDescriptor) 1
+NULLABLE
+com.intellij.openapi.extensions.ExtensionPointListener void extensionRemoved(T, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPointListener void extensionRemoved(T, com.intellij.openapi.extensions.PluginDescriptor) 1
+NULLABLE
+com.intellij.openapi.extensions.ExtensionPointName T[] getExtensions()
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionPointName com.intellij.openapi.extensions.ExtensionPointName<T> create(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions AREA_LISTENER_EXTENSION_POINT
+NOT_NULL
+com.intellij.openapi.extensions.Extensions T[] getExtensions(com.intellij.openapi.extensions.ExtensionPointName<T>)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions T[] getExtensions(com.intellij.openapi.extensions.ExtensionPointName<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions T[] getExtensions(com.intellij.openapi.extensions.ExtensionPointName<T>, com.intellij.openapi.extensions.AreaInstance)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions T[] getExtensions(com.intellij.openapi.extensions.ExtensionPointName<T>, com.intellij.openapi.extensions.AreaInstance) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions T[] getExtensions(java.lang.String, com.intellij.openapi.extensions.AreaInstance)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions T[] getExtensions(java.lang.String, com.intellij.openapi.extensions.AreaInstance) 1
+NULLABLE
+com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName<T>, com.intellij.openapi.extensions.AreaInstance, java.lang.Class<U>)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName<T>, com.intellij.openapi.extensions.AreaInstance, java.lang.Class<U>) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName<T>, com.intellij.openapi.extensions.AreaInstance, java.lang.Class<U>) 2
+NOT_NULL
+com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName<T>, java.lang.Class<U>)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName<T>, java.lang.Class<U>) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions U findExtension(com.intellij.openapi.extensions.ExtensionPointName<T>, java.lang.Class<U>) 1
+NOT_NULL
+com.intellij.openapi.extensions.Extensions boolean equals(java.lang.Object, java.lang.Object) 0
+NULLABLE
+com.intellij.openapi.extensions.Extensions boolean equals(java.lang.Object, java.lang.Object) 1
+NULLABLE
+com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.AreaInstance[] getAllAreas(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.AreaListener[] getAreaListeners()
+NOT_NULL
+com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.ExtensionsArea getArea(com.intellij.openapi.extensions.AreaInstance)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.ExtensionsArea getArea(com.intellij.openapi.extensions.AreaInstance) 0
+NULLABLE
+com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.ExtensionsArea getRootArea()
+NOT_NULL
+com.intellij.openapi.extensions.Extensions com.intellij.openapi.extensions.impl.ExtensionsAreaImpl createRootArea()
+NOT_NULL
+com.intellij.openapi.extensions.Extensions java.lang.Object[] getExtensions(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.Extensions ourAreaClass2Configuration
+NOT_NULL
+com.intellij.openapi.extensions.Extensions ourAreaClass2instances
+NOT_NULL
+com.intellij.openapi.extensions.Extensions ourAreaInstance2area
+NOT_NULL
+com.intellij.openapi.extensions.Extensions ourAreaInstance2class
+NOT_NULL
+com.intellij.openapi.extensions.Extensions void cleanRootArea(com.intellij.openapi.Disposable) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions void disposeArea(com.intellij.openapi.extensions.AreaInstance) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions void instantiateArea(java.lang.String, com.intellij.openapi.extensions.AreaInstance, com.intellij.openapi.extensions.AreaInstance) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions void instantiateArea(java.lang.String, com.intellij.openapi.extensions.AreaInstance, com.intellij.openapi.extensions.AreaInstance) 1
+NULLABLE
+com.intellij.openapi.extensions.Extensions void instantiateArea(java.lang.String, com.intellij.openapi.extensions.AreaInstance, com.intellij.openapi.extensions.AreaInstance) 2
+NULLABLE
+com.intellij.openapi.extensions.Extensions void registerAreaClass(java.lang.String, java.lang.String) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions void registerAreaClass(java.lang.String, java.lang.String) 1
+NULLABLE
+com.intellij.openapi.extensions.Extensions void setLogProvider(com.intellij.openapi.extensions.LogProvider) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions.SimpleLogProvider void error(java.lang.String, java.lang.Throwable) 1
+NOT_NULL
+com.intellij.openapi.extensions.Extensions.SimpleLogProvider void error(java.lang.Throwable) 0
+NOT_NULL
+com.intellij.openapi.extensions.Extensions.SimpleLogProvider void warn(java.lang.String, java.lang.Throwable) 1
+NOT_NULL
+com.intellij.openapi.extensions.Extensions.SimpleLogProvider void warn(java.lang.Throwable) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.AreaPicoContainer getPicoContainer()
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.ExtensionPoint<T> getExtensionPoint(com.intellij.openapi.extensions.ExtensionPointName<T>)
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.ExtensionPoint<T> getExtensionPoint(com.intellij.openapi.extensions.ExtensionPointName<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.ExtensionsArea com.intellij.openapi.extensions.ExtensionPoint<T> getExtensionPoint(java.lang.String)
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea org.picocontainer.PicoContainer getPluginContainer(java.lang.String)
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void registerExtension(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void registerExtension(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void registerExtension(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void registerExtensionPoint(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void registerExtensionPoint(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void registerExtensionPoint(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void unregisterExtension(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.ExtensionsArea void unregisterExtensionPoint(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder AFTER_STR
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder AFTER_STR_OLD
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder ANY
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder BEFORE_STR
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder BEFORE_STR_OLD
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder FIRST
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder FIRST_STR
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder LAST
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder LAST_STR
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder LoadingOrder(java.lang.String) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder boolean access$200(com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder boolean access$300(com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder boolean equals(java.lang.Object) 0
+NULLABLE
+com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder after(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder before(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder readOrder(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder com.intellij.openapi.extensions.LoadingOrder readOrder(java.lang.String) 0
+NULLABLE
+com.intellij.openapi.extensions.LoadingOrder java.lang.String toString()
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder java.util.Set access$000(com.intellij.openapi.extensions.LoadingOrder)
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder java.util.Set access$000(com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder java.util.Set access$100(com.intellij.openapi.extensions.LoadingOrder)
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder java.util.Set access$100(com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder myAfter
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder myBefore
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder myName
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder void sort(com.intellij.openapi.extensions.LoadingOrder.Orderable[]) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder.1 java.util.Collection<com.intellij.openapi.extensions.LoadingOrder.Orderable> getNodes()
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder.1 java.util.Iterator getIn(java.lang.Object) 0
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder.1 java.util.Iterator<com.intellij.openapi.extensions.LoadingOrder.Orderable> getIn(com.intellij.openapi.extensions.LoadingOrder.Orderable) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.LoadingOrder.Orderable com.intellij.openapi.extensions.LoadingOrder getOrder()
+NOT_NULL
+com.intellij.openapi.extensions.LoadingOrder.Orderable java.lang.String getOrderId()
+NULLABLE
+@Propagated com.intellij.openapi.extensions.LoadingOrder.Orderable org.jdom.Element getDescribingElement()
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.LogProvider void error(java.lang.String, java.lang.Throwable) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.LogProvider void error(java.lang.Throwable) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.LogProvider void warn(java.lang.String, java.lang.Throwable) 1
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.LogProvider void warn(java.lang.Throwable) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.PluginDescriptor java.lang.ClassLoader getPluginClassLoader()
+NULLABLE
+com.intellij.openapi.extensions.PluginId EMPTY_ARRAY
+NOT_NULL
+com.intellij.openapi.extensions.PluginId com.intellij.openapi.extensions.PluginId getId(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.PluginId int compareTo(com.intellij.openapi.extensions.PluginId) 0
+NOT_NULL
+com.intellij.openapi.extensions.PluginId int compareTo(java.lang.Object) 0
+NOT_NULL
+com.intellij.openapi.extensions.PluginId java.util.Map<java.lang.String,com.intellij.openapi.extensions.PluginId> getRegisteredIds()
+NOT_NULL
+com.intellij.openapi.extensions.PluginId ourRegisteredIds
+NOT_NULL
+com.intellij.openapi.extensions.SimpleSmartExtensionPoint SimpleSmartExtensionPoint(java.util.Collection<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.SimpleSmartExtensionPoint T getExtension(T)
+NOT_NULL
+com.intellij.openapi.extensions.SimpleSmartExtensionPoint T getExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint SmartExtensionPoint(java.util.Collection<V>) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint V getExtension(Extension)
+NULLABLE
+com.intellij.openapi.extensions.SmartExtensionPoint V getExtension(Extension) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint com.intellij.openapi.extensions.ExtensionPoint<Extension> getExtensionPoint()
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint java.util.List<V> getExtensions()
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint myExplicitExtensions
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint void addExplicitExtension(V) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint void extensionAdded(Extension, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint void extensionAdded(Extension, com.intellij.openapi.extensions.PluginDescriptor) 1
+NULLABLE
+com.intellij.openapi.extensions.SmartExtensionPoint void extensionRemoved(Extension, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint void extensionRemoved(Extension, com.intellij.openapi.extensions.PluginDescriptor) 1
+NULLABLE
+com.intellij.openapi.extensions.SmartExtensionPoint void removeExplicitExtension(V) 0
+NOT_NULL
+com.intellij.openapi.extensions.SmartExtensionPoint.1 V fun(Extension)
+NULLABLE
+com.intellij.openapi.extensions.SmartExtensionPoint.1 V fun(Extension) 0
+NOT_NULL
+com.intellij.openapi.extensions.SortingException.1 java.lang.Object fun(java.lang.Object) 0
+NOT_NULL
+com.intellij.openapi.extensions.SortingException.1 java.lang.String fun(org.jdom.Element) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.AreaDescriptor boolean equals(java.lang.Object) 0
+NULLABLE
+com.intellij.openapi.extensions.impl.AreaPicoContainerImpl AreaPicoContainerImpl(com.intellij.openapi.extensions.impl.AreaPicoContainerImpl.MyPicoContainer, com.intellij.openapi.extensions.AreaInstance) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.AreaPicoContainerImpl com.intellij.openapi.extensions.AreaInstance access$000(com.intellij.openapi.extensions.impl.AreaPicoContainerImpl) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionClassAndAreaInstance boolean equals(java.lang.Object) 0
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionComponentAdapter EMPTY_ARRAY
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionComponentAdapter boolean isAssignableTo(java.lang.Class) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionComponentAdapter com.intellij.openapi.extensions.LoadingOrder getOrder()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionComponentAdapter java.lang.Object getComponentKey()
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.impl.ExtensionComponentAdapter java.lang.Object getExtension()
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.impl.ExtensionComponentAdapter java.lang.String getOrderId()
+NULLABLE
+@Propagated com.intellij.openapi.extensions.impl.ExtensionComponentAdapter org.jdom.Element getDescribingElement()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl T getExtension()
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionPointImpl T[] getExtensions()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl boolean hasExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl int getExtensionIndex(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl myExtensionAdapters
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl myExtensions
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl myLoadedAdapters
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>, com.intellij.openapi.Disposable) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void addExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>, com.intellij.openapi.Disposable) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void assertClass(java.lang.Class<?>) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void internalUnregisterExtension(T, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtension(T, com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtension(T, com.intellij.openapi.extensions.LoadingOrder) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void registerExtensionAdapter(com.intellij.openapi.extensions.impl.ExtensionComponentAdapter) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void removeExtensionPointListener(com.intellij.openapi.extensions.ExtensionPointListener<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl void unregisterExtension(T) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter ObjectComponentAdapter(java.lang.Object, com.intellij.openapi.extensions.LoadingOrder) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter ObjectComponentAdapter(java.lang.Object, com.intellij.openapi.extensions.LoadingOrder) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter ObjectComponentAdapter(java.lang.Object, com.intellij.openapi.extensions.LoadingOrder, com.intellij.openapi.extensions.impl.ExtensionPointImpl.1) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter ObjectComponentAdapter(java.lang.Object, com.intellij.openapi.extensions.LoadingOrder, com.intellij.openapi.extensions.impl.ExtensionPointImpl.1) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter com.intellij.openapi.extensions.LoadingOrder getOrder()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter java.lang.Object getExtension()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter java.lang.String getOrderId()
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter myExtension
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter myLoadingOrder
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionPointImpl.ObjectComponentAdapter org.jdom.Element getDescribingElement()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl ATTRIBUTE_AREA
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl ExtensionsAreaImpl(java.lang.String, com.intellij.openapi.extensions.AreaInstance, org.picocontainer.PicoContainer, com.intellij.openapi.extensions.LogProvider) 3
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl ExtensionsAreaImpl(org.picocontainer.MutablePicoContainer, com.intellij.openapi.extensions.LogProvider) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl boolean equal(java.lang.String, java.lang.String) 0
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl boolean shouldDeserializeInstance(org.jdom.Element) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.AreaPicoContainer getPicoContainer()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.ExtensionPoint getExtensionPoint(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.ExtensionPoint<T> getExtensionPoint(com.intellij.openapi.extensions.ExtensionPointName<T>)
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.ExtensionPoint<T> getExtensionPoint(com.intellij.openapi.extensions.ExtensionPointName<T>) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.LogProvider access$100(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl)
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.LogProvider access$100(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.openapi.extensions.impl.ExtensionPointImpl<T> getExtensionPoint(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.util.containers.MultiMap access$000(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl)
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl com.intellij.util.containers.MultiMap access$000(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl java.lang.Object access$200(com.intellij.openapi.extensions.impl.ExtensionsAreaImpl, java.lang.Class) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl java.lang.String extractEPName(org.jdom.Element) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl java.lang.Throwable getCreationTrace()
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myAvailabilityListeners
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myCreationTrace
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myEPTraces
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myExtensionElement2extension
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myExtensionPoints
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myLogger
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myPicoContainer
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl myPluginName2picoContainer
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl mySuspendedListenerActions
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl org.picocontainer.MutablePicoContainer getMutablePicoContainer()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl org.picocontainer.MutablePicoContainer internalGetPluginContainer()
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl org.picocontainer.PicoContainer getPluginContainer(java.lang.String)
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl ourDefaultEPs
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void notifyEPRegistered(com.intellij.openapi.extensions.ExtensionPoint) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void notifyEPRemoved(com.intellij.openapi.extensions.ExtensionPoint) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtension(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtension(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtension(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(com.intellij.openapi.extensions.PluginDescriptor, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(com.intellij.openapi.extensions.impl.ExtensionPointImpl) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void registerExtensionPoint(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void removeAllComponents(java.util.Set<com.intellij.openapi.extensions.impl.ExtensionComponentAdapter>) 0
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void unregisterExtension(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl void unregisterExtensionPoint(java.lang.String, org.jdom.Element) 1
+NOT_NULL
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl.1 void extensionAdded(java.lang.Object, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.impl.ExtensionsAreaImpl.1 void extensionAdded(java.lang.Object, com.intellij.openapi.extensions.PluginDescriptor) 1
+NULLABLE
+com.intellij.openapi.extensions.impl.ExtensionsAreaImpl.1 void extensionRemoved(java.lang.Object, com.intellij.openapi.extensions.PluginDescriptor) 0
+NOT_NULL
+@Propagated com.intellij.openapi.extensions.impl.ExtensionsAreaImpl.1 void extensionRemoved(java.lang.Object, com.intellij.openapi.extensions.PluginDescriptor) 1
+NULLABLE
+com.intellij.openapi.extensions.impl.UndefinedPluginDescriptor java.lang.ClassLoader getPluginClassLoader()
+NULLABLE

@@ -3,7 +3,7 @@ package funDependency
 import java.io.File
 import java.util.ArrayList
 import java.util.jar.JarFile
-import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
+import org.jetbrains.kannotator.funDependecy.*
 import org.junit.Test
 import org.objectweb.asm.ClassReader
 import org.jetbrains.kannotator.util.processJar
@@ -32,9 +32,9 @@ class BuildGraphForLibrariesTest() {
 
         val classSource = FileBasedClassSource(arrayList(file))
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
-        val finder = SCCFinder(graph, { graph.functions }, { it.outgoingEdges.map { edge -> edge.to } })
+        val finder = SCCFinder(graph, { graph.nodes }, { it.outgoingEdges.map { edge -> edge.to } })
         val allComponents = finder.getAllComponents()
-        println("Graph size: " + graph.functions.size() + " " + graph.noOutgoingNodes.size())
+        println("Graph size: " + graph.nodes.size() + " " + graph.sinkNodes.size())
         println("Number of component (size > 1): ${allComponents.filter { it.size() > 1 }.size()}")
     }
 

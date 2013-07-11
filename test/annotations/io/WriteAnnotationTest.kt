@@ -29,6 +29,8 @@ import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import kotlinlib.toUnixSeparators
+import org.jetbrains.kannotator.declarations.Access
+import java.util.LinkedHashMap
 
 public class WriteAnnotationTest {
 
@@ -57,13 +59,15 @@ public class WriteAnnotationTest {
             dirOrFile.recurseFiltered({ it.extension == "xml" }) {
                 file ->
                 println("Processing ${file.getAbsolutePath()}")
-                val typePositionAndAnnotationData = LinkedHashSet<Pair<AnnotationPosition, LinkedList<AnnotationData>>>()
+                val typePositionAndAnnotationData = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
                 parseAnnotations(file.reader(), { key, annotationData ->
                     val classReader = classToReaderMap.get(key.prefixUpTo(' '))
                     if (classReader != null) {
                         forAllClassAnnotationPositions(classReader) { annotationPosition ->
                             if (annotationPosition.toAnnotationKey() == key) {
-                                typePositionAndAnnotationData.add(Pair(annotationPosition, annotationData.toLinkedList()))
+                                for (data in annotationData) {
+                                    typePositionAndAnnotationData.put(annotationPosition, arrayList(data))
+                                }
                             }
                         }
                     }
@@ -72,15 +76,11 @@ public class WriteAnnotationTest {
                     }
                 }, { str -> println(str) })
 
-                val annotationsList = LinkedList<Annotations<AnnotationData>>()
-                annotationsList.add(AnnotationsWithAnnotationData(typePositionAndAnnotationData))
 
                 val actualFile = File.createTempFile("writeAnnotations", file.getName())
                 actualFile.createNewFile()
                 println("Saved file: ${actualFile.getAbsolutePath()}")
-                writeAnnotations<AnnotationData>(FileWriter(actualFile), annotationsList, {
-                    annotation -> annotation
-                })
+                writeAnnotations(FileWriter(actualFile), typePositionAndAnnotationData)
                 Assert.assertEquals(file.readText().trim().toUnixSeparators(), actualFile.readText().trim().toUnixSeparators())
             }
         }
@@ -110,20 +110,5 @@ public class WriteAnnotationTest {
         }, 0)
     }
 }
-
-private class AnnotationsWithAnnotationData(val data: Set<Pair<AnnotationPosition, LinkedList<AnnotationData>>>): Annotations<AnnotationData> {
-    override fun forEach(body: (AnnotationPosition, AnnotationData) -> Unit) {
-        for ((position, annotations) in data) {
-            for (annotation in annotations) {
-                body(position, annotation)
-            }
-        }
-    }
-
-    override fun get(typePosition: AnnotationPosition): AnnotationData? {
-        throw UnsupportedOperationException()
-    }
-}
-
 
 

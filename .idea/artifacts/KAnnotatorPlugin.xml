@@ -10,9 +10,12 @@
           </element>
           <element id="module-output" name="kannotator" />
         </element>
-        <element id="library" level="project" name="KotlinRuntime" />
         <element id="library" level="project" name="asm-debug-all-4.0" />
         <element id="library" level="project" name="gs-collections-2.0" />
+        <element id="directory" name="license">
+          <element id="dir-copy" path="$PROJECT_DIR$/license" />
+        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/lib/kotlin-runtime.jar" />
       </element>
     </root>
   </artifact>

@@ -1,26 +1,35 @@
 package org.jetbrains.kannotator.annotations.io
 
 import java.io.Writer
+import java.io.File
+import java.util.Collections
+import kotlinlib.*
+import org.jetbrains.kannotator.main.*
+import java.util.HashSet
+import java.io.FileWriter
+import org.jetbrains.kannotator.index.AnnotationKeyIndex
+import org.jetbrains.kannotator.index.DeclarationIndex
+import java.io.FileReader
+import java.util.HashMap
+import org.jetbrains.kannotator.annotationsInference.nullability.*
 import java.util.LinkedHashMap
-import kotlinlib.buildString
-import kotlinlib.println
-import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.annotationsInference.propagation.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
 
-fun writeAnnotations<A>(writer: Writer, annotations: Collection<Annotations<A>>, renderer: (A) -> AnnotationData) {
+fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
     val printer = XmlPrinter(sb)
     printer.openTag("root")
     printer.pushIndent()
-    for (annotation in annotations) {
-        annotation.forEach {
-            typePosition, annotation ->
-            printer.openTag("item", hashMap(Pair("name", typePosition.toAnnotationKey())))
-            printer.pushIndent()
-            val annotationData = renderer(annotation)
+    for ((typePosition, annotationDatas) in annotations) {
+        printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
+        printer.pushIndent()
+        for (annotationData in annotationDatas) {
             if (annotationData.attributes.size() < 1) {
-                printer.openTag("annotation", hashMap(Pair("name", annotationData.annotationClassFqn)), true)
+                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
             } else {
-                printer.openTag("annotation", hashMap(Pair("name", annotationData.annotationClassFqn)))
+                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
                 for ((name, value) in annotationData.attributes) {
                     val attributesMap = LinkedHashMap<String, String>()
                     attributesMap.put("name", name)
@@ -31,10 +40,9 @@ fun writeAnnotations<A>(writer: Writer, annotations: Collection<Annotations<A>>,
                 }
                 printer.closeTag("annotation")
             }
-            printer.popIndent()
-            printer.closeTag("item")
-
         }
+        printer.popIndent()
+        printer.closeTag("item")
     }
     printer.popIndent()
     printer.closeTag("root")
@@ -104,8 +112,118 @@ private fun escape(str: String): String {
     }
 }
 
+fun methodsToAnnotationsMap(
+        members: Collection<ClassMember>,
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>
+): Map<AnnotationPosition, MutableList<AnnotationData>> {
+    val annotations = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
 
+    fun processPosition(pos: AnnotationPosition) {
+        val nullAnnotation = nullability[pos]
+        if (nullAnnotation == NullabilityAnnotation.NOT_NULL) {
+            val data = AnnotationDataImpl(JB_NOT_NULL, hashMap())
+            annotations[pos] = arrayListOf<AnnotationData>(data)
+            if (pos in propagatedNullabilityPositions) {
+                val map = HashMap<String, String>()
+                map["value"] = "{${javaClass<NullabilityKey>().getName()}.class}"
+                annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
+            }
+        }
+    }
 
+    for (m in members) {
+        if (m is Method) {
+            PositionsForMethod(m).forEachValidPosition {pos -> processPosition(pos)}
+        } else if (m is Field) {
+            processPosition(getFieldTypePosition(m))
+        }
+    }
+    return annotations
+}
 
+fun AnnotationPosition.getPackageName(): String? {
+    val member = member
+    return if (member is Method || member is Field) member.getInternalPackageName() else null
+}
 
+fun buildAnnotationsDataMap(
+        declIndex: DeclarationIndex,
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
+        classPrefixesToOmit: Set<String>,
+        includedClassNames: Set<String>,
+        includedPositions: Set<AnnotationPosition>
+): Map<AnnotationPosition, MutableList<AnnotationData>> {
+    val members = HashSet<ClassMember>()
+    nullability.forEach {
+        pos, ann ->
+        val member = pos.member
+        val classDecl = declIndex.findClass(member.declaringClass)
+        if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) && (includedPositions.contains(pos) || member.isPublicOrProtected())) {
+            members.add(member)
+        }
+    }
 
+    return methodsToAnnotationsMap(
+            members.sortByToString().filter { method ->
+                !classPrefixesToOmit.any{p -> method.declaringClass.internal.startsWith(p)}
+            },
+            nullability,
+            propagatedNullabilityPositions
+    )
+}
+
+fun writeAnnotationsToXMLByPackage(
+        keyIndex: AnnotationKeyIndex,
+        declIndex: DeclarationIndex,
+        srcRoot: File?,
+        destRoot: File,
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
+        classPrefixesToOmit: Set<String> = Collections.emptySet(),
+        includedClassNames: Set<String> = Collections.emptySet(),
+        includedPositions: Set<AnnotationPosition> = Collections.emptySet()
+) {
+    val annotations = buildAnnotationsDataMap(declIndex, nullability, propagatedNullabilityPositions, classPrefixesToOmit, includedClassNames, includedPositions)
+    val annotationsByPackage = HashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
+    for ((pos, data) in annotations) {
+        val packageName = pos.getPackageName()
+        if (packageName != null) {
+            val map = annotationsByPackage.getOrPut(packageName!!, {HashMap()})
+            map[pos] = data
+        }
+    }
+
+    for ((path, pathAnnotations) in annotationsByPackage) {
+        println(path)
+
+        val destDir = if (path != "") File(destRoot, path) else destRoot
+        destDir.mkdirs()
+
+        if (srcRoot != null) {
+            val srcDir = if (path != "") File(srcRoot, path) else srcRoot
+            val srcFile = File(srcDir, "annotations.xml")
+
+            if (srcFile.exists()) {
+                FileReader(srcFile) use {
+                    parseAnnotations(it, {
+                        key, annotations ->
+                        val position = keyIndex.findPositionByAnnotationKeyString(key)
+                        if (position != null) {
+                            for (ann in annotations) {
+                                if (ann.annotationClassFqn == "jet.runtime.typeinfo.KotlinSignature") {
+                                    pathAnnotations.getOrPut(position!!, { arrayList() }).add(AnnotationDataImpl(ann.annotationClassFqn, /*KT-3344*/HashMap<String, String>(ann.attributes)))
+                                }
+                            }
+                        }
+                    }, { error(it) })
+                }
+            }
+        }
+
+        val outFile = File(destDir, "annotations.xml")
+        val writer = FileWriter(outFile)
+        writeAnnotations(writer, pathAnnotations)
+    }
+}

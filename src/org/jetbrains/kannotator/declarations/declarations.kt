@@ -5,6 +5,13 @@ import org.objectweb.asm.Type
 import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
+import java.util.ArrayList
+import org.objectweb.asm.tree.MethodNode
+import kotlinlib.prefixUpToLast
+
+data class Package(val name: String) {
+    public fun toString(): String = name
+}
 
 trait ClassMember {
     val declaringClass: ClassName
@@ -33,7 +40,7 @@ enum class Visibility {
 }
 
 data class Access(val flags: Int) {
-    fun has(val flag: Int) = flags and flag != 0
+    fun has(flag: Int) = flags and flag != 0
     fun toString(): String = "" + Integer.toHexString(flags)
 }
 
@@ -50,18 +57,76 @@ data class Method(
         override val access: Access,
         val id: MethodId,
         val genericSignature: String? = null) : ClassMember {
-    override val name: String = id.methodName
+
+    private var _parameterNames : List<String>? = null
+    public fun setParameterNames(names: List<String>) {
+        if (_parameterNames != null) {
+            throw IllegalStateException("Parameter names already initialized: $parameterNames")
+        }
+        val arity = getArgumentTypes().size
+        if (names.size != arity) {
+            throw IllegalArgumentException("Incorrect number of parameter names: $names, must be $arity")
+        }
+        _parameterNames = ArrayList(names)
+    }
+
+    public val parameterNames: List<String>
+        get() {
+            if (_parameterNames == null) {
+                _parameterNames = defaultMethodParameterNames(this)
+            }
+            return _parameterNames!!
+        }
+
+    override val name: String
+        get() = id.methodName
+
     public fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
 }
 
+fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
+        className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
+
+private fun defaultMethodParameterNames(method: Method): List<String>
+        = (0..method.getArgumentTypes().size - 1).toList().map { i -> "p$i" }
+
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
 
-fun ClassMember.isStatic(): Boolean = access.has(Opcodes.ACC_STATIC)
+fun Access.isStatic(): Boolean = has(Opcodes.ACC_STATIC)
+fun Access.isFinal(): Boolean = has(Opcodes.ACC_FINAL)
+fun Access.isPrivate(): Boolean = has(Opcodes.ACC_PRIVATE)
+fun Access.isProtected(): Boolean = has(Opcodes.ACC_PROTECTED)
+fun Access.isPublic(): Boolean = has(Opcodes.ACC_PUBLIC)
+fun Access.isPublicOrProtected(): Boolean = isPublic() || isProtected()
 
-fun ClassMember.isFinal(): Boolean = access.has(Opcodes.ACC_FINAL)
+fun ClassMember.isStatic(): Boolean = access.isStatic()
+fun ClassMember.isFinal(): Boolean = access.isFinal()
+fun ClassMember.isPublicOrProtected(): Boolean = access.isPublicOrProtected()
+fun ClassMember.isPrivate(): Boolean = access.isPrivate()
+
+fun ClassDeclaration.isPublic(): Boolean = access.isPublic()
+
+fun Method.isConstructor(): Boolean = id.methodName == "<init>"
+fun Method.isClassInitializer(): Boolean = id.methodName == "<clinit>"
+
+fun Method.isInnerClassConstructor(): Boolean {
+    if (!isConstructor()) return false
+
+    val parameterTypes = getArgumentTypes()
+    if (parameterTypes.size == 0) return false
+
+    val firstParameter = parameterTypes[0]
+    if (firstParameter.getSort() != Type.OBJECT) return false
+
+    val dollarIndex = declaringClass.internal.lastIndexOf('$')
+    if (dollarIndex < 0) return false
+    val outerClass = declaringClass.internal.substring(0, dollarIndex)
+
+    return firstParameter.getInternalName() == outerClass
+}
 
 val ClassMember.visibility: Visibility get() = when {
     access.has(Opcodes.ACC_PUBLIC) -> Visibility.PUBLIC
@@ -109,16 +174,38 @@ data class ClassName private (val internal: String) {
     }
 }
 
+data class ClassDeclaration(val className: ClassName, val access: Access)
+
 val ClassName.canonicalName: String
     get() = internal.internalNameToCanonical()
 
 fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
 
-fun String.toCanonical(): String = replace('$', '.')
+fun String.toCanonical(): String {
+    //keep last $ in class name: it's generated in scala bytecode
+    val lastCharIndex = this.size - 1
+    return this.substring(0, lastCharIndex).replace('$', '.') + this.substring(lastCharIndex)
+}
 
 fun ClassName.toType(): Type {
     return Type.getType(typeDescriptor)
 }
+
+fun ClassName.isAnonymous(): Boolean {
+    // simple name consist of digits only
+    for (c in simple) {
+        if (!c.isDigit()) {
+            return false
+        }
+    }
+    return true
+}
+
+val ClassName.packageName: String
+    get() = internal.prefixUpToLast('/')!!
+
+val ClassMember.packageName: String
+    get() = declaringClass.packageName
 
 data class FieldId(val fieldName: String) {
     public fun toString(): String = fieldName
@@ -150,3 +237,9 @@ data class Field(
 }
 
 fun Field.getType(): Type = Type.getReturnType(desc)
+
+fun ClassMember.getInternalPackageName(): String {
+    val className = declaringClass.internal
+    val delimiter = className.lastIndexOf('/')
+    return if (delimiter >= 0) className.substring(0, delimiter) else ""
+}

@@ -32,7 +32,7 @@ fun <T> bfs(
         startFrom: Collection<T>,
         context: TraversalContext<T> = VisitOnceQueue<T>(),
         visited: MutableSet<T> = HashSet(),
-        body: TraversalContextApi<T>.(current: T) -> Unit
+        body: (current: T) -> Collection<T>
 ): Set<T> {
     context.scheduleAll(startFrom)
 
@@ -40,7 +40,7 @@ fun <T> bfs(
         val current = context.next()
         if (!visited.add(current)) continue
 
-        context.body(current)
+        context.scheduleAll(body(current))
     }
 
     return visited

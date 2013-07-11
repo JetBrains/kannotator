@@ -6,14 +6,15 @@ import java.util.HashSet
 import kotlinlib.union
 import java.util.Collections
 
-class AnnotationsImpl<A: Any>(val delegate: Annotations<A>? = null) : MutableAnnotations<A> {
+class AnnotationsImpl<A: Any>(override val delegate: Annotations<A>? = null) : MutableAnnotations<A> {
     private val data = HashMap<AnnotationPosition, A>()
 
     override fun get(typePosition: AnnotationPosition): A? {
-        val my = data[typePosition]
-        val theirs = delegate?.get(typePosition)
+        return data[typePosition] ?: delegate?.get(typePosition)
+    }
 
-        return if (my != null) my else theirs
+    override fun positions(): Set<AnnotationPosition> {
+        return data.keySet()
     }
 
     override fun forEach(body: (AnnotationPosition, A) -> Unit) {
@@ -25,22 +26,5 @@ class AnnotationsImpl<A: Any>(val delegate: Annotations<A>? = null) : MutableAnn
 
     override fun set(typePosition: AnnotationPosition, annotation: A) {
         data[typePosition] = annotation
-    }
-}
-
-public fun <A: Any> MutableAnnotations<A>.setIfNotNull(position: AnnotationPosition, annotation: A?) {
-    if (annotation != null) {
-        this[position] = annotation
-    }
-}
-
-public fun <A: Any> MutableAnnotations<A>.copyAllChanged(
-        annotations: Annotations<A>,
-        merger: (pos: AnnotationPosition, previous: A?, new: A) -> A = { pos, previous, new -> new }) {
-    annotations.forEach { pos, ann ->
-        val previous = this[pos]
-        if (previous != ann) {
-            this[pos] = merger(pos, previous, ann)
-        }
     }
 }

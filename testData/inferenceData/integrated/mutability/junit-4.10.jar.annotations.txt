@@ -4,9 +4,13 @@ org.junit.experimental.max.MaxCore void findLeaves(org.junit.runner.Description,
 MUTABLE
 org.junit.experimental.theories.Theories void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
 MUTABLE
+@Propagated org.junit.experimental.theories.Theories void validateConstructor(java.util.List<java.lang.Throwable>) 0
+MUTABLE
 org.junit.experimental.theories.Theories void validateDataPointFields(java.util.List<java.lang.Throwable>) 0
 MUTABLE
 org.junit.experimental.theories.Theories void validateTestMethods(java.util.List<java.lang.Throwable>) 0
+MUTABLE
+@Propagated org.junit.experimental.theories.Theories.TheoryAnchor.1 void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
 MUTABLE
 org.junit.experimental.theories.internal.AllMembersSupplier void addArrayValues(java.lang.String, java.util.List<org.junit.experimental.theories.PotentialAssignment>, java.lang.Object) 1
 MUTABLE
@@ -40,7 +44,11 @@ org.junit.runners.BlockJUnit4ClassRunner void validateNoNonStaticInnerClass(java
 MUTABLE
 org.junit.runners.BlockJUnit4ClassRunner void validateOnlyOneConstructor(java.util.List<java.lang.Throwable>) 0
 MUTABLE
+@Propagated org.junit.runners.BlockJUnit4ClassRunner void validateTestMethods(java.util.List<java.lang.Throwable>) 0
+MUTABLE
 org.junit.runners.BlockJUnit4ClassRunner void validateZeroArgConstructor(java.util.List<java.lang.Throwable>) 0
+MUTABLE
+@Propagated org.junit.runners.Parameterized.TestClassRunnerForParameters void validateConstructor(java.util.List<java.lang.Throwable>) 0
 MUTABLE
 org.junit.runners.ParentRunner void collectInitializationErrors(java.util.List<java.lang.Throwable>) 0
 MUTABLE

@@ -3,12 +3,13 @@ package funDependency
 import java.io.File
 import java.util.Comparator
 import kotlinlib.*
-import org.jetbrains.kannotator.funDependecy.FunctionNode
-import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
+import org.jetbrains.kannotator.funDependecy.*
 import org.junit.Test
 import util.ClassPathDeclarationIndex
 import util.ClassesFromClassPath
 import util.assertEqualsOrCreate
+import org.jetbrains.kannotator.declarations.Method
+import org.jetbrains.kannotator.graphs.Node as GraphNode
 
 private val PATH = "testData/funDependency/"
 
@@ -46,9 +47,9 @@ class FunDependencyGraphTest {
         val classSource = ClassesFromClassPath(*canonicalNames)
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
 
-        val functionNodeComparator = object : Comparator<FunctionNode> {
-            public override fun compare(o1: FunctionNode?, o2: FunctionNode?): Int {
-                return o1?.method.toString().compareTo(o2?.method.toString())
+        val functionNodeComparator = object : Comparator<GraphNode<Method, String>> {
+            public override fun compare(o1: GraphNode<Method, String>, o2: GraphNode<Method, String>): Int {
+                return o1.data.toString().compareTo(o2.data.toString())
             }
 
             public override fun equals(obj: Any?): Boolean {
@@ -58,14 +59,14 @@ class FunDependencyGraphTest {
 
         val actual = buildString { sb ->
             sb.println("== All Nodes == ")
-            for (node in graph.functions.sort(functionNodeComparator)) {
+            for (node in graph.nodes.sort(functionNodeComparator)) {
                 printFunctionNode(sb, node)
             }
 
             sb.println()
             sb.println("== No Outgoing Nodes == ")
 
-            for (node in graph.noOutgoingNodes.sort(functionNodeComparator)) {
+            for (node in graph.sinkNodes.sort(functionNodeComparator)) {
                 printFunctionNode(sb, node)
             }
         }.trim()
@@ -74,8 +75,8 @@ class FunDependencyGraphTest {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
-    fun printFunctionNode(sb: StringBuilder, node: FunctionNode) {
-        sb.println(node.method)
+    fun printFunctionNode(sb: StringBuilder, node: GraphNode<Method, String>) {
+        sb.println(node.data)
         if (node.outgoingEdges.size() > 0) sb.println("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {
             sb.println("        $edge")

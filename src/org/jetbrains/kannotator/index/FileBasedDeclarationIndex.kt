@@ -18,14 +18,15 @@ import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.annotations.io.tryParseMethodAnnotationKey
 import org.jetbrains.kannotator.annotations.io.tryParseFieldAnnotationKey
+import kotlin.test.fail
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 
-class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}): DeclarationIndex, AnnotationKeyIndex {
+public class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}, failOnDuplicates: Boolean = true): DeclarationIndex, AnnotationKeyIndex {
     private data class ClassData(
-        val className: ClassName,
+        val classDecl: ClassDeclaration,
         val methodsById: Map<MethodId, Method>,
         val methodsByName: Map<String, Collection<Method>>,
         val fieldsById: Map<FieldId, Field>
@@ -34,16 +35,16 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
     private val classes = HashMap<ClassName, ClassData>()
     private val classesByCanonicalName = HashMap<String, MutableCollection<ClassData>>();
 
-    { init(classSource, processMethodBody) }
+    { init(classSource, processMethodBody, failOnDuplicates) }
 
-    private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?) {
+    private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?, failOnDuplicates: Boolean) {
         classSource forEach { reader ->
             val className = ClassName.fromInternalName(reader.getClassName())
 
             val methodsById = HashMap<MethodId, Method>()
             val fieldsById = HashMap<FieldId, Field>()
             val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
-            assert (classes[className] == null) { "Class already visited: $className" }
+            assert (!failOnDuplicates || classes[className] == null) { "Class already visited: $className" }
 
             reader.accept(object: ClassVisitor(Opcodes.ASM4) {
                 public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
@@ -60,10 +61,14 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
                 }
             }, 0);
 
-            val classData = ClassData(className, methodsById, methodsByNameForAnnotationKey, fieldsById)
+            val classData = ClassData(ClassDeclaration(className, Access(reader.getAccess())), methodsById, methodsByNameForAnnotationKey, fieldsById)
             classes[className] = classData
             classesByCanonicalName.getOrPut(className.canonicalName, { HashSet() }).add(classData)
         }
+    }
+
+    override fun findClass(className: ClassName): ClassDeclaration? {
+        return classes[className]?.classDecl
     }
 
     override fun findMethod(owner: ClassName, name: String, desc: String): Method? {
@@ -118,7 +123,7 @@ class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method)
     }
 }
 
-class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : ClassSource {
+public class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : ClassSource {
     override fun forEach(body: (ClassReader) -> Unit) {
         for (file in jarOrClassFiles) {
             if (file.isFile()) {

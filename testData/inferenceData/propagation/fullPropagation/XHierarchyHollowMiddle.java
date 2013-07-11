@@ -20,6 +20,8 @@ public class XHierarchyHollowMiddle {
     public interface Middle extends Top1, Top2 {
         @ExpectNullable
         Object m(@ExpectNotNull Object x, Object y, @ExpectNotNull Object z);
+
+        void dummy(); // Dummy method to avoid interpreting this interface as SAM -> propagation errors on loading
     }
 
     public interface Leaf1 extends Middle {
