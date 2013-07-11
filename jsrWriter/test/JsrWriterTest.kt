@@ -55,10 +55,7 @@ public class JsrWriterTest() {
 
         val result = annotationsReadFromModifiedClassFile.readText().trim().toUnixSeparators()
         val expected = originalAnnotationsFile.readText().trim().toUnixSeparators()
-        // files can have same entries in different order
-        if (!expected.split("\n").toSet().equals(result.split("\n").toSet())) {
-            throw ComparisonFailure(null, expected, result)
-        }
+        assertSameLinesOrderAgnostic(expected, result)
         tempFilesDir.deleteRecursively()
     }
 
@@ -80,7 +77,7 @@ public class JsrWriterTest() {
         writeAnnotationsJSRStyleGroupedByPackage(FileWriter(outFilePath), data)
         val result = File(outFilePath).readText().trim().toUnixSeparators()
         val expected = File("$testDir/data/expected.jaif").readText().trim().toUnixSeparators()
-        Assert.assertEquals(expected, result)
+        assertSameLinesOrderAgnostic(expected, result)
         tempFilesDir.deleteRecursively()
     }
 
@@ -105,6 +102,12 @@ public class JsrWriterTest() {
         val expected = File("jsrWriter/testData/wholeAsm/expected.jaif").readText().trim().toUnixSeparators()
         Assert.assertEquals(expected, result)
         tempFilesDir.deleteRecursively()
+    }
+
+    fun assertSameLinesOrderAgnostic(expected: String, actual: String) {
+        if (!expected.split("\n").toSet().equals(actual.split("\n").toSet())) {
+            throw ComparisonFailure(null, expected, actual)
+        }
     }
 
 
