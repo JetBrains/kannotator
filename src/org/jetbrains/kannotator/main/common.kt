@@ -274,7 +274,12 @@ fun <K: AnalysisType> inferAnnotations(
 
     val fieldToDependencyInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
 
-    val methodGraphBuilder = FunDependencyGraphBuilder(declarationIndex, classSource, fieldToDependencyInfosMap)
+    val methodGraphBuilder = FunDependencyGraphBuilder(declarationIndex, classSource, fieldToDependencyInfosMap) {
+        m ->
+        errorHandler.warning("Method called but not present in the code: " + m)
+        null
+    }
+
     val methodGraph = methodGraphBuilder.build()
 
     val packageGraphBuilder = PackageDependencyGraphBuilder(methodGraph)

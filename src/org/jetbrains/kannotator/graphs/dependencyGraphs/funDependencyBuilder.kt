@@ -22,6 +22,8 @@ import org.jetbrains.kannotator.graphs.GraphBuilder
 import org.jetbrains.kannotator.graphs.DefaultNodeImpl
 import org.jetbrains.kannotator.graphs.GraphImpl
 import org.jetbrains.kannotator.graphs.Graph
+import org.jetbrains.kannotator.declarations.Access
+import org.jetbrains.kannotator.declarations.ClassMember
 
 public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, classSource: ClassSource) : Graph<Method, String> =
         FunDependencyGraphBuilder(declarationIndex, classSource, buildFieldsDependencyInfos(declarationIndex, classSource)).build()
@@ -29,7 +31,8 @@ public fun buildFunctionDependencyGraph(declarationIndex: DeclarationIndex, clas
 public class FunDependencyGraphBuilder(
         private val declarationIndex: DeclarationIndex,
         private val classSource: ClassSource,
-        private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>
+        private val fieldsDependencyInfos: Map<Field, FieldDependencyInfo>,
+        private val onMissingDependency: (ClassMember) -> ClassMember? = {null}
 ): GraphBuilder<Method, Method, String, GraphImpl<Method, String>>(false, true) {
     private var currentFromNode : NodeImpl<Method, String>? = null
     private var currentClassName : ClassName? = null
@@ -48,9 +51,20 @@ public class FunDependencyGraphBuilder(
 
     private val methodVisitor = object : MethodVisitor(ASM4) {
         public override fun visitMethodInsn(opcode: Int, owner: String, name: String, desc: String) {
-            val method = declarationIndex.findMethod(ClassName.fromInternalName(owner), name, desc)
+            val ownerClassName = ClassName.fromInternalName(owner)
+            val method = declarationIndex.findMethod(ownerClassName, name, desc)
+                         ?: onMissingDependency(Method(ownerClassName, 0, name, desc)) as Method?
             if (method != null) {
                 getOrCreateEdge("call", currentFromNode!!, getOrCreateNode(method))
+            }
+        }
+
+
+        public override fun visitFieldInsn(opcode: Int, owner: String, name: String, desc: String) {
+            // This is only needed for dependency detection
+            val ownerClassName = ClassName.fromInternalName(owner)
+            if (declarationIndex.findField(ownerClassName, name) == null) {
+                onMissingDependency(Field(ownerClassName, 0, name, desc))
             }
         }
     }

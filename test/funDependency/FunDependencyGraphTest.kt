@@ -10,6 +10,10 @@ import util.ClassesFromClassPath
 import util.assertEqualsOrCreate
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.graphs.Node as GraphNode
+import org.jetbrains.kannotator.index.buildFieldsDependencyInfos
+import org.jetbrains.kannotator.index.DeclarationIndexImpl
+import org.jetbrains.kannotator.index.FileBasedClassSource
+import org.jetbrains.kannotator.declarations.ClassMember
 
 private val PATH = "testData/funDependency/"
 
@@ -41,6 +45,24 @@ class FunDependencyGraphTest {
 
     Test fun dependOnConstructorBecauseOfFields() {
         doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
+    }
+
+    Test fun missingDependencies() {
+        val classSource = ClassesFromClassPath("funDependency.simple.Simple")
+        val di = DeclarationIndexImpl(FileBasedClassSource(listOf(File("out/test/kannotator/funDependency/simple/Simple.class"))))
+        val missing = arrayListOf<ClassMember>()
+        FunDependencyGraphBuilder(
+            di,
+            classSource,
+            buildFieldsDependencyInfos(di, classSource),
+            {
+                m ->
+                missing.add(m)
+                null
+            }
+        ).build()
+        val missingStr = missing.join("\n")
+        assertEqualsOrCreate(File(PATH + "simple/missing.txt"), missingStr)
     }
 
     fun doTest(expectedResultPath: String, vararg canonicalNames: String) {
