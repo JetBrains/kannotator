@@ -147,6 +147,7 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
 public class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : ClassSource {
     override fun forEach(body: (ClassReader) -> Unit) {
         for (file in jarOrClassFiles) {
+            if (!file.exists()) throw IllegalStateException("File does not exist: $file")
             if (file.isFile()) {
                 if (file.getName().endsWith(".jar")) {
                     processJar(file, {f, o, reader -> body(reader)})
