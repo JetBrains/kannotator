@@ -36,6 +36,7 @@ import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.ErrorHandler
+import java.io.Reader
 
 open class ProgressMonitor {
     open fun processingStarted() {}
@@ -140,17 +141,17 @@ public fun <K: AnalysisType> loadFieldAnnotationsFromByteCode(
     return internalAnnotationsMap
 }
 
-private fun <K: AnalysisType> loadExternalAnnotations(
+public fun <K: AnalysisType> loadExternalAnnotations(
         delegatingAnnotations: Map<K, Annotations<Any>>,
-        annotationFiles: Collection<File>,
+        annotationsInXml: Collection<() -> Reader>,
         keyIndex: AnnotationKeyIndex,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         errorHandler: ErrorHandler
 ): Map<K, MutableAnnotations<Any>> {
     val externalAnnotationsMap = inferrers.mapValues { (key, inferrer) -> AnnotationsImpl<Any>(delegatingAnnotations[key]) }
 
-    for (annotationFile in annotationFiles) {
-        FileReader(annotationFile) use {
+    for (xml in annotationsInXml) {
+        xml() use {
             parseAnnotations(it, {
                 key, annotations ->
                 val position = keyIndex.findPositionByAnnotationKeyString(key)
@@ -180,7 +181,8 @@ private fun <K: AnalysisType> loadAnnotations(
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         errorHandler: ErrorHandler
 ): Map<K, MutableAnnotations<Any>> =
-        loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers), annotationFiles, keyIndex, inferrers, errorHandler)
+        loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers),
+                annotationFiles map { {FileReader(it)} }, keyIndex, inferrers, errorHandler)
 
 trait AnnotationInferrer<A: Any, I: Qualifier> {
     fun resolveAnnotation(classNames: Map<String, AnnotationData>): A?
