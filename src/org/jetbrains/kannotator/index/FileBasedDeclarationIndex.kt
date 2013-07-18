@@ -23,8 +23,19 @@ import kotlin.test.fail
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
+public fun DeclarationIndexImpl(
+        classSource: ClassSource,
+        processMethodBody: (Method) -> MethodVisitor? = {null},
+        failOnDuplicates: Boolean = true,
+        delegate: DeclarationIndex? = null
+): DeclarationIndexImpl {
+    val index = DeclarationIndexImpl(delegate)
+    index.addClasses(classSource, processMethodBody, failOnDuplicates)
+    return index
+}
 
-public class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor? = {null}, failOnDuplicates: Boolean = true): DeclarationIndex, AnnotationKeyIndex {
+public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): DeclarationIndex, AnnotationKeyIndex {
+
     private data class ClassData(
         val classDecl: ClassDeclaration,
         val methodsById: Map<MethodId, Method>,
@@ -35,48 +46,58 @@ public class DeclarationIndexImpl(classSource: ClassSource, processMethodBody: (
     private val classes = HashMap<ClassName, ClassData>()
     private val classesByCanonicalName = HashMap<String, MutableCollection<ClassData>>();
 
-    { init(classSource, processMethodBody, failOnDuplicates) }
-
-    private fun init(classSource: ClassSource, processMethodBody: (Method) -> MethodVisitor?, failOnDuplicates: Boolean) {
-        classSource forEach { reader ->
-            val className = ClassName.fromInternalName(reader.getClassName())
-
-            val methodsById = HashMap<MethodId, Method>()
-            val fieldsById = HashMap<FieldId, Field>()
-            val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
-            assert (!failOnDuplicates || classes[className] == null) { "Class already visited: $className" }
-
-            reader.accept(object: ClassVisitor(Opcodes.ASM4) {
-                public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                    val method = Method(className, access, name, desc, signature)
-                    methodsById[method.id] = method
-                    methodsByNameForAnnotationKey.getOrPut(method.getMethodNameAccountingForConstructor(), { ArrayList() }).add(method)
-                    return processMethodBody(method)
-                }
-
-                public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-                    val field = Field(className, access, name, desc, signature, value)
-                    fieldsById[field.id] = field
-                    return null
-                }
-            }, 0);
-
-            val classData = ClassData(ClassDeclaration(className, Access(reader.getAccess())), methodsById, methodsByNameForAnnotationKey, fieldsById)
-            classes[className] = classData
-            classesByCanonicalName.getOrPut(className.canonicalName, { HashSet() }).add(classData)
+    public fun addClasses(
+            classSource: ClassSource,
+            processMethodBody: (Method) -> MethodVisitor? = {null},
+            failOnDuplicates: Boolean = true
+    ) {
+        classSource forEach {
+            reader ->
+            addClass(reader, failOnDuplicates, processMethodBody)
         }
+    }
+
+    public fun addClass(reader: ClassReader, failOnDuplicates: Boolean = false, processMethodBody: (Method) -> MethodVisitor? = {null}) {
+        val className = ClassName.fromInternalName(reader.getClassName())
+
+        val methodsById = HashMap<MethodId, Method>()
+        val fieldsById = HashMap<FieldId, Field>()
+        val methodsByNameForAnnotationKey = HashMap<String, MutableList<Method>>()
+        assert (!failOnDuplicates || classes[className] == null) { "Class already visited: $className" }
+
+        reader.accept(object: ClassVisitor(Opcodes.ASM4) {
+            public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+                val method = Method(className, access, name, desc, signature)
+                methodsById[method.id] = method
+                methodsByNameForAnnotationKey.getOrPut(method.getMethodNameAccountingForConstructor(), { ArrayList() }).add(method)
+                return processMethodBody(method)
+            }
+
+            public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
+                val field = Field(className, access, name, desc, signature, value)
+                fieldsById[field.id] = field
+                return null
+            }
+        }, 0);
+
+        val classData = ClassData(ClassDeclaration(className, Access(reader.getAccess())), methodsById, methodsByNameForAnnotationKey, fieldsById)
+        classes[className] = classData
+        classesByCanonicalName.getOrPut(className.canonicalName, { HashSet() }).add(classData)
     }
 
     override fun findClass(className: ClassName): ClassDeclaration? {
         return classes[className]?.classDecl
+                ?: delegate?.findClass(className)
     }
 
     override fun findMethod(owner: ClassName, name: String, desc: String): Method? {
         return classes[owner]?.methodsById?.get(MethodId(name, desc))
+                ?: delegate?.findMethod(owner, name, desc)
     }
 
     override fun findField(owner: ClassName, name: String): Field? {
         return classes[owner]?.fieldsById?.get(FieldId(name))
+                ?: delegate?.findField(owner, name)
     }
 
     private fun findMethodPositionByAnnotationKeyString(
