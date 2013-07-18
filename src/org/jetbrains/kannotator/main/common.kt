@@ -222,7 +222,8 @@ fun <K: AnalysisType> inferAnnotations(
         propagationOverrides: Map<K, Annotations<Any>>,
         existingAnnotations: Map<K, Annotations<Any>>,
         packageIsInteresting: (String) -> Boolean,
-        existingPositionsToExclude: Map<K, Set<AnnotationPosition>>
+        existingPositionsToExclude: Map<K, Set<AnnotationPosition>>,
+        loadAnnotationsForDependency: (Map<K, MutableAnnotations<Any>>, ClassMember, DeclarationIndexImpl) -> Boolean = {_, __, ___ -> false}
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
     
@@ -276,9 +277,12 @@ fun <K: AnalysisType> inferAnnotations(
 
     val fieldToDependencyInfosMap = buildFieldsDependencyInfos(declarationIndex, classSource)
 
+    val declarationIndexWithDependencies = DeclarationIndexImpl(declarationIndex)
     val methodGraphBuilder = FunDependencyGraphBuilder(declarationIndex, classSource, fieldToDependencyInfosMap) {
         m ->
-        errorHandler.warning("Method called but not present in the code: " + m)
+        if (!loadAnnotationsForDependency(resultingAnnotationsMap, m, declarationIndexWithDependencies)) {
+            errorHandler.warning("Method called but not present in the code: " + m)
+        }
         null
     }
 
@@ -320,7 +324,7 @@ fun <K: AnalysisType> inferAnnotations(
         }
 
         inferAnnotationsOnMutuallyRecursiveMethods(
-                declarationIndex,
+                declarationIndexWithDependencies,
                 resultingAnnotationsMap,
                 methods.keySet(),
                 { classMember -> dependentMembersInsideThisComponent(classMember) },
