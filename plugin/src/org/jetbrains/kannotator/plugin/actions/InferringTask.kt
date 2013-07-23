@@ -35,6 +35,19 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.simpleErrorHandler
+import com.intellij.psi.impl.JavaPsiFacadeEx
+import com.intellij.psi.search.GlobalSearchScope
+import com.intellij.openapi.vfs.VfsUtil
+import com.intellij.openapi.vfs.JarFileSystem
+import com.intellij.openapi.progress.ProcessCanceledException
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.util.Computable
+import java.util.LinkedHashSet
+import org.jetbrains.kannotator.index.AnnotationKeyIndex
+import org.objectweb.asm.ClassReader
+import java.io.FileReader
+import java.io.InputStreamReader
+import java.io.Reader
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -169,6 +182,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                         inferrerMap[MUTABILITY_KEY] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
                     }
 
+                    val project = getProject()
+                    val jarIndex = if (project != null) JarIndex(project) else null
+
+                    val addedAnnotationRoots = LinkedHashSet<VirtualFile>()
+                    val addedClasses = LinkedHashSet<VirtualFile>()
+                    val addedJars = LinkedHashSet<VirtualFile>()
+
                     // TODO: Add existing annotations from dependent libraries
                     val inferenceResult = inferAnnotations(
                             FileBasedClassSource(arrayListOf(file)), ArrayList<File>(),
@@ -180,7 +200,53 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
                             {true},
                             Collections.emptyMap()
-                    )
+                    ) {
+                        // Load dependencies
+                        annotationMap, member, declarationIndex ->
+                        ApplicationManager.getApplication().runReadAction(Computable {
+                            if (project != null && jarIndex != null) {
+                                val canonicalName = member.declaringClass.canonicalName
+                                val facade = JavaPsiFacadeEx.getInstanceEx(project)
+                                val psiClass = facade.findClass(canonicalName)
+                                if (psiClass != null) {
+                                    val virtualFile = psiClass.getContainingFile()?.getVirtualFile()
+                                    if (virtualFile != null) {
+                                        if (addedClasses.add(virtualFile)) {
+                                            declarationIndex.addClass(ClassReader(virtualFile.getInputStream()?.readBytes()))
+
+                                            val jar = jarIndex.getContainingJar(virtualFile)
+                                            if (jar != null) {
+                                                if (addedJars.add(jar)) {
+                                                    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(File(jar.getPath()))))
+
+                                                    val libraries = jarIndex.getContainingLibraries(jar)
+                                                    val annotationRoots = jarIndex.getAnnotationRoots(libraries)
+
+                                                    for (root in annotationRoots) {
+                                                        if (!addedAnnotationRoots.add(root)) continue
+
+                                                        val externalAnnotations = loadExternalAnnotations(
+                                                            annotationMap,
+                                                            loadAnnotationDataFromRoot(root),
+                                                            declarationIndex,
+                                                            inferrerMap,
+                                                            NO_ERROR_HANDLING
+                                                        )
+
+                                                        for (key in inferrerMap.keySet()) {
+                                                            val annotations = annotationMap[key]!!
+                                                            annotations.copyAllChanged(externalAnnotations.getOrElse(key) {AnnotationsImpl()})
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            true
+                        })
+                    }
 
                     inferringProgressIndicator.savingStarted()
 
@@ -210,6 +276,9 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             })
 
                     inferringProgressIndicator.savingFinished()
+                } catch (e: ProcessCanceledException) {
+                    // Don't wrap ProcessCanceledException
+                    throw e
                 } catch (e: OutOfMemoryError) {
                     // Don't wrap OutOfMemoryError
                     throw e
@@ -254,4 +323,16 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
             }
         }
     }
+}
+
+fun loadAnnotationDataFromRoot(root: VirtualFile): Collection<() -> Reader> {
+    val result = ArrayList<() -> Reader>()
+    VfsUtil.processFilesRecursively(root) {
+        file ->
+        if (file!!.getExtension() == "xml") {
+            result.add { InputStreamReader(file.getInputStream()!!) }
+        }
+        true
+    }
+    return result
 }
