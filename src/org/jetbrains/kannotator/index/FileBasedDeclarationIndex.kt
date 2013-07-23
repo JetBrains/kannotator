@@ -140,7 +140,8 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
             return if (classes != null) findFieldPositionByAnnotationKeyString(classes, fieldAnnotationKey.fieldName) else null
         }
 
-        throw IllegalArgumentException("Can't parse annotation key $annotationKey")
+        // It may be a class key of the form "java.awt.Cursor"
+        return null
     }
 }
 
