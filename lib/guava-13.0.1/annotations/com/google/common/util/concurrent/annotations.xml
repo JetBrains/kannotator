@@ -1,0 +1,788 @@
+<root>
+    <item name='com.google.common.util.concurrent.ListenableFutureTask com.google.common.util.concurrent.ListenableFutureTask&lt;V&gt; create(java.lang.Runnable, V)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped com.google.common.util.concurrent.Striped&lt;java.util.concurrent.locks.ReadWriteLock&gt; readWriteLock(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean tryEnterIf(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; makeChecked(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.base.Function&lt;java.lang.Exception,X&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListenableFutureTask com.google.common.util.concurrent.ListenableFutureTask&lt;V&gt; create(java.util.concurrent.Callable&lt;V&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractFuture boolean setException(java.lang.Throwable) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; successfulAsList(com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;...) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures V get(java.util.concurrent.Future&lt;V&gt;, long, java.util.concurrent.TimeUnit, java.lang.Class&lt;X&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractIdleService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures V get(java.util.concurrent.Future&lt;V&gt;, java.lang.Class&lt;X&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors java.util.concurrent.ExecutorService getExitingExecutorService(java.util.concurrent.ThreadPoolExecutor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AtomicDoubleArray AtomicDoubleArray(double[]) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.RateLimiter boolean tryAcquire(long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles boolean awaitUninterruptibly(java.util.concurrent.CountDownLatch, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractExecutionThreadService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractIdleService java.util.concurrent.Executor executor(com.google.common.util.concurrent.Service.State)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService com.google.common.util.concurrent.ListenableFuture&lt;com.google.common.util.concurrent.Service.State&gt; stop()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors com.google.common.util.concurrent.ListeningScheduledExecutorService listeningDecorator(java.util.concurrent.ScheduledExecutorService)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterIfInterruptibly(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors com.google.common.util.concurrent.ListeningScheduledExecutorService listeningDecorator(java.util.concurrent.ScheduledExecutorService) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setNameFormat(java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;V&gt; dereference(com.google.common.util.concurrent.ListenableFuture&lt;? extends com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; allAsList(com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;...) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean waitForUninterruptibly(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture com.google.common.util.concurrent.ListenableFuture&lt;V&gt; delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.TimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingFuture java.lang.Object delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture&lt;V&gt; listenInPoolThread(java.util.concurrent.Future&lt;V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService java.util.List&lt;java.util.concurrent.Future&lt;T&gt;&gt; invokeAll(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService java.util.List&lt;java.util.concurrent.Future&lt;T&gt;&gt; invokeAll(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService com.google.common.util.concurrent.ListenableFuture&lt;T&gt; submit(java.lang.Runnable, T)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures V get(java.util.concurrent.Future&lt;V&gt;, long, java.util.concurrent.TimeUnit, java.lang.Class&lt;X&gt;) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractExecutionThreadService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService.CustomScheduler.Schedule Schedule(long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterWhen(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;, java.util.concurrent.Executor)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering java.util.concurrent.locks.ReentrantReadWriteLock newReentrantReadWriteLock(E, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles boolean awaitUninterruptibly(java.util.concurrent.CountDownLatch, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService.Scheduler com.google.common.util.concurrent.AbstractScheduledService.Scheduler newFixedRateSchedule(long, long, java.util.concurrent.TimeUnit)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; immediateFailedCheckedFuture(X)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AtomicLongMap com.google.common.util.concurrent.AtomicLongMap&lt;K&gt; create()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.TimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;V&gt; immediateFuture(V)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory java.util.concurrent.locks.ReentrantLock newReentrantLock(java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor void enterWhen(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter create(double)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped com.google.common.util.concurrent.Striped&lt;java.util.concurrent.locks.Lock&gt; lock(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture java.lang.Object delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles V getUninterruptibly(java.util.concurrent.Future&lt;V&gt;, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter create(double, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;V&gt; dereference(com.google.common.util.concurrent.ListenableFuture&lt;? extends com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AtomicLongMap com.google.common.util.concurrent.AtomicLongMap&lt;K&gt; create(java.util.Map&lt;? extends K,? extends java.lang.Long&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.ListenableFuture&lt;com.google.common.util.concurrent.Service.State&gt; stop()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.TimeLimiter T callWithTimeout(java.util.concurrent.Callable&lt;T&gt;, long, java.util.concurrent.TimeUnit, boolean) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean waitForUninterruptibly(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture java.lang.Object delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractCheckedFuture AbstractCheckedFuture(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors com.google.common.util.concurrent.ListeningExecutorService listeningDecorator(java.util.concurrent.ExecutorService) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListenableFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService java.util.List&lt;java.util.concurrent.Future&lt;T&gt;&gt; invokeAll(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures void addCallback(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.util.concurrent.FutureCallback&lt;? super V&gt;, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture&lt;V&gt; listenInPoolThread(java.util.concurrent.Future&lt;V&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor void enterWhenUninterruptibly(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture com.google.common.util.concurrent.ListenableFuture delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean waitFor(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListenableFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Service com.google.common.util.concurrent.ListenableFuture&lt;com.google.common.util.concurrent.Service.State&gt; start()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Atomics java.util.concurrent.atomic.AtomicReferenceArray&lt;E&gt; newReferenceArray(E[])'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures void addCallback(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.util.concurrent.FutureCallback&lt;? super V&gt;, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture com.google.common.util.concurrent.ListenableFuture&lt;V&gt; delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture java.lang.Object delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.util.concurrent.AsyncFunction&lt;? super I,? extends O&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; makeChecked(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.base.Function&lt;java.lang.Exception,X&gt;) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.TimeLimiter T callWithTimeout(java.util.concurrent.Callable&lt;T&gt;, long, java.util.concurrent.TimeUnit, boolean) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures java.util.concurrent.Future&lt;O&gt; lazyTransform(java.util.concurrent.Future&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AtomicLongMap com.google.common.util.concurrent.AtomicLongMap&lt;K&gt; create(java.util.Map&lt;? extends K,? extends java.lang.Long&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor int getWaitQueueLength(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.util.concurrent.AsyncFunction&lt;? super I,? extends O&gt;) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.RateLimiter com.google.common.util.concurrent.RateLimiter create(double, long, java.util.concurrent.TimeUnit)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor void waitFor(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles void sleepUninterruptibly(long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; successfulAsList(com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;...)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors java.util.concurrent.ExecutorService getExitingExecutorService(java.util.concurrent.ThreadPoolExecutor, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture java.util.concurrent.Future delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures java.util.concurrent.Future&lt;O&gt; lazyTransform(java.util.concurrent.Future&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractExecutionThreadService java.util.concurrent.Executor executor()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService com.google.common.util.concurrent.ListenableFuture&lt;?&gt; submit(java.lang.Runnable)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors java.util.concurrent.ScheduledExecutorService getExitingScheduledExecutorService(java.util.concurrent.ScheduledThreadPoolExecutor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; allAsList(java.lang.Iterable&lt;? extends com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.FakeTimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 3'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures V getUnchecked(java.util.concurrent.Future&lt;V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService java.util.List&lt;java.util.concurrent.Future&lt;T&gt;&gt; invokeAll(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;, long, java.util.concurrent.TimeUnit)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.SettableFuture boolean setException(java.lang.Throwable) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; allAsList(com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;...)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture java.lang.Object delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped com.google.common.util.concurrent.Striped&lt;java.util.concurrent.locks.Lock&gt; lazyWeakLock(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.FakeTimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering java.util.concurrent.locks.ReentrantReadWriteLock newReentrantReadWriteLock(E)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AtomicLongMap void putAll(java.util.Map&lt;? extends K,? extends java.lang.Long&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingFuture java.util.concurrent.Future&lt;V&gt; delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; successfulAsList(java.lang.Iterable&lt;? extends com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.SettableFuture com.google.common.util.concurrent.SettableFuture&lt;V&gt; create()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor void waitForUninterruptibly(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory java.util.concurrent.locks.ReentrantLock newReentrantLock(java.lang.String, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListenableFutureTask void addListener(java.lang.Runnable, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterWhenUninterruptibly(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped java.lang.Iterable&lt;L&gt; bulkGet(java.lang.Iterable&lt;?&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture java.lang.Object delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.UncaughtExceptionHandlers java.lang.Thread.UncaughtExceptionHandler systemExit()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.FakeTimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors com.google.common.util.concurrent.ListeningExecutorService sameThreadExecutor()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractService void notifyFailed(java.lang.Throwable) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors com.google.common.util.concurrent.ListeningExecutorService listeningDecorator(java.util.concurrent.ExecutorService)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.SimpleTimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 3'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AsyncFunction com.google.common.util.concurrent.ListenableFuture&lt;O&gt; apply(I)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture SimpleForwardingListenableFuture(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListenableFutureTask void addListener(java.lang.Runnable, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture SimpleForwardingFuture(java.util.concurrent.Future&lt;V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Callables java.util.concurrent.Callable&lt;T&gt; returning(T)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; makeChecked(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.base.Function&lt;java.lang.Exception,X&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped com.google.common.util.concurrent.Striped&lt;java.util.concurrent.locks.ReadWriteLock&gt; lazyWeakReadWriteLock(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean waitFor(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures void addCallback(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.util.concurrent.FutureCallback&lt;? super V&gt;) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles E takeUninterruptibly(java.util.concurrent.BlockingQueue&lt;E&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setThreadFactory(java.util.concurrent.ThreadFactory)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; immediateFailedCheckedFuture(X) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ExecutionList void add(java.lang.Runnable, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures java.util.concurrent.Future&lt;O&gt; lazyTransform(java.util.concurrent.Future&lt;I&gt;, com.google.common.base.Function&lt;? super I,? extends O&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture&lt;V&gt; listenInPoolThread(java.util.concurrent.Future&lt;V&gt;, java.util.concurrent.Executor)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; allAsList(java.lang.Iterable&lt;? extends com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture&lt;V&gt; listenInPoolThread(java.util.concurrent.Future&lt;V&gt;, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles void joinUninterruptibly(java.lang.Thread) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures void addCallback(com.google.common.util.concurrent.ListenableFuture&lt;V&gt;, com.google.common.util.concurrent.FutureCallback&lt;? super V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.SimpleTimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture java.util.concurrent.Future delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractFuture V get(long, java.util.concurrent.TimeUnit) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Service.Listener void failed(com.google.common.util.concurrent.Service.State, java.lang.Throwable) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles void awaitUninterruptibly(java.util.concurrent.CountDownLatch) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ExecutionList void add(java.lang.Runnable, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean hasWaiters(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture SimpleForwardingCheckedFuture(com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractFuture void addListener(java.lang.Runnable, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.util.concurrent.AsyncFunction&lt;? super I,? extends O&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.JdkFutureAdapters com.google.common.util.concurrent.ListenableFuture&lt;V&gt; listenInPoolThread(java.util.concurrent.Future&lt;V&gt;, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor.Guard Guard(com.google.common.util.concurrent.Monitor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterIfInterruptibly(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.SimpleTimeLimiter SimpleTimeLimiter(java.util.concurrent.ExecutorService) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setUncaughtExceptionHandler(java.lang.Thread.UncaughtExceptionHandler) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped com.google.common.util.concurrent.Striped&lt;java.util.concurrent.Semaphore&gt; semaphore(int, int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles void putUninterruptibly(java.util.concurrent.BlockingQueue&lt;E&gt;, E) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService.Scheduler com.google.common.util.concurrent.AbstractScheduledService.Scheduler newFixedDelaySchedule(long, long, java.util.concurrent.TimeUnit)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService java.util.List&lt;java.util.concurrent.Future&lt;T&gt;&gt; invokeAll(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.SimpleTimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;java.util.List&lt;V&gt;&gt; successfulAsList(java.lang.Iterable&lt;? extends com.google.common.util.concurrent.ListenableFuture&lt;? extends V&gt;&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles void joinUninterruptibly(java.lang.Thread, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.SimpleTimeLimiter T callWithTimeout(java.util.concurrent.Callable&lt;T&gt;, long, java.util.concurrent.TimeUnit, boolean) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory java.util.concurrent.locks.ReentrantReadWriteLock newReentrantReadWriteLock(java.lang.String, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;V&gt; immediateFailedFuture(java.lang.Throwable) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Atomics java.util.concurrent.atomic.AtomicReference&lt;V&gt; newReference()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles V getUninterruptibly(java.util.concurrent.Future&lt;V&gt;, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Atomics java.util.concurrent.atomic.AtomicReference&lt;V&gt; newReference(V)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.MoreExecutors java.util.concurrent.ScheduledExecutorService getExitingScheduledExecutorService(java.util.concurrent.ScheduledThreadPoolExecutor, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.FakeTimeLimiter T callWithTimeout(java.util.concurrent.Callable&lt;T&gt;, long, java.util.concurrent.TimeUnit, boolean) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles V getUninterruptibly(java.util.concurrent.Future&lt;V&gt;) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AsyncFunction com.google.common.util.concurrent.ListenableFuture&lt;O&gt; apply(I) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setDaemon(boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setPriority(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingFuture.SimpleForwardingFuture java.util.concurrent.Future&lt;V&gt; delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Service void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory com.google.common.util.concurrent.CycleDetectingLockFactory newInstance(com.google.common.util.concurrent.CycleDetectingLockFactory.Policy)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.TimeLimiter T newProxy(T, java.lang.Class&lt;T&gt;, long, java.util.concurrent.TimeUnit) 3'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.util.concurrent.AsyncFunction&lt;? super I,? extends O&gt;, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractScheduledService com.google.common.util.concurrent.ListenableFuture&lt;com.google.common.util.concurrent.Service.State&gt; start()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture.SimpleForwardingCheckedFuture java.util.concurrent.Future delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractService com.google.common.util.concurrent.ListenableFuture&lt;com.google.common.util.concurrent.Service.State&gt; start()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.util.concurrent.AsyncFunction&lt;? super I,? extends O&gt;, java.util.concurrent.Executor)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingCheckedFuture com.google.common.util.concurrent.ListenableFuture delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Uninterruptibles void joinUninterruptibly(java.lang.Thread, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ListeningExecutorService com.google.common.util.concurrent.ListenableFuture&lt;T&gt; submit(java.util.concurrent.Callable&lt;T&gt;)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering java.util.concurrent.locks.ReentrantLock newReentrantLock(E, boolean)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.SimpleTimeLimiter T callWithTimeout(java.util.concurrent.Callable&lt;T&gt;, long, java.util.concurrent.TimeUnit, boolean) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder java.util.concurrent.ThreadFactory build()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterWhenUninterruptibly(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped com.google.common.util.concurrent.Striped&lt;java.util.concurrent.Semaphore&gt; lazyWeakSemaphore(int, int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.RateLimiter boolean tryAcquire(int, long, java.util.concurrent.TimeUnit) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.FakeTimeLimiter T callWithTimeout(java.util.concurrent.Callable&lt;T&gt;, long, java.util.concurrent.TimeUnit, boolean) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterIf(com.google.common.util.concurrent.Monitor.Guard, long, java.util.concurrent.TimeUnit) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setUncaughtExceptionHandler(java.lang.Thread.UncaughtExceptionHandler)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Service void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering&lt;E&gt; newInstanceWithExplicitOrdering(java.lang.Class&lt;E&gt;, com.google.common.util.concurrent.CycleDetectingLockFactory.Policy)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;O&gt; transform(com.google.common.util.concurrent.ListenableFuture&lt;I&gt;, com.google.common.util.concurrent.AsyncFunction&lt;? super I,? extends O&gt;, java.util.concurrent.Executor) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Monitor boolean enterIf(com.google.common.util.concurrent.Monitor.Guard) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Striped L get(java.lang.Object) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory java.util.concurrent.locks.ReentrantReadWriteLock newReentrantReadWriteLock(java.lang.String)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.ThreadFactoryBuilder com.google.common.util.concurrent.ThreadFactoryBuilder setThreadFactory(java.util.concurrent.ThreadFactory) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.ListenableFuture&lt;V&gt; immediateFailedFuture(java.lang.Throwable)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.AbstractIdleService void addListener(com.google.common.util.concurrent.Service.Listener, java.util.concurrent.Executor) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.Atomics java.util.concurrent.atomic.AtomicReferenceArray&lt;E&gt; newReferenceArray(int)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.CycleDetectingLockFactory.WithExplicitOrdering java.util.concurrent.locks.ReentrantLock newReentrantLock(E)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Futures com.google.common.util.concurrent.CheckedFuture&lt;V,X&gt; immediateCheckedFuture(V)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='com.google.common.util.concurrent.Service com.google.common.util.concurrent.ListenableFuture&lt;com.google.common.util.concurrent.Service.State&gt; stop()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+        <annotation name='org.jetbrains.kannotator.runtime.annotations.Propagated'>
+            <val name="value" val="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}"/>
+        </annotation>
+    </item>
+    <item name='com.google.common.util.concurrent.ForwardingListenableFuture.SimpleForwardingListenableFuture java.util.concurrent.Future delegate()'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>

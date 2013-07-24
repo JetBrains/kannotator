@@ -958,11 +958,11 @@ public final class Files {
     for (String component : components) {
       if (component.equals(".")) {
         continue;
-      } else if (component.equals("..")) {
-        if (path.size() > 0 && !path.get(path.size() - 1).equals("..")) {
+      } else if (component.equals("")) {
+        if (path.size() > 0 && !path.get(path.size() - 1).equals("")) {
           path.remove(path.size() - 1);
         } else {
-          path.add("..");
+          path.add("");
         }
       } else {
         path.add(component);
@@ -978,7 +978,7 @@ public final class Files {
     while (result.startsWith("/../")) {
       result = result.substring(3);
     }
-    if (result.equals("/..")) {
+    if (result.equals("/")) {
       result = "/";
     } else if ("".equals(result)) {
       result = ".";
