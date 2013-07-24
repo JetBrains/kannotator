@@ -198,8 +198,6 @@ fun writeAnnotationsToXMLByPackage(
     }
 
     for ((path, pathAnnotations) in annotationsByPackage) {
-        println(path)
-
         val destDir = if (path != "") File(destRoot, path) else destRoot
         destDir.mkdirs()
 
