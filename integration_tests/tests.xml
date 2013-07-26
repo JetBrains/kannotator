@@ -1,0 +1,26 @@
+<project name="Run Integration Tests" default="tests">
+    <property name="project.dir" value="${basedir}/.."/>
+    <property name="tests.jar" value="${project.dir}/out/artifacts/integration_tests/integration_tests.jar"/>
+
+    <target name="tests">
+        <junit printsummary="on" haltonerror="false" haltonfailure="false" dir="${project.dir}" fork="true" maxmemory="1024m">
+            <classpath>
+                <pathelement location="${project.dir}/lib/junit-4.10.jar"/>
+                <pathelement location="${tests.jar}"/>
+            </classpath>
+
+            <test name="funDependency.LibPackageDependencyGraphTest">
+                <formatter type="plain" usefile="false"/>
+            </test>
+            <test name="funDependency.LibPackageNonAffectingDependencyGraphTest">
+                <formatter type="plain" usefile="false"/>
+            </test>
+            <test name="funDependency.BuildGraphForLibrariesTest">
+                <formatter type="plain" usefile="false"/>
+            </test>
+            <test name="inference.IntegratedInferenceTest">
+                <formatter type="plain" usefile="false"/>
+            </test>
+        </junit>
+    </target>
+</project>
