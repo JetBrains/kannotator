@@ -183,11 +183,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                     }
 
                     val project = getProject()
-                    val jarIndex = if (project != null) JarIndex(project) else null
-
-                    val addedAnnotationRoots = LinkedHashSet<VirtualFile>()
-                    val addedClasses = LinkedHashSet<VirtualFile>()
-                    val addedJars = LinkedHashSet<VirtualFile>()
+                    val dependencyManager = if (project != null) DependencyManager(project) else null
 
                     // TODO: Add existing annotations from dependent libraries
                     val inferenceResult = inferAnnotations(
@@ -203,49 +199,22 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                     ) {
                         // Load dependencies
                         annotationMap, member, declarationIndex ->
-                        ApplicationManager.getApplication().runReadAction(Computable {
-                            if (project != null && jarIndex != null) {
-                                val canonicalName = member.declaringClass.canonicalName
-                                val facade = JavaPsiFacadeEx.getInstanceEx(project)
-                                val psiClass = facade.findClass(canonicalName)
-                                if (psiClass != null) {
-                                    val virtualFile = psiClass.getContainingFile()?.getVirtualFile()
-                                    if (virtualFile != null) {
-                                        if (addedClasses.add(virtualFile)) {
-                                            declarationIndex.addClass(ClassReader(virtualFile.getInputStream()?.readBytes()))
+                        dependencyManager?.loadAnnotationsForDependencies(member, declarationIndex) {
+                            annotationData ->
+                            val externalAnnotations = loadExternalAnnotations(
+                                    annotationMap,
+                                    annotationData,
+                                    declarationIndex,
+                                    inferrerMap,
+                                    NO_ERROR_HANDLING
+                            )
 
-                                            val jar = jarIndex.getContainingJar(virtualFile)
-                                            if (jar != null) {
-                                                if (addedJars.add(jar)) {
-                                                    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(File(jar.getPath()))))
-
-                                                    val libraries = jarIndex.getContainingLibraries(jar)
-                                                    val annotationRoots = jarIndex.getAnnotationRoots(libraries)
-
-                                                    for (root in annotationRoots) {
-                                                        if (!addedAnnotationRoots.add(root)) continue
-
-                                                        val externalAnnotations = loadExternalAnnotations(
-                                                            annotationMap,
-                                                            loadAnnotationDataFromRoot(root),
-                                                            declarationIndex,
-                                                            inferrerMap,
-                                                            NO_ERROR_HANDLING
-                                                        )
-
-                                                        for (key in inferrerMap.keySet()) {
-                                                            val annotations = annotationMap[key]!!
-                                                            annotations.copyAllChanged(externalAnnotations.getOrElse(key) {AnnotationsImpl()})
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                            for (key in inferrerMap.keySet()) {
+                                val annotations = annotationMap[key]!!
+                                annotations.copyAllChanged(externalAnnotations.getOrElse(key) {AnnotationsImpl()})
                             }
-                            true
-                        })
+                        }
+                        true
                     }
 
                     inferringProgressIndicator.savingStarted()
@@ -323,16 +292,4 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
             }
         }
     }
-}
-
-fun loadAnnotationDataFromRoot(root: VirtualFile): Collection<() -> Reader> {
-    val result = ArrayList<() -> Reader>()
-    VfsUtil.processFilesRecursively(root) {
-        file ->
-        if (file!!.getExtension() == "xml") {
-            result.add { InputStreamReader(file.getInputStream()!!) }
-        }
-        true
-    }
-    return result
 }
