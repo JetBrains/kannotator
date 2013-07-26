@@ -90,7 +90,7 @@ class IntegratedInferenceTest : TestCase() {
         }
     }
 
-    private fun doInferenceTest(testedJarSubstring: String, packageIsInteresting: (String) -> Boolean = {true}) {
+    private fun doInferenceTest(testedJarSubstring: String, existingAnnotationsDir: String? = "lib", packageIsInteresting: (String) -> Boolean = {true}) {
         var annotationIndex: AnnotationKeyIndex? = null
 
         val progressMonitor = object : ProgressMonitor() {
@@ -105,7 +105,7 @@ class IntegratedInferenceTest : TestCase() {
             }
 
             override fun processingStepStarted(method: Method) {
-                println(method)
+//                println(method)
                 currentMethod = method
             }
         }
@@ -114,7 +114,9 @@ class IntegratedInferenceTest : TestCase() {
         Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
 
         val annotationFiles = ArrayList<File>()
-        File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
+        if (existingAnnotationsDir != null) {
+            File(existingAnnotationsDir).recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
+        }
 
         val jar = jars.first()
         println("start: $jar")
@@ -300,7 +302,7 @@ class IntegratedInferenceTest : TestCase() {
     fun testConcurrent() = doInferenceTest("concurrent-1.3.4.jar")
     fun testGsCollections() = doInferenceTest("gs-collections-2.0.0.jar")
     fun testGsCollectionsApi() = doInferenceTest("gs-collections-api-2.0.0.jar")
-    fun testGuava() = doInferenceTest("guava-13.0.1.jar")
+    fun testGuava() = doInferenceTest("guava-13.0.1.jar", existingAnnotationsDir = "testData/inferenceData/integrated/nullability/guava-existing-annotations")
     fun testJ3DCore() = doInferenceTest("j3d-core-1.3.1.jar")
     fun testJung3D() = doInferenceTest("jung-3d-2.0.1.jar")
     fun testJung3dDemos() = doInferenceTest("jung-3d-demos-2.0.1.jar")
