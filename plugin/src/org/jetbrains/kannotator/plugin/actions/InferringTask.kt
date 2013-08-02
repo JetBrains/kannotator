@@ -42,18 +42,19 @@ data class InferringTaskParams(
         val addAnnotationsRoots: Boolean,
         val removeOtherRoots: Boolean,
         val outputPath: String,
+        val useOneCommonTree: Boolean,
         val libJarFiles: Map<Library, Set<File>>)
 
 public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
-        Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
+Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
 
-    public class InferringError(file: File, cause: Throwable?):
-            Throwable("Exception during inferrence on file ${file.getName()}", cause)
+    public class InferringError(file: File, cause: Throwable?) :
+    Throwable("Exception during inferrence on file ${file.getName()}", cause)
 
-    class InferringProgressIndicator(val indicator: ProgressIndicator, params: InferringTaskParams): ProgressMonitor() {
+    class InferringProgressIndicator(val indicator: ProgressIndicator, params: InferringTaskParams) : ProgressMonitor() {
         val totalAmountOfJars: Int = params.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
         var numberOfJarsFinished: Int = 0
         var numberOfMethods = 0
@@ -150,7 +151,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
     private fun processFiles(outputDirectory: VirtualFile, inferringProgressIndicator: InferringProgressIndicator) {
         for ((lib, files) in taskParams.libJarFiles) {
-            val libOutputDir = createOutputDirectory(lib, outputDirectory)
+
+            val libOutputDir =
+                    if (taskParams.useOneCommonTree)
+                        outputDirectory
+                    else
+                        createOutputDirectory(lib, outputDirectory)
+
             val libIoOutputDir = VfsUtilCore.virtualToIoFile(libOutputDir)
 
             for (file in files) {
@@ -178,7 +185,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             false,
                             hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
                             hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
-                            {true},
+                            { true },
                             Collections.emptyMap()
                     )
 
@@ -206,7 +213,8 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
                             inferredNullabilityAnnotations,
                             propagatedNullabilityPositions,
                             simpleErrorHandler {
-                                kind, message -> throw IllegalArgumentException(message)
+                                kind, message ->
+                                throw IllegalArgumentException(message)
                             })
 
                     inferringProgressIndicator.savingFinished()
@@ -228,7 +236,7 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
         return runComputableInsideWriteAction {
             val libraryDirName = library.getName() ?: "no-name"
 
-            // Drop directory if it already exist
+            // Drop directory if it already exists
             outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
 
             outputDirectory.createChildDirectory(this@InferringTask, libraryDirName)
