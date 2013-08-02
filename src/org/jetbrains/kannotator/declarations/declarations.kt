@@ -202,7 +202,7 @@ fun ClassName.isAnonymous(): Boolean {
 }
 
 val ClassName.packageName: String
-    get() = internal.prefixUpToLast('/')!!
+    get() = internal.prefixUpToLast('/') ?: ""
 
 val ClassMember.packageName: String
     get() = declaringClass.packageName

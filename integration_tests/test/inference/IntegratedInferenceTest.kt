@@ -323,4 +323,5 @@ class IntegratedInferenceTest : TestCase() {
         name.startsWith("java") || name.startsWith("javax") || name.startsWith("org")
     }
     fun testExtensions() = doInferenceTest("extensions.jar")
+    fun testDefaultPackage() = doInferenceTest("default-package.jar")
 }
