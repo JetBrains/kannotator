@@ -151,7 +151,6 @@ Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption
 
     private fun processFiles(outputDirectory: VirtualFile, inferringProgressIndicator: InferringProgressIndicator) {
         for ((lib, files) in taskParams.libJarFiles) {
-
             val libOutputDir =
                     if (taskParams.useOneCommonTree)
                         outputDirectory
@@ -234,10 +233,15 @@ Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption
 
     private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
         return runComputableInsideWriteAction {
-            val libraryDirName = library.getName() ?: "no-name"
 
-            // Drop directory if it already exists
-            outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+            val libraryDirName = library.getName()?.replaceAll("[\\/:*?\"<>|]", "_") ?: "no-name"
+
+            // Drop directory if it already exists.
+            // We should not do that when flushing everything into the same directory tree, otherwise we can delete
+            // something important left from previous libraries.
+            if (! taskParams.useOneCommonTree) {
+                outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+            }
 
             outputDirectory.createChildDirectory(this@InferringTask, libraryDirName)
         }
