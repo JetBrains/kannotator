@@ -46,13 +46,13 @@ data class InferringTaskParams(
         val libJarFiles: Map<Library, Set<File>>)
 
 public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
-Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
+    Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
     private val INFERRING_RESULT_TAB_TITLE = "Annotate Jars"
 
     private var successMessage = "Success"
 
     public class InferringError(file: File, cause: Throwable?) :
-    Throwable("Exception during inferrence on file ${file.getName()}", cause)
+        Throwable("Exception during inferrence on file ${file.getName()}", cause)
 
     class InferringProgressIndicator(val indicator: ProgressIndicator, params: InferringTaskParams) : ProgressMonitor() {
         val totalAmountOfJars: Int = params.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
@@ -239,7 +239,7 @@ Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption
             // Drop directory if it already exists.
             // We should not do that when flushing everything into the same directory tree, otherwise we can delete
             // something important left from previous libraries.
-            if (! taskParams.useOneCommonTree) {
+            if (!taskParams.useOneCommonTree) {
                 outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
             }
 

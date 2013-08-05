@@ -128,7 +128,7 @@ public class InferAnnotationDialog extends DialogWrapper {
      * @return false if each library has its own branch, true otherwise
      */
     @NotNull
-    public boolean getUseOneCommonTree()
+    public boolean useOneCommonTree()
     {
         return useCommonTreeCheckBox.isSelected();
     }
