@@ -24,6 +24,7 @@ public class AnnotateJarAction: AnAction() {
                     outputPath = dlg.getConfiguredOutputPath(),
                     libJarFiles = dlg.getCheckedLibToJarFiles().map { it.key to it.value.map { file -> VfsUtilCore.virtualToIoFile(file) }.toSet() }.toMap(),
                     addAnnotationsRoots = dlg.shouldAddAnnotationsRoots(),
+                    useOneCommonTree = dlg.useOneCommonTree(),
                     removeOtherRoots = dlg.shouldRemoveAllOtherRoots()
             )
 
