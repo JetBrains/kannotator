@@ -42,6 +42,7 @@ data class InferringTaskParams(
         val addAnnotationsRoots: Boolean,
         val removeOtherRoots: Boolean,
         val outputPath: String,
+        val useOneCommonTree: Boolean,
         val libJarFiles: Map<Library, Set<File>>)
 
 public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
@@ -150,7 +151,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
     private fun processFiles(outputDirectory: VirtualFile, inferringProgressIndicator: InferringProgressIndicator) {
         for ((lib, files) in taskParams.libJarFiles) {
-            val libOutputDir = createOutputDirectory(lib, outputDirectory)
+
+            val libOutputDir =
+                    if (taskParams.useOneCommonTree)
+                        outputDirectory
+                    else
+                        createOutputDirectory(lib, outputDirectory)
+
             val libIoOutputDir = VfsUtilCore.virtualToIoFile(libOutputDir)
 
             for (file in files) {
@@ -226,10 +233,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
     private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
         return runComputableInsideWriteAction {
-            val libraryDirName = library.getName() ?: "no-name"
-
-            // Drop directory if it already exist
-            outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+            val libraryDirName = library.getName()?.replaceAll("[\\/:*?\"<>|]", "_") ?: "no-name"
+            // Drop directory if it already exists.
+            // We should not do that when flushing everything into the same directory tree, otherwise we can delete
+            // something important left from previous libraries.
+            if (!taskParams.useOneCommonTree) {
+               outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+            }
 
             outputDirectory.createChildDirectory(this@InferringTask, libraryDirName)
         }

@@ -36,6 +36,7 @@ public class InferAnnotationDialog extends DialogWrapper {
     JLabel jarsTreeLabel;
     JCheckBox addLibrariesRootAutomaticallyCheckbox;
     JCheckBox removeAllOtherAnnotationsRootsCheckbox;
+    JCheckBox useCommonTreeCheckBox;
 
     // Not from gui designer
     LibraryCheckboxTree libraryTree;
@@ -119,6 +120,17 @@ public class InferAnnotationDialog extends DialogWrapper {
         }
 
         return configuredOutputPath;
+    }
+
+    /**
+     * Check whether we should create a separate directory for each annotated library or
+     * output annotations to the same directory tree.
+     * @return false if each library has its own branch, true otherwise
+     */
+    @NotNull
+    public boolean useOneCommonTree()
+    {
+        return useCommonTreeCheckBox.isSelected();
     }
 
     @Override
