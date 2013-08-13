@@ -17,6 +17,7 @@ import com.intellij.ui.components.JBScrollPane;
 import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.kannotator.plugin.actions.AnnotationsFormat;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -37,6 +38,8 @@ public class InferAnnotationDialog extends DialogWrapper {
     JCheckBox addLibrariesRootAutomaticallyCheckbox;
     JCheckBox removeAllOtherAnnotationsRootsCheckbox;
     JCheckBox useCommonTreeCheckBox;
+    JRadioButton formatJaifRadioButton;
+    JRadioButton formatXMLRadioButton;
 
     // Not from gui designer
     LibraryCheckboxTree libraryTree;
@@ -127,10 +130,9 @@ public class InferAnnotationDialog extends DialogWrapper {
      * output annotations to the same directory tree.
      * @return false if each library has its own branch, true otherwise
      */
-    @NotNull
     public boolean useOneCommonTree()
     {
-        return useCommonTreeCheckBox.isSelected();
+        return useCommonTreeCheckBox.isSelected() && useCommonTreeCheckBox.isEnabled();
     }
 
     @Override
@@ -183,9 +185,24 @@ public class InferAnnotationDialog extends DialogWrapper {
         return removeAllOtherAnnotationsRootsCheckbox.isSelected();
     }
 
+    @NotNull
+    public AnnotationsFormat getOutputFormat()
+    {
+        if (formatJaifRadioButton.isSelected()) return AnnotationsFormat.JAIF;
+        if (formatXMLRadioButton.isSelected()) return AnnotationsFormat.XML;
+        throw new IllegalStateException("No output format specified. Both radio buttons are unchecked?");
+    }
+
     protected void updateControls() {
         boolean someAnnotationTypeSelected = shouldInferNullabilityAnnotations() || shouldInferKotlinAnnotations();
         setOKActionEnabled(getConfiguringOutputPath() != null && someAnnotationTypeSelected);
+        formatXMLRadioButton.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                useCommonTreeCheckBox.setEnabled( formatXMLRadioButton.isSelected() );
+            }
+        });
+
     }
 
     @Nullable

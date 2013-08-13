@@ -25,7 +25,8 @@ public class AnnotateJarAction: AnAction() {
                     libJarFiles = dlg.getCheckedLibToJarFiles().map { it.key to it.value.map { file -> VfsUtilCore.virtualToIoFile(file) }.toSet() }.toMap(),
                     addAnnotationsRoots = dlg.shouldAddAnnotationsRoots(),
                     useOneCommonTree = dlg.useOneCommonTree(),
-                    removeOtherRoots = dlg.shouldRemoveAllOtherRoots()
+                    removeOtherRoots = dlg.shouldRemoveAllOtherRoots(),
+                    outputFormat = dlg.getOutputFormat()
             )
 
             ProgressManager.getInstance().run(InferringTask(project, params))

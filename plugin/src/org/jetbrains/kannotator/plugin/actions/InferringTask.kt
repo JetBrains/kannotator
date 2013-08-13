@@ -35,6 +35,13 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.simpleErrorHandler
+import org.jetbrains.kannotator.annotations.io.writeAnnotationsToJaif
+
+public enum class AnnotationsFormat
+{
+JAIF
+XML
+}
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -43,7 +50,8 @@ data class InferringTaskParams(
         val removeOtherRoots: Boolean,
         val outputPath: String,
         val useOneCommonTree: Boolean,
-        val libJarFiles: Map<Library, Set<File>>)
+        val libJarFiles: Map<Library, Set<File>>,
+        val outputFormat: AnnotationsFormat)
 
 public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
         Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
@@ -205,16 +213,25 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
                     val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(file)))
 
-                    writeAnnotationsToXMLByPackage(
-                            declarationIndex,
-                            declarationIndex,
-                            null,
-                            libIoOutputDir,
-                            inferredNullabilityAnnotations,
-                            propagatedNullabilityPositions,
-                            simpleErrorHandler {
-                                kind, message -> throw IllegalArgumentException(message)
-                            })
+                    when( taskParams.outputFormat){
+                        AnnotationsFormat.JAIF->  writeAnnotationsToJaif(
+                                declarationIndex,
+                                libIoOutputDir,
+                                inferredNullabilityAnnotations,
+                                propagatedNullabilityPositions)
+                        AnnotationsFormat.XML ->  writeAnnotationsToXMLByPackage(
+                                declarationIndex,
+                                declarationIndex,
+                                null,
+                                libIoOutputDir,
+                                inferredNullabilityAnnotations,
+                                propagatedNullabilityPositions,
+                                simpleErrorHandler {
+                                    kind, message -> throw IllegalArgumentException(message)
+                                })
+                        else-> throw UnsupportedOperationException(
+                                "Given annotations output format is not supported" )
+                    }
 
                     inferringProgressIndicator.savingFinished()
                 } catch (e: OutOfMemoryError) {
