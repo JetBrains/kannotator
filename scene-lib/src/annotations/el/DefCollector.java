@@ -1,7 +1,6 @@
 package annotations.el;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 import annotations.SceneAnnotation;
 import annotations.field.AnnotationAFT;
@@ -24,7 +23,7 @@ public abstract class DefCollector {
     // The set of all definitions in the Scene, which the visitor iterates
     // over.
     private final Set<AnnotationDef> defs;
-
+    private List<AnnotationDef> sortedDefs;
     /**
      * Constructs a new {@link DefCollector}, which immediately collects all
      * the definitions from annotations the given scene.  Next call
@@ -113,8 +112,8 @@ public abstract class DefCollector {
 
             addToDefs(d);
         }
-        if (e.type != null) {
-            collect(e.type);
+        if (e.thisType != null) {
+            collect(e.thisType);
         }
 
     }
@@ -172,7 +171,13 @@ public abstract class DefCollector {
      * guaranteed to be visited before <code>A</code>.
      */
     public final void visit() {
-        for (AnnotationDef d : defs) {
+        if (sortedDefs == null)
+        {
+            sortedDefs = new ArrayList<AnnotationDef>(defs.size());
+            sortedDefs.addAll(defs);
+            Collections.sort(sortedDefs);
+        }
+        for (AnnotationDef d : sortedDefs) {
             visitAnnotationDef(d);
         }
     }

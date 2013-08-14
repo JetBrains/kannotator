@@ -17,7 +17,7 @@ import annotations.util.Hasher;
  * An {@link InnerTypeLocation} holds the location information for an
  * inner type (namely the location string) inside its {@link ATypeElement}.
  */
-public final /*@ReadOnly*/ class InnerTypeLocation {
+public final /*@ReadOnly*/ class InnerTypeLocation implements Comparable<InnerTypeLocation> {
 
     /**
      * An {@link InnerTypeLocation} containing no locations.
@@ -84,5 +84,10 @@ public final /*@ReadOnly*/ class InnerTypeLocation {
     @Override
     public  String toString() {
         return "InnerTypeLocation(" + location.toString() + ")";
+    }
+
+    @Override
+    public int compareTo(InnerTypeLocation o) {
+        return location.toString().compareTo(o.location.toString());
     }
 }

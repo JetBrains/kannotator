@@ -36,12 +36,8 @@ import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.simpleErrorHandler
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToJaif
+import org.jetbrains.kannotator.annotations.io.AnnotationsFormat
 
-public enum class AnnotationsFormat
-{
-JAIF
-XML
-}
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
