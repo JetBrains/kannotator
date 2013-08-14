@@ -5,10 +5,7 @@ import checkers.nullness.quals.*;
 import checkers.javari.quals.*;
 */
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Writer;
+import java.io.*;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 import java.util.*;
@@ -30,7 +27,7 @@ public final class IndexFileWriter {
 
     private static final String INDENT = "    ";
 
-    void printAnnotationDefBody(AnnotationDef d) {
+    void printAnnotationDefBody(AnnotationDef d, PrintWriter pw) {
         for (Map. /*@ReadOnly*/ Entry<String, AnnotationFieldType> f : d.fieldTypes.entrySet()) {
             String fieldname = f.getKey();
             AnnotationFieldType fieldType = f.getValue();
@@ -40,18 +37,23 @@ public final class IndexFileWriter {
     }
 
     private class OurDefCollector extends DefCollector {
-        OurDefCollector() throws DefException {
+
+        final PrintWriter pw;
+
+        OurDefCollector(PrintWriter pw) throws DefException {
             super(IndexFileWriter.this.scene);
+            this.pw = pw;
         }
+
 
         @Override
         protected void visitAnnotationDef(AnnotationDef d) {
             pw.println("package " + IOUtils.packagePart(d.name) + ":");
             pw.print("annotation @" + IOUtils.basenamePart(d.name) + ":");
             // TODO: We would only print Retention and Target annotations
-            printAnnotations(requiredMetaannotations(d.tlAnnotationsHere));
+            printAnnotations(requiredMetaannotations(d.tlAnnotationsHere), pw);
             pw.println();
-            printAnnotationDefBody(d);
+            printAnnotationDefBody(d, pw);
         }
 
         private Collection<SceneAnnotation> requiredMetaannotations(
@@ -68,16 +70,15 @@ public final class IndexFileWriter {
         }
     }
 
-    final PrintWriter pw;
 
-    private void printValue(AnnotationFieldType aft, /*@ReadOnly*/ Object o) {
+    private void printValue(AnnotationFieldType aft, Object o, PrintWriter pw) {
         if (aft instanceof AnnotationAFT) {
-            printAnnotation((SceneAnnotation) o);
+            printAnnotation((SceneAnnotation) o, pw);
         } else if (aft instanceof ArrayAFT) {
             ArrayAFT aaft = (ArrayAFT) aft;
             pw.print('{');
             if (!(o instanceof List)) {
-                printValue(aaft.elementType, o);
+                printValue(aaft.elementType, o, pw);
             } else {
                 /*@ReadOnly*/
                 List<?> l =
@@ -92,7 +93,7 @@ public final class IndexFileWriter {
                     for (/*@ReadOnly*/ Object o2 : l) {
                         if (!first)
                             pw.print(',');
-                        printValue(aaft.elementType, o2);
+                        printValue(aaft.elementType, o2, pw);
                         first = false;
                     }
                 }
@@ -107,7 +108,7 @@ public final class IndexFileWriter {
         }
     }
 
-    private void printAnnotation(SceneAnnotation a) {
+    private void printAnnotation(SceneAnnotation a, PrintWriter pw) {
         pw.print("@" + a.def().name);
         if (!a.fieldValues.isEmpty()) {
             pw.print('(');
@@ -117,29 +118,30 @@ public final class IndexFileWriter {
                 if (!first)
                     pw.print(',');
                 pw.print(f.getKey() + "=");
-                printValue(a.def().fieldTypes.get(f.getKey()), f.getValue());
+                printValue(a.def().fieldTypes.get(f.getKey()), f.getValue(), pw);
                 first = false;
             }
             pw.print(')');
         }
     }
 
-    private void printAnnotations(Collection<? extends SceneAnnotation> annos) {
+    private void printAnnotations(Collection<? extends SceneAnnotation> annos, PrintWriter pw) {
         for (SceneAnnotation tla : annos) {
             pw.print(' ');
-            printAnnotation(tla);
+            printAnnotation(tla, pw);
         }
     }
 
-    private void printAnnotations(/*@ReadOnly*/ AElement e) {
-        printAnnotations(e.tlAnnotationsHere);
+    private void printAnnotations(AElement e, PrintWriter pw) {
+        printAnnotations(e.tlAnnotationsHere, pw);
     }
 
     private void printElement(String indentation,
                               String desc,
-            /*@ReadOnly*/ AElement e) {
+                              AElement e,
+                              PrintWriter pw) {
         pw.print(indentation + desc + ":");
-        printAnnotations(e);
+        printAnnotations(e, pw);
         pw.println();
     }
 
@@ -154,15 +156,17 @@ public final class IndexFileWriter {
 
     private void printTypeElementAndInnerTypes(String indentation,
                                                String desc,
-            /*@ReadOnly*/ ATypeElement e) {
+                                               ATypeElement e,
+                                               PrintWriter pw) {
         if (e.tlAnnotationsHere.isEmpty() && e.innerTypes.isEmpty() && desc.equals("type")) {
             return;
         }
-        printElement(indentation, desc, e);
-        for (Map. /*@ReadOnly*/ Entry<InnerTypeLocation, /*@ReadOnly*/ ATypeElement> ite
+        printElement(indentation, desc, e, pw);
+        for (Map.Entry<InnerTypeLocation, ATypeElement> ite
                 : e.innerTypes.entrySet()) {
             InnerTypeLocation loc = ite.getKey();
-            /*@ReadOnly*/ AElement it = ite.getValue();
+            /*@ReadOnly*/
+            AElement it = ite.getValue();
             pw.print(indentation + INDENT + "inner-type");
             boolean first = true;
             for (TypePathEntry l : loc.location) {
@@ -174,7 +178,7 @@ public final class IndexFileWriter {
                 first = false;
             }
             pw.print(':');
-            printAnnotations(it);
+            printAnnotations(it, pw);
             pw.println();
         }
     }
@@ -189,23 +193,26 @@ public final class IndexFileWriter {
 
     private void printNumberedAmbigiousElements(String indentation,
                                                 String desc,
-            /*@ReadOnly*/ Map<Integer, /*@ReadOnly*/ AElement> nels) {
-        for (Map. /*@ReadOnly*/ Entry<Integer, /*@ReadOnly*/ AElement> te
+                                                Map<Integer, /*@ReadOnly*/ AElement> nels,
+                                                PrintWriter pw) {
+        for (Map.Entry<Integer, AElement> te
                 : nels.entrySet()) {
-            /*@ReadOnly*/ AElement t = te.getValue();
+            /*@ReadOnly*/
+            AElement t = te.getValue();
             printAmbElementAndInnerTypes(indentation,
-                    desc + " #" + te.getKey(), t);
+                    desc + " #" + te.getKey(), t, pw);
         }
     }
 
     private void printAmbElementAndInnerTypes(String indentation,
                                               String desc,
-            /*@ReadOnly*/ AElement e) {
-        printElement(indentation, desc, e);
+                                              AElement e,
+                                              PrintWriter pw) {
+        printElement(indentation, desc, e, pw);
         if (e.thisType.tlAnnotationsHere.isEmpty() && e.thisType.innerTypes.isEmpty()) {
             return;
         }
-        printElement(indentation + INDENT, "type", e.thisType);
+        printElement(indentation + INDENT, "type", e.thisType, pw);
         for (Map. /*@ReadOnly*/ Entry<InnerTypeLocation, /*@ReadOnly*/ ATypeElement> ite
                 : e.thisType.innerTypes.entrySet()) {
             InnerTypeLocation loc = ite.getKey();
@@ -222,122 +229,124 @@ public final class IndexFileWriter {
                 first = false;
             }
             pw.print(':');
-            printAnnotations(it);
+            printAnnotations(it, pw);
             pw.println();
         }
     }
 
     private void printRelativeElements(String indentation,
                                        String desc,
-            /*@ReadOnly*/ Map<RelativeLocation, /*@ReadOnly*/ ATypeElement> nels) {
-        for (Map. /*@ReadOnly*/ Entry<RelativeLocation, /*@ReadOnly*/ ATypeElement> te
+                                       Map<RelativeLocation, ATypeElement> nels,
+                                       PrintWriter pw) {
+        for (Map.Entry<RelativeLocation, ATypeElement> te
                 : nels.entrySet()) {
-            /*@ReadOnly*/ ATypeElement t = te.getValue();
+            /*@ReadOnly*/
+            ATypeElement t = te.getValue();
             printTypeElementAndInnerTypes(indentation,
-                    desc + " " + te.getKey().getLocationString(), t);
+                    desc + " " + te.getKey().getLocationString(), t, pw);
         }
     }
 
-    private void printBounds(String indentation,
-            /*@ReadOnly*/ Map<BoundLocation, /*@ReadOnly*/ ATypeElement> bounds) {
-        for (Map. /*@ReadOnly*/ Entry<BoundLocation, /*@ReadOnly*/ ATypeElement> be
+    private void printBounds(String indentation, Map<BoundLocation, ATypeElement> bounds, PrintWriter pw) {
+        for (Map.Entry<BoundLocation, ATypeElement> be
                 : bounds.entrySet()) {
             BoundLocation bl = be.getKey();
             /*@ReadOnly*/
             ATypeElement b = be.getValue();
             if (bl.boundIndex == -1) {
                 printTypeElementAndInnerTypes(indentation,
-                                              "typeparam " + bl.paramIndex, b);
+                        "typeparam " + bl.paramIndex, b, pw);
             } else {
                 printTypeElementAndInnerTypes(indentation,
-                           "bound " + bl.paramIndex + " &" + bl.boundIndex, b);
+                        "bound " + bl.paramIndex + " &" + bl.boundIndex, b, pw);
             }
         }
     }
 
-    private void printExtImpls(String indentation,
-            /*@ReadOnly*/ Map<TypeIndexLocation, /*@ReadOnly*/ ATypeElement> extImpls) {
+    private void printExtImpls(String indentation, Map<TypeIndexLocation, ATypeElement> extImpls, PrintWriter pw) {
 
         for (Map. /*@ReadOnly*/ Entry<TypeIndexLocation, /*@ReadOnly*/ ATypeElement> ei
                 : extImpls.entrySet()) {
             TypeIndexLocation idx = ei.getKey();
-            /*@ReadOnly*/ ATypeElement ty = ei.getValue();
+            /*@ReadOnly*/
+            ATypeElement ty = ei.getValue();
             // reading from a short into an integer does not preserve sign?
             if (idx.typeIndex == -1 || idx.typeIndex == 65535) {
-                printTypeElementAndInnerTypes(indentation, "extends", ty);
+                printTypeElementAndInnerTypes(indentation, "extends", ty, pw);
             } else {
-                printTypeElementAndInnerTypes(indentation, "implements " + idx.typeIndex, ty);
+                printTypeElementAndInnerTypes(indentation, "implements " + idx.typeIndex, ty, pw);
             }
         }
     }
 
-    private void write() throws DefException {
+    private void write(PrintWriter pw) throws DefException {
         // First the annotation definitions...
-        OurDefCollector odc = new OurDefCollector();
+        OurDefCollector odc = new OurDefCollector(pw);
         odc.visit();
 
         // And then the annotated classes
         for (Map. /*@ReadOnly*/ Entry<String, /*@ReadOnly*/ AClass> ce
                 : scene.classes.entrySet()) {
-        String cname = ce.getKey();
+            String cname = ce.getKey();
             /*@ReadOnly*/ AClass c = ce.getValue();
-        String pkg = IOUtils.packagePart(cname);
-        String basename = IOUtils.basenamePart(cname);
-        pw.println("package " + pkg + ":");
-        pw.print("class " + basename + ":");
-            printAnnotations(c);
-            pw.println();
+            String pkg = IOUtils.packagePart(cname);
+            String basename = IOUtils.basenamePart(cname);
+            pw.println("package " + pkg + ":");
+            pw.print("class " + basename + ":");
+            printAnnotations(c, pw);
+            pw.print("\n");
 
-            printBounds(INDENT, c.bounds);
-            printExtImpls(INDENT, c.extendsImplements);
+            printBounds(INDENT, c.bounds, pw);
+            printExtImpls(INDENT, c.extendsImplements, pw);
 
-            for (Map. /*@ReadOnly*/ Entry<String, /*@ReadOnly*/ AElement> fe
-                    : c.fields.entrySet()) {
-            String fname = fe.getKey();
-                /*@ReadOnly*/ AElement f = fe.getValue();
-            pw.println();
-                printElement(INDENT, "field " + fname, f);
-                printTypeElementAndInnerTypes(INDENT + INDENT, "type", f.thisType);
-        }
-            for (Map. /*@ReadOnly*/ Entry<String, /*@ReadOnly*/ AMethod> me
-                : c.methods.entrySet()) {
-            String mkey = me.getKey();
-                /*@ReadOnly*/ AMethod m = me.getValue();
-            pw.println();
-                printElement(INDENT, "method " + mkey, m);
-                printBounds(INDENT + INDENT, m.bounds);
-                printTypeElementAndInnerTypes(INDENT + INDENT, "return", m.returnType);
-            if (!m.receiver.tlAnnotationsHere.isEmpty() || !m.receiver.innerTypes.isEmpty()) {
-                // Only output the receiver if there is something to say. This is a bit
-                // inconsistent with the return type, but so be it.
-                    printTypeElementAndInnerTypes(INDENT + INDENT, "receiver", m.receiver);
+            for (Map.Entry<String, AElement> fe : c.fields.entrySet()) {
+                String fname = fe.getKey();
+                AElement f = fe.getValue();
+                pw.println();
+                printElement(INDENT, "field " + fname, f, pw);
+                printTypeElementAndInnerTypes(INDENT + INDENT, "type", f.thisType, pw);
             }
-                printNumberedAmbigiousElements(INDENT + INDENT, "parameter", m.parameters);
-                for (Map. /*@ReadOnly*/ Entry<LocalLocation, /*@ReadOnly*/ AElement> le
-                    : m.locals.entrySet()) {
-                LocalLocation loc = le.getKey();
-                    /*@ReadOnly*/ AElement l = le.getValue();
-                printElement(INDENT + INDENT,
-                        "local " + loc.index + " #"
-                            + loc.scopeStart + "+" + loc.scopeLength, l);
-                printTypeElementAndInnerTypes(INDENT + INDENT + INDENT,
-                            "type", l.thisType);
+            for (Map.Entry<String, AMethod> me
+                    : c.methods.entrySet()) {
+                String mkey = me.getKey();
+                AMethod m = me.getValue();
+                pw.println();
+                printElement(INDENT, "method " + mkey, m, pw);
+                printBounds(INDENT + INDENT, m.bounds, pw);
+                printTypeElementAndInnerTypes(INDENT + INDENT, "return", m.returnType, pw);
+                if (!m.receiver.tlAnnotationsHere.isEmpty() || !m.receiver.innerTypes.isEmpty()) {
+                    // Only output the receiver if there is something to say. This is a bit
+                    // inconsistent with the return type, but so be it.
+                    printTypeElementAndInnerTypes(INDENT + INDENT, "receiver", m.receiver, pw);
+                }
+                printNumberedAmbigiousElements(INDENT + INDENT, "parameter", m.parameters, pw);
+                for (Map.Entry<LocalLocation, AElement> le
+                        : m.locals.entrySet()) {
+                    LocalLocation loc = le.getKey();
+                    AElement l = le.getValue();
+                    printElement(INDENT + INDENT,
+                            "local " + loc.index + " #"
+                                    + loc.scopeStart + "+" + loc.scopeLength, l, pw);
+                    printTypeElementAndInnerTypes(INDENT + INDENT + INDENT,
+                            "type", l.thisType, pw);
+                }
+                printRelativeElements(INDENT + INDENT, "typecast", m.typecasts, pw);
+                printRelativeElements(INDENT + INDENT, "instanceof", m.instanceofs, pw);
+                printRelativeElements(INDENT + INDENT, "new", m.news, pw);
+                // throwsException field is not processed.  Why?
             }
-                printRelativeElements(INDENT + INDENT, "typecast", m.typecasts);
-                printRelativeElements(INDENT + INDENT, "instanceof", m.instanceofs);
-                printRelativeElements(INDENT + INDENT, "new", m.news);
-            // throwsException field is not processed.  Why?
-        }
         pw.println();
-    }
+        }
     }
 
-    private IndexFileWriter(/*@ReadOnly*/ AScene scene,
-            Writer out) throws DefException {
-        this.scene = scene;
-        pw = new PrintWriter(out);
-        write();
+    public void perform(Writer out) throws DefException {
+        PrintWriter pw = new PrintWriter(out);
+        write(pw);
         pw.flush();
+    }
+
+    public IndexFileWriter(final AScene scene) throws DefException {
+        this.scene = scene;
     }
 
     /**
@@ -369,7 +378,7 @@ public final class IndexFileWriter {
     public static void write(
             /*@ReadOnly*/ AScene scene,
             Writer out) throws DefException {
-        new IndexFileWriter(scene, out);
+        new IndexFileWriter(scene).perform(out);
     }
 
     /**
