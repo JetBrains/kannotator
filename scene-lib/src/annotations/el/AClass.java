@@ -1,6 +1,6 @@
 package annotations.el;
 
-import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
@@ -23,7 +23,7 @@ public final class AClass extends AElement {
 
     private static VivifyingMap<String, AMethod> createMethodMap() {
         return new VivifyingMap<String, AMethod>(
-                new LinkedHashMap<String, AMethod>()) {
+                new TreeMap<String, AMethod>()) {
             @Override
             public  AMethod createValueFor(String k) {
                 return new AMethod(k);
@@ -39,7 +39,7 @@ public final class AClass extends AElement {
     @NotNull
     private static VivifyingMap<Integer, ABlock> createStaticInitMap() {
         return new VivifyingMap<Integer, ABlock>(
-                new LinkedHashMap<Integer, ABlock>()) {
+                new TreeMap<Integer, ABlock>()) {
             @Override
             public  ABlock createValueFor(Integer k) {
                 return new ABlock(k);
@@ -54,7 +54,7 @@ public final class AClass extends AElement {
 
     private static VivifyingMap<String, AExpression> createFieldInitMap() {
         return new VivifyingMap<String, AExpression>(
-                new LinkedHashMap<String, AExpression>()) {
+                new TreeMap<String, AExpression>()) {
             @Override
             public  AExpression createValueFor(String k) {
                 return new AExpression(k);

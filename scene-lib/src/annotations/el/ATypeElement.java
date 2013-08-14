@@ -2,6 +2,7 @@ package annotations.el;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
@@ -21,7 +22,7 @@ import checkers.javari.quals.ReadOnly;
 public class ATypeElement extends AElement {
     static <K extends /*@ReadOnly*/ Object> VivifyingMap<K, ATypeElement> newVivifyingLHMap_ATE() {
         return new VivifyingMap<K, ATypeElement>(
-                new LinkedHashMap<K, ATypeElement>()) {
+                new TreeMap<K, ATypeElement>()) {
             @Override
             public  ATypeElement createValueFor(K k) {
                 return new ATypeElement(k);

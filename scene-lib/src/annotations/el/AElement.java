@@ -1,8 +1,6 @@
 package annotations.el;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
@@ -24,7 +22,7 @@ import checkers.javari.quals.ReadOnly;
 public class AElement {
     static <K extends /*@ReadOnly*/ Object> VivifyingMap<K, AElement> newVivifyingLHMap_AE() {
         return new VivifyingMap<K, AElement>(
-                new LinkedHashMap<K, AElement>()) {
+                new TreeMap<K, AElement>()) {
             @Override
             public AElement createValueFor(K k) {
                 return new AElement(k);
@@ -42,7 +40,7 @@ public class AElement {
     // contain a non-null "type" field.
     static <K extends /*@ReadOnly*/ Object> VivifyingMap<K, AElement> newVivifyingLHMap_AET() {
         return new VivifyingMap<K, AElement>(
-                new LinkedHashMap<K, AElement>()) {
+                new TreeMap<K, AElement>()) {
             @Override
             public AElement createValueFor(K k) {
                 return new AElement(k, true);
@@ -83,7 +81,7 @@ public class AElement {
     }
 
     AElement(Object description, boolean hasType) {
-        tlAnnotationsHere = new LinkedHashSet<SceneAnnotation>();
+        tlAnnotationsHere = new TreeSet<SceneAnnotation>();
         this.description = description;
         type = hasType ? new ATypeElement("type of " + description) : null;
     }
