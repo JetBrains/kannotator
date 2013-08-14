@@ -14,13 +14,17 @@ import org.jetbrains.annotations.NotNull;
  * An annotated method; contains bounds, return, parameters, receiver, and throws.
  */
 public final class AMethod extends ABlock {
+
+    @NotNull
     /** The method's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
             ATypeElement.<BoundLocation>newVivifyingLHMap_ATE();
 
+    @NotNull
     /** The method's annotated return type */
     public final ATypeElement returnType; // initialized in constructor
 
+    @NotNull
     /** The method's annotated receiver parameter type */
     public final ATypeElement receiver; // initialized in constructor
 
@@ -29,6 +33,7 @@ public final class AMethod extends ABlock {
     public final VivifyingMap<Integer, AElement> parameters =
             AElement.<Integer>newVivifyingLHMap_AET();
 
+    @NotNull
     public final VivifyingMap<TypeIndexLocation, ATypeElement> throwsException =
         ATypeElement.<TypeIndexLocation>newVivifyingLHMap_ATE();
 
@@ -101,7 +106,7 @@ public final class AMethod extends ABlock {
             AElement ae = em.getValue();
             sb.append(ae.toString());
             sb.append(" ");
-            ATypeElement ate = ae.type;
+            ATypeElement ate = ae.thisType;
             sb.append(ate.toString());
         }
         sb.append(" ");

@@ -7,6 +7,7 @@ import checkers.javari.quals.ReadOnly;
 
 import annotations.el.AnnotationDef;
 import annotations.field.AnnotationFieldType;
+import com.sun.javafx.scene.SceneEventDispatcher;
 
 import java.util.*;
 import java.lang.reflect.*;
@@ -23,7 +24,7 @@ import java.lang.reflect.*;
  * {@link AnnotationFactory#saf}. Either way works, but if you construct
  * one directly, you must provide a matching {@link annotations.el.AnnotationDef} yourself.
  */
-public final /*@ReadOnly*/ class SceneAnnotation {
+public final /*@ReadOnly*/ class SceneAnnotation implements  Comparable<SceneAnnotation>{
 
     /**
      * The annotation definition.
@@ -138,7 +139,7 @@ public final /*@ReadOnly*/ class SceneAnnotation {
                     }
                 }
                 assert aft.isValidValue(val)
-                    : String.format("invalid value \"%s\" for field \"%s\" of class \"%s\" and expected type \"%s\"; ja=%s", val, val.getClass(), fieldname, aft, ja);
+                    : String.format("invalid value \"%s\" for field \"%s\" of class \"%s\" and expected thisType \"%s\"; ja=%s", val, val.getClass(), fieldname, aft, ja);
                 fieldValues.put(fieldname, val);
             }
         } catch (NoSuchMethodException e) {
@@ -235,77 +236,8 @@ public final /*@ReadOnly*/ class SceneAnnotation {
         return sb.toString();
     }
 
+    @Override
+    public int compareTo(SceneAnnotation o) {
+        return toString().compareTo(o.toString());
+    }
 }
-
-// package annotations;
-//
-// import checkers.nullness.quals.Nullable;
-// import checkers.javari.quals.*;
-// import checkers.javari.quals.ReadOnly;
-//
-// import annotations.el.*;
-// import annotations.util.coll.Keyer;
-//
-// /**
-//  * A top-level annotation containing an ordinary annotation plus a retention
-//  * policy.  These are attached to {@link AElement}s.
-//  */
-// public final /*@ReadOnly*/ class Annotation {
-//     public static final Keyer<String, Annotation> nameKeyer
-//         = new Keyer<String, Annotation>() {
-//         public String getKeyFor(
-//                 Annotation v) /*@ReadOnly*/ {
-//             return v.tldef.name;
-//         }
-//     };
-//
-//     /**
-//      * The annotation definition.
-//      */
-//     public final AnnotationDef tldef;
-//
-//     /**
-//      * The ordinary annotation, which contains the data and the ordinary
-//      * definition.
-//      */
-//     public final Annotation ann;
-//
-//     /**
-//      * Wraps the given annotation in a top-level annotation using the given
-//      * top-level annotation definition, which provides a retention policy.
-//      */
-//     public Annotation(AnnotationDef tldef, Annotation ann) {
-//         if (!ann.def().equals(tldef))
-//             throw new IllegalArgumentException("Definitions mismatch");
-//         this.tldef = tldef;
-//         this.ann = ann;
-//     }
-//
-//     /**
-//      * Wraps the given annotation in a top-level annotation with the given
-//      * retention policy, generating the top-level annotation definition
-//      * automatically for convenience.
-//      */
-//     public Annotation(Annotation ann1,
-//             RetentionPolicy retention) {
-//         this(new AnnotationDef(ann1.def(), retention), ann1);
-//     }
-//
-//     /**
-//      * {@inheritDoc}
-//      */
-//     @Override
-//     public int hashCode() {
-//         return tldef.hashCode() + ann.hashCode();
-//     }
-//
-//     @Override
-//     public String toString() {
-//       StringBuilder sb = new StringBuilder();
-//       sb.append("tla: ");
-//       sb.append(tldef.retention);
-//       sb.append(":");
-//       sb.append(ann.toString());
-//       return sb.toString();
-//     }
-// }

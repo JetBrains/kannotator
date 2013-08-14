@@ -18,7 +18,7 @@ public class DefException extends Exception {
     public final String annotationType;
 
     DefException(String annotationType) {
-        super("Conflicting definition of annotation type " + annotationType);
+        super("Conflicting definition of annotation thisType " + annotationType);
         this.annotationType = annotationType;
     }
 }

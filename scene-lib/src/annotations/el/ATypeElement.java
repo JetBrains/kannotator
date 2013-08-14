@@ -2,6 +2,7 @@ package annotations.el;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
@@ -21,7 +22,7 @@ import checkers.javari.quals.ReadOnly;
 public class ATypeElement extends AElement {
     static <K extends /*@ReadOnly*/ Object> VivifyingMap<K, ATypeElement> newVivifyingLHMap_ATE() {
         return new VivifyingMap<K, ATypeElement>(
-                new LinkedHashMap<K, ATypeElement>()) {
+                new TreeMap<K, ATypeElement>()) {
             @Override
             public  ATypeElement createValueFor(K k) {
                 return new ATypeElement(k);
@@ -49,7 +50,7 @@ public class ATypeElement extends AElement {
     }
 
     void checkRep() {
-        assert type == null;
+        assert thisType == null;
     }
 
     /**
@@ -66,7 +67,7 @@ public class ATypeElement extends AElement {
     // note:  does not call super.equals, so does not check name
     final boolean equalsTypeElement(/*>>> @ReadOnly ATypeElement this, */ /*@ReadOnly*/ ATypeElement o) {
         return equalsElement(o) && innerTypes.equals(o.innerTypes)
-            && (type == null ? o.type == null : type.equals(o.type));
+            && (thisType == null ? o.thisType == null : thisType.equals(o.thisType));
     }
 
     /**

@@ -195,7 +195,7 @@ public abstract class Annotations {
                         nnElementType = aFieldType.elementType;
                     else
                         throw new IllegalArgumentException(
-                                "annotation field type is missing element type");
+                                "annotation field thisType is missing element thisType");
                     for (/*@ReadOnly*/ Object o : l)
                         arrb.appendElement(convertAFV(
                                 nnElementType, o));

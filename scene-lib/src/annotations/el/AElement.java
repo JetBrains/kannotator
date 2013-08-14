@@ -1,12 +1,11 @@
 package annotations.el;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /*>>>
 import checkers.nullness.quals.Nullable;
@@ -24,7 +23,7 @@ import checkers.javari.quals.ReadOnly;
 public class AElement {
     static <K extends /*@ReadOnly*/ Object> VivifyingMap<K, AElement> newVivifyingLHMap_AE() {
         return new VivifyingMap<K, AElement>(
-                new LinkedHashMap<K, AElement>()) {
+                new TreeMap<K, AElement>()) {
             @Override
             public AElement createValueFor(K k) {
                 return new AElement(k);
@@ -42,7 +41,7 @@ public class AElement {
     // contain a non-null "type" field.
     static <K extends /*@ReadOnly*/ Object> VivifyingMap<K, AElement> newVivifyingLHMap_AET() {
         return new VivifyingMap<K, AElement>(
-                new LinkedHashMap<K, AElement>()) {
+                new TreeMap<K, AElement>()) {
             @Override
             public AElement createValueFor(K k) {
                 return new AElement(k, true);
@@ -63,8 +62,9 @@ public class AElement {
      */
     public final Set<SceneAnnotation> tlAnnotationsHere;
 
+    @Nullable
     /** The type of a field or a method parameter */
-    public final ATypeElement type; // initialized in constructor
+    public final ATypeElement thisType; // initialized in constructor
 
     public SceneAnnotation lookup(String name) {
         for (SceneAnnotation anno : tlAnnotationsHere) {
@@ -83,9 +83,9 @@ public class AElement {
     }
 
     AElement(Object description, boolean hasType) {
-        tlAnnotationsHere = new LinkedHashSet<SceneAnnotation>();
+        tlAnnotationsHere = new TreeSet<SceneAnnotation>();
         this.description = description;
-        type = hasType ? new ATypeElement("type of " + description) : null;
+        thisType = hasType ? new ATypeElement("type of " + description) : null;
     }
 
     /**
@@ -138,7 +138,7 @@ public class AElement {
     @Override
     public int hashCode(/*>>> @ReadOnly AElement this*/) {
         return getClass().getName().hashCode() + tlAnnotationsHere.hashCode()
-            + (type == null ? 0 : type.hashCode());
+            + (thisType == null ? 0 : thisType.hashCode());
     }
 
     /**
@@ -149,7 +149,7 @@ public class AElement {
     // we should prune everything even if the first subelement is nonempty.
     public boolean prune() {
         return tlAnnotationsHere.isEmpty()
-            & (type != null ? type.prune() : true);
+            & (thisType != null ? thisType.prune() : true);
     }
 
     @Override
@@ -159,9 +159,9 @@ public class AElement {
       sb.append(description);
       sb.append(" : ");
       tlAnnotationsHereFormatted(sb);
-      if (type!=null) {
+      if (thisType !=null) {
           sb.append(' ');
-          sb.append(type.toString());
+          sb.append(thisType.toString());
       }
       return sb.toString();
     }

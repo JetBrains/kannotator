@@ -21,7 +21,7 @@ import annotations.Annotations;
  * types. <code>AnnotationDef</code>s are immutable.  An AnnotationDef with
  * a non-null retention policy is called a "top-level annotation definition".
  */
-public final /*@ReadOnly*/ class AnnotationDef extends AElement {
+public final /*@ReadOnly*/ class AnnotationDef extends AElement implements Comparable<AnnotationDef> {
 
     /**
      * The binary name of the annotation type, such as
@@ -273,4 +273,8 @@ public final /*@ReadOnly*/ class AnnotationDef extends AElement {
         }
     }
 
+    @Override
+    public int compareTo(AnnotationDef o) {
+        return name.compareTo(o.name);
+    }
 }

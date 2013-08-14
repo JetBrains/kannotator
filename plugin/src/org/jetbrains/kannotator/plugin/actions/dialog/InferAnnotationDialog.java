@@ -17,7 +17,7 @@ import com.intellij.ui.components.JBScrollPane;
 import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.jetbrains.kannotator.plugin.actions.AnnotationsFormat;
+import org.jetbrains.kannotator.annotations.io.AnnotationsFormat;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -38,8 +38,6 @@ public class InferAnnotationDialog extends DialogWrapper {
     JCheckBox addLibrariesRootAutomaticallyCheckbox;
     JCheckBox removeAllOtherAnnotationsRootsCheckbox;
     JCheckBox useCommonTreeCheckBox;
-    JRadioButton formatJaifRadioButton;
-    JRadioButton formatXMLRadioButton;
 
     // Not from gui designer
     LibraryCheckboxTree libraryTree;
@@ -188,21 +186,12 @@ public class InferAnnotationDialog extends DialogWrapper {
     @NotNull
     public AnnotationsFormat getOutputFormat()
     {
-        if (formatJaifRadioButton.isSelected()) return AnnotationsFormat.JAIF;
-        if (formatXMLRadioButton.isSelected()) return AnnotationsFormat.XML;
-        throw new IllegalStateException("No output format specified. Both radio buttons are unchecked?");
+        return AnnotationsFormat.XML;
     }
 
     protected void updateControls() {
         boolean someAnnotationTypeSelected = shouldInferNullabilityAnnotations() || shouldInferKotlinAnnotations();
         setOKActionEnabled(getConfiguringOutputPath() != null && someAnnotationTypeSelected);
-        formatXMLRadioButton.addChangeListener(new ChangeListener() {
-            @Override
-            public void stateChanged(ChangeEvent e) {
-                useCommonTreeCheckBox.setEnabled( formatXMLRadioButton.isSelected() );
-            }
-        });
-
     }
 
     @Nullable

@@ -28,6 +28,9 @@ data class MethodId(
 
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
 fun MethodId.getArgumentTypes(): Array<Type> = Type.getArgumentTypes(methodDesc) as Array<Type> //after KT-2872 should return Array<out Type>
+/**
+ * for method  findClass(Ljava/lang/String;)Ljava/lang/Class; it will return a piece of its signature: findClass(Ljava/lang/String;
+ */
 fun MethodId.getSignatureDescriptor(): String {
     return methodName + methodDesc.substring(0, methodDesc.lastIndexOf(')'))
 }
