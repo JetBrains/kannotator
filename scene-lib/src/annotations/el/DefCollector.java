@@ -1,7 +1,7 @@
 package annotations.el;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.TreeSet;
+import java.util.SortedSet;
 
 import annotations.SceneAnnotation;
 import annotations.field.AnnotationAFT;
@@ -23,8 +23,7 @@ public abstract class DefCollector {
 
     // The set of all definitions in the Scene, which the visitor iterates
     // over.
-    private final Set<AnnotationDef> defs;
-
+    private final SortedSet<AnnotationDef> defs;
     /**
      * Constructs a new {@link DefCollector}, which immediately collects all
      * the definitions from annotations the given scene.  Next call
@@ -34,7 +33,7 @@ public abstract class DefCollector {
      */
     public DefCollector(/*@ReadOnly*/ AScene s)
             throws DefException {
-        defs = new LinkedHashSet<AnnotationDef>();
+        defs = new TreeSet<AnnotationDef>();
         collect(s);
     }
 
