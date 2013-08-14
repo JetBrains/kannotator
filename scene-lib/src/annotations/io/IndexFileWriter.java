@@ -110,7 +110,7 @@ public final class IndexFileWriter {
 
     private void printAnnotation(SceneAnnotation a, PrintWriter pw) {
         pw.print("@" + a.def().name);
-        if (!a.fieldValues.isEmpty()) {
+        //if (!a.fieldValues.isEmpty()) {
             pw.print('(');
             boolean first = true;
             for (Map. /*@ReadOnly*/ Entry<String, /*@ReadOnly*/ Object> f
@@ -122,7 +122,7 @@ public final class IndexFileWriter {
                 first = false;
             }
             pw.print(')');
-        }
+        //}
     }
 
     private void printAnnotations(Collection<? extends SceneAnnotation> annos, PrintWriter pw) {
@@ -158,9 +158,9 @@ public final class IndexFileWriter {
                                                String desc,
                                                ATypeElement e,
                                                PrintWriter pw) {
-        if (e.tlAnnotationsHere.isEmpty() && e.innerTypes.isEmpty() && desc.equals("type")) {
-            return;
-        }
+       // if (e.tlAnnotationsHere.isEmpty() && e.innerTypes.isEmpty() && desc.equals("type")) {
+       //     return;
+       // }
         printElement(indentation, desc, e, pw);
         for (Map.Entry<InnerTypeLocation, ATypeElement> ite
                 : e.innerTypes.entrySet()) {
@@ -336,11 +336,11 @@ public final class IndexFileWriter {
             printElement(INDENT, "method " + mkey, m, pw);
             printBounds(INDENT + INDENT, m.bounds, pw);
             printTypeElementAndInnerTypes(INDENT + INDENT, "return", m.returnType, pw);
-            if (!m.receiver.tlAnnotationsHere.isEmpty() || !m.receiver.innerTypes.isEmpty()) {
+          //if (!m.receiver.tlAnnotationsHere.isEmpty() || !m.receiver.innerTypes.isEmpty()) {
                 // Only output the receiver if there is something to say. This is a bit
                 // inconsistent with the return type, but so be it.
                 printTypeElementAndInnerTypes(INDENT + INDENT, "receiver", m.receiver, pw);
-            }
+          //}
             printNumberedAmbigiousElements(INDENT + INDENT, "parameter", m.parameters, pw);
             for (Map.Entry<LocalLocation, AElement> le
                     : m.locals.entrySet()) {
