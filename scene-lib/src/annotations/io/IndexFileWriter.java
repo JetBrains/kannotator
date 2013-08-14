@@ -287,55 +287,59 @@ public final class IndexFileWriter {
         // And then the annotated classes
         for (Map. /*@ReadOnly*/ Entry<String, /*@ReadOnly*/ AClass> ce
                 : scene.classes.entrySet()) {
-            String cname = ce.getKey();
-            /*@ReadOnly*/ AClass c = ce.getValue();
-            String pkg = IOUtils.packagePart(cname);
-            String basename = IOUtils.basenamePart(cname);
-            pw.println("package " + pkg + ":");
-            pw.print("class " + basename + ":");
-            printAnnotations(c, pw);
-            pw.print("\n");
+            writeClass(ce, pw);
+        }
+    }
 
-            printBounds(INDENT, c.bounds, pw);
-            printExtImpls(INDENT, c.extendsImplements, pw);
+    private void writeClass(Map.Entry<String, AClass> ce, PrintWriter pw) {
+        String cname = ce.getKey();
+            /*@ReadOnly*/
+        AClass c = ce.getValue();
+        String pkg = IOUtils.packagePart(cname);
+        String basename = IOUtils.basenamePart(cname);
+        pw.println("package " + pkg + ":");
+        pw.print("class " + basename + ":");
+        printAnnotations(c, pw);
+        pw.print("\n");
 
-            for (Map.Entry<String, AElement> fe : c.fields.entrySet()) {
-                String fname = fe.getKey();
-                AElement f = fe.getValue();
-                pw.println();
-                printElement(INDENT, "field " + fname, f, pw);
-                printTypeElementAndInnerTypes(INDENT + INDENT, "type", f.thisType, pw);
+        printBounds(INDENT, c.bounds, pw);
+        printExtImpls(INDENT, c.extendsImplements, pw);
+
+        for (Map.Entry<String, AElement> fe : c.fields.entrySet()) {
+            String fname = fe.getKey();
+            AElement f = fe.getValue();
+            pw.println();
+            printElement(INDENT, "field " + fname, f, pw);
+            printTypeElementAndInnerTypes(INDENT + INDENT, "type", f.thisType, pw);
+        }
+        for (Map.Entry<String, AMethod> me
+                : c.methods.entrySet()) {
+            String mkey = me.getKey();
+            AMethod m = me.getValue();
+            pw.println();
+            printElement(INDENT, "method " + mkey, m, pw);
+            printBounds(INDENT + INDENT, m.bounds, pw);
+            printTypeElementAndInnerTypes(INDENT + INDENT, "return", m.returnType, pw);
+            if (!m.receiver.tlAnnotationsHere.isEmpty() || !m.receiver.innerTypes.isEmpty()) {
+                // Only output the receiver if there is something to say. This is a bit
+                // inconsistent with the return type, but so be it.
+                printTypeElementAndInnerTypes(INDENT + INDENT, "receiver", m.receiver, pw);
             }
-            for (Map.Entry<String, AMethod> me
-                    : c.methods.entrySet()) {
-                String mkey = me.getKey();
-                AMethod m = me.getValue();
-                pw.println();
-                printElement(INDENT, "method " + mkey, m, pw);
-                printBounds(INDENT + INDENT, m.bounds, pw);
-                printTypeElementAndInnerTypes(INDENT + INDENT, "return", m.returnType, pw);
-                if (!m.receiver.tlAnnotationsHere.isEmpty() || !m.receiver.innerTypes.isEmpty()) {
-                    // Only output the receiver if there is something to say. This is a bit
-                    // inconsistent with the return type, but so be it.
-                    printTypeElementAndInnerTypes(INDENT + INDENT, "receiver", m.receiver, pw);
-                }
-                printNumberedAmbigiousElements(INDENT + INDENT, "parameter", m.parameters, pw);
-                for (Map.Entry<LocalLocation, AElement> le
-                        : m.locals.entrySet()) {
-                    LocalLocation loc = le.getKey();
-                    AElement l = le.getValue();
-                    printElement(INDENT + INDENT,
-                            "local " + loc.index + " #"
-                                    + loc.scopeStart + "+" + loc.scopeLength, l, pw);
-                    printTypeElementAndInnerTypes(INDENT + INDENT + INDENT,
-                            "type", l.thisType, pw);
-                }
-                printRelativeElements(INDENT + INDENT, "typecast", m.typecasts, pw);
-                printRelativeElements(INDENT + INDENT, "instanceof", m.instanceofs, pw);
-                printRelativeElements(INDENT + INDENT, "new", m.news, pw);
-                // throwsException field is not processed.  Why?
+            printNumberedAmbigiousElements(INDENT + INDENT, "parameter", m.parameters, pw);
+            for (Map.Entry<LocalLocation, AElement> le
+                    : m.locals.entrySet()) {
+                LocalLocation loc = le.getKey();
+                AElement l = le.getValue();
+                printElement(INDENT + INDENT,
+                        "local " + loc.index + " #"
+                                + loc.scopeStart + "+" + loc.scopeLength, l, pw);
+                printTypeElementAndInnerTypes(INDENT + INDENT + INDENT,
+                        "type", l.thisType, pw);
             }
-        pw.println();
+            printRelativeElements(INDENT + INDENT, "typecast", m.typecasts, pw);
+            printRelativeElements(INDENT + INDENT, "instanceof", m.instanceofs, pw);
+            printRelativeElements(INDENT + INDENT, "new", m.news, pw);
+            // throwsException field is not processed.  Why?
         }
     }
 
