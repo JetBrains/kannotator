@@ -278,7 +278,23 @@ public final class IndexFileWriter {
             }
         }
     }
+    /**
+     * Classes representations in alphabetical order (sorted by canonical names)
+     */
+    public Map<String, String> getClassRepresentations() {
+        TreeMap<String, String> map = new TreeMap<String, String>();
+        for (Map.Entry<String, AClass> entry : scene.classes.entrySet()) {
+            StringWriter stringWriter = new StringWriter();
+            PrintWriter pw = new PrintWriter(stringWriter);
 
+
+            writeClass(entry, pw);
+            pw.flush();
+            map.put(entry.getKey(), stringWriter.toString());
+        }
+        return map;
+    }
+    
     private void write(PrintWriter pw) throws DefException {
         // First the annotation definitions...
         OurDefCollector odc = new OurDefCollector(pw);
