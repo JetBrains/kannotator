@@ -24,7 +24,7 @@ public class TypePathEntry {
     @Override
     public String toString() {
         if (tag == TypePathEntryKind.TYPE_ARGUMENT)
-            return String.format("%i (%i)", tag, arg);
+            return tag + " (" + arg + ")";
         else
             return tag.toString();
     }
