@@ -35,6 +35,9 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.simpleErrorHandler
+import org.jetbrains.kannotator.annotations.io.writeAnnotationsToJaif
+import org.jetbrains.kannotator.annotations.io.AnnotationsFormat
+
 
 data class InferringTaskParams(
         val inferNullabilityAnnotations: Boolean,
@@ -42,7 +45,9 @@ data class InferringTaskParams(
         val addAnnotationsRoots: Boolean,
         val removeOtherRoots: Boolean,
         val outputPath: String,
-        val libJarFiles: Map<Library, Set<File>>)
+        val useOneCommonTree: Boolean,
+        val libJarFiles: Map<Library, Set<File>>,
+        val outputFormat: AnnotationsFormat)
 
 public class InferringTask(val taskProject: Project, val taskParams: InferringTaskParams) :
         Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
@@ -150,7 +155,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
     private fun processFiles(outputDirectory: VirtualFile, inferringProgressIndicator: InferringProgressIndicator) {
         for ((lib, files) in taskParams.libJarFiles) {
-            val libOutputDir = createOutputDirectory(lib, outputDirectory)
+
+            val libOutputDir =
+                    if (taskParams.useOneCommonTree)
+                        outputDirectory
+                    else
+                        createOutputDirectory(lib, outputDirectory)
+
             val libIoOutputDir = VfsUtilCore.virtualToIoFile(libOutputDir)
 
             for (file in files) {
@@ -198,16 +209,25 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
                     val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(file)))
 
-                    writeAnnotationsToXMLByPackage(
-                            declarationIndex,
-                            declarationIndex,
-                            null,
-                            libIoOutputDir,
-                            inferredNullabilityAnnotations,
-                            propagatedNullabilityPositions,
-                            simpleErrorHandler {
-                                kind, message -> throw IllegalArgumentException(message)
-                            })
+                    when( taskParams.outputFormat){
+                        AnnotationsFormat.JAIF->  writeAnnotationsToJaif(
+                                declarationIndex,
+                                libIoOutputDir,
+                                inferredNullabilityAnnotations,
+                                propagatedNullabilityPositions)
+                        AnnotationsFormat.XML ->  writeAnnotationsToXMLByPackage(
+                                declarationIndex,
+                                declarationIndex,
+                                null,
+                                libIoOutputDir,
+                                inferredNullabilityAnnotations,
+                                propagatedNullabilityPositions,
+                                simpleErrorHandler {
+                                    kind, message -> throw IllegalArgumentException(message)
+                                })
+                        else-> throw UnsupportedOperationException(
+                                "Given annotations output format is not supported" )
+                    }
 
                     inferringProgressIndicator.savingFinished()
                 } catch (e: OutOfMemoryError) {
@@ -226,10 +246,13 @@ public class InferringTask(val taskProject: Project, val taskParams: InferringTa
 
     private fun createOutputDirectory(library: Library, outputDirectory: VirtualFile): VirtualFile {
         return runComputableInsideWriteAction {
-            val libraryDirName = library.getName() ?: "no-name"
-
-            // Drop directory if it already exist
-            outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+            val libraryDirName = library.getName()?.replaceAll("[\\/:*?\"<>|]", "_") ?: "no-name"
+            // Drop directory if it already exists.
+            // We should not do that when flushing everything into the same directory tree, otherwise we can delete
+            // something important left from previous libraries.
+            if (!taskParams.useOneCommonTree) {
+               outputDirectory.findChild(libraryDirName)?.delete(this@InferringTask)
+            }
 
             outputDirectory.createChildDirectory(this@InferringTask, libraryDirName)
         }

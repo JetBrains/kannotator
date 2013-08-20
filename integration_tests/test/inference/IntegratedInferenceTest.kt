@@ -26,7 +26,7 @@ import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.junit.Assert
 import util.*
 import java.util.HashSet
-import org.jetbrains.kannotator.annotations.io.writeAnnotations
+import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXML
 import java.io.FileWriter
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
@@ -281,7 +281,7 @@ class IntegratedInferenceTest : TestCase() {
         }
 
         val stringWriter = StringWriter()
-        writeAnnotations(stringWriter,
+        writeAnnotationsToXML(stringWriter,
                 methods.sortByToString().map {
                     m ->
                     PositionsForMethod(m).forReturnType().position to arrayListOf(
