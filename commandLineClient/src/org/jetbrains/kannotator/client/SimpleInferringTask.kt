@@ -26,33 +26,36 @@ import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.simpleErrorHandler
+import org.jetbrains.kannotator.annotations.io.InferringTaskTrait
+import org.jetbrains.kannotator.annotations.io.InferringParameters
+import org.jetbrains.kannotator.client.ConsoleInferringTask.TextInferringProgressIndicator
+import org.jetbrains.kannotator.annotations.io.AnnotationTaskProgressMonitor
 
-public class SimpleInferringTask(val taskParams: InferringTaskParams, val diagnostics: PrintStream)  {
-
-
-    public class InferringError(file: File, cause: Throwable?) :
-    Throwable("Exception during inferrence on file ${file.getName()}", cause)
-    fun logAlways(string: String) = diagnostics.println(string)
-    fun logVerbose(string: String) = if (taskParams.verbose) diagnostics.println(string)
-    fun logVerboseNoNewline(string: String) = if (taskParams.verbose) diagnostics.print(string)
-
-    inner class TextInferringProgressIndicator(params: InferringTaskParams) : ProgressMonitor() {
-        val totalAmountOfJars: Int = params.libJarFiles.values().fold(0, { sum, files -> sum + files.size })
+public class ConsoleInferringTask(taskParams: InferringParameters, diagnostics: PrintStream) :
+InferringTaskTrait<InferringParameters, TextInferringProgressIndicator>
+{
+    class TextInferringProgressIndicator(val parameters: InferringParameters, val diagnostics: PrintStream) : AnnotationTaskProgressMonitor() {
+        val totalAmountOfJars: Int = parameters.libToFiles.values().fold(0, { sum, files -> sum + files.size })
         var numberOfJarsFinished: Int = 0
         var numberOfMethods = 0
         var numberOfProcessedMethods = 0
 
-        fun startJarProcessing(fileName: String, libraryName: String) {
-            logVerbose("Inferring for $fileName in $libraryName library. File: ${numberOfJarsFinished + 1} / $totalAmountOfJars.");
+        fun logAlways(string: String) = diagnostics.println(string)
+        fun logVerbose(string: String) = if (parameters.verbose) diagnostics.println(string)
+        fun logVerboseNoNewline(string: String) = if (parameters.verbose) diagnostics.print(string)
+
+        override fun jarProcessingStarted(fileName: String, libraryName: String) {
+
         }
 
         override fun processingStarted() {
+            logVerbose("\nFile: ${numberOfJarsFinished + 1} / $totalAmountOfJars.");
             logVerbose("Initializing...")
+            numberOfProcessedMethods = 0
         }
 
         override fun methodsProcessingStarted(methodCount: Int) {
             numberOfMethods = methodCount
-            //logVerbose("Inferring: 0%");
         }
 
         override fun processingComponentFinished(methods: Collection<Method>) {
@@ -66,17 +69,16 @@ public class SimpleInferringTask(val taskParams: InferringTaskParams, val diagno
                 logVerbose("Inferring: 100% \n");
             }
         }
-
         override  fun processingFinished() {
             numberOfJarsFinished++
         }
 
-        fun savingStarted() {
-            logVerbose("Saving             ")
+        override fun processingAborted() {
+            logVerbose("Annotating was canceled")
         }
-
-        fun savingFinished() {
-            val numberOfFiles = taskParams.libJarFiles.size
+        //All libraries are annotated
+        fun annotationFinished() {
+            val numberOfFiles = parameters.libToFiles.size
             val message = when(numberOfFiles)
             {
                 0 -> "no files were annotated"
@@ -85,122 +87,21 @@ public class SimpleInferringTask(val taskParams: InferringTaskParams, val diagno
             }
             logVerbose("Annotating finished successfully: " + message)
         }
-
-        fun processingAborted() {
-            logVerbose("Annotating was canceled")
-        }
-    }
-
-    fun perform() {
-        val inferringProgressIndicator = TextInferringProgressIndicator(taskParams)
-        val outputDirectory = File(taskParams.outputPath)
-        outputDirectory.mkdir()
-        processFiles(outputDirectory, inferringProgressIndicator)
     }
 
 
-    private fun processFiles(outputDirectory: File, inferringProgressIndicator: TextInferringProgressIndicator
-    ) {
-
-        for ((lib, files) in taskParams.libJarFiles) {
-
-            val libOutputDir =
-                    if (taskParams.useOneCommonTree)
-                        outputDirectory
-                    else
-                        createOutputDirectory(lib, outputDirectory)
-
-            for (file in files) {
-                inferringProgressIndicator.startJarProcessing(file.getName(), lib ?: "<no-name>")
-
-
-
-                try {
-                    val inferrerMap = HashMap<AnalysisType, AnnotationInferrer<Any, Qualifier>>()
-                    if (taskParams.inferNullabilityAnnotations) {
-                        inferrerMap[NULLABILITY_KEY] = NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>
-                    }
-                    if (taskParams.mutability) {
-                        inferrerMap[MUTABILITY_KEY] = MUTABILITY_INFERRER_OBJECT as AnnotationInferrer<Any, Qualifier>
-                    }
-
-                    // TODO: Add existing annotations from dependent libraries
-                    val inferenceResult = inferAnnotations(
-                            FileBasedClassSource(arrayListOf(file)), ArrayList<File>(),
-                            inferrerMap,
-                            inferringProgressIndicator,
-                            NO_ERROR_HANDLING,
-                            false,
-                            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
-                            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
-                            { true },
-                            Collections.emptyMap()
-                    )
-
-                    inferringProgressIndicator.savingStarted()
-
-                    val inferredNullabilityAnnotations =
-                            checkNotNull(
-                                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations,
-                                    "Only nullability annotations are supported by now") as
-                            Annotations<NullabilityAnnotation>
-
-                    val propagatedNullabilityPositions =
-                            checkNotNull(
-                                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions,
-                                    "Only nullability annotations are supported by now"
-                            )
-
-                    val cs = FileBasedClassSource(arrayListOf(file))
-                    val declarationIndex = DeclarationIndexImpl(cs)
-
-                    when (taskParams.outputFormat) {
-                        AnnotationsFormat.JAIF -> writeAnnotationsToJaif(
-                                declarationIndex,
-                                libOutputDir,
-                                inferredNullabilityAnnotations,
-                                propagatedNullabilityPositions)
-                        AnnotationsFormat.XML -> writeAnnotationsToXMLByPackage(
-                                declarationIndex,
-                                declarationIndex,
-                                null,
-                                libOutputDir,
-                                inferredNullabilityAnnotations,
-                                propagatedNullabilityPositions,
-                                simpleErrorHandler {
-                                    kind, message ->
-                                    throw IllegalArgumentException(message)
-                                })
-                        else -> throw UnsupportedOperationException(
-                                "Given annotations output format is not supported")
-                    }
-                    inferringProgressIndicator.savingFinished()
-
-                } catch (e: OutOfMemoryError) {
-                    // Don't wrap OutOfMemoryError
-                    throw e
-                } catch (e: InterruptedException) {
-                    inferringProgressIndicator.processingAborted()
-                } catch (e: Throwable) {
-                    throw InferringError(file, e)
-                }
-            }
-
-        }
+    public override val parameters: InferringParameters;
+    {
+        parameters = taskParams;
     }
+    public override var monitor: TextInferringProgressIndicator? = TextInferringProgressIndicator(parameters, diagnostics)
 
-    private fun createOutputDirectory(library: String?, outputDirectory: File): File {
-        val libraryDirName = library?.replaceAll("[\\/:*?\"<>|]", "_") ?: "no-name"
-        val libraryPath = outputDirectory.path + File.separator + libraryDirName
-        // Drop directory if it already exists.
-        // We should not do that when flushing everything into the same directory tree, otherwise we can delete
-        // something important left from previous libraries.
-        if (!taskParams.useOneCommonTree) {
-            outputDirectory.listFiles()?.find { file -> file.name == libraryDirName }?.delete()
-        }
-        val res = File(libraryPath)
-        res.mkdir()
-        return res
+
+    override fun afterProcessing(params: InferringParameters) {
+        monitor!!.annotationFinished()
+    }
+    override fun beforeFile(params: InferringParameters, filename: String, libname: String) {
+        monitor!!.jarProcessingStarted(filename, libname)
     }
 
 }

@@ -18,7 +18,7 @@ public class AnnotateJarAction: AnAction() {
     public fun annotateJars(project: Project) {
         val dlg = InferAnnotationDialog(project)
         if (dlg.showAndGet()) {
-            val params = InferringTaskParams(
+            val params = InferringPluginParams(
                     inferNullabilityAnnotations = dlg.shouldInferNullabilityAnnotations(),
                     inferKotlinAnnotations = dlg.shouldInferKotlinAnnotations(),
                     outputPath = dlg.getConfiguredOutputPath(),
@@ -29,7 +29,7 @@ public class AnnotateJarAction: AnAction() {
                     outputFormat = dlg.getOutputFormat()
             )
 
-            ProgressManager.getInstance().run(InferringTask(project, params))
+            ProgressManager.getInstance().run(PluginInferringTask(project, params))
         }
     }
 }

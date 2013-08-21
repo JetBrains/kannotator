@@ -7,15 +7,8 @@ import org.jetbrains.kannotator.annotations.io.AnnotationsFormat
 import java.util.HashSet
 import java.io.PrintWriter
 import kotlinlib.toMap
+import org.jetbrains.kannotator.annotations.io.InferringParameters
 
-data class InferringTaskParams(
-        val inferNullabilityAnnotations: Boolean,
-        val mutability: Boolean,
-        val outputPath: String,
-        val useOneCommonTree: Boolean,
-        val libJarFiles: Map<String, Set<File>>,
-        val outputFormat: AnnotationsFormat,
-        val verbose: Boolean = true)
 
 fun <T> List<T>.toSet(): Set<T>
 {
@@ -39,7 +32,7 @@ fun main(args: Array<String>) {
         System.err.println(options.usage())
     } else {
         try{
-            val params = InferringTaskParams(
+            val params = InferringParameters(
                     optionsValues.nullability,
                     optionsValues.mutability,
                     optionsValues.output_path!!,
@@ -48,7 +41,7 @@ fun main(args: Array<String>) {
                     optionsValues.format!!,
                     optionsValues.verbose
             )
-            SimpleInferringTask(params, System.err).perform()
+            ConsoleInferringTask(params, System.err).perform()
         }
         catch(e: Throwable) {
             e.printStackTrace()
