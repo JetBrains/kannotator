@@ -18,16 +18,18 @@ public class AnnotateJarAction: AnAction() {
     public fun annotateJars(project: Project) {
         val dlg = InferAnnotationDialog(project)
         if (dlg.showAndGet()) {
-            val params = InferringTaskParams(
+            val params = InferringPluginParams(
                     inferNullabilityAnnotations = dlg.shouldInferNullabilityAnnotations(),
                     inferKotlinAnnotations = dlg.shouldInferKotlinAnnotations(),
                     outputPath = dlg.getConfiguredOutputPath(),
                     libJarFiles = dlg.getCheckedLibToJarFiles().map { it.key to it.value.map { file -> VfsUtilCore.virtualToIoFile(file) }.toSet() }.toMap(),
                     addAnnotationsRoots = dlg.shouldAddAnnotationsRoots(),
-                    removeOtherRoots = dlg.shouldRemoveAllOtherRoots()
+                    useOneCommonTree = dlg.useOneCommonTree(),
+                    removeOtherRoots = dlg.shouldRemoveAllOtherRoots(),
+                    outputFormat = dlg.getOutputFormat()
             )
 
-            ProgressManager.getInstance().run(InferringTask(project, params))
+            ProgressManager.getInstance().run(PluginInferringTask(project, params))
         }
     }
 }

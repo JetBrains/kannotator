@@ -47,6 +47,7 @@ open class ProgressMonitor {
     open fun processingStepFinished(method: Method) {}
     open fun processingComponentFinished(methods: Collection<Method>) {}
     open fun processingFinished() {}
+    open fun processingAborted() {}
 }
 
 private fun List<AnnotationNode?>.extractAnnotationDataMapTo(annotationsMap: MutableMap<String, AnnotationData>) {

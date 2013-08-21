@@ -17,6 +17,7 @@ import com.intellij.ui.components.JBScrollPane;
 import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.kannotator.annotations.io.AnnotationsFormat;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
@@ -36,6 +37,7 @@ public class InferAnnotationDialog extends DialogWrapper {
     JLabel jarsTreeLabel;
     JCheckBox addLibrariesRootAutomaticallyCheckbox;
     JCheckBox removeAllOtherAnnotationsRootsCheckbox;
+    JCheckBox useCommonTreeCheckBox;
 
     // Not from gui designer
     LibraryCheckboxTree libraryTree;
@@ -121,6 +123,16 @@ public class InferAnnotationDialog extends DialogWrapper {
         return configuredOutputPath;
     }
 
+    /**
+     * Check whether we should create a separate directory for each annotated library or
+     * output annotations to the same directory tree.
+     * @return false if each library has its own branch, true otherwise
+     */
+    public boolean useOneCommonTree()
+    {
+        return useCommonTreeCheckBox.isSelected() && useCommonTreeCheckBox.isEnabled();
+    }
+
     @Override
     protected void doOKAction() {
         if (ProjectWizardUtil.createDirectoryIfNotExists("Output directory", getConfiguredOutputPath(), true)
@@ -169,6 +181,12 @@ public class InferAnnotationDialog extends DialogWrapper {
 
     public boolean shouldRemoveAllOtherRoots() {
         return removeAllOtherAnnotationsRootsCheckbox.isSelected();
+    }
+
+    @NotNull
+    public AnnotationsFormat getOutputFormat()
+    {
+        return AnnotationsFormat.XML;
     }
 
     protected void updateControls() {
