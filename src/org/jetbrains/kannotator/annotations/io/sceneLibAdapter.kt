@@ -28,11 +28,8 @@ private fun convertMethod(
     val methodRecord = classRecord.methods.vivify(kMethod.id.methodName + kMethod.id.methodDesc)
 
     for((idx, param) in kMethod.parameterNames.withIndices()){
-        val paramRecord = methodRecord.parameters.vivify(idx)
-        val annotationsSet = paramRecord.tlAnnotationsHere
-
-        annotationsSet.addAll(annotationDatas.map { it.toSceneAnnotation() })
-
+        methodRecord.parameters.vivify(idx)
+                .thisType!!.tlAnnotationsHere.addAll(annotationDatas.map { it.toSceneAnnotation() })
     }
 }
 
@@ -41,10 +38,8 @@ private fun convertField (
         classRecord: AClass,
         annotationDatas: Collection<AnnotationData>
 ) {
-    val kField = annotationPosition.field
-    val fieldRecord = classRecord.fields.vivify(kField.name)
-    val annotationsSet = fieldRecord.tlAnnotationsHere
-    annotationsSet.addAll(annotationDatas.map { it.toSceneAnnotation() })
+    classRecord.fields.vivify(annotationPosition.field.name)
+            .thisType!!.tlAnnotationsHere.addAll(annotationDatas.map { it.toSceneAnnotation() })
 }
 
 public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScene {
@@ -67,7 +62,6 @@ public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScen
     }
     return scene
 }
-
 
 fun AElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
     val transformedList = tlAnnotationsHere.map (transform)
@@ -92,6 +86,7 @@ fun AClass.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) 
     fields
             .values().forEach { it.transformAnnotations(transform) }
 }
+
 fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
     (this : AElement).transformAnnotations(transform)
 
@@ -114,7 +109,7 @@ fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?)
 
 public fun AScene.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
     for((packagename, packagerecord) in packages)
-        packagerecord.transformAnnotations(transform)
+        packagerecord.transformAnnotations (transform)
     for((classname, classrecord) in classes)
         classrecord.transformAnnotations(transform)
 }
