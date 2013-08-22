@@ -7,6 +7,9 @@ import annotations.el.AClass
 import annotations.el.AnnotationDef
 import annotations.SceneAnnotation
 import annotations.field.BasicAFT
+import annotations.el.AElement
+import annotations.el.ATypeElement
+import annotations.el.AMethod
 
 private fun AnnotationData.toSceneAnnotation(): SceneAnnotation {
     val annotationDef = AnnotationDef(this.annotationClassFqn)
@@ -64,4 +67,44 @@ public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScen
         }
     }
     return scene
+}
+
+
+
+fun AElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    val transformedList = tlAnnotationsHere.map (transform)
+    if (thisType != null) thisType!!.transformAnnotations(transform)
+    tlAnnotationsHere.clear()
+    tlAnnotationsHere.addAll(transformedList.filterNotNull())
+}
+
+fun ATypeElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    (this:AElement).transformAnnotations(transform)
+    innerTypes.mapValues { k, v -> v.transformAnnotations(transform) }
+}
+
+fun AClass.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    (this : AElement).transformAnnotations(transform)
+    bounds.mapValues { k, v-> v.transformAnnotations(transform) }
+    extendsImplements.mapValues { k, v-> v.transformAnnotations(transform) }
+    methods.mapValues { k, v-> v.transformAnnotations(transform) }
+    fields.mapValues { k, v-> v.transformAnnotations(transform) }
+}
+fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    (this : AElement).transformAnnotations(transform)
+    returnType.transformAnnotations(transform)
+    receiver.transformAnnotations(transform)
+    bounds.mapValues { k, v-> v.transformAnnotations(transform) }
+    parameters.mapValues{ k, v-> v.transformAnnotations(transform) }
+    locals.mapValues{ k, v-> v.transformAnnotations(transform) }
+    typecasts.mapValues{ k, v-> v.transformAnnotations(transform) }
+    instanceofs.mapValues{ k, v-> v.transformAnnotations(transform) }
+    news.mapValues{ k, v-> v.transformAnnotations(transform) }
+}
+
+public fun AScene.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    for((packagename, packagerecord) in packages)
+        packagerecord.transformAnnotations (transform)
+    for((classname, classrecord) in classes)
+        classrecord.transformAnnotations(transform)
 }

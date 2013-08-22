@@ -29,3 +29,7 @@ public inline fun <K, V, L, U, C: MutableMap<L, U>> Map<K, V>.mapKeysAndValuesTo
     }
     return result
 }
+
+public fun <K,V,U> MutableMap<K,V>.mapValues(transform: (K,V)-> U)  : Unit {
+        mapKeysAndValues({k,_->k}, {k,v-> transform(k,v)})
+}
