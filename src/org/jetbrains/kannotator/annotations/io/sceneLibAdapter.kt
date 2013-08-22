@@ -29,7 +29,7 @@ private fun convertMethod(
 
     for((idx, param) in kMethod.parameterNames.withIndices()){
         val paramRecord = methodRecord.parameters.vivify(idx)
-        val annotationsSet = paramRecord.tlAnnotationsHere as MutableSet<annotations.SceneAnnotation>
+        val annotationsSet = paramRecord.tlAnnotationsHere
 
         annotationsSet.addAll(annotationDatas.map { it.toSceneAnnotation() })
 
@@ -43,7 +43,7 @@ private fun convertField (
 ) {
     val kField = annotationPosition.field
     val fieldRecord = classRecord.fields.vivify(kField.name)
-    val annotationsSet = fieldRecord.tlAnnotationsHere as MutableSet<annotations.SceneAnnotation>
+    val annotationsSet = fieldRecord.tlAnnotationsHere
     annotationsSet.addAll(annotationDatas.map { it.toSceneAnnotation() })
 }
 
