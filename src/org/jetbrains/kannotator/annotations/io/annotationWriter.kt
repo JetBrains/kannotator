@@ -56,13 +56,13 @@ fun writeAnnotationsToXML(writer: Writer, annotations: Map<AnnotationPosition, C
     printer.openTag("root")
     printer.pushIndent()
     for ((typePosition, annotationDatas) in annotations) {
-        printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
+        printer.openTag("item", hashMapOf("name" to typePosition.toAnnotationKey()))
         printer.pushIndent()
         for (annotationData in annotationDatas) {
             if (annotationData.attributes.size() < 1) {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
+                printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn), true)
             } else {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
+                printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn))
                 for ((name, value) in annotationData.attributes) {
                     val attributesMap = LinkedHashMap<String, String>()
                     attributesMap.put("name", name)
