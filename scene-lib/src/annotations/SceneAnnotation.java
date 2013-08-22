@@ -7,6 +7,7 @@ import checkers.javari.quals.ReadOnly;
 
 import annotations.el.AnnotationDef;
 import annotations.field.AnnotationFieldType;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 import java.lang.reflect.*;
@@ -28,6 +29,7 @@ public final /*@ReadOnly*/ class SceneAnnotation implements  Comparable<SceneAnn
     /**
      * The annotation definition.
      */
+    @NotNull
     public final AnnotationDef def;
 
     /**
