@@ -4,6 +4,7 @@ import java.util.TreeMap;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 
 /*>>>
@@ -13,11 +14,14 @@ import checkers.javari.quals.*;
 
 /** An annotated class */
 public final class AClass extends AElement {
+    @KotlinSignature("val bounds: VivifyingMap<BoundLocation, ATypeElement>")
     @NotNull
     /** The class's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
             ATypeElement.<BoundLocation>newVivifyingLHMap_ATE();
 
+    @KotlinSignature("val extendsImplements: VivifyingMap<TypeIndexLocation, ATypeElement>")
+    @NotNull
     public final VivifyingMap<TypeIndexLocation, ATypeElement> extendsImplements =
         ATypeElement.<TypeIndexLocation>newVivifyingLHMap_ATE();
 
@@ -67,6 +71,7 @@ public final class AClass extends AElement {
         };
     }
 
+    @KotlinSignature("val methods: VivifyingMap<String, AMethod>")
     @NotNull
     /**
      * The class's annotated methods; a method's key consists of its name
@@ -79,14 +84,17 @@ public final class AClass extends AElement {
     public final VivifyingMap<String, AMethod> methods =
         createMethodMap();
 
+    @KotlinSignature("val staticInits: VivifyingMap<Int, ABlock>?")
     public final VivifyingMap<Integer, ABlock> staticInits =
         createStaticInitMap();
 
+    @KotlinSignature("val fields: VivifyingMap<String, AElement>")
     @NotNull
     /** The class's annotated fields; map key is field name */
     public final VivifyingMap<String, AElement> fields =
         AElement.<String>newVivifyingLHMap_AET();
 
+    @KotlinSignature("val fieldInits: VivifyingMap<String, AExpression>?")
     public final VivifyingMap<String, AExpression> fieldInits =
         createFieldInitMap();
 

@@ -7,6 +7,8 @@ import checkers.javari.quals.ReadOnly;
 import java.util.Map;
 
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * ABlock has local variables in scope.
@@ -17,6 +19,8 @@ public class ABlock extends AExpression {
     // Currently we don't validate the local locations (e.g., that no two
     // distinct ranges for the same index overlap).
     /** The method's annotated local variables; map key contains local variable location numbers */
+    @NotNull
+    @KotlinSignature("val locals: VivifyingMap<LocalLocation, AElement>")
     public final VivifyingMap<LocalLocation, AElement> locals =
             AElement.<LocalLocation>newVivifyingLHMap_AET();
 

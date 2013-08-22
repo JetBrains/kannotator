@@ -8,6 +8,7 @@ import checkers.javari.quals.ReadOnly;
 import java.util.Map;
 
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -15,6 +16,7 @@ import org.jetbrains.annotations.NotNull;
  */
 public final class AMethod extends ABlock {
 
+    @KotlinSignature("val bounds: VivifyingMap<BoundLocation, ATypeElement>")
     @NotNull
     /** The method's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
@@ -28,6 +30,7 @@ public final class AMethod extends ABlock {
     /** The method's annotated receiver parameter type */
     public final ATypeElement receiver; // initialized in constructor
 
+    @KotlinSignature("val parameters: VivifyingMap<Int, AElement>")
     @NotNull
     /** The method's annotated parameters; map key is parameter index */
     public final VivifyingMap<Integer, AElement> parameters =

@@ -4,6 +4,7 @@ import java.util.*;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -54,6 +55,7 @@ public class AElement {
         };
     }
 
+    @KotlinSignature("val tlAnnotationsHere: MutableSet<SceneAnnotation>")
     @NotNull
     /**
      * The top-level annotations directly on this element.  Annotations on

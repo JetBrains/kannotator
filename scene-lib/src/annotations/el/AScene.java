@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 
 /*>>>
@@ -52,6 +53,7 @@ import checkers.javari.quals.ReadOnly;
 public final class AScene {
   public static boolean debugFoundMap = false;
 
+    @KotlinSignature("val packages: VivifyingMap<String, AElement>")
     @NotNull
     /** This scene's annotated packages; map key is package name */
     public final VivifyingMap<String, AElement> packages =

@@ -6,6 +6,8 @@ import java.util.TreeMap;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
+import org.jetbrains.annotations.NotNull;
 
 /*>>>
 import checkers.nullness.quals.Nullable;
@@ -38,6 +40,8 @@ public class ATypeElement extends AElement {
     /**
      * The annotated inner types; map key is the inner type location.
      */
+    @KotlinSignature("val innerTypes: VivifyingMap<InnerTypeLocation, ATypeElement>")
+    @NotNull
     public final VivifyingMap<InnerTypeLocation, ATypeElement> innerTypes =
         ATypeElement.<InnerTypeLocation>newVivifyingLHMap_ATE();
 

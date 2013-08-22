@@ -14,6 +14,7 @@ import annotations.SceneAnnotation;
 import annotations.AnnotationBuilder;
 import annotations.field.*;
 import annotations.Annotations;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * An annotation type definition, consisting of the annotation name,
@@ -23,6 +24,7 @@ import annotations.Annotations;
  */
 public final /*@ReadOnly*/ class AnnotationDef extends AElement implements Comparable<AnnotationDef> {
 
+    @NotNull
     /**
      * The binary name of the annotation type, such as
      * "foo.Bar$Baz" for inner class Baz in class Bar in package foo.

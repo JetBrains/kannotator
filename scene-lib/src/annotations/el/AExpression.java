@@ -8,6 +8,8 @@ import java.util.Map;
 
 import annotations.io.ASTPath;
 import annotations.util.coll.VivifyingMap;
+import jet.runtime.typeinfo.KotlinSignature;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Manages all annotations within expressions, that is, annotations on typecasts,
@@ -16,18 +18,26 @@ import annotations.util.coll.VivifyingMap;
  */
 public class AExpression extends AElement {
     /** The method's annotated typecasts; map key is the offset of the checkcast bytecode */
+    @NotNull
+    @KotlinSignature("val typecasts: VivifyingMap<RelativeLocation, ATypeElement>")
     public final VivifyingMap<RelativeLocation, ATypeElement> typecasts =
             ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
 
     /** The method's annotated "instanceof" tests; map key is the offset of the instanceof bytecode */
+    @NotNull
+    @KotlinSignature("val instanceofs: VivifyingMap<RelativeLocation, ATypeElement>")
     public final VivifyingMap<RelativeLocation, ATypeElement> instanceofs =
             ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
 
     /** The method's annotated "new" invocations; map key is the offset of the new bytecode */
+    @NotNull
+    @KotlinSignature("val news: VivifyingMap<RelativeLocation, ATypeElement>")
     public final VivifyingMap<RelativeLocation, ATypeElement> news =
             ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
 
     /** The method's annotated insert-typecast invocations; map key is the AST path to the insertion place */
+    @NotNull
+    @KotlinSignature("val insertTypecasts: VivifyingMap<ASTPath, ATypeElementWithType>")
     public final VivifyingMap<ASTPath, ATypeElementWithType> insertTypecasts =
             ATypeElementWithType.<ASTPath>newVivifyingLHMap_ATEWT();
 
