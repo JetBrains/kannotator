@@ -112,8 +112,8 @@ public abstract class DefCollector {
 
             addToDefs(d);
         }
-        if (e.type != null) {
-            collect(e.type);
+        if (e.thisType != null) {
+            collect(e.thisType);
         }
 
     }

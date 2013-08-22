@@ -62,7 +62,7 @@ public class AElement {
     public final Set<SceneAnnotation> tlAnnotationsHere;
 
     /** The type of a field or a method parameter */
-    public final ATypeElement type; // initialized in constructor
+    public final ATypeElement thisType; // initialized in constructor
 
     public SceneAnnotation lookup(String name) {
         for (SceneAnnotation anno : tlAnnotationsHere) {
@@ -83,7 +83,7 @@ public class AElement {
     AElement(Object description, boolean hasType) {
         tlAnnotationsHere = new TreeSet<SceneAnnotation>();
         this.description = description;
-        type = hasType ? new ATypeElement("type of " + description) : null;
+        thisType = hasType ? new ATypeElement("type of " + description) : null;
     }
 
     /**
@@ -136,7 +136,7 @@ public class AElement {
     @Override
     public int hashCode(/*>>> @ReadOnly AElement this*/) {
         return getClass().getName().hashCode() + tlAnnotationsHere.hashCode()
-            + (type == null ? 0 : type.hashCode());
+            + (thisType == null ? 0 : thisType.hashCode());
     }
 
     /**
@@ -147,7 +147,7 @@ public class AElement {
     // we should prune everything even if the first subelement is nonempty.
     public boolean prune() {
         return tlAnnotationsHere.isEmpty()
-            & (type != null ? type.prune() : true);
+            & (thisType != null ? thisType.prune() : true);
     }
 
     @Override
@@ -157,9 +157,9 @@ public class AElement {
       sb.append(description);
       sb.append(" : ");
       tlAnnotationsHereFormatted(sb);
-      if (type!=null) {
+      if (thisType !=null) {
           sb.append(' ');
-          sb.append(type.toString());
+          sb.append(thisType.toString());
       }
       return sb.toString();
     }

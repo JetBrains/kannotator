@@ -1,6 +1,5 @@
 package annotations.el;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -50,7 +49,7 @@ public class ATypeElement extends AElement {
     }
 
     void checkRep() {
-        assert type == null;
+        assert thisType == null;
     }
 
     /**
@@ -67,7 +66,7 @@ public class ATypeElement extends AElement {
     // note:  does not call super.equals, so does not check name
     final boolean equalsTypeElement(/*>>> @ReadOnly ATypeElement this, */ /*@ReadOnly*/ ATypeElement o) {
         return equalsElement(o) && innerTypes.equals(o.innerTypes)
-            && (type == null ? o.type == null : type.equals(o.type));
+            && (thisType == null ? o.thisType == null : thisType.equals(o.thisType));
     }
 
     /**

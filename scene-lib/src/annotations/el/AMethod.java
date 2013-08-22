@@ -101,7 +101,7 @@ public final class AMethod extends ABlock {
             AElement ae = em.getValue();
             sb.append(ae.toString());
             sb.append(" ");
-            ATypeElement ate = ae.type;
+            ATypeElement ate = ae.thisType;
             sb.append(ate.toString());
         }
         sb.append(" ");

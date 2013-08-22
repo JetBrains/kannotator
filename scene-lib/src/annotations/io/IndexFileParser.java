@@ -706,8 +706,8 @@ public final class IndexFileParser {
         parseAnnotations(f);
         if (checkKeyword("type") && matchKeyword("type")) {
             expectChar(':');
-            parseAnnotations(f.type);
-            parseInnerTypes(f.type);
+            parseAnnotations(f.thisType);
+            parseInnerTypes(f.thisType);
         }
 
         AExpression fieldinit = c.fieldInits.vivify(name);
@@ -777,9 +777,9 @@ public final class IndexFileParser {
                 parseAnnotations(p);
                 if (checkKeyword("type") && matchKeyword("type")) {
                     expectChar(':');
-                    parseAnnotations(p.type);
-                    parseInnerTypes(p.type);
-                }
+                    parseAnnotations(p.thisType);
+                        parseInnerTypes(p.thisType);
+            }
             } else if (matchKeyword("receiver")) {
                 expectChar(':');
                 parseAnnotations(m.receiver);
@@ -829,9 +829,9 @@ public final class IndexFileParser {
                 parseAnnotations(l);
                 if (checkKeyword("type") && matchKeyword("type")) {
                     expectChar(':');
-                    parseAnnotations(l.type);
-                    parseInnerTypes(l.type);
-                }
+                    parseAnnotations(l.thisType);
+                        parseInnerTypes(l.thisType);
+            }
             }
             matched = parseExpression(bl) || matched;
         }
