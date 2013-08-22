@@ -159,7 +159,7 @@ class ComparisonTest
         juliaScene.writeClasses("$TEST_DATA_PATH$name/comparable-julia.jaif")
         kannotatorScene.writeClasses("$TEST_DATA_PATH$name/comparable-ckannotator.jaif")
 
-        Assert.assertEquals("Julia has output a result different to kannotator's one for file $TEST_DATA_PATH$name.",
+        Assert.assertEquals("Julia has output a result different to kannotator's one for file $TEST_DATA_PATH$name. \n Julia on the left, KAnnotator on the right",
                 juliaScene.comparableString(), kannotatorScene.comparableString())
     }
 }

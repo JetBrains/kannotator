@@ -1,0 +1,632 @@
+package org.jetbrains.annotations:
+annotation @NotNull:
+
+package org.jetbrains.kannotator.runtime.annotations:
+annotation @Propagated:
+    String value
+
+package com.intellij.openapi.extensions:
+class AbstractExtensionPointBean:
+
+    method findClass(Ljava/lang/String;)Ljava/lang/Class;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method instantiate(Ljava/lang/Class;Lorg/picocontainer/PicoContainer;)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method instantiate(Ljava/lang/Class;Lorg/picocontainer/PicoContainer;Z)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #2:
+            type: @org.jetbrains.annotations.NotNull
+
+    method instantiate(Ljava/lang/String;Lorg/picocontainer/PicoContainer;)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class EPAvailabilityListenerExtension:
+
+    field EXTENSION_POINT_NAME:
+        type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class ExtensionException:
+
+    method <init>(Ljava/lang/Class;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensionClass()Ljava/lang/Class;:
+        return:
+
+package com.intellij.openapi.extensions.ExtensionPoint:
+class Kind:
+
+    field BEAN_CLASS:
+        type: @org.jetbrains.annotations.NotNull
+
+    field INTERFACE:
+        type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class ExtensionPoint:
+
+    method addExtensionPointListener(Lcom/intellij/openapi/extensions/ExtensionPointListener;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method addExtensionPointListener(Lcom/intellij/openapi/extensions/ExtensionPointListener;Lcom/intellij/openapi/Disposable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions()[Ljava/lang/Object;:
+        return:
+
+    method hasExtension(Ljava/lang/Object;)Z:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtension(Ljava/lang/Object;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtension(Ljava/lang/Object;Lcom/intellij/openapi/extensions/LoadingOrder;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method removeExtensionPointListener(Lcom/intellij/openapi/extensions/ExtensionPointListener;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method unregisterExtension(Ljava/lang/Object;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class ExtensionPointListener:
+
+    method extensionAdded(Ljava/lang/Object;Lcom/intellij/openapi/extensions/PluginDescriptor;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method extensionRemoved(Ljava/lang/Object;Lcom/intellij/openapi/extensions/PluginDescriptor;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class ExtensionPointName:
+
+    method create(Ljava/lang/String;)Lcom/intellij/openapi/extensions/ExtensionPointName;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions()[Ljava/lang/Object;:
+        return:
+
+package com.intellij.openapi.extensions.Extensions:
+class SimpleLogProvider:
+
+    method error(Ljava/lang/String;Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method error(Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method warn(Ljava/lang/String;Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method warn(Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class Extensions:
+
+    field AREA_LISTENER_EXTENSION_POINT:
+        type: @org.jetbrains.annotations.NotNull
+
+    method cleanRootArea(Lcom/intellij/openapi/Disposable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method disposeArea(Lcom/intellij/openapi/extensions/AreaInstance;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method findExtension(Lcom/intellij/openapi/extensions/ExtensionPointName;Lcom/intellij/openapi/extensions/AreaInstance;Ljava/lang/Class;)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #2:
+            type: @org.jetbrains.annotations.NotNull
+
+    method findExtension(Lcom/intellij/openapi/extensions/ExtensionPointName;Ljava/lang/Class;)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getAllAreas(Ljava/lang/String;)[Lcom/intellij/openapi/extensions/AreaInstance;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getArea(Lcom/intellij/openapi/extensions/AreaInstance;)Lcom/intellij/openapi/extensions/ExtensionsArea;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions(Lcom/intellij/openapi/extensions/ExtensionPointName;)[Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions(Lcom/intellij/openapi/extensions/ExtensionPointName;Lcom/intellij/openapi/extensions/AreaInstance;)[Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions(Ljava/lang/String;)[Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions(Ljava/lang/String;Lcom/intellij/openapi/extensions/AreaInstance;)[Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getRootArea()Lcom/intellij/openapi/extensions/ExtensionsArea;:
+        return:
+
+    method instantiateArea(Ljava/lang/String;Lcom/intellij/openapi/extensions/AreaInstance;Lcom/intellij/openapi/extensions/AreaInstance;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #2:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerAreaClass(Ljava/lang/String;Ljava/lang/String;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method setLogProvider(Lcom/intellij/openapi/extensions/LogProvider;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class ExtensionsArea:
+
+    method getExtensionPoint(Lcom/intellij/openapi/extensions/ExtensionPointName;)Lcom/intellij/openapi/extensions/ExtensionPoint;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method getExtensionPoint(Ljava/lang/String;)Lcom/intellij/openapi/extensions/ExtensionPoint;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getPicoContainer()Lcom/intellij/openapi/extensions/AreaPicoContainer;:
+        return:
+
+    method getPluginContainer(Ljava/lang/String;)Lorg/picocontainer/PicoContainer;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method registerExtension(Lcom/intellij/openapi/extensions/PluginDescriptor;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method registerExtension(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method registerExtensionPoint(Lcom/intellij/openapi/extensions/PluginDescriptor;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method registerExtensionPoint(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method unregisterExtension(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method unregisterExtensionPoint(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+package com.intellij.openapi.extensions.LoadingOrder:
+class Orderable:
+
+    method getDescribingElement()Lorg/jdom/Element;:
+        return:
+
+    method getOrder()Lcom/intellij/openapi/extensions/LoadingOrder;:
+        return:
+
+package com.intellij.openapi.extensions:
+class LoadingOrder:
+
+    field ANY:
+        type: @org.jetbrains.annotations.NotNull
+
+    field FIRST:
+        type: @org.jetbrains.annotations.NotNull
+
+    field LAST:
+        type: @org.jetbrains.annotations.NotNull
+
+    method after(Ljava/lang/String;)Lcom/intellij/openapi/extensions/LoadingOrder;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method before(Ljava/lang/String;)Lcom/intellij/openapi/extensions/LoadingOrder;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method readOrder(Ljava/lang/String;)Lcom/intellij/openapi/extensions/LoadingOrder;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method sort([Lcom/intellij/openapi/extensions/LoadingOrder$Orderable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method toString()Ljava/lang/String;:
+        return:
+
+package com.intellij.openapi.extensions:
+class LogProvider:
+
+    method error(Ljava/lang/String;Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method error(Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method warn(Ljava/lang/String;Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+    method warn(Ljava/lang/Throwable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull @org.jetbrains.kannotator.runtime.annotations.Propagated(value="{org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey.class}")
+
+package com.intellij.openapi.extensions:
+class PluginId:
+
+    field EMPTY_ARRAY:
+        type: @org.jetbrains.annotations.NotNull
+
+    method compareTo(Lcom/intellij/openapi/extensions/PluginId;)I:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method compareTo(Ljava/lang/Object;)I:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getId(Ljava/lang/String;)Lcom/intellij/openapi/extensions/PluginId;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getRegisteredIds()Ljava/util/Map;:
+        return:
+
+package com.intellij.openapi.extensions:
+class SimpleSmartExtensionPoint:
+
+    method <init>(Ljava/util/Collection;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtension(Ljava/lang/Object;)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions:
+class SmartExtensionPoint:
+
+    method <init>(Ljava/util/Collection;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method addExplicitExtension(Ljava/lang/Object;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method extensionAdded(Ljava/lang/Object;Lcom/intellij/openapi/extensions/PluginDescriptor;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method extensionRemoved(Ljava/lang/Object;Lcom/intellij/openapi/extensions/PluginDescriptor;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtension(Ljava/lang/Object;)Ljava/lang/Object;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensionPoint()Lcom/intellij/openapi/extensions/ExtensionPoint;:
+        return:
+
+    method getExtensions()Ljava/util/List;:
+        return:
+
+    method removeExplicitExtension(Ljava/lang/Object;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions.impl:
+class ExtensionComponentAdapter:
+
+    field EMPTY_ARRAY:
+        type: @org.jetbrains.annotations.NotNull
+
+    method getComponentKey()Ljava/lang/Object;:
+        return:
+
+    method getDescribingElement()Lorg/jdom/Element;:
+        return:
+
+    method getExtension()Ljava/lang/Object;:
+        return:
+
+    method getOrder()Lcom/intellij/openapi/extensions/LoadingOrder;:
+        return:
+
+    method isAssignableTo(Ljava/lang/Class;)Z:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions.impl:
+class ExtensionPointImpl:
+
+    method addExtensionPointListener(Lcom/intellij/openapi/extensions/ExtensionPointListener;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method addExtensionPointListener(Lcom/intellij/openapi/extensions/ExtensionPointListener;Lcom/intellij/openapi/Disposable;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensions()[Ljava/lang/Object;:
+        return:
+
+    method hasExtension(Ljava/lang/Object;)Z:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtension(Ljava/lang/Object;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtension(Ljava/lang/Object;Lcom/intellij/openapi/extensions/LoadingOrder;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method removeExtensionPointListener(Lcom/intellij/openapi/extensions/ExtensionPointListener;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method unregisterExtension(Ljava/lang/Object;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+package com.intellij.openapi.extensions.impl:
+class ExtensionsAreaImpl:
+
+    method <init>(Ljava/lang/String;Lcom/intellij/openapi/extensions/AreaInstance;Lorg/picocontainer/PicoContainer;Lcom/intellij/openapi/extensions/LogProvider;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #2:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #3:
+            type: @org.jetbrains.annotations.NotNull
+
+    method <init>(Lorg/picocontainer/MutablePicoContainer;Lcom/intellij/openapi/extensions/LogProvider;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensionPoint(Lcom/intellij/openapi/extensions/ExtensionPointName;)Lcom/intellij/openapi/extensions/ExtensionPoint;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensionPoint(Ljava/lang/String;)Lcom/intellij/openapi/extensions/ExtensionPoint;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getExtensionPoint(Ljava/lang/String;)Lcom/intellij/openapi/extensions/impl/ExtensionPointImpl;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method getPicoContainer()Lcom/intellij/openapi/extensions/AreaPicoContainer;:
+        return:
+
+    method getPluginContainer(Ljava/lang/String;)Lorg/picocontainer/PicoContainer;:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtension(Lcom/intellij/openapi/extensions/PluginDescriptor;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtension(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtensionPoint(Lcom/intellij/openapi/extensions/PluginDescriptor;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtensionPoint(Lcom/intellij/openapi/extensions/impl/ExtensionPointImpl;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method registerExtensionPoint(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method removeAllComponents(Ljava/util/Set;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+
+    method unregisterExtension(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+
+    method unregisterExtensionPoint(Ljava/lang/String;Lorg/jdom/Element;)V:
+        return:
+        parameter #0:
+            type: @org.jetbrains.annotations.NotNull
+        parameter #1:
+            type: @org.jetbrains.annotations.NotNull
+

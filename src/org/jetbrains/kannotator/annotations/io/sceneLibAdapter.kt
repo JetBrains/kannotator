@@ -28,11 +28,8 @@ private fun convertMethod(
     val methodRecord = classRecord.methods.vivify(kMethod.id.methodName+kMethod.id.methodDesc)
 
     for((idx, param) in kMethod.parameterNames.withIndices()){
-        val paramRecord = methodRecord.parameters.vivify(idx)
-        val annotationsSet = paramRecord.tlAnnotationsHere as MutableSet<annotations.SceneAnnotation>
-
-        annotationsSet.addAll(annotationDatas.map { it.toSceneAnnotation() })
-
+        methodRecord.parameters.vivify(idx)
+                .thisType!!.tlAnnotationsHere.addAll(annotationDatas.map { it.toSceneAnnotation() })
     }
 }
 
@@ -41,10 +38,8 @@ private fun convertField (
         classRecord: AClass,
         annotationDatas: Collection<AnnotationData>
 ) {
-    val kField = annotationPosition.field
-    val fieldRecord = classRecord.fields.vivify(kField.name)
-    val annotationsSet = fieldRecord.tlAnnotationsHere as MutableSet<annotations.SceneAnnotation>
-    annotationsSet.addAll(annotationDatas.map { it.toSceneAnnotation() })
+    classRecord.fields.vivify(annotationPosition.field.name)
+            .thisType!!.tlAnnotationsHere.addAll(annotationDatas.map { it.toSceneAnnotation() })
 }
 
 public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScene
