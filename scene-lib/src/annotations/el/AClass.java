@@ -17,7 +17,7 @@ public final class AClass extends AElement {
     /** The class's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
             ATypeElement.<BoundLocation>newVivifyingLHMap_ATE();
-
+    @NotNull
     public final VivifyingMap<TypeIndexLocation, ATypeElement> extendsImplements =
         ATypeElement.<TypeIndexLocation>newVivifyingLHMap_ATE();
 

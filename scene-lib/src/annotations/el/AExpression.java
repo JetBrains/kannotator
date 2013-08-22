@@ -8,6 +8,7 @@ import java.util.Map;
 
 import annotations.io.ASTPath;
 import annotations.util.coll.VivifyingMap;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * Manages all annotations within expressions, that is, annotations on typecasts,
@@ -15,18 +16,23 @@ import annotations.util.coll.VivifyingMap;
  * We can use this class for methods, field initializers, and static initializers.
  */
 public class AExpression extends AElement {
+
+    @NotNull
     /** The method's annotated typecasts; map key is the offset of the checkcast bytecode */
     public final VivifyingMap<RelativeLocation, ATypeElement> typecasts =
             ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
 
+    @NotNull
     /** The method's annotated "instanceof" tests; map key is the offset of the instanceof bytecode */
     public final VivifyingMap<RelativeLocation, ATypeElement> instanceofs =
             ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
 
+    @NotNull
     /** The method's annotated "new" invocations; map key is the offset of the new bytecode */
     public final VivifyingMap<RelativeLocation, ATypeElement> news =
             ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
 
+    @NotNull
     /** The method's annotated insert-typecast invocations; map key is the AST path to the insertion place */
     public final VivifyingMap<ASTPath, ATypeElementWithType> insertTypecasts =
             ATypeElementWithType.<ASTPath>newVivifyingLHMap_ATEWT();

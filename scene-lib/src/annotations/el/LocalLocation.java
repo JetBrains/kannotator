@@ -1,6 +1,7 @@
 package annotations.el;
 
 import annotations.util.Hasher;
+import org.jetbrains.annotations.Nullable;
 
 /*>>>
 import checkers.nullness.quals.*;
@@ -40,6 +41,7 @@ public final /*@ReadOnly*/ class LocalLocation {
         this.varIndex = -1;
     }
 
+    @Nullable
     public final String varName;
     public final int varIndex;
 

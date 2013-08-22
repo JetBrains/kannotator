@@ -14,13 +14,17 @@ import org.jetbrains.annotations.NotNull;
  * An annotated method; contains bounds, return, parameters, receiver, and throws.
  */
 public final class AMethod extends ABlock {
+
+    @NotNull
     /** The method's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
             ATypeElement.<BoundLocation>newVivifyingLHMap_ATE();
 
+    @NotNull
     /** The method's annotated return type */
     public final ATypeElement returnType; // initialized in constructor
 
+    @NotNull
     /** The method's annotated receiver parameter type */
     public final ATypeElement receiver; // initialized in constructor
 

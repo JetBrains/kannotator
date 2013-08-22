@@ -5,6 +5,7 @@ import java.util.TreeMap;
 
 import annotations.SceneAnnotation;
 import annotations.util.coll.VivifyingMap;
+import org.jetbrains.annotations.NotNull;
 
 /*>>>
 import checkers.nullness.quals.Nullable;
@@ -34,6 +35,7 @@ public class ATypeElement extends AElement {
         };
     }
 
+    @NotNull
     /**
      * The annotated inner types; map key is the inner type location.
      */
