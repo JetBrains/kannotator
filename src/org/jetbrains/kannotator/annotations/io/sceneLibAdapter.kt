@@ -7,6 +7,9 @@ import annotations.el.AClass
 import annotations.el.AnnotationDef
 import annotations.SceneAnnotation
 import annotations.field.BasicAFT
+import annotations.el.AElement
+import annotations.el.ATypeElement
+import annotations.el.AMethod
 
 private fun AnnotationData.toSceneAnnotation(): SceneAnnotation {
     val annotationDef = AnnotationDef(this.annotationClassFqn)
@@ -63,4 +66,55 @@ public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScen
         }
     }
     return scene
+}
+
+
+fun AElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    val transformedList = tlAnnotationsHere.map (transform)
+    if (thisType != null) thisType!!.transformAnnotations(transform)
+    tlAnnotationsHere.clear()
+    tlAnnotationsHere.addAll(transformedList.filterNotNull())
+}
+
+fun ATypeElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    (this:AElement).transformAnnotations(transform)
+    innerTypes.values()
+            .forEach { it.transformAnnotations(transform) }
+}
+fun AClass.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    (this : AElement).transformAnnotations(transform)
+    bounds
+            .values().forEach { it.transformAnnotations(transform) }
+    extendsImplements
+            .values().forEach { it.transformAnnotations(transform) }
+    methods
+            .values().forEach { it.transformAnnotations(transform) }
+    fields
+            .values().forEach { it.transformAnnotations(transform) }
+}
+fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    (this : AElement).transformAnnotations(transform)
+
+    returnType.transformAnnotations(transform)
+    receiver.transformAnnotations(transform)
+
+    bounds
+            .values().forEach { it.transformAnnotations(transform) }
+    parameters
+            .values().forEach { it.transformAnnotations(transform) }
+    locals
+            .values().forEach { it.transformAnnotations(transform) }
+    typecasts
+            .values().forEach { it.transformAnnotations(transform) }
+    instanceofs
+            .values().forEach { it.transformAnnotations(transform) }
+    news
+            .values().forEach { it.transformAnnotations(transform) }
+}
+
+public fun AScene.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
+    for((packagename, packagerecord) in packages)
+        packagerecord.transformAnnotations(transform)
+    for((classname, classrecord) in classes)
+        classrecord.transformAnnotations(transform)
 }
