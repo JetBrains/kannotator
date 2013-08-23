@@ -30,6 +30,7 @@ import annotations.field.BasicAFT
 fun writeAnnotationsToJaif(
         declIndex: DeclarationIndex,
         destRoot: File,
+        fileName: String,
         nullability: Annotations<NullabilityAnnotation>,
         propagatedNullabilityPositions: Set<AnnotationPosition>,
         classPrefixesToOmit: Set<String> = Collections.emptySet(),
@@ -44,7 +45,7 @@ fun writeAnnotationsToJaif(
             includedClassNames,
             includedPositions)
             .toAScene()
-    val writer = FileWriter(File(destRoot, "annotations.jaif"))
+    val writer = FileWriter(File(destRoot, "$fileName.jaif"))
     IndexFileWriter.write(scene, writer)
 }
 
