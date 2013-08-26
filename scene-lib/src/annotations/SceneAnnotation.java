@@ -23,7 +23,7 @@ import java.lang.reflect.*;
  * {@link AnnotationFactory#saf}. Either way works, but if you construct
  * one directly, you must provide a matching {@link annotations.el.AnnotationDef} yourself.
  */
-public final /*@ReadOnly*/ class SceneAnnotation {
+public final /*@ReadOnly*/ class SceneAnnotation implements  Comparable<SceneAnnotation>{
 
     /**
      * The annotation definition.
@@ -235,6 +235,10 @@ public final /*@ReadOnly*/ class SceneAnnotation {
         return sb.toString();
     }
 
+    @Override
+    public int compareTo(SceneAnnotation o) {
+        return toString().compareTo(o.toString());
+    }
 }
 
 // package annotations;
