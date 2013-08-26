@@ -181,8 +181,7 @@ public class IdeaInferenceTask(val taskProject: Project,
 
                 modifiableModel.addRoot(annotationRootDir, AnnotationOrderRootType.getInstance())
                 modifiableModel.commit()
-            }
-            catch (error: Throwable) {
+            } catch (error: Throwable) {
                 Disposer.dispose(modifiableModel)
                 throw error
             }
