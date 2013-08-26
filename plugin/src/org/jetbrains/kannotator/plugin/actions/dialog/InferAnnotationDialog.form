@@ -28,7 +28,7 @@
       </component>
       <component id="19b21" class="javax.swing.JLabel" binding="outputDirectoryLabel">
         <constraints>
-          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <preferred-size width="90" height="14"/>
           </grid>
         </constraints>
@@ -85,20 +85,20 @@
           <text value="Remove &amp;all other annotations roots"/>
         </properties>
       </component>
+      <component id="95a5f" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="outputDirectory">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
       <component id="9aaf9" class="javax.swing.JCheckBox" binding="useCommonTreeCheckBox">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="7" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Use common directory tree"/>
           <toolTipText value="Output all annotations to the same directory tree, instead of separate ones for each library. Be aware of possible name conflicts!"/>
         </properties>
-      </component>
-      <component id="95a5f" class="com.intellij.openapi.ui.TextFieldWithBrowseButton" binding="outputDirectory">
-        <constraints>
-          <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties/>
       </component>
     </children>
   </grid>
