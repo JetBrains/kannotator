@@ -44,7 +44,7 @@ public data class AnnotatedLibrary(
         public val name: String,
         public val files: Set<File>){
 
-    public val refinedFileName: String
+    public val sanitizedFileName: String
         get() = (name.prefixUpToLast(".jar") ?: name).replaceAll("[\\/:*?\"<>|]", "_")
 
     public fun annotationsPath(outputPath: String,
@@ -52,7 +52,7 @@ public data class AnnotatedLibrary(
             if (useOneCommonTree)
                 outputPath
             else
-                outputPath + File.separator + refinedFileName
+                outputPath + File.separator + sanitizedFileName
 
 
 }
@@ -127,7 +127,7 @@ private fun processFile(file: File,
     writeAnnotations(parameters.outputFormat,
             declarationIndex,
             outputDirectory,
-            lib.refinedFileName,
+            lib.sanitizedFileName,
             inferredNullabilityAnnotations,
             propagatedNullabilityPositions)
 }
