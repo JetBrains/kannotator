@@ -41,11 +41,20 @@ public open class FileAwareProgressMonitor() : ProgressMonitor() {
 }
 
 public data class AnnotatedLibrary(
-        public val name: String,
+        public val path: String,
         public val files: Set<File>){
 
+    public val fileName: String
+        get() {
+            val startIdx = path.lastIndexOf(File.separator)+1
+            return if (startIdx >= path.length || startIdx <0)
+                path
+            else
+                path.substring(startIdx)
+        }
+
     public val sanitizedFileName: String
-        get() = (name.prefixUpToLast(".jar") ?: name).replaceAll("[\\/:*?\"<>|]", "_")
+        get() = (fileName.prefixUpToLast(".jar") ?: fileName).replaceAll("[\\/:*?\"<>|]", "_")
 
     public fun annotationsPath(outputPath: String,
                                useOneCommonTree: Boolean): String =
@@ -77,9 +86,9 @@ public fun executeAnnotationTask(parameters: InferenceParams,
         val outputDirectory = prepareDirectoryForAnnotations(outputDirectoryPath, parameters.useOneCommonTree)
         for (file in lib.files) {
             try {
-                monitor.jarProcessingStarted(file.getName(), lib.name)
+                monitor.jarProcessingStarted(file.getName(), lib.path)
                 processFile(file, lib, parameters, monitor, outputDirectory)
-                monitor.jarProcessingFinished(file.getName(), lib.name)
+                monitor.jarProcessingFinished(file.getName(), lib.path)
             } catch (e: OutOfMemoryError) {
                 // Don't wrap OutOfMemoryError
                 throw e

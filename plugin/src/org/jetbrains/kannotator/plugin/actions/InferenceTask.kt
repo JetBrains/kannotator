@@ -152,7 +152,7 @@ public class IdeaInferenceTask(val taskProject: Project,
             if (annotationRootDir != null) {
                 assignAnnotationsToLibrary(lib, annotationRootDir, parameters.removeOtherRoots)
             } else {
-                throw FileNotFoundException("Can't find virtual file for $path! Annotations for ${annotatedLib.name} won't be assigned")
+                throw FileNotFoundException("Can't find virtual file for $path! Annotations for ${annotatedLib.path} won't be assigned")
             }
         }
 
