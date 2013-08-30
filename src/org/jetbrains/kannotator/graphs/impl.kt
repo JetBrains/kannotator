@@ -5,7 +5,7 @@ import java.util.HashMap
 import java.util.LinkedHashSet
 import kotlinlib.union
 
-open class GraphImpl<out T, out L>(private createNodeMap: Boolean): Graph<T, L> {
+open class GraphImpl<out T, out L>(createNodeMap: Boolean): Graph<T, L> {
     private val _nodes: MutableCollection<Node<T, L>> = ArrayList()
     private val nodeMap: MutableMap<T, Node<T, L>>? = if (createNodeMap) HashMap<T, Node<T, L>>() else null
 
