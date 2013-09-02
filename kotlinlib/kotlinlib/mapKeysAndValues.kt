@@ -1,13 +1,13 @@
 package kotlinlib
 
 public inline fun <K, V, U> Map<K, V>.mapValues(
-        valueTransform : (K, V) -> U): Map<K, U> {
+        valueTransform: (K, V) -> U): Map<K, U> {
     return mapValuesTo(java.util.HashMap<K, U>(this.size), valueTransform)
 }
 
-public inline fun <K, V, U, C: MutableMap<K, U>> Map<K, V>.mapValuesTo(
+public inline fun <K, V, U, C : MutableMap<K, U>> Map<K, V>.mapValuesTo(
         result: C,
-        valueTransform : (K, V) -> U) : C {
+        valueTransform: (K, V) -> U): C {
     for ((key, value) in this) {
         result.put(key, valueTransform(key, value))
     }
@@ -15,15 +15,15 @@ public inline fun <K, V, U, C: MutableMap<K, U>> Map<K, V>.mapValuesTo(
 }
 
 public inline fun <K, V, L, U> Map<K, V>.mapKeysAndValues(
-        keyTransform : (K, V) -> L,
-        valueTransform : (K, V) -> U): Map<L, U> {
+        keyTransform: (K, V) -> L,
+        valueTransform: (K, V) -> U): Map<L, U> {
     return mapKeysAndValuesTo(java.util.HashMap<L, U>(this.size), keyTransform, valueTransform)
 }
 
-public inline fun <K, V, L, U, C: MutableMap<L, U>> Map<K, V>.mapKeysAndValuesTo(
+public inline fun <K, V, L, U, C : MutableMap<L, U>> Map<K, V>.mapKeysAndValuesTo(
         result: C,
-        keyTransform : (K, V) -> L,
-        valueTransform : (K, V) -> U) : C {
+        keyTransform: (K, V) -> L,
+        valueTransform: (K, V) -> U): C {
     for ((key, value) in this) {
         result.put(keyTransform(key, value), valueTransform(key, value))
     }

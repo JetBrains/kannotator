@@ -5,6 +5,9 @@ import com.intellij.openapi.util.Computable
 import com.intellij.util.ActionRunner
 import com.intellij.util.ActionRunner.InterruptibleRunnableWithResult
 import com.intellij.util.ActionRunner.InterruptibleRunnable
+import com.intellij.openapi.vfs.VirtualFile
+import com.intellij.openapi.vfs.VfsUtilCore
+import java.io.File
 
 public fun runWriteAction(block: () -> Unit) {
     ApplicationManager.getApplication()!!.runWriteAction(object: Runnable {
@@ -46,5 +49,6 @@ public fun runInsideReadAction(block: () -> Unit) {
     })
 }
 
+public fun VirtualFile.toIO(): File = VfsUtilCore.virtualToIoFile(this)
 
-
+public fun Set<VirtualFile>.toIO(): Set<File> = map { it.toIO() }.toSet()
