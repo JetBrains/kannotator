@@ -142,8 +142,7 @@ class IntegratedInferenceTest : TestCase() {
                     packageIsInteresting,
                     Collections.emptyMap()
             )
-        }
-        catch (e: Throwable) {
+        } catch (e: Throwable) {
             throw IllegalStateException("Failed while working on ${progressMonitor.currentMethod}", e)
         }
 

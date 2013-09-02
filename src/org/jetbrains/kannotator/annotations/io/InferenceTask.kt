@@ -1,32 +1,20 @@
 package org.jetbrains.kannotator.annotations.io
 
 import java.io.File
-import java.io.PrintStream
 import java.util.ArrayList
 import java.util.Collections
 import java.util.HashMap
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.annotations.io.AnnotationsFormat
-import org.jetbrains.kannotator.annotations.io.writeAnnotationsToJaif
-import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
 import org.jetbrains.kannotator.controlFlow.builder.analysis.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
-import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.declarations.*
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.*
-import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.simpleErrorHandler
 import kotlinlib.prefixUpToLast
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.ErrorHandler
 
 public class InferenceException(file: File, cause: Throwable?) : Throwable("Exception during inferrence on file ${file.getName()}", cause)
 
@@ -41,11 +29,20 @@ public open class FileAwareProgressMonitor() : ProgressMonitor() {
 }
 
 public data class AnnotatedLibrary(
-        public val name: String,
+        public val path: String,
         public val files: Set<File>){
 
+    public val fileName: String
+        get() {
+            val startIdx = path.lastIndexOf(File.separator)+1
+            return if (startIdx >= path.length || startIdx <0)
+                path
+            else
+                path.substring(startIdx)
+        }
+
     public val sanitizedFileName: String
-        get() = (name.prefixUpToLast(".jar") ?: name).replaceAll("[\\/:*?\"<>|]", "_")
+        get() = (fileName.prefixUpToLast(".jar") ?: fileName).replaceAll("[\\/:*?\"<>|]", "_")
 
     public fun annotationsPath(outputPath: String,
                                useOneCommonTree: Boolean): String =
@@ -77,9 +74,9 @@ public fun executeAnnotationTask(parameters: InferenceParams,
         val outputDirectory = prepareDirectoryForAnnotations(outputDirectoryPath, parameters.useOneCommonTree)
         for (file in lib.files) {
             try {
-                monitor.jarProcessingStarted(file.getName(), lib.name)
+                monitor.jarProcessingStarted(file.getName(), lib.path)
                 processFile(file, lib, parameters, monitor, outputDirectory)
-                monitor.jarProcessingFinished(file.getName(), lib.name)
+                monitor.jarProcessingFinished(file.getName(), lib.path)
             } catch (e: OutOfMemoryError) {
                 // Don't wrap OutOfMemoryError
                 throw e

@@ -10,7 +10,7 @@ import annotations.el.*;
 import annotations.ext.TypeAnnotationPosition;
 import annotations.field.*;
 import annotations.util.coll.VivifyingMap;
-import com.sun.source.tree.Tree.Kind;
+import annotations.io.Tree.Kind;
 import plume.ArraysMDE;
 import plume.FileIOException;
 import type.ArrayType;
