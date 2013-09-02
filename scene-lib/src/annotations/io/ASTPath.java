@@ -3,7 +3,7 @@ package annotations.io;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.source.tree.Tree.Kind;
+import annotations.io.Tree.Kind;
 
 /**
  * A path through the AST.
@@ -75,7 +75,7 @@ public class ASTPath {
         /**
          * Constructs a new AST entry, without an argument.
          *
-         * See {@link #ASTEntry(com.sun.source.tree.Tree.Kind, String, int)} for an example of the parameters.
+         * See {@link #ASTEntry(annotations.io.Tree.Kind, String, int)} for an example of the parameters.
          *
          * @param treeKind The kind of this AST entry.
          * @param childSelector The child selector to this AST entry.
