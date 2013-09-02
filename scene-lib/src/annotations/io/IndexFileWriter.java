@@ -110,7 +110,7 @@ public final class IndexFileWriter {
 
     private void printAnnotation(SceneAnnotation a, PrintWriter pw) {
         pw.print("@" + a.def().name);
-        //if (!a.fieldValues.isEmpty()) {
+        if (!a.fieldValues.isEmpty()) {
             pw.print('(');
             boolean first = true;
             for (Map. /*@ReadOnly*/ Entry<String, /*@ReadOnly*/ Object> f
@@ -122,7 +122,7 @@ public final class IndexFileWriter {
                 first = false;
             }
             pw.print(')');
-        //}
+        }
     }
 
     private void printAnnotations(Collection<? extends SceneAnnotation> annos, PrintWriter pw) {
