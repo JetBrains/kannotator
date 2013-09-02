@@ -17,20 +17,52 @@ import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
 import org.jetbrains.kannotator.ErrorHandler
+import annotations.el.AScene
+import annotations.io.IndexFileWriter
+import annotations.el.AClass
+import annotations.AnnotationFactory
+import annotations.el.AnnotationDef
+import annotations.SceneAnnotation
+import annotations.field.AnnotationFieldType
+import annotations.field.ClassTokenAFT
+import annotations.field.BasicAFT
 
-fun writeAnnotations(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
+fun writeAnnotationsToJaif(
+        declIndex: DeclarationIndex,
+        destRoot: File,
+        fileName: String,
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
+        classPrefixesToOmit: Set<String> = Collections.emptySet(),
+        includedClassNames: Set<String> = Collections.emptySet(),
+        includedPositions: Set<AnnotationPosition> = Collections.emptySet()
+) {
+    val scene = buildAnnotationsDataMap(
+            declIndex,
+            nullability,
+            propagatedNullabilityPositions,
+            classPrefixesToOmit,
+            includedClassNames,
+            includedPositions)
+            .toAScene()
+    val writer = FileWriter(File(destRoot, "$fileName.jaif"))
+    IndexFileWriter.write(scene, writer)
+}
+
+
+fun writeAnnotationsToXML(writer: Writer, annotations: Map<AnnotationPosition, Collection<AnnotationData>>) {
     val sb = StringBuilder()
     val printer = XmlPrinter(sb)
     printer.openTag("root")
     printer.pushIndent()
     for ((typePosition, annotationDatas) in annotations) {
-        printer.openTag("item", hashMap("name" to typePosition.toAnnotationKey()))
+        printer.openTag("item", hashMapOf("name" to typePosition.toAnnotationKey()))
         printer.pushIndent()
         for (annotationData in annotationDatas) {
             if (annotationData.attributes.size() < 1) {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn), true)
+                printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn), true)
             } else {
-                printer.openTag("annotation", hashMap("name" to annotationData.annotationClassFqn))
+                printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn))
                 for ((name, value) in annotationData.attributes) {
                     val attributesMap = LinkedHashMap<String, String>()
                     attributesMap.put("name", name)
@@ -224,6 +256,6 @@ fun writeAnnotationsToXMLByPackage(
 
         val outFile = File(destDir, "annotations.xml")
         val writer = FileWriter(outFile)
-        writeAnnotations(writer, pathAnnotations)
+        writeAnnotationsToXML(writer, pathAnnotations)
     }
 }

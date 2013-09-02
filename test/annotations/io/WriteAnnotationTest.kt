@@ -11,7 +11,7 @@ import kotlinlib.recurseFiltered
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
-import org.jetbrains.kannotator.annotations.io.writeAnnotations
+import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXML
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
@@ -81,7 +81,7 @@ public class WriteAnnotationTest {
                 val actualFile = File.createTempFile("writeAnnotations", file.getName())
                 actualFile.createNewFile()
                 println("Saved file: ${actualFile.getAbsolutePath()}")
-                writeAnnotations(FileWriter(actualFile), typePositionAndAnnotationData)
+                writeAnnotationsToXML(FileWriter(actualFile), typePositionAndAnnotationData)
                 Assert.assertEquals(file.readText().trim().toUnixSeparators(), actualFile.readText().trim().toUnixSeparators())
             }
         }

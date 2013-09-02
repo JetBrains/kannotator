@@ -21,7 +21,6 @@ import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import java.io.FileReader
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.annotations.io.writeAnnotations
 import java.io.StringWriter
 import org.objectweb.asm.ClassReader
 import java.util.LinkedHashMap
