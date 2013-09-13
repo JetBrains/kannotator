@@ -25,6 +25,7 @@ import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Type
 import org.jetbrains.kannotator.annotationsInference.engine.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.NULL
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
