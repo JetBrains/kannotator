@@ -12,5 +12,5 @@ class LazyValue<T: Any> {
 
     public fun isInitialized(): Boolean = value != null
     public fun get(): T = value!!
-    public fun set(newValue: T): Unit = value = newValue
+    public fun set(newValue: T) { value = newValue }
 }
