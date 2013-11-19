@@ -4,6 +4,14 @@
     <buildFile url="file://$PROJECT_DIR$/update_dependencies.xml" />
     <buildFile url="file://$PROJECT_DIR$/TeamCityBuild.xml" />
     <buildFile url="file://$PROJECT_DIR$/integration_tests/tests.xml" />
+    <buildFile url="file://$PROJECT_DIR$/VerifyAndPublish.xml">
+      <properties>
+        <property name="java.home" value="$JDKPath$" />
+        <property name="kannotator.version" value="snapshot" />
+        <property name="verify.dir" value="out/verify" />
+        <property name="kannotator.plugin.dir" value="out/verify" />
+      </properties>
+    </buildFile>
   </component>
 </project>
 

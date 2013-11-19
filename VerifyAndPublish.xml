@@ -1,0 +1,128 @@
+<project name="Verify and public KAnnotator" default="verifyLocally">
+    <!-- To run this script locally use "verifyLocally" task
+         Use "eap" and "release" properties to verify against other idea. -->
+
+    <!-- eap=13 - verify against EAP version, where 13 is a version in confluence URL -->
+    <!-- release=12.1.6 - verify against release version from jetbrains.com -->
+    <property name="idea.eap.download.page.url" value="http://confluence.jetbrains.com/display/IDEADEV/IDEA+${eap}+EAP"/>
+    <property name="idea.release.download.page.url" value="http://download.jetbrains.com/idea/ideaIC-${release}.tar.gz"/>
+
+    <!-- KAnnotator options -->
+    <property name="kannotator.plugin.dir" value="${basedir}"/>
+
+    <property name="kannotator.artifact.prefix" value="kannotator-plugin"/>
+    <property name="kannotator.version" value="%dep.bt413.build.number%"/>
+    <property name="kannotator.zip.file.name" value="${kannotator.artifact.prefix}-${kannotator.version}.zip" />
+
+    <property name="kannotator.plugin.path" value="${kannotator.plugin.dir}/${kannotator.zip.file.name}" />
+
+    <property name="expected.branch" value="master"/>
+    <property name="teamcity.build.branch" value="master"/>
+
+    <property name="verify.dir" value="${basedir}"/>
+    <property name="verifier.url" value="http://teamcity.jetbrains.com/guestAuth/repository/download/bt351/92229:id/plugin-verifier.jar"/>
+
+    <condition property="is.expected.branch">
+        <equals arg1="${teamcity.build.branch}" arg2="${expected.branch}" />
+    </condition>
+
+    <condition property="shouldDownloadIdea">
+        <or>
+            <!-- Always download external idea on teamcity -->
+            <isset property="teamcity.build.id" />
+
+            <isset property="eap"/>
+            <isset property="release" />
+        </or>
+    </condition>
+
+    <macrodef name="verifyPlugin">
+        <attribute name="verify.plugin.path" />
+        <attribute name="verify.against.idea.dir" />
+        <attribute name="verifier.jar" />
+
+        <sequential>
+            <!-- Run plugin verifier -->
+            <java fork="true" failonerror="true" jar="@{verifier.jar}">
+                <arg value="-r"/>
+                <arg value="${java.home}"/>
+                <arg value="@{verify.plugin.path}"/>
+                <arg value="@{verify.against.idea.dir}"/>
+            </java>
+        </sequential>
+    </macrodef>
+
+    <target name="setEapDownload" if="eap">
+        <loadresource property="download.url">
+            <url url="${idea.eap.download.page.url}"/>
+            <filterchain>
+                <tokenfilter>
+                    <filetokenizer/>
+                    <replaceregex pattern="^(.*)(http://download\.jetbrains\.com/idea/ideaIC\-\d+\.\d+\.tar\.gz)(.*)$" replace="\2" flags="s"/>
+                </tokenfilter>
+            </filterchain>
+        </loadresource>
+    </target>
+
+    <target name="setReleasedDownload" if="release">
+        <property name="download.url" value="${idea.release.download.page.url}" />
+    </target>
+
+    <target name="ideaDownload" depends="setEapDownload, setReleasedDownload" if="shouldDownloadIdea">
+        <echo message="From external parameters: eap=${eap} release=${release}" />
+
+        <mkdir dir="${verify.dir}" />
+
+        <!-- Download and extract IDEA -->
+        <echo message="Downloading IDEA from ${download.url}"/>
+        <get src="${download.url}" dest="${verify.dir}/ideaIC.tar.gz" verbose="on" usetimestamp="true"/>
+        <untar src="${verify.dir}/ideaIC.tar.gz" dest="${verify.dir}" overwrite="on" compression="gzip"/>
+
+        <!-- Get extracted IDEA directory -->
+        <pathconvert property="idea.dir">
+            <dirset dir="${verify.dir}">
+                <include name="idea-IC-*"/>
+            </dirset>
+        </pathconvert>
+
+        <!--suppress AntResolveInspection -->
+        <loadfile property="idea.version" srcfile="${idea.dir}/build.txt" />
+    </target>
+
+    <target name="setupLocalIdea" unless="shouldDownloadIdea">
+        <property name="idea.dir" value="ideaSDK" />
+        <loadfile property="idea.version" srcfile="${idea.dir}/build.txt" />
+    </target>
+
+    <target name="verify" depends="setupLocalIdea,ideaDownload">
+        <get src="${verifier.url}" dest="${verify.dir}/plugin-verifier.jar" usetimestamp="true"/>
+
+        <echo message="idea.dir='${idea.dir}' plugin.path='${kannotator.plugin.path}'"/>
+
+        <verifyPlugin verifier.jar="${verify.dir}/plugin-verifier.jar"
+                      verify.against.idea.dir="${idea.dir}"
+                      verify.plugin.path="${kannotator.plugin.path}" />
+
+        <echo message="##teamcity[buildStatus text='kannotator-${kannotator.version} has been verified against ${idea.version}']"/>
+    </target>
+
+    <target name="publish" depends="verify" if="is.expected.branch">
+        <echoxml file="updatePlugins.xml">
+            <plugins>
+                <plugin id="org.jetbrains.kannotator"
+                        url="%teamcity.serverUrl%/guestAuth/repository/download/bt413/%dep.bt413.teamcity.build.id%:id/${plugin-artifact-prefix}-%dep.bt413.build.number%.zip"
+                        version="%dep.bt413.build.number%" />
+            </plugins>
+        </echoxml>
+
+        <echo message="##teamcity[publishArtifacts 'updatePlugins.xml']" />
+    </target>
+
+    <target name="verifyLocally">
+        <zip basedir="out/artifacts/KAnnotatorPlugin" destfile="${kannotator.plugin.path}">
+            <zipfileset dir="out/artifacts/KAnnotatorPlugin" prefix="KAnnotator"/>
+        </zip>
+
+        <antcall target="verify"/>
+    </target>
+</project>
