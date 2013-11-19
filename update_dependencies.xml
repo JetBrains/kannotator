@@ -1,30 +1,22 @@
 <project name="Update Dependencies" default="update">
     <property name="idea.sdk.fetch.needed" value="true"/>
+    <property name="idea.archive.name" value="ideaIC-134.SNAPSHOT.win.zip"/>
 
     <target name="update" depends="fetch-third-party">
         <execute_update
-                base.url="http://teamcity.jetbrains.com/guestAuth/repository/download/bt410/79867:id"
-                build.zip="ideaIC-129.SNAPSHOT.win.zip"
-                />
+                base.url="http://teamcity.jetbrains.com/guestAuth/repository/download/bt410/102587:id"
+                build.zip="${idea.archive.name}"/>
     </target>
 
     <target name="jb_update" depends="fetch-third-party">
         <execute_update
-                base.url="http://buildserver.labs.intellij.net/guestAuth/repository/download/bt3498/1964536:id"
-                build.zip="ideaIC-129.SNAPSHOT.win.zip"
-                />
+                base.url="http://buildserver.labs.intellij.net/guestAuth/repository/download/bt3498/2196094:id"
+                build.zip="${idea.archive.name}" />
     </target>
 
     <target name="fetch-third-party">
         <mkdir dir="dependencies"/>
         <mkdir dir="dependencies/download"/>
-
-        <!-- PluginVerifier -->
-        <!--
-        <get src="http://teamcity.jetbrains.com/guestAuth/repository/download/bt351/.lastPinned/plugin-verifier-1.0-SNAPSHOT.jar"
-             dest="dependencies/download/plugin-verifier-1.0-SNAPSHOT.jar" usetimestamp="true"/>
-        <copy file="dependencies/download/plugin-verifier-1.0-SNAPSHOT.jar" tofile="dependencies/plugin-verifier.jar" overwrite="true"/>
-        -->
 
         <!-- ant contrib -->
         <get src="http://heanet.dl.sourceforge.net/project/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3-bin.zip"
@@ -63,7 +55,7 @@
                     <get src="@{base.url.for.core}/core/intellij-core.jar" dest="${core}/intellij-core.jar" usetimestamp="true"/>
                     <get src="@{base.url}/core/annotations.jar" dest="${core}/annotations.jar" usetimestamp="true"/>
                     <get src="@{base.url}/core/cli-parser-1.1.jar" dest="${core}/cli-parser-1.1.jar" usetimestamp="true"/>
-                    <get src="@{base.url}/core/guava-12.0.jar" dest="${core}/guava-12.0.jar" usetimestamp="true"/>
+                    <get src="@{base.url}/core/guava-14.0.1.jar" dest="${core}/guava-14.0.1.jar" usetimestamp="true"/>
                     <get src="@{base.url}/core/picocontainer.jar" dest="${core}/picocontainer.jar" usetimestamp="true"/>
                     <get src="@{base.url}/core/trove4j.jar" dest="${core}/trove4j.jar" usetimestamp="true"/>
                     <get src="@{base.url.for.core}/core/intellij-core.jar" dest="${core}/intellij-core.jar" usetimestamp="true"/>
