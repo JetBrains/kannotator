@@ -5,32 +5,23 @@ import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.Opcodes.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.declarations.Annotations
 import org.objectweb.asm.tree.FieldInsnNode
-import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 import java.util.Collections
 import java.util.ArrayList
 import java.util.HashMap
-import org.jetbrains.kannotator.controlFlow.builder.*
-import org.jetbrains.kannotator.declarations.Method
 import org.objectweb.asm.tree.MethodNode
-import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.annotationsInference.*
-import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.declarations.*
 import java.util.HashSet
 import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Type
 import org.jetbrains.kannotator.annotationsInference.engine.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.NULL
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
-import org.jetbrains.kannotator.annotationsInference.propagation.unify
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+
+// TODO: http://youtrack.jetbrains.com/issue/KT-4275
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.NULL as NULL_
 
 class NullabilityKey: Object(), AnalysisType {
     public override fun toString(): String = "nullability"
@@ -67,7 +58,7 @@ public object NullabilitySet: QualifierSet<Nullability> {
         if (q1 == NULLABLE || q2 == NULLABLE) {
             return NULLABLE
         }
-        if (q1 == NULL || q2 == NULL) {
+        if (q1 == NULL_ || q2 == NULL_) {
             return NULLABLE
         }
 
@@ -78,15 +69,15 @@ public object NullabilitySet: QualifierSet<Nullability> {
 }
 
 val imposeNull = {
-    (q: Nullability) -> if (q != NOT_NULL) NULL else EMPTY
+    (q: Nullability) -> if (q != NOT_NULL) NULL_ else EMPTY
 }
 
 val imposeNotNull = {
-    (q: Nullability) -> if (q != NULL) NOT_NULL else EMPTY
+    (q: Nullability) -> if (q != NULL_) NOT_NULL else EMPTY
 }
 
 val imposeNullable = {
-    (q: Nullability) -> if (q == NOT_NULL || q == NULL) q else NULLABLE
+    (q: Nullability) -> if (q == NOT_NULL || q == NULL_) q else NULLABLE
 }
 
 val imposeUndecidable = {
@@ -275,7 +266,7 @@ class NullabilityQualifierEvaluator(
         if (createdAt != null) {
             return when (createdAt.getOpcode()) {
                 NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
-                ACONST_NULL -> NULL
+                ACONST_NULL -> NULL_
                 LDC -> NOT_NULL
                 INVOKEINTERFACE, INVOKESTATIC, INVOKESPECIAL, INVOKEVIRTUAL, INVOKESPECIAL -> {
                     val method = declarationIndex.findMethodByMethodInsnNode(createdAt as MethodInsnNode)
@@ -301,7 +292,7 @@ class NullabilityQualifierEvaluator(
         }
 
         return when (baseValue._type) {
-            NULL_TYPE -> NULL
+            NULL_TYPE -> NULL_
             PRIMITIVE_TYPE_SIZE_1, PRIMITIVE_TYPE_SIZE_2 -> UNKNOWN
             else -> NOT_NULL // this is either "this" or caught exception
         }
@@ -350,7 +341,7 @@ fun glb(a: Nullability?, b: Nullability?): Nullability {
 fun Nullability.toAnnotation(): NullabilityAnnotation? {
     return when(this) {
         NOT_NULL -> NullabilityAnnotation.NOT_NULL
-        NULL, NULLABLE -> NullabilityAnnotation.NULLABLE
+        NULL_, NULLABLE -> NullabilityAnnotation.NULLABLE
         else -> null
     }
 }
@@ -489,7 +480,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
                     if (value.base.interesting) {
                         val index = value.base.parameterIndex!!
                         val currentInfo = (value.qualifier.extract<Nullability>(NullabilitySet)) ?: UNKNOWN
-                        if (currentInfo == NULL || currentInfo == NULLABLE) {
+                        if (currentInfo == NULL_ || currentInfo == NULLABLE) {
                             set.add(index)
                         }
                     }
@@ -553,7 +544,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
 
             if (info != UNKNOWN && (errorInfo == NOT_NULL || errorInfo == null)) {
                 paramInfoMap[index] = NULLABLE
-            } else if ((errorInfo == NULL || errorInfo == NULLABLE) && info == NOT_NULL && !nullLostParams.contains(index)) {
+            } else if ((errorInfo == NULL_ || errorInfo == NULLABLE) && info == NOT_NULL && !nullLostParams.contains(index)) {
                 paramInfoMap[index] = NOT_NULL
             } else {
                 paramInfoMap[index] = UNKNOWN
