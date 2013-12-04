@@ -316,7 +316,7 @@ fun <K: AnalysisType> inferAnnotations(
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
             // Add itself as inferred annotation can produce more annotations
-            methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.data}).plus(method)
+            return methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.data}).plus(method)
         }
 
         for (method in methods.keySet()) {

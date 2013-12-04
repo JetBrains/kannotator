@@ -166,13 +166,12 @@ class NullabilityFrameTransformer<Q: Qualifier>(
     ): Frame<QualifiedValueSet<Q>>? {
         val defFrame = super<BasicFrameTransformer>.getPostFrame(insnNode, edgeKind, preFrame, executedFrame, analyzer)
 
-        fun getPostFrameForSimpleDereferensing(stackIndexFromTop: Int): Frame<QualifiedValueSet<Q>>? {
+        fun getPostFrameForSimpleDereferensing(stackIndexFromTop: Int): Frame<QualifiedValueSet<Q>>? =
             if (edgeKind == EdgeKind.DEFAULT)
                 imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(stackIndexFromTop), true, imposeNotNull)
             else defFrame
-        }
 
-        fun getPostFrameForMethodInvocation(): Frame<QualifiedValueSet<Q>>? {
+        fun getPostFrameForMethodInvocation(): Frame<QualifiedValueSet<Q>>? =
             if (edgeKind == EdgeKind.DEFAULT) {
                 var newFrame: Frame<QualifiedValueSet<Q>>? = executedFrame.copy()
                 generateAssertsForCallArguments(insnNode, declarationIndex, annotations,
@@ -188,12 +187,11 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                         })
                 newFrame
             } else defFrame
-        }
 
         fun getPostFrameForNullCheck(): Frame<QualifiedValueSet<Q>>? {
             val nullEdge = if (insnNode.getOpcode() == IFNULL) EdgeKind.TRUE else EdgeKind.FALSE
             val nonNullEdge = if (insnNode.getOpcode() == IFNULL) EdgeKind.FALSE else EdgeKind.TRUE
-            when (edgeKind) {
+            return when (edgeKind) {
                 nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNotNull)
                 nullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull)
                 else -> defFrame
@@ -216,7 +214,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             val nonNullEdge = if (insnNode.getOpcode() == IFEQ) EdgeKind.FALSE else EdgeKind.TRUE
             val nullableEdge = if (insnNode.getOpcode() == IFEQ) EdgeKind.TRUE else EdgeKind.FALSE
 
-            if (instanceOfFrame != null) {
+            return if (instanceOfFrame != null) {
                 when (edgeKind) {
                     nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), instanceOfFrame.getStackFromTop(0), false, imposeNotNull)
                     nullableEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), instanceOfFrame.getStackFromTop(0), false, imposeNullable)
