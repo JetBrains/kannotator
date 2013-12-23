@@ -16,6 +16,7 @@ import java.util.ArrayList
 import kotlinlib.recurseFiltered
 import kotlinlib.deleteRecursively
 import kotlin.util.measureTimeMillis
+import java.util.Date
 
 fun main(args: Array<String>) {
 
@@ -24,15 +25,21 @@ fun main(args: Array<String>) {
     val time = (System.currentTimeMillis() - start) / 1000
 
     println("time: ${time} secs")
+
+    val now = Date()
+
+    println("$now")
 }
 
 fun annotateJDK() {
 
+    // settings
+
     val jdkJarFile = "lib/jdk/jre-7u12-windows-rt.jar"
 
-    val existingAnnotationsDir = File("lib/jdk-annotations")
+    val existingAnnotationsDir = File("jdk_custom/jdk-annotations")
 
-    val kotlinSignaturesDir = File("lib/jdk-annotations")
+    val kotlinSignaturesDir = File("jdk_custom/jdk-annotations")
     val outDir = "jdk-annotations-snapshot"
     // annotations for these classes should be included to make class hierarchy consistent
     // from Kotlin point of view
@@ -42,16 +49,19 @@ fun annotateJDK() {
     )
 
     val packageFilter = { (name : String) ->
-        name.startsWith("java/lang/") //|| name.startsWith("javax.") || name.startsWith("org.")
+        name.startsWith("java/") || name.startsWith("javax/") || name.startsWith("org/")
     }
 
     val jarSource = FileBasedClassSource(listOf(File(jdkJarFile)))
     val declarationIndex = DeclarationIndexImpl(jarSource)
 
-    val propagationOverridesFile =
-            File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
+    val propagationOverridesFile = File("jdk_custom/propagationOverrides.txt")
     val nullabilityPropagationOverrides : Annotations<NullabilityAnnotation> =
             loadAnnotationsFromLogs(arrayListOf(propagationOverridesFile), declarationIndex!!)
+
+    val conflictExceptions =
+            loadPositionsOfConflictExceptions(declarationIndex, File("jdk_custom/exceptions.txt"))
+
 
     val outputDir = File(outDir)
     outputDir.deleteRecursively()
@@ -72,6 +82,8 @@ fun annotateJDK() {
                     MUTABILITY_KEY to MUTABILITY_INFERRER as AnnotationInferrer<Any, Qualifier>
             )
 
+    // inferring
+
     val inferenceResult = inferAnnotations(
             classSource = jarSource,
             existingAnnotationFiles = xmlAnnotations,
@@ -82,7 +94,8 @@ fun annotateJDK() {
                 hashMapOf(NULLABILITY_KEY to nullabilityPropagationOverrides, MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
             existingAnnotations =
                 hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
-            packageIsInteresting = packageFilter,
+            //packageIsInteresting = packageFilter,
+            packageIsInteresting = {true},
             existingPositionsToExclude = mapOf()
     )
 
@@ -93,12 +106,13 @@ fun annotateJDK() {
 
     val nullabilityConflicts =
             processAnnotationInferenceConflicts(
-                    nullabilityInferred as MutableAnnotations,
-                    nullabilityExisting,
-                    NullabilityInferrer()
+                    inferredAnnotations = nullabilityInferred as MutableAnnotations,
+                    existingAnnotations = nullabilityExisting,
+                    inferrer = NullabilityInferrer(),
+                    positionsOfConflictExceptions = conflictExceptions
             )
-    println("conflicts: ${nullabilityConflicts.size()}")
-    println("${nullabilityConflicts}")
+    println("${nullabilityConflicts.size()} conflicts")
+    nullabilityConflicts.forEach { println(it) }
 
     writeJdkAnnotations(
             keyIndex = declarationIndex,
