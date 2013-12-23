@@ -1,52 +1,64 @@
 package org.jetbrains.kannotator.client.jdk
 
+import org.jetbrains.kannotator.*
 import org.jetbrains.kannotator.annotations.io.*
+import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.index.*
+import org.jetbrains.kannotator.main.*
 
-import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.index.ClassSource
+import org.jetbrains.kannotator.controlFlow.builder.analysis.*
+import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 import java.io.File
 import java.util.ArrayList
 import kotlinlib.recurseFiltered
-
-import org.jetbrains.kannotator.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.*
-import org.jetbrains.kannotator.main.NullabilityInferrer
-import org.jetbrains.kannotator.main.AnnotationInferrer
-import org.jetbrains.kannotator.main.InferenceResultGroup
-import org.jetbrains.kannotator.main.inferAnnotations
-import org.jetbrains.kannotator.runtime.annotations.AnalysisType
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.declarations.Annotations
-import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
-import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
-import kotlin.util.measureTimeMillis
 import kotlinlib.deleteRecursively
+import kotlin.util.measureTimeMillis
 
-// build annotations for jdk
 fun main(args: Array<String>) {
-    val jdkPackageFilter = { (name : String) ->
-        name.startsWith("java/") || name.startsWith("javax.") || name.startsWith("org.")
-    }
-    annotateJar("lib/jdk/jre-7u12-windows-rt.jar", null, jdkPackageFilter, "jdk-annotations-snapshot")
+
+    val start = System.currentTimeMillis()
+    annotateJDK()
+    val time = (System.currentTimeMillis() - start) / 1000
+
+    println("time: ${time} secs")
 }
 
-fun annotateJar(jarFile : String, existingAnnotationsDir : String?, packageFilter: (String) -> Boolean, outDir : String) {
+fun annotateJDK() {
+
+    val jdkJarFile = "lib/jdk/jre-7u12-windows-rt.jar"
+
+    val existingAnnotationsDir = File("lib/jdk-annotations")
+
+    val kotlinSignaturesDir = File("lib/jdk-annotations")
+    val outDir = "jdk-annotations-snapshot"
+    // annotations for these classes should be included to make class hierarchy consistent
+    // from Kotlin point of view
+    // TODO: incorporate this logic - find such classes in hierarchy and include them automatically
+    val classesToInclude = setOf(
+            "java/lang/AbstractStringBuilder"
+    )
+
+    val packageFilter = { (name : String) ->
+        name.startsWith("java/lang/") //|| name.startsWith("javax.") || name.startsWith("org.")
+    }
 
     val outputDir = File(outDir)
     outputDir.deleteRecursively()
     outputDir.mkdir()
 
-    val jarSource = FileBasedClassSource(listOf(File(jarFile)))
+    val jarSource = FileBasedClassSource(listOf(File(jdkJarFile)))
 
     val xmlAnnotations = ArrayList<File>()
     if (existingAnnotationsDir != null) {
-        File(existingAnnotationsDir).recurseFiltered({ it.isFile() && it.getName().endsWith(".xml") }, { xmlAnnotations.add(it) })
+        existingAnnotationsDir.recurseFiltered({ it.isFile() && it.getName().endsWith(".xml") }, {
+            xmlAnnotations.add(it)
+        })
     }
 
+    // TODO: try without mutability inferrers
     val inferrers =
             mapOf<AnalysisType, AnnotationInferrer<Any, Qualifier>>(
                     NULLABILITY_KEY to NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>,
@@ -60,30 +72,40 @@ fun annotateJar(jarFile : String, existingAnnotationsDir : String?, packageFilte
             errorHandler = NO_ERROR_HANDLING,
             loadOnly = false,
             propagationOverrides =
-            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
             existingAnnotations =
-            hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
             packageIsInteresting = packageFilter,
             existingPositionsToExclude = mapOf()
     )
 
-    val annotations = inferenceResult.groupByKey[NULLABILITY_KEY]!!
+    // "propagating existing annotations", "resolving conflicts"
+    for ((inferrerKey, group) in inferenceResult.groupByKey) {
+        val conflicts =
+                processAnnotationInferenceConflicts(
+                group.inferredAnnotations as MutableAnnotations<Any>,
+                group.existingAnnotations,
+                inferrers[inferrerKey]!!)
+        println("conflicts: ${conflicts.size()}")
+    }
 
-    val inferredNullabilityAnnotations =
-            annotations.inferredAnnotations as Annotations<NullabilityAnnotation>
-
+    val nullability =
+            inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
     val propagatedNullabilityPositions =
-            annotations.propagatedPositions
+            inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions
+    val mutability =
+            inferenceResult.groupByKey[MUTABILITY_KEY]!!.inferredAnnotations as Annotations<MutabilityAnnotation>
 
     val declarationIndex = DeclarationIndexImpl(jarSource)
 
-    writeAnnotationsToXMLByPackage(
+    writeJdkAnnotations(
             keyIndex = declarationIndex,
             declIndex = declarationIndex,
-            srcRoot = null,
+            kotlinSignaturesDir = kotlinSignaturesDir,
             destRoot = outputDir,
-            nullability = inferredNullabilityAnnotations,
-            propagatedNullabilityPositions = propagatedNullabilityPositions,
+            nullability = nullability,
+            propagatedNullabilityPositions = setOf(), // we do not store this information in jdk annotations
+            includedClassNames = classesToInclude,
             errorHandler = simpleErrorHandler {
                 kind, message ->
                 throw IllegalArgumentException(message)
