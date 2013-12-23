@@ -45,11 +45,18 @@ fun annotateJDK() {
         name.startsWith("java/lang/") //|| name.startsWith("javax.") || name.startsWith("org.")
     }
 
+    val jarSource = FileBasedClassSource(listOf(File(jdkJarFile)))
+    val declarationIndex = DeclarationIndexImpl(jarSource)
+
+    val propagationOverridesFile =
+            File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
+    val nullabilityPropagationOverrides : Annotations<NullabilityAnnotation> =
+            loadAnnotationsFromLogs(arrayListOf(propagationOverridesFile), declarationIndex!!)
+
     val outputDir = File(outDir)
     outputDir.deleteRecursively()
     outputDir.mkdir()
 
-    val jarSource = FileBasedClassSource(listOf(File(jdkJarFile)))
 
     val xmlAnnotations = ArrayList<File>()
     if (existingAnnotationsDir != null) {
@@ -72,38 +79,33 @@ fun annotateJDK() {
             errorHandler = NO_ERROR_HANDLING,
             loadOnly = false,
             propagationOverrides =
-                hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
+                hashMapOf(NULLABILITY_KEY to nullabilityPropagationOverrides, MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
             existingAnnotations =
                 hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
             packageIsInteresting = packageFilter,
             existingPositionsToExclude = mapOf()
     )
 
-    // "propagating existing annotations", "resolving conflicts"
-    for ((inferrerKey, group) in inferenceResult.groupByKey) {
-        val conflicts =
-                processAnnotationInferenceConflicts(
-                group.inferredAnnotations as MutableAnnotations<Any>,
-                group.existingAnnotations,
-                inferrers[inferrerKey]!!)
-        println("conflicts: ${conflicts.size()}")
-    }
+    val nullability: InferenceResultGroup<NullabilityAnnotation>  =
+            inferenceResult.groupByKey[NULLABILITY_KEY]!! as InferenceResultGroup<NullabilityAnnotation>
+    val nullabilityInferred = nullability.inferredAnnotations
+    val nullabilityExisting = nullability.existingAnnotations
 
-    val nullability =
-            inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
-    val propagatedNullabilityPositions =
-            inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions
-    val mutability =
-            inferenceResult.groupByKey[MUTABILITY_KEY]!!.inferredAnnotations as Annotations<MutabilityAnnotation>
-
-    val declarationIndex = DeclarationIndexImpl(jarSource)
+    val nullabilityConflicts =
+            processAnnotationInferenceConflicts(
+                    nullabilityInferred as MutableAnnotations,
+                    nullabilityExisting,
+                    NullabilityInferrer()
+            )
+    println("conflicts: ${nullabilityConflicts.size()}")
+    println("${nullabilityConflicts}")
 
     writeJdkAnnotations(
             keyIndex = declarationIndex,
             declIndex = declarationIndex,
             kotlinSignaturesDir = kotlinSignaturesDir,
             destRoot = outputDir,
-            nullability = nullability,
+            nullability = nullabilityInferred,
             propagatedNullabilityPositions = setOf(), // we do not store this information in jdk annotations
             includedClassNames = classesToInclude,
             errorHandler = simpleErrorHandler {
