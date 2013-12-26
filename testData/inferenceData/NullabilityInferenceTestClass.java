@@ -6,6 +6,12 @@ import inferenceData.annotations.ExpectNullable;
 import java.util.*;
 
 public class NullabilityInferenceTestClass {
+    final Object object;
+
+    public NullabilityInferenceTestClass(Object object) {
+        this.object = object;
+    }
+
     @ExpectNullable
     public Object testNull() {
         return null;
@@ -391,5 +397,40 @@ public class NullabilityInferenceTestClass {
         } else {
             return Collections.unmodifiableCollection(collection);
         }
+    }
+
+    @ExpectNotNull
+    public Object testArg1(@ExpectNullable String s) {
+        if (s != null) {
+            return s;
+        } else {
+            return "";
+        }
+    }
+
+    @ExpectNotNull
+    public Object testArg2(@ExpectNullable String s) {
+        if (s == null) {
+            return "";
+        } else {
+            return s;
+        }
+    }
+
+    @ExpectNotNull
+    public Object testArg3(@ExpectNullable String s) {
+        if (s == null) {
+            throw new NullPointerException();
+        } else {
+            return s;
+        }
+    }
+
+    @ExpectNotNull
+    public Object testField() {
+        if (object == null) {
+            throw new NullPointerException();
+        }
+        return object;
     }
 }
