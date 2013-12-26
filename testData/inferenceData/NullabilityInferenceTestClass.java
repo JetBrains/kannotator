@@ -433,4 +433,8 @@ public class NullabilityInferenceTestClass {
         }
         return object;
     }
+
+    public static void testArgOfStaticMethod(@ExpectNotNull Object o) {
+        o.hashCode();
+    }
 }
