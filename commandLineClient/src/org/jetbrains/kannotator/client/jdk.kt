@@ -58,9 +58,9 @@ fun annotateJDK() {
 
     val xmlAnnotations = ArrayList<File>()
 
-        existingAnnotationsDir.recurseFiltered({ it.isFile() && it.getName().endsWith(".xml") }, {
-            xmlAnnotations.add(it)
-        })
+    existingAnnotationsDir.recurseFiltered({ it.isFile() && it.getName().endsWith(".xml") }, {
+        xmlAnnotations.add(it)
+    })
 
     // TODO: try without mutability inferrers
     val inferrers =
@@ -105,7 +105,8 @@ fun annotateJDK() {
             kotlinSignaturesDir = kotlinSignaturesDir,
             destRoot = outputDir,
             nullability = nullabilityInferred,
-            propagatedNullabilityPositions = nullability.propagatedPositions,
+            //propagatedNullabilityPositions = nullability.propagatedPositions,
+            propagatedNullabilityPositions = setOf(),
             includedClassNames = classesToInclude,
             errorHandler = simpleErrorHandler {
                 kind, message ->

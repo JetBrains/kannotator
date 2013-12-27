@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <!-- follows from javadoc, set up in IDEA annotations, really may be null -->
+    <item name="java.nio.ByteBuffer java.nio.ByteBuffer order(java.nio.ByteOrder) 0">
+        <annotation name="org.jetbrains.annotations.NotNull" />
+    </item>
+    <!-- really hard to infer - see method body, it is possible to infer based on parser analysis -->
+    <item name="java.net.URI java.net.URI create(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull" />
+    </item>
+    <!-- native method -->
+    <item name='java.lang.System void arraycopy(java.lang.Object, int, java.lang.Object, int, int) 0'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='java.lang.System void arraycopy(java.lang.Object, int, java.lang.Object, int, int) 2'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <item name='java.lang.reflect.Constructor T newInstance(java.lang.Object...)'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+</root>
