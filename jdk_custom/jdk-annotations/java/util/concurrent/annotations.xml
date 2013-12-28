@@ -223,8 +223,9 @@
       <annotation name='org.jetbrains.annotations.NotNull'/>
   </item>
   <item name='java.util.concurrent.BlockingQueue E poll(long, java.util.concurrent.TimeUnit)'>
+      <annotation name='org.jetbrains.annotations.Nullable'/>
       <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-          <val name="value" val="&quot;fun poll(timeout : Long, unit : TimeUnit) : E&quot;"/>
+          <val name="value" val="&quot;fun poll(timeout : Long, unit : TimeUnit) : E?&quot;"/>
       </annotation>
   </item>
   <item name='java.util.concurrent.BlockingQueue int drainTo(java.util.Collection&lt;? super E&gt;) 0'>
