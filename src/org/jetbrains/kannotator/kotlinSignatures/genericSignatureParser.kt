@@ -147,7 +147,7 @@ private class GenericTypeParser(val result: GenericTypeImpl) : SignatureVisitor(
             SignatureVisitor.EXTENDS -> BoundedWildcard(Wildcard.EXTENDS, argument)
             SignatureVisitor.SUPER -> BoundedWildcard(Wildcard.SUPER, argument)
             SignatureVisitor.INSTANCEOF -> NoWildcard(argument)
-            else -> throw IllegalArgumentException("Unkonown wildcard: $wildcard")
+            else -> throw IllegalArgumentException("Unknown wildcard: $wildcard")
         })
         return GenericTypeParser(argument)
     }
