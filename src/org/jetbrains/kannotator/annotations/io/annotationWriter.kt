@@ -193,8 +193,39 @@ fun buildAnnotationsDataMap(
         pos, ann ->
         val member = pos.member
         val classDecl = declIndex.findClass(member.declaringClass)
-        if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) && (includedPositions.contains(pos) || member.isPublicOrProtected())) {
+        if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) &&
+            (includedPositions.contains(pos) || member.isPublicOrProtected())) {
             members.add(member)
+        }
+    }
+
+    return methodsToAnnotationsMap(
+            members.sortByToString().filter { method ->
+                !classPrefixesToOmit.any{p -> method.declaringClass.internal.startsWith(p)}
+            },
+            nullability,
+            propagatedNullabilityPositions
+    )
+}
+
+fun buildAnnotationsDataMapForJdk(
+        declIndex: DeclarationIndex,
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
+        classPrefixesToOmit: Set<String>,
+        includedClassNames: Set<String>,
+        includedPositions: Set<AnnotationPosition>
+): Map<AnnotationPosition, MutableList<AnnotationData>> {
+    val members = HashSet<ClassMember>()
+    nullability.forEach {
+        pos, ann ->
+        val member = pos.member
+        if (member is Method) {
+            val classDecl = declIndex.findClass(member.declaringClass)
+            if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) &&
+            (includedPositions.contains(pos) || member.isPublicOrProtected())) {
+                members.add(member)
+            }
         }
     }
 
@@ -235,6 +266,66 @@ fun writeAnnotationsToXMLByPackage(
 
         if (srcRoot != null) {
             val srcDir = if (path != "") File(srcRoot, path) else srcRoot
+            val srcFile = File(srcDir, "annotations.xml")
+
+            if (srcFile.exists()) {
+                FileReader(srcFile) use {
+                    parseAnnotations(it, {
+                        key, annotations ->
+                        val position = keyIndex.findPositionByAnnotationKeyString(key)
+                        if (position != null) {
+                            for (ann in annotations) {
+                                if (ann.annotationClassFqn == "jet.runtime.typeinfo.KotlinSignature") {
+                                    pathAnnotations.getOrPut(position!!, { arrayList() }).add(AnnotationDataImpl(ann.annotationClassFqn, /*KT-3344*/HashMap<String, String>(ann.attributes)))
+                                }
+                            }
+                        }
+                    }, errorHandler)
+                }
+            }
+        }
+
+        val outFile = File(destDir, "annotations.xml")
+        val writer = FileWriter(outFile)
+        writeAnnotationsToXML(writer, pathAnnotations)
+    }
+}
+
+fun writeJdkAnnotations(
+        keyIndex: AnnotationKeyIndex,
+        declIndex: DeclarationIndex,
+        kotlinSignaturesDir: File?,
+        destRoot: File,
+        nullability: Annotations<NullabilityAnnotation>,
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
+        errorHandler: ErrorHandler,
+        classPrefixesToOmit: Set<String> = Collections.emptySet(),
+        includedClassNames: Set<String> = Collections.emptySet(),
+        includedPositions: Set<AnnotationPosition> = Collections.emptySet()
+) {
+    val annotations = buildAnnotationsDataMapForJdk(
+            declIndex,
+            nullability,
+            propagatedNullabilityPositions,
+            classPrefixesToOmit,
+            includedClassNames,
+            includedPositions
+    )
+    val annotationsByPackage = HashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
+    for ((pos, data) in annotations) {
+        val packageName = pos.getPackageName()
+        if (packageName != null) {
+            val map = annotationsByPackage.getOrPut(packageName!!, {HashMap()})
+            map[pos] = data
+        }
+    }
+
+    for ((path, pathAnnotations) in annotationsByPackage) {
+        val destDir = if (path != "") File(destRoot, path) else destRoot
+        destDir.mkdirs()
+
+        if (kotlinSignaturesDir != null) {
+            val srcDir = if (path != "") File(kotlinSignaturesDir, path) else kotlinSignaturesDir
             val srcFile = File(srcDir, "annotations.xml")
 
             if (srcFile.exists()) {

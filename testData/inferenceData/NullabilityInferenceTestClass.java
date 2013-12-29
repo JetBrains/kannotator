@@ -6,6 +6,12 @@ import inferenceData.annotations.ExpectNullable;
 import java.util.*;
 
 public class NullabilityInferenceTestClass {
+    final Object object;
+
+    public NullabilityInferenceTestClass(Object object) {
+        this.object = object;
+    }
+
     @ExpectNullable
     public Object testNull() {
         return null;
@@ -391,5 +397,60 @@ public class NullabilityInferenceTestClass {
         } else {
             return Collections.unmodifiableCollection(collection);
         }
+    }
+
+    @ExpectNotNull
+    public Object testArg1(@ExpectNullable String s) {
+        if (s != null) {
+            return s;
+        } else {
+            return "";
+        }
+    }
+
+    @ExpectNotNull
+    public Object testArg2(@ExpectNullable String s) {
+        if (s == null) {
+            return "";
+        } else {
+            return s;
+        }
+    }
+
+    @ExpectNotNull
+    public Object testArg3(@ExpectNullable String s) {
+        if (s == null) {
+            throw new NullPointerException();
+        } else {
+            return s;
+        }
+    }
+
+    @ExpectNotNull
+    public Object testField() {
+        if (object == null) {
+            throw new NullPointerException();
+        }
+        return object;
+    }
+
+    public static void testArgOfStaticMethod(@ExpectNotNull Object o) {
+        o.hashCode();
+    }
+
+    public void testArgAssign(@ExpectNotNull String s) {
+        s = s.toString();
+        System.out.println(s);
+    }
+
+    private void error(String s) {
+        throw new RuntimeException(s);
+    }
+
+    // result nullable is incorrect since there is no path to null result
+    @ExpectNotNull
+    public String testErrorCall(String s) {
+        error(s);
+        return null;
     }
 }

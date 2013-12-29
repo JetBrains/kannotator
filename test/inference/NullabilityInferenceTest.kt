@@ -157,4 +157,23 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     fun testTrimStringList() = doTest()
 
     fun testUnmodifiableCollectionSubclass() = doTest()
+
+    fun testArg1() = doTest()
+
+    fun testArg2() = doTest()
+
+    // TODO
+    fun todotestArg3() = doTest()
+
+    // TODO
+    fun todotestField() = doTest()
+
+    // TODO
+    fun todotestArgOfStaticMethod() = doTest()
+
+    // TODO
+    fun todotestArgAssign() = doTest()
+
+    // TODO
+    fun todotestErrorCall() = doTest()
 }
