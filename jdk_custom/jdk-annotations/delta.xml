@@ -178,19 +178,20 @@
         <annotation name="org.jetbrains.annotations.NotNull"/>
     </item>
 
-    <!-- inferred, but Kotlin signature is absent (see return type)
-        I guess, that there are many cases like this -->
+    <!-- bug - see testArg3 problem with inferring nullability of a static method -->
+    <item name="java.lang.Enum T valueOf(java.lang.Class&lt;T&gt;, java.lang.String) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- does not go inside while body -->
+    <item name="java.lang.String void getBytes(int, int, byte[], int) 2">
+        <annotation name="org.jetbrains.annotations.NotNull" />
+    </item>
+
     <item name="java.lang.String byte[] getBytes(java.lang.String)">
         <annotation name="org.jetbrains.annotations.NotNull"/>
         <annotation name="jet.runtime.typeinfo.KotlinSignature">
             <val name="value" val="&quot;fun getBytes(charsetName : String) : ByteArray&quot;"/>
-        </annotation>
-    </item>
-
-    <item name="java.lang.String byte[] getBytes(java.nio.charset.Charset)">
-        <annotation name="org.jetbrains.annotations.NotNull"/>
-        <annotation name="jet.runtime.typeinfo.KotlinSignature">
-            <val name="value" val="&quot;fun getBytes(charset : Charset) : ByteArray&quot;"/>
         </annotation>
     </item>
 
@@ -327,6 +328,12 @@
     <item name="java.net.URLEncoder java.lang.String encode(java.lang.String) 0">
         <annotation name="org.jetbrains.annotations.NotNull"/>
     </item>
+
+    <!-- bug - really it is easy to infer see NullabilityInferenceTest -->
+    <item name="java.nio.ByteBuffer byte[] array()">
+        <annotation name="org.jetbrains.annotations.NotNull" />
+    </item>
+
     <!-- should be inferred, touches static method -->
     <item name="java.nio.charset.Charset java.nio.charset.Charset defaultCharset()">
         <annotation name="org.jetbrains.annotations.NotNull"/>
@@ -392,6 +399,23 @@
         <annotation name="org.jetbrains.annotations.NotNull"/>
     </item>
 
+
+    <!-- This happens because there is no new inference after annotations propagation in hierarchy
+     public Object parseObject(String source, ParsePosition pos) {
+        return parse(source, pos);
+    }
+    public abstract Date parse(String source, ParsePosition pos);
+
+    pos is @NotNull after propagation, but this is not taken into account for parseObject
+     -->
+    <item name='java.text.DateFormat java.lang.Object parseObject(java.lang.String, java.text.ParsePosition) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+    <!-- this just a consequence of the preceding case -->
+    <item name='java.text.Format java.lang.Object parseObject(java.lang.String, java.text.ParsePosition) 1'>
+        <annotation name='org.jetbrains.annotations.NotNull'/>
+    </item>
+
     <!-- may be inferred, if there is a knowledge about exceptions -->
     <item name="java.text.DecimalFormat void setDecimalFormatSymbols(java.text.DecimalFormatSymbols) 0">
         <annotation name="org.jetbrains.annotations.NotNull"/>
@@ -425,11 +449,26 @@
         </annotation>
     </item>
 
-    <!-- IS inferred, do we need a separate kotlin signature? -->
-    <item name="java.text.MessageFormat void setFormatsByArgumentIndex(java.text.Format[])">
+    <!-- just because cycle is not analyzed??
+    TODO: try to make a corresponding test - it is possible to make a conservative strategy - always looking into cycles
+    -->
+    <item name="java.text.MessageFormat void setFormatsByArgumentIndex(java.text.Format[]) 0">
+        <annotation name="org.jetbrains.annotations.NotNull" />
         <annotation name="jet.runtime.typeinfo.KotlinSignature">
             <val name="value" val="&quot;fun setFormatsByArgumentIndex(newFormats : Array&lt;out Format&gt;) : Unit&quot;"/>
         </annotation>
+    </item>
+
+    <!-- this is strange - it delegates for Format.format. Maybe this happens because method is static -->
+    <item name="java.text.MessageFormat java.lang.String format(java.lang.String, java.lang.Object...)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- buffer is inside for/case
+     need conservative approach here
+    -->
+    <item name="java.text.SimpleDateFormat java.lang.StringBuffer format(java.util.Date, java.lang.StringBuffer, java.text.FieldPosition) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
     </item>
 
     <!-- static method -->
@@ -605,6 +644,21 @@
         <annotation name="org.jetbrains.annotations.NotNull"/>
     </item>
 
+    <!-- NotNull should be inferred , may be it is not inferred because Map<Object,Object> ?-->
+    <item name="javax.management.openmbean.TabularDataSupport java.util.Set&lt;java.lang.Object&gt; keySet()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun keySet() : Set&lt;java.lang.Object&gt;&quot;"/>
+        </annotation>
+    </item>
+
+    <item name="javax.management.openmbean.TabularDataSupport java.util.Collection&lt;java.lang.Object&gt; values()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun values() : Collection&lt;java.lang.Object&gt;&quot;"/>
+        </annotation>
+    </item>
+
     <!-- todo: investigate -->
     <item name="javax.naming.InitialContext T doLookup(java.lang.String) 0">
         <annotation name="org.jetbrains.annotations.NotNull"/>
@@ -769,6 +823,13 @@
         <annotation name="org.jetbrains.annotations.NotNull"/>
     </item>
 
+    <!-- should be easy to infer TODO: investigate -->
+    <item name="javax.swing.SwingUtilities java.awt.Point convertPoint(java.awt.Component, java.awt.Point, java.awt.Component)">
+        <annotation name="org.jetbrains.annotations.NotNull" />
+    </item>
+    <item name="javax.swing.SwingUtilities java.awt.Point convertPoint(java.awt.Component, java.awt.Point, java.awt.Component) 1">
+        <annotation name="org.jetbrains.annotations.NotNull" />
+    </item>
 
 
     <!--axiom-->
