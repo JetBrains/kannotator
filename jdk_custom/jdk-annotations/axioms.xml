@@ -18,4 +18,808 @@
     <item name='java.lang.reflect.Constructor T newInstance(java.lang.Object...)'>
         <annotation name='org.jetbrains.annotations.NotNull'/>
     </item>
+
+
+    <!-- java.applet -->
+
+    <!-- debatable - BeansAppletContext may return null  -->
+    <item name="java.applet.AppletContext java.applet.AudioClip getAudioClip(java.net.URL) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+    <!-- java.awt -->
+
+    <!-- really according to source code may be null -->
+    <item name="java.awt.Color float[] getComponents(float[]) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- really according to source code may be null -->
+    <item name="java.awt.Color float[] getRGBColorComponents(float[]) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- really according to source code may be null -->
+    <item name="java.awt.Color float[] getRGBComponents(float[]) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- really according to source code may be null -->
+    <item name="java.awt.Color java.awt.Color getColor(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- really according to source code may be null -->
+    <item name="java.awt.Color java.awt.Color getColor(java.lang.String, java.awt.Color) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- should be easy to infer TODO: possible bug in KAnnotator -->
+    <item name="java.awt.Component void createBufferStrategy(int, java.awt.BufferCapabilities) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy to infer, not inferred because of static method -->
+    <item name="java.awt.ComponentOrientation java.awt.ComponentOrientation getOrientation(java.util.ResourceBundle) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- not inferred - because of accessor is in for-loop -->
+    <item name="java.awt.Font int canDisplayUpTo(char[], int, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy to infer, not inferred because of static method -->
+    <item name="java.awt.Font java.awt.Font createFont(int, java.io.File) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy to infer, not inferred because of static method -->
+    <item name="java.awt.Font java.awt.Font getFont(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- easy to infer, not inferred because of static method -->
+    <item name="java.awt.Font java.awt.Font getFont(java.lang.String, java.awt.Font) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- need to analyze. According to docs, it returns a copy, so, not null -->
+    <item name="java.awt.Graphics java.awt.Graphics create()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- why it was not validated in tests?? - signature was changed TODO: possible bug-->
+    <item name="java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.awt.RenderingHints java.lang.Object put(java.lang.Object, java.lang.Object) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- not inferred - maybe because of calling static method -->
+    <item name="java.awt.Window void applyResourceBundle(java.util.ResourceBundle) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- because does not analyze for body -->
+    <item name="java.awt.color.ICC_Profile java.awt.color.ICC_Profile getInstance(java.io.InputStream) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- does not know about Class.forName -->
+    <item name="java.awt.datatransfer.DataFlavor java.lang.Class&lt;?&gt; tryToLoadClass(java.lang.String, java.lang.ClassLoader) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- debatable, may be null really -->
+    <item name="java.awt.dnd.DragSourceContext DragSourceContext(java.awt.dnd.peer.DragSourceContextPeer, java.awt.dnd.DragGestureEvent, java.awt.Cursor, java.awt.Image, java.awt.Point, java.awt.datatransfer.Transferable, java.awt.dnd.DragSourceListener) 4">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+    <!-- there conditions in if-statements that allows nullable PathIterator -->
+    <!-- will work with conservative extensions -->
+    <item name="java.awt.geom.Path2D boolean contains(java.awt.geom.PathIterator, double, double) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.awt.geom.Path2D boolean contains(java.awt.geom.PathIterator, double, double, double, double) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.awt.geom.Path2D boolean contains(java.awt.geom.PathIterator, java.awt.geom.Point2D) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.awt.geom.Path2D boolean contains(java.awt.geom.PathIterator, java.awt.geom.Rectangle2D) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.awt.geom.Path2D boolean intersects(java.awt.geom.PathIterator, double, double, double, double) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.awt.geom.Path2D boolean intersects(java.awt.geom.PathIterator, java.awt.geom.Rectangle2D) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- does not know about Class.newInstance ?? -->
+    <item name="java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String, java.beans.beancontext.BeanContext)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String, java.beans.beancontext.BeanContext, java.beans.AppletInitializer)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- delegates to native method - we (for now) do not know about it -->
+    <item name="java.io.ObjectInputStream java.lang.Class&lt;?&gt; resolveProxyClass(java.lang.String[])">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+
+    <!-- does not know about Class.isAssignableFrom -->
+    <item name="java.io.ObjectStreamClass java.io.ObjectStreamClass lookup(java.lang.Class&lt;?&gt;) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.io.ObjectStreamClass java.io.ObjectStreamClass lookupAny(java.lang.Class&lt;?&gt;) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- does not know about Enum semantics or does nt understand that enum XXX extends Enum -->
+    <item name="java.lang.Character.UnicodeScript java.lang.Character.UnicodeScript forName(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.Character.UnicodeScript java.lang.Character.UnicodeScript valueOf(java.lang.String)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- AXIOM -->
+    <item name="java.lang.Class java.lang.Class&lt;?&gt; forName(java.lang.String)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- inferred, but Kotlin signature is absent (see return type)
+        I guess, that there are many cases like this -->
+    <item name="java.lang.String byte[] getBytes(java.lang.String)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun getBytes(charsetName : String) : ByteArray&quot;"/>
+        </annotation>
+    </item>
+
+    <item name="java.lang.String byte[] getBytes(java.nio.charset.Charset)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun getBytes(charset : Charset) : ByteArray&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- TODO: question - do we need it? is not it default?? -->
+    <item name="java.lang.System java.lang.String getProperty(java.lang.String)">
+        <annotation name="org.jetbrains.annotations.Nullable"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun getProperty(key : String) : String?&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- AXIOM: delegates to native -->
+    <item name="java.lang.invoke.MethodHandle java.lang.invoke.MethodHandle bindTo(java.lang.Object)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodHandles java.lang.invoke.MethodHandle dropArguments(java.lang.invoke.MethodHandle, int, java.util.List&lt;java.lang.Class&lt;?&gt;&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- may be inferred just by calling it -->
+    <item name="java.lang.invoke.MethodHandles java.lang.invoke.MethodHandle identity(java.lang.Class&lt;?&gt;) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- arg of static method, bug for now -->
+    <item name="java.lang.invoke.MethodHandles java.lang.invoke.MethodHandle invoker(java.lang.invoke.MethodType) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- static method -->
+    <item name="java.lang.invoke.MethodHandles java.lang.invoke.MethodHandle permuteArguments(java.lang.invoke.MethodHandle, java.lang.invoke.MethodType, int...)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy to infer, TODO: investigate -->
+    <item name="java.lang.invoke.MethodHandles.Lookup java.lang.invoke.MethodHandle findConstructor(java.lang.Class&lt;?&gt;, java.lang.invoke.MethodType)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- complex flow -->
+    <item name="java.lang.invoke.MethodHandles.Lookup java.lang.invoke.MethodHandle findSpecial(java.lang.Class&lt;?&gt;, java.lang.String, java.lang.invoke.MethodType, java.lang.Class&lt;?&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy to infer, TODO: investigate  -->
+    <item name="java.lang.invoke.MethodHandles.Lookup java.lang.invoke.MethodHandle findVirtual(java.lang.Class&lt;?&gt;, java.lang.String, java.lang.invoke.MethodType) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodHandles.Lookup java.lang.invoke.MethodHandle findVirtual(java.lang.Class&lt;?&gt;, java.lang.String, java.lang.invoke.MethodType) 2">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodHandles.Lookup java.lang.invoke.MethodHandle unreflectConstructor(java.lang.reflect.Constructor)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- easy to infer, TODO: investigate, the problem seems that makeImpl (static!) is not properly analyzed -->
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType appendParameterTypes(java.lang.Class&lt;?&gt;...)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType appendParameterTypes(java.util.List&lt;java.lang.Class&lt;?&gt;&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType changeParameterType(int, java.lang.Class&lt;?&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType changeReturnType(java.lang.Class&lt;?&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType dropParameterTypes(int, int)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType fromMethodDescriptorString(java.lang.String, java.lang.ClassLoader)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType generic()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType genericMethodType(int)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType genericMethodType(int, boolean)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType insertParameterTypes(int, java.lang.Class&lt;?&gt;...)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType insertParameterTypes(int, java.util.List&lt;java.lang.Class&lt;?&gt;&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType methodType(java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType methodType(java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;...)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType methodType(java.lang.Class&lt;?&gt;, java.lang.Class&lt;?&gt;[])">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType methodType(java.lang.Class&lt;?&gt;, java.lang.invoke.MethodType)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.lang.invoke.MethodType methodType(java.lang.Class&lt;?&gt;, java.util.List&lt;java.lang.Class&lt;?&gt;&gt;)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.lang.invoke.MethodType java.util.List&lt;java.lang.Class&lt;?&gt;&gt; parameterList()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- inferred, here the point is Signature. TODO: question: do we really need it? -->
+    <item name="java.lang.reflect.Constructor java.lang.annotation.Annotation[][] getParameterAnnotations()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun getParameterAnnotations(): Array&lt;Array&lt;Annotation&gt;&gt;&quot;"/>
+        </annotation>
+    </item>
+
+
+    <item name="java.net.DatagramSocketImpl int peek(java.net.InetAddress) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- axiom -->
+    <item name="java.net.ServerSocket java.net.Socket accept()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- should be inferred, static method -->
+    <item name="java.net.URLDecoder java.lang.String decode(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.net.URLEncoder java.lang.String encode(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- should be inferred, touches static method -->
+    <item name="java.nio.charset.Charset java.nio.charset.Charset defaultCharset()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- enum -->
+    <item name="java.nio.file.FileVisitOption java.nio.file.FileVisitOption valueOf(java.lang.String)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- should be inferred, static method -->
+    <item name="java.nio.file.Files boolean exists(java.nio.file.Path, java.nio.file.LinkOption...) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean exists(java.nio.file.Path, java.nio.file.LinkOption...) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean isDirectory(java.nio.file.Path, java.nio.file.LinkOption...) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean isExecutable(java.nio.file.Path) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean isReadable(java.nio.file.Path) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean isRegularFile(java.nio.file.Path, java.nio.file.LinkOption...) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean isWritable(java.nio.file.Path) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files boolean notExists(java.nio.file.Path, java.nio.file.LinkOption...) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files java.nio.file.Path createDirectories(java.nio.file.Path, java.nio.file.attribute.FileAttribute&lt;?&gt;...)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.nio.file.Files java.nio.file.Path createDirectories(java.nio.file.Path, java.nio.file.attribute.FileAttribute&lt;?&gt;...) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- BUG - array is touched! -->
+    <item name="java.nio.file.attribute.AclEntry.Builder java.nio.file.attribute.AclEntry.Builder setFlags(java.util.Set&lt;java.nio.file.attribute.AclEntryFlag&gt;) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+    <!-- should be inferred, static method -->
+    <item name="java.nio.file.attribute.AclEntry.Builder java.nio.file.attribute.AclEntry.Builder setPermissions(java.util.Set&lt;java.nio.file.attribute.AclEntryPermission&gt;) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- should be inferred -->
+    <item name="java.security.KeyStore void setEntry(java.lang.String, java.security.KeyStore.Entry, java.security.KeyStore.ProtectionParameter) 2">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <!-- should be inferred -->
+    <item name="java.security.KeyStoreSpi void engineSetEntry(java.lang.String, java.security.KeyStore.Entry, java.security.KeyStore.ProtectionParameter) 2">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- should be inferred, static method -->
+    <item name="java.sql.Timestamp java.sql.Timestamp valueOf(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- may be inferred, if there is a knowledge about exceptions -->
+    <item name="java.text.DecimalFormat void setDecimalFormatSymbols(java.text.DecimalFormatSymbols) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- TODO: understand - do we need this signature? -->
+    <item name="java.text.MessageFormat java.lang.String format(java.lang.String, java.lang.Object...)">
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun format(pattern : String, vararg arguments : Any?) : String&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- IS inferred, do we need a separate kotlin signature? -->
+    <item name="java.text.MessageFormat void applyPattern(java.lang.String)">
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun applyPattern(pattern : String) : Unit&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- inside for -->
+    <item name="java.text.MessageFormat void setFormatByArgumentIndex(int, java.text.Format)">
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun setFormatByArgumentIndex(argumentIndex : Int, newFormat : Format) : Unit&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- IS inferred, do we need a separate kotlin signature? -->
+    <item name="java.text.MessageFormat void setFormats(java.text.Format[])">
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun setFormats(newFormats : Array&lt;out Format&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- IS inferred, do we need a separate kotlin signature? -->
+    <item name="java.text.MessageFormat void setFormatsByArgumentIndex(java.text.Format[])">
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun setFormatsByArgumentIndex(newFormats : Array&lt;out Format&gt;) : Unit&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- static method -->
+    <item name="java.util.BitSet java.util.BitSet valueOf(java.nio.ByteBuffer) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.BitSet java.util.BitSet valueOf(java.nio.LongBuffer) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- static/inside condition -->
+    <item name="java.util.Objects int compare(T, T, java.util.Comparator&lt;? super T&gt;) 2">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- TODO need to investigate, easy to infer -->
+    <item name="java.util.ResourceBundle java.util.Set&lt;java.lang.String&gt; keySet()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- static -->
+    <item name="java.util.ResourceBundle.Control java.lang.String toBundleName(java.lang.String, java.util.Locale) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- depends on static -->
+    <item name="java.util.ResourceBundle.Control java.util.ResourceBundle newBundle(java.lang.String, java.util.Locale, java.lang.String, java.lang.ClassLoader, boolean) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <item name="java.util.TimeZone java.util.TimeZone getTimeZone(java.lang.String)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- TODO: seems to be a bug, easy to infer -->
+    <item name="java.util.concurrent.ConcurrentHashMap V put(K, V) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.concurrent.ConcurrentHashMap V put(K, V) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.concurrent.ConcurrentSkipListMap V put(K, V) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.concurrent.ConcurrentSkipListMap V put(K, V) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+    <!--
+    There is a following hierarchy:
+    ScheduledExecutorService
+    |__  DelegatedScheduledExecutorService - it only delegates
+    |__  ScheduledThreadPoolExecutor
+
+    for ScheduledThreadPoolExecutor KAnnotator infers not-null, but then it cannot infer/propagate through the hierarchy.
+    -->
+
+    <!-- Kotlin Signature was absent -->
+    <item name="java.util.concurrent.ScheduledExecutorService java.util.concurrent.ScheduledFuture&lt;?&gt; schedule(java.lang.Runnable, long, java.util.concurrent.TimeUnit)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun schedule(command : Runnable, delay : Long, unit : TimeUnit) : ScheduledFuture&lt;out Any?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name="java.util.concurrent.ScheduledExecutorService java.util.concurrent.ScheduledFuture&lt;?&gt; scheduleAtFixedRate(java.lang.Runnable, long, long, java.util.concurrent.TimeUnit)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun scheduleAtFixedRate(command : Runnable, initialDelay : Long, period : Long, unit : TimeUnit) : ScheduledFuture&lt;out Any?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name="java.util.concurrent.ScheduledExecutorService java.util.concurrent.ScheduledFuture&lt;?&gt; scheduleWithFixedDelay(java.lang.Runnable, long, long, java.util.concurrent.TimeUnit)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun scheduleWithFixedDelay(command : Runnable, initialDelay : Long, delay : Long, unit : TimeUnit) : ScheduledFuture&lt;out Any?&gt;&quot;"/>
+        </annotation>
+    </item>
+    <item name="java.util.concurrent.ScheduledExecutorService java.util.concurrent.ScheduledFuture&lt;V&gt; schedule(java.util.concurrent.Callable&lt;V&gt;, long, java.util.concurrent.TimeUnit)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+        <annotation name="jet.runtime.typeinfo.KotlinSignature">
+            <val name="value" val="&quot;fun &lt;V&gt; schedule(callable : Callable&lt;V&gt;, delay : Long, unit : TimeUnit) : ScheduledFuture&lt;V&gt;&quot;"/>
+        </annotation>
+    </item>
+
+    <!-- just because Map.put() exist as KotlinSignature, but not as NotNull -->
+    <item name="java.util.jar.Attributes java.lang.Object put(java.lang.Object, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.jar.Attributes java.lang.Object put(java.lang.Object, java.lang.Object) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- seems that because of static -->
+    <item name="java.util.prefs.AbstractPreferences double getDouble(java.lang.String, double) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.prefs.AbstractPreferences float getFloat(java.lang.String, float) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.prefs.AbstractPreferences int getInt(java.lang.String, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- map.get(k) - seems that map.get(k) is not present as Nullability annotation -->
+    <item name="java.util.prefs.AbstractPreferences java.lang.String getSpi(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- static -->
+    <item name="java.util.prefs.AbstractPreferences long getLong(java.lang.String, long) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- uses map -->
+    <item name="java.util.prefs.AbstractPreferences void putSpi(java.lang.String, java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.prefs.AbstractPreferences void removeSpi(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- because stuff in AbstractPreferences was not inferred -->
+    <item name="java.util.prefs.Preferences double getDouble(java.lang.String, double) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.prefs.Preferences float getFloat(java.lang.String, float) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.prefs.Preferences int getInt(java.lang.String, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.prefs.Preferences long getLong(java.lang.String, long) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- "axiom" - hard to infer -->
+    <item name="java.util.regex.MatchResult java.lang.String group()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="java.util.regex.Matcher java.lang.String group()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+    <!-- protected - are not dumped now? -->
+    <item name="javax.imageio.ImageReader void processWarningOccurred(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.imageio.ImageReader void processWarningOccurred(java.lang.String, java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.imageio.ImageReader void processWarningOccurred(java.lang.String, java.lang.String) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <item name="javax.imageio.ImageWriter void processWarningOccurred(int, java.lang.String) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.imageio.ImageWriter void processWarningOccurred(int, java.lang.String, java.lang.String) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.imageio.ImageWriter void processWarningOccurred(int, java.lang.String, java.lang.String) 2">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- inside if -->
+    <item name="javax.imageio.metadata.IIOMetadata IIOMetadata(boolean, java.lang.String, java.lang.String, java.lang.String[], java.lang.String[]) 4">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- should be inferred, TODO: investigate -->
+    <item name="javax.management.loading.MLet java.util.Set&lt;java.lang.Object&gt; getMBeansFromURL(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- todo: investigate -->
+    <item name="javax.naming.InitialContext T doLookup(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.naming.InitialContext T doLookup(javax.naming.Name) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+    <!-- protected -->
+    <item name="javax.naming.InitialContext javax.naming.Context createSubcontext(javax.naming.Name) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.naming.InitialContext javax.naming.Context getURLOrDefaultInitCtx(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- should be easy, todo: investigate -->
+    <item name="javax.print.attribute.standard.PrinterStateReasons java.lang.Object put(java.lang.Object, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.print.attribute.standard.PrinterStateReasons java.lang.Object put(java.lang.Object, java.lang.Object) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.script.AbstractScriptEngine void setBindings(javax.script.Bindings, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.script.ScriptContext void setBindings(javax.script.Bindings, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.script.ScriptEngine void setBindings(javax.script.Bindings, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.script.SimpleScriptContext void setBindings(javax.script.Bindings, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.security.auth.kerberos.KeyTab javax.security.auth.kerberos.KerberosKey[] getKeys(javax.security.auth.kerberos.KerberosPrincipal) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- no source code -->
+    <item name="javax.smartcardio.ResponseAPDU ResponseAPDU(byte[]) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- inside if -->
+    <item name="javax.sound.midi.MetaMessage MetaMessage(int, byte[], int) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.sound.midi.MetaMessage void setMessage(int, byte[], int) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- uses Object.clone -->
+    <item name="javax.sound.midi.MidiFileFormat java.util.Map&lt;java.lang.String,java.lang.Object&gt; properties()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- subclass without source -->
+    <item name="javax.sound.midi.MidiMessage byte[] getMessage()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- axiom really may be null -->
+    <item name="javax.swing.AbstractButton void actionPropertyChanged(javax.swing.Action, java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- axiom - really this comparator permits nulls -->
+    <item name="javax.swing.DefaultFocusManager boolean compareTabOrder(java.awt.Component, java.awt.Component) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.DefaultFocusManager boolean compareTabOrder(java.awt.Component, java.awt.Component) 1">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy to infer, todo investigate -->
+    <item name="javax.swing.JMenu javax.swing.JMenuItem add(javax.swing.JMenuItem) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JMenuBar javax.swing.JMenu add(javax.swing.JMenu) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--axiom-->
+    <item name="javax.swing.JMenuItem void actionPropertyChanged(javax.swing.Action, java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--axiom, maybe null by docs -->
+    <item name="javax.swing.JOptionPane int showConfirmDialog(java.awt.Component, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane int showConfirmDialog(java.awt.Component, java.lang.Object, java.lang.String, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane int showConfirmDialog(java.awt.Component, java.lang.Object, java.lang.String, int, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane int showConfirmDialog(java.awt.Component, java.lang.Object, java.lang.String, int, int, javax.swing.Icon) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane int showOptionDialog(java.awt.Component, java.lang.Object, java.lang.String, int, int, javax.swing.Icon, java.lang.Object[], java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane java.lang.Object showInputDialog(java.awt.Component, java.lang.Object, java.lang.String, int, javax.swing.Icon, java.lang.Object[], java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane java.lang.String showInputDialog(java.awt.Component, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane java.lang.String showInputDialog(java.awt.Component, java.lang.Object, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane java.lang.String showInputDialog(java.awt.Component, java.lang.Object, java.lang.String, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane void showMessageDialog(java.awt.Component, java.lang.Object) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane void showMessageDialog(java.awt.Component, java.lang.Object, java.lang.String, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.JOptionPane void showMessageDialog(java.awt.Component, java.lang.Object, java.lang.String, int, javax.swing.Icon) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- todo investigate -->
+    <item name="javax.swing.JPopupMenu javax.swing.JMenuItem add(javax.swing.JMenuItem) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- todo investigate - if prefix==null, Illegal... is thrown -->
+    <item name="javax.swing.JTree javax.swing.tree.TreePath getNextMatch(java.lang.String, int, javax.swing.text.Position.Bias) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- axiom , really may be null -->
+    <item name="javax.swing.LookAndFeel void installProperty(javax.swing.JComponent, java.lang.String, java.lang.Object) 2">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- todo - s.intern() is called -->
+    <item name="javax.swing.SpringLayout javax.swing.Spring getConstraint(java.lang.String, java.awt.Component) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.SpringLayout void putConstraint(java.lang.String, java.awt.Component, int, java.lang.String, java.awt.Component) 3">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.SpringLayout void putConstraint(java.lang.String, java.awt.Component, javax.swing.Spring, java.lang.String, java.awt.Component) 3">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.SpringLayout.Constraints javax.swing.Spring getConstraint(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.SpringLayout.Constraints void setConstraint(java.lang.String, javax.swing.Spring) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--if-->
+    <item name="javax.swing.SwingUtilities boolean isDescendingFrom(java.awt.Component, java.awt.Component) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+
+
+    <!--axiom-->
+    <item name="javax.swing.table.TableCellRenderer java.awt.Component getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--uses static-->
+    <item name="javax.swing.text.Utilities int getTabbedTextOffset(javax.swing.text.Segment, java.awt.FontMetrics, int, int, javax.swing.text.TabExpander, int) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+    <item name="javax.swing.text.Utilities int getTabbedTextOffset(javax.swing.text.Segment, java.awt.FontMetrics, int, int, javax.swing.text.TabExpander, int, boolean) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--easy, todo investigate-->
+    <item name="javax.swing.text.html.StyleSheet javax.swing.text.Style getRule(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--really may be null-->
+    <item name="javax.swing.text.html.StyleSheet void importStyleSheet(java.net.URL) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--static-->
+    <item name="javax.swing.text.html.parser.DTD javax.swing.text.html.parser.DTD getDTD(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- easy, todo investigate -->
+    <item name="javax.swing.tree.TreePath java.lang.Object[] getPath()">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- uses static -->
+    <item name="javax.xml.bind.DatatypeConverterInterface java.math.BigDecimal parseDecimal(java.lang.String) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- static, no source -->
+    <item name="org.jcp.xml.dsig.internal.dom.DOMUtils boolean nodesEqual(org.w3c.dom.Node, org.w3c.dom.Node) 0">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!--??-->
+    <item name="org.w3c.dom.Element org.w3c.dom.Attr removeAttributeNode(org.w3c.dom.Attr)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <!-- axiom -->
+    <item name="org.w3c.dom.Node org.w3c.dom.Node appendChild(org.w3c.dom.Node)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
+
+    <item name="org.w3c.dom.Node org.w3c.dom.Node replaceChild(org.w3c.dom.Node, org.w3c.dom.Node)">
+        <annotation name="org.jetbrains.annotations.NotNull"/>
+    </item>
 </root>

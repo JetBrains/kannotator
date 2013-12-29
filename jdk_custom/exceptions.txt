@@ -5,3 +5,18 @@ java.util.SortedMap java.util.Comparator<? super K> comparator()
 java.io.StringWriter void write(java.lang.String) 0
 java.lang.String byte[] getBytes()
 java.io.FileOutputStream java.nio.channels.FileChannel getChannel()
+java.io.ObjectInputStream java.lang.Class<?> resolveProxyClass(java.lang.String[])
+# may not be null according to docs
+org.w3c.dom.Node org.w3c.dom.Node replaceChild(org.w3c.dom.Node, org.w3c.dom.Node)
+# the problem is UnImplNode
+org.w3c.dom.Node org.w3c.dom.Node appendChild(org.w3c.dom.Node)
+# static method bug
+java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String)
+java.awt.Graphics java.awt.Graphics create()
+# the problem is UnImplNode
+org.w3c.dom.Element org.w3c.dom.Attr removeAttributeNode(org.w3c.dom.Attr)
+java.net.ServerSocket java.net.Socket accept()
+java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String)
+java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String, java.beans.beancontext.BeanContext)
+java.beans.Beans java.lang.Object instantiate(java.lang.ClassLoader, java.lang.String, java.beans.beancontext.BeanContext, java.beans.AppletInitializer)
+java.util.TimeZone java.util.TimeZone getTimeZone(java.lang.String)
