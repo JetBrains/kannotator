@@ -167,4 +167,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     fun testField() = doTest()
 
     fun testArgOfStaticMethod() = doTest()
+
+    fun testArgAssign() = doTest()
+
+    fun testErrorCall() = doTest()
 }
