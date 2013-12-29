@@ -134,7 +134,7 @@
     <item name='java.util.concurrent.ExecutorService T invokeAny(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
             <val name="value"
-                 val="&quot;fun &lt;T&gt; invokeAny(tasks : Collection&lt;Callable&lt;T&gt;&gt;) : T?&quot;"/>
+                 val="&quot;fun &lt;T&gt; invokeAny(tasks : Collection&lt;Callable&lt;T&gt;&gt;) : T&quot;"/>
         </annotation>
     </item>
     <item name='java.util.concurrent.ExecutorService T invokeAny(java.util.Collection&lt;? extends java.util.concurrent.Callable&lt;T&gt;&gt;, long, java.util.concurrent.TimeUnit)'>
@@ -236,12 +236,12 @@
   </item>
   <item name='java.util.concurrent.BlockingQueue int drainTo(java.util.Collection&lt;? super E&gt;)'>
       <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-          <val name="value" val="&quot;fun drainTo(c : Collection&lt;in E&gt;) : Int&quot;"/>
+          <val name="value" val="&quot;fun drainTo(c : MutableCollection&lt;in E&gt;) : Int&quot;"/>
       </annotation>
   </item>
   <item name='java.util.concurrent.BlockingQueue int drainTo(java.util.Collection&lt;? super E&gt;, int)'>
       <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-          <val name="value" val="&quot;fun drainTo(c : Collection&lt;in E&gt;, maxElements : Int) : Int&quot;"/>
+          <val name="value" val="&quot;fun drainTo(c : MutableCollection&lt;in E&gt;, maxElements: Int) : Int&quot;"/>
       </annotation>
   </item>
   <item name='java.util.concurrent.Executors java.util.concurrent.ExecutorService newFixedThreadPool(int)'>
@@ -351,7 +351,7 @@
   <item name='java.util.concurrent.ThreadFactory java.lang.Thread newThread(java.lang.Runnable)'>
       <annotation name='org.jetbrains.annotations.Nullable'/>
       <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-          <val name="value" val="&quot;fun newThread(r : Runnable) : Thread?&quot;"/>
+          <val name="value" val="&quot;fun newThread(r : Runnable) : Thread&quot;"/>
       </annotation>
   </item>
   <item name='java.util.concurrent.ThreadFactory java.lang.Thread newThread(java.lang.Runnable) 0'>
