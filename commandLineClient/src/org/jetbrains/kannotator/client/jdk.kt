@@ -96,8 +96,15 @@ fun annotateJDK() {
                     inferrer = NullabilityInferrer(),
                     positionsOfConflictExceptions = conflictExceptions
             )
-    println("${nullabilityConflicts.size()} conflicts")
-    nullabilityConflicts.forEach { println(it) }
+
+    check(nullabilityConflicts.empty,
+            """There should be no unresolved conflicts in annotations.
+            There are 2 options to resolve this situations:
+              1) modify existing (input) annotations
+              2) modify exceptions.txt
+            Found ${nullabilityConflicts.size()} conflicts:
+            ${nullabilityConflicts.makeString("\n")}
+            """)
 
     writeJdkAnnotations(
             keyIndex = declarationIndex,
