@@ -11,6 +11,6 @@
     </target>
 
     <target name="pack_annotations" depends="build_annotations">
-        <jar destfile="${basedir}/out/jdk-annotations.jar" basedir="jdk-annotations-snapshot"/>
+        <jar destfile="${basedir}/out/kotlin-jdk-annotations.jar" basedir="jdk-annotations-snapshot"/>
     </target>
 </project>
