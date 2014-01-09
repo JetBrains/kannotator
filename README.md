@@ -25,6 +25,12 @@ The primary motivation for creating KAnnotator is [Kotlin](http://kotlin.jetbrai
 
 With [JSR 308 and Checkers Framework](http://types.cs.washington.edu/jsr308/) coming soon, KAnnotator gets another application area: the annotations it infers for Java libraries can be used by Java code checkers to verify Java code that uses these libraries.
 
+### Downloads
+
+KAnnotator binaries are available from the [github release page](https://github.com/JetBrains/kannotator/releases)
+
+Additionally, IntelliJ IDEA plugin is available though a [plugin repository](http://www.jetbrains.com/idea/plugins/)
+
 ### How to run KAnnotator
 
 KAnnotator can be run by different means:
