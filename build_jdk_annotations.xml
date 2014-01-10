@@ -1,0 +1,17 @@
+<project name="Build JDK Annotations" default="pack_annotations">
+    <target name="build_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.jdk.JdkPackage"
+                fork="true"
+                maxmemory="1024m">
+        <classpath>
+            <pathelement location="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
+        </classpath>
+        </java>
+    </target>
+
+    <target name="pack_annotations" depends="build_annotations">
+        <jar destfile="${basedir}/out/artifacts/annotations/kotlin-jdk-annotations.jar" basedir="jdk-annotations-snapshot"/>
+        <delete dir="${basedir}/jdk-annotations-snapshot" failonerror="true"/>
+    </target>
+</project>
