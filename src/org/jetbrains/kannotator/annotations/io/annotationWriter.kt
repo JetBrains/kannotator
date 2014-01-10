@@ -186,15 +186,19 @@ fun buildAnnotationsDataMap(
         propagatedNullabilityPositions: Set<AnnotationPosition>,
         classPrefixesToOmit: Set<String>,
         includedClassNames: Set<String>,
-        includedPositions: Set<AnnotationPosition>
+        includedPositions: Set<AnnotationPosition>,
+        includeOnlyMethods: Boolean = false
 ): Map<AnnotationPosition, MutableList<AnnotationData>> {
     val members = HashSet<ClassMember>()
     nullability.forEach {
         pos, ann ->
         val member = pos.member
         val classDecl = declIndex.findClass(member.declaringClass)
-        if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) && (includedPositions.contains(pos) || member.isPublicOrProtected())) {
-            members.add(member)
+        if (!includeOnlyMethods || member is Method) {
+            if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) &&
+                (includedPositions.contains(pos) || member.isPublicOrProtected())) {
+                members.add(member)
+            }
         }
     }
 
@@ -217,9 +221,17 @@ fun writeAnnotationsToXMLByPackage(
         errorHandler: ErrorHandler,
         classPrefixesToOmit: Set<String> = Collections.emptySet(),
         includedClassNames: Set<String> = Collections.emptySet(),
-        includedPositions: Set<AnnotationPosition> = Collections.emptySet()
+        includedPositions: Set<AnnotationPosition> = Collections.emptySet(),
+        includeOnlyMethods: Boolean = false
 ) {
-    val annotations = buildAnnotationsDataMap(declIndex, nullability, propagatedNullabilityPositions, classPrefixesToOmit, includedClassNames, includedPositions)
+    val annotations = buildAnnotationsDataMap(
+            declIndex,
+            nullability,
+            propagatedNullabilityPositions,
+            classPrefixesToOmit,
+            includedClassNames,
+            includedPositions,
+            includeOnlyMethods)
     val annotationsByPackage = HashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
     for ((pos, data) in annotations) {
         val packageName = pos.getPackageName()
