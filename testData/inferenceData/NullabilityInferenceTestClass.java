@@ -392,4 +392,24 @@ public class NullabilityInferenceTestClass {
             return Collections.unmodifiableCollection(collection);
         }
     }
+
+    public static void testArgOfStaticMethod(@ExpectNotNull Object o) {
+        o.hashCode();
+    }
+
+    public void testArgAssign(@ExpectNotNull String s) {
+        s = s.toString();
+        System.out.println(s);
+    }
+
+    private void error(String s) {
+        throw new RuntimeException(s);
+    }
+
+    // result nullable is incorrect since there is no path to null result
+    @ExpectNotNull
+    public String testErrorCall(String s) {
+        error(s);
+        return null;
+    }
 }
