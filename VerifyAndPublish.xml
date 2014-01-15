@@ -20,8 +20,7 @@
     <property name="teamcity.build.branch" value="master"/>
 
     <property name="verify.dir" value="${basedir}"/>
-    <property name="verifier.url" value="http://teamcity.jetbrains.com/guestAuth/repository/download/bt351/92229:id/plugin-verifier.jar"/>
-
+    
     <condition property="is.expected.branch">
         <equals arg1="${teamcity.build.branch}" arg2="${expected.branch}" />
     </condition>
