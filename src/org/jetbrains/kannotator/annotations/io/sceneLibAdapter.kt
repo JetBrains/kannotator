@@ -10,6 +10,10 @@ import annotations.field.BasicAFT
 import annotations.el.AElement
 import annotations.el.ATypeElement
 import annotations.el.AMethod
+import annotations.el.InnerTypeLocation
+import annotations.ext.TypePathEntry
+
+import org.objectweb.asm.Type
 
 private fun AnnotationData.toSceneAnnotation(): SceneAnnotation {
     val annotationDef = AnnotationDef(this.annotationClassFqn)
@@ -26,10 +30,20 @@ private fun convertMethod(
 ) {
     val kMethod = annotationPosition.method
     val methodRecord = classRecord.methods.vivify(kMethod.id.methodName + kMethod.id.methodDesc)
-
-    for((idx, param) in kMethod.parameterNames.withIndices()){
-        methodRecord.parameters.vivify(idx)
-                .thisType!!.tlAnnotationsHere.addAll(annotationDatas.map { it.toSceneAnnotation() })
+    val relPosition = annotationPosition.relativePosition
+    val sceneAnnotations = annotationDatas.map { it.toSceneAnnotation() }
+    when (relPosition) {
+        is RETURN_TYPE -> {
+            val returnTypeElem = methodRecord.returnType
+            val returnType = kMethod.getReturnType()
+            elementToAnnotate(returnTypeElem, returnType).tlAnnotationsHere.addAll(sceneAnnotations)
+        }
+        is ParameterPosition -> {
+            val index = if (kMethod.isStatic()) relPosition.index else  relPosition.index - 1
+            val parameterTypeElem = methodRecord.parameters.vivify(index).thisType!!
+            val parameterType = kMethod.getArgumentTypes()[index]
+            elementToAnnotate(parameterTypeElem, parameterType).tlAnnotationsHere.addAll(sceneAnnotations)
+        }
     }
 }
 
@@ -38,8 +52,23 @@ private fun convertField (
         classRecord: AClass,
         annotationDatas: Collection<AnnotationData>
 ) {
-    classRecord.fields.vivify(annotationPosition.field.name)
-            .thisType!!.tlAnnotationsHere.addAll(annotationDatas.map { it.toSceneAnnotation() })
+    val sceneAnnotations = annotationDatas.map { it.toSceneAnnotation() }
+    val fieldTypeElem = classRecord.fields.vivify(annotationPosition.field.name).thisType!!
+    val fieldType = annotationPosition.field.getType()
+    elementToAnnotate(fieldTypeElem, fieldType).tlAnnotationsHere.addAll(sceneAnnotations)
+}
+
+// takes into account inner path for arrays
+// see http://types.cs.washington.edu/annotation-file-utilities/annotation-file-format.html (section Compound type annotations)
+private fun elementToAnnotate(element: ATypeElement, tp: Type) : ATypeElement {
+    return when (tp.getSort()) {
+        Type.ARRAY -> {
+            val loc = InnerTypeLocation((1..tp.getDimensions()).map { TypePathEntry.fromBinary(0, 0)!! })
+            element.innerTypes.vivify(loc)
+        }
+        else ->
+            element
+    }
 }
 
 public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScene {
