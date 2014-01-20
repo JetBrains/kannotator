@@ -1,0 +1,9 @@
+package org.jetbrains.annotations:
+annotation @NotNull:
+
+package annotations.io.spec:
+class NotNullFields:
+
+    field arrayField: @org.jetbrains.annotations.NotNull
+
+    field objField: @org.jetbrains.annotations.NotNull
