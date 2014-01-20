@@ -35,7 +35,8 @@ fun writeAnnotationsToJaif(
         propagatedNullabilityPositions: Set<AnnotationPosition>,
         classPrefixesToOmit: Set<String> = Collections.emptySet(),
         includedClassNames: Set<String> = Collections.emptySet(),
-        includedPositions: Set<AnnotationPosition> = Collections.emptySet()
+        includedPositions: Set<AnnotationPosition> = Collections.emptySet(),
+        includeNullable: Boolean = false
 ) {
     val scene = buildAnnotationsDataMap(
             declIndex,
@@ -43,7 +44,8 @@ fun writeAnnotationsToJaif(
             propagatedNullabilityPositions,
             classPrefixesToOmit,
             includedClassNames,
-            includedPositions)
+            includedPositions,
+            includeNullable = includeNullable)
             .toAScene()
     val writer = FileWriter(File(destRoot, "$fileName.jaif"))
     IndexFileWriter.write(scene, writer)
@@ -145,22 +147,32 @@ private fun escape(str: String): String {
     }
 }
 
-fun methodsToAnnotationsMap(
+fun makeAnnotationsMap(
         members: Collection<ClassMember>,
         nullability: Annotations<NullabilityAnnotation>,
-        propagatedNullabilityPositions: Set<AnnotationPosition>
+        propagatedNullabilityPositions: Set<AnnotationPosition>,
+        includeNullable: Boolean = false
 ): Map<AnnotationPosition, MutableList<AnnotationData>> {
     val annotations = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
 
     fun processPosition(pos: AnnotationPosition) {
         val nullAnnotation = nullability[pos]
-        if (nullAnnotation == NullabilityAnnotation.NOT_NULL) {
-            val data = AnnotationDataImpl(JB_NOT_NULL, hashMap())
-            annotations[pos] = arrayListOf<AnnotationData>(data)
-            if (pos in propagatedNullabilityPositions) {
-                val map = HashMap<String, String>()
-                map["value"] = "{${javaClass<NullabilityKey>().getName()}.class}"
-                annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
+        if (nullAnnotation != null) {
+            val data: AnnotationData? = when {
+                nullAnnotation == NullabilityAnnotation.NOT_NULL ->
+                    AnnotationDataImpl(JB_NOT_NULL, hashMap())
+                nullAnnotation == NullabilityAnnotation.NULLABLE && includeNullable ->
+                    AnnotationDataImpl(JB_NULLABLE, hashMap())
+                else ->
+                    null
+            }
+            if (data != null) {
+                annotations[pos] = arrayListOf<AnnotationData>(data)
+                if (pos in propagatedNullabilityPositions) {
+                    val map = HashMap<String, String>()
+                    map["value"] = "{${javaClass<NullabilityKey>().getName()}.class}"
+                    annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
+                }
             }
         }
     }
@@ -187,7 +199,8 @@ fun buildAnnotationsDataMap(
         classPrefixesToOmit: Set<String>,
         includedClassNames: Set<String>,
         includedPositions: Set<AnnotationPosition>,
-        includeOnlyMethods: Boolean = false
+        includeOnlyMethods: Boolean = false,
+        includeNullable: Boolean = false
 ): Map<AnnotationPosition, MutableList<AnnotationData>> {
     val members = HashSet<ClassMember>()
     nullability.forEach {
@@ -202,12 +215,13 @@ fun buildAnnotationsDataMap(
         }
     }
 
-    return methodsToAnnotationsMap(
+    return makeAnnotationsMap(
             members.sortByToString().filter { method ->
                 !classPrefixesToOmit.any{p -> method.declaringClass.internal.startsWith(p)}
             },
             nullability,
-            propagatedNullabilityPositions
+            propagatedNullabilityPositions,
+            includeNullable
     )
 }
 
