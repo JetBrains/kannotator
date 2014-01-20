@@ -1,0 +1,9 @@
+package org.jetbrains.annotations:
+annotation @Nullable:
+
+package annotations.io.spec:
+class NullableFields:
+
+    field nullableArrayField: @org.jetbrains.annotations.Nullable
+
+    field nullableObjField: @org.jetbrains.annotations.Nullable

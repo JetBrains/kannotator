@@ -1,0 +1,12 @@
+package org.jetbrains.annotations:
+annotation @NotNull:
+
+package org.jetbrains.annotations:
+annotation @Nullable:
+
+package annotations.io.spec:
+class Nested$A:
+
+    method ma(Ljava/lang/Object;)Ljava/lang/Object;: @org.jetbrains.annotations.Nullable
+        return:
+        parameter #0: @org.jetbrains.annotations.NotNull

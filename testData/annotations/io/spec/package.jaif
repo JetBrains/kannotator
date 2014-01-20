@@ -1,0 +1,72 @@
+package org.jetbrains.annotations:
+annotation @NotNull:
+
+package org.jetbrains.annotations:
+annotation @Nullable:
+
+package annotations.io.spec:
+class Nested$A:
+
+    method ma(Ljava/lang/Object;)Ljava/lang/Object;: @org.jetbrains.annotations.Nullable
+        return:
+        parameter #0: @org.jetbrains.annotations.NotNull
+
+package annotations.io.spec:
+class NotNullArgs:
+
+    method m1(Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;I)V:
+        return:
+        parameter #1: @org.jetbrains.annotations.NotNull
+        parameter #2: @org.jetbrains.annotations.NotNull
+
+    method m2(Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)V:
+        return:
+        parameter #0: @org.jetbrains.annotations.NotNull
+        parameter #1: @org.jetbrains.annotations.NotNull
+        parameter #3: @org.jetbrains.annotations.NotNull
+
+package annotations.io.spec:
+class NotNullFields:
+
+    field arrayField: @org.jetbrains.annotations.NotNull
+
+    field objField: @org.jetbrains.annotations.NotNull
+
+package annotations.io.spec:
+class NotNullReturn:
+
+    method m1(Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/Object;: @org.jetbrains.annotations.NotNull
+        return:
+
+    method m2(Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;: @org.jetbrains.annotations.NotNull
+        return:
+
+package annotations.io.spec:
+class NullableArgs:
+
+    method m1(Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;I)V:
+        return:
+        parameter #1: @org.jetbrains.annotations.Nullable
+        parameter #2: @org.jetbrains.annotations.Nullable
+
+    method m2(Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)V:
+        return:
+        parameter #0: @org.jetbrains.annotations.Nullable
+        parameter #1: @org.jetbrains.annotations.Nullable
+        parameter #3: @org.jetbrains.annotations.Nullable
+
+package annotations.io.spec:
+class NullableFields:
+
+    field nullableArrayField: @org.jetbrains.annotations.Nullable
+
+    field nullableObjField: @org.jetbrains.annotations.Nullable
+
+package annotations.io.spec:
+class NullableReturn:
+
+    method m1(Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/Object;: @org.jetbrains.annotations.Nullable
+        return:
+
+    method m2(Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;: @org.jetbrains.annotations.Nullable
+        return:
