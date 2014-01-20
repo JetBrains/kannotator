@@ -53,7 +53,6 @@ import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.declarations.getInternalPackageName
 import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
 import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
-import org.jetbrains.kannotator.annotations.io.methodsToAnnotationsMap
 import org.jetbrains.kannotator.annotations.io.getPackageName
 import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
 import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
