@@ -3698,6 +3698,8 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings int access$3400(org.jetb
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings java.lang.Object access$3700(org.jetbrains.jps.builders.java.dependencyView.Mappings) 0
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings java.util.Collection access$2000(org.jetbrains.jps.builders.java.dependencyView.Mappings)
+NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings java.util.Collection access$2000(org.jetbrains.jps.builders.java.dependencyView.Mappings) 0
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings java.util.Collection access$2002(org.jetbrains.jps.builders.java.dependencyView.Mappings, java.util.Collection) 0
@@ -3718,6 +3720,8 @@ org.jetbrains.jps.builders.java.dependencyView.Mappings myDeletedClasses
 NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings myPostPasses
 NOT_NULL
+org.jetbrains.jps.builders.java.dependencyView.Mappings myRemovedFiles
+NULLABLE
 org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.Callbacks.Backend getCallback()
 NOT_NULL
 org.jetbrains.jps.builders.java.dependencyView.Mappings org.jetbrains.jps.builders.java.dependencyView.ClassRepr access$700()
@@ -4622,6 +4626,8 @@ org.jetbrains.jps.cmdline.BuildSession myBuildRunner
 NOT_NULL
 org.jetbrains.jps.cmdline.BuildSession myConstantSearch
 NOT_NULL
+org.jetbrains.jps.cmdline.BuildSession myInitialFSDelta
+NULLABLE
 org.jetbrains.jps.cmdline.BuildSession org.jboss.netty.channel.Channel access$100(org.jetbrains.jps.cmdline.BuildSession) 0
 NOT_NULL
 org.jetbrains.jps.cmdline.BuildSession org.jetbrains.jps.api.BuildType convertCompileType(org.jetbrains.jps.api.CmdlineRemoteProto.Message.ControllerMessage.ParametersMessage.Type)
@@ -4830,6 +4836,8 @@ org.jetbrains.jps.incremental.CompiledClass java.lang.String getClassName()
 NULLABLE
 org.jetbrains.jps.incremental.CompiledClass myClassName
 NULLABLE
+org.jetbrains.jps.incremental.CompiledClass myContent
+NOT_NULL
 org.jetbrains.jps.incremental.CompiledClass myOutputFile
 NOT_NULL
 org.jetbrains.jps.incremental.CompiledClass mySourceFile
