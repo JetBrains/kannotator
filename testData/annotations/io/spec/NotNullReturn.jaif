@@ -1,0 +1,11 @@
+package org.jetbrains.annotations:
+annotation @NotNull:
+
+package annotations.io.spec:
+class NotNullReturn:
+
+    method m1(Ljava/lang/Object;[Ljava/lang/Object;[Ljava/lang/Object;I)Ljava/lang/Object;: @org.jetbrains.annotations.NotNull
+        return:
+
+    method m2(Ljava/lang/String;Ljava/lang/Object;[Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/String;: @org.jetbrains.annotations.NotNull
+        return:
