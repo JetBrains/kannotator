@@ -47,8 +47,8 @@ public fun Map<AnnotationPosition, Collection<AnnotationData>>.toAScene(): AScen
     for ((position, annData) in this) {
         scene.packages.vivify(position.getPackageName())
 
-        val classCanonicalName = position.member.declaringClass.canonicalName
-        val classRecord = scene.classes.vivify(classCanonicalName)
+        val className = position.member.declaringClass.name
+        val classRecord = scene.classes.vivify(className)
 
         when (position) {
             is MethodTypePosition ->
