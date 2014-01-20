@@ -8,6 +8,8 @@ import java.util.HashSet
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
 import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
+import org.jetbrains.kannotator.annotations.io.tryParseMethodAnnotationKey
+import org.jetbrains.kannotator.annotations.io.tryParseFieldAnnotationKey
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.util.processJar
 import org.objectweb.asm.ClassReader
@@ -16,21 +18,19 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
-import org.jetbrains.kannotator.annotations.io.tryParseMethodAnnotationKey
-import org.jetbrains.kannotator.annotations.io.tryParseFieldAnnotationKey
-import kotlin.test.fail
 
 trait ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 public fun DeclarationIndexImpl(
         classSource: ClassSource,
+        processField: (Field) -> FieldVisitor? = {null},
         processMethodBody: (Method) -> MethodVisitor? = {null},
         failOnDuplicates: Boolean = true,
         delegate: DeclarationIndex? = null
 ): DeclarationIndexImpl {
     val index = DeclarationIndexImpl(delegate)
-    index.addClasses(classSource, processMethodBody, failOnDuplicates)
+    index.addClasses(classSource, processField, processMethodBody, failOnDuplicates)
     return index
 }
 
@@ -48,16 +48,22 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
 
     public fun addClasses(
             classSource: ClassSource,
+            processField: (Field) -> FieldVisitor? = {null},
             processMethodBody: (Method) -> MethodVisitor? = {null},
             failOnDuplicates: Boolean = true
     ) {
         classSource forEach {
             reader ->
-            addClass(reader, failOnDuplicates, processMethodBody)
+            addClass(reader, processField, processMethodBody, failOnDuplicates)
         }
     }
 
-    public fun addClass(reader: ClassReader, failOnDuplicates: Boolean = false, processMethodBody: (Method) -> MethodVisitor? = {null}) {
+    public fun addClass(
+            reader: ClassReader,
+            processField: (Field) -> FieldVisitor? = {null},
+            processMethodBody: (Method) -> MethodVisitor? = {null},
+            failOnDuplicates: Boolean = false
+    ) {
         val className = ClassName.fromInternalName(reader.getClassName())
 
         val methodsById = HashMap<MethodId, Method>()
@@ -76,7 +82,7 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
             public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
                 val field = Field(className, access, name, desc, signature, value)
                 fieldsById[field.id] = field
-                return null
+                return processField(field)
             }
         }, 0);
 

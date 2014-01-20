@@ -31,7 +31,7 @@ class AnnotationIndexTest : TestCase() {
         val jars = findJarFiles(jarDirs)
 
         val source = FileBasedClassSource(jars)
-        val index = DeclarationIndexImpl(source, {null}, false)
+        val index = DeclarationIndexImpl(source, failOnDuplicates = false)
 
         for (key in keys) {
             if ("(" !in key) continue // no fields
