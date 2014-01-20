@@ -184,6 +184,11 @@ val ClassName.canonicalName: String
 
 fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
 
+val ClassName.name: String
+    get() = internal.internalNameToName()
+
+fun String.internalNameToName(): String = replace('/', '.')
+
 fun String.toCanonical(): String {
     //keep last $ in class name: it's generated in scala bytecode
     val lastCharIndex = this.size - 1
