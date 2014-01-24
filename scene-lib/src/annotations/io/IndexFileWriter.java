@@ -357,6 +357,7 @@ public final class IndexFileWriter {
             printRelativeElements(INDENT + INDENT, "new", m.news, pw);
             // throwsException field is not processed.  Why?
         }
+        pw.println();
     }
 
     public void perform(Writer out) throws DefException {
