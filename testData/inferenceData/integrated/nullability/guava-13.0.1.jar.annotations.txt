@@ -8468,6 +8468,8 @@ com.google.common.collect.LinkedHashMultimap.ValueEntry ValueEntry(K, V, int, co
 NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueEntry key
 NULLABLE
+com.google.common.collect.LinkedHashMultimap.ValueEntry nextInValueSetHashRow
+NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueEntry value
 NULLABLE
 com.google.common.collect.LinkedHashMultimap.ValueSet boolean add(V) 0
@@ -12570,6 +12572,8 @@ com.google.common.collect.RegularImmutableTable com.google.common.collect.Regula
 NULLABLE
 com.google.common.collect.RegularImmutableTable java.util.Collection values()
 NOT_NULL
+com.google.common.collect.RegularImmutableTable valueList
+NULLABLE
 com.google.common.collect.RegularImmutableTable.1 java.lang.Object apply(com.google.common.collect.Table.Cell<java.lang.Object,java.lang.Object,java.lang.Object>) 0
 NOT_NULL
 @Propagated com.google.common.collect.RegularImmutableTable.1 java.lang.Object apply(java.lang.Object) 0
@@ -15109,6 +15113,8 @@ NOT_NULL
 com.google.common.collect.TreeMultiset.AvlNode long totalCount(com.google.common.collect.TreeMultiset.AvlNode<?>) 0
 NULLABLE
 com.google.common.collect.TreeMultiset.Reference T get()
+NULLABLE
+com.google.common.collect.TreeMultiset.Reference value
 NULLABLE
 com.google.common.collect.TreeMultiset.Reference void checkAndSet(T, T) 0
 NULLABLE

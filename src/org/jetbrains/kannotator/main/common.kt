@@ -6,6 +6,7 @@ import java.util.HashMap
 import java.util.LinkedHashSet
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
+import org.jetbrains.kannotator.asm.util.createFieldNodeStub
 import org.jetbrains.kannotator.asm.util.createMethodNodeStub
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
@@ -177,12 +178,33 @@ public fun <K: AnalysisType> loadExternalAnnotations(
 private fun <K: AnalysisType> loadAnnotations(
         annotationFiles: Collection<File>,
         keyIndex: AnnotationKeyIndex,
+        fieldNodes: Map<Field, FieldNode>,
         methodNodes: Map<Method, MethodNode>,
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         errorHandler: ErrorHandler
-): Map<K, MutableAnnotations<Any>> =
-        loadExternalAnnotations(loadMethodAnnotationsFromByteCode(methodNodes, inferrers),
-                annotationFiles map { {FileReader(it)} }, keyIndex, inferrers, errorHandler)
+): Map<K, MutableAnnotations<Any>> {
+
+    val bytecodeAnnotations =
+            inferrers.mapValues { _ -> AnnotationsImpl<Any>() }
+
+    val fieldAnnotations =
+            loadFieldAnnotationsFromByteCode(fieldNodes, inferrers)
+    val methodAnnotations =
+            loadMethodAnnotationsFromByteCode(methodNodes, inferrers)
+
+    for ((k, _) in inferrers) {
+        bytecodeAnnotations[k]!!.copyAllChanged(fieldAnnotations[k]!!)
+        bytecodeAnnotations[k]!!.copyAllChanged(methodAnnotations[k]!!)
+    }
+
+    return loadExternalAnnotations(
+            bytecodeAnnotations,
+            annotationFiles map { {FileReader(it)} },
+            keyIndex,
+            inferrers,
+            errorHandler
+    )
+}
 
 trait AnnotationInferrer<A: Any, I: Qualifier> {
     fun resolveAnnotation(classNames: Map<String, AnnotationData>): A?
@@ -226,18 +248,35 @@ fun <K: AnalysisType> inferAnnotations(
         loadAnnotationsForDependency: (Map<K, MutableAnnotations<Any>>, ClassMember, DeclarationIndexImpl) -> Boolean = {_, __, ___ -> false}
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
-    
-    val methodNodes = HashMap<Method, MethodNode>()
-    val declarationIndex = DeclarationIndexImpl(classSource, {
-        method ->
-        val methodNode = method.createMethodNodeStub()
-        methodNodes[method] = methodNode
-        methodNode
-    })
 
+    val fieldNodes = HashMap<Field, FieldNode>()
+    val methodNodes = HashMap<Method, MethodNode>()
+    val declarationIndex = DeclarationIndexImpl(
+            classSource,
+            {
+                field ->
+                val fieldNode = field.createFieldNodeStub()
+                fieldNodes[field] = fieldNode
+                fieldNode
+            },
+            {
+                method ->
+                val methodNode = method.createMethodNodeStub()
+                methodNodes[method] = methodNode
+                methodNode
+            }
+    )
     progressMonitor.annotationIndexLoaded(declarationIndex)
 
-    val loadedAnnotationsMap = loadAnnotations(existingAnnotationFiles, declarationIndex, methodNodes, inferrers, errorHandler)
+    val loadedAnnotationsMap = loadAnnotations(
+            existingAnnotationFiles,
+            declarationIndex,
+            fieldNodes,
+            methodNodes,
+            inferrers,
+            errorHandler
+    )
+
     val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { (key, loadedAnn) ->
         val positionsToExclude = existingPositionsToExclude[key]
 

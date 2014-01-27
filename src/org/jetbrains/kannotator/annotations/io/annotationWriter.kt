@@ -145,7 +145,7 @@ private fun escape(str: String): String {
     }
 }
 
-fun methodsToAnnotationsMap(
+fun makeAnnotationsMap(
         members: Collection<ClassMember>,
         nullability: Annotations<NullabilityAnnotation>,
         propagatedNullabilityPositions: Set<AnnotationPosition>
@@ -154,8 +154,13 @@ fun methodsToAnnotationsMap(
 
     fun processPosition(pos: AnnotationPosition) {
         val nullAnnotation = nullability[pos]
-        if (nullAnnotation == NullabilityAnnotation.NOT_NULL) {
-            val data = AnnotationDataImpl(JB_NOT_NULL, hashMap())
+        if (nullAnnotation != null) {
+            val data = when (nullAnnotation) {
+                NullabilityAnnotation.NOT_NULL ->
+                    AnnotationDataImpl(JB_NOT_NULL, hashMap())
+                NullabilityAnnotation.NULLABLE ->
+                    AnnotationDataImpl(JB_NULLABLE, hashMap())
+            }
             annotations[pos] = arrayListOf<AnnotationData>(data)
             if (pos in propagatedNullabilityPositions) {
                 val map = HashMap<String, String>()
@@ -166,10 +171,9 @@ fun methodsToAnnotationsMap(
     }
 
     for (m in members) {
-        if (m is Method) {
-            PositionsForMethod(m).forEachValidPosition {pos -> processPosition(pos)}
-        } else if (m is Field) {
-            processPosition(getFieldTypePosition(m))
+        when (m) {
+            is Method -> PositionsForMethod(m).forEachValidPosition {pos -> processPosition(pos)}
+            is Field  -> processPosition(getFieldTypePosition(m))
         }
     }
     return annotations
@@ -196,13 +200,13 @@ fun buildAnnotationsDataMap(
         val classDecl = declIndex.findClass(member.declaringClass)
         if (!includeOnlyMethods || member is Method) {
             if ((includedClassNames.contains(member.declaringClass.internal) || (classDecl != null && classDecl.isPublic())) &&
-                (includedPositions.contains(pos) || member.isPublicOrProtected())) {
+            (includedPositions.contains(pos) || member.isPublicOrProtected())) {
                 members.add(member)
             }
         }
     }
 
-    return methodsToAnnotationsMap(
+    return makeAnnotationsMap(
             members.sortByToString().filter { method ->
                 !classPrefixesToOmit.any{p -> method.declaringClass.internal.startsWith(p)}
             },

@@ -1,11 +1,13 @@
 package org.jetbrains.kannotator.asm.util
 
+import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
+import org.objectweb.asm.tree.FieldNode
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.tree.LabelNode
 import org.objectweb.asm.tree.LineNumberNode
@@ -91,3 +93,5 @@ public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, 
 public fun Method.createMethodNodeStub(): MethodNode = MethodNode(access.flags, id.methodName, id.methodDesc, genericSignature, null)
 
 public fun MethodInsnNode.getArgumentCount(): Int = Type.getArgumentTypes(desc).size
+
+public fun Field.createFieldNodeStub(): FieldNode = FieldNode(access.flags, id.fieldName, desc, genericSignature, null)
