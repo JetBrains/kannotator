@@ -48,7 +48,7 @@ fun annotateJDK() {
         p.lineIterator().toSet()
     }
 
-    val packageFilter = { (name: String) -> interestingPackages.any { name.startsWith("$it/")} }
+    val packageFilter = { (pkg: String) -> interestingPackages.any { interestingPkg -> pkg == interestingPkg || pkg.startsWith("$interestingPkg/")} }
 
     val jarSource = FileBasedClassSource(listOf(File(jdkJarFile)))
     val declarationIndex = DeclarationIndexImpl(jarSource)
@@ -123,19 +123,9 @@ fun annotateJDK() {
                 kind, message ->
                 throw IllegalArgumentException(message)
             },
-            includeOnlyMethods = true
+            includeOnlyMethods = true,
+            packageIsInteresting = packageFilter
     )
-
-    // current annotations writers dump all packages, including not interesting
-    // deleting not interesting packages
-    outputDir.invertedRecurse { file ->
-        val path = file.getPath()
-        val interestingFolders = interestingPackages.map {"$outDir/$it"}
-        val interesting = interestingFolders.any { path == it || path.startsWith("$it/") }
-        if (!interesting) {
-            file.delete()
-        }
-    }
 }
 
 class JDKProgressIndicator() : FileAwareProgressMonitor() {

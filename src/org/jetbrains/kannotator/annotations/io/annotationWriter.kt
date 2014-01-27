@@ -236,7 +236,9 @@ fun writeAnnotationsToXMLByPackage(
         classPrefixesToOmit: Set<String> = Collections.emptySet(),
         includedClassNames: Set<String> = Collections.emptySet(),
         includedPositions: Set<AnnotationPosition> = Collections.emptySet(),
-        includeOnlyMethods: Boolean = false
+        includeOnlyMethods: Boolean = false,
+        packageIsInteresting: (String) -> Boolean = {true}
+
 ) {
     val annotations = buildAnnotationsDataMap(
             declIndex,
@@ -249,7 +251,7 @@ fun writeAnnotationsToXMLByPackage(
     val annotationsByPackage = HashMap<String, MutableMap<AnnotationPosition, MutableList<AnnotationData>>>()
     for ((pos, data) in annotations) {
         val packageName = pos.getPackageName()
-        if (packageName != null) {
+        if (packageName != null && packageIsInteresting(packageName)) {
             val map = annotationsByPackage.getOrPut(packageName!!, {LinkedHashMap()})
             map[pos] = data
         }
