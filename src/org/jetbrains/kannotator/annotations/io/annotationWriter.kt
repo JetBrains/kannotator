@@ -250,7 +250,7 @@ fun writeAnnotationsToXMLByPackage(
     for ((pos, data) in annotations) {
         val packageName = pos.getPackageName()
         if (packageName != null) {
-            val map = annotationsByPackage.getOrPut(packageName!!, {HashMap()})
+            val map = annotationsByPackage.getOrPut(packageName!!, {LinkedHashMap()})
             map[pos] = data
         }
     }
