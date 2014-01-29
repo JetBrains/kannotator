@@ -36,6 +36,9 @@ fun annotateJDK() {
     val outDir = "jdk-annotations-snapshot"
     val interestingPackages = setOf("java", "javax", "org")
 
+    val outDirJAIF = File("out/artifacts/annotations")
+    outDirJAIF.mkdirs()
+
     val outputDir = File(outDir)
     outputDir.deleteRecursively()
     outputDir.mkdir()
@@ -102,14 +105,14 @@ fun annotateJDK() {
                     positionsOfConflictExceptions = conflictExceptions
             )
 
-    check(nullabilityConflicts.empty,
-            """There should be no unresolved conflicts in annotations.
-            There are 2 options to resolve this situation:
-              1) modify existing (input) annotations
-              2) modify exceptions.txt
-            Found ${nullabilityConflicts.size()} conflicts:
-            ${nullabilityConflicts.makeString("\n")}
-            """)
+    writeAnnotationsToJaif(
+            declarationIndex,
+            destRoot = outDirJAIF,
+            fileName = "kotlin-jdk-annotations",
+            nullability = nullability.inferredAnnotations,
+            propagatedNullabilityPositions = nullability.propagatedPositions,
+            includeNullable = true
+    )
 
     writeAnnotationsToXMLByPackage(
             keyIndex = declarationIndex,
@@ -126,6 +129,15 @@ fun annotateJDK() {
             includeOnlyMethods = true,
             packageIsInteresting = packageFilter
     )
+
+    check(nullabilityConflicts.empty,
+            """There should be no unresolved conflicts in annotations.
+            There are 2 options to resolve this situation:
+              1) modify existing (input) annotations
+              2) modify exceptions.txt
+            Found ${nullabilityConflicts.size()} conflicts:
+            ${nullabilityConflicts.makeString("\n")}
+            """)
 }
 
 class JDKProgressIndicator() : FileAwareProgressMonitor() {
