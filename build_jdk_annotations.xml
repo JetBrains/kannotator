@@ -1,5 +1,7 @@
 <project name="Build JDK Annotations" default="pack_and_check_annotations">
 
+    <property name="kannotator-cli-jar"
+              value="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
     <property name="previous-jaif"
               value= "${basedir}/commandLineClient/inferred/kotlin-jdk-annotations.jaif"/>
     <property name="current-jaif"
@@ -29,7 +31,7 @@
                 fork="true"
                 maxmemory="1024m">
         <classpath>
-            <pathelement location="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
+            <pathelement location="${kannotator-cli-jar}"/>
         </classpath>
         </java>
     </target>
