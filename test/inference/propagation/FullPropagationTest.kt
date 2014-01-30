@@ -112,4 +112,15 @@ class FullPropagationTest: TestCase() {
                 javaClass<fullPropagation.YHierarchy.C>()
         ))
     }
+
+
+    // TODO
+    fun todoTestTwoHierarchies() {
+        doTest(Classes(
+                javaClass<fullPropagation.TwoHierarchies.A1>(),
+                javaClass<fullPropagation.TwoHierarchies.A2>(),
+                javaClass<fullPropagation.TwoHierarchies.B1>(),
+                javaClass<fullPropagation.TwoHierarchies.B2>()
+        ))
+    }
 }
