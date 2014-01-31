@@ -9,12 +9,14 @@ import junit.framework.Assert
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 
+import kotlinlib.sortByToString
 import kotlinlib.recurseFiltered
 import kotlinlib.toUnixSeparators
 
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.classHierarchy.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Annotations
@@ -127,4 +129,12 @@ private fun File.loadAnnotationKeysTo(allKeyStrings: MutableSet<String>) {
                     throw IllegalArgumentException("$kind, $message")
                 })
     }
+}
+
+fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
+    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix(prefix))
+
+    return graph.hierarchyNodes.filter {
+        it.name.internal.startsWith(prefix)
+    }.sortByToString()
 }
