@@ -2,7 +2,7 @@ package index
 
 import junit.framework.TestCase
 import junit.framework.Assert.*
-import annotations.io.addFromAnnotationDir
+import annotations.io.collectAllAnnotationKeysTo
 import java.io.File
 import java.util.HashSet
 import org.jetbrains.kannotator.index.FileBasedClassSource
@@ -25,7 +25,7 @@ class AnnotationIndexTest : TestCase() {
 
         val keys = HashSet<String>()
         for (dir in annotationDirs) {
-            addFromAnnotationDir(dir, keys)
+            dir.collectAllAnnotationKeysTo(keys)
         }
 
         val jars = findJarFiles(jarDirs)
