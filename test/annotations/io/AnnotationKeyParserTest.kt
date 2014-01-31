@@ -1,20 +1,27 @@
 package annotations.io
 
 import java.io.File
-import junit.framework.Assert.*
-import junit.framework.TestCase
+import org.junit.Assert.*
+import org.junit.Ignore
+import org.junit.Test
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
 import org.jetbrains.kannotator.annotations.io.parseFieldAnnotationKey
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.declarations.*
-import util.recurseIntoJars
+import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
+import org.jetbrains.kannotator.util.processJar
+import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.FieldVisitor
-import org.jetbrains.kannotator.annotations.io.parseMethodAnnotationKey
+import util.recurseIntoJars
 
-class AnnotationKeyParserTest : TestCase() {
+/**
+ * tests that parse(position.toAnnotationKey()) = position,
+ * sample positions are taken from bytecode
+ * */
+class AnnotationKeyParserTest {
     private fun doMethodTest(className: String, access: Int, name: String, desc: String, signature: String?) {
         val method = Method(ClassName.fromInternalName(className), access, name, desc, signature)
         doTest(method)
@@ -27,24 +34,28 @@ class AnnotationKeyParserTest : TestCase() {
 
     fun doTest(method: Method) {
         val pos = PositionsForMethod(method).forReturnType()
-
         val key = pos.position.toAnnotationKey()
         try {
             val (parsedClassName, parsedReturnType, parsedMethodName) = parseMethodAnnotationKey(key)
-
             assertEquals(method.getMethodNameAccountingForConstructor(), parsedMethodName)
             assertEquals(method.declaringClass.canonicalName, parsedClassName)
         } catch (e: IllegalArgumentException) {
+            e.printStackTrace()
             System.err.println(e.getMessage())
+        }
+
+        PositionsForMethod(method).forEachValidPosition { position ->
+            val key = position.toAnnotationKey()
+            val (parsedClassName, parsedReturnType, parsedMethodName) = parseMethodAnnotationKey(key)
+            assertEquals(method.getMethodNameAccountingForConstructor(), parsedMethodName)
+            assertEquals(method.declaringClass.canonicalName, parsedClassName)
         }
     }
 
     fun doTest(field: Field) {
         val fieldKey = getFieldAnnotatedType(field).position.toAnnotationKey()
-
         try {
             val (parsedClassName, parsedFieldName) = parseFieldAnnotationKey(fieldKey)
-
             assertEquals(field.id.fieldName, parsedFieldName)
             assertEquals(field.declaringClass.canonicalName, parsedClassName)
         } catch (e: IllegalArgumentException) {
@@ -52,28 +63,33 @@ class AnnotationKeyParserTest : TestCase() {
         }
     }
 
-    fun test() {
-        val dirs = arrayList(
-                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes"),
-                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib"),
-                File("lib")
-        )
-        for (dir in dirs) {
-            recurseIntoJars(dir) {
-                file, owner, reader ->
-                if (file.getName() != "kotlin-runtime.jar") {
-                    reader.accept(object : ClassVisitor(Opcodes.ASM4) {
-                        override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                            doMethodTest(reader.getClassName(), access, name, desc, signature)
-                            return null
-                        }
-                        public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-                            doFieldTest(reader.getClassName(), access, name, desc, signature, value)
-                            return null
-                        }
-                    }, 0)
-                }
+    inner class TestVisitor(val reader: ClassReader) : ClassVisitor(Opcodes.ASM4) {
+        override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
+            doMethodTest(reader.getClassName(), access, name, desc, signature)
+            return null
+        }
+        public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
+            doFieldTest(reader.getClassName(), access, name, desc, signature, value)
+            return null
+        }
+    }
+
+    Test
+    fun javaByteCode() {
+        recurseIntoJars(File("lib")) {
+            file, owner, reader ->
+            if (file.getName() != "kotlin-runtime.jar") {
+                reader.accept(TestVisitor(reader), 0)
             }
+        }
+    }
+
+    Ignore("KT-4510")
+    Test
+    fun kotlinByteCode() {
+        recurseIntoJars(File("lib/kotlin-runtime.jar")) {
+            file, owner, reader ->
+            reader.accept(TestVisitor(reader), 0)
         }
     }
 }
