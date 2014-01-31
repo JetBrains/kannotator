@@ -6,10 +6,7 @@ import org.objectweb.asm.tree.ClassNode
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.graphs.*
 
-private class MethodNodeImpl(data: Method): HierarchyNodeImpl<Method>() {
-    // TODO Workaround for KT-2926 Bridge methods are not generated for properties declared in primary constructors
-    override val data: Method = data
-}
+private class MethodNodeImpl(public override val data: Method): HierarchyNodeImpl<Method>()
 
 private val Method.overridable: Boolean
     get() =
