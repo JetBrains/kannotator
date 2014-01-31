@@ -3,6 +3,7 @@ package annotations.io
 import junit.framework.TestCase
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
+import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
 import org.jetbrains.kannotator.declarations.Access
@@ -16,7 +17,8 @@ import org.objectweb.asm.util.TraceSignatureVisitor
 import org.jetbrains.kannotator.declarations.MethodTypePosition
 import org.jetbrains.kannotator.declarations.ClassMember
 
-class PositionSerializerTest : TestCase() {
+/** tests how `annotationPosition.toAnnotationKey()` works */
+class AnnotationPositionSerializerTest : TestCase() {
     fun doTest(
             expected: String,
             owner: String, methodName: String, desc: String,
@@ -26,8 +28,8 @@ class PositionSerializerTest : TestCase() {
         val staticFlag = if (static) Opcodes.ACC_STATIC else 0
         val varargsFlag = if (varargs) Opcodes.ACC_VARARGS else 0
         val method = Method(ClassName.fromInternalName(owner), staticFlag or varargsFlag, methodName, desc, signature)
-        val pos = MockTypePosition(method, position)
-        assertEquals(expected, pos.toAnnotationKey())
+        val annotationPosition = PositionsForMethod(method).get(position).position
+        assertEquals(expected, annotationPosition.toAnnotationKey())
     }
 
     fun testVoid() {
@@ -132,11 +134,4 @@ class PositionSerializerTest : TestCase() {
                 "java/util/zip/ZipOutputStream\$XEntry", "<init>", "(Ljava/util/zip/ZipEntry;J)V", ParameterPosition(1),
                 null, false)
     }
-}
-
-data class MockTypePosition(
-        override val method: Method,
-        override val relativePosition: PositionWithinDeclaration
-) : MethodTypePosition {
-    override val member: ClassMember get() { return method }
 }
