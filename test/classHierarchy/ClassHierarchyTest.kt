@@ -1,25 +1,28 @@
 package classHierarchy
 
 import java.io.File
-import junit.framework.TestCase
+import org.junit.Test
 import kotlinlib.buildString
 import kotlinlib.println
 import kotlinlib.sortByToString
 import org.jetbrains.kannotator.classHierarchy.*
 import util.assertEqualsOrCreate
+import util.getClassesHierarchy
 
-class ClassHierarchyTest : TestCase() {
-    val BASE_DIR = "testData/classHierarchy/"
+/**
+ * Builds class hierarchy for some libs in `lib` folder and compares
+ * to reference hierarchy.
+ */
+class ClassHierarchyTest {
+    val BASE_DIR = "testData/classHierarchy"
 
-//    fun testAll() {
-//        doTest("", "all.txt")
-//    }
-
-    fun testGsCollections() {
+    Test
+    fun gsCollections() {
         doTest("com/gs/collections/", "gs-collections.txt")
     }
 
-    fun testJung() {
+    Test
+    fun jung() {
         doTest("edu/uci/ics/jung/", "jung.txt")
     }
 
@@ -42,6 +45,6 @@ class ClassHierarchyTest : TestCase() {
             }
         }
 
-        assertEqualsOrCreate(File(BASE_DIR + filename), result)
+        assertEqualsOrCreate(File("$BASE_DIR/$filename"), result)
     }
 }
