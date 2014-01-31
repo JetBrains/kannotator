@@ -11,7 +11,7 @@ import kotlinlib.emptyList
 class PositionsForMethod(val method: Method) {
     public fun get(positionWithinMethod: PositionWithinDeclaration): AnnotatedType {
         return AnnotatedTypeImpl(
-                MethodTypePositionImpl(method, positionWithinMethod, 0),
+                MethodTypePositionImpl(method, positionWithinMethod),
                 positionWithinMethod.toString(),
                 emptyList()
         )
@@ -48,8 +48,7 @@ fun PositionsForMethod.getValidPositions(): Collection<AnnotationPosition> {
 
 private data class MethodTypePositionImpl(
         override val method: Method,
-        override val relativePosition: PositionWithinDeclaration,
-        val position: Int // position from left to right inside the type signature
+        override val relativePosition: PositionWithinDeclaration
 ) : MethodTypePosition {
     override val member: ClassMember get() { return method }
 }
