@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
 
     graph.hierarchyNodes.forEach {node ->
         sb.append("""
-        node: {title:"${node.data.name}" label:"${node.data.name.shortenClassName()}"}""")
+        node: {title:"${node.data.name}" label:"${node.data.name}"}""")
 
         node.outgoingEdges.forEach { edge ->
             sb.append("""
@@ -40,9 +40,4 @@ fun main(args: Array<String>) {
     sb.append("""}""")
 
     gdl.writeText(sb.toString())
-}
-
-fun ClassName.shortenClassName(): String {
-    val shortPkg = this.packageName.split('/').map({it.substring(0, 1)}).makeString(".")
-    return if (shortPkg.isEmpty()) this.simple else "${shortPkg}.$simple"
 }
