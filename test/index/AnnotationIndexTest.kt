@@ -1,45 +1,32 @@
 package index
 
-import junit.framework.TestCase
-import junit.framework.Assert.*
-import annotations.io.collectAllAnnotationKeysTo
+import org.junit.Assert
+import org.junit.Test
 import java.io.File
 import java.util.HashSet
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import util.findJarFiles
-import org.jetbrains.kannotator.annotations.io.toAnnotationKey
+import util.findJarsInLibFolder
+import util.collectAllAnnotationKeysTo
 
-class AnnotationIndexTest : TestCase() {
-    fun test() {
-        val jarDirs = arrayList(
-//                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes"),
-//                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib"),
-                File("lib")
-        )
-
-        val annotationDirs = arrayList(
-//                java.io.File("/Users/abreslav/work/kotlin/jdk-annotations"),
-                File("lib")
-        )
-
+/**
+ * Checks that each annotation key (from external annotations in lib folder)
+ * can be found in declaration index (for lib folder).
+ */
+class AnnotationIndexTest {
+    Test
+    fun indexesInLibFolder() {
         val keys = HashSet<String>()
-        for (dir in annotationDirs) {
-            dir.collectAllAnnotationKeysTo(keys)
-        }
+        File("lib").collectAllAnnotationKeysTo(keys)
 
-        val jars = findJarFiles(jarDirs)
-
-        val source = FileBasedClassSource(jars)
+        val source = FileBasedClassSource(findJarsInLibFolder())
         val index = DeclarationIndexImpl(source, failOnDuplicates = false)
 
         for (key in keys) {
-            if ("(" !in key) continue // no fields
-            if ("@" in key) continue // bug in IDEA
-            val position = index.findPositionByAnnotationKeyString(key)
-            if (position == null) {
-                fail("Position not found for $key")
-            }
+            Assert.assertNotNull(
+                    "Position not found for $key",
+                    index.findPositionByAnnotationKeyString(key)
+            )
         }
 
     }
