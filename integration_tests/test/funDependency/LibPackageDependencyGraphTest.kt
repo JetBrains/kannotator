@@ -18,6 +18,7 @@ import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
 
+/** Checks construction of package dependencies for jdk against expected. */
 class LibPackageDependencyGraphTest {
     fun doTest(expectedResultPath: String, jarFile: File) {
         val classSource = FileBasedClassSource(arrayListOf(jarFile))
