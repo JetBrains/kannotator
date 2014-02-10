@@ -138,3 +138,10 @@ fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
         it.name.internal.startsWith(prefix)
     }.sortByToString()
 }
+
+fun traceExecutionTime<A>(title: String? = null, body: () -> A): A {
+    val time = System.nanoTime()
+    val result = body()
+    println((title ?: "Time") + ": " + (System.nanoTime() - time) / 1e+9 + "s")
+    return result
+}

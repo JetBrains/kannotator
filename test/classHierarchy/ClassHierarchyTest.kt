@@ -11,7 +11,7 @@ import util.getClassesHierarchy
 
 /**
  * Builds class hierarchy for some libs in `lib` folder and compares
- * to reference hierarchy.
+ * to reference hierarchy (in text files).
  */
 class ClassHierarchyTest {
     val BASE_DIR = "testData/classHierarchy"

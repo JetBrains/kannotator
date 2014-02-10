@@ -33,6 +33,11 @@ import org.jetbrains.kannotator.declarations.Access
 import org.jetbrains.kannotator.PRINT_TO_CONSOLE
 import java.util.LinkedHashMap
 
+/**
+ * Traverses all jars in `lib` directory and creates index.
+ * Reads annotations.xml from `testData/annotations/write`, using created index.
+ * Serializes annotations.xml back and checks against original.
+ */
 public class WriteAnnotationTest {
 
     Test fun testAll() {
