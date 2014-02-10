@@ -1,12 +1,13 @@
 package util.junit
 
 import junit.framework.TestCase
+import util.NamedTest
 
-public fun TestCase.getTestName(lowercaseFirstLetter: Boolean) : String {
+public fun NamedTest.getTestName(lowercaseFirstLetter: Boolean) : String {
     return getTestName(getName(), lowercaseFirstLetter)
 }
 
-public fun TestCase.getTestName(name: String?, lowercaseFirstLetter: Boolean) : String {
+public fun NamedTest.getTestName(name: String?, lowercaseFirstLetter: Boolean) : String {
     if (name == null) {
         return "";
     }

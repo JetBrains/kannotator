@@ -1,6 +1,7 @@
 package inference
 
 import java.io.File
+import org.junit.Test
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
@@ -10,6 +11,7 @@ import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.junit.Ignore
 
 class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
     protected override val analysisType: AnalysisType = NULLABILITY_KEY
@@ -41,129 +43,130 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
         return existingNullabilityAnnotations
     }
 
-    fun testNull() = doTest()
+    Test fun testNull() = doTest()
 
-    fun testNullOrObject() = doTest()
+    Test fun testNullOrObject() = doTest()
 
-    fun testNotNullParameter() = doTest()
+    Test fun testNotNullParameter() = doTest()
 
-    fun testInvocationOnCheckedParameter() = doTest()
+    Test fun testInvocationOnCheckedParameter() = doTest()
 
     //todo test CONFLICT
-    fun testIncompatibleChecks() = doTest()
+    Test fun testIncompatibleChecks() = doTest()
 
-    fun testInvocationOnNullParameter() = doTest()
+    Test fun testInvocationOnNullParameter() = doTest()
 
-    fun testNullableParameter() = doTest()
+    Test fun testNullableParameter() = doTest()
 
-    fun testSenselessIsNullCheck() = doTest()
+    Test fun testSenselessIsNullCheck() = doTest()
 
-    fun testInvocationAfterReturn() = doTest()
+    Test fun testInvocationAfterReturn() = doTest()
 
-    fun testReturnInvokeSpecial() = doTest()
+    Test fun testReturnInvokeSpecial() = doTest()
 
-    fun testReturnInvokeVirtual() = doTest()
+    Test fun testReturnInvokeVirtual() = doTest()
 
-    fun testReturnInvokeStatic() = doTest()
+    Test fun testReturnInvokeStatic() = doTest()
 
-    fun testInvokeInterface() = doTest()
+    Test fun testInvokeInterface() = doTest()
 
-    fun testReturnArrayLoad() = doTest()
+    Test fun testReturnArrayLoad() = doTest()
 
-    fun testReturnNewIntArray() = doTest()
+    Test fun testReturnNewIntArray() = doTest()
 
-    fun testReturnNewObjectArray() = doTest()
+    Test fun testReturnNewObjectArray() = doTest()
 
-    fun testReturnNewMultiArray() = doTest()
+    Test fun testReturnNewMultiArray() = doTest()
 
-    // TODO
-    fun todotestReturnField() = doTest()
+    Ignore
+    Test fun testReturnField() = doTest()
 
-    fun testReturnNotNullField() = doTest()
+    Test fun testReturnNotNullField() = doTest()
 
-    fun testReturnStaticField() = doTest()
+    Test fun testReturnStaticField() = doTest()
 
-    fun testReturnNullableStaticField() = doTest()
+    Test fun testReturnNullableStaticField() = doTest()
 
-    fun testReturnStringConstant() = doTest()
+    Test fun testReturnStringConstant() = doTest()
 
-    fun testReturnThis() = doTest()
+    Test fun testReturnThis() = doTest()
 
-    fun testReturnCaughtException() = doTest()
+    Test fun testReturnCaughtException() = doTest()
 
-    fun testInstanceofAndReturn() = doTest()
+    Test fun testInstanceofAndReturn() = doTest()
 
-    fun testClassLiteral() = doTest()
+    Test fun testClassLiteral() = doTest()
 
-    fun testNotNullIfNullCheckThrowsException() = doTest()
+    Test fun testNotNullIfNullCheckThrowsException() = doTest()
 
-    fun testAssertAfterReturn() = doTest()
+    Test fun testAssertAfterReturn() = doTest()
 
-    fun testGetField() = doTest()
+    Test fun testGetField() = doTest()
 
-    fun testPutField() = doTest()
+    Test fun testPutField() = doTest()
 
-    fun testArrayLength() = doTest()
+    Test fun testArrayLength() = doTest()
 
-//todo support merge termination with exceptions only
-//    fun testThrowParameter() = doTest()
+    //todo support merge termination with exceptions only
+    Ignore
+    Test fun testThrowParameter() = doTest()
 
-    fun testMonitor() = doTest()
+    Test fun testMonitor() = doTest()
 
-    fun testArrayLoad() = doTest()
+    Test fun testArrayLoad() = doTest()
 
-    fun testArrayStore() = doTest()
+    Test fun testArrayStore() = doTest()
 
-    fun testUnboxingToPrimitive() = doTest()
+    Test fun testUnboxingToPrimitive() = doTest()
 
-    fun testInvokeStaticAssertNotNull() = doTest()
+    Test fun testInvokeStaticAssertNotNull() = doTest()
 
-    fun testInvokeAssertNotNull() = doTest()
+    Test fun testInvokeAssertNotNull() = doTest()
 
-    fun testInvokeAssertSecondNotNull() = doTest()
+    Test fun testInvokeAssertSecondNotNull() = doTest()
 
-    fun testInvokeStaticAssertSecondNotNull() = doTest()
+    Test fun testInvokeStaticAssertSecondNotNull() = doTest()
 
-    fun testInvokeNullableParameter() = doTest()
+    Test fun testInvokeNullableParameter() = doTest()
 
-    fun testInvokeReturnNotNull() = doTest()
+    Test fun testInvokeReturnNotNull() = doTest()
 
-    fun testInvokeReturnNullable() = doTest()
+    Test fun testInvokeReturnNullable() = doTest()
 
-    fun testReturnAfterInvocation() = doTest()
+    Test fun testReturnAfterInvocation() = doTest()
 
-    fun testReturnAfterPassingAsNotNullArgument() = doTest()
+    Test fun testReturnAfterPassingAsNotNullArgument() = doTest()
 
-    fun testConflict() = doTest()
+    Test fun testConflict() = doTest()
 
-    fun testConflict2() = doTest()
+    Test fun testConflict2() = doTest()
 
-    // TODO
-    fun todotestAutoboxing() = doTest()
+    Ignore
+    Test fun testAutoboxing() = doTest()
 
-    fun testNullableAfterInstanceOf() = doTest()
-
-    // TODO
-    fun todotestMonitorValueThroughLocalVariable() = doTest()
+    Test fun testNullableAfterInstanceOf() = doTest()
 
     // TODO
-    fun todotestMonitorValueThroughField() = doTest()
+    Test fun testMonitorValueThroughLocalVariable() = doTest()
 
-    fun testNotInstanceOf() = doTest()
-    fun testNotInstanceOfWithAssignment() = doTest()
+    Ignore
+    Test fun testMonitorValueThroughField() = doTest()
 
-    fun testMultipleInstanceOf() = doTest()
+    Test fun testNotInstanceOf() = doTest()
+    Test fun testNotInstanceOfWithAssignment() = doTest()
 
-    fun testTrimStringList() = doTest()
+    Test fun testMultipleInstanceOf() = doTest()
 
-    fun testUnmodifiableCollectionSubclass() = doTest()
+    Test fun testTrimStringList() = doTest()
 
-    // TODO
-    fun todotestArgOfStaticMethod() = doTest()
+    Test fun testUnmodifiableCollectionSubclass() = doTest()
 
-    // TODO
-    fun todotestArgAssign() = doTest()
+    Ignore
+    Test fun testArgOfStaticMethod() = doTest()
 
-    // TODO
-    fun todotestErrorCall() = doTest()
+    Ignore
+    Test fun testArgAssign() = doTest()
+
+    Ignore
+    Test fun testErrorCall() = doTest()
 }

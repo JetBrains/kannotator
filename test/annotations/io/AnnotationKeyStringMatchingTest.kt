@@ -12,9 +12,9 @@ import kotlinlib.*
 import util.*
 
 /**
- * Testing a single aspect of parsing annotations.xml - annotation key.
  * Tests that each annotations key (from `annotations.xml` in `lib` directory)
  * is present in some jar (in lib directory).
+ * That is, we test we are able to parse existing third-party annotations.
  **/
 class AnnotationKeyStringMatchingTest {
 
