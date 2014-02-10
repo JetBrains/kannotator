@@ -8,6 +8,9 @@ import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToJaif
 
+/** Reads annotations from classes in testData/annotations/io/spec/ from bytecode,
+ *  puts them into JAIF and checks against expected JAIFs.
+ */
 public class WriteJaifTest {
 
     fun doTest(specFile: File, vararg classes: Class<*>) {

@@ -2,96 +2,59 @@ package index
 
 import java.io.File
 import java.util.ArrayList
-import junit.framework.TestCase
-import kotlinlib.recurseFiltered
+import org.junit.Test
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.util.processJar
-import org.objectweb.asm.ClassVisitor
-import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.Opcodes
 import kotlin.test.fail
+import kotlin.util.measureTimeMillis
 import org.jetbrains.kannotator.asm.util.forEachMethod
-import util.findJarFiles
+import util.findJarsInLibFolder
+import util.traceExecutionTime
 
-class MethodIndexTest : TestCase() {
+/** Compares times of traversing methods vs indexing methods.
+ *  Checks that each traversed method is found in index */
+class MethodIndexTest {
 
-    fun doTest(jars: Collection<File>) {
+    fun doTest(jar: File) {
         val methods = ArrayList<Method>()
 
-        measureTime("Loading methods: ") {
-            for (jar in jars) {
-                processJar(jar) {
-                    file, owner, reader ->
-                    val className = ClassName.fromInternalName(reader.getClassName())
-                    reader.forEachMethod {
-                        owner, access, name, desc, signature ->
-                        val method = Method(className, access, name, desc, signature)
-                        methods.add(method)
-                    }
+        traceExecutionTime("Loading methods: ") {
+            processJar(jar) {
+                file, owner, reader ->
+                val className = ClassName.fromInternalName(reader.getClassName())
+                reader.forEachMethod {
+                    owner, access, name, desc, signature ->
+                    val method = Method(className, access, name, desc, signature)
+                    methods.add(method)
                 }
             }
         }
-
 
         println("${methods.size} methods found")
 
+        val index = traceExecutionTime("Building index: ") {
+            val source = FileBasedClassSource(listOf(jar))
+            DeclarationIndexImpl(source)
+        }
 
-        measureTime("Building index: ") {
-            watch ->
-            val source = FileBasedClassSource(jars)
-            val index = DeclarationIndexImpl(source)
-            watch.dump()
-            for (method in methods) {
-                val found = index.findMethod(method.declaringClass, method.id.methodName, method.id.methodDesc)
-                if (found == null) {
-                    fail("Method not found: ${method.toFullString()}")
-                }
-                else if (method != found) {
-                    fail("Wrong method found. Expected\n" + method.toFullString() + "\nbut was\n" + found.toFullString())
-                }
+        for (method in methods) {
+            val found = index.findMethod(method.declaringClass, method.id.methodName, method.id.methodDesc)
+            if (found == null) {
+                fail("Method not found: ${method.toFullString()}")
+            }
+            else if (method != found) {
+                fail("Wrong method found. Expected\n" + method.toFullString() + "\nbut was\n" + found.toFullString())
             }
         }
     }
 
-    fun test() {
-        val dirs = arrayList(
-                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes"),
-                java.io.File("/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib"),
-                java.io.File("lib")
-        )
-
-        val jars = findJarFiles(dirs)
-
-        for (jar in jars) {
+    Test fun libFolder() {
+        for (jar in findJarsInLibFolder()) {
             println(jar)
-            doTest(arrayList(jar))
+            doTest(jar)
+            println()
         }
     }
-
-}
-
-class StopWatch(val title: String? = null) {
-    var time = 0.toLong()
-
-    fun start() {
-        time = System.nanoTime()
-    }
-
-    fun dump() {
-        println((title ?: "Time") + ": " + (System.nanoTime() - time) / 1e+9 + "s")
-    }
-
-    fun dumpAndStart() {
-        dump()
-        start()
-    }
-}
-
-fun measureTime(title: String? = null, body: (watch: StopWatch) -> Unit) {
-    val watch = StopWatch(title)
-    watch.start()
-    body(watch)
-    watch.dump()
 }

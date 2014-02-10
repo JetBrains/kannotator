@@ -1,6 +1,6 @@
 package inference
 
-import junit.framework.TestCase
+import org.junit.Test
 import org.jetbrains.kannotator.main.inferAnnotations
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
@@ -30,9 +30,9 @@ import org.jetbrains.kannotator.annotations.io.AnnotationData
 import kotlinlib.join
 import util.assertEqualsOrCreate
 
-class InferenceWithDependenciesTest : TestCase() {
+class InferenceWithDependenciesTest {
 
-    fun testInferenceWithDependencies() {
+    Test fun inferenceWithDependencies() {
         val inferrerMap = mapOf(NULLABILITY_KEY to (NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>))
 
         val baseDir = File("out/test/kannotator")

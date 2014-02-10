@@ -1,6 +1,7 @@
 package inference
 
 import java.io.File
+import org.junit.Test
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.MUTABILITY_INFERRER
 import org.jetbrains.kannotator.declarations.Annotations
@@ -10,6 +11,7 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.Mutabili
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
+/** checks inference for MutabilityInferenceTestLib */
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         javaClass<inferenceData.MutabilityInferenceTestClass>()) {
     protected override val analysisType: AnalysisType = MUTABILITY_KEY
@@ -44,25 +46,25 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         return existingNullabilityAnnotations
     }
 
-    fun testMutableCollection() = doTest()
+    Test fun mutableCollection() = doTest()
 
-    fun testIterateOverMutableCollection() = doTest()
+    Test fun iterateOverMutableCollection() = doTest()
 
-    fun testImmutableCollection() = doTest()
+    Test fun immutableCollection() = doTest()
 
-    fun testMapEntry() = doTest()
+    Test fun mapEntry() = doTest()
 
-    fun testChangeKeySetInMap() = doTest()
+    Test fun changeKeySetInMap() = doTest()
 
-    fun testEntrySetInMap() = doTest()
+    Test fun entrySetInMap() = doTest()
 
-    fun testEntrySetInMap2() = doTest()
+    Test fun entrySetInMap2() = doTest()
 
-    fun testInvokeProcessMutable() = doTest()
+    Test fun invokeProcessMutable() = doTest()
 
-    fun testInvokeProcessReadableAndMutable() = doTest()
+    Test fun invokeProcessReadableAndMutable() = doTest()
 
-    fun testWalk() = doTest()
+    Test fun walk() = doTest()
 
-    fun testScopeExit() = doTest()
+    Test fun scopeExit() = doTest()
 }
