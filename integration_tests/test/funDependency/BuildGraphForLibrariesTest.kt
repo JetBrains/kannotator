@@ -13,6 +13,9 @@ import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
 
+/** Smoke testing that function dependency graph is built for each jar
+ * without any errors
+ */
 class BuildGraphForLibrariesTest() {
     Test fun allLibsTest() {
         File("lib").recurse {
