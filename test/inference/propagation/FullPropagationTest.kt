@@ -14,8 +14,13 @@ import org.jetbrains.kannotator.index.ClassSource
 import util.Classes
 import java.util.HashSet
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.junit.Test
+import org.junit.Ignore
 
-class FullPropagationTest: TestCase() {
+/** Takes existing annotations and runs propagation (no inference in this test)
+ * Checks against expected annotations.
+ * */
+class FullPropagationTest {
 
     fun doTest(classSource: ClassSource) {
         doPropagationTest(classSource) {
@@ -24,7 +29,7 @@ class FullPropagationTest: TestCase() {
         }
     }
 
-    fun testLinearHierarchy() {
+    Test fun linearHierarchy() {
         doTest(Classes(
                 javaClass<fullPropagation.LinearHierarchy.A>(),
                 javaClass<fullPropagation.LinearHierarchy.B>(),
@@ -32,7 +37,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testLinearHierarchyMultipleAnnotations() {
+    Test fun testLinearHierarchyMultipleAnnotations() {
         doTest(Classes(
                 javaClass<fullPropagation.LinearHierarchyMultipleAnnotations.A>(),
                 javaClass<fullPropagation.LinearHierarchyMultipleAnnotations.B>(),
@@ -40,7 +45,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testLinearHierarchyAlterChildren() {
+    Test fun testLinearHierarchyAlterChildren() {
         doTest(Classes(
                 javaClass<fullPropagation.LinearHierarchyAlterChildren.A>(),
                 javaClass<fullPropagation.LinearHierarchyAlterChildren.B>(),
@@ -49,7 +54,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testLinearHierarchyCovariantReturn() {
+    Test fun testLinearHierarchyCovariantReturn() {
         doTest(Classes(
                     javaClass<fullPropagation.LinearHierarchyCovariantReturn.A>(),
                 javaClass<fullPropagation.LinearHierarchyCovariantReturn.B>(),
@@ -57,7 +62,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testConflictsAndPropagation() {
+    Test fun testConflictsAndPropagation() {
         doTest(Classes(
                 javaClass<fullPropagation.ConflictsAndPropagation.A>(),
                 javaClass<fullPropagation.ConflictsAndPropagation.ConflictSource>(),
@@ -66,7 +71,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testLinearHierarchyEmpty() {
+    Test fun testLinearHierarchyEmpty() {
         doTest(Classes(
                 javaClass<fullPropagation.LinearHierarchy2.A>(),
                 javaClass<fullPropagation.LinearHierarchy2.B>(),
@@ -74,7 +79,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testDiamondHierarchy() {
+    Test fun testDiamondHierarchy() {
         doTest(Classes(
                 javaClass<fullPropagation.DiamondHierarchy.Top>(),
                 javaClass<fullPropagation.DiamondHierarchy.A>(),
@@ -84,7 +89,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testXHierarchyAnnotatedMiddle() {
+    Test fun testXHierarchyAnnotatedMiddle() {
         doTest(Classes(
                 javaClass<fullPropagation.XHierarchyAnnotatedMiddle.Top1>(),
                 javaClass<fullPropagation.XHierarchyAnnotatedMiddle.Top2>(),
@@ -94,7 +99,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testXHierarchyHollowMiddle() {
+    Test fun testXHierarchyHollowMiddle() {
         doTest(Classes(
                 javaClass<fullPropagation.XHierarchyHollowMiddle.Top1>(),
                 javaClass<fullPropagation.XHierarchyHollowMiddle.Top2>(),
@@ -104,7 +109,7 @@ class FullPropagationTest: TestCase() {
         ))
     }
 
-    fun testYHierarchy() {
+    Test fun testYHierarchy() {
         doTest(Classes(
                 javaClass<fullPropagation.YHierarchy.A>(),
                 javaClass<fullPropagation.YHierarchy.A1>(),
@@ -114,8 +119,8 @@ class FullPropagationTest: TestCase() {
     }
 
 
-    // TODO
-    fun todoTestTwoHierarchies() {
+    Ignore
+    Test fun testTwoHierarchies() {
         doTest(Classes(
                 javaClass<fullPropagation.TwoHierarchies.A1>(),
                 javaClass<fullPropagation.TwoHierarchies.A2>(),

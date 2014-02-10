@@ -179,13 +179,13 @@ public class NullabilityInferenceTestClass {
         }
     }
 
-    private void testMonitorValueThroughLocalVariable(@ExpectNotNull Object o) {
+    public void testMonitorValueThroughLocalVariable(@ExpectNotNull Object o) {
         Object local = o;
         local.toString();
     }
 
     private Object tempField;
-    private void testMonitorValueThroughField(@ExpectNotNull Object o) {
+    public void testMonitorValueThroughField(@ExpectNotNull Object o) {
         tempField = o;
         tempField.toString();
     }

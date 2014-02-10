@@ -26,6 +26,7 @@ fun <A, L> Graph<A, L>.toJungGraph(): DirectedSparseMultigraph<Node<A, L>, Edge<
     return jungGraph
 }
 
+/** displays dependencies (via jung) for kotlin-runtime */
 fun main(args: Array<String>) {
     val file = File("lib/kotlin-runtime.jar")
 

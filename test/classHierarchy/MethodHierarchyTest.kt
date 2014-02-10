@@ -12,7 +12,7 @@ import org.jetbrains.kannotator.declarations.Method
 
 /**
  * Builds method hierarchy for some libs in `lib` folder and compares
- * to reference hierarchy.
+ * to reference hierarchy (in text files).
  */
 class MethodHierarchyTest {
 

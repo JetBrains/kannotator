@@ -1,7 +1,7 @@
 package kotlinSignatures
 
-import junit.framework.TestCase
-import junit.framework.Assert.*
+import org.junit.Test
+import org.junit.Assert.*
 import java.io.File
 import kotlinlib.recurseFiltered
 import kotlinlib.replaceSuffix
@@ -43,7 +43,11 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.Mutabili
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 
-class KotlinSignatureRendererTest : TestCase() {
+/** Tests rendering of Nullability/Mutability annotations into KotlinSignature.
+ *  Input: classes in KotlinSignatureTestData with annotations.
+ *  Output: Kotlin signatures based on found annotations
+ *  */
+class KotlinSignatureRendererTest {
 
     fun checkSignature(
             expectedSignature: String,
@@ -136,72 +140,48 @@ class KotlinSignatureRendererTest : TestCase() {
 
     }
 
-    fun testNoAnnotations() {
+    Test fun noAnnotations() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotations>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testNullability() {
+    Test fun nullability() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Nullability>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testGenerics() {
+    Test fun generics() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotationsGeneric<*>>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testMutabilityNoAnnotations() {
+    Test fun mutabilityNoAnnotations() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.MutabilityNoAnnotations>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testGenericInner() {
+    Test fun genericInner() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.WithGenericInner<*>>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testMutability() {
+    Test fun mutability() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Mutability>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testConstructorOfInner() {
+    Test fun constructorOfInner() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Inner>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testNamedParametersLongTypes() {
+    Test fun namedParametersLongTypes() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.NamedParametersLongTypes>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    fun testEnum() {
+    Test fun `enum`() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Enum>())
         doMultipleDeclarationsTest(classReader)
     }
-}
-
-fun main(args: Array<String>) {
-
-
-    val dir = File("/Users/abreslav/work/kannotator/testData/kotlinSignatures")
-    val str = buildString {
-        sb ->
-        sb.append("class KotlinSignatureGeneratorTest : TestCase() {\n")
-        dir.recurseFiltered({file -> file.getName().endsWith(".java")}) {
-            javaFile ->
-            val sourceRoot = dir.getParentFile()!!
-            val relativeJavaFile = File(javaFile.getPath().substring(sourceRoot.getPath().size + 1))
-            val packageFqn = relativeJavaFile.getParents().join(".")
-            val className = javaFile.getName().removeSuffix(".java")
-            val ktTxt = javaFile.replaceExtension("kt.txt")
-            val relativeKtTxt = relativeJavaFile.replaceExtension("kt.txt")
-            if (ktTxt.exists()) {
-                sb.append("    fun test$className() { doTest(javaClass<$packageFqn.$className>(), \"$relativeKtTxt\") }\n\n")
-            }
-        }
-        sb.append("}")
-    }
-    println(str)
 }
