@@ -11,8 +11,12 @@ import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.classHierarchy.*
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 import java.util.HashSet
+import org.junit.Test
 
-class ConflictResolutionTest: TestCase() {
+/** Takes existing annotations and runs conflict resolution (no inference, no full propagation here).
+ * Checks against expected annotations.
+ * */
+class ConflictResolutionTest {
 
     fun doTest(classSource: ClassSource) {
         doPropagationTest(classSource) {
@@ -27,14 +31,14 @@ class ConflictResolutionTest: TestCase() {
         }
     }
 
-    fun testConflicts() {
+    Test fun conflicts() {
         doTest(Classes(
                 javaClass<conflicts.Conflicts.Base>(),
                 javaClass<conflicts.Conflicts.Child>()
         ))
     }
 
-    fun testLinearHierarchy() {
+    Test fun linearHierarchy() {
         doTest(Classes(
                 javaClass<conflicts.LinearHierarchy.A>(),
                 javaClass<conflicts.LinearHierarchy.B>(),
@@ -42,7 +46,7 @@ class ConflictResolutionTest: TestCase() {
         ))
     }
 
-    fun testYHierarchy() {
+    Test fun yHierarchy() {
         doTest(Classes(
                 javaClass<conflicts.YHierarchy.A>(),
                 javaClass<conflicts.YHierarchy.A1>(),
@@ -51,7 +55,7 @@ class ConflictResolutionTest: TestCase() {
         ))
     }
 
-    fun testDiamondHierarchy() {
+    Test fun diamondHierarchy() {
         doTest(Classes(
                 javaClass<conflicts.DiamondHierarchy.Top>(),
                 javaClass<conflicts.DiamondHierarchy.A>(),
@@ -61,7 +65,7 @@ class ConflictResolutionTest: TestCase() {
         ))
     }
 
-    fun testXHierarchyHollowMiddle() {
+    Test fun xHierarchyHollowMiddle() {
         doTest(Classes(
                 javaClass<conflicts.XHierarchyHollowMiddle.Top1>(),
                 javaClass<conflicts.XHierarchyHollowMiddle.Top2>(),
@@ -71,7 +75,7 @@ class ConflictResolutionTest: TestCase() {
         ))
     }
 
-    fun testXHierarchyAnnotatedMiddle() {
+    Test fun xHierarchyAnnotatedMiddle() {
         doTest(Classes(
                 javaClass<conflicts.XHierarchyAnnotatedMiddle.Top1>(),
                 javaClass<conflicts.XHierarchyAnnotatedMiddle.Top2>(),
@@ -81,7 +85,7 @@ class ConflictResolutionTest: TestCase() {
         ))
     }
 
-    fun testXHierarchyConflictMiddle() {
+    Test fun xHierarchyConflictMiddle() {
         doTest(Classes(
                 javaClass<conflicts.XHierarchyConflictMiddle.Top1>(),
                 javaClass<conflicts.XHierarchyConflictMiddle.Top2>(),
@@ -91,7 +95,7 @@ class ConflictResolutionTest: TestCase() {
         ))
     }
 
-    fun testAHierarchy() {
+    Test fun aHierarchy() {
         doTest(Classes(
                 javaClass<conflicts.AHierarchy.A>(),
                 javaClass<conflicts.AHierarchy.B>(),

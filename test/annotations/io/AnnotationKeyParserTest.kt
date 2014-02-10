@@ -19,7 +19,7 @@ import util.recurseIntoJars
 
 /**
  * tests that parse(position.toAnnotationKey()) = position,
- * sample positions are taken from bytecode
+ * sample positions are taken from bytecode in jars in lib folder
  * */
 class AnnotationKeyParserTest {
     private fun doMethodTest(className: String, access: Int, name: String, desc: String, signature: String?) {

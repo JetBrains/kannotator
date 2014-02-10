@@ -9,6 +9,7 @@ import java.util.Comparator
 
 data class Node(val name: String)
 
+/** Tests SCCFinder for very simple graphs */
 class Graph {
     private val nodes = HashMap<String, Node>()
     private val outgoingEdges = HashMap<Node, MutableSet<Node>>()

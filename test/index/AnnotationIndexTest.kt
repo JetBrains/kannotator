@@ -14,8 +14,7 @@ import util.collectAllAnnotationKeysTo
  * can be found in declaration index (for lib folder).
  */
 class AnnotationIndexTest {
-    Test
-    fun indexesInLibFolder() {
+    Test fun indexesInLibFolder() {
         val keys = HashSet<String>()
         File("lib").collectAllAnnotationKeysTo(keys)
 
