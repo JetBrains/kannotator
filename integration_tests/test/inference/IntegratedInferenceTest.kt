@@ -1,7 +1,7 @@
 package inference
 
-import junit.framework.TestCase
-import junit.framework.Assert.*
+import org.junit.Test
+import org.junit.Assert.*
 import java.io.File
 import java.util.Collections
 import java.io.PrintStream
@@ -64,7 +64,8 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 
-class IntegratedInferenceTest : TestCase() {
+/** Regression inference. Annotations are dumped in simple text format. */
+class IntegratedInferenceTest {
     private fun <A: Any> reportConflicts(
             testName: String,
             conflictFile: File,
@@ -120,10 +121,13 @@ class IntegratedInferenceTest : TestCase() {
         val jar = jars.first()
         println("start: $jar")
 
+        // TODO: refactor this logic
+        // the only point here is to load annotation index via progressMonitor
         inferAnnotations(FileBasedClassSource(
                 arrayListOf(jar)), annotationFiles, INFERRERS, progressMonitor, NO_ERROR_HANDLING, true,
                 Collections.emptyMap(), Collections.emptyMap(), {true}, Collections.emptyMap()
         )
+
 
         val propagationOverridesFile = File("testData/inferenceData/integrated/nullability/propagationOverrides.txt")
         val propagationOverrides = loadAnnotationsFromLogs(arrayListOf(propagationOverridesFile), annotationIndex!!)
@@ -191,7 +195,7 @@ class IntegratedInferenceTest : TestCase() {
         writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
     }
 
-
+    // TODO: what is the reason for this code? - it is never used
     private fun doInferenceAsNotNullTest(testedJarSubstring: String) {
         val jars = findJarsInLibFolder().filter { f -> f.getName().contains(testedJarSubstring) }
         Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
@@ -294,32 +298,32 @@ class IntegratedInferenceTest : TestCase() {
         assertEqualsOrCreate(expectedFile, actual, true)
     }
 
-    fun testAsmDebugAll() = doInferenceTest("asm-debug-all-4.0.jar")
-    fun testCollectionsGeneric() = doInferenceTest("collections-generic-4.01.jar")
-    fun testColt() = doInferenceTest("colt-1.2.0.jar")
-    fun testConcurrent() = doInferenceTest("concurrent-1.3.4.jar")
-    fun testGsCollections() = doInferenceTest("gs-collections-2.0.0.jar")
-    fun testGsCollectionsApi() = doInferenceTest("gs-collections-api-2.0.0.jar")
-    fun testGuava() = doInferenceTest("guava-13.0.1.jar", existingAnnotationsDir = "testData/inferenceData/integrated/nullability/guava-existing-annotations")
-    fun testJ3DCore() = doInferenceTest("j3d-core-1.3.1.jar")
-    fun testJung3D() = doInferenceTest("jung-3d-2.0.1.jar")
-    fun testJung3dDemos() = doInferenceTest("jung-3d-demos-2.0.1.jar")
-    fun testJungAlgorithms() = doInferenceTest("jung-algorithms-2.0.1.jar")
-    fun testJungApi() = doInferenceTest("jung-api-2.0.1.jar")
-    fun testJungGraphImpl() = doInferenceTest("jung-graph-impl-2.0.1.jar")
-    fun testJungIo() = doInferenceTest("jung-io-2.0.1.jar")
-    fun testJungJai() = doInferenceTest("jung-jai-2.0.1.jar")
-    fun testJungJaiSamples() = doInferenceTest("jung-jai-samples-2.0.1.jar")
-    fun testJungSamples() = doInferenceTest("jung-samples-2.0.1.jar")
-    fun testJungVisualization() = doInferenceTest("jung-visualization-2.0.1.jar")
-    fun testJUnit() = doInferenceTest("junit-4.10.jar")
-    fun testStaxApi() = doInferenceTest("stax-api-1.0.1.jar")
-    fun testVecmath() = doInferenceTest("vecmath-1.3.1.jar")
-    fun testWstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
-    fun testJpsServer() = doInferenceTest("jps-server.jar")
-    fun testJDK1_7_0_09_rt_jar() = doInferenceTest("jre-7u12-windows-rt.jar") { name ->
+    Test fun asmDebugAll() = doInferenceTest("asm-debug-all-4.0.jar")
+    Test fun collectionsGeneric() = doInferenceTest("collections-generic-4.01.jar")
+    Test fun colt() = doInferenceTest("colt-1.2.0.jar")
+    Test fun concurrent() = doInferenceTest("concurrent-1.3.4.jar")
+    Test fun gsCollections() = doInferenceTest("gs-collections-2.0.0.jar")
+    Test fun gsCollectionsApi() = doInferenceTest("gs-collections-api-2.0.0.jar")
+    Test fun guava() = doInferenceTest("guava-13.0.1.jar", existingAnnotationsDir = "testData/inferenceData/integrated/nullability/guava-existing-annotations")
+    Test fun j3dCore() = doInferenceTest("j3d-core-1.3.1.jar")
+    Test fun jung3d() = doInferenceTest("jung-3d-2.0.1.jar")
+    Test fun jung3dDemos() = doInferenceTest("jung-3d-demos-2.0.1.jar")
+    Test fun jungAlgorithms() = doInferenceTest("jung-algorithms-2.0.1.jar")
+    Test fun jungApi() = doInferenceTest("jung-api-2.0.1.jar")
+    Test fun jungGraphImpl() = doInferenceTest("jung-graph-impl-2.0.1.jar")
+    Test fun jungIo() = doInferenceTest("jung-io-2.0.1.jar")
+    Test fun jungJai() = doInferenceTest("jung-jai-2.0.1.jar")
+    Test fun jungJaiSamples() = doInferenceTest("jung-jai-samples-2.0.1.jar")
+    Test fun jungSamples() = doInferenceTest("jung-samples-2.0.1.jar")
+    Test fun jungVisualization() = doInferenceTest("jung-visualization-2.0.1.jar")
+    Test fun junit() = doInferenceTest("junit-4.10.jar")
+    Test fun staxApi() = doInferenceTest("stax-api-1.0.1.jar")
+    Test fun vecmath() = doInferenceTest("vecmath-1.3.1.jar")
+    Test fun wstxAsl() = doInferenceTest("wstx-asl-3.2.6.jar")
+    Test fun jpsServer() = doInferenceTest("jps-server.jar")
+    Test fun jdk7u12_rt_jar() = doInferenceTest("jre-7u12-windows-rt.jar") { name ->
         name.startsWith("java") || name.startsWith("javax") || name.startsWith("org")
     }
-    fun testExtensions() = doInferenceTest("extensions.jar")
-    fun testDefaultPackage() = doInferenceTest("default-package.jar")
+    Test fun extensions() = doInferenceTest("extensions.jar")
+    Test fun defaultPackage() = doInferenceTest("default-package.jar")
 }
