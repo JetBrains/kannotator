@@ -412,4 +412,12 @@ public class NullabilityInferenceTestClass {
         error(s);
         return null;
     }
+
+    public void methodCallInsideTry(@ExpectNotNull String s) {
+        try {
+            System.out.print(s.hashCode());
+        } catch (IllegalArgumentException e) {
+            // Ignore
+        }
+    }
 }
