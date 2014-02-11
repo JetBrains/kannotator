@@ -161,7 +161,6 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     Test fun testUnmodifiableCollectionSubclass() = doTest()
 
-    Ignore
     Test fun testArgOfStaticMethod() = doTest()
 
     Ignore
