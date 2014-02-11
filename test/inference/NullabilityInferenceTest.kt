@@ -168,4 +168,7 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     Ignore
     Test fun testErrorCall() = doTest()
+
+    Ignore
+    Test fun methodCallInsideTry() = doTest()
 }
