@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.client.android
+package org.jetbrains.kannotator.client.androidInfer
 
 import org.jetbrains.kannotator.*
 import org.jetbrains.kannotator.annotations.io.*
@@ -26,7 +26,6 @@ fun main(args: Array<String>) {
     annotateAndroidSDK()
 }
 
-// TODO: include only those methods that appear in android.jar (that is, API)
 fun annotateAndroidSDK() {
 
     // settings
@@ -34,7 +33,7 @@ fun annotateAndroidSDK() {
     val sdkJarFile = "android/android-sdk_4.4.2.jar"
     val existingAnnotationsDir = File("android/annotations")
     val kotlinSignaturesDir = File("android/annotations")
-    val outDir = "android-sdk-annotations-snapshot"
+    val outDir = "android-sdk-annotations-inferred"
     //val interestingPackages = setOf("java", "javax", "org")
     val propagationOverridesFile = File("android/propagationOverrides.txt")
     val outDirJAIF = File("out/artifacts/annotations")

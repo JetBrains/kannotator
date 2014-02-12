@@ -7,7 +7,7 @@
     <property name="current-jaif"
               value= "${basedir}/out/artifacts/annotations/kotlin-android-sdk-annotations.jaif"/>
     <property name="annotations-dir"
-              value="${basedir}/android-sdk-annotations-snapshot"/>
+              value="${basedir}/android-sdk-annotations-combined"/>
     <property name="annotations-jar"
               value="${basedir}/out/artifacts/annotations/kotlin-android-sdk-annotations.jar"/>
 
@@ -25,9 +25,9 @@
               message="${previous-jaif} and ${current-jaif} are different"/>
     </target>
 
-    <target name="build_annotations">
+    <target name="infer_annotations">
         <java
-                classname="org.jetbrains.kannotator.client.android.AndroidPackage"
+                classname="org.jetbrains.kannotator.client.androidInfer.AndroidInferPackage"
                 fork="true"
                 maxmemory="1024m">
         <classpath>
@@ -36,8 +36,19 @@
         </java>
     </target>
 
-    <target name="pack_annotations" depends="build_annotations">
+    <target name="combine_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.androidCombine.AndroidCombinePackage"
+                fork="true"
+                maxmemory="1024m">
+            <classpath>
+                <pathelement location="${kannotator-cli-jar}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="pack_annotations" depends="infer_annotations,combine_annotations">
         <jar destfile="${annotations-jar}" basedir="${annotations-dir}"/>
-        <delete dir="${basedir}/jdk-annotations-snapshot" failonerror="true"/>
+        <delete dir="${annotations-dir}" />
     </target>
 </project>
