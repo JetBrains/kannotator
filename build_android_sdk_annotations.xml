@@ -1,0 +1,53 @@
+<project name="Build Android SDK Annotations" default="pack_and_check_annotations">
+
+    <property name="kannotator-cli-jar"
+              value="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
+    <property name="previous-jaif"
+              value= "${basedir}/commandLineClient/inferred/kotlin-android-sdk-annotations.jaif"/>
+    <property name="current-jaif"
+              value= "${basedir}/out/artifacts/annotations/kotlin-android-sdk-annotations.jaif"/>
+    <property name="annotations-dir"
+              value="${basedir}/android-sdk-annotations-combined"/>
+    <property name="annotations-jar"
+              value="${basedir}/out/artifacts/annotations/kotlin-android-sdk-annotations.jar"/>
+
+    <target name="pack_and_check_annotations"
+            depends="pack_annotations,validate"/>
+
+    <target name="validate" >
+        <echo message="comparing ${previous-jaif} and ${current-jaif}"/>
+        <condition property="jaif-identical">
+            <filesmatch textfile="true"
+                        file1="${previous-jaif}"
+                        file2="${current-jaif}" />
+        </condition>
+        <fail unless="jaif-identical"
+              message="${previous-jaif} and ${current-jaif} are different"/>
+    </target>
+
+    <target name="infer_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.androidInfer.AndroidInferPackage"
+                fork="true"
+                maxmemory="1024m">
+            <classpath>
+                <pathelement location="${kannotator-cli-jar}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="combine_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.androidCombine.AndroidCombinePackage"
+                fork="true"
+                maxmemory="1024m">
+            <classpath>
+                <pathelement location="${kannotator-cli-jar}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="pack_annotations" depends="infer_annotations,combine_annotations">
+        <jar destfile="${annotations-jar}" basedir="${annotations-dir}"/>
+    </target>
+</project>
