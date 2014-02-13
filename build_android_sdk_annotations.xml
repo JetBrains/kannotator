@@ -1,0 +1,49 @@
+<project name="Build Android SDK Annotations" default="pack_annotations">
+    <property file="manifest.properties" />
+
+    <property name="build.number" value="@snapshot@"/>
+
+    <property name="lib.jar"
+              value="android/android-sdk_4.4.2.jar" />
+    <property name="customization.dir"
+              value="android" />
+    <property name="xml.annotations.out.dir"
+              value="android-sdk-annotations-inferred" />
+    <property name="jaif.name"
+              value="kotlin-android-sdk-annotations" />
+
+    <property name="annotations-dir"
+              value="android-sdk-annotations-combined"/>
+    <property name="annotations-jar"
+              value="out/artifacts/annotations/kotlin-android-sdk-annotations.jar"/>
+
+    <property name="kannotator-cli-jar"
+              value="out/artifacts/KAnnotatorCli/kannotator.jar"/>
+
+    <target name="prepare_annotations">
+        <ant antfile="infer_annotations.xml"/>
+    </target>
+
+    <target name="combine_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.androidCombine.AndroidCombinePackage"
+                fork="true"
+                maxmemory="1024m">
+            <classpath>
+                <pathelement location="${kannotator-cli-jar}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="pack_annotations" depends="prepare_annotations,combine_annotations">
+        <jar destfile="${annotations-jar}" basedir="${annotations-dir}">
+            <manifest>
+                <attribute name="Built-By" value="${manifest.impl.vendor}"/>
+
+                <attribute name="Implementation-Vendor" value="${manifest.impl.vendor}"/>
+                <attribute name="Implementation-Title" value="${manifest.impl.title.kotlin.compiler.annotations.android}"/>
+                <attribute name="Implementation-Version" value="${build.number}"/>
+            </manifest>
+        </jar>
+    </target>
+</project>
