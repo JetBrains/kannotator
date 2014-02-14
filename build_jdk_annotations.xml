@@ -1,5 +1,9 @@
 <project name="Build JDK Annotations" default="pack_and_check_annotations">
 
+    <property file="manifest.properties" />
+
+    <property name="build.number" value="@snapshot@"/>
+
     <property name="kannotator-cli-jar"
               value="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
     <property name="previous-jaif"
@@ -37,7 +41,15 @@
     </target>
 
     <target name="pack_annotations" depends="build_annotations">
-        <jar destfile="${annotations-jar}" basedir="${annotations-dir}"/>
+        <jar destfile="${annotations-jar}" basedir="${annotations-dir}">
+            <manifest>
+                <attribute name="Built-By" value="${manifest.impl.vendor}"/>
+
+                <attribute name="Implementation-Vendor" value="${manifest.impl.vendor}"/>
+                <attribute name="Implementation-Title" value="${manifest.impl.title.kotlin.compiler.annotations.jdk}"/>
+                <attribute name="Implementation-Version" value="${build.number}"/>
+            </manifest>
+        </jar>
         <delete dir="${basedir}/jdk-annotations-snapshot" failonerror="true"/>
     </target>
 </project>
