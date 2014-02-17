@@ -11,7 +11,4 @@ will be taken from input annotations even if KAnnotator infers different result.
 * `propagationOverrides.txt` - forcing these annotations to be propagated through all hierarchy
 * `includedClassNames.txt` - dumping these classes into `annotations.xml` even they are not public
 
-JDK annotations are built via `org.jetbrains.kannotator.client.jdk.JDKPackage`. The result will be in the folder
-`jdk-annotations-snapshot`.
-
-For automatic build use `build_jdk_annotations.xml` as the last step. Annotations will be in `out/annotations/kotlin-jdk-annotations.jar`
+JDK annotations are built via `org.jetbrains.kannotator.client.sdk.SDKPackage`. For automatic build use `build_jdk_annotations.xml` as the last step.
