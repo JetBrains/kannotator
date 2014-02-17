@@ -1,0 +1,94 @@
+<project name="Build SDK (JDK/ANDROID) Annotations" default="build_all">
+
+    <property file="manifest.properties" />
+    <property name="build.number" value="@snapshot@"/>
+    <property name="kannotator-cli-jar" value="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
+
+    <target name="build_all" depends="build_jdk_annotations,build_android_annotations"/>
+
+    <target name="build_jdk_annotations">
+        <build_sdk_annotations
+                lib.jar="lib/jdk/jre-7u12-windows-rt.jar"
+                customization.dir="jdk-custom"
+                xml.annotations.out.dir="jdk-annotations-inferred"
+                jaif.name="kotlin-jdk-annotations"
+                annotations.jar="out/artifacts/annotations/kotlin-jdk-annotations.jar"
+                implementation.title="${manifest.impl.title.kotlin.compiler.annotations.jdk}"
+                postprocess.inferred="postprocess_jdk_annotations" />
+    </target>
+
+    <target name="postprocess_jdk_annotations"/>
+
+    <target name="build_android_annotations">
+        <build_sdk_annotations
+                lib.jar="android-custom/android-sdk_4.4.2.jar"
+                customization.dir="android-custom"
+                xml.annotations.out.dir="android-sdk-annotations-inferred"
+                xml.annotations.pack.dir="android-sdk-annotations-combined"
+                jaif.name="kotlin-android-sdk-annotations"
+                annotations.jar="out/artifacts/annotations/kotlin-android-sdk-annotations.jar"
+                implementation.title="${manifest.impl.title.kotlin.compiler.annotations.android}"
+                postprocess.inferred="postprocess_android_annotations" />
+    </target>
+
+    <target name="postprocess_android_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.androidCombine.AndroidCombinePackage"
+                fork="true"
+                maxmemory="1024m">
+            <classpath>
+                <pathelement location="${kannotator-cli-jar}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <macrodef name="build_sdk_annotations">
+        <attribute name="lib.jar"/>
+        <attribute name="customization.dir"/>
+        <attribute name="xml.annotations.out.dir"/>
+        <attribute name="xml.annotations.pack.dir" default="@{xml.annotations.out.dir}"/>
+        <attribute name="jaif.name"/>
+        <attribute name="annotations.jar"/>
+        <attribute name="implementation.title"/>
+        <attribute name="postprocess.inferred"/>
+        <attribute name="previous.jaif" default="commandLineClient/inferred/@{jaif.name}.jaif"/>
+        <attribute name="current.jaif" default="out/artifacts/annotations/@{jaif.name}.jaif"/>
+
+        <sequential>
+            <java
+                    classname="org.jetbrains.kannotator.client.sdk.SdkPackage"
+                    fork="true"
+                    maxmemory="1024m">
+                <arg value="@{lib.jar}"/>
+                <arg value="@{customization.dir}"/>
+                <arg value="@{xml.annotations.out.dir}"/>
+                <arg value="@{jaif.name}"/>
+                <classpath>
+                    <pathelement location="${kannotator-cli-jar}"/>
+                </classpath>
+            </java>
+
+            <echo message="comparing @{previous.jaif} and @{current.jaif}"/>
+            <condition property="jaif-identical">
+                <filesmatch textfile="true"
+                            file1="@{previous.jaif}"
+                            file2="@{current.jaif}" />
+            </condition>
+            <fail unless="jaif-identical"
+                  message="@{previous.jaif} and @{current.jaif} are different"/>
+
+            <antcall target="@{postprocess.inferred}" />
+
+            <jar destfile="@{annotations.jar}" basedir="@{xml.annotations.pack.dir}">
+                <manifest>
+                    <attribute name="Built-By" value="${manifest.impl.vendor}"/>
+
+                    <attribute name="Implementation-Vendor" value="${manifest.impl.vendor}"/>
+                    <attribute name="Implementation-Title" value="@{implementation.title}"/>
+                    <attribute name="Implementation-Version" value="${build.number}"/>
+                </manifest>
+            </jar>
+        </sequential>
+    </macrodef>
+
+</project>
