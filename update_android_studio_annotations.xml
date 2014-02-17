@@ -1,0 +1,29 @@
+<project name="Update Android SDK Annotations (defined in Android Studio)" default="update">
+    <property name="studio.zip.src.url"
+              value="http://dl.google.com/dl/android/studio/ide-zips/0.4.5/android-studio-ide-133.1021040-linux.zip"/>
+
+    <property name="download.dir"
+              value="${basedir}/dependencies/download"/>
+
+    <property name="studio.zip"
+              value="${download.dir}/android-studio-ide.zip"/>
+
+    <property name="annotations.jar"
+              value="${download.dir}/androidAnnotations.jar"/>
+
+    <property name="annotations.dir"
+              value="${basedir}/android-sdk-annotations-adt"/>
+
+    <target name="update">
+        <mkdir dir="${download.dir}"/>
+        <get src="${studio.zip.src.url}" dest="${studio.zip}" usetimestamp="true"/>
+        <unzip src="${studio.zip}" dest="${download.dir}">
+            <patternset>
+                <include name="android-studio/plugins/android/lib/androidAnnotations.jar"/>
+            </patternset>
+            <mapper type="flatten"/>
+        </unzip>
+        <unjar src="${annotations.jar}" dest="${annotations.dir}"/>
+    </target>
+
+</project>
