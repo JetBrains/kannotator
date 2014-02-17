@@ -2,9 +2,9 @@
 
 This folder contains files for customization on inference of JDK annotations
 
-* `jdk-annotations/java`, `jdk-annotations/javax` - annotations which were originally developed in integration tests
+* `annotations/java`, `annotations/javax` - annotations which were originally developed in integration tests
 (incorrect annotations were removed - see `removed.md` for details)
-* `jdk-annotations/delta.xml` - annotations added later, when comparing annotations distributed with Kotlin
+* `annotations/delta.xml` - annotations added later, when comparing annotations distributed with Kotlin
 and output of KAnnotator
 * `exceptions.txt` - settings for conflict resolution. Annotations for positions listed in this file
 will be taken from input annotations even if KAnnotator infers different result.
