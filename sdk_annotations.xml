@@ -4,6 +4,21 @@
     <property name="build.number" value="@snapshot@"/>
     <property name="kannotator-cli-jar" value="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
 
+    <property name="android.studio.zip.src.url"
+              value="http://dl.google.com/dl/android/studio/ide-zips/0.4.5/android-studio-ide-133.1021040-linux.zip"/>
+
+    <property name="android.studio.download.dir"
+              value="${basedir}/dependencies/download"/>
+
+    <property name="android.studio.zip"
+              value="${android.studio.download.dir}/android-studio-ide.zip"/>
+
+    <property name="android.studio.annotations.jar"
+              value="${android.studio.download.dir}/androidAnnotations.jar"/>
+
+    <property name="android.studio.annotations.dir"
+              value="${basedir}/android-sdk-annotations-adt"/>
+
     <target name="build_all" depends="build_jdk_annotations,build_android_annotations"/>
 
     <target name="build_jdk_annotations">
@@ -19,7 +34,7 @@
 
     <target name="postprocess_jdk_annotations"/>
 
-    <target name="build_android_annotations">
+    <target name="build_android_annotations" depends="download_android_studio_annotations">
         <build_sdk_annotations
                 lib.jar="android-custom/android-sdk_4.4.2.jar"
                 customization.dir="android-custom"
@@ -90,5 +105,17 @@
             </jar>
         </sequential>
     </macrodef>
+
+    <target name="download_android_studio_annotations">
+        <mkdir dir="${android.studio.download.dir}"/>
+        <get src="${android.studio.zip.src.url}" dest="${android.studio.zip}" usetimestamp="true"/>
+        <unzip src="${android.studio.zip}" dest="${android.studio.download.dir}">
+            <patternset>
+                <include name="android-studio/plugins/android/lib/androidAnnotations.jar"/>
+            </patternset>
+            <mapper type="flatten"/>
+        </unzip>
+        <unjar src="${android.studio.annotations.jar}" dest="${android.studio.annotations.dir}"/>
+    </target>
 
 </project>
