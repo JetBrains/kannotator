@@ -1,4 +1,4 @@
-package org.jetbrains.kannotator.client.jdk
+package org.jetbrains.kannotator.client.sdk
 
 import org.jetbrains.kannotator.*
 import org.jetbrains.kannotator.annotations.io.*
@@ -22,46 +22,51 @@ import java.util.Date
 import java.io.FileReader
 import java.io.BufferedReader
 
+/**
+ * Infers annotations for sdk (jdk or android sdk)
+ * main jar customizationDir outXmlDir jaif-name
+ * */
 fun main(args: Array<String>) {
-    annotateJDK()
+    val jarFile = File(args[0])
+    val inDir = File(args[1])
+
+    val outputDir = File(args[2])
+    val jaifName = args[3]
+
+    outputDir.deleteRecursively()
+    outputDir.mkdir()
+    annotateJDK(jarFile, inDir, outputDir, jaifName)
 }
 
-fun annotateJDK() {
-
+fun annotateJDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
     // settings
-
-    val jdkJarFile = "lib/jdk/jre-7u12-windows-rt.jar"
-    val existingAnnotationsDir = File("jdk-custom/jdk-annotations")
-    val kotlinSignaturesDir = File("jdk-custom/jdk-annotations")
-    val outDir = "jdk-annotations-snapshot"
-    val interestingPackages = setOf("java", "javax", "org")
-
     val outDirJAIF = File("out/artifacts/annotations")
     outDirJAIF.mkdirs()
 
-    val outputDir = File(outDir)
-    outputDir.deleteRecursively()
-    outputDir.mkdir()
+    val existingAnnotationsDir = File(inDir, "annotations")
+    val kotlinSignaturesDir = File(inDir, "annotations")
 
-    // annotations for these classes should be included to make class hierarchy consistent
-    // from Kotlin point of view
-    // TODO: do we really need it?
-    // TODO: incorporate this logic - find such classes in hierarchy and include them automatically
-    val includedClassNames = BufferedReader(FileReader(File("jdk-custom/includedClassNames.txt"))) use { p ->
+    val interestingPackages = BufferedReader(FileReader(File(inDir, "interestingPackages.txt"))) use { p ->
+        p.lineIterator().toSet()
+    }
+    val includedClassNames = BufferedReader(FileReader(File(inDir, "includedClassNames.txt"))) use { p ->
         p.lineIterator().toSet()
     }
 
-    val packageFilter = { (pkg: String) -> interestingPackages.any { interestingPkg -> pkg == interestingPkg || pkg.startsWith("$interestingPkg/")} }
+    val packageFilter =
+            if (interestingPackages.empty)
+                {(pkg: String) -> true}
+            else
+                { (pkg: String) -> interestingPackages.any { interestingPkg -> pkg == interestingPkg || pkg.startsWith("$interestingPkg/")} }
 
-    val jarSource = FileBasedClassSource(listOf(File(jdkJarFile)))
+    val jarSource = FileBasedClassSource(listOf(jarFile))
     val declarationIndex = DeclarationIndexImpl(jarSource)
 
-    val propagationOverridesFile = File("jdk-custom/propagationOverrides.txt")
+    val propagationOverridesFile = File(inDir, "propagationOverrides.txt")
     val nullabilityPropagationOverrides : Annotations<NullabilityAnnotation> =
             loadAnnotationsFromLogs(arrayListOf(propagationOverridesFile), declarationIndex)
 
-    val conflictExceptions =
-            loadPositionsOfConflictExceptions(declarationIndex, File("jdk-custom/exceptions.txt"))
+    val conflictExceptions = loadPositionsOfConflictExceptions(declarationIndex, File(inDir, "exceptions.txt"))
 
     val xmlAnnotations = ArrayList<File>()
 
@@ -69,8 +74,6 @@ fun annotateJDK() {
         xmlAnnotations.add(it)
     })
 
-    // TODO: try without mutability inferrers - possibly faster inference,
-    // does mutability inference really help to infer nullability in the case of jdk annotations?
     val inferrers =
             mapOf<AnalysisType, AnnotationInferrer<Any, Qualifier>>(
                     NULLABILITY_KEY to NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>,
@@ -89,7 +92,7 @@ fun annotateJDK() {
             hashMapOf(NULLABILITY_KEY to AnnotationsImpl<NullabilityAnnotation>(), MUTABILITY_KEY to AnnotationsImpl<MutabilityAnnotation>()),
             packageIsInteresting = packageFilter,
             existingPositionsToExclude = mapOf(),
-            progressMonitor = JDKProgressIndicator()
+            progressMonitor = SDKProgressIndicator()
     )
 
     val nullability: InferenceResultGroup<NullabilityAnnotation>  =
@@ -108,7 +111,7 @@ fun annotateJDK() {
     writeAnnotationsToJaif(
             declarationIndex,
             destRoot = outDirJAIF,
-            fileName = "kotlin-jdk-annotations",
+            fileName = jaifName,
             nullability = nullability.inferredAnnotations,
             propagatedNullabilityPositions = nullability.propagatedPositions,
             includeNullable = true
@@ -140,7 +143,7 @@ fun annotateJDK() {
             """)
 }
 
-class JDKProgressIndicator() : FileAwareProgressMonitor() {
+class SDKProgressIndicator() : FileAwareProgressMonitor() {
 
     var numberOfMethods = 0
     var numberOfProcessedMethods = 0
