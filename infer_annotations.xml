@@ -1,0 +1,41 @@
+<project name="Infer Annotations" default="infer_and_check_annotations">
+
+    <property name="build.number" value="@snapshot@"/>
+
+    <property name="kannotator-cli-jar"
+              value="${basedir}/out/artifacts/KAnnotatorCli/kannotator.jar"/>
+
+    <property name="previous-jaif"
+              value= "${basedir}/commandLineClient/inferred/${jaif.name}.jaif"/>
+    <property name="current-jaif"
+              value= "${basedir}/out/artifacts/annotations/${jaif.name}.jaif"/>
+
+    <target name="infer_and_check_annotations"
+            depends="infer_annotations,validate"/>
+
+    <target name="validate" >
+        <echo message="comparing ${previous-jaif} and ${current-jaif}"/>
+        <condition property="jaif-identical">
+            <filesmatch textfile="true"
+                        file1="${previous-jaif}"
+                        file2="${current-jaif}" />
+        </condition>
+        <fail unless="jaif-identical"
+              message="${previous-jaif} and ${current-jaif} are different"/>
+    </target>
+
+    <target name="infer_annotations">
+        <java
+                classname="org.jetbrains.kannotator.client.jdk.JdkPackage"
+                fork="true"
+                maxmemory="1024m">
+            <arg value="${lib.jar}"/>
+            <arg value="${customization.dir}"/>
+            <arg value="${xml.annotations.out.dir}"/>
+            <arg value="${jaif.name}"/>
+            <classpath>
+                <pathelement location="${kannotator-cli-jar}"/>
+            </classpath>
+        </java>
+    </target>
+</project>
