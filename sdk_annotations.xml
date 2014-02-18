@@ -19,20 +19,37 @@
     <property name="android.studio.annotations.dir"
               value="${basedir}/android-sdk-annotations-adt"/>
 
+    <property name="jdk.annotations.inferred.dir"
+              value="jdk-annotations-inferred"/>
+
     <target name="build_all" depends="build_jdk_annotations,build_android_annotations"/>
 
     <target name="build_jdk_annotations">
         <build_sdk_annotations
                 lib.jar="lib/jdk/jre-7u12-windows-rt.jar"
                 customization.dir="jdk-custom"
-                xml.annotations.out.dir="jdk-annotations-inferred"
+                xml.annotations.out.dir="${jdk.annotations.inferred.dir}"
                 jaif.name="kotlin-jdk-annotations"
                 annotations.jar="out/artifacts/annotations/kotlin-jdk-annotations.jar"
                 implementation.title="${manifest.impl.title.kotlin.compiler.annotations.jdk}"
                 postprocess.inferred="postprocess_jdk_annotations" />
     </target>
 
-    <target name="postprocess_jdk_annotations"/>
+    <target name="postprocess_jdk_annotations">
+        <copy todir="${jdk.annotations.inferred.dir}">
+            <fileset dir="jdk-custom/postprocess" includes="sun/**/*"/>
+        </copy>
+        <loadfile property="java.awt.patch"
+                  srcFile="jdk-custom/postprocess/java/awt/annotations.xml"/>
+        <replace file="${jdk.annotations.inferred.dir}/java/awt/annotations.xml" value="${java.awt.patch}">
+            <replacetoken><![CDATA[</root>]]></replacetoken>
+        </replace>
+        <loadfile property="javax.swing.patch"
+                  srcFile="jdk-custom/postprocess/javax/swing/annotations.xml"/>
+        <replace file="${jdk.annotations.inferred.dir}/javax/swing/annotations.xml" value="${javax.swing.patch}">
+            <replacetoken><![CDATA[</root>]]></replacetoken>
+        </replace>
+    </target>
 
     <target name="build_android_annotations" depends="download_android_studio_annotations">
         <build_sdk_annotations
