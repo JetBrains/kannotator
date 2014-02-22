@@ -36,7 +36,7 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
 
         private inner class ItemElement(val name: String, val annotations: MutableCollection<AnnotationDataImpl>)
 
-        public override fun startElement(name: String?, attributes: AttributeList?) {
+        public override fun startElement(name: String, attributes: AttributeList?) {
             if (attributes != null) {
                 when (name) {
                     "root" -> {}
