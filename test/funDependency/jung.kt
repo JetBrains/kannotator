@@ -18,6 +18,7 @@ import javax.swing.JFrame
 import org.apache.commons.collections15.Transformer
 import org.apache.commons.collections15.functors.ConstantTransformer
 
+/** utility to display a dependency graph via jung libraries */
 fun displayJungGraph<V, E>(
         graph: DirectedGraph<V, E>,
         vertexLabelTransformer: Transformer<V, String>?,

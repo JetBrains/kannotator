@@ -1,6 +1,7 @@
 package util
 
 import java.io.File
+import java.io.FileReader
 import java.util.ArrayList
 
 import junit.framework.Assert
@@ -8,18 +9,24 @@ import junit.framework.Assert
 import org.objectweb.asm.ClassReader
 import org.objectweb.asm.Type
 
+import kotlinlib.sortByToString
 import kotlinlib.recurseFiltered
 import kotlinlib.toUnixSeparators
 
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
+import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.classHierarchy.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.main.inferAnnotations
+import org.jetbrains.kannotator.simpleErrorHandler
 import org.jetbrains.kannotator.util.processJar
+
+/** different utilities for testing */
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
@@ -99,4 +106,42 @@ fun loadNullabilityAnnotations(classSource: ClassSource): Annotations<Nullabilit
             packageIsInteresting = {true}
     )
     return inferenceResult.groupByKey[NULLABILITY_KEY]!!.existingAnnotations as Annotations<NullabilityAnnotation>
+}
+
+/** collects all annotations keys found in annotations.xml in this file/dirs */
+fun File.collectAllAnnotationKeysTo(allKeyStrings: MutableSet<String>) {
+    recurseFiltered(
+            { it.isFile() && it.name == "annotations.xml"},
+            { it.loadAnnotationKeysTo(allKeyStrings)}
+    )
+}
+/** assuming that file is annotations.xml, load annotations keys */
+private fun File.loadAnnotationKeysTo(allKeyStrings: MutableSet<String>) {
+    FileReader(this) use {
+        reader ->
+        parseAnnotations(reader,
+                {
+                    annotationKey, data ->
+                    allKeyStrings.add(annotationKey)
+                },
+                simpleErrorHandler {
+                    kind, message ->
+                    throw IllegalArgumentException("$kind, $message")
+                })
+    }
+}
+
+fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
+    val graph = buildClassHierarchyGraph(getAllClassesWithPrefix(prefix))
+
+    return graph.hierarchyNodes.filter {
+        it.name.internal.startsWith(prefix)
+    }.sortByToString()
+}
+
+fun traceExecutionTime<A>(title: String? = null, body: () -> A): A {
+    val time = System.nanoTime()
+    val result = body()
+    println((title ?: "Time") + ": " + (System.nanoTime() - time) / 1e+9 + "s")
+    return result
 }

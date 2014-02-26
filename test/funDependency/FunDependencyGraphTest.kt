@@ -17,6 +17,9 @@ import org.jetbrains.kannotator.declarations.ClassMember
 
 private val PATH = "testData/funDependency/"
 
+/** builds function dependencies graph for classes in `testData/funDependency/`
+ *  and checks their textual representation against expected ones
+ */
 class FunDependencyGraphTest {
     Test fun callDependencyForNonAnnotativeMethod() {
         doTest("callDependencyForNonAnnotativeMethod/callDependencyForNonAnnotativeMethod.txt",

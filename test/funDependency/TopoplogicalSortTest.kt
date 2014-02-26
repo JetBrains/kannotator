@@ -10,6 +10,7 @@ import java.io.File
 import kotlinlib.*
 import util.assertEqualsOrCreate
 
+/** Tests detecting of SCC for classes in testData/funDependency/ */
 class TopologicalSortTest {
     fun doTest(expectedFileName: String, vararg canonicalNames: String) {
         val methodGraph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, ClassesFromClassPath(*canonicalNames))

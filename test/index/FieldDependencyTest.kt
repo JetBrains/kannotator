@@ -10,21 +10,12 @@ import util.ClassPathDeclarationIndex
 import util.ClassesFromClassPath
 import util.assertEqualsOrCreate
 
-private val PATH = "testData/fieldDependency/"
-
+/** checks detecting field dependencies (readers/writers) for `fieldDependency.simple.Simple` class */
 class FieldDependencyTest {
+    private val PATH = "testData/fieldDependency/"
+
     Test fun funInDifferentClassesTest() {
         doTest("simple/simple.txt", "fieldDependency.simple.Simple")
-    }
-
-    private val fieldInfoComparator = object : Comparator<FieldDependencyInfo> {
-        public override fun compare(o1: FieldDependencyInfo, o2: FieldDependencyInfo): Int {
-            return o2.field?.name?.compareTo(o1.field?.name ?: "") ?: -1
-        }
-
-        public override fun equals(obj: Any?): Boolean {
-            throw UnsupportedOperationException()
-        }
     }
 
     fun doTest(expectedResultPath: String, canonicalName: String) {
@@ -32,7 +23,7 @@ class FieldDependencyTest {
         val infos = buildFieldsDependencyInfos(util.ClassPathDeclarationIndex, classSource)
 
         val actual = buildString { sb ->
-            for (fieldInfo in infos.values().sort(fieldInfoComparator)) {
+            for (fieldInfo in infos.values().sortBy{it.field.name}.reverse()) {
                 printFieldInfo(sb, fieldInfo)
             }
         }.trim()
@@ -49,4 +40,3 @@ class FieldDependencyTest {
         if (fieldInfo.writers.isEmpty()) sb.println("<no writers>") else fieldInfo.writers.forEach { sb.println(it) }
     }
 }
-

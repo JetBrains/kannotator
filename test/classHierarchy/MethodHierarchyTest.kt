@@ -1,21 +1,27 @@
 package classHierarchy
 
-import junit.framework.TestCase
+import org.junit.Test
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
-import util.getAllClassesWithPrefix
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
+import util.getAllClassesWithPrefix
 import java.io.File
 import kotlinlib.*
 import org.jetbrains.kannotator.classHierarchy.*
 import util.assertEqualsOrCreate
 import org.jetbrains.kannotator.declarations.Method
 
-class MethodHierarchyTest : TestCase() {
+/**
+ * Builds method hierarchy for some libs in `lib` folder and compares
+ * to reference hierarchy (in text files).
+ */
+class MethodHierarchyTest {
+
+    val BASE_DIR = "testData/classHierarchy/methodHierarchy"
 
     fun doTest(classInternalNamePrefix: String, expectedFileName: String) {
         val classHierarchy = buildClassHierarchyGraph(getAllClassesWithPrefix(classInternalNamePrefix))
         val methodHierarchy = buildMethodHierarchy(classHierarchy)
-        val expectedFile = File("testData/classHierarchy/methodHierarchy/$expectedFileName")
+        val expectedFile = File("$BASE_DIR/$expectedFileName")
 
         fun Collection<HierarchyNode<Method>>.sortForTest(): List<HierarchyNode<Method>> {
             return this.toSortedList {
@@ -46,11 +52,13 @@ class MethodHierarchyTest : TestCase() {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
-    fun testJung() {
+    Test
+    fun jung() {
         doTest("edu/uci/ics/jung/", "jung.txt")
     }
 
-    fun testGsCollections() {
+    Test
+    fun gsCollections() {
         doTest("com/gs/collections/", "gs-collections.txt")
     }
 }

@@ -179,13 +179,13 @@ public class NullabilityInferenceTestClass {
         }
     }
 
-    private void testMonitorValueThroughLocalVariable(@ExpectNotNull Object o) {
+    public void testMonitorValueThroughLocalVariable(@ExpectNotNull Object o) {
         Object local = o;
         local.toString();
     }
 
     private Object tempField;
-    private void testMonitorValueThroughField(@ExpectNotNull Object o) {
+    public void testMonitorValueThroughField(@ExpectNotNull Object o) {
         tempField = o;
         tempField.toString();
     }
@@ -411,5 +411,13 @@ public class NullabilityInferenceTestClass {
     public String testErrorCall(String s) {
         error(s);
         return null;
+    }
+
+    public void methodCallInsideTry(@ExpectNotNull String s) {
+        try {
+            System.out.print(s.hashCode());
+        } catch (IllegalArgumentException e) {
+            // Ignore
+        }
     }
 }

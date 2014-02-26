@@ -9,6 +9,7 @@ import org.junit.Assert.assertEquals
 import util.assertEqualsOrCreate
 import org.jetbrains.kannotator.simpleErrorHandler
 
+/** Reads xml annotations from `testData/annotations/read` and checks against expected reading (including error handling) */
 class ReadAnnotationsTest {
 
     private var testResult = true

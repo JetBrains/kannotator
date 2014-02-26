@@ -13,6 +13,7 @@ import java.util.Collections
 import org.jetbrains.kannotator.main.loadPositionsOfConflictExceptions
 import org.jetbrains.kannotator.PRINT_TO_CONSOLE
 
+/** deprecated stuff to generate jdk annotations */
 fun main(args: Array<String>) {
     val jarName = if (args.size == 1) args[0] else "lib/jdk_1_7_0_09_rt.jar"
 

@@ -19,6 +19,7 @@ import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
 import org.jetbrains.kannotator.graphs.dependencyGraphs.PackageDependencyGraphBuilder
 import org.jetbrains.kannotator.graphs.removeGraphNodes
 
+/** Tests how filtering of "non-interesting" nodes works for jre jar */
 class LibPackageNonAffectingDependencyGraphTest {
     fun doTest(expectedResultPath: String, jarFile: File) {
         val classSource = FileBasedClassSource(arrayListOf(jarFile))
@@ -76,7 +77,7 @@ class LibPackageNonAffectingDependencyGraphTest {
         }
     }
 
-    Test fun testJDK_1_7_12_win() {
+    Test fun jre_1_7_12_win() {
         doTest("jdkNonAffectingPackages/jre-7u12-windows-rt.txt", File("lib/jdk/jre-7u12-windows-rt.jar"))
     }
 }

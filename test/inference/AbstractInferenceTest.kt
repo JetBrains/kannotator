@@ -23,8 +23,10 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import java.util.Collections
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
+import util.NamedTest
+import java.lang.reflect.Modifier
 
-abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : TestCase() {
+abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : NamedTest() {
     protected abstract val analysisType: AnalysisType
 
     protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
@@ -90,8 +92,9 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : T
         val parametersMap = HashMap<Int, A>()
         for ((paramIndex, paramAnnotations) in (reflectMethod.getParameterAnnotations() as Array<Array<jet.Annotation>>).indexed) {
             val annotation = paramAnnotations.toAnnotation()
+            val shift = if (Modifier.isStatic(reflectMethod.getModifiers())) 0 else 1
             if (annotation != null) {
-                parametersMap[paramIndex + 1] = annotation!! // Kotlin compiler bug
+                parametersMap[paramIndex + shift] = annotation
             }
         }
 

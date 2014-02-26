@@ -83,10 +83,6 @@ private fun resolveConflictsInParents<A>(
                     propagatedAnnotations[positionInParent] = fromChild
                     // propagate return value annotation up the graph
                     if (relativePosition == RETURN_TYPE) {
-                        if (annotationsToFix[positionInParent] != fromChild) {
-                            annotationsToFix[positionInParent] = fromChild
-                            propagatedPositionsToFill.add(positionInParent)
-                        }
                         updateAnnotations(annotationsToFix, positionInParent, fromChild!!, propagatedPositionsToFill)
                     }
                 }

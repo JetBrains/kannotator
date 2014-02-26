@@ -1,12 +1,15 @@
 package inference
 
+import org.junit.Test
+
+import java.util.ArrayList
+import java.io.File
+
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import java.util.ArrayList
-import java.io.File
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.annotations.io.getAnnotationsFromClassFiles
 import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
@@ -14,7 +17,9 @@ import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
+import org.junit.Ignore
 
+/** Tests inference of fields for NullabilityFieldsInferenceTestClass */
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
     protected override val analysisType: AnalysisType = NULLABILITY_KEY
@@ -44,41 +49,43 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         return null
     }
 
-    fun testSTRING_NOT_NULL_FIELD() = doFieldTest()
+    Test fun STRING_NOT_NULL_FIELD() = doFieldTest()
 
-    fun testSTRING_NULL_FIELD() = doFieldTest()
+    Test fun STRING_NULL_FIELD() = doFieldTest()
 
-    fun testFROM_PREVIOUS_FIELD() = doFieldTest()
+    Test fun FROM_PREVIOUS_FIELD() = doFieldTest()
 
-    fun testNEW_OBJECT_FIELD() = doFieldTest()
+    Test fun NEW_OBJECT_FIELD() = doFieldTest()
 
-    fun testINTEGER_FIELD() = doFieldTest()
+    Test fun INTEGER_FIELD() = doFieldTest()
 
-    fun testDOUBLE_FIELD() = doFieldTest()
+    Test fun DOUBLE_FIELD() = doFieldTest()
 
-    fun testStringClass() = doFieldTest()
+    Test fun stringClass() = doFieldTest()
 
-    fun testNullFinalField() = doFieldTest()
+    Test fun nullFinalField() = doFieldTest()
 
-    fun testNewObjectFinalField() = doFieldTest()
+    Test fun newObjectFinalField() = doFieldTest()
 
-    fun testConstantStringFinalField() = doFieldTest()
+    Test fun constantStringFinalField() = doFieldTest()
 
-    fun testConstantIntegerFinalField() = doFieldTest()
+    Test fun constantIntegerFinalField() = doFieldTest()
 
-    // fun testMethodInitFinalField() = doFieldTest()
+    Test fun methodInitFinalField() = doFieldTest()
 
-    fun testFromConstructorParameterFinalField() = doFieldTest()
+    Test fun fromConstructorParameterFinalField() = doFieldTest()
 
-    fun testDifferentAnnotationsFromDifferentConstructors() = doFieldTest()
+    Test fun differentAnnotationsFromDifferentConstructors() = doFieldTest()
 
-    fun testNullableInConstructorInitFinalField() = doFieldTest()
+    Test fun nullableInConstructorInitFinalField() = doFieldTest()
 
-    // fun testFromMethodInConstructorFinalField() = doFieldTest()
+    Test fun fromMethodInConstructorFinalField() = doFieldTest()
 
-    // fun testNullableFromCallingMethodOnValue() = doFieldTest()
+    Ignore
+    Test fun nullableFromCallingMethodOnValue() = doFieldTest()
 
-    // fun testNotUsedNonFinalField() = doFieldTest()
+    Ignore
+    Test fun testNotUsedNonFinalField() = doFieldTest()
 
     private class EmptyFieldInfo(override val field : Field) : FieldDependencyInfo {
         override val writers: Collection<Method> = ArrayList()
