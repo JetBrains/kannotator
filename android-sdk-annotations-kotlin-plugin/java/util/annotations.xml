@@ -2350,7 +2350,8 @@
     </item>
     <item name='java.util.Collections T max(java.util.Collection&lt;? extends T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T: Comparable&lt;T&gt;&gt; max(coll : Collection&lt;T&gt;) : T&quot;"/>
+            <val name="value"
+                 val="&quot;fun &lt;T: Any&gt; max(coll : Collection&lt;T&gt;) : T where T: Comparable&lt;T&gt;&quot;"/>
         </annotation>
     </item>
     <item name='java.util.ServiceLoader java.util.ServiceLoader&lt;S&gt; load(java.lang.Class&lt;S&gt;, java.lang.ClassLoader) 0'>
@@ -3123,7 +3124,8 @@
     </item>
     <item name='java.util.Collections T min(java.util.Collection&lt;? extends T&gt;)'>
         <annotation name='jet.runtime.typeinfo.KotlinSignature'>
-            <val name="value" val="&quot;fun &lt;T: Comparable&lt;T&gt;&gt; min(coll : Collection&lt;T&gt;) : T&quot;"/>
+            <val name="value"
+                 val="&quot;fun &lt;T: Any&gt; min(coll : Collection&lt;T&gt;) : T where T: Comparable&lt;T&gt;&quot;"/>
         </annotation>
     </item>
     <item name='java.util.Arrays void fill(float[], int, int, float)'>
