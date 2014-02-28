@@ -25,6 +25,8 @@ import org.jetbrains.kannotator.declarations.AnnotationPosition
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXMLByPackage
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import java.io.BufferedReader
+import java.io.FileReader
 
 // we load only nullability annotations here
 val inferrers = mapOf(NULLABILITY_KEY to NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>)
@@ -35,9 +37,13 @@ fun main(args: Array<String>) {
 
     val studioAnnotationsDir = File("android-sdk-annotations-adt")
     val pluginAnnotationsDir = File("android-sdk-annotations-kotlin-plugin")
+    val excludeAnnotationsFile = File("android-custom/exclude.xml")
     val inferredDir = File("android-sdk-annotations-inferred")
     val outputDir = File("android-sdk-annotations-combined")
+    val includedClassNamesFile = File("android-custom/includedClassNames.txt")
     val declarationIndex = DeclarationIndexImpl(apiJar)
+    val includedClassNames =
+                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineIterator().toSet()}
 
     outputDir.deleteRecursively()
     outputDir.mkdir()
@@ -45,13 +51,16 @@ fun main(args: Array<String>) {
     val inferredAnnotations = loadAnnotations(inferredDir)
     val pluginAnnotations = loadAnnotations(pluginAnnotationsDir)
     val studioAnnotations = loadAnnotations(studioAnnotationsDir)
+    val excludeAnnotations = loadAnnotations(excludeAnnotationsFile)
 
     val diffs = hashSetOf<AnnotationPosition>()
 
     diffs.addAll(checkAnnotations(inferredAnnotations, pluginAnnotations))
     diffs.addAll(checkAnnotations(inferredAnnotations, studioAnnotations))
 
-    println("Excluding ${diffs.size()} annotations (different from studio annotations)")
+    excludeAnnotations.forEach { pos, ann -> diffs.add(pos) }
+
+    println("Excluding ${diffs.size()} annotations")
 
     val combinedAnnotations = AnnotationsImpl<NullabilityAnnotation>()
 
@@ -80,7 +89,7 @@ fun main(args: Array<String>) {
             destRoot = outputDir,
             nullability = combinedAnnotations,
             propagatedNullabilityPositions = setOf(), // propagated annotations are not marked in "annotations.xml"
-            includedClassNames = setOf(),
+            includedClassNames = includedClassNames,
             errorHandler = simpleErrorHandler {
                 kind, message ->
                 throw IllegalArgumentException(message)
