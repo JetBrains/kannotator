@@ -3,8 +3,6 @@ package annotations.io
 import java.io.File
 import java.io.FileWriter
 import java.util.HashMap
-import java.util.LinkedHashSet
-import java.util.LinkedList
 import junit.framework.Assert
 import kotlinlib.prefixUpTo
 import kotlinlib.recurseFiltered
@@ -13,7 +11,6 @@ import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXML
 import org.jetbrains.kannotator.declarations.AnnotationPosition
-import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
@@ -29,7 +26,6 @@ import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 import kotlinlib.toUnixSeparators
-import org.jetbrains.kannotator.declarations.Access
 import org.jetbrains.kannotator.PRINT_TO_CONSOLE
 import java.util.LinkedHashMap
 
@@ -72,7 +68,7 @@ public class WriteAnnotationTest {
                         forAllClassAnnotationPositions(classReader) { annotationPosition ->
                             if (annotationPosition.toAnnotationKey() == key) {
                                 for (data in annotationData) {
-                                    typePositionAndAnnotationData.put(annotationPosition, arrayList(data))
+                                    typePositionAndAnnotationData.put(annotationPosition, arrayListOf(data))
                                 }
                             }
                         }

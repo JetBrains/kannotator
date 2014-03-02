@@ -1,6 +1,5 @@
 package org.jetbrains.kannotator.kotlinSignatures
 
-import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.annotations.io.AnnotationData
@@ -8,27 +7,22 @@ import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.declarations.getArgumentTypes
-import org.jetbrains.kannotator.declarations.getReturnType
 import org.objectweb.asm.Type
 import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.getMethodNameAccountingForConstructor
-import org.jetbrains.kannotator.asm.util.isPrimitiveOrVoidType
 import org.objectweb.asm.Opcodes
 import org.jetbrains.kannotator.declarations.isFinal
 import org.jetbrains.kannotator.declarations.getType
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.getFieldTypePosition
 import org.jetbrains.kannotator.declarations.isStatic
-import org.objectweb.asm.signature.SignatureVisitor
-import org.objectweb.asm.signature.SignatureReader
 import java.util.ArrayList
-import org.jetbrains.kannotator.declarations.isInnerClassConstructor
 import org.jetbrains.kannotator.declarations.isConstructor
 import org.jetbrains.kannotator.index.NO_PARAMETER_NAME
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 fun kotlinSignatureToAnnotationData(kotlinSignatureString: String): AnnotationData {
-    return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMap("value" to "\"$kotlinSignatureString\""))
+    return AnnotationDataImpl("jet.runtime.typeinfo.KotlinSignature", hashMapOf("value" to "\"$kotlinSignatureString\""))
 }
 
 private data class KnownAnnotations(
@@ -283,7 +277,7 @@ fun renderBaseArrayType(classifier: BaseType): String {
 }
 
 fun renderTypeVariable(variable: TypeVariable, position: Position, annotations: KnownAnnotations): String {
-    val nullableByDefault = position !in hashSet(Position.CLASS_TYPE_ARGUMENT, Position.UPPER_BOUND)
+    val nullableByDefault = position !in listOf(Position.CLASS_TYPE_ARGUMENT, Position.UPPER_BOUND)
     return variable.name + if (nullableByDefault) annotations.nullability.suffix() else ""
 }
 

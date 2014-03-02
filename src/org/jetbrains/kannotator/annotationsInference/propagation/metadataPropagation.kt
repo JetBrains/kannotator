@@ -1,25 +1,18 @@
 package org.jetbrains.kannotator.annotationsInference.propagation
 
-import java.util.HashSet
 import kotlinlib.*
-import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.classHierarchy.HierarchyNode
-import java.util.LinkedHashSet
-import org.jetbrains.kannotator.classHierarchy.childNodes
 import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.getValidPositions
-import org.jetbrains.kannotator.declarations.RETURN_TYPE
-import org.jetbrains.kannotator.declarations.Variance
 import org.jetbrains.kannotator.declarations.getSignatureDescriptor
 import org.jetbrains.kannotator.declarations.AnnotationPosition
-import java.util.ArrayList
 import org.jetbrains.kannotator.declarations.ParameterPosition
 import org.jetbrains.kannotator.classHierarchy.*
 import org.jetbrains.kannotator.declarations.MethodTypePosition
+import java.util.ArrayList
 
 public val JB_PROPAGATED: String = "org.jetbrains.kannotator.runtime.annotations.Propagated"
 public val JB_PROPAGATION_KIND: String = "org.jetbrains.kannotator.runtime.annotations.PropagationKind"
@@ -33,8 +26,7 @@ fun propagateMetadata<A>(
 ): Annotations<A> {
     val result = AnnotationsImpl(annotations)
 
-    val classifiedMethods = graph.hierarchyNodes.classify {
-        val node = it as HierarchyNode<Method>
+    val classifiedMethods = graph.hierarchyNodes.classify { node ->
         when {
             node.children.isEmpty() -> "leaf"
             node.parents.isEmpty() -> "root"
@@ -84,7 +76,7 @@ private fun propagateOverrides<A>(
         if (pos is MethodTypePosition) {
             val methodNode = graph.findNode(pos.method)
             if (methodNode != null) {
-                bfs(arrayList(methodNode)) {
+                bfs(listOf(methodNode)) {
                     val node = it as HierarchyNode<Method>
                     val method = node.data
                     val currentPos = PositionsForMethod(method)[pos.relativePosition].position
@@ -111,7 +103,7 @@ private fun propagateParameterAnnotations<A>(
             val declPos = position.relativePosition
             if (declPos !is ParameterPosition)
                 continue
-            val annotations = arrayList<A>()
+            val annotations = ArrayList<A>()
             for (positionsForMethod in positionsForMethods) {
                 val annotatedType = positionsForMethod[declPos]
                 val annotationPosition = annotatedType.position

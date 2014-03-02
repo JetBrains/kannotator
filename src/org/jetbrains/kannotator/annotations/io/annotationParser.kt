@@ -14,6 +14,7 @@ import org.jetbrains.kannotator.annotationsInference.nullability.*
 import org.jetbrains.kannotator.declarations.*
 import java.util.regex.Pattern
 import org.jetbrains.kannotator.ErrorHandler
+import java.util.HashMap
 
 private val ANNOTATION_KEY_PATTERN = Pattern.compile("""(@\w*\s)?(.*)""")
 
@@ -29,7 +30,7 @@ class AnnotationDataImpl(
 
 fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<AnnotationData>) -> Unit, errorHandler: ErrorHandler) {
     val text = escapeAttributes(xml.readText())
-    val parser = SAXParserFactory.newInstance()!!.newSAXParser()!!
+    val parser = SAXParserFactory.newInstance()!!.newSAXParser()
     parser.parse(text.getBytes().inputStream, object: HandlerBase(){
 
         private var currentItemElement: ItemElement? = null
@@ -52,7 +53,7 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
                     "annotation" -> {
                         val nameAttrValue = attributes.getValue("name")
                         if (nameAttrValue != null) {
-                            currentItemElement!!.annotations.add(AnnotationDataImpl(nameAttrValue, hashMap()))
+                            currentItemElement!!.annotations.add(AnnotationDataImpl(nameAttrValue, HashMap()))
                         }
                         else {
                             errorHandler.error("NAME attribute for ANNOTATION element is null")

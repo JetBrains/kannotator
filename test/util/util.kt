@@ -21,7 +21,6 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.index.ClassSource
-import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.main.inferAnnotations
 import org.jetbrains.kannotator.simpleErrorHandler
 import org.jetbrains.kannotator.util.processJar
@@ -40,7 +39,7 @@ fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classR
 }
 
 fun getAllClassesWithPrefix(prefix: String): ClassSource {
-    val result = arrayList<ClassName>()
+    val result = ArrayList<ClassName>()
 
     findJarsInLibFolder().forEach {
         recurseIntoJars(it) {

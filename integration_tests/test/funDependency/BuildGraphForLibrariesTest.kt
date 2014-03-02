@@ -1,16 +1,9 @@
 package funDependency
 
 import java.io.File
-import java.util.ArrayList
-import java.util.jar.JarFile
 import org.jetbrains.kannotator.funDependecy.*
 import org.junit.Test
-import org.objectweb.asm.ClassReader
-import org.jetbrains.kannotator.util.processJar
-import sun.tools.jar.resources.jar
 import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.index.DeclarationIndex
-import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import util.ClassPathDeclarationIndex
 
 /** Smoke testing that function dependency graph is built for each jar
@@ -33,7 +26,7 @@ class BuildGraphForLibrariesTest() {
     fun doTest(file: File) {
         println("Processing: $file")
 
-        val classSource = FileBasedClassSource(arrayList(file))
+        val classSource = FileBasedClassSource(listOf(file))
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
         val finder = SCCFinder(graph, { graph.nodes }, { it.outgoingEdges.map { edge -> edge.to } })
         val allComponents = finder.getAllComponents()

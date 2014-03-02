@@ -5,7 +5,7 @@ fun substitute(genericType: GenericType, substitution: (name: String) -> Generic
     return when (classifier) {
         is BaseType -> genericType
         is NamedClass -> substituteArguments(classifier, genericType.arguments, substitution)
-        Array -> ImmutableGenericType(Array, arrayList(NoWildcard(substitute(genericType.arrayElementType, substitution))))
+        Array -> ImmutableGenericType(Array, listOf(NoWildcard(substitute(genericType.arrayElementType, substitution))))
         is TypeVariable -> substitution(classifier.name) ?: genericType
         else -> throw IllegalArgumentException(classifier.toString())
     }

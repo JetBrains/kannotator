@@ -2,15 +2,11 @@ package org.jetbrains.kannotator.annotationsInference.propagation
 
 import java.util.HashSet
 import kotlinlib.*
-import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.declarations.PositionWithinDeclaration
 import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.declarations.Variance.*
 import org.jetbrains.kannotator.declarations.getValidPositions
-import java.util.LinkedHashSet
 import org.jetbrains.kannotator.classHierarchy.parentNodes
 import org.jetbrains.kannotator.declarations.RETURN_TYPE
 import org.jetbrains.kannotator.graphs.Node
@@ -38,7 +34,7 @@ private fun resolveAnnotationConflicts<A>(
 ): Collection<Method> {
     val propagatedAnnotations = AnnotationsImpl(annotationsToFix)
 
-    return bfs(arrayList(leafMethod)) {
+    return bfs(listOf(leafMethod)) {
         node ->
         val parentNodes = node.parentNodes
 
@@ -83,7 +79,7 @@ private fun resolveConflictsInParents<A>(
                     propagatedAnnotations[positionInParent] = fromChild
                     // propagate return value annotation up the graph
                     if (relativePosition == RETURN_TYPE) {
-                        updateAnnotations(annotationsToFix, positionInParent, fromChild!!, propagatedPositionsToFill)
+                        updateAnnotations(annotationsToFix, positionInParent, fromChild, propagatedPositionsToFill)
                     }
                 }
             }

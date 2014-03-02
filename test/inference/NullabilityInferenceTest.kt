@@ -29,14 +29,15 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
     }
 
     protected override fun getClassFiles(): Collection<File> {
-        return arrayList(
+        return listOf(
                 "out/test/kannotator/inferenceData/NullabilityInferenceTestLib.class",
-                "out/test/kannotator/inferenceData/NullabilityInferenceTestClass.class").map { File(it) }
+                "out/test/kannotator/inferenceData/NullabilityInferenceTestClass.class"
+        ).map { File(it) }
     }
 
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
         val utilClass = "out/test/kannotator/inferenceData/NullabilityInferenceTestLib.class"
-        val classSource = FileBasedClassSource(arrayList(File(utilClass)))
+        val classSource = FileBasedClassSource(listOf(File(utilClass)))
         val existingNullabilityAnnotations = getAnnotationsFromClassFiles(classSource) {
             annotationNames -> classNamesToNullabilityAnnotation(annotationNames)
         }

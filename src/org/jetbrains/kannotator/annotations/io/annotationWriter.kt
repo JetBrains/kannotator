@@ -4,7 +4,6 @@ import java.io.Writer
 import java.io.File
 import java.util.Collections
 import kotlinlib.*
-import org.jetbrains.kannotator.main.*
 import java.util.HashSet
 import java.io.FileWriter
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
@@ -17,15 +16,7 @@ import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NullabilityKey
 import org.jetbrains.kannotator.ErrorHandler
-import annotations.el.AScene
 import annotations.io.IndexFileWriter
-import annotations.el.AClass
-import annotations.AnnotationFactory
-import annotations.el.AnnotationDef
-import annotations.SceneAnnotation
-import annotations.field.AnnotationFieldType
-import annotations.field.ClassTokenAFT
-import annotations.field.BasicAFT
 
 fun writeAnnotationsToJaif(
         declIndex: DeclarationIndex,
@@ -160,9 +151,9 @@ fun makeAnnotationsMap(
         if (nullAnnotation != null) {
             val data: AnnotationData? = when {
                 nullAnnotation == NullabilityAnnotation.NOT_NULL ->
-                    AnnotationDataImpl(JB_NOT_NULL, hashMap())
+                    AnnotationDataImpl(JB_NOT_NULL, hashMapOf())
                 nullAnnotation == NullabilityAnnotation.NULLABLE && includeNullable ->
-                    AnnotationDataImpl(JB_NULLABLE, hashMap())
+                    AnnotationDataImpl(JB_NULLABLE, hashMapOf())
                 else ->
                     null
             }
@@ -252,7 +243,7 @@ fun writeAnnotationsToXMLByPackage(
     for ((pos, data) in annotations) {
         val packageName = pos.getPackageName()
         if (packageName != null && packageIsInteresting(packageName)) {
-            val map = annotationsByPackage.getOrPut(packageName!!, {LinkedHashMap()})
+            val map = annotationsByPackage.getOrPut(packageName, {LinkedHashMap()})
             map[pos] = data
         }
     }
@@ -273,7 +264,7 @@ fun writeAnnotationsToXMLByPackage(
                         if (position != null) {
                             for (ann in annotations) {
                                 if (ann.annotationClassFqn == "jet.runtime.typeinfo.KotlinSignature") {
-                                    pathAnnotations.getOrPut(position!!, { arrayList() }).add(AnnotationDataImpl(ann.annotationClassFqn, /*KT-3344*/HashMap<String, String>(ann.attributes)))
+                                    pathAnnotations.getOrPut(position, { arrayListOf() }).add(AnnotationDataImpl(ann.annotationClassFqn, HashMap(ann.attributes)))
                                 }
                             }
                         }

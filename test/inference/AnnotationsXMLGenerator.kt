@@ -19,13 +19,13 @@ fun main(args: Array<String>) {
 
     val jar = File(jarName)
 
-    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayList(jar)))
+    val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(listOf(jar)))
 
     val annotationFiles = ArrayList<File>()
     File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
 
     val annotations = loadAnnotationsFromLogs(
-            arrayList(File("testData/inferenceData/integrated/nullability/${jar.getName()}.annotations.txt")),
+            listOf(File("testData/inferenceData/integrated/nullability/${jar.getName()}.annotations.txt")),
             declarationIndex
     )
 
@@ -48,7 +48,7 @@ fun main(args: Array<String>) {
             annotations,
             Collections.emptySet(),
             PRINT_TO_CONSOLE,
-            hashSet(
+            hashSetOf(
                     "java/beans/beancontext",
                     "javax/management/openmbean",
                     "javax/management/remote/rmi/_RMIConnection_Stub",

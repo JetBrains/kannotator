@@ -31,7 +31,7 @@ fun doPropagationTest(
     val EXPECT_N = "inferenceData.annotations.ExpectNullable"
     val NN = "org.jetbrains.annotations.NotNull"
     val N = "org.jetbrains.annotations.Nullable"
-    val expectedAnnotationClasses = hashMap(
+    val expectedAnnotationClasses = hashMapOf(
             NN to NOT_NULL,
             N to NULLABLE
     )
