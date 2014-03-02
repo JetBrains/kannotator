@@ -322,9 +322,3 @@ fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): Str
 
 fun NullabilityAnnotation.suffix(): String = if (this == NullabilityAnnotation.NULLABLE) "?" else ""
 fun MutabilityAnnotation.prefix(): String = if (this == MutabilityAnnotation.MUTABLE) "Mutable" else ""
-
-
-class C<T> {
-    class Inner
-    fun f(p: C<String>.Inner) {}
-}
