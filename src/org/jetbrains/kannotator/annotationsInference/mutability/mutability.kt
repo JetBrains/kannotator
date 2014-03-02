@@ -4,28 +4,18 @@ import org.objectweb.asm.tree.analysis.Frame
 import org.objectweb.asm.tree.AbstractInsnNode
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.tree.MethodInsnNode
-import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.declarations.Annotations
-import org.objectweb.asm.tree.FieldInsnNode
-import org.jetbrains.kannotator.declarations.getFieldAnnotatedType
 import java.util.Collections
-import java.util.ArrayList
-import java.util.HashMap
 import org.jetbrains.kannotator.index.DeclarationIndex
-import org.objectweb.asm.tree.MethodNode
-import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.controlFlow.builder.*
 import org.jetbrains.kannotator.declarations.*
 import java.util.HashSet
-import org.objectweb.asm.Type
 import kotlinlib.bfs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Mutability.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
-class MutabilityKey: Object(), AnalysisType {
-    public override fun toString(): String = "mutability"
+class MutabilityKey : AnalysisType {
+    override fun toString() = "mutability"
 }
 
 val MUTABILITY_KEY = MutabilityKey()

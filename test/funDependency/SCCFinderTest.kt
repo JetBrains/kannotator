@@ -4,7 +4,6 @@ import java.util.HashMap
 import java.util.HashSet
 import org.junit.Test
 import org.junit.Assert
-import com.sun.org.apache.xml.internal.utils.StringComparable
 import java.util.Comparator
 
 data class Node(val name: String)
@@ -54,9 +53,9 @@ class Graph {
 class SCCFinderTest {
     private val nodesComparator = object : Comparator<Node> {
         public override fun compare(o1: Node, o2: Node): Int {
-            return o1.name?.compareTo(o2.name ?: "") ?: -1
+            return o1.name.compareTo(o2.name)
         }
-        public override fun equals(obj: Any?): Boolean {
+        public override fun equals(other: Any?): Boolean {
             throw UnsupportedOperationException()
         }
     }

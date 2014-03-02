@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
-import kotlinlib.suffixAfter
 import kotlinlib.suffixAfterLast
 import kotlinlib.buildString
 import java.util.ArrayList
@@ -10,7 +9,7 @@ import org.objectweb.asm.tree.MethodNode
 import kotlinlib.prefixUpToLast
 
 data class Package(val name: String) {
-    public fun toString(): String = name
+    override fun toString() = name
 }
 
 trait ClassMember {
@@ -23,7 +22,7 @@ data class MethodId(
         val methodName: String,
         val methodDesc: String
 ) {
-    public fun toString(): String = methodName + methodDesc
+    override fun toString() = methodName + methodDesc
 }
 
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
@@ -44,7 +43,7 @@ enum class Visibility {
 
 data class Access(val flags: Int) {
     fun has(flag: Int) = flags and flag != 0
-    fun toString(): String = "" + Integer.toHexString(flags)
+    override fun toString() = "" + Integer.toHexString(flags)
 }
 
 fun Method(
@@ -84,7 +83,7 @@ data class Method(
     override val name: String
         get() = id.methodName
 
-    public fun toString(): String {
+    override fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
     }
 }
@@ -161,7 +160,7 @@ data class ClassName private (val internal: String) {
     val typeDescriptor: String
         get() = "L$internal;"
 
-    public fun toString(): String = internal
+    override fun toString() = internal
 
     val simple: String
         get() = canonicalName.suffixAfterLast(".")
@@ -211,7 +210,7 @@ val ClassMember.packageName: String
     get() = declaringClass.packageName
 
 data class FieldId(val fieldName: String) {
-    public fun toString(): String = fieldName
+    override fun toString() = fieldName
 }
 
 fun Field(declaringClass: ClassName,
@@ -234,7 +233,7 @@ data class Field(
     public val value : Any? = value
     public val desc : String = desc
 
-    public fun toString(): String {
+    override fun toString(): String {
         return declaringClass.toType().getClassName() + ":" + id.fieldName;
     }
 }

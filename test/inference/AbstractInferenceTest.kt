@@ -3,7 +3,6 @@ package inference
 import java.io.File
 import java.util.ArrayList
 import java.util.HashMap
-import junit.framework.TestCase
 import kotlin.test.assertEquals
 import kotlinlib.*
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
@@ -29,7 +28,7 @@ import java.lang.reflect.Modifier
 abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : NamedTest() {
     protected abstract val analysisType: AnalysisType
 
-    protected abstract fun Array<out jet.Annotation>.toAnnotation(): A?
+    protected abstract fun Array<out kotlin.Annotation>.toAnnotation(): A?
 
     protected abstract fun getInitialAnnotations(): Annotations<A>
     protected abstract fun getInferrer(): AnnotationInferrer<A, *>
@@ -74,7 +73,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : N
 
     protected fun doTest() {
         val methodName = getName()!!
-        val reflectMethod = (testClass.getMethods() as Array<java.lang.reflect.Method>).find { m -> m.getName() == methodName }!!
+        val reflectMethod = testClass.getMethods().find { m -> m.getName() == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
         val classReader = getClassReader(testClass.getName())
@@ -90,7 +89,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : N
         val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
 
         val parametersMap = HashMap<Int, A>()
-        for ((paramIndex, paramAnnotations) in (reflectMethod.getParameterAnnotations() as Array<Array<jet.Annotation>>).indexed) {
+        for ((paramIndex, paramAnnotations) in reflectMethod.getParameterAnnotations().indexed) {
             val annotation = paramAnnotations.toAnnotation()
             val shift = if (Modifier.isStatic(reflectMethod.getModifiers())) 0 else 1
             if (annotation != null) {

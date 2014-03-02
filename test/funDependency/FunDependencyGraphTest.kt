@@ -77,7 +77,7 @@ class FunDependencyGraphTest {
                 return o1.data.toString().compareTo(o2.data.toString())
             }
 
-            public override fun equals(obj: Any?): Boolean {
+            public override fun equals(other: Any?): Boolean {
                 throw IllegalStateException()
             }
         }

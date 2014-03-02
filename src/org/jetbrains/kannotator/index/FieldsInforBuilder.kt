@@ -2,12 +2,9 @@ package org.jetbrains.kannotator.index
 
 import java.util.HashMap
 import java.util.HashSet
-import org.jetbrains.kannotator.asm.util.forEachMethodWithMethodVisitor
 import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
-import org.jetbrains.kannotator.index.ClassSource
-import org.jetbrains.kannotator.index.DeclarationIndex
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes.*
 import org.objectweb.asm.ClassVisitor
@@ -25,7 +22,7 @@ data class FieldDependencyInfoImpl(override val field: Field): FieldDependencyIn
     override val writers: MutableCollection<Method> = HashSet<Method>()
     override val readers: MutableCollection<Method> = HashSet<Method>()
 
-    public fun toString() : String = "FieldDependencyInfoImpl(field: $field, readers: $readers, writers: $writers)"
+    override fun toString() = "FieldDependencyInfoImpl(field: $field, readers: $readers, writers: $writers)"
 }
 
 fun buildFieldsDependencyInfos(declarationIndex: DeclarationIndex, classSource: ClassSource): Map<Field, FieldDependencyInfo> {

@@ -70,7 +70,7 @@ class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
         methods.add(method)
     }
 
-    public override fun toString(): String = name.internal
+    override fun toString() = name.internal
 }
 
 val Node<ClassData, *>.methods: Collection<Method>

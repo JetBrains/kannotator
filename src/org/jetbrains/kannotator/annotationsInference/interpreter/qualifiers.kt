@@ -27,18 +27,14 @@ public class MultiQualifier<K: AnalysisType>(val qualifiers: Map<K, Qualifier>):
         return MultiQualifier(map)
     }
 
-    public fun toString(): String = qualifiers.values().toString()
+    override fun toString() = qualifiers.values().toString()
 
-    public fun equals(obj: Any?): Boolean {
-        if (this identityEquals obj) return true
-        if (obj == null) return false
-
-        if (obj !is MultiQualifier<*>) return false
-
-        return qualifiers == obj.qualifiers
+    override fun equals(other: Any?): Boolean {
+        if (this identityEquals other) return true
+        return other is MultiQualifier<*> && qualifiers == other.qualifiers
     }
 
-    public fun hashCode(): Int = qualifiers.hashCode()
+    override fun hashCode(): Int = qualifiers.hashCode()
 }
 
 public class MultiQualifierSet<K: AnalysisType>(val qualifierSets: Map<K, QualifierSet<Qualifier>>): QualifierSet<MultiQualifier<K>> {

@@ -5,14 +5,10 @@ import java.util.Comparator
 import kotlinlib.*
 import org.jetbrains.kannotator.funDependecy.*
 import org.junit.Test
-import util.ClassPathDeclarationIndex
-import util.ClassesFromClassPath
 import util.assertEqualsOrCreate
-import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.Package
 import org.jetbrains.kannotator.graphs.Node as GraphNode
 import org.jetbrains.kannotator.index.FileBasedClassSource
-import org.jetbrains.kannotator.graphs.dependencyGraphs.buildPackageDependencyGraph
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.classHierarchy.buildMethodHierarchy
 import org.jetbrains.kannotator.classHierarchy.buildClassHierarchyGraph
@@ -46,7 +42,7 @@ class LibPackageNonAffectingDependencyGraphTest {
                 return o1.data.toString().compareTo(o2.data.toString())
             }
 
-            public override fun equals(obj: Any?): Boolean {
+            public override fun equals(other: Any?): Boolean {
                 throw IllegalStateException()
             }
         }

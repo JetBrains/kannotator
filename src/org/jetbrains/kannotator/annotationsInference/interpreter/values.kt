@@ -4,8 +4,6 @@ import org.objectweb.asm.*
 import org.objectweb.asm.tree.*
 import java.util.HashSet
 import org.objectweb.asm.tree.analysis.Value
-import com.gs.collections.api.block.HashingStrategy
-import com.gs.collections.impl.set.strategy.mutable.UnifiedSetWithHashingStrategy
 
 val UNDEFINED_TYPE = Type.getType("U")
 val PRIMITIVE_TYPE_SIZE_1 = Type.getType("P1")
@@ -17,17 +15,17 @@ public class TypedValue(
         val _type: Type,
         val parameterIndex: Int?,
         val createdAt: AbstractInsnNode?
-): Object() {
-    public override fun toString(): String {
+) {
+    override fun toString(): String {
         val s = "$_type#$id"
         return if (parameterIndex != null)
-            "$parameterIndex!" + s
+            "$parameterIndex!$s"
         else s
     }
 }
 
 public class QualifiedValue<out Q: Qualifier>(val base: TypedValue, val qualifier: Q) {
-    fun toString() = "$base|$qualifier"
+    override fun toString() = "$base|$qualifier"
 
     fun copy(newQualifier: Q): QualifiedValue<Q> {
         return if (newQualifier != qualifier) {

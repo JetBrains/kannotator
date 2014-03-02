@@ -26,7 +26,7 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         return MUTABILITY_INFERRER
     }
 
-    override fun Array<out jet.Annotation>.toAnnotation(): MutabilityAnnotation? {
+    override fun Array<out kotlin.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
             if (ann.annotationType().getSimpleName() == "ExpectMutable") return MutabilityAnnotation.MUTABLE
             if (ann.annotationType().getSimpleName() == "ExpectReadOnly") return MutabilityAnnotation.READ_ONLY

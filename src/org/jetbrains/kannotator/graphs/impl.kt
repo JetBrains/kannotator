@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.graphs
 
 import java.util.ArrayList
 import java.util.HashMap
-import java.util.LinkedHashSet
 import kotlinlib.union
 
 open class GraphImpl<out T, out L>(createNodeMap: Boolean): Graph<T, L> {
@@ -47,7 +46,7 @@ abstract class NodeImpl<out T, out L> : Node<T, L> {
         _outgoingEdges.remove(edge)
     }
 
-    open fun toString(): String {
+    override fun toString(): String {
         return "${data} in$incomingEdges out$outgoingEdges"
     }
 }
@@ -59,18 +58,18 @@ open class EdgeImpl<T, L>(
         public override val from: NodeImpl<T, L>,
         public override val to: NodeImpl<T, L>
 ) : Edge<T, L> {
-    fun toString(): String {
+    override fun toString(): String {
         val prefix = if (label != null) "$label " else ""
         return "${prefix}${from.data} -> ${to.data}"
     }
 
-    fun hashCode(): Int {
+    override fun hashCode(): Int {
         return from.hashCode() * 31 + to.hashCode()
     }
 
-    public fun equals(obj: Any?): Boolean {
-        if (obj is EdgeImpl<*, *>) {
-            return from == obj.from && to == obj.to
+    override fun equals(other: Any?): Boolean {
+        if (other is EdgeImpl<*, *>) {
+            return from == other.from && to == other.to
         }
         return false
     }

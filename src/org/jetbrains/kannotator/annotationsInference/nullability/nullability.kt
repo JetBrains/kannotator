@@ -23,8 +23,8 @@ import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 // TODO: http://youtrack.jetbrains.com/issue/KT-4275
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Nullability.NULL as NULL_
 
-class NullabilityKey: Object(), AnalysisType {
-    public override fun toString(): String = "nullability"
+class NullabilityKey : AnalysisType {
+    override fun toString() = "nullability"
 }
 
 val NULLABILITY_KEY = NullabilityKey()

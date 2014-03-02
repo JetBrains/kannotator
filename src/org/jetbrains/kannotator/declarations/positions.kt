@@ -1,11 +1,7 @@
 package org.jetbrains.kannotator.declarations
 
 import java.util.ArrayList
-import org.objectweb.asm.signature.SignatureReader
-import org.objectweb.asm.signature.SignatureVisitor
-import org.objectweb.asm.Opcodes.*
 import kotlinlib.join
-import java.util.Collections
 import kotlinlib.emptyList
 
 class PositionsForMethod(val method: Method) {
@@ -63,7 +59,7 @@ private data class AnnotatedTypeImpl(
         val debugName: String,
         override val arguments: List<AnnotatedType>
 ) : AnnotatedType {
-    fun toString(): String {
+    override fun toString(): String {
         val argStr =
                 if (!arguments.isEmpty())
                     "<${arguments.join(", ")}>"
