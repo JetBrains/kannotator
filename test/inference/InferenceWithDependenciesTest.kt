@@ -27,7 +27,6 @@ import java.util.LinkedHashMap
 import java.util.HashMap
 import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.annotations.io.AnnotationData
-import kotlinlib.join
 import util.assertEqualsOrCreate
 
 class InferenceWithDependenciesTest {

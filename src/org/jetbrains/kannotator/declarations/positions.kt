@@ -1,15 +1,13 @@
 package org.jetbrains.kannotator.declarations
 
 import java.util.ArrayList
-import kotlinlib.join
-import kotlinlib.emptyList
 
 class PositionsForMethod(val method: Method) {
     public fun get(positionWithinMethod: PositionWithinDeclaration): AnnotatedType {
         return AnnotatedTypeImpl(
                 MethodTypePositionImpl(method, positionWithinMethod),
                 positionWithinMethod.toString(),
-                emptyList()
+                listOf()
         )
     }
 
@@ -25,7 +23,7 @@ class PositionsForMethod(val method: Method) {
 public fun getFieldTypePosition(field: Field) : FieldTypePosition = FieldTypePositionImpl(field)
 
 public fun getFieldAnnotatedType(field: Field) : AnnotatedType {
-    return AnnotatedTypeImpl(FieldTypePositionImpl(field), "Field annotation type", emptyList())
+    return AnnotatedTypeImpl(FieldTypePositionImpl(field), "Field annotation type", listOf())
 }
 
 fun PositionsForMethod.forEachValidPosition(body: (AnnotationPosition) -> Unit) {
@@ -62,7 +60,7 @@ private data class AnnotatedTypeImpl(
     override fun toString(): String {
         val argStr =
                 if (!arguments.isEmpty())
-                    "<${arguments.join(", ")}>"
+                    "<${arguments.joinToString(", ")}>"
                 else ""
         return debugName + argStr
     }

@@ -9,7 +9,6 @@ import kotlinlib.replaceExtension
 import kotlinlib.buildString
 import kotlin.template.append
 import kotlinlib.getParents
-import kotlinlib.join
 import kotlinlib.removeSuffix
 import util.getClassReader
 import org.jetbrains.kannotator.asm.util.*

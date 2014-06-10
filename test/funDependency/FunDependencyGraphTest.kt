@@ -64,7 +64,7 @@ class FunDependencyGraphTest {
                 null
             }
         ).build()
-        val missingStr = missing.join("\n")
+        val missingStr = missing.joinToString("\n")
         assertEqualsOrCreate(File(PATH + "simple/missing.txt"), missingStr)
     }
 

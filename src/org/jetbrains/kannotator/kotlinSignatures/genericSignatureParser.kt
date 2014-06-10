@@ -4,7 +4,6 @@ import org.objectweb.asm.signature.SignatureVisitor
 import java.util.ArrayList
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.signature.SignatureReader
-import kotlinlib.join
 
 trait Classifier
 data class BaseType(val descriptor: Char) : Classifier
@@ -47,7 +46,7 @@ class GenericTypeImpl : GenericType {
     override val classifier: Classifier
         get() = classifierVar!!
 
-    override fun toString() = "$classifier<${arguments.join(", ")}>"
+    override fun toString() = "$classifier<${arguments.joinToString(", ")}>"
 }
 
 class TypeParameter(val name: String, val upperBounds: List<GenericType>)

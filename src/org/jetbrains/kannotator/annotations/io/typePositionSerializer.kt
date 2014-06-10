@@ -1,6 +1,5 @@
 package org.jetbrains.kannotator.annotations.io
 
-import kotlinlib.join
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.ParameterPosition
