@@ -63,6 +63,7 @@ import org.jetbrains.kannotator.declarations.isProtected
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
+import java.util.LinkedHashSet
 
 /** Regression inference. Annotations are dumped in simple text format. */
 class IntegratedInferenceTest {
@@ -283,17 +284,16 @@ class IntegratedInferenceTest {
         }
 
         val stringWriter = StringWriter()
-        writeAnnotationsToXML(stringWriter,
-                methods.sortByToString().map {
-                    m ->
-                    PositionsForMethod(m).forReturnType().position to arrayListOf(
-                            kotlinSignatureToAnnotationData(
-                                renderMethodSignature(m, nullability , mutability)
-                        )
-                    )
-                }.toMap()
-        )
+        val annotations = methods.sortByToString().map {
+            m ->
+            PositionsForMethod(m).forReturnType().position to arrayListOf(
+                    kotlinSignatureToAnnotationData(
+                            renderMethodSignature(m, nullability, mutability)
+                                                   )
+                                                                         )
+        }.toMap(LinkedHashMap<AnnotationPosition, Collection<AnnotationData>>())
 
+        writeAnnotationsToXML(stringWriter, annotations)
         val actual = stringWriter.toString()
         assertEqualsOrCreate(expectedFile, actual, true)
     }

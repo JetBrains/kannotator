@@ -4,14 +4,9 @@ import org.objectweb.asm.tree.MethodNode
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.jetbrains.kannotator.declarations.isStatic
-import org.jetbrains.kannotator.declarations.isInnerClassConstructor
 import java.util.ArrayList
-import org.jetbrains.kannotator.declarations.isConstructor
-import kotlinlib.suffixAfter
-import org.jetbrains.kannotator.declarations.isAnonymous
-import kotlinlib.toMap
-import org.objectweb.asm.Type
-import org.jetbrains.kannotator.declarations.getSignatureDescriptor
+import java.util.LinkedHashMap
+import org.objectweb.asm.tree.LocalVariableNode
 
 val NO_PARAMETER_NAME: String = "<no name>"
 
@@ -20,7 +15,10 @@ fun loadMethodParameterNames(method: Method, node: MethodNode) {
     if (localVariables == null || localVariables.isEmpty()) return
 
     val parameterTypes = method.getArgumentTypes()
-    val locals = localVariables.toMap { a -> a.index to a }
+    val locals = LinkedHashMap<Int, LocalVariableNode>(localVariables.size)
+    for (local in localVariables) {
+        locals.put(local.index, local)
+    }
 
     val names = ArrayList<String>()
     var index = if (method.isStatic()) 0 else 1
