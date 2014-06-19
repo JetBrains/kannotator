@@ -308,7 +308,7 @@ fun <V: Value> MethodInsnNode.getReceiver(frame: Frame<V>): V? =
 
 public class QualifiedValuesAnalyzer<Q: Qualifier>(
         val owner: ClassName,
-        val methodNode: MethodNode,
+        methodNode: MethodNode,
         val qualifierSet: QualifierSet<Q>,
         val frameTransformer: FrameTransformer<QualifiedValueSet<Q>>,
         val qualifierEvaluator: QualifierEvaluator<Q>
