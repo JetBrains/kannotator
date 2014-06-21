@@ -22,6 +22,9 @@
     <property name="jdk.annotations.inferred.dir"
               value="jdk-annotations-inferred"/>
 
+    <property name="android.sdk.annotations.inferred.dir"
+              value="android-sdk-annotations-inferred"/>
+
     <target name="build_all" depends="build_jdk_annotations,build_android_annotations"/>
 
     <target name="build_jdk_annotations">
@@ -55,7 +58,7 @@
         <build_sdk_annotations
                 lib.jar="android-custom/android-sdk_4.4.2.jar"
                 customization.dir="android-custom"
-                xml.annotations.out.dir="android-sdk-annotations-inferred"
+                xml.annotations.out.dir="${android.sdk.annotations.inferred.dir}"
                 xml.annotations.pack.dir="android-sdk-annotations-combined"
                 jaif.name="kotlin-android-sdk-annotations"
                 annotations.jar="out/artifacts/annotations/kotlin-android-sdk-annotations.jar"
@@ -64,6 +67,11 @@
     </target>
 
     <target name="postprocess_android_annotations">
+        <loadfile property="android.view.patch"
+                  srcFile="android-custom/postprocess/android/view/annotations.xml"/>
+        <replace file="${android.sdk.annotations.inferred.dir}/android/view/annotations.xml" value="${android.view.patch}">
+            <replacetoken><![CDATA[</root>]]></replacetoken>
+        </replace>
         <java
                 classname="org.jetbrains.kannotator.client.androidCombine.AndroidCombinePackage"
                 fork="true"
