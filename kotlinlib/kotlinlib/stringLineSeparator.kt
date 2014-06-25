@@ -1,7 +1,7 @@
 package kotlinlib
 
 public fun String.toSystemLineSeparators(): String {
-    return this.convertLineSeparators(LINE_SEPARATOR)
+    return this.convertLineSeparators(SYSTEM_LINE_SEPARATOR)
 }
 
 public fun String.toUnixSeparators(): String {
