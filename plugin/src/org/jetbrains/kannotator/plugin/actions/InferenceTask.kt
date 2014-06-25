@@ -45,7 +45,6 @@ import org.jetbrains.kannotator.plugin.actions.IdeaInferenceTask.InferenceProgre
 import java.io.IOException
 import java.io.FileNotFoundException
 import org.jetbrains.kannotator.annotations.io.FileAwareProgressMonitor
-import kotlinlib.prefixUpToLast
 import org.jetbrains.kannotator.annotations.io.AnnotatedLibrary
 import com.intellij.openapi.vfs.impl.http.LocalFileStorage
 import com.intellij.openapi.vfs.VirtualFileManager

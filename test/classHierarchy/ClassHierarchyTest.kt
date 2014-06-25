@@ -2,8 +2,6 @@ package classHierarchy
 
 import java.io.File
 import org.junit.Test
-import kotlinlib.buildString
-import kotlinlib.println
 import kotlinlib.sortByToString
 import org.jetbrains.kannotator.classHierarchy.*
 import util.assertEqualsOrCreate
@@ -29,21 +27,20 @@ class ClassHierarchyTest {
     fun doTest(prefix: String, filename: String) {
         val classes = getClassesHierarchy(prefix)
 
-        val result = buildString {
-            sb ->
+        val result = StringBuilder {
             for (node in classes) {
-                sb.println(node)
-                sb.println("  SubClasses")
+                appendln(node)
+                appendln("  SubClasses")
                 val subClasses = node.children.map { it.child }.sortByToString()
-                subClasses.forEach { sb.println("    $it") }
-                sb.println("  SuperClasses")
+                subClasses.forEach { appendln("    $it") }
+                appendln("  SuperClasses")
                 val superClasses = node.parents.map { it.parent }.sortByToString()
-                superClasses.forEach { sb.println("    $it") }
-                sb.println("  Methods")
+                superClasses.forEach { appendln("    $it") }
+                appendln("  Methods")
                 val methods = node.methods.map { it.id }.sortByToString()
-                methods.forEach { sb.println("    $it") }
+                methods.forEach { appendln("    $it") }
             }
-        }
+        }.toString()
 
         assertEqualsOrCreate(File("$BASE_DIR/$filename"), result)
     }

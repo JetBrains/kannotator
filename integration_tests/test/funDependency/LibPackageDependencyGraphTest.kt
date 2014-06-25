@@ -38,34 +38,34 @@ class LibPackageDependencyGraphTest {
             }
         }
 
-        val actual = buildString { sb ->
-            sb.println("== All Nodes == ")
+        val actual = StringBuilder {
+            appendln("== All Nodes == ")
             for (node in graph.nodes.sort(functionNodeComparator)) {
-                printFunctionNode(sb, node)
+                printFunctionNode(this, node)
             }
 
-            sb.println()
-            sb.println("== No Outgoing Nodes == ")
+            appendln()
+            appendln("== No Outgoing Nodes == ")
 
             for (node in graph.sinkNodes.sort(functionNodeComparator)) {
-                printFunctionNode(sb, node)
+                printFunctionNode(this, node)
             }
-        }.trim()
+        }.toString().trim()
 
         val expectedFile = File(PATH + expectedResultPath)
         assertEqualsOrCreate(expectedFile, actual)
     }
 
     fun printFunctionNode(sb: StringBuilder, node: GraphNode<Package, *>) {
-        sb.println(node.data)
-        if (node.outgoingEdges.size() > 0) sb.println("    outgoing edges:")
+        sb.appendln(node.data)
+        if (node.outgoingEdges.size() > 0) sb.appendln("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {
-            sb.println("        $edge")
+            sb.appendln("        $edge")
         }
 
-        if (node.incomingEdges.size() > 0) sb.println("    incoming edges:")
+        if (node.incomingEdges.size() > 0) sb.appendln("    incoming edges:")
         for (edge in node.incomingEdges.sortByToString()) {
-            sb.println("        $edge")
+            sb.appendln("        $edge")
         }
     }
 

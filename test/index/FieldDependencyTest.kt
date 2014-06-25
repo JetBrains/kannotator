@@ -22,21 +22,21 @@ class FieldDependencyTest {
         val classSource = ClassesFromClassPath(canonicalName)
         val infos = buildFieldsDependencyInfos(util.ClassPathDeclarationIndex, classSource)
 
-        val actual = buildString { sb ->
+        val actual = StringBuilder {
             for (fieldInfo in infos.values().sortBy{it.field.name}.reverse()) {
-                printFieldInfo(sb, fieldInfo)
+                printFieldInfo(this, fieldInfo)
             }
-        }.trim()
+        }.toString().trim()
 
         val expectedFile = File(PATH + expectedResultPath)
         assertEqualsOrCreate(expectedFile, actual)
     }
 
     fun printFieldInfo(sb: StringBuilder, fieldInfo: FieldDependencyInfo) {
-        sb.println("=========== ${fieldInfo.field} ============")
-        sb.println("== readers ==")
-        if (fieldInfo.readers.isEmpty()) sb.println("<no readers>") else fieldInfo.readers.forEach { sb.println(it) }
-        sb.println("== writers ==")
-        if (fieldInfo.writers.isEmpty()) sb.println("<no writers>") else fieldInfo.writers.forEach { sb.println(it) }
+        sb.appendln("=========== ${fieldInfo.field} ============")
+        sb.appendln("== readers ==")
+        if (fieldInfo.readers.isEmpty()) sb.appendln("<no readers>") else fieldInfo.readers.forEach { sb.appendln(it) }
+        sb.appendln("== writers ==")
+        if (fieldInfo.writers.isEmpty()) sb.appendln("<no writers>") else fieldInfo.writers.forEach { sb.appendln(it) }
     }
 }

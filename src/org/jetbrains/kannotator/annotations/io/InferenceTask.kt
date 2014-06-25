@@ -14,7 +14,6 @@ import org.jetbrains.kannotator.main.*
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.simpleErrorHandler
-import kotlinlib.prefixUpToLast
 
 public class InferenceException(file: File, cause: Throwable?) : Throwable("Exception during inferrence on file ${file.getName()}", cause)
 
@@ -42,7 +41,7 @@ public data class AnnotatedLibrary(
         }
 
     public val sanitizedFileName: String
-        get() = (fileName.prefixUpToLast(".jar") ?: fileName).replaceAll("[\\/:*?\"<>|]", "_")
+        get() = (fileName.substringBeforeLast(".jar") ?: fileName).replaceAll("[\\/:*?\"<>|]", "_")
 
     public fun annotationsPath(outputPath: String,
                                useOneCommonTree: Boolean): String =

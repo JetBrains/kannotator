@@ -4,7 +4,6 @@ import java.io.File
 import java.io.FileWriter
 import java.util.HashMap
 import junit.framework.Assert
-import kotlinlib.prefixUpTo
 import kotlinlib.recurseFiltered
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
@@ -63,7 +62,7 @@ public class WriteAnnotationTest {
                 println("Processing ${file.getAbsolutePath()}")
                 val typePositionAndAnnotationData = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
                 parseAnnotations(file.reader(), { key, annotationData ->
-                    val classReader = classToReaderMap.get(key.prefixUpTo(' '))
+                    val classReader = classToReaderMap.get(key.substringBefore(' '))
                     if (classReader != null) {
                         forAllClassAnnotationPositions(classReader) { annotationPosition ->
                             if (annotationPosition.toAnnotationKey() == key) {
@@ -74,7 +73,7 @@ public class WriteAnnotationTest {
                         }
                     }
                     else {
-                        println("Cannot find class reader for ${key.prefixUpTo(' ')} class")
+                        println("Cannot find class reader for ${key.substringBefore(' ')} class")
                     }
                 }, PRINT_TO_CONSOLE)
 

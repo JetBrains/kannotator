@@ -49,7 +49,8 @@ private fun canonicalName(_type: Type): String {
 }
 
 fun Method.getMethodNameAccountingForConstructor(): String {
-    if (id.methodName == "<init>") return declaringClass.simple
+    if (id.methodName == "<init>")
+        return declaringClass.simple
     return id.methodName
 }
 

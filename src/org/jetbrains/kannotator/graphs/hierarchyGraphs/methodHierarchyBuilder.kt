@@ -48,7 +48,7 @@ class MethodHierarchyBuilder(
                         getOrCreateEdge(null, getOrCreateNode(superMethod!!), getOrCreateNode(method))
                     }
                     else {
-                        superClassQueue.addAll(superClassNode.parentNodes - visitedClasses)
+                        superClassQueue.addAll(superClassNode.parentNodes.subtract(visitedClasses))
                     }
                 }
             }

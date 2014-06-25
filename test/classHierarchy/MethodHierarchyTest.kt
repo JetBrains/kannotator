@@ -29,25 +29,24 @@ class MethodHierarchyTest {
             }
         }
 
-        val actual = buildString {
-            sb ->
+        val actual = StringBuilder {
             for (methodNode in methodHierarchy.hierarchyNodes.sortForTest()) {
-                sb.append(methodNode.data).append("\n")
+                appendln(methodNode.data)
 
                 fun appendNodes(title: String, nodes: Collection<HierarchyNode<Method>>) {
                     if (nodes.isEmpty()) return
 
-                    sb.append("  $title\n")
+                    appendln("  $title")
                     for (node in nodes.sortForTest()) {
-                        sb.append("    ${node.data}\n")
+                        appendln("    ${node.data}")
                     }
                 }
 
                 appendNodes("It overrides", methodNode.parentNodes)
                 appendNodes("It is overridden by", methodNode.childNodes)
-                sb.append("\n")
+                appendln()
             }
-        }
+        }.toString()
 
         assertEqualsOrCreate(expectedFile, actual)
     }

@@ -224,22 +224,21 @@ fun renderType(genericType: GenericType, position: Position, annotations: KnownA
 
 fun renderArguments(genericType: GenericType, position: Position): String {
     if (genericType.arguments.isEmpty()) return ""
-    return buildString {
-        sb ->
-        sb.append("<")
+    return StringBuilder {
+        append("<")
         for ((i, arg) in genericType.arguments.indexed) {
             if (i > 0) {
-                sb.append(", ")
+                append(", ")
             }
-            sb.append(when (arg) {
+            append(when (arg) {
                 UnBoundedWildcard -> "*"
                 is BoundedWildcard -> arg.wildcard.projection() + renderType(arg.bound, Position.UPPER_BOUND, NULLABLE_READONLY)
                 is NoWildcard -> renderType(arg.genericType, Position.CLASS_TYPE_ARGUMENT, NULLABLE_READONLY)
                 else -> throw IllegalStateException(arg.toString())
             })
         }
-        sb.append(">")
-    }
+        append(">")
+    }.toString()
 }
 
 fun Wildcard.projection(): String = when(this) {
@@ -305,9 +304,9 @@ fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): Str
             "java/util/List",
             "java/util/ListIterator",
             "java/util/Set",
-            "java/util/Map" -> prefix(namedClass.internalName.suffixAfter("/"))
+            "java/util/Map" -> prefix(namedClass.internalName.substringAfterLast("/"))
             "java/util/Map\$Entry" -> prefix("Map") + "." + prefix("Entry")
-            else -> namedClass.internalName.suffixAfter("/").replace('$', '.')
+            else -> namedClass.internalName.substringAfterLast("/").replace('$', '.')
         }
         is InnerClass -> renderType(namedClass.outer, Position.OUTER, annotations) + "." + namedClass.name
         else -> throw IllegalArgumentException(namedClass.toString())

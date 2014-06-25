@@ -26,7 +26,7 @@ fun propagateMetadata<A>(
 ): Annotations<A> {
     val result = AnnotationsImpl(annotations)
 
-    val classifiedMethods = graph.hierarchyNodes.classify { node ->
+    val classifiedMethods = graph.hierarchyNodes.groupBy { node ->
         when {
             node.children.isEmpty() -> "leaf"
             node.parents.isEmpty() -> "root"
@@ -41,7 +41,7 @@ fun propagateMetadata<A>(
 
     val allMethods = graph.nodes.map{ n -> n.method }.toSet()
     fun assertAllVisited(visitedMethods: Collection<Method>) {
-        val unvisited = allMethods - visitedMethods
+        val unvisited = allMethods.subtract(visitedMethods)
         assert (unvisited.isEmpty()) { "Methods not visited: $unvisited" }
     }
 
@@ -95,7 +95,7 @@ private fun propagateParameterAnnotations<A>(
         annotationsToFix: MutableAnnotations<A>,
         propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ) {
-    val methodsBySignature = methods.classify {method -> method.id.getSignatureDescriptor()}
+    val methodsBySignature = methods.groupBy {method -> method.id.getSignatureDescriptor()}
     for ((_, groupedMethods) in methodsBySignature) {
         assert (!groupedMethods.isEmpty()) {"groupedMethods is empty for $_"}
         val positionsForMethods = groupedMethods.map {method -> PositionsForMethod(method)}

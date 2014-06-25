@@ -2,11 +2,8 @@ package org.jetbrains.kannotator.declarations
 
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.Type
-import kotlinlib.suffixAfterLast
-import kotlinlib.buildString
 import java.util.ArrayList
 import org.objectweb.asm.tree.MethodNode
-import kotlinlib.prefixUpToLast
 
 data class Package(val name: String) {
     override fun toString() = name
@@ -140,20 +137,20 @@ val ClassMember.visibility: Visibility get() = when {
 fun Method.isVarargs(): Boolean = access.has(Opcodes.ACC_VARARGS)
 
 fun Method.toFullString(): String {
-    return buildString {
-        it.append(visibility.toString().toLowerCase() + " ")
-        it.append(if (isStatic()) "static " else "")
-        it.append(if (isFinal()) "final " else "")
-        it.append("flags[$access] ")
-        it.append(declaringClass.internal)
-        it.append("::")
-        it.append(id.methodName)
-        it.append(id.methodDesc)
+    return StringBuilder {
+        append(visibility.toString().toLowerCase() + " ")
+        append(if (isStatic()) "static " else "")
+        append(if (isFinal()) "final " else "")
+        append("flags[$access] ")
+        append(declaringClass.internal)
+        append("::")
+        append(id.methodName)
+        append(id.methodDesc)
         if (genericSignature != null) {
-            it.append(" :: ")
-            it.append(genericSignature)
+            append(" :: ")
+            append(genericSignature)
         }
-    }
+    }.toString()
 }
 
 data class ClassName private (val internal: String) {
@@ -163,7 +160,7 @@ data class ClassName private (val internal: String) {
     override fun toString() = internal
 
     val simple: String
-        get() = canonicalName.suffixAfterLast(".")
+        get() = canonicalName.substring(canonicalName.lastIndexOf(".").let { if (it == -1) 0 else it + 1 })
 
     class object {
         fun fromInternalName(name: String): ClassName {
@@ -204,7 +201,7 @@ fun ClassName.isAnonymous(): Boolean {
 }
 
 val ClassName.packageName: String
-    get() = internal.prefixUpToLast('/') ?: ""
+    get() = internal.substringBeforeLast('/') ?: ""
 
 val ClassMember.packageName: String
     get() = declaringClass.packageName

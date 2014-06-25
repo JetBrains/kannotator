@@ -83,7 +83,7 @@ class XmlPrinter(val sb: StringBuilder) {
     private var indent = "";
 
     public fun println() {
-        sb.println()
+        sb.appendln()
     }
 
     fun openTag(tagName: String, attributes: Map<String, String>? = null, isClosed: Boolean = false, quoteChar : Char = '\'') {
@@ -123,19 +123,16 @@ class XmlPrinter(val sb: StringBuilder) {
 }
 
 private fun escape(str: String): String {
-    return buildString {
-        sb ->
+    return StringBuilder {
         for (c in str) {
             when {
-                c == '<' -> sb.append("&lt;")
-                c == '>' -> sb.append("&gt;")
-                c == '\"' || c == '\'' -> {
-                    sb.append("&quot;")
-                }
-                else -> sb.append(c);
+                c == '<' -> append("&lt;")
+                c == '>' -> append("&gt;")
+                c == '\"' || c == '\'' -> append("&quot;")
+                else -> append(c);
             }
         }
-    }
+    }.toString()
 }
 
 fun makeAnnotationsMap(

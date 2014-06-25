@@ -47,29 +47,29 @@ class LibPackageNonAffectingDependencyGraphTest {
             }
         }
 
-        val actual = buildString { sb ->
-            sb.println()
-            sb.println("== Non-Affecting Nodes == ")
-            sb.println("Found ${nonInterestingNodes.size} out of total $packageCount")
+        val actual = StringBuilder {
+            appendln()
+            appendln("== Non-Affecting Nodes == ")
+            appendln("Found ${nonInterestingNodes.size} out of total $packageCount")
             for (node in nonInterestingNodes.sort(functionNodeComparator)) {
-                printFunctionNode(sb, node)
+                printFunctionNode(this, node)
             }
-        }.trim()
+        }.toString().trim()
 
         val expectedFile = File(PATH + expectedResultPath)
         assertEqualsOrCreate(expectedFile, actual)
     }
 
     fun printFunctionNode(sb: StringBuilder, node: GraphNode<Package, *>) {
-        sb.println(node.data)
-        if (node.outgoingEdges.size() > 0) sb.println("    outgoing edges:")
+        sb.appendln(node.data)
+        if (node.outgoingEdges.size() > 0) sb.appendln("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {
-            sb.println("        $edge")
+            sb.appendln("        $edge")
         }
 
-        if (node.incomingEdges.size() > 0) sb.println("    incoming edges:")
+        if (node.incomingEdges.size() > 0) sb.appendln("    incoming edges:")
         for (edge in node.incomingEdges.sortByToString()) {
-            sb.println("        $edge")
+            sb.appendln("        $edge")
         }
     }
 

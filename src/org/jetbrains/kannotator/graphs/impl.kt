@@ -2,7 +2,6 @@ package org.jetbrains.kannotator.graphs
 
 import java.util.ArrayList
 import java.util.HashMap
-import kotlinlib.union
 
 open class GraphImpl<out T, out L>(createNodeMap: Boolean): Graph<T, L> {
     private val _nodes: MutableCollection<Node<T, L>> = ArrayList()

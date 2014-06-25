@@ -94,21 +94,20 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
 }
 
 private fun escapeAttributes(str: String): String {
-    return buildString {
-        sb ->
+    return StringBuilder {
         var inAttribute = false
         for (c in str) {
             when {
-                inAttribute && c == '<' -> sb.append("&lt;")
-                inAttribute && c == '>' -> sb.append("&gt;")
+                inAttribute && c == '<' -> append("&lt;")
+                inAttribute && c == '>' -> append("&gt;")
                 c == '\"' || c == '\'' -> {
-                    sb.append('\"')
+                    append('\"')
                     inAttribute = !inAttribute
                 }
-                else -> sb.append(c);
+                else -> append(c);
             }
         }
-    }
+    }.toString()
 }
 
 fun loadAnnotationsFromLogs(

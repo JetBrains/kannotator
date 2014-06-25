@@ -3,7 +3,6 @@ package org.jetbrains.kannotator.declarations
 import java.util.HashMap
 import java.util.ArrayList
 import java.util.HashSet
-import kotlinlib.union
 import java.util.Collections
 
 class AnnotationsImpl<A: Any>(override val delegate: Annotations<A>? = null) : MutableAnnotations<A> {

@@ -1,7 +1,6 @@
 package annotations
 
 import java.io.File
-import kotlinlib.println
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.junit.Test
 import org.junit.Assert.fail
@@ -17,16 +16,16 @@ class ReadAnnotationsTest {
     fun doTest(file: File) {
         val actualSB = StringBuilder()
         parseAnnotations(file.reader(), { position, annotationData ->
-            actualSB.println("$position")
+            actualSB.appendln("$position")
             for (annotation in annotationData) {
-                actualSB.println("    annotationClassFqn=${annotation.annotationClassFqn}, attributes=${annotation.attributes}")
+                actualSB.appendln("    annotationClassFqn=${annotation.annotationClassFqn}, attributes=${annotation.attributes}")
 
             }
-            actualSB.println()
+            actualSB.appendln()
         }, simpleErrorHandler{
             kind, message ->
-            actualSB.println(message)
-            actualSB.println()
+            actualSB.appendln(message)
+            actualSB.appendln()
         })
 
         println(actualSB)

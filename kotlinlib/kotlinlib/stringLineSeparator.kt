@@ -1,33 +1,26 @@
 package kotlinlib
 
-public fun String.toSystemLineSeparators(): String {
-    return this.convertLineSeparators(SYSTEM_LINE_SEPARATOR)
-}
+val SYSTEM_LINE_SEPARATOR: String = System.getProperty("line.separator")!!
 
-public fun String.toUnixSeparators(): String {
-    return this.convertLineSeparators("\n")
-}
-
-public fun String.toWindowsSeparators(): String {
-    return this.convertLineSeparators("\r\n")
-}
+public fun String.toSystemLineSeparators(): String = this.convertLineSeparators(SYSTEM_LINE_SEPARATOR)
+public fun String.toUnixSeparators(): String = convertLineSeparators("\n")
+public fun String.toWindowsSeparators(): String = convertLineSeparators("\r\n")
 
 public fun String.convertLineSeparators(newSeparator: String): String {
-    return buildString {
-        sb ->
-            var i = 0
-            while (i < this.size) {
-                val c = this[i]
-                when {
-                    c == '\n' ->  sb.append(newSeparator)
-                    c == '\r' &&
-                    this.getOrElse(i + 1, null: Char?) == '\n' -> {   // KT-209
-                        sb.append(newSeparator)
-                        i++
-                    }
-                    else -> sb.append(c);
+    return StringBuilder {
+        var i = 0
+        while (i < this.size) {
+            val c = this[i]
+            when {
+                c == '\n' -> append(newSeparator)
+                c == '\r' && getOrElse(i + 1, null: Char?) == '\n' -> {
+                    // KT-209
+                    append(newSeparator)
+                    i++
                 }
-                i++
+                else -> append(c);
             }
-    }
+            i++
+        }
+    }.toString()
 }

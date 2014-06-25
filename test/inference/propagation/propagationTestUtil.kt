@@ -58,11 +58,10 @@ fun Annotations<NullabilityAnnotation>.toDeclarations(): String {
         pos, ann ->
         positions.add(pos)
     }
-    val s = buildString {
-        sb ->
+    val s = StringBuilder {
         for (pos in positions.toSortedList { a, b -> a.toAnnotationKey().compareTo(b.toAnnotationKey()) }) {
-            sb.append("${pos.toAnnotationKey()}\n  ${this[pos]}\n\n")
+            append("${pos.toAnnotationKey()}\n  ${this@toDeclarations[pos]}\n\n")
         }
-    }.toSystemLineSeparators()
+    }.toString().toSystemLineSeparators()
     return s
 }
