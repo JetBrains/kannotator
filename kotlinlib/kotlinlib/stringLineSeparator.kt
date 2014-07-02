@@ -10,7 +10,7 @@ public fun String.convertLineSeparators(newSeparator: String): String {
     return StringBuilder {
         var i = 0
         while (i < this.size) {
-            val c = this[i]
+            val c = charAt(i)
             when {
                 c == '\n' -> append(newSeparator)
                 c == '\r' && getOrElse(i + 1, null: Char?) == '\n' -> {
@@ -24,3 +24,5 @@ public fun String.convertLineSeparators(newSeparator: String): String {
         }
     }.toString()
 }
+
+fun fn(sb : StringBuilder) = sb.get(0)
