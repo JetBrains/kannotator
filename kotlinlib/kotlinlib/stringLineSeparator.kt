@@ -24,5 +24,3 @@ public fun String.convertLineSeparators(newSeparator: String): String {
         }
     }.toString()
 }
-
-fun fn(sb : StringBuilder) = sb.get(0)
