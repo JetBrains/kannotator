@@ -291,7 +291,7 @@ class IntegratedInferenceTest {
                             renderMethodSignature(m, nullability, mutability)
                                                    )
                                                                          )
-        }.toMap(LinkedHashMap<AnnotationPosition, Collection<AnnotationData>>())
+        }.toMap()
 
         writeAnnotationsToXML(stringWriter, annotations)
         val actual = stringWriter.toString()
