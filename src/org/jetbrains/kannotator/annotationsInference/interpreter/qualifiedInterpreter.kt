@@ -183,7 +183,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
                 val ldc = insn as LdcInsnNode
                 val cst = ldc.cst
                 fun illegalLdcConstant(): Throwable {
-                    return IllegalArgumentException("Illegal LCD constant: $cst : ${cst.javaClass}")
+                    return IllegalArgumentException("Illegal LCD constant: $cst : ${cst!!.javaClass}")
                 }
                 when (cst) {
                     is Int -> valueAtInstruction(INT_TYPE, insn)
