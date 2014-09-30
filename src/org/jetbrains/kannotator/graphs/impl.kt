@@ -3,7 +3,7 @@ package org.jetbrains.kannotator.graphs
 import java.util.ArrayList
 import java.util.HashMap
 
-open class GraphImpl<out T, out L>(createNodeMap: Boolean): Graph<T, L> {
+open class GraphImpl<T, L>(createNodeMap: Boolean): Graph<T, L> {
     private val _nodes: MutableCollection<Node<T, L>> = ArrayList()
     private val nodeMap: MutableMap<T, Node<T, L>>? = if (createNodeMap) HashMap<T, Node<T, L>>() else null
 
@@ -22,7 +22,7 @@ open class GraphImpl<out T, out L>(createNodeMap: Boolean): Graph<T, L> {
     }
 }
 
-abstract class NodeImpl<out T, out L> : Node<T, L> {
+abstract class NodeImpl<T, L> : Node<T, L> {
     private val _incomingEdges: MutableCollection<Edge<T, L>> = ArrayList()
     private val _outgoingEdges: MutableCollection<Edge<T, L>> = ArrayList()
 
@@ -50,9 +50,9 @@ abstract class NodeImpl<out T, out L> : Node<T, L> {
     }
 }
 
-class DefaultNodeImpl<out T, out L>(public override val data: T) : NodeImpl<T, L>()
+class DefaultNodeImpl<T, L>(public override val data: T) : NodeImpl<T, L>()
 
-open class EdgeImpl<T, L>(
+open class EdgeImpl<T, out L>(
         public override val label: L,
         public override val from: NodeImpl<T, L>,
         public override val to: NodeImpl<T, L>

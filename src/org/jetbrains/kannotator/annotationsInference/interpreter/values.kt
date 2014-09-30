@@ -24,7 +24,7 @@ public class TypedValue(
     }
 }
 
-public class QualifiedValue<out Q: Qualifier>(val base: TypedValue, val qualifier: Q) {
+public class QualifiedValue<Q: Qualifier>(val base: TypedValue, val qualifier: Q) {
     override fun toString() = "$base|$qualifier"
 
     fun copy(newQualifier: Q): QualifiedValue<Q> {
@@ -45,7 +45,7 @@ val TypedValue.size: Int
 val TypedValue.interesting: Boolean
     get() = parameterIndex != null
 
-trait CopyableValue<V: CopyableValue<V>>: Value {
+trait CopyableValue<out V: CopyableValue<V>>: Value {
     public fun copy(): V
 }
 
