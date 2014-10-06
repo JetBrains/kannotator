@@ -42,6 +42,11 @@
         <copy todir="${jdk.annotations.inferred.dir}">
             <fileset dir="jdk-custom/postprocess" includes="sun/**/*"/>
         </copy>
+        <loadfile property="java.util.patch"
+                  srcFile="jdk-custom/postprocess/java/util/annotations.xml"/>
+        <replace file="${jdk.annotations.inferred.dir}/java/util/annotations.xml" value="${java.util.patch}">
+            <replacetoken><![CDATA[</root>]]></replacetoken>
+        </replace>
         <loadfile property="java.awt.patch"
                   srcFile="jdk-custom/postprocess/java/awt/annotations.xml"/>
         <replace file="${jdk.annotations.inferred.dir}/java/awt/annotations.xml" value="${java.awt.patch}">
