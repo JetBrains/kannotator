@@ -52,7 +52,7 @@ abstract class NodeImpl<T, L> : Node<T, L> {
 
 class DefaultNodeImpl<T, L>(public override val data: T) : NodeImpl<T, L>()
 
-open class EdgeImpl<T, out L>(
+open class EdgeImpl<T, L>(
         public override val label: L,
         public override val from: NodeImpl<T, L>,
         public override val to: NodeImpl<T, L>

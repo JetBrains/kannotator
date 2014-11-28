@@ -24,14 +24,14 @@ public class TypedValue(
     }
 }
 
-public class QualifiedValue<Q: Qualifier>(val base: TypedValue, val qualifier: Q) {
+public class QualifiedValue<out Q: Qualifier>(val base: TypedValue, val qualifier: Q) {
     override fun toString() = "$base|$qualifier"
 
-    fun copy(newQualifier: Q): QualifiedValue<Q> {
+    fun <T: Qualifier> copy(newQualifier: T): QualifiedValue<T> {
         return if (newQualifier != qualifier) {
             QualifiedValue(base, newQualifier)
         }
-        else this
+        else this as QualifiedValue<T>
     }
 }
 
