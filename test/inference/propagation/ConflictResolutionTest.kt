@@ -1,6 +1,7 @@
 package inference.propagation
 
 import inferenceData.propagation.*
+import inferenceData.propagation.conflicts
 import junit.framework.TestCase
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
 import org.jetbrains.kannotator.annotationsInference.propagation.propagateMetadata

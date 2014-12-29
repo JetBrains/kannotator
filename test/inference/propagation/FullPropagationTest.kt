@@ -1,6 +1,7 @@
 package inference.propagation
 
 import inferenceData.propagation.*
+import inferenceData.propagation.fullPropagation
 import java.util.LinkedHashSet
 import junit.framework.TestCase
 import kotlinlib.*
