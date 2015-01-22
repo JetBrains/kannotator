@@ -38,6 +38,7 @@ import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.ErrorHandler
 import java.io.Reader
+import org.jetbrains.kannotator.declarations.Package
 
 open class ProgressMonitor {
     open fun processingStarted() {}
