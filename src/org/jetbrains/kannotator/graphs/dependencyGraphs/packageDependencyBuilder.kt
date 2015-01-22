@@ -20,6 +20,7 @@ import org.jetbrains.kannotator.graphs.GraphImpl
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.graphs.Graph
 import org.jetbrains.kannotator.classHierarchy.HierarchyGraph
+import org.jetbrains.kannotator.declarations.Package
 
 public fun buildPackageDependencyGraph(
         funDependencyGraph: Graph<Method, *>
