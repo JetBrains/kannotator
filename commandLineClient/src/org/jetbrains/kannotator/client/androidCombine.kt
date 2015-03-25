@@ -3,7 +3,6 @@ package org.jetbrains.kannotator.client.androidCombine
 import java.io.File
 import java.util.ArrayList
 import kotlinlib.recurseFiltered
-import kotlinlib.deleteRecursively
 
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.PRINT_TO_CONSOLE

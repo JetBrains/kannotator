@@ -12,7 +12,6 @@ import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnno
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 
 import kotlinlib.recurseFiltered
-import kotlinlib.deleteRecursively
 import kotlinlib.invertedRecurse
 
 import java.io.File

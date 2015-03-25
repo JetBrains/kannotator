@@ -8,7 +8,6 @@ import kotlinlib.replaceSuffix
 import kotlinlib.replaceExtension
 import kotlin.template.append
 import kotlinlib.getParents
-import kotlinlib.removeSuffix
 import util.getClassReader
 import org.jetbrains.kannotator.asm.util.*
 import org.jetbrains.kannotator.declarations.*

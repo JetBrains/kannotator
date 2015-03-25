@@ -4,7 +4,6 @@ import java.io.File
 import org.objectweb.asm.Type
 import org.objectweb.asm.ClassReader
 import java.util.jar.JarFile
-import kotlinlib.removeSuffix
 import java.util.Enumeration
 import java.util.jar.JarEntry
 
