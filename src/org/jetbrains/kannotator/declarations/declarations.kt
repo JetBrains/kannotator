@@ -162,7 +162,7 @@ data class ClassName private (val internal: String) {
     val simple: String
         get() = canonicalName.substring(canonicalName.lastIndexOf(".").let { if (it == -1) 0 else it + 1 })
 
-    class object {
+    companion object {
         fun fromInternalName(name: String): ClassName {
             return ClassName(name)
         }

@@ -38,7 +38,7 @@ public class MultiQualifier<K: AnalysisType>(val qualifiers: Map<K, Qualifier>):
 }
 
 public class MultiQualifierSet<K: AnalysisType>(val qualifierSets: Map<K, QualifierSet<Qualifier>>): QualifierSet<MultiQualifier<K>> {
-    class object {
+    companion object {
         private object MULTI_QUALIFIER_KEY : AnalysisType
     }
 
