@@ -35,7 +35,7 @@ class Graph {
 
     fun edges(vararg fromToStr: String): Graph {
         for (fromToEdgeStr in fromToStr) {
-            val split = fromToEdgeStr.splitBy("->")
+            val split = fromToEdgeStr.split("->")
             val fromLabel = split[0].trim()
             val toLabel = split[1].trim()
 
@@ -84,7 +84,7 @@ class SCCFinderTest {
         val finder = SCCFinder<Graph, Node>(graph, { graph.getAllNodes() }, { graph.getAdjacentNodes(it).toList() })
 
         fun assertInComponent(component : String) {
-            val split = component.splitBy("->")
+            val split = component.split("->")
             val requestNode = graph.getNode(split[0].trim())
             val nodes = graph.getNodes(*(split[1].split(',')).map { it.trim() }.copyToArray())
 
