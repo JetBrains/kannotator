@@ -94,8 +94,8 @@ private fun processClass(reader: ClassReader): MethodsAndSuperClasses {
             object : ClassVisitor(Opcodes.ASM4) {
 
                 public override fun visit(version: Int, access: Int, name: String, signature: String?, superName: String?, interfaces: Array<out String>?) {
-                    for (interface in interfaces.orEmptyArray()) {
-                        superClasses.add(ClassName.fromInternalName(interface))
+                    for (`interface` in interfaces.orEmptyArray()) {
+                        superClasses.add(ClassName.fromInternalName(`interface`))
                     }
                     if (superName != null) {
                         superClasses.add(ClassName.fromInternalName(superName))
