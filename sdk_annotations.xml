@@ -52,6 +52,11 @@
         <replace file="${jdk.annotations.inferred.dir}/java/awt/annotations.xml" value="${java.awt.patch}">
             <replacetoken><![CDATA[</root>]]></replacetoken>
         </replace>
+        <loadfile property="java.util.concurrent.patch"
+                  srcFile="jdk-custom/postprocess/java/util/concurrent/annotations.xml"/>
+        <replace file="${jdk.annotations.inferred.dir}/java/util/concurrent/annotations.xml" value="${java.util.concurrent.patch}">
+            <replacetoken><![CDATA[</root>]]></replacetoken>
+        </replace>
         <loadfile property="javax.swing.patch"
                   srcFile="jdk-custom/postprocess/javax/swing/annotations.xml"/>
         <replace file="${jdk.annotations.inferred.dir}/javax/swing/annotations.xml" value="${javax.swing.patch}">
