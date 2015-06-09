@@ -15,7 +15,7 @@ import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.declarations.ClassMember
 
-private val PATH = "testData/funDependency/"
+public val PATH: String = "testData/funDependency/"
 
 /** builds function dependencies graph for classes in `testData/funDependency/`
  *  and checks their textual representation against expected ones
