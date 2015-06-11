@@ -28,7 +28,7 @@ class PrintStreamProgressIndicator(val parameters: InferenceParams,
     }
 
     override fun processingComponentFinished(methods: Collection<Method>) {
-        numberOfProcessedMethods += methods.size
+        numberOfProcessedMethods += methods.size()
 
         if (numberOfMethods != 0) {
             val progressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()

@@ -3,12 +3,12 @@ package kotlinlib
 import java.util.LinkedHashSet
 import java.util.HashSet
 
-trait TraversalContextApi<in T> {
+interface TraversalContextApi<in T> {
     fun schedule(t: T)
     fun scheduleAll(t: Collection<T>)
 }
 
-trait TraversalContext<T>: TraversalContextApi<T> {
+interface TraversalContext<T>: TraversalContextApi<T> {
     fun next(): T
     fun isEmpty(): Boolean
 }

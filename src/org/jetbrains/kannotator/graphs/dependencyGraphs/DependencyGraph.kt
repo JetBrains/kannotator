@@ -9,9 +9,9 @@ import java.util.HashSet
 import kotlinlib.bfs
 
 val <A, L> Graph<A, L>.sourceNodes: Collection<Node<A, L>>
-    get() = nodes.filter { it.incomingEdges.empty }
+    get() = nodes.filter { it.incomingEdges.isEmpty() }
 val <A, L> Graph<A, L>.sinkNodes: Collection<Node<A, L>>
-    get() = nodes.filter { it.outgoingEdges.empty }
+    get() = nodes.filter { it.outgoingEdges.isEmpty() }
 
 fun <A, L> Graph<A, L>.getTransitivelyInterestingNodes(nodeIsInteresting: (Node<A, L>) -> Boolean): Set<Node<A, L>> {
     val interestingNodes = HashSet(this.nodes.filter {nodeIsInteresting(it)})

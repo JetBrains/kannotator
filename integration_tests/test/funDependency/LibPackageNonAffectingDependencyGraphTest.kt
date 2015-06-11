@@ -24,7 +24,7 @@ class LibPackageNonAffectingDependencyGraphTest {
         val packageGraphBuilder = PackageDependencyGraphBuilder(funGraph)
 
         val graph = packageGraphBuilder.build()
-        val packageCount = graph.nodes.size
+        val packageCount = graph.nodes.size()
 
         val interestingNodes = graph.getTransitivelyInterestingNodes {
             val name = it.data.name
@@ -50,8 +50,8 @@ class LibPackageNonAffectingDependencyGraphTest {
         val actual = StringBuilder {
             appendln()
             appendln("== Non-Affecting Nodes == ")
-            appendln("Found ${nonInterestingNodes.size} out of total $packageCount")
-            for (node in nonInterestingNodes.sort(functionNodeComparator)) {
+            appendln("Found ${nonInterestingNodes.size()} out of total $packageCount")
+            for (node in nonInterestingNodes.sortBy(functionNodeComparator)) {
                 printFunctionNode(this, node)
             }
         }.toString().trim()

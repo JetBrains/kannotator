@@ -12,7 +12,7 @@ public fun NamedTest.getTestName(name: String?, lowercaseFirstLetter: Boolean) :
         return "";
     }
 
-    val trimmedName = name.trimLeading("test")
+    val trimmedName = name.removePrefix("test")
     if (trimmedName.isEmpty()) {
         return ""
     }

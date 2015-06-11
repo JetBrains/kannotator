@@ -73,7 +73,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : N
 
     protected fun doTest() {
         val methodName = getName()!!
-        val reflectMethod = testClass.getMethods().find { m -> m.getName() == methodName }!!
+        val reflectMethod = testClass.getMethods().firstOrNull { m -> m.getName() == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
         val classReader = getClassReader(testClass.getName())
@@ -97,7 +97,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : N
             }
         }
 
-        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.getParameterTypes()!!.size, positions)
+        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.getParameterTypes()!!.size(), positions)
     }
 
     fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,

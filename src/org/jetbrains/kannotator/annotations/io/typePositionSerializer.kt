@@ -75,7 +75,7 @@ private fun Method.parameterTypesString(): String {
         renderMethodParameters(genericSignature)
     }
     if (this.isVarargs()) {
-        return result.replaceAll("""\[\]\)""", "...)")
+        return result.replace("""\[\]\)""".toRegex(), "...)")
     }
     return result
 }

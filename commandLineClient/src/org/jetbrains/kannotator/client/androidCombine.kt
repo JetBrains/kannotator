@@ -100,13 +100,13 @@ fun main(args: Array<String>) {
 
 fun checkAnnotations(annotations1: Annotations<NullabilityAnnotation>, annotations2: Annotations<NullabilityAnnotation>): Set<AnnotationPosition> {
     val diffs = hashSetOf<AnnotationPosition>()
-    annotations1.forEach { (pos, ann1) ->
+    annotations1.forEach { pos, ann1 ->
         val ann2 = annotations2.get(pos)
         if (ann2 != null && ann2 != ann1) {
             diffs.add(pos)
         }
     }
-    annotations2.forEach { (pos, ann2) ->
+    annotations2.forEach { pos, ann2 ->
         val ann1 = annotations1.get(pos)
         if(ann1 != null && ann2 != ann1) {
             diffs.add(pos)

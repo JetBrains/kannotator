@@ -36,7 +36,7 @@ import java.util.LinkedHashMap
 public class WriteAnnotationTest {
 
     Test fun testAll() {
-        doTest(array(File("lib")), array(File("testData/annotations/write")))
+        doTest(arrayOf(File("lib")), arrayOf(File("testData/annotations/write")))
     }
 
     /*Test fun testJdk() {

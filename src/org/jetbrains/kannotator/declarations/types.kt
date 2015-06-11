@@ -1,12 +1,12 @@
 package org.jetbrains.kannotator.declarations
 
 enum class Variance {
-    COVARIANT
-    CONTRAVARIANT
+    COVARIANT,
+    CONTRAVARIANT,
     INVARIANT
 }
 
-trait PositionWithinDeclaration {
+interface PositionWithinDeclaration {
     val variance: Variance
 }
 
@@ -29,21 +29,21 @@ data class ParameterPosition(val index: Int) : PositionWithinDeclaration {
         get() = Variance.CONTRAVARIANT    
 }
 
-trait AnnotationPosition {
+interface AnnotationPosition {
     val member: ClassMember
     val relativePosition: PositionWithinDeclaration
 }
 
-trait MethodTypePosition : AnnotationPosition {
+interface MethodTypePosition : AnnotationPosition {
     val method: Method
     override val relativePosition: PositionWithinDeclaration
 }
 
-trait FieldTypePosition : AnnotationPosition {
+interface FieldTypePosition : AnnotationPosition {
     val field: Field
 }
 
-trait AnnotatedType {
+interface AnnotatedType {
     val position: AnnotationPosition
     val arguments: List<AnnotatedType>
 }

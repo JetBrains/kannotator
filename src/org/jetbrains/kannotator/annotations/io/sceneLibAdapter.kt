@@ -15,7 +15,7 @@ private fun AnnotationData.toSceneAnnotation(): SceneAnnotation {
     val annotationDef = AnnotationDef(this.annotationClassFqn)
     //setFieldTypes is mandatory - check assertions in checkRep() method of SceneAnnotation class
     //NB as kannotator only uses annotations with String attribute types, the following works. It should not matter anyway for serialization
-    annotationDef.setFieldTypes(this.attributes.mapValues {(k, v)-> BasicAFT.forType(Class.forName("java.lang.String")) })
+    annotationDef.setFieldTypes(this.attributes.mapValues { k, v -> BasicAFT.forType(Class.forName("java.lang.String")) })
     return SceneAnnotation(annotationDef, this.attributes)
 }
 

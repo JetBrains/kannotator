@@ -19,7 +19,7 @@ import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.MethodVisitor
 import org.objectweb.asm.Opcodes
 
-trait ClassSource {
+interface ClassSource {
     fun forEach(body: (ClassReader) -> Unit)
 }
 public fun DeclarationIndexImpl(

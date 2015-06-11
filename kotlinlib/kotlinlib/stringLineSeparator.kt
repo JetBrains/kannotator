@@ -9,7 +9,7 @@ public fun String.toWindowsSeparators(): String = convertLineSeparators("\r\n")
 public fun String.convertLineSeparators(newSeparator: String): String {
     return StringBuilder {
         var i = 0
-        while (i < this.size) {
+        while (i < this.length()) {
             val c = charAt(i)
             when {
                 c == '\n' -> append(newSeparator)

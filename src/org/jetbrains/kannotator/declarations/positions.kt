@@ -28,7 +28,7 @@ public fun getFieldAnnotatedType(field: Field) : AnnotatedType {
 
 fun PositionsForMethod.forEachValidPosition(body: (AnnotationPosition) -> Unit) {
     val skip = if (method.isStatic()) 0 else 1
-    for (i in skip..method.getArgumentTypes().size) {
+    for (i in skip..method.getArgumentTypes().size()) {
         body(forParameter(i).position)
     }
     body(forReturnType().position)

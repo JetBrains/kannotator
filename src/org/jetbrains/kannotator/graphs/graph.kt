@@ -1,17 +1,17 @@
 package org.jetbrains.kannotator.graphs
 
-public trait Graph<T, out L> {
+public interface Graph<T, out L> {
     public val nodes: Collection<Node<T, L>>
     public fun findNode(data: T): Node<T, L>?
 }
 
-public trait Edge<T, out L> {
+public interface Edge<T, out L> {
     public val label: L
     public val from: Node<T, L>
     public val to: Node<T, L>
 }
 
-public trait Node<T, out L> {
+public interface Node<T, out L> {
     public val data: T
     public val incomingEdges: Collection<Edge<T, L>>
     public val outgoingEdges: Collection<Edge<T, L>>

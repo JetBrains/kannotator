@@ -42,7 +42,7 @@ fun doPropagationTest(
             EXPECT_N in names -> NULLABLE
             EXPECT_NN in names -> NOT_NULL
             else -> {
-                assert (names.size == 1) {"Multiple annotations but no Expect* ones: $names"}
+                assert (names.size() == 1) {"Multiple annotations but no Expect* ones: $names"}
                 expectedAnnotationClasses[names.first()]
             }
         }

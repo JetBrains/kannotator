@@ -75,10 +75,10 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
                 setOf<String>()
 
     val packageFilter =
-            if (interestingPackages.empty)
-                {(pkg: String) -> true}
+            if (interestingPackages.isEmpty())
+                { pkg: String -> true}
             else
-                {(pkg: String) -> interestingPackages.any { interestingPkg -> pkg == interestingPkg || pkg.startsWith("$interestingPkg/")} }
+                { pkg: String -> interestingPackages.any { interestingPkg -> pkg == interestingPkg || pkg.startsWith("$interestingPkg/")} }
 
     val nullabilityPropagationOverrides : Annotations<NullabilityAnnotation> =
             loadAnnotationsFromLogs(arrayListOf(propagationOverridesFile), declarationIndex)
@@ -151,7 +151,7 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
             packageIsInteresting = packageFilter
     )
 
-    check(nullabilityConflicts.empty,
+    check(nullabilityConflicts.isEmpty(),
             """There should be no unresolved conflicts in annotations.
             There are 2 options to resolve this situation:
               1) modify existing (input) annotations
@@ -186,7 +186,7 @@ class SDKProgressIndicator() : FileAwareProgressMonitor() {
     }
 
     override fun processingComponentFinished(methods: Collection<Method>) {
-        numberOfProcessedMethods += methods.size
+        numberOfProcessedMethods += methods.size()
 
         if (numberOfMethods != 0) {
             val currentProgressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()

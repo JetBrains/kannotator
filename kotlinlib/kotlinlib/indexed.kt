@@ -22,7 +22,7 @@ public fun <T, C> indexedIterator(collection: C, size: Int, get: (C, Int) -> T):
 }
 
 public inline val <T> Array<out T>.indexed: Iterator<IndexedElement<T>>
-        get() = indexedIterator(this, this.size) { c, i -> c[i] }
+        get() = indexedIterator(this, this.size()) { c, i -> c[i] }
 
 public inline val <T> Iterator<T>.indexed: Iterator<IndexedElement<T>>
     get() {

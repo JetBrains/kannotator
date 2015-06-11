@@ -45,7 +45,7 @@ val TypedValue.size: Int
 val TypedValue.interesting: Boolean
     get() = parameterIndex != null
 
-trait CopyableValue<out V: CopyableValue<V>>: Value {
+interface CopyableValue<out V: CopyableValue<V>>: Value {
     public fun copy(): V
 }
 

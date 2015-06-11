@@ -21,7 +21,7 @@ class MutabilityKey : AnalysisType {
 val MUTABILITY_KEY = MutabilityKey()
 
 public enum class Mutability: Qualifier {
-    READ_ONLY
+    READ_ONLY,
     MUTABLE
 }
 
@@ -104,7 +104,7 @@ private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsn
 }
 
 val imposeMutable = {
-    (q: Mutability) -> MUTABLE
+    q: Mutability -> MUTABLE
 }
 
 fun <Q: Qualifier> imposeMutabilityOnFrameValues(

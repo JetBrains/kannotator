@@ -18,7 +18,7 @@ import java.util.HashMap
 
 private val ANNOTATION_KEY_PATTERN = Pattern.compile("""(@\w*\s)?(.*)""")
 
-trait AnnotationData {
+interface AnnotationData {
     val annotationClassFqn: String
     val attributes: Map<String, String>
 }

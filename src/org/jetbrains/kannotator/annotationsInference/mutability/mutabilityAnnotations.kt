@@ -5,7 +5,7 @@ import org.jetbrains.kannotator.annotationsInference.propagation.TwoElementLatti
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation.*
 
 enum class MutabilityAnnotation : Annotation {
-    MUTABLE
+    MUTABLE,
     READ_ONLY
 }
 

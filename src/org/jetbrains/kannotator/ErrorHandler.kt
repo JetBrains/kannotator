@@ -1,6 +1,6 @@
 package org.jetbrains.kannotator
 
-trait ErrorHandler {
+interface ErrorHandler {
     fun error(message: String)
     fun warning(message: String)
 }
@@ -14,7 +14,7 @@ val NO_ERROR_HANDLING = simpleErrorHandler {
 }
 
 enum class ErrorKind {
-    ERROR
+    ERROR,
     WARNING
 }
 

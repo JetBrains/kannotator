@@ -112,7 +112,7 @@ class IntegratedInferenceTest {
         }
 
         val jars = findJarsInLibFolder().filter { f -> f.getName().contains(testedJarSubstring) }
-        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
+        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size(), 1);
 
         val annotationFiles = ArrayList<File>()
         if (existingAnnotationsDir != null) {
@@ -151,7 +151,7 @@ class IntegratedInferenceTest {
         }
 
         for ((inferrerKey, group) in inferenceResult.groupByKey) {
-            val testName = inferrerKey.toString()!!.toLowerCase()
+            val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()
@@ -199,7 +199,7 @@ class IntegratedInferenceTest {
     // TODO: what is the reason for this code? - it is never used
     private fun doInferenceAsNotNullTest(testedJarSubstring: String) {
         val jars = findJarsInLibFolder().filter { f -> f.getName().contains(testedJarSubstring) }
-        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
+        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size(), 1);
 
         val annotationFiles = ArrayList<File>()
         File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
@@ -235,7 +235,7 @@ class IntegratedInferenceTest {
         val mutability = AnnotationsImpl<MutabilityAnnotation>()
 
         for ((inferrerKey, annotations) in mapOf(Pair(NULLABILITY_KEY, nullability), Pair(MUTABILITY_KEY, mutability) )) {
-            val testName = inferrerKey.toString()!!.toLowerCase()
+            val testName = inferrerKey.toString().toLowerCase()
             val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
             val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
             outFile.getParentFile()!!.mkdirs()

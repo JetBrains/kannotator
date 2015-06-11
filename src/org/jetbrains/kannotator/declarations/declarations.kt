@@ -9,7 +9,7 @@ data class Package(val name: String) {
     override fun toString() = name
 }
 
-trait ClassMember {
+interface ClassMember {
     val declaringClass: ClassName
     val access: Access
     val name: String
@@ -32,9 +32,9 @@ fun MethodId.getSignatureDescriptor(): String {
 }
 
 enum class Visibility {
-    PUBLIC
-    PROTECTED
-    PACKAGE
+    PUBLIC,
+    PROTECTED,
+    PACKAGE,
     PRIVATE
 }
 
@@ -62,8 +62,8 @@ data class Method(
         if (_parameterNames != null) {
             throw IllegalStateException("Parameter names already initialized: $parameterNames")
         }
-        val arity = getArgumentTypes().size
-        if (names.size != arity) {
+        val arity = getArgumentTypes().size()
+        if (names.size() != arity) {
             throw IllegalArgumentException("Incorrect number of parameter names: $names, must be $arity")
         }
         _parameterNames = ArrayList(names)
@@ -89,7 +89,7 @@ fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
         className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
 
 private fun defaultMethodParameterNames(method: Method): List<String>
-        = (0..method.getArgumentTypes().size - 1).toList().map { i -> "p$i" }
+        = (0..method.getArgumentTypes().size() - 1).toList().map { i -> "p$i" }
 
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
@@ -115,7 +115,7 @@ fun Method.isInnerClassConstructor(): Boolean {
     if (!isConstructor()) return false
 
     val parameterTypes = getArgumentTypes()
-    if (parameterTypes.size == 0) return false
+    if (parameterTypes.size() == 0) return false
 
     val firstParameter = parameterTypes[0]
     if (firstParameter.getSort() != Type.OBJECT) return false
@@ -153,7 +153,7 @@ fun Method.toFullString(): String {
     }.toString()
 }
 
-data class ClassName private (val internal: String) {
+data class ClassName private constructor(val internal: String) {
     val typeDescriptor: String
         get() = "L$internal;"
 
@@ -182,7 +182,7 @@ fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
 
 fun String.toCanonical(): String {
     //keep last $ in class name: it's generated in scala bytecode
-    val lastCharIndex = this.size - 1
+    val lastCharIndex = this.length() - 1
     return this.substring(0, lastCharIndex).replace('$', '.') + this.substring(lastCharIndex)
 }
 

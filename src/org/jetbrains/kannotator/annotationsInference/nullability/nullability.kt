@@ -31,16 +31,16 @@ val NULLABILITY_KEY = NullabilityKey()
 
 public enum class Nullability: Qualifier {
     // can't prove anything yet
-    UNKNOWN
+    UNKNOWN,
 
     // can prove that only NULL reaches the frame
-    NULL
+    NULL,
 
     // can prove that only non-NULL values reach the frame
-    NOT_NULL
+    NOT_NULL,
 
     // can prove that NULL as well as non-NULL values reach the frame
-    NULLABLE
+    NULLABLE,
 
     // can prove that no values reach the frame
     EMPTY
@@ -69,19 +69,19 @@ public object NullabilitySet: QualifierSet<Nullability> {
 }
 
 val imposeNull = {
-    (q: Nullability) -> if (q != NOT_NULL) NULL_ else EMPTY
+    q: Nullability -> if (q != NOT_NULL) NULL_ else EMPTY
 }
 
 val imposeNotNull = {
-    (q: Nullability) -> if (q != NULL_) NOT_NULL else EMPTY
+    q: Nullability -> if (q != NULL_) NOT_NULL else EMPTY
 }
 
 val imposeNullable = {
-    (q: Nullability) -> if (q == NOT_NULL || q == NULL_) q else NULLABLE
+    q: Nullability -> if (q == NOT_NULL || q == NULL_) q else NULLABLE
 }
 
 val imposeUndecidable = {
-    (q: Nullability) -> if (q != NOT_NULL) UNKNOWN else NOT_NULL
+    q: Nullability -> if (q != NOT_NULL) UNKNOWN else NOT_NULL
 }
 
 fun <Q: Qualifier> imposeNullabilityOnFrameValues(
@@ -91,7 +91,7 @@ fun <Q: Qualifier> imposeNullabilityOnFrameValues(
     updateQualifiers(frame, frameValues, NullabilitySet, updateOriginalValues, transform)
 
     return if (frame.allValues { frameValue ->
-        if (frameValue.values.empty)
+        if (frameValue.values.isEmpty())
             true
         else {
             val valueSet = frameValue.values as MutableSet<QualifiedValue<Q>>
@@ -102,7 +102,7 @@ fun <Q: Qualifier> imposeNullabilityOnFrameValues(
                     it.remove()
                 }
             }
-            !frameValue.values.empty
+            !frameValue.values.isEmpty()
         }
 
     }) frame else null
@@ -299,10 +299,10 @@ class NullabilityQualifierEvaluator(
 
 fun <Q: Qualifier> QualifiedValueSet<Q>?.lub(): Nullability {
     return if (this != null)
-        if (!this.values.empty) {
+        if (!this.values.isEmpty()) {
             this.values.fold(
                     EMPTY,
-                    { (q, v) -> lub(q, v.qualifier.extract<Nullability>(NullabilitySet)) }
+                    { q, v -> lub(q, v.qualifier.extract<Nullability>(NullabilitySet)) }
             )
         } else {
             UNKNOWN
@@ -394,7 +394,7 @@ private fun buildFieldNullabilityAnnotations(
         if (fieldInfo.areAllWritersProcessed(methodToFieldsNullabilityProvider)) {
             val fieldNullabilityInfos = fieldInfo.writers.map { writer -> methodToFieldsNullabilityProvider(writer)!!.get(fieldInfo.field)!! }
             return fieldNullabilityInfos.reduce {
-                (a, b) -> lub(a, b)
+                a, b -> lub(a, b)
             }.toAnnotation()
         }
     }
@@ -463,7 +463,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
     }
 
     fun buildNullLostParamSet(insnSet: Set<AbstractInsnNode>): Set<Int> {
-        if (insnSet.empty) {
+        if (insnSet.isEmpty()) {
             return Collections.emptySet()
         }
 
@@ -490,7 +490,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
     }
 
     fun buildMergedParameterMap(insnSet: Set<AbstractInsnNode>): Map<Int, Nullability> {
-        if (insnSet.empty) {
+        if (insnSet.isEmpty()) {
             return Collections.emptyMap()
         }
 
@@ -529,7 +529,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
 
     fun collectParamNullability(): Map<Int, Nullability> {
         val returnInfoMap = buildMergedParameterMap(analysisResult.returnInstructions)
-        if (returnInfoMap.empty) {
+        if (returnInfoMap.isEmpty()) {
             return returnInfoMap
         }
 
@@ -574,7 +574,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
     }
 
     val fieldInfoMap = collectFieldNullability()
-    val updatedFieldInfoProvider = {(m: Method) -> if (m == method) fieldInfoMap else methodFieldsNullabilityInfoProvider(m) }
+    val updatedFieldInfoProvider = { m: Method -> if (m == method) fieldInfoMap else methodFieldsNullabilityInfoProvider(m) }
     for (changedField in findFieldsWithChangedNullabilityInfo(methodFieldsNullabilityInfoProvider(method), fieldInfoMap)) {
         val fieldAnnotation = buildFieldNullabilityAnnotations(fieldDependencyInfoProvider(changedField), updatedFieldInfoProvider)
         if (fieldAnnotation != null) {

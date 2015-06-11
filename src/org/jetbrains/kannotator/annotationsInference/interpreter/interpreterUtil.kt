@@ -21,7 +21,7 @@ import org.jetbrains.kannotator.declarations.PositionsForMethod
 import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
-trait Annotation
+interface Annotation
 
 public fun <A: Annotation> generateAssertsForCallArguments(
         instructionNode: AbstractInsnNode?,
@@ -213,7 +213,7 @@ fun <Q: Qualifier, I: Qualifier> updateQualifiers(
             }
             for (value in replacedValues) {
                 (valueSet.values as MutableSet<QualifiedValue<Q>>).remove(value)
-                (valueSet.values as MutableSet<QualifiedValue<Q>>).add(map[value]!!)
+                valueSet.values.add(map[value]!!)
             }
         }
     }

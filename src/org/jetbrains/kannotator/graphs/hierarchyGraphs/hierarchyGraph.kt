@@ -4,13 +4,13 @@ import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.graphs.*
 
-trait HierarchyGraph<T>: Graph<T, Any?> {
+interface HierarchyGraph<T>: Graph<T, Any?> {
     val hierarchyNodes: Collection<HierarchyNode<T>>
         get() = nodes as Collection<HierarchyNode<T>>
 }
 
-trait HierarchyNode<T>: Node<T, Any?>
-trait HierarchyEdge<T>: Edge<T, Any?>
+interface HierarchyNode<T>: Node<T, Any?>
+interface HierarchyEdge<T>: Edge<T, Any?>
 
 public val <T> HierarchyEdge<T>.parent: HierarchyNode<T>
         get() = this.from as HierarchyNode<T>

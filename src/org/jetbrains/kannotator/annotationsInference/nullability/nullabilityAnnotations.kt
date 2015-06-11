@@ -5,7 +5,7 @@ import org.jetbrains.kannotator.declarations.ClassName
 import org.jetbrains.kannotator.annotationsInference.propagation.TwoElementLattice
 
 enum class NullabilityAnnotation : Annotation {
-    NOT_NULL
+    NOT_NULL,
     NULLABLE
 }
 

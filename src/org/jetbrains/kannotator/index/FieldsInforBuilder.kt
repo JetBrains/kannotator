@@ -11,7 +11,7 @@ import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.Opcodes
 import org.objectweb.asm.FieldVisitor
 
-trait FieldDependencyInfo {
+interface FieldDependencyInfo {
     val field: Field
 
     val writers: Collection<Method>

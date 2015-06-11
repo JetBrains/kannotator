@@ -87,11 +87,11 @@ public fun <K: AnalysisType> loadMethodAnnotationsFromByteCode(
                 is ParameterPosition -> {
                     val annotationsMap = HashMap<String, AnnotationData>()
                     val index = if (method.isStatic()) declPos.index else declPos.index - 1
-                    if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size) {
+                    if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size()) {
                         methodNode.visibleParameterAnnotations!![index]?.filterNotNull()?.extractAnnotationDataMapTo(annotationsMap)
                     }
 
-                    if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size) {
+                    if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size()) {
                         methodNode.invisibleParameterAnnotations!![index]?.filterNotNull()?.extractAnnotationDataMapTo(annotationsMap)
                     }
                     annotationsMap
@@ -99,7 +99,7 @@ public fun <K: AnalysisType> loadMethodAnnotationsFromByteCode(
                 else -> Collections.emptyMap<String, AnnotationData>()
             }
 
-            if (!annotationsMap.empty) {
+            if (!annotationsMap.isEmpty()) {
                 for ((inferrerKey, inferrer) in inferrers) {
                     val internalAnnotations = internalAnnotationsMap[inferrerKey]!!
                     val annotation = inferrer.resolveAnnotation(annotationsMap)
@@ -128,7 +128,7 @@ public fun <K: AnalysisType> loadFieldAnnotationsFromByteCode(
         node.visibleAnnotations?.extractAnnotationDataMapTo(annotationsMap)
         node.invisibleAnnotations?.extractAnnotationDataMapTo(annotationsMap)
 
-        if (!annotationsMap.empty) {
+        if (!annotationsMap.isEmpty()) {
             for ((inferrerKey, inferrer) in inferrers) {
                 val internalAnnotations = internalAnnotationsMap[inferrerKey]!!
                 val annotation = inferrer.resolveAnnotation(annotationsMap)
@@ -150,7 +150,7 @@ public fun <K: AnalysisType> loadExternalAnnotations(
         inferrers: Map<K, AnnotationInferrer<Any, Qualifier>>,
         errorHandler: ErrorHandler
 ): Map<K, MutableAnnotations<Any>> {
-    val externalAnnotationsMap = inferrers.mapValues { (key, inferrer) -> AnnotationsImpl<Any>(delegatingAnnotations[key]) }
+    val externalAnnotationsMap = inferrers.mapValues { key, inferrer -> AnnotationsImpl<Any>(delegatingAnnotations[key]) }
 
     for (xml in annotationsInXml) {
         xml() use {
@@ -207,7 +207,7 @@ private fun <K: AnalysisType> loadAnnotations(
     )
 }
 
-trait AnnotationInferrer<A: Any, I: Qualifier> {
+interface AnnotationInferrer<A: Any, I: Qualifier> {
     fun resolveAnnotation(classNames: Map<String, AnnotationData>): A?
 
     fun inferAnnotationsFromFieldValue(field: Field): Annotations<A>
@@ -278,14 +278,14 @@ fun <K: AnalysisType> inferAnnotations(
             errorHandler
     )
 
-    val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { (key, loadedAnn) ->
+    val filteredLoadedAnnotationsMap = loadedAnnotationsMap.mapValues { key, loadedAnn ->
         val positionsToExclude = existingPositionsToExclude[key]
 
-        if (positionsToExclude == null || positionsToExclude.empty) loadedAnn
+        if (positionsToExclude == null || positionsToExclude.isEmpty()) loadedAnn
         else {
             val newAnn = AnnotationsImpl<Any>(loadedAnn.delegate)
 
-            loadedAnn.forEach { (pos, ann) ->
+            loadedAnn.forEach { pos, ann ->
                 if (pos !in positionsToExclude) newAnn[pos] = ann
             }
 
@@ -293,7 +293,7 @@ fun <K: AnalysisType> inferAnnotations(
         }
     }
 
-    val resultingAnnotationsMap = filteredLoadedAnnotationsMap.mapValues {(key, ann) -> AnnotationsImpl<Any>(ann)}
+    val resultingAnnotationsMap = filteredLoadedAnnotationsMap.mapValues { key, ann -> AnnotationsImpl<Any>(ann)}
     for (key in inferrers.keySet()) {
         val inferrerExistingAnnotations = existingAnnotations[key]
         if (inferrerExistingAnnotations != null) {
@@ -302,7 +302,7 @@ fun <K: AnalysisType> inferAnnotations(
     }
 
     val inferenceResult = InferenceResult(
-            inferrers.mapValues { (key, inferrer) ->
+            inferrers.mapValues { key, inferrer ->
                 InferenceResultGroup<Any>(
                         loadedAnnotationsMap[key]!!,
                         resultingAnnotationsMap[key]!!,
@@ -348,7 +348,7 @@ fun <K: AnalysisType> inferAnnotations(
         }
     }
 
-    progressMonitor.methodsProcessingStarted(methodNodes.size)
+    progressMonitor.methodsProcessingStarted(methodNodes.size())
 
     for (component in components) {
         val methods = component.map { Pair(it.data, it.incomingEdges) }.toMap()
@@ -427,17 +427,17 @@ private fun <K: AnalysisType, A> inferAnnotationsOnMutuallyRecursiveMethods(
         progressMonitor.processingStepStarted(method)
 
         val t = inferrers.mapValues (
-                {(key, inferrer) -> inferrer.getFrameTransformer(annotationsMap[key]!!, declarationIndex) as FrameTransformer<QualifiedValueSet<MultiQualifier<K>>>}
+                { key, inferrer -> inferrer.getFrameTransformer(annotationsMap[key]!!, declarationIndex) as FrameTransformer<QualifiedValueSet<MultiQualifier<K>>>}
         )
 
         val analysisResult = methodNodes(method).runQualifierAnalysis<MultiQualifier<K>>(
                 method.declaringClass,
                 MultiQualifierSet(inferrers.mapValues (
-                        {(key, inferrer) -> inferrer.qualifierSet}
+                        { key, inferrer -> inferrer.qualifierSet}
                 )),
                 MultiFrameTransformer<K, QualifiedValueSet<MultiQualifier<K>>>(t),
                 MultiQualifierEvaluator(inferrers.mapValues (
-                        {(key, inferrer) -> inferrer.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[key]!!, declarationIndex)}
+                        { key, inferrer -> inferrer.getQualifierEvaluator(PositionsForMethod(method), annotationsMap[key]!!, declarationIndex)}
                 ))
         )
 

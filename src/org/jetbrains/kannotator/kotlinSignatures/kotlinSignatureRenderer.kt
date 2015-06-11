@@ -72,7 +72,7 @@ fun renderMethodSignature(
                 fun renderUpperBound(bound: GenericType): String {
                     return renderType(bound, Position.UPPER_BOUND, NULLABLE_READONLY)
                 }
-                if (param.upperBounds.size == 1) {
+                if (param.upperBounds.size() == 1) {
                     sb.append(" : ").append(renderUpperBound(param.upperBounds[0]))
                 }
                 else {
@@ -90,7 +90,7 @@ fun renderMethodSignature(
 
     // Enum constructors have two extra parameters in the desc: (Ljava/lang/String;I)
     // and, of course, these parameters have no names
-    val paramShift = if (method.genericSignature == null) 0 else method.getArgumentTypes().size - signature.valueParameters.size
+    val paramShift = if (method.genericSignature == null) 0 else method.getArgumentTypes().size() - signature.valueParameters.size()
 
     var commaBefore = false
     for (param in signature.valueParameters) {
@@ -191,7 +191,7 @@ fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, commaBefo
         append(", ")
     }
 
-    val last = parameterIndex == method.parameterNames.size - 1
+    val last = parameterIndex == method.parameterNames.size() - 1
     val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
     if (vararg) {
         append("vararg ")
@@ -202,11 +202,11 @@ fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, commaBefo
 }
 
 enum class Position {
-    METHOD_PARAMETER
-    RETURN_TYPE
-    VARARG
-    CLASS_TYPE_ARGUMENT
-    UPPER_BOUND
+    METHOD_PARAMETER,
+    RETURN_TYPE,
+    VARARG,
+    CLASS_TYPE_ARGUMENT,
+    UPPER_BOUND,
     OUTER
 }
 

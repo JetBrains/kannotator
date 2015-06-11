@@ -29,7 +29,7 @@ class ReadAnnotationsTest {
         })
 
         println(actualSB)
-        val expectedFile = File(file.getAbsolutePath().replaceAll(".xml", ".txt"))
+        val expectedFile = File(file.getAbsolutePath().replace(".xml".toRegex(), ".txt"))
 
         val success = assertEqualsOrCreate(expectedFile, actualSB.toString(), false)
         if (!success) {

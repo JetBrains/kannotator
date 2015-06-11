@@ -110,13 +110,13 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
             vs2: QualifiedValueSet<Q>
     ): QualifiedValueSet<Q> {
         var otherValues: Set<QualifiedValue<Q>> = vs2.values
-        if (otherValues.empty) {
-            if (vs1.values.empty) {
+        if (otherValues.isEmpty()) {
+            if (vs1.values.isEmpty()) {
                 return vs1
             }
             otherValues = UNDEFINED_AS_SET.values
         } else {
-            if (vs1.values.empty) return vs2
+            if (vs1.values.isEmpty()) return vs2
 
             if (vs1._size != vs2._size) {
                 // In case of merging of variables with different sizes (e.g. int and long)
@@ -159,7 +159,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
         val thisSlots = if (method.isStatic()) 0 else 1
 
         val skip = thisSlots + returnValueSlots
-        val interesting = valueSetsCreated in skip..method.getArgumentTypes().size + skip - 1
+        val interesting = valueSetsCreated in skip..method.getArgumentTypes().size() + skip - 1
 
         val parameterIndex = if (interesting) valueSetsCreated - returnValueSlots else null
 

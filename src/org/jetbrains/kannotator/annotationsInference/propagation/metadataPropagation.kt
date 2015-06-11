@@ -72,7 +72,7 @@ private fun propagateOverrides<A>(
         annotationsToFix: MutableAnnotations<A>,
         propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ) {
-    propagationOverrides forEach {(pos, ann) ->
+    propagationOverrides forEach { pos, ann ->
         if (pos is MethodTypePosition) {
             val methodNode = graph.findNode(pos.method)
             if (methodNode != null) {

@@ -47,6 +47,6 @@ fun getClassAsStream(className: String): InputStream? {
     if (appClassLoader == null) {
         return null
     }
-    val resourceName = className.replaceAll("\\.", "/") + ".class"
+    val resourceName = className.replace("\\.".toRegex(), "/") + ".class"
     return appClassLoader.getResourceAsStream(resourceName)
 }

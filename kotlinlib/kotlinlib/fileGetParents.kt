@@ -7,8 +7,8 @@ public fun File.getParents(): List<String> {
     val result = ArrayList<String>()
     var current = this.getParentFile()
     while (current != null) {
-        result.add(current!!.getName())
-        current = current?.getParentFile()
+        result.add(current.getName())
+        current = current.getParentFile()
     }
     return result.reverse()
 }

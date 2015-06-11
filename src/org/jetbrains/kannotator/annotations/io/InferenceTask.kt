@@ -34,14 +34,14 @@ public data class AnnotatedLibrary(
     public val fileName: String
         get() {
             val startIdx = path.lastIndexOf(File.separator)+1
-            return if (startIdx >= path.length || startIdx <0)
+            return if (startIdx >= path.length() || startIdx <0)
                 path
             else
                 path.substring(startIdx)
         }
 
     public val sanitizedFileName: String
-        get() = (fileName.substringBeforeLast(".jar") ?: fileName).replaceAll("[\\/:*?\"<>|]", "_")
+        get() = fileName.substringBeforeLast(".jar").replace("[\\/:*?\"<>|]".toRegex(), "_")
 
     public fun annotationsPath(outputPath: String,
                                useOneCommonTree: Boolean): String =

@@ -6,7 +6,7 @@ import org.jetbrains.kannotator.declarations.Field
 import org.jetbrains.kannotator.declarations.Method
 import org.jetbrains.kannotator.declarations.ClassDeclaration
 
-trait DeclarationIndex {
+interface DeclarationIndex {
     fun findClass(className: ClassName): ClassDeclaration?
     fun findMethod(owner: ClassName, name: String, desc: String) : Method?
     fun findField(owner: ClassName, name: String) : Field?
@@ -15,7 +15,7 @@ trait DeclarationIndex {
 //    fun findMethodsOverriddenBy(method: Method): Collection<Method>
 }
 
-trait AnnotationKeyIndex {
+interface AnnotationKeyIndex {
     fun findPositionByAnnotationKeyString(annotationKey: String): AnnotationPosition?
 }
 

@@ -10,13 +10,13 @@ import org.objectweb.asm.tree.VarInsnNode
 import java.util.ArrayList
 
 public enum class EdgeKind {
-    DEFAULT
-    FALSE
-    TRUE
+    DEFAULT,
+    FALSE,
+    TRUE,
     EXCEPTION
 }
 
-public trait FrameTransformer<V: Value> {
+public interface FrameTransformer<V: Value> {
     /**
      * Returns collection of results for pseudo-transitions with their frames for given instruction and pre-frame
      * @param insnNode current instruction
