@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
     val includedClassNamesFile = File("android-custom/includedClassNames.txt")
     val declarationIndex = DeclarationIndexImpl(apiJar)
     val includedClassNames =
-                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineIterator().toSet()}
+                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineSequence().toSet()}
 
     outputDir.deleteRecursively()
     outputDir.mkdir()

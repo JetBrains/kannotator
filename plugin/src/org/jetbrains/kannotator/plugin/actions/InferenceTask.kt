@@ -159,7 +159,7 @@ public class IdeaInferenceTask(val taskProject: Project,
             runInsideWriteAction {
                 val outputDirectory = LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(parameters.inference.outputPath)
                 if (parameters.addAnnotationsRoots) {
-                    outputDirectory?.refresh(true, true, runnable {
+                    outputDirectory?.refresh(true, true, Runnable {
                         ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
                     })
                 } else {

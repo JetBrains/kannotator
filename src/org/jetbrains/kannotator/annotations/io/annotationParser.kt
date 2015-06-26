@@ -118,7 +118,7 @@ fun loadAnnotationsFromLogs(
 
     for (sourceFile in sourceFiles) {
         BufferedReader(FileReader(sourceFile)) use { br->
-            val it = br.lineIterator()
+            val it = br.lineSequence().iterator()
 
             while (it.hasNext()) {
                 val firstLine = it.next()

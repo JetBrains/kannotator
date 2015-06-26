@@ -468,7 +468,7 @@ fun loadPositionsOfConflictExceptions(
     return if (exceptionFile.exists() && exceptionFile.canRead()) {
         BufferedReader(FileReader(exceptionFile)) use {br ->
             val positions = HashSet<AnnotationPosition>()
-            for (key in br.lineIterator()) {
+            for (key in br.lineSequence()) {
                 if (key.startsWith('#')) {
                     continue
                 }

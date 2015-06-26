@@ -64,13 +64,13 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
 
     val interestingPackages =
             if (interestingPackagesFile.exists())
-                BufferedReader(FileReader(interestingPackagesFile)) use { p ->p.lineIterator().toSet() }
+                BufferedReader(FileReader(interestingPackagesFile)) use { p ->p.lineSequence().toSet() }
             else
                 setOf<String>()
 
     val includedClassNames =
             if (includedClassNamesFile.exists())
-                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineIterator().toSet()}
+                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineSequence().toSet()}
             else
                 setOf<String>()
 
@@ -157,7 +157,7 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
               1) modify existing (input) annotations
               2) modify exceptions.txt
             Found ${nullabilityConflicts.size()} conflicts:
-            ${nullabilityConflicts.makeString("\n")}
+            ${nullabilityConflicts.joinToString("\n")}
             """)
 }
 

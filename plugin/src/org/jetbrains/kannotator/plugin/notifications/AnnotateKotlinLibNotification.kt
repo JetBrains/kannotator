@@ -42,11 +42,11 @@ public class AnnotateKotlinLibNotification(val project: Project): EditorNotifica
         }
 
         panel.setText(message)
-        panel.createActionLabel("Annotate", runnable {
+        panel.createActionLabel("Annotate", Runnable {
             AnnotateJarAction().annotateJars(project)
             dismissNotification(kannotatorSettings)
         })
-        panel.createActionLabel("Dismiss", runnable {
+        panel.createActionLabel("Dismiss", Runnable {
             dismissNotification(kannotatorSettings)
         })
 

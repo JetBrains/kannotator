@@ -30,7 +30,7 @@ fun main(args: Array<String>) {
     )
 
     val includedClassNames = BufferedReader(FileReader(File("testData/inferenceData/integrated/nullability/includedClassNames.txt"))) use { p ->
-        p.lineIterator().toSet()
+        p.lineSequence().toSet()
     }
 
     val includedPositions = loadPositionsOfConflictExceptions(declarationIndex, File("testData/inferenceData/integrated/nullability/includedAnnotationKeys.txt"))
