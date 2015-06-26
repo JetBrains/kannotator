@@ -4,7 +4,6 @@ import com.intellij.openapi.actionSystem.AnAction
 import com.intellij.openapi.actionSystem.AnActionEvent
 import com.intellij.openapi.progress.ProgressManager
 import com.intellij.openapi.project.Project
-import kotlinlib.toMap
 import org.jetbrains.kannotator.plugin.actions.dialog.InferAnnotationDialog
 import org.jetbrains.kannotator.annotations.io.AnnotationsFormat
 import org.jetbrains.kannotator.annotations.io.InferenceParams
