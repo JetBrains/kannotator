@@ -3,11 +3,6 @@ package kotlinSignatures
 import org.junit.Test
 import org.junit.Assert.*
 import java.io.File
-import kotlinlib.recurseFiltered
-import kotlinlib.replaceSuffix
-import kotlinlib.replaceExtension
-import kotlin.template.append
-import kotlinlib.getParents
 import util.getClassReader
 import org.jetbrains.kannotator.asm.util.*
 import org.jetbrains.kannotator.declarations.*
@@ -22,7 +17,6 @@ import org.objectweb.asm.FieldVisitor
 import org.objectweb.asm.AnnotationVisitor
 import junit.framework.ComparisonFailure
 import org.objectweb.asm.tree.MethodNode
-import java.util.HashMap
 import org.objectweb.asm.tree.FieldNode
 import org.jetbrains.kannotator.main.loadMethodAnnotationsFromByteCode
 import util.*
