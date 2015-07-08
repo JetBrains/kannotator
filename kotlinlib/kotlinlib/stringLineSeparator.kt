@@ -13,7 +13,7 @@ public fun String.convertLineSeparators(newSeparator: String): String {
             val c = charAt(i)
             when {
                 c == '\n' -> append(newSeparator)
-                c == '\r' && getOrElse(i + 1, null: Char?) == '\n' -> {
+                c == '\r' && getOrNull(i + 1) == '\n' -> {
                     // KT-209
                     append(newSeparator)
                     i++
