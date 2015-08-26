@@ -13,7 +13,7 @@ import com.gs.collections.api.block.HashingStrategy
  * Tarjan's strongly connected components algorithm
  * http://en.wikipedia.org/wiki/Tarjan%27s_strongly_connected_components_algorithm
  */
-public class SCCFinder<Graph, Node>(
+public class SCCFinder<Graph : Any, Node : Any>(
         val graph: Graph,
         val graphNodes: (Graph) -> Iterable<Node>,
         val adjacentNodes: (Node) -> Iterable<Node>) {
@@ -25,7 +25,7 @@ public class SCCFinder<Graph, Node>(
         })!!
     }
 
-    private class IdentityHashStack<T> {
+    private class IdentityHashStack<T : Any> {
         val stack = Stack<T>()
         val identitySet = identityHashSet<T>()
 

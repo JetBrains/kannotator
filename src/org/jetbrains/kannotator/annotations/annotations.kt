@@ -8,7 +8,7 @@ interface Annotations<out A: Any> {
     fun forEach(body: (AnnotationPosition, A) -> Unit)
 }
 
-interface MutableAnnotations<A> : Annotations<A> {
+interface MutableAnnotations<A : Any> : Annotations<A> {
     fun set(typePosition: AnnotationPosition, annotation: A)
 }
 

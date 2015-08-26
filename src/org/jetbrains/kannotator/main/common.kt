@@ -408,7 +408,7 @@ private fun <K: AnalysisType> propagateAnnotations(
     return inferenceResult
 }
 
-private fun <K: AnalysisType, A> inferAnnotationsOnMutuallyRecursiveMethods(
+private fun <K: AnalysisType, A : Any> inferAnnotationsOnMutuallyRecursiveMethods(
         declarationIndex: DeclarationIndex,
         annotationsMap: Map<K, MutableAnnotations<A>>,
         methods: Collection<Method>,

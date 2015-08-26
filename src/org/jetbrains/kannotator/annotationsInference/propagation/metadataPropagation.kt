@@ -17,7 +17,7 @@ import java.util.ArrayList
 public val JB_PROPAGATED: String = "org.jetbrains.kannotator.runtime.annotations.Propagated"
 public val JB_PROPAGATION_KIND: String = "org.jetbrains.kannotator.runtime.annotations.PropagationKind"
 
-fun propagateMetadata<A>(
+fun propagateMetadata<A : Any>(
         graph: HierarchyGraph<Method>,
         lattice: AnnotationLattice<A>,
         annotations: Annotations<A>,
@@ -55,7 +55,7 @@ fun propagateMetadata<A>(
     return result
 }
 
-fun updateAnnotations<A>(
+fun updateAnnotations<A : Any>(
         annotationsToFix: MutableAnnotations<A>,
         pos: AnnotationPosition,
         newAnnotation: A,
@@ -66,7 +66,7 @@ fun updateAnnotations<A>(
     }
 }
 
-private fun propagateOverrides<A>(
+private fun propagateOverrides<A : Any>(
         graph: HierarchyGraph<Method>,
         propagationOverrides: Annotations<A>,
         annotationsToFix: MutableAnnotations<A>,
@@ -89,7 +89,7 @@ private fun propagateOverrides<A>(
     }
 }
 
-private fun propagateParameterAnnotations<A>(
+private fun propagateParameterAnnotations<A : Any>(
         methods: Collection<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>,

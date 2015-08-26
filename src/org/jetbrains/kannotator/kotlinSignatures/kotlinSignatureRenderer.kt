@@ -168,14 +168,14 @@ fun Method.getAnnotationsForReturnType(
     )
 }
 
-fun <A> Annotations<A>.getAnnotationForParameter(method: Method, parameterIndex: Int, default: A): A {
+fun <A : Any> Annotations<A>.getAnnotationForParameter(method: Method, parameterIndex: Int, default: A): A {
     val thisOffset = if (method.isStatic()) 0 else 1
     val positions = PositionsForMethod(method)
     val annotationPosition = positions.forParameter(parameterIndex + thisOffset).position
     return this[annotationPosition] ?: default
 }
 
-fun <A> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A {
+fun <A : Any> Annotations<A>.getAnnotationForReturnType(method: Method, default: A): A {
     val positions = PositionsForMethod(method)
     val annotationPosition = positions.forReturnType().position
     return this[annotationPosition] ?: default

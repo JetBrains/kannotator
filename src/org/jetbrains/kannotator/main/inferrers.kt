@@ -14,7 +14,7 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.*
 import org.jetbrains.kannotator.annotationsInference.engine.*
 import org.jetbrains.kannotator.annotations.io.AnnotationData
 
-abstract class AbstractInferrer<A, Q: Qualifier>: AnnotationInferrer<A, Q> {
+abstract class AbstractInferrer<A : Any, Q: Qualifier>: AnnotationInferrer<A, Q> {
     protected fun checkPropagation(annotationsMap: Map<String, AnnotationData>, kind: String): Boolean {
         val propagatedAnn = annotationsMap[JB_PROPAGATED]
         if (propagatedAnn != null) {
