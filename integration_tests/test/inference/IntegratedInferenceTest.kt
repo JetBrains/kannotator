@@ -57,7 +57,6 @@ import org.jetbrains.kannotator.annotations.io.getPackageName
 import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
 import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.funDependecy
 import org.jetbrains.kannotator.declarations.isStatic
 import org.jetbrains.kannotator.declarations.isProtected
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY

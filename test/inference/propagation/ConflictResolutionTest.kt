@@ -1,18 +1,15 @@
 package inference.propagation
 
-import inferenceData.propagation.*
-import inferenceData.propagation.conflicts
-import junit.framework.TestCase
+import inferenceData.propagation.conflicts.*
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
-import org.jetbrains.kannotator.annotationsInference.propagation.propagateMetadata
-import org.jetbrains.kannotator.index.ClassSource
-import util.Classes
 import org.jetbrains.kannotator.annotationsInference.propagation.resolveAllAnnotationConflicts
-import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.classHierarchy.*
+import org.jetbrains.kannotator.classHierarchy.children
 import org.jetbrains.kannotator.declarations.AnnotationPosition
-import java.util.HashSet
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
+import org.jetbrains.kannotator.index.ClassSource
 import org.junit.Test
+import util.Classes
+import java.util.*
 
 /** Takes existing annotations and runs conflict resolution (no inference, no full propagation here).
  * Checks against expected annotations.
@@ -34,75 +31,75 @@ class ConflictResolutionTest {
 
     Test fun conflicts() {
         doTest(Classes(
-                javaClass<conflicts.Conflicts.Base>(),
-                javaClass<conflicts.Conflicts.Child>()
+                javaClass<Conflicts.Base>(),
+                javaClass<Conflicts.Child>()
         ))
     }
 
     Test fun linearHierarchy() {
         doTest(Classes(
-                javaClass<conflicts.LinearHierarchy.A>(),
-                javaClass<conflicts.LinearHierarchy.B>(),
-                javaClass<conflicts.LinearHierarchy.C>()
+                javaClass<LinearHierarchy.A>(),
+                javaClass<LinearHierarchy.B>(),
+                javaClass<LinearHierarchy.C>()
         ))
     }
 
     Test fun yHierarchy() {
         doTest(Classes(
-                javaClass<conflicts.YHierarchy.A>(),
-                javaClass<conflicts.YHierarchy.A1>(),
-                javaClass<conflicts.YHierarchy.B>(),
-                javaClass<conflicts.YHierarchy.C>()
+                javaClass<YHierarchy.A>(),
+                javaClass<YHierarchy.A1>(),
+                javaClass<YHierarchy.B>(),
+                javaClass<YHierarchy.C>()
         ))
     }
 
     Test fun diamondHierarchy() {
         doTest(Classes(
-                javaClass<conflicts.DiamondHierarchy.Top>(),
-                javaClass<conflicts.DiamondHierarchy.A>(),
-                javaClass<conflicts.DiamondHierarchy.A1>(),
-                javaClass<conflicts.DiamondHierarchy.B>(),
-                javaClass<conflicts.DiamondHierarchy.C>()
+                javaClass<DiamondHierarchy.Top>(),
+                javaClass<DiamondHierarchy.A>(),
+                javaClass<DiamondHierarchy.A1>(),
+                javaClass<DiamondHierarchy.B>(),
+                javaClass<DiamondHierarchy.C>()
         ))
     }
 
     Test fun xHierarchyHollowMiddle() {
         doTest(Classes(
-                javaClass<conflicts.XHierarchyHollowMiddle.Top1>(),
-                javaClass<conflicts.XHierarchyHollowMiddle.Top2>(),
-                javaClass<conflicts.XHierarchyHollowMiddle.Middle>(),
-                javaClass<conflicts.XHierarchyHollowMiddle.Leaf1>(),
-                javaClass<conflicts.XHierarchyHollowMiddle.Leaf2>()
+                javaClass<XHierarchyHollowMiddle.Top1>(),
+                javaClass<XHierarchyHollowMiddle.Top2>(),
+                javaClass<XHierarchyHollowMiddle.Middle>(),
+                javaClass<XHierarchyHollowMiddle.Leaf1>(),
+                javaClass<XHierarchyHollowMiddle.Leaf2>()
         ))
     }
 
     Test fun xHierarchyAnnotatedMiddle() {
         doTest(Classes(
-                javaClass<conflicts.XHierarchyAnnotatedMiddle.Top1>(),
-                javaClass<conflicts.XHierarchyAnnotatedMiddle.Top2>(),
-                javaClass<conflicts.XHierarchyAnnotatedMiddle.Middle>(),
-                javaClass<conflicts.XHierarchyAnnotatedMiddle.Leaf1>(),
-                javaClass<conflicts.XHierarchyAnnotatedMiddle.Leaf2>()
+                javaClass<XHierarchyAnnotatedMiddle.Top1>(),
+                javaClass<XHierarchyAnnotatedMiddle.Top2>(),
+                javaClass<XHierarchyAnnotatedMiddle.Middle>(),
+                javaClass<XHierarchyAnnotatedMiddle.Leaf1>(),
+                javaClass<XHierarchyAnnotatedMiddle.Leaf2>()
         ))
     }
 
     Test fun xHierarchyConflictMiddle() {
         doTest(Classes(
-                javaClass<conflicts.XHierarchyConflictMiddle.Top1>(),
-                javaClass<conflicts.XHierarchyConflictMiddle.Top2>(),
-                javaClass<conflicts.XHierarchyConflictMiddle.Middle>(),
-                javaClass<conflicts.XHierarchyConflictMiddle.Leaf1>(),
-                javaClass<conflicts.XHierarchyConflictMiddle.Leaf2>()
+                javaClass<XHierarchyConflictMiddle.Top1>(),
+                javaClass<XHierarchyConflictMiddle.Top2>(),
+                javaClass<XHierarchyConflictMiddle.Middle>(),
+                javaClass<XHierarchyConflictMiddle.Leaf1>(),
+                javaClass<XHierarchyConflictMiddle.Leaf2>()
         ))
     }
 
     Test fun aHierarchy() {
         doTest(Classes(
-                javaClass<conflicts.AHierarchy.A>(),
-                javaClass<conflicts.AHierarchy.B>(),
-                javaClass<conflicts.AHierarchy.B1>(),
-                javaClass<conflicts.AHierarchy.C>(),
-                javaClass<conflicts.AHierarchy.C1>()
+                javaClass<AHierarchy.A>(),
+                javaClass<AHierarchy.B>(),
+                javaClass<AHierarchy.B1>(),
+                javaClass<AHierarchy.C>(),
+                javaClass<AHierarchy.C1>()
         ))
     }
 }
