@@ -11,7 +11,8 @@ import org.objectweb.asm.tree.LocalVariableNode
 val NO_PARAMETER_NAME: String = "<no name>"
 
 fun loadMethodParameterNames(method: Method, node: MethodNode) {
-    val localVariables = node.localVariables
+    // java 6 for inner class constructor give this. java 8 -- this and this$0
+    val localVariables = node.localVariables?.filter { it.name != "this$0" }
     if (localVariables == null || localVariables.isEmpty()) return
 
     val parameterTypes = method.getArgumentTypes()
