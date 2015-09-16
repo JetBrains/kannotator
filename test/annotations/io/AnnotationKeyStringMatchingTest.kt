@@ -49,7 +49,7 @@ class AnnotationKeyStringMatchingTest {
         )
     }
 
-    Test
+    @Test
     fun testLibFolder() {
         doTest(File("lib"), File("lib"))
     }

@@ -21,37 +21,37 @@ class TopologicalSortTest {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
-    Test fun callDependencyForNonAnnotativeMethod() {
+    @Test fun callDependencyForNonAnnotativeMethod() {
         doTest("callDependencyForNonAnnotativeMethod/callDependencyForNonAnnotativeMethod.sorted.txt",
                 "funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod")
     }
 
-    Test fun dependOnConstructorBecauseOfFields() {
+    @Test fun dependOnConstructorBecauseOfFields() {
         doTest("dependOnConstructorBecauseOfFields/DependOnConstructorBecauseOfFields.sorted.txt",
                 "funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
     }
 
-    Test fun funInDifferentClassesTest() {
+    @Test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.sorted.txt", "funDependency.funInDifferentClasses.First", "funDependency.funInDifferentClasses.Second")
     }
 
-    Test fun multiplyInvokeOfMethod() {
+    @Test fun multiplyInvokeOfMethod() {
         doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.sorted.txt", "funDependency.multiplyInvokeOfMethod.First", "funDependency.multiplyInvokeOfMethod.Second")
     }
 
-    Test fun noAnnotatedMethods() {
+    @Test fun noAnnotatedMethods() {
         doTest("noAnnotatedMethods/noAnnotatedMethods.sorted.txt", "funDependency.noAnnotatedMethods.First")
     }
 
-    Test fun recursiveFunTest() {
+    @Test fun recursiveFunTest() {
         doTest("recursiveFun/recursiveFun.sorted.txt", "funDependency.recursiveFun.First", "funDependency.recursiveFun.Second")
     }
 
-    Test fun simpleTest() {
+    @Test fun simpleTest() {
         doTest("simple/simple.sorted.txt", "funDependency.simple.Simple")
     }
 
-    Test fun multipleComponents() {
+    @Test fun multipleComponents() {
         doTest("multipleComponents/multipleComponents.sorted.txt", "funDependency.multipleComponents.First")
     }
 }

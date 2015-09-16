@@ -50,7 +50,7 @@ class MethodIndexTest {
         }
     }
 
-    Test fun libFolder() {
+    @Test fun libFolder() {
         for (jar in findJarsInLibFolder()) {
             println(jar)
             doTest(jar)

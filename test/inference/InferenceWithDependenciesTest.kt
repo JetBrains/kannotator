@@ -31,7 +31,7 @@ import util.assertEqualsOrCreate
 
 class InferenceWithDependenciesTest {
 
-    Test fun inferenceWithDependencies() {
+    @Test fun inferenceWithDependencies() {
         val inferrerMap = mapOf(NULLABILITY_KEY to (NullabilityInferrer() as AnnotationInferrer<Any, Qualifier>))
 
         val baseDir = File("out/test/kannotator")

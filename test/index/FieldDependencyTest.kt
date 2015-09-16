@@ -14,7 +14,7 @@ import util.assertEqualsOrCreate
 class FieldDependencyTest {
     private val PATH = "testData/fieldDependency/"
 
-    Test fun funInDifferentClassesTest() {
+    @Test fun funInDifferentClassesTest() {
         doTest("simple/simple.txt", "fieldDependency.simple.Simple")
     }
 

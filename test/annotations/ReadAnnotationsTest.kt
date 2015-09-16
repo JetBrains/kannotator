@@ -38,7 +38,7 @@ class ReadAnnotationsTest {
         }
     }
 
-    Test fun readAnnotationsTest() {
+    @Test fun readAnnotationsTest() {
         File("testData/annotations/read").recurse {
             file ->
             if (file.isFile() && file.getName().endsWith(".xml")) {

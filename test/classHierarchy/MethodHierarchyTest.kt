@@ -51,12 +51,12 @@ class MethodHierarchyTest {
         assertEqualsOrCreate(expectedFile, actual)
     }
 
-    Test
+    @Test
     fun jung() {
         doTest("edu/uci/ics/jung/", "jung.txt")
     }
 
-    Test
+    @Test
     fun gsCollections() {
         doTest("com/gs/collections/", "gs-collections.txt")
     }

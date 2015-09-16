@@ -10,7 +10,7 @@ import util.ClassPathDeclarationIndex
  * without any errors
  */
 class BuildGraphForLibrariesTest() {
-    Test fun allLibsTest() {
+    @Test fun allLibsTest() {
         File("lib").recurse {
             file ->
             if (file.isFile() && file.getName().endsWith(".jar")) {

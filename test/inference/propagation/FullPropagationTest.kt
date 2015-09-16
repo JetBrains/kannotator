@@ -24,7 +24,7 @@ class FullPropagationTest {
         }
     }
 
-    Test fun linearHierarchy() {
+    @Test fun linearHierarchy() {
         doTest(Classes(
                 javaClass<LinearHierarchy.A>(),
                 javaClass<LinearHierarchy.B>(),
@@ -32,7 +32,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testLinearHierarchyMultipleAnnotations() {
+    @Test fun testLinearHierarchyMultipleAnnotations() {
         doTest(Classes(
                 javaClass<LinearHierarchyMultipleAnnotations.A>(),
                 javaClass<LinearHierarchyMultipleAnnotations.B>(),
@@ -40,7 +40,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testLinearHierarchyAlterChildren() {
+    @Test fun testLinearHierarchyAlterChildren() {
         doTest(Classes(
                 javaClass<LinearHierarchyAlterChildren.A>(),
                 javaClass<LinearHierarchyAlterChildren.B>(),
@@ -49,7 +49,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testLinearHierarchyCovariantReturn() {
+    @Test fun testLinearHierarchyCovariantReturn() {
         doTest(Classes(
                     javaClass<LinearHierarchyCovariantReturn.A>(),
                 javaClass<LinearHierarchyCovariantReturn.B>(),
@@ -57,7 +57,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testConflictsAndPropagation() {
+    @Test fun testConflictsAndPropagation() {
         doTest(Classes(
                 javaClass<ConflictsAndPropagation.A>(),
                 javaClass<ConflictsAndPropagation.ConflictSource>(),
@@ -66,7 +66,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testLinearHierarchyEmpty() {
+    @Test fun testLinearHierarchyEmpty() {
         doTest(Classes(
                 javaClass<LinearHierarchy2.A>(),
                 javaClass<LinearHierarchy2.B>(),
@@ -74,7 +74,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testDiamondHierarchy() {
+    @Test fun testDiamondHierarchy() {
         doTest(Classes(
                 javaClass<DiamondHierarchy.Top>(),
                 javaClass<DiamondHierarchy.A>(),
@@ -84,7 +84,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testXHierarchyAnnotatedMiddle() {
+    @Test fun testXHierarchyAnnotatedMiddle() {
         doTest(Classes(
                 javaClass<XHierarchyAnnotatedMiddle.Top1>(),
                 javaClass<XHierarchyAnnotatedMiddle.Top2>(),
@@ -94,7 +94,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testXHierarchyHollowMiddle() {
+    @Test fun testXHierarchyHollowMiddle() {
         doTest(Classes(
                 javaClass<XHierarchyHollowMiddle.Top1>(),
                 javaClass<XHierarchyHollowMiddle.Top2>(),
@@ -104,7 +104,7 @@ class FullPropagationTest {
         ))
     }
 
-    Test fun testYHierarchy() {
+    @Test fun testYHierarchy() {
         doTest(Classes(
                 javaClass<YHierarchy.A>(),
                 javaClass<YHierarchy.A1>(),
@@ -114,8 +114,8 @@ class FullPropagationTest {
     }
 
 
-    Ignore
-    Test fun testTwoHierarchies() {
+    @Ignore
+    @Test fun testTwoHierarchies() {
         doTest(Classes(
                 javaClass<TwoHierarchies.A1>(),
                 javaClass<TwoHierarchies.A2>(),

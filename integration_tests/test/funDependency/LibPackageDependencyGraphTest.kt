@@ -69,7 +69,7 @@ class LibPackageDependencyGraphTest {
         }
     }
 
-    Test fun testJDK_1_7_12_win() {
+    @Test fun testJDK_1_7_12_win() {
         doTest("jdkPackages/jre-7u12-windows-rt.txt", File("lib/jdk/jre-7u12-windows-rt.jar"))
     }
 }

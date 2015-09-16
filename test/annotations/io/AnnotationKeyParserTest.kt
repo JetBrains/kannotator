@@ -73,7 +73,7 @@ class AnnotationKeyParserTest {
         }
     }
 
-    Test
+    @Test
     fun javaByteCode() {
         recurseIntoJars(File("lib")) {
             file, owner, reader ->
@@ -83,8 +83,8 @@ class AnnotationKeyParserTest {
         }
     }
 
-    Ignore("KT-4510")
-    Test
+    @Ignore("KT-4510")
+    @Test
     fun kotlinByteCode() {
         recurseIntoJars(File("lib/kotlin-runtime.jar")) {
             file, owner, reader ->

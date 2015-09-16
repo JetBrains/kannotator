@@ -45,35 +45,35 @@ public class WriteJaifTest {
         return File("testData/${klass.getName()!!.replace('.', '/')}.jaif")
     }
 
-    Test fun testNotNullFields() {
+    @Test fun testNotNullFields() {
         simpleTest(javaClass<annotations.io.spec.NotNullFields>())
     }
 
-    Test fun testNullableFields() {
+    @Test fun testNullableFields() {
         simpleTest(javaClass<annotations.io.spec.NullableFields>())
     }
 
-    Test fun testNotNullArgs() {
+    @Test fun testNotNullArgs() {
         simpleTest(javaClass<annotations.io.spec.NotNullArgs>())
     }
 
-    Test fun testNullableArgs() {
+    @Test fun testNullableArgs() {
         simpleTest(javaClass<annotations.io.spec.NullableArgs>())
     }
 
-    Test fun testNotNullReturn() {
+    @Test fun testNotNullReturn() {
         simpleTest(javaClass<annotations.io.spec.NotNullReturn>())
     }
 
-    Test fun testNullableReturn() {
+    @Test fun testNullableReturn() {
         simpleTest(javaClass<annotations.io.spec.NullableReturn>())
     }
 
-    Test fun testNestedClassesA(){
+    @Test fun testNestedClassesA(){
         simpleTest(javaClass<annotations.io.spec.Nested.A>())
     }
 
-    Test fun testPackage() {
+    @Test fun testPackage() {
         doTest(
                 File("testData/annotations/io/spec/package.jaif"),
                 javaClass<annotations.io.spec.Nested.A>(),

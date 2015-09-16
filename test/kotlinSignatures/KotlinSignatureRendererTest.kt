@@ -131,47 +131,47 @@ class KotlinSignatureRendererTest {
 
     }
 
-    Test fun noAnnotations() {
+    @Test fun noAnnotations() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotations>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun nullability() {
+    @Test fun nullability() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Nullability>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun generics() {
+    @Test fun generics() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotationsGeneric<*>>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun mutabilityNoAnnotations() {
+    @Test fun mutabilityNoAnnotations() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.MutabilityNoAnnotations>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun genericInner() {
+    @Test fun genericInner() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.WithGenericInner<*>>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun mutability() {
+    @Test fun mutability() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Mutability>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun constructorOfInner() {
+    @Test fun constructorOfInner() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Inner>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun namedParametersLongTypes() {
+    @Test fun namedParametersLongTypes() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.NamedParametersLongTypes>())
         doMultipleDeclarationsTest(classReader)
     }
 
-    Test fun `enum`() {
+    @Test fun `enum`() {
         val classReader = getClassReader(javaClass<KotlinSignatureTestData.Enum>())
         doMultipleDeclarationsTest(classReader)
     }

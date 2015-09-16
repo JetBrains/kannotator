@@ -73,7 +73,7 @@ class LibPackageNonAffectingDependencyGraphTest {
         }
     }
 
-    Test fun jre_1_7_12_win() {
+    @Test fun jre_1_7_12_win() {
         doTest("jdkNonAffectingPackages/jre-7u12-windows-rt.txt", File("lib/jdk/jre-7u12-windows-rt.jar"))
     }
 }

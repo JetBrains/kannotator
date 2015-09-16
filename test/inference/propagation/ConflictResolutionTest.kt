@@ -29,14 +29,14 @@ class ConflictResolutionTest {
         }
     }
 
-    Test fun conflicts() {
+    @Test fun conflicts() {
         doTest(Classes(
                 javaClass<Conflicts.Base>(),
                 javaClass<Conflicts.Child>()
         ))
     }
 
-    Test fun linearHierarchy() {
+    @Test fun linearHierarchy() {
         doTest(Classes(
                 javaClass<LinearHierarchy.A>(),
                 javaClass<LinearHierarchy.B>(),
@@ -44,7 +44,7 @@ class ConflictResolutionTest {
         ))
     }
 
-    Test fun yHierarchy() {
+    @Test fun yHierarchy() {
         doTest(Classes(
                 javaClass<YHierarchy.A>(),
                 javaClass<YHierarchy.A1>(),
@@ -53,7 +53,7 @@ class ConflictResolutionTest {
         ))
     }
 
-    Test fun diamondHierarchy() {
+    @Test fun diamondHierarchy() {
         doTest(Classes(
                 javaClass<DiamondHierarchy.Top>(),
                 javaClass<DiamondHierarchy.A>(),
@@ -63,7 +63,7 @@ class ConflictResolutionTest {
         ))
     }
 
-    Test fun xHierarchyHollowMiddle() {
+    @Test fun xHierarchyHollowMiddle() {
         doTest(Classes(
                 javaClass<XHierarchyHollowMiddle.Top1>(),
                 javaClass<XHierarchyHollowMiddle.Top2>(),
@@ -73,7 +73,7 @@ class ConflictResolutionTest {
         ))
     }
 
-    Test fun xHierarchyAnnotatedMiddle() {
+    @Test fun xHierarchyAnnotatedMiddle() {
         doTest(Classes(
                 javaClass<XHierarchyAnnotatedMiddle.Top1>(),
                 javaClass<XHierarchyAnnotatedMiddle.Top2>(),
@@ -83,7 +83,7 @@ class ConflictResolutionTest {
         ))
     }
 
-    Test fun xHierarchyConflictMiddle() {
+    @Test fun xHierarchyConflictMiddle() {
         doTest(Classes(
                 javaClass<XHierarchyConflictMiddle.Top1>(),
                 javaClass<XHierarchyConflictMiddle.Top2>(),
@@ -93,7 +93,7 @@ class ConflictResolutionTest {
         ))
     }
 
-    Test fun aHierarchy() {
+    @Test fun aHierarchy() {
         doTest(Classes(
                 javaClass<AHierarchy.A>(),
                 javaClass<AHierarchy.B>(),

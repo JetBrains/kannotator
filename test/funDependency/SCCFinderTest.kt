@@ -60,22 +60,22 @@ class SCCFinderTest {
         }
     }
 
-    Test fun test1() {
+    @Test fun test1() {
         val graph = Graph().nodes("A", "B", "C").edges("A->B", "B->C", "C->B")
         doTest(graph, "A->A", "B->B,C", "C->B,C")
     }
 
-    Test fun test2() {
+    @Test fun test2() {
         val graph = Graph().nodes("A", "B", "C").edges("A->B", "C->C")
         doTest(graph, "A->A", "B->B", "C->C")
     }
 
-    Test fun test3() {
+    @Test fun test3() {
         val graph = Graph().nodes("A", "B", "C").edges("A->B", "B->C", "C->A")
         doTest(graph, "A->A,B,C", "B->A,B,C", "C->A,B,C")
     }
 
-    Test fun test4() {
+    @Test fun test4() {
         val graph = Graph().nodes("A", "B", "C", "D").edges("A->B", "B->C", "B->D", "C->A", "C->D")
         doTest(graph, "A->A,B,C", "B->A,B,C", "C->A,B,C", "D->D")
     }

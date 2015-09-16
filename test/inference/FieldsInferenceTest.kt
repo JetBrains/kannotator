@@ -49,43 +49,43 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
         return null
     }
 
-    Test fun STRING_NOT_NULL_FIELD() = doFieldTest()
+    @Test fun STRING_NOT_NULL_FIELD() = doFieldTest()
 
-    Test fun STRING_NULL_FIELD() = doFieldTest()
+    @Test fun STRING_NULL_FIELD() = doFieldTest()
 
-    Test fun FROM_PREVIOUS_FIELD() = doFieldTest()
+    @Test fun FROM_PREVIOUS_FIELD() = doFieldTest()
 
-    Test fun NEW_OBJECT_FIELD() = doFieldTest()
+    @Test fun NEW_OBJECT_FIELD() = doFieldTest()
 
-    Test fun INTEGER_FIELD() = doFieldTest()
+    @Test fun INTEGER_FIELD() = doFieldTest()
 
-    Test fun DOUBLE_FIELD() = doFieldTest()
+    @Test fun DOUBLE_FIELD() = doFieldTest()
 
-    Test fun stringClass() = doFieldTest()
+    @Test fun stringClass() = doFieldTest()
 
-    Test fun nullFinalField() = doFieldTest()
+    @Test fun nullFinalField() = doFieldTest()
 
-    Test fun newObjectFinalField() = doFieldTest()
+    @Test fun newObjectFinalField() = doFieldTest()
 
-    Test fun constantStringFinalField() = doFieldTest()
+    @Test fun constantStringFinalField() = doFieldTest()
 
-    Test fun constantIntegerFinalField() = doFieldTest()
+    @Test fun constantIntegerFinalField() = doFieldTest()
 
-    Test fun methodInitFinalField() = doFieldTest()
+    @Test fun methodInitFinalField() = doFieldTest()
 
-    Test fun fromConstructorParameterFinalField() = doFieldTest()
+    @Test fun fromConstructorParameterFinalField() = doFieldTest()
 
-    Test fun differentAnnotationsFromDifferentConstructors() = doFieldTest()
+    @Test fun differentAnnotationsFromDifferentConstructors() = doFieldTest()
 
-    Test fun nullableInConstructorInitFinalField() = doFieldTest()
+    @Test fun nullableInConstructorInitFinalField() = doFieldTest()
 
-    Test fun fromMethodInConstructorFinalField() = doFieldTest()
+    @Test fun fromMethodInConstructorFinalField() = doFieldTest()
 
-    Ignore
-    Test fun nullableFromCallingMethodOnValue() = doFieldTest()
+    @Ignore
+    @Test fun nullableFromCallingMethodOnValue() = doFieldTest()
 
-    Ignore
-    Test fun testNotUsedNonFinalField() = doFieldTest()
+    @Ignore
+    @Test fun testNotUsedNonFinalField() = doFieldTest()
 
     private class EmptyFieldInfo(override val field : Field) : FieldDependencyInfo {
         override val writers: Collection<Method> = ArrayList()

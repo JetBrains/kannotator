@@ -46,25 +46,25 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
         return existingNullabilityAnnotations
     }
 
-    Test fun mutableCollection() = doTest()
+    @Test fun mutableCollection() = doTest()
 
-    Test fun iterateOverMutableCollection() = doTest()
+    @Test fun iterateOverMutableCollection() = doTest()
 
-    Test fun immutableCollection() = doTest()
+    @Test fun immutableCollection() = doTest()
 
-    Test fun mapEntry() = doTest()
+    @Test fun mapEntry() = doTest()
 
-    Test fun changeKeySetInMap() = doTest()
+    @Test fun changeKeySetInMap() = doTest()
 
-    Test fun entrySetInMap() = doTest()
+    @Test fun entrySetInMap() = doTest()
 
-    Test fun entrySetInMap2() = doTest()
+    @Test fun entrySetInMap2() = doTest()
 
-    Test fun invokeProcessMutable() = doTest()
+    @Test fun invokeProcessMutable() = doTest()
 
-    Test fun invokeProcessReadableAndMutable() = doTest()
+    @Test fun invokeProcessReadableAndMutable() = doTest()
 
-    Test fun walk() = doTest()
+    @Test fun walk() = doTest()
 
-    Test fun scopeExit() = doTest()
+    @Test fun scopeExit() = doTest()
 }

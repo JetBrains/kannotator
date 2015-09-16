@@ -21,36 +21,36 @@ public val PATH: String = "testData/funDependency/"
  *  and checks their textual representation against expected ones
  */
 class FunDependencyGraphTest {
-    Test fun callDependencyForNonAnnotativeMethod() {
+    @Test fun callDependencyForNonAnnotativeMethod() {
         doTest("callDependencyForNonAnnotativeMethod/callDependencyForNonAnnotativeMethod.txt",
                 "funDependency.callDependencyForNonAnnotativeMethod.CallDependencyForNonAnnotativeMethod")
     }
 
-    Test fun funInDifferentClassesTest() {
+    @Test fun funInDifferentClassesTest() {
         doTest("funInDifferentClasses/funInDifferentClasses.txt", "funDependency.funInDifferentClasses.First", "funDependency.funInDifferentClasses.Second")
     }
 
-    Test fun multiplyInvokeOfMethod() {
+    @Test fun multiplyInvokeOfMethod() {
         doTest("multiplyInvokeOfMethod/multiplyInvokeOfMethod.txt", "funDependency.multiplyInvokeOfMethod.First", "funDependency.multiplyInvokeOfMethod.Second")
     }
 
-    Test fun noAnnotatedMethods() {
+    @Test fun noAnnotatedMethods() {
         doTest("noAnnotatedMethods/noAnnotatedMethods.txt", "funDependency.noAnnotatedMethods.First")
     }
 
-    Test fun recursiveFunTest() {
+    @Test fun recursiveFunTest() {
         doTest("recursiveFun/recursiveFun.txt", "funDependency.recursiveFun.First", "funDependency.recursiveFun.Second")
     }
 
-    Test fun simpleTest() {
+    @Test fun simpleTest() {
         doTest("simple/simple.txt", "funDependency.simple.Simple")
     }
 
-    Test fun dependOnConstructorBecauseOfFields() {
+    @Test fun dependOnConstructorBecauseOfFields() {
         doTest("dependOnConstructorBecauseOfFields/dependOnConstructorBecauseOfFields.txt", "funDependency.dependOnConstructorBecauseOfFields.DependOnConstructorBecauseOfFields")
     }
 
-    Test fun missingDependencies() {
+    @Test fun missingDependencies() {
         val classSource = ClassesFromClassPath("funDependency.simple.Simple")
         val di = DeclarationIndexImpl(FileBasedClassSource(listOf(File("out/test/kannotator/funDependency/simple/Simple.class"))))
         val missing = arrayListOf<ClassMember>()
