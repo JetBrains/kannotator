@@ -19,7 +19,6 @@ import org.jetbrains.kannotator.declarations.getArgumentTypes
 import org.objectweb.asm.FieldVisitor
 import org.jetbrains.kannotator.declarations.ClassMember
 import org.jetbrains.kannotator.declarations.ClassName
-import org.jetbrains.kannotator.declarations.Field
 
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {

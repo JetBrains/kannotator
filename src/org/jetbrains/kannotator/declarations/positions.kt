@@ -48,7 +48,7 @@ private data class MethodTypePositionImpl(
 }
 
 private data class FieldTypePositionImpl(override val field: Field): FieldTypePosition {
-    override val member: ClassMember get() { return field }
+    override val member: ClassMember get() { return this.field }
     override val relativePosition: PositionWithinDeclaration = FIELD_TYPE
 }
 
