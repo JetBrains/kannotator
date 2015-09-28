@@ -87,5 +87,5 @@ private fun resolveConflictsInParents<A : Any>(
     }
 }
 
-private val Node<Method, *>.method: Method
+internal val Node<Method, *>.method: Method
     get() = data
