@@ -37,7 +37,7 @@ class ClassHierarchyBuilder(
     fun build(): HierarchyGraph<ClassData> {
         classSource forEach {
             reader ->
-            val className = ClassName.fromInternalName(reader.getClassName())
+            val className = ClassName.fromInternalName(reader.className)
             val node = getOrCreateNode(className) as ClassNodeImpl
             val (methods, superClasses) = processClass(reader)
             for (superClass in superClasses) {
@@ -85,7 +85,7 @@ private data class MethodsAndSuperClasses(
 )
 
 private fun processClass(reader: ClassReader): MethodsAndSuperClasses {
-    val thisClassName = ClassName.fromInternalName(reader.getClassName())
+    val thisClassName = ClassName.fromInternalName(reader.className)
 
     val methods = ArrayList<Method>()
     val superClasses = ArrayList<ClassName>()

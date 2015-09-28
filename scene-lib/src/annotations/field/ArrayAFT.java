@@ -55,7 +55,7 @@ public final /*@ReadOnly*/ class ArrayAFT extends AnnotationFieldType {
     @Override
     public  String toString() {
         return (elementType == null ? "unknown" :
-            ((ScalarAFT) elementType).toString()) + "[]";
+            elementType.toString()) + "[]";
     }
 
     /**

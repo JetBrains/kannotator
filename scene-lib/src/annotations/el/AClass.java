@@ -16,10 +16,10 @@ public final class AClass extends AElement {
     @NotNull
     /** The class's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
-            ATypeElement.<BoundLocation>newVivifyingLHMap_ATE();
+            ATypeElement.newVivifyingLHMap_ATE();
     @NotNull
     public final VivifyingMap<TypeIndexLocation, ATypeElement> extendsImplements =
-        ATypeElement.<TypeIndexLocation>newVivifyingLHMap_ATE();
+        ATypeElement.newVivifyingLHMap_ATE();
 
     private static VivifyingMap<String, AMethod> createMethodMap() {
         return new VivifyingMap<String, AMethod>(
@@ -85,7 +85,7 @@ public final class AClass extends AElement {
     @NotNull
     /** The class's annotated fields; map key is field name */
     public final VivifyingMap<String, AElement> fields =
-        AElement.<String>newVivifyingLHMap_AET();
+        AElement.newVivifyingLHMap_AET();
 
     public final VivifyingMap<String, AExpression> fieldInits =
         createFieldInitMap();

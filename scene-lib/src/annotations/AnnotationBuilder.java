@@ -91,7 +91,7 @@ public class AnnotationBuilder {
             if (!abActive)
                 throw new IllegalStateException("Array is finished");
             fieldValues.put(fieldName, Collections
-                            .<Object>unmodifiableList(arrayElements));
+                            .unmodifiableList(arrayElements));
             arrayInProgress = false;
             abActive = false;
         }

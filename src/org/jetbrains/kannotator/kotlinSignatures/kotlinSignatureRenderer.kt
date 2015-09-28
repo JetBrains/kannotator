@@ -144,7 +144,7 @@ fun renderFieldSignature(
 }
 
 fun Type.toGenericType(): GenericType {
-    val signature = "(${this.getDescriptor()})V"
+    val signature = "(${this.descriptor})V"
     return parseGenericMethodSignature(signature).valueParameters[0].genericType
 }
 

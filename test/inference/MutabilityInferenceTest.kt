@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 
 /** checks inference for MutabilityInferenceTestLib */
 class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
-        javaClass<inferenceData.MutabilityInferenceTestClass>()) {
+        inferenceData.MutabilityInferenceTestClass::class.java) {
     protected override val analysisType: AnalysisType = MUTABILITY_KEY
 
     protected override fun getClassFiles(): Collection<File> {
@@ -28,8 +28,8 @@ class MutabilityInferenceTest: AbstractInferenceTest<MutabilityAnnotation>(
 
     override fun Array<out kotlin.Annotation>.toAnnotation(): MutabilityAnnotation? {
         for (ann in this) {
-            if (ann.annotationType().getSimpleName() == "ExpectMutable") return MutabilityAnnotation.MUTABLE
-            if (ann.annotationType().getSimpleName() == "ExpectReadOnly") return MutabilityAnnotation.READ_ONLY
+            if (ann.annotationType().simpleName == "ExpectMutable") return MutabilityAnnotation.MUTABLE
+            if (ann.annotationType().simpleName == "ExpectReadOnly") return MutabilityAnnotation.READ_ONLY
         }
         return null
     }

@@ -64,7 +64,7 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
             processMethodBody: (Method) -> MethodVisitor? = {null},
             failOnDuplicates: Boolean = false
     ) {
-        val className = ClassName.fromInternalName(reader.getClassName())
+        val className = ClassName.fromInternalName(reader.className)
 
         val methodsById = HashMap<MethodId, Method>()
         val fieldsById = HashMap<FieldId, Field>()
@@ -86,7 +86,7 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
             }
         }, 0);
 
-        val classData = ClassData(ClassDeclaration(className, Access(reader.getAccess())), methodsById, methodsByNameForAnnotationKey, fieldsById)
+        val classData = ClassData(ClassDeclaration(className, Access(reader.access)), methodsById, methodsByNameForAnnotationKey, fieldsById)
         classes[className] = classData
         classesByCanonicalName.getOrPut(className.canonicalName, { HashSet() }).add(classData)
     }
@@ -155,11 +155,11 @@ public class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : Class
     override fun forEach(body: (ClassReader) -> Unit) {
         for (file in jarOrClassFiles) {
             if (!file.exists()) throw IllegalStateException("File does not exist: $file")
-            if (file.isFile()) {
-                if (file.getName().endsWith(".jar")) {
+            if (file.isFile) {
+                if (file.name.endsWith(".jar")) {
                     processJar(file, {f, o, reader -> body(reader)})
                 }
-                else if (file.getName().endsWith(".class")) {
+                else if (file.name.endsWith(".class")) {
                     FileInputStream(file) use {body(ClassReader(it))}
                 }
             }

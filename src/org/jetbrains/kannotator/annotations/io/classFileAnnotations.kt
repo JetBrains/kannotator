@@ -25,7 +25,7 @@ public fun <A: Any> getAnnotationsFromClassFiles(
 
         reader.accept(object : ClassVisitor(Opcodes.ASM4) {
                 override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                    val method = Method(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature)
+                    val method = Method(ClassName.fromInternalName(reader.className), access, name, desc, signature)
                     return object : MethodVisitor(Opcodes.ASM4) {
                         private val positions = PositionsForMethod(method)
                         private val canonicalAnnotationClassNames = UnifiedSetMultimap<AnnotationPosition, String>()
@@ -58,7 +58,7 @@ public fun <A: Any> getAnnotationsFromClassFiles(
                 }
 
                 public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-                    val field = Field(ClassName.fromInternalName(reader.getClassName()), access, name, desc, signature, value)
+                    val field = Field(ClassName.fromInternalName(reader.className), access, name, desc, signature, value)
 
                     return object : FieldVisitor(Opcodes.ASM4) {
                         private val canonicalAnnotationClassNames : MutableSet<String> = HashSet<String>()

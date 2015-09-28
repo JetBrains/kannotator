@@ -40,7 +40,7 @@ public class ATypeElement extends AElement {
      * The annotated inner types; map key is the inner type location.
      */
     public final VivifyingMap<InnerTypeLocation, ATypeElement> innerTypes =
-        ATypeElement.<InnerTypeLocation>newVivifyingLHMap_ATE();
+        ATypeElement.newVivifyingLHMap_ATE();
 
     // general information about the element being annotated
     public Object description;

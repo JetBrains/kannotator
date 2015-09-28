@@ -33,7 +33,7 @@ public fun <A: Annotation> generateAssertsForCallArguments(
         addAssertForExternalStackValue: (Int) -> Unit
 ) {
     if (instructionNode !is MethodInsnNode) throw IllegalArgumentException("Not a method instruction: $instructionNode")
-    val hasThis = instructionNode.getOpcode() != INVOKESTATIC
+    val hasThis = instructionNode.opcode != INVOKESTATIC
     val thisSlots = if (hasThis) 1 else 0
     val parametersCount = instructionNode.getArgumentCount() + thisSlots
     val argTypes = Type.getArgumentTypes(instructionNode.desc)
@@ -51,7 +51,7 @@ public fun <A: Annotation> generateAssertsForCallArguments(
     if (hasThis && needGenerateAssertForThis) {
         addAssertForArgumentOnStack(0, false)
     }
-    if (instructionNode.getOpcode() != INVOKEDYNAMIC) {
+    if (instructionNode.opcode != INVOKEDYNAMIC) {
         val method = declarationIndex.findMethodByMethodInsnNode(instructionNode)
         if (method != null) {
             val positions = PositionsForMethod(method)
@@ -85,7 +85,7 @@ fun DeclarationIndex.findFieldByFieldInsnNode(fieldInsnNode: FieldInsnNode): Fie
 public fun <V: CopyableValue<V>> Frame<V>.copy(): Frame<V> {
     val frameCopy = InferenceFrame<V>(this)
 
-    for (i in 0..getLocals() - 1) {
+    for (i in 0..locals - 1) {
         val v = getLocal(i)
         if (v != null) {
             frameCopy.setLocal(i, v.copy())
@@ -93,26 +93,26 @@ public fun <V: CopyableValue<V>> Frame<V>.copy(): Frame<V> {
     }
 
     frameCopy.clearStack()
-    for (i in 0..getStackSize() - 1) {
+    for (i in 0..stackSize - 1) {
         val v = getStack(i)
         if (v != null) {
             frameCopy.push(v.copy())
         }
     }
 
-    frameCopy.setLostValue((this as InferenceFrame<V>).getLostValue()?.copy())
+    frameCopy.lostValue = (this as InferenceFrame<V>).lostValue?.copy()
 
     return frameCopy
 }
 
 fun <V: Value> Frame<V>.forEachValue(body: (value: V) -> Unit) {
-    for (i in 0..this.getLocals() - 1) {
+    for (i in 0..this.locals - 1) {
         val v = this.getLocal(i)
         if (v != null) {
             body(v)
         }
     }
-    for (i in 0..this.getStackSize() - 1) {
+    for (i in 0..this.stackSize - 1) {
         val v = this.getStack(i)
         if (v != null) {
             body(v)
@@ -121,14 +121,14 @@ fun <V: Value> Frame<V>.forEachValue(body: (value: V) -> Unit) {
 }
 
 fun <V: Value> Frame<V>.allValues(body: (value: V) -> Boolean): Boolean {
-    for (i in 0..this.getLocals() - 1) {
+    for (i in 0..this.locals - 1) {
         val v = this.getLocal(i)
         if (v != null && !body(v)) {
             return false
         }
     }
 
-    for (i in 0..this.getStackSize() - 1) {
+    for (i in 0..this.stackSize - 1) {
         val v = this.getStack(i)
         if (v != null && !body(v)) {
             return false
@@ -228,20 +228,20 @@ open class BasicFrameTransformer<Q: Qualifier>: DefaultFrameTransformer<Qualifie
             preFrame: Frame<QualifiedValueSet<Q>>,
             executedFrame: Frame<QualifiedValueSet<Q>>,
             analyzer: Analyzer<QualifiedValueSet<Q>>): Frame<QualifiedValueSet<Q>>? {
-        if (insnNode.getOpcode() == ASTORE && edgeKind == EdgeKind.DEFAULT) {
+        if (insnNode.opcode == ASTORE && edgeKind == EdgeKind.DEFAULT) {
             val postFrame = executedFrame.copy()
             val varIndex = (insnNode as VarInsnNode).`var`
             val rhs = preFrame.getStackFromTop(0)
             val lhs = preFrame.getLocal(varIndex)
 
             val infPostFrame = postFrame as InferenceFrame<QualifiedValueSet<Q>>
-            val prevLostValue = infPostFrame.getLostValue()
+            val prevLostValue = infPostFrame.lostValue
             val currLostValue = if (lhs != null) QualifiedValueSet(lhs._size, HashSet(lhs.values)) else null
             val newLostValue =
                     if (currLostValue == null) prevLostValue
                     else if (prevLostValue == null) currLostValue
-                    else analyzer.getInterpreter().merge(prevLostValue, currLostValue)
-            infPostFrame.setLostValue(newLostValue)
+                    else analyzer.interpreter.merge(prevLostValue, currLostValue)
+            infPostFrame.lostValue = newLostValue
 
             postFrame.setLocal(varIndex, if (rhs != null) QualifiedValueSet(rhs._size, HashSet(rhs.values)) else null)
 
@@ -291,17 +291,17 @@ class MultiFrameTransformer<K: AnalysisType, V: CopyableValue<V>>(
 }
 
 fun <V: Value> Analyzer<V>.getInstructionIndex(insn: AbstractInsnNode): Int {
-    val m = getMethodNode()
+    val m = methodNode
     return if (m != null) m.instructions.indexOf(insn) else -1
 }
 
 fun <V: Value> Analyzer<V>.getInstructionFrame(insn: AbstractInsnNode): Frame<V>? {
-    val m = getMethodNode()
-    return if (m != null) getFrames()[m.instructions.indexOf(insn)] else null
+    val m = methodNode
+    return if (m != null) frames[m.instructions.indexOf(insn)] else null
 }
 
 fun <V: Value> Frame<V>.getStackFromTop(index: Int): V? =
-        getStack(getStackSize() - index - 1)
+        getStack(stackSize - index - 1)
 
 fun <V: Value> MethodInsnNode.getReceiver(frame: Frame<V>): V? =
         frame.getStackFromTop(getArgumentCount())

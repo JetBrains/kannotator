@@ -84,16 +84,16 @@ private fun Map<String, List<String>>.containsInvocation(instruction: MethodInsn
 
     bfs(initialClasses) {currentClass ->
         val superTypes = HashSet<Class<Any>>()
-        for (intf in currentClass.getInterfaces()) {
+        for (intf in currentClass.interfaces) {
             superTypes.add(intf as Class<Any>)
         }
-        val superClass = currentClass.getSuperclass()
+        val superClass = currentClass.superclass
         if (superClass != null) {
             superTypes.add(superClass as Class<Any>)
         }
 
         for (superType in superTypes) {
-            contains = this@containsInvocation[superType.getName().replace('.', '/')]?.contains(methodName) ?: false
+            contains = this@containsInvocation[superType.name.replace('.', '/')]?.contains(methodName) ?: false
             if (contains) break
         }
 
@@ -136,9 +136,9 @@ class MutabilityFrameTransformer<Q: Qualifier>(
             executedFrame: Frame<QualifiedValueSet<Q>>,
             analyzer: Analyzer<QualifiedValueSet<Q>>
     ): Frame<QualifiedValueSet<Q>>? {
-        val defFrame = super<BasicFrameTransformer>.getPostFrame(insnNode, edgeKind, preFrame, executedFrame, analyzer)
+        val defFrame = super.getPostFrame(insnNode, edgeKind, preFrame, executedFrame, analyzer)
 
-        val opcode = insnNode.getOpcode()
+        val opcode = insnNode.opcode
         return when (opcode) {
             INVOKEVIRTUAL, INVOKEINTERFACE, INVOKEDYNAMIC, INVOKESTATIC, INVOKESPECIAL -> {
                 val methodInsnNode = insnNode as MethodInsnNode

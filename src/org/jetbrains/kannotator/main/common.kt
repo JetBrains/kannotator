@@ -53,7 +53,7 @@ open class ProgressMonitor {
 
 private fun List<AnnotationNode?>.extractAnnotationDataMapTo(annotationsMap: MutableMap<String, AnnotationData>) {
     this.filterNotNull().toMutableMap(annotationsMap){node ->
-        val className = Type.getType(node.desc).getClassName()!!
+        val className = Type.getType(node.desc).className!!
         val attributes = HashMap<String, String>()
         val values = node.values
         if (values != null) {
@@ -340,7 +340,7 @@ fun <K: AnalysisType> inferAnnotations(
 
     methodGraphBuilder.removeGraphNodes { packageGraph.findNode(Package(it.data.packageName)) == null }
 
-    val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reverse()
+    val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reversed()
 
     for ((key, inferrer) in inferrers) {
         for (fieldInfo in fieldToDependencyInfosMap.values()) {

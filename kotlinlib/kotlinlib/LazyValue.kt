@@ -3,11 +3,11 @@ package kotlinlib
 class LazyValue<T: Any> {
     private var value: T? = null
         set(newValue) {
-            if ($value != null) {
+            if (field != null) {
                 throw IllegalStateException("Value has been already initialized")
             }
 
-            $value = newValue
+            field = newValue
         }
 
     public fun isInitialized(): Boolean = value != null

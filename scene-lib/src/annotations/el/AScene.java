@@ -55,7 +55,7 @@ public final class AScene {
     @NotNull
     /** This scene's annotated packages; map key is package name */
     public final VivifyingMap<String, AElement> packages =
-            AElement.<String>newVivifyingLHMap_AE();
+            AElement.newVivifyingLHMap_AE();
 
     @NotNull
     /** This scene's annotated classes; map key is class name */

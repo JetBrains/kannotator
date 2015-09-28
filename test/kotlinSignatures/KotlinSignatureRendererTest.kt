@@ -63,7 +63,7 @@ class KotlinSignatureRendererTest {
 
         val errors = ArrayList<ComparisonFailure?>()
 
-        val className = ClassName.fromInternalName(classReader.getClassName())
+        val className = ClassName.fromInternalName(classReader.className)
         classReader.accept(object : ClassVisitor(Opcodes.ASM4) {
             public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
                 val method = Method(className, access, name, desc, signature)
@@ -119,8 +119,8 @@ class KotlinSignatureRendererTest {
         }
 
         for (error in actualErrors) {
-            System.err.println("Expected: ${error.getExpected()}")
-            System.err.println("Actual  : ${error.getActual()}")
+            System.err.println("Expected: ${error.expected}")
+            System.err.println("Actual  : ${error.actual}")
             error.printStackTrace()
             System.err.flush()
         }
@@ -132,47 +132,47 @@ class KotlinSignatureRendererTest {
     }
 
     @Test fun noAnnotations() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotations>())
+        val classReader = getClassReader(KotlinSignatureTestData.NoAnnotations::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun nullability() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Nullability>())
+        val classReader = getClassReader(KotlinSignatureTestData.Nullability::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun generics() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.NoAnnotationsGeneric<*>>())
+        val classReader = getClassReader(KotlinSignatureTestData.NoAnnotationsGeneric::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun mutabilityNoAnnotations() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.MutabilityNoAnnotations>())
+        val classReader = getClassReader(KotlinSignatureTestData.MutabilityNoAnnotations::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun genericInner() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.WithGenericInner<*>>())
+        val classReader = getClassReader(KotlinSignatureTestData.WithGenericInner::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun mutability() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Mutability>())
+        val classReader = getClassReader(KotlinSignatureTestData.Mutability::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun constructorOfInner() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Inner>())
+        val classReader = getClassReader(KotlinSignatureTestData.Inner::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun namedParametersLongTypes() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.NamedParametersLongTypes>())
+        val classReader = getClassReader(KotlinSignatureTestData.NamedParametersLongTypes::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 
     @Test fun `enum`() {
-        val classReader = getClassReader(javaClass<KotlinSignatureTestData.Enum>())
+        val classReader = getClassReader(KotlinSignatureTestData.Enum::class.java)
         doMultipleDeclarationsTest(classReader)
     }
 }

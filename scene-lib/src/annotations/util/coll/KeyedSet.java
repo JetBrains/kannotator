@@ -21,7 +21,7 @@ public interface KeyedSet<K, V> extends Set<V> {
      * @return the <code>Keyer</code> that this <code>KeyedSet</code> uses
      *         to obtain keys for elements
      */
-    public abstract Keyer<? extends K, ? super V> getKeyer(/*>>> @ReadOnly KeyedSet<K, V> this*/);
+    Keyer<? extends K, ? super V> getKeyer(/*>>> @ReadOnly KeyedSet<K, V> this*/);
 
     /**
      * Calls
@@ -37,18 +37,18 @@ public interface KeyedSet<K, V> extends Set<V> {
     /**
      * Conflict/equal behavior that does nothing.
      */
-    public static final int IGNORE = -1;
+    int IGNORE = -1;
 
     /**
      * Conflict/equal behavior that throws an {@link IllegalStateException}.
      */
-    public static final int THROW_EXCEPTION = 0;
+    int THROW_EXCEPTION = 0;
 
     /**
      * Conflict/equal behavior that removes the existing object and then adds
      * the new object.
      */
-    public static final int REPLACE = 1;
+    int REPLACE = 1;
 
     /**
      * Adds <code>v</code> to this <code>KeyedSet</code>; this set's
@@ -72,7 +72,7 @@ public interface KeyedSet<K, V> extends Set<V> {
      *            object
      * @return the existing object whose key matched <code>v</code>'s, if any
      */
-    public abstract V add(V v, int conflictBehavior, int equalBehavior);
+    V add(V v, int conflictBehavior, int equalBehavior);
 
     /**
      * Adds <code>v</code> to this <code>KeyedSet</code>, replacing and
@@ -81,7 +81,7 @@ public interface KeyedSet<K, V> extends Set<V> {
      * equals <code>v</code>.  If no existing object is replaced, null is
      * returned.
      */
-    public abstract V replace(V v);
+    V replace(V v);
 
     /**
      * Looks for and returns an element with key <code>k</code>, or
@@ -90,5 +90,5 @@ public interface KeyedSet<K, V> extends Set<V> {
      * @return the element with key <code>k</code>, or <code>null</code> if
      *         none
      */
-    public abstract V lookup(/*>>> @ReadOnly KeyedSet<K, V> this, */ K k);
+    V lookup(/*>>> @ReadOnly KeyedSet<K, V> this, */ K k);
 }

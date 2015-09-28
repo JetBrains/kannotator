@@ -26,90 +26,90 @@ class FullPropagationTest {
 
     @Test fun linearHierarchy() {
         doTest(Classes(
-                javaClass<LinearHierarchy.A>(),
-                javaClass<LinearHierarchy.B>(),
-                javaClass<LinearHierarchy.C>()
+                LinearHierarchy.A::class.java,
+                LinearHierarchy.B::class.java,
+                LinearHierarchy.C::class.java
         ))
     }
 
     @Test fun testLinearHierarchyMultipleAnnotations() {
         doTest(Classes(
-                javaClass<LinearHierarchyMultipleAnnotations.A>(),
-                javaClass<LinearHierarchyMultipleAnnotations.B>(),
-                javaClass<LinearHierarchyMultipleAnnotations.C>()
+                LinearHierarchyMultipleAnnotations.A::class.java,
+                LinearHierarchyMultipleAnnotations.B::class.java,
+                LinearHierarchyMultipleAnnotations.C::class.java
         ))
     }
 
     @Test fun testLinearHierarchyAlterChildren() {
         doTest(Classes(
-                javaClass<LinearHierarchyAlterChildren.A>(),
-                javaClass<LinearHierarchyAlterChildren.B>(),
-                javaClass<LinearHierarchyAlterChildren.C>(),
-                javaClass<LinearHierarchyAlterChildren.D>()
+                LinearHierarchyAlterChildren.A::class.java,
+                LinearHierarchyAlterChildren.B::class.java,
+                LinearHierarchyAlterChildren.C::class.java,
+                LinearHierarchyAlterChildren.D::class.java
         ))
     }
 
     @Test fun testLinearHierarchyCovariantReturn() {
         doTest(Classes(
-                    javaClass<LinearHierarchyCovariantReturn.A>(),
-                javaClass<LinearHierarchyCovariantReturn.B>(),
-                javaClass<LinearHierarchyCovariantReturn.C>()
+                LinearHierarchyCovariantReturn.A::class.java,
+                LinearHierarchyCovariantReturn.B::class.java,
+                LinearHierarchyCovariantReturn.C::class.java
         ))
     }
 
     @Test fun testConflictsAndPropagation() {
         doTest(Classes(
-                javaClass<ConflictsAndPropagation.A>(),
-                javaClass<ConflictsAndPropagation.ConflictSource>(),
-                javaClass<ConflictsAndPropagation.B>(),
-                javaClass<ConflictsAndPropagation.C>()
+                ConflictsAndPropagation.A::class.java,
+                ConflictsAndPropagation.ConflictSource::class.java,
+                ConflictsAndPropagation.B::class.java,
+                ConflictsAndPropagation.C::class.java
         ))
     }
 
     @Test fun testLinearHierarchyEmpty() {
         doTest(Classes(
-                javaClass<LinearHierarchy2.A>(),
-                javaClass<LinearHierarchy2.B>(),
-                javaClass<LinearHierarchy2.C>()
+                LinearHierarchy2.A::class.java,
+                LinearHierarchy2.B::class.java,
+                LinearHierarchy2.C::class.java
         ))
     }
 
     @Test fun testDiamondHierarchy() {
         doTest(Classes(
-                javaClass<DiamondHierarchy.Top>(),
-                javaClass<DiamondHierarchy.A>(),
-                javaClass<DiamondHierarchy.A1>(),
-                javaClass<DiamondHierarchy.B>(),
-                javaClass<DiamondHierarchy.C>()
+                DiamondHierarchy.Top::class.java,
+                DiamondHierarchy.A::class.java,
+                DiamondHierarchy.A1::class.java,
+                DiamondHierarchy.B::class.java,
+                DiamondHierarchy.C::class.java
         ))
     }
 
     @Test fun testXHierarchyAnnotatedMiddle() {
         doTest(Classes(
-                javaClass<XHierarchyAnnotatedMiddle.Top1>(),
-                javaClass<XHierarchyAnnotatedMiddle.Top2>(),
-                javaClass<XHierarchyAnnotatedMiddle.Middle>(),
-                javaClass<XHierarchyAnnotatedMiddle.Leaf1>(),
-                javaClass<XHierarchyAnnotatedMiddle.Leaf2>()
+                XHierarchyAnnotatedMiddle.Top1::class.java,
+                XHierarchyAnnotatedMiddle.Top2::class.java,
+                XHierarchyAnnotatedMiddle.Middle::class.java,
+                XHierarchyAnnotatedMiddle.Leaf1::class.java,
+                XHierarchyAnnotatedMiddle.Leaf2::class.java
         ))
     }
 
     @Test fun testXHierarchyHollowMiddle() {
         doTest(Classes(
-                javaClass<XHierarchyHollowMiddle.Top1>(),
-                javaClass<XHierarchyHollowMiddle.Top2>(),
-                javaClass<XHierarchyHollowMiddle.Middle>(),
-                javaClass<XHierarchyHollowMiddle.Leaf1>(),
-                javaClass<XHierarchyHollowMiddle.Leaf2>()
+                XHierarchyHollowMiddle.Top1::class.java,
+                XHierarchyHollowMiddle.Top2::class.java,
+                XHierarchyHollowMiddle.Middle::class.java,
+                XHierarchyHollowMiddle.Leaf1::class.java,
+                XHierarchyHollowMiddle.Leaf2::class.java
         ))
     }
 
     @Test fun testYHierarchy() {
         doTest(Classes(
-                javaClass<YHierarchy.A>(),
-                javaClass<YHierarchy.A1>(),
-                javaClass<YHierarchy.B>(),
-                javaClass<YHierarchy.C>()
+                YHierarchy.A::class.java,
+                YHierarchy.A1::class.java,
+                YHierarchy.B::class.java,
+                YHierarchy.C::class.java
         ))
     }
 
@@ -117,10 +117,10 @@ class FullPropagationTest {
     @Ignore
     @Test fun testTwoHierarchies() {
         doTest(Classes(
-                javaClass<TwoHierarchies.A1>(),
-                javaClass<TwoHierarchies.A2>(),
-                javaClass<TwoHierarchies.B1>(),
-                javaClass<TwoHierarchies.B2>()
+                TwoHierarchies.A1::class.java,
+                TwoHierarchies.A2::class.java,
+                TwoHierarchies.B1::class.java,
+                TwoHierarchies.B2::class.java
         ))
     }
 }

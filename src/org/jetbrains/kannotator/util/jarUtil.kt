@@ -9,8 +9,8 @@ import java.util.jar.JarEntry
 
 fun processJar(file: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     val jar = JarFile(file)
-    for (entry in jar.entries() as Enumeration<JarEntry>) { //todo KT-2872
-        val name = entry.getName()
+    for (entry in jar.entries()) {
+        val name = entry.name
         if (!name.endsWith(".class")) continue
 
         val internalName = name.removeSuffix(".class")

@@ -15,7 +15,7 @@ import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.simpleErrorHandler
 
-public class InferenceException(file: File, cause: Throwable?) : Throwable("Exception during inferrence on file ${file.getName()}", cause)
+public class InferenceException(file: File, cause: Throwable?) : Throwable("Exception during inferrence on file ${file.name}", cause)
 
 public open class FileAwareProgressMonitor() : ProgressMonitor() {
     public open fun allFilesAreAnnotated() {
@@ -73,9 +73,9 @@ public fun executeAnnotationTask(parameters: InferenceParams,
         val outputDirectory = prepareDirectoryForAnnotations(outputDirectoryPath, parameters.useOneCommonTree)
         for (file in lib.files) {
             try {
-                monitor.jarProcessingStarted(file.getName(), lib.path)
+                monitor.jarProcessingStarted(file.name, lib.path)
                 processFile(file, lib, parameters, monitor, outputDirectory)
-                monitor.jarProcessingFinished(file.getName(), lib.path)
+                monitor.jarProcessingFinished(file.name, lib.path)
             } catch (e: OutOfMemoryError) {
                 // Don't wrap OutOfMemoryError
                 throw e
@@ -108,15 +108,12 @@ private fun processFile(file: File,
     )
 
     val inferredNullabilityAnnotations =
-            checkNotNull(
-                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations,
-                    "Only nullability annotations are supported by now") as
+            checkNotNull(inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations) { "Only nullability annotations are supported by now" } as
             Annotations<NullabilityAnnotation>
     val propagatedNullabilityPositions =
-            checkNotNull(
-                    inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions,
-                    "Only nullability annotations are supported by now"
-            )
+            checkNotNull(inferenceResult.groupByKey[NULLABILITY_KEY]!!.propagatedPositions) {
+                "Only nullability annotations are supported by now"
+            }
 
     val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(arrayListOf(file)))
 

@@ -21,7 +21,7 @@ import org.junit.Ignore
 
 /** Tests inference of fields for NullabilityFieldsInferenceTestClass */
 class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
-        javaClass<inferenceData.NullabilityFieldsInferenceTestClass>()) {
+        inferenceData.NullabilityFieldsInferenceTestClass::class.java) {
     protected override val analysisType: AnalysisType = NULLABILITY_KEY
 
     protected override fun getInitialAnnotations(): Annotations<NullabilityAnnotation> {
@@ -43,8 +43,8 @@ class FieldsInferenceTest: AbstractInferenceTest<NullabilityAnnotation>(
 
     protected override fun Array<out Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
-            if (ann.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
-            if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
+            if (ann.annotationType().simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
+            if (ann.annotationType().simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
     }

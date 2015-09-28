@@ -3,7 +3,7 @@ package annotations.io;
 
 public interface Tree {
 
-    public enum Kind {
+    enum Kind {
         ANNOTATION,
         ARRAY_ACCESS,
         ARRAY_TYPE,

@@ -14,5 +14,5 @@ public /*@ReadOnly*/ interface Keyer<K, V> {
      * Returns the key that this keyer wishes to assign to the element
      * <code>v</code>.
      */
-    public abstract K getKeyFor(V v);
+    K getKeyFor(V v);
 }

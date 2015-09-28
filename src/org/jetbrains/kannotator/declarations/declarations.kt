@@ -23,7 +23,7 @@ data class MethodId(
 }
 
 fun MethodId.getReturnType(): Type = Type.getReturnType(methodDesc)
-fun MethodId.getArgumentTypes(): Array<Type> = Type.getArgumentTypes(methodDesc) as Array<Type> //after KT-2872 should return Array<out Type>
+fun MethodId.getArgumentTypes(): Array<Type> = Type.getArgumentTypes(methodDesc)
 /**
  * for method  findClass(Ljava/lang/String;)Ljava/lang/Class; it will return a piece of its signature: findClass(Ljava/lang/String;
  */
@@ -81,7 +81,7 @@ data class Method(
         get() = id.methodName
 
     override fun toString(): String {
-        return declaringClass.toType().getClassName() + ":" + id.methodName + id.methodDesc;
+        return declaringClass.toType().className + ":" + id.methodName + id.methodDesc;
     }
 }
 
@@ -118,13 +118,13 @@ fun Method.isInnerClassConstructor(): Boolean {
     if (parameterTypes.size() == 0) return false
 
     val firstParameter = parameterTypes[0]
-    if (firstParameter.getSort() != Type.OBJECT) return false
+    if (firstParameter.sort != Type.OBJECT) return false
 
     val dollarIndex = declaringClass.internal.lastIndexOf('$')
     if (dollarIndex < 0) return false
     val outerClass = declaringClass.internal.substring(0, dollarIndex)
 
-    return firstParameter.getInternalName() == outerClass
+    return firstParameter.internalName == outerClass
 }
 
 val ClassMember.visibility: Visibility get() = when {
@@ -168,7 +168,7 @@ data class ClassName private constructor(val internal: String) {
         }
 
         fun fromType(_type: Type): ClassName {
-            return ClassName.fromInternalName(_type.getInternalName())
+            return ClassName.fromInternalName(_type.internalName)
         }
     }
 }
@@ -201,7 +201,7 @@ fun ClassName.isAnonymous(): Boolean {
 }
 
 val ClassName.packageName: String
-    get() = internal.substringBeforeLast('/') ?: ""
+    get() = internal.substringBeforeLast('/')
 
 val ClassMember.packageName: String
     get() = declaringClass.packageName
@@ -231,7 +231,7 @@ data class Field(
     public val desc : String = desc
 
     override fun toString(): String {
-        return declaringClass.toType().getClassName() + ":" + id.fieldName;
+        return declaringClass.toType().className + ":" + id.fieldName;
     }
 }
 

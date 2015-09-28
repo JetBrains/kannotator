@@ -88,7 +88,7 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
 
     val xmlAnnotations = ArrayList<File>()
 
-    existingAnnotationsDir.recurseFiltered({ it.isFile() && it.getName().endsWith(".xml") }, {
+    existingAnnotationsDir.recurseFiltered({ it.isFile && it.name.endsWith(".xml") }, {
         xmlAnnotations.add(it)
     })
 
@@ -151,14 +151,15 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
             packageIsInteresting = packageFilter
     )
 
-    check(nullabilityConflicts.isEmpty(),
-            """There should be no unresolved conflicts in annotations.
-            There are 2 options to resolve this situation:
-              1) modify existing (input) annotations
-              2) modify exceptions.txt
-            Found ${nullabilityConflicts.size()} conflicts:
-            ${nullabilityConflicts.joinToString("\n")}
-            """)
+    check(nullabilityConflicts.isEmpty()) {
+        """There should be no unresolved conflicts in annotations.
+        There are 2 options to resolve this situation:
+          1) modify existing (input) annotations
+          2) modify exceptions.txt
+        Found ${nullabilityConflicts.size()} conflicts:
+        ${nullabilityConflicts.joinToString("\n")}
+        """
+    }
 }
 
 class SDKProgressIndicator() : FileAwareProgressMonitor() {

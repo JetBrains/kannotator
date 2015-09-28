@@ -13,7 +13,7 @@ class BuildGraphForLibrariesTest() {
     @Test fun allLibsTest() {
         File("lib").recurse {
             file ->
-            if (file.isFile() && file.getName().endsWith(".jar")) {
+            if (file.isFile && file.name.endsWith(".jar")) {
                 doTest(file)
             }
         }

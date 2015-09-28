@@ -23,7 +23,7 @@ class MethodIndexTest {
         traceExecutionTime("Loading methods: ") {
             processJar(jar) {
                 file, owner, reader ->
-                val className = ClassName.fromInternalName(reader.getClassName())
+                val className = ClassName.fromInternalName(reader.className)
                 reader.forEachMethod {
                     owner, access, name, desc, signature ->
                     val method = Method(className, access, name, desc, signature)

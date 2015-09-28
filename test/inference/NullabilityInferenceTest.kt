@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.junit.Ignore
 
-class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(javaClass<inferenceData.NullabilityInferenceTestClass>()) {
+class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(inferenceData.NullabilityInferenceTestClass::class.java) {
     protected override val analysisType: AnalysisType = NULLABILITY_KEY
 
     protected override fun getInferrer(): AnnotationInferrer<NullabilityAnnotation, *> {
@@ -22,8 +22,8 @@ class NullabilityInferenceTest : AbstractInferenceTest<NullabilityAnnotation>(ja
 
     protected override fun Array<out kotlin.Annotation>.toAnnotation(): NullabilityAnnotation? {
         for (ann in this) {
-            if (ann.annotationType().getSimpleName() == "ExpectNullable") return NullabilityAnnotation.NULLABLE
-            if (ann.annotationType().getSimpleName() == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
+            if (ann.annotationType().simpleName == "ExpectNullable") return NullabilityAnnotation.NULLABLE
+            if (ann.annotationType().simpleName == "ExpectNotNull") return NullabilityAnnotation.NOT_NULL
         }
         return null
     }

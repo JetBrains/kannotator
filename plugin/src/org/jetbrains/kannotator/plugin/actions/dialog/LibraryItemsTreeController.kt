@@ -24,8 +24,8 @@ public class LibraryItemsTreeController() {
 
         val libraryTables = ChooseLibrariesFromTablesDialog.getLibraryTables(project, true)
         val allLibraries = libraryTables
-                .flatMap { it.getLibraries().toList() }
-                .sortBy { (it.getName() ?: "<no-name>").toLowerCase() }
+                .flatMap { it.libraries.toList() }
+                .sortedBy { (it.name ?: "<no-name>").toLowerCase() }
 
         for (library in allLibraries) {
             val libraryNode = LibraryCheckTreeNode(library)
@@ -33,9 +33,9 @@ public class LibraryItemsTreeController() {
 
             root.add(libraryNode)
 
-            val jarFileRoots = library.getRootProvider().getFiles(OrderRootType.CLASSES)
-                    .filter { it.getExtension() == "jar" }
-                    .sortBy { it.getName().toLowerCase() }
+            val jarFileRoots = library.rootProvider.getFiles(OrderRootType.CLASSES)
+                    .filter { it.extension == "jar" }
+                    .sortedBy { it.name.toLowerCase() }
 
             for (classFileRoot in jarFileRoots) {
                 val jarFileCheckTreeNode = JarFileCheckTreeNode(classFileRoot)
@@ -44,17 +44,17 @@ public class LibraryItemsTreeController() {
                 libraryNode.add(jarFileCheckTreeNode);
             }
 
-            if (libraryNode.getChildCount() == 0) {
-                libraryNode.setEnabled(false)
+            if (libraryNode.childCount == 0) {
+                libraryNode.isEnabled = false
             }
         }
 
-        (initializedTreeView.getModel() as DefaultTreeModel).nodeStructureChanged(root)
+        (initializedTreeView.model as DefaultTreeModel).nodeStructureChanged(root)
         TreeUtil.expandAll(initializedTreeView);
     }
 
     public fun getCheckedLibToJarFiles(): Map<Library, Set<VirtualFile>> {
-        val checkedJarNodes = initializedTree.get().getCheckedNodesByNodeType(javaClass<JarFileCheckTreeNode>())
+        val checkedJarNodes = initializedTree.get().getCheckedNodesByNodeType(JarFileCheckTreeNode::class.java)
 
         val resultLibToJars = HashMap<Library, MutableSet<VirtualFile>>()
 

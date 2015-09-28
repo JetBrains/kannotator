@@ -45,7 +45,7 @@ private fun Method.getAnnotationKeyReturnTypeString(): String
           else canonicalName(getReturnType()) + " "
 
 private fun canonicalName(_type: Type): String {
-    return _type.getClassName()?.toCanonical() ?: "!null"
+    return _type.className?.toCanonical() ?: "!null"
 }
 
 fun Method.getMethodNameAccountingForConstructor(): String {

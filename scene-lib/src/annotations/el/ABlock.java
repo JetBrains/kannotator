@@ -20,7 +20,7 @@ public class ABlock extends AExpression {
     @NotNull
     /** The method's annotated local variables; map key contains local variable location numbers */
     public final VivifyingMap<LocalLocation, AElement> locals =
-            AElement.<LocalLocation>newVivifyingLHMap_AET();
+            AElement.newVivifyingLHMap_AET();
 
     ABlock(Object id) {
         super(id);

@@ -64,11 +64,11 @@ class AnnotationKeyParserTest {
 
     inner class TestVisitor(val reader: ClassReader) : ClassVisitor(Opcodes.ASM4) {
         override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-            doMethodTest(reader.getClassName(), access, name, desc, signature)
+            doMethodTest(reader.className, access, name, desc, signature)
             return null
         }
         public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-            doFieldTest(reader.getClassName(), access, name, desc, signature, value)
+            doFieldTest(reader.className, access, name, desc, signature, value)
             return null
         }
     }
@@ -77,7 +77,7 @@ class AnnotationKeyParserTest {
     fun javaByteCode() {
         recurseIntoJars(File("lib")) {
             file, owner, reader ->
-            if (file.getName() != "kotlin-runtime.jar") {
+            if (file.name != "kotlin-runtime.jar") {
                 reader.accept(TestVisitor(reader), 0)
             }
         }

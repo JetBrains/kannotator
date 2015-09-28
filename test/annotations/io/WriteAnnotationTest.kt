@@ -59,7 +59,7 @@ public class WriteAnnotationTest {
         for (dirOrFile in annotationDirsOrFiles) {
             dirOrFile.recurseFiltered({ it.extension == "xml" }) {
                 file ->
-                println("Processing ${file.getAbsolutePath()}")
+                println("Processing ${file.absolutePath}")
                 val typePositionAndAnnotationData = LinkedHashMap<AnnotationPosition, MutableList<AnnotationData>>()
                 parseAnnotations(file.reader(), { key, annotationData ->
                     val classReader = classToReaderMap.get(key.substringBefore(' '))
@@ -78,9 +78,9 @@ public class WriteAnnotationTest {
                 }, PRINT_TO_CONSOLE)
 
 
-                val actualFile = File.createTempFile("writeAnnotations", file.getName())
+                val actualFile = File.createTempFile("writeAnnotations", file.name)
                 actualFile.createNewFile()
-                println("Saved file: ${actualFile.getAbsolutePath()}")
+                println("Saved file: ${actualFile.absolutePath}")
                 writeAnnotationsToXML(FileWriter(actualFile), typePositionAndAnnotationData)
                 Assert.assertEquals(file.readText().trim().toUnixSeparators(), actualFile.readText().trim().toUnixSeparators())
             }
@@ -90,21 +90,21 @@ public class WriteAnnotationTest {
     fun visitAllInJar(file: File, handler: (String, ClassReader) -> Unit) {
         processJar(file) {
             file, owner, reader ->
-            handler(reader.getClassName().internalNameToCanonical(), reader)
+            handler(reader.className.internalNameToCanonical(), reader)
         }
     }
 
     private fun forAllClassAnnotationPositions(classReader: ClassReader, handler: (AnnotationPosition) -> Unit) {
         classReader.accept(object : ClassVisitor(Opcodes.ASM4) {
             override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                val method = Method(ClassName.fromInternalName(classReader.getClassName()), access, name, desc, signature)
+                val method = Method(ClassName.fromInternalName(classReader.className), access, name, desc, signature)
                 val positions = PositionsForMethod(method)
                 positions.forEachValidPosition(handler)
                 return null
             }
 
             public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-                val field = Field(ClassName.fromInternalName(classReader.getClassName()), access, name, desc, signature, value)
+                val field = Field(ClassName.fromInternalName(classReader.className), access, name, desc, signature, value)
                 handler(getFieldAnnotatedType(field).position)
                 return null
             }

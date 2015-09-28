@@ -51,7 +51,7 @@ class LibPackageNonAffectingDependencyGraphTest {
             appendln()
             appendln("== Non-Affecting Nodes == ")
             appendln("Found ${nonInterestingNodes.size()} out of total $packageCount")
-            for (node in nonInterestingNodes.sortBy(functionNodeComparator)) {
+            for (node in nonInterestingNodes.sortedWith(functionNodeComparator)) {
                 printFunctionNode(this, node)
             }
         }.toString().trim()

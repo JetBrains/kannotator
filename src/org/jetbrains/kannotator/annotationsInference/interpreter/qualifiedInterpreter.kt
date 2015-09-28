@@ -74,10 +74,10 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
     }
 
     private fun valueAtInstruction(_type: Type, insn: AbstractInsnNode): QualifiedValueSet<Q> {
-        if (_type.getSort() == Type.VOID)
+        if (_type.sort == Type.VOID)
             return UNDEFINED_AS_SET
 
-        if (insn.getOpcode() != INSTANCEOF) {
+        if (insn.opcode != INSTANCEOF) {
             val sp = specialValue(_type)
             if (sp != null) return sp
         }
@@ -88,7 +88,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
     }
 
     private fun unsupportedInstruction(insn: AbstractInsnNode): Throwable {
-        return IllegalArgumentException("Unsupported instruction: " + Printer.OPCODES[insn.getOpcode()])
+        return IllegalArgumentException("Unsupported instruction: " + Printer.OPCODES[insn.opcode])
     }
 
     private fun primitiveArrayType(operand: Int): Type {
@@ -152,7 +152,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
     }
 
     public override fun newValue(_type: Type?): QualifiedValueSet<Q> {
-        if (_type == null || _type.getSort() == Type.VOID)
+        if (_type == null || _type.sort == Type.VOID)
             return UNDEFINED_AS_SET
 
         val returnValueSlots = if (method.getReturnType() == VOID_TYPE) 0 else 1
@@ -172,7 +172,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
     }
 
     public override fun newOperation(insn: AbstractInsnNode): QualifiedValueSet<Q> {
-        return when (insn.getOpcode()) {
+        return when (insn.opcode) {
             ACONST_NULL -> valueAtInstruction(NULL_TYPE, insn)
             ICONST_M1, ICONST_0, ICONST_1, ICONST_2, ICONST_3, ICONST_4, ICONST_5 -> valueAtInstruction(INT_TYPE, insn)
             LCONST_0, LCONST_1 -> valueAtInstruction(LONG_TYPE, insn)
@@ -192,7 +192,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
                     is Double -> valueAtInstruction(DOUBLE_TYPE, insn)
                     is String -> valueAtInstruction(Type.getObjectType("java/lang/String"), insn)
                     is Type -> {
-                        when (cst.getSort()) {
+                        when (cst.sort) {
                             OBJECT, ARRAY -> valueAtInstruction(Type.getObjectType("java/lang/Class"), insn)
                             METHOD -> valueAtInstruction(Type.getObjectType("java/lang/invoke/MethodType"), insn)
                             else -> throw illegalLdcConstant()
@@ -215,7 +215,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
     }
 
     public override fun unaryOperation(insn: AbstractInsnNode, value: QualifiedValueSet<Q>): QualifiedValueSet<Q> {
-        return when (insn.getOpcode()) {
+        return when (insn.opcode) {
             INEG, IINC, L2I, F2I, D2I, I2B, I2C, I2S -> valueAtInstruction(INT_TYPE, insn)
             FNEG, I2F, L2F, D2F -> valueAtInstruction(FLOAT_TYPE, insn)
             LNEG, I2L, F2L, D2L -> valueAtInstruction(LONG_TYPE, insn)
@@ -237,7 +237,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
     public override fun binaryOperation(
             insn: AbstractInsnNode, value1: QualifiedValueSet<Q>, value2: QualifiedValueSet<Q>
     ): QualifiedValueSet<Q> {
-        return when (insn.getOpcode()) {
+        return when (insn.opcode) {
             IALOAD, BALOAD, CALOAD, SALOAD, IADD, ISUB, IMUL,
             IDIV, IREM, ISHL, ISHR, IUSHR, IAND, IOR, IXOR -> valueAtInstruction(INT_TYPE, insn)
             FALOAD, FADD, FSUB, FMUL, FDIV, FREM -> valueAtInstruction(FLOAT_TYPE, insn)

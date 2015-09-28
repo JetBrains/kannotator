@@ -25,28 +25,28 @@ fun displayJungGraph<V, E>(
         edgeLabelTransformer: Transformer<E, String>?
 ) {
     val layout = KKLayout(graph);
-    layout.setSize(Dimension(800, 800)); // sets the initial size of the space
+    layout.size = Dimension(800, 800); // sets the initial size of the space
     // The BasicVisualizationServer<V,E> is parameterized by the edge types
     val prim = MinimumSpanningForest2<V, E>(graph, DelegateForest(), DelegateTree.getFactory(), ConstantTransformer(1.0) as Transformer<E, Double>)
-    val tree = prim.getForest();
+    val tree = prim.forest;
     val treeLayout = TreeLayout(tree)
     val graphAsTree = StaticLayout(graph, treeLayout as Transformer<V, Point2D>)
     //    treeLayout.setSize(Dimension(800, 800))
 
     val vv = VisualizationViewer(graphAsTree);
     //    val vv = VisualizationViewer(layout);
-    vv.setPreferredSize(Dimension(850, 850)); //Sets the viewing area size
+    vv.preferredSize = Dimension(850, 850); //Sets the viewing area size
 
     if (vertexLabelTransformer != null) {
-        vv.getRenderContext().setVertexLabelTransformer(vertexLabelTransformer)
+        vv.renderContext.vertexLabelTransformer = vertexLabelTransformer
     }
 
     if (edgeLabelTransformer != null) {
-        vv.getRenderContext().setEdgeLabelTransformer(edgeLabelTransformer)
+        vv.renderContext.edgeLabelTransformer = edgeLabelTransformer
     }
 
     val gm = DefaultModalGraphMouse<V, E>()
-    vv.setGraphMouse(gm)
+    vv.graphMouse = gm
 
     //    MinimumSpanningForest2<Instruction, ControlFlowEdge>(
     //            graph,
@@ -62,10 +62,10 @@ fun displayJungGraph<V, E>(
     //    magnifyViewSupport.activate(true)
 
     val frame = JFrame("Simple Graph View");
-    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.getContentPane()!!.add(vv, BorderLayout.CENTER);
-    frame.getContentPane()!!.add(gm.getModeComboBox()!!, BorderLayout.NORTH);
+    frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE;
+    frame.contentPane!!.add(vv, BorderLayout.CENTER);
+    frame.contentPane!!.add(gm.modeComboBox!!, BorderLayout.NORTH);
 
     frame.pack();
-    frame.setVisible(true);
+    frame.isVisible = true;
 }

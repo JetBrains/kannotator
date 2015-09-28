@@ -23,11 +23,11 @@ import org.jetbrains.kannotator.declarations.ClassName
 public fun AbstractInsnNode.toOpcodeString(): String {
     return when (this) {
         is LineNumberNode -> "Line " + line
-        is LabelNode -> "Label: ${getLabel()}"
+        is LabelNode -> "Label: ${label}"
         else -> {
-            val opcode = getOpcode()
+            val opcode = opcode
             if (opcode == -1) {
-                "No opcode: " + javaClass.getSimpleName()
+                "No opcode: " + javaClass.simpleName
             }
             else {
                 Printer.OPCODES[opcode]!!
@@ -37,7 +37,7 @@ public fun AbstractInsnNode.toOpcodeString(): String {
 }
 
 public fun Type.isPrimitiveOrVoidType() : Boolean {
-    val sort = this.getSort()
+    val sort = this.sort
     return sort == Type.VOID || sort == Type.BOOLEAN || sort == Type.CHAR || sort == Type.BYTE ||
             sort == Type.SHORT || sort == Type.INT || sort == Type.FLOAT || sort == Type.LONG ||
             sort == Type.DOUBLE;
@@ -46,7 +46,7 @@ public fun Type.isPrimitiveOrVoidType() : Boolean {
 public fun ClassReader.forEachMethod(delegateClassVisitor: ClassVisitor? = null, body: (className: String, access: Int, name: String, desc: String, signature: String?) -> Unit) {
     accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
         override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-            body(getClassName(), access, name, desc, signature)
+            body(className, access, name, desc, signature)
             return super.visitMethod(access, name, desc, signature, exceptions)
         }
     }, 0)
@@ -57,7 +57,7 @@ public fun ClassReader.forEachField(
         body: (className: String, access: Int, name: String, desc: String, signature: String?, value: Any?) -> Unit) {
     accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
         public override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-            body(getClassName(), access, name, desc, signature, value)
+            body(className, access, name, desc, signature, value)
             return super.visitField(access, name, desc, signature, value)
         }
     }, 0)
@@ -66,7 +66,7 @@ public fun ClassReader.forEachField(
 public fun ClassReader.forEachMember(
         delegateClassVisitor: ClassVisitor? = null,
         body: (ClassMember) -> Unit) {
-    val className = ClassName.fromInternalName(getClassName())
+    val className = ClassName.fromInternalName(className)
     accept(object : ClassVisitor(Opcodes.ASM4, delegateClassVisitor) {
         public override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
             body(Method(className, access, name, desc, signature))
@@ -83,7 +83,7 @@ public fun ClassReader.forEachMember(
 public fun ClassReader.forEachMethodWithMethodVisitor(body: (className: String, access: Int, name: String, desc: String, signature: String?) -> MethodVisitor?) {
     accept(object : ClassVisitor(Opcodes.ASM4) {
         override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-            return body(getClassName(), access, name, desc, signature)
+            return body(className, access, name, desc, signature)
         }
     }, 0)
 

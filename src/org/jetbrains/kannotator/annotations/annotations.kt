@@ -3,13 +3,13 @@ package org.jetbrains.kannotator.declarations
 interface Annotations<out A: Any> {
     val delegate: Annotations<A>?
 
-    fun get(typePosition: AnnotationPosition): A?
+    operator fun get(typePosition: AnnotationPosition): A?
     fun positions(): Set<AnnotationPosition>
     fun forEach(body: (AnnotationPosition, A) -> Unit)
 }
 
 interface MutableAnnotations<A : Any> : Annotations<A> {
-    fun set(typePosition: AnnotationPosition, annotation: A)
+    operator fun set(typePosition: AnnotationPosition, annotation: A)
 }
 
 public fun <A: Any> MutableAnnotations<A>.setIfNotNull(position: AnnotationPosition, annotation: A?) {

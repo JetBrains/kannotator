@@ -30,7 +30,7 @@ import org.jetbrains.kannotator.util.processJar
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
     libDir.recurse {
         file ->
-        if (file.isFile() && file.getName().endsWith(".jar")) {
+        if (file.isFile && file.name.endsWith(".jar")) {
             println("Processing: $file")
 
             processJar(file, block)
@@ -68,7 +68,7 @@ fun findJarsInLibFolder(): List<File> {
     val jars = ArrayList<File>()
     File("lib").recurse {
         file ->
-        if (file.isFile() && file.getName().endsWith(".jar")) {
+        if (file.isFile && file.name.endsWith(".jar")) {
             jars.add(file)
         }
     }
@@ -78,7 +78,7 @@ fun findJarsInLibFolder(): List<File> {
 
 fun assertEqualsOrCreate(expectedFile: File, actual: String, failOnNoData: Boolean = true): Boolean {
     if (!expectedFile.exists()) {
-        expectedFile.getParentFile()!!.mkdirs()
+        expectedFile.parentFile!!.mkdirs()
         expectedFile.writeText(actual)
         if (failOnNoData) {
             Assert.fail("Expected data file file does not exist: ${expectedFile}. It is created from actual data")
@@ -110,7 +110,7 @@ fun loadNullabilityAnnotations(classSource: ClassSource): Annotations<Nullabilit
 /** collects all annotations keys found in annotations.xml in this file/dirs */
 fun File.collectAllAnnotationKeysTo(allKeyStrings: MutableSet<String>) {
     recurseFiltered(
-            { it.isFile() && it.name == "annotations.xml"},
+            { it.isFile && it.name == "annotations.xml"},
             { it.loadAnnotationKeysTo(allKeyStrings)}
     )
 }

@@ -110,12 +110,12 @@ class IntegratedInferenceTest {
             }
         }
 
-        val jars = findJarsInLibFolder().filter { f -> f.getName().contains(testedJarSubstring) }
+        val jars = findJarsInLibFolder().filter { f -> f.name.contains(testedJarSubstring) }
         Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size(), 1);
 
         val annotationFiles = ArrayList<File>()
         if (existingAnnotationsDir != null) {
-            File(existingAnnotationsDir).recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
+            File(existingAnnotationsDir).recurseFiltered({ f -> f.isFile && f.name.endsWith(".xml") }, { f -> annotationFiles.add(f) })
         }
 
         val jar = jars.first()
@@ -151,13 +151,13 @@ class IntegratedInferenceTest {
 
         for ((inferrerKey, group) in inferenceResult.groupByKey) {
             val testName = inferrerKey.toString().toLowerCase()
-            val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
-            val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
-            outFile.getParentFile()!!.mkdirs()
+            val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.name}.annotations.txt")
+            val outFile = File(expectedFile.path.removeSuffix(".txt") + ".actual.txt")
+            outFile.parentFile!!.mkdirs()
 
             reportConflicts(
                     testName,
-                    File(expectedFile.getPath().removeSuffix(".txt") + ".conflicts.txt"),
+                    File(expectedFile.path.removeSuffix(".txt") + ".conflicts.txt"),
                     annotationIndex!!,
                     group.inferredAnnotations,
                     group.existingAnnotations,
@@ -190,18 +190,18 @@ class IntegratedInferenceTest {
         val nullability = inferenceResult.groupByKey[NULLABILITY_KEY]!!.inferredAnnotations as Annotations<NullabilityAnnotation>
         val mutability = inferenceResult.groupByKey[MUTABILITY_KEY]!!.inferredAnnotations as Annotations<MutabilityAnnotation>
 
-        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
+        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.name}.annotations.xml")
 
         writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
     }
 
     // TODO: what is the reason for this code? - it is never used
     private fun doInferenceAsNotNullTest(testedJarSubstring: String) {
-        val jars = findJarsInLibFolder().filter { f -> f.getName().contains(testedJarSubstring) }
+        val jars = findJarsInLibFolder().filter { f -> f.name.contains(testedJarSubstring) }
         Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size(), 1);
 
         val annotationFiles = ArrayList<File>()
-        File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
+        File("lib").recurseFiltered({ f -> f.isFile && f.name.endsWith(".xml") }, { f -> annotationFiles.add(f) })
 
         val jar = jars.first()
         println("start: $jar")
@@ -235,9 +235,9 @@ class IntegratedInferenceTest {
 
         for ((inferrerKey, annotations) in mapOf(Pair(NULLABILITY_KEY, nullability), Pair(MUTABILITY_KEY, mutability) )) {
             val testName = inferrerKey.toString().toLowerCase()
-            val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.getName()}.annotations.txt")
-            val outFile = File(expectedFile.getPath().removeSuffix(".txt") + ".actual.txt")
-            outFile.getParentFile()!!.mkdirs()
+            val expectedFile = File("testData/inferenceData/integrated/$testName/${jar.name}.annotations.txt")
+            val outFile = File(expectedFile.path.removeSuffix(".txt") + ".actual.txt")
+            outFile.parentFile!!.mkdirs()
 
             val map = TreeMap<String, Any>()
             annotations forEach {
@@ -257,7 +257,7 @@ class IntegratedInferenceTest {
             outFile.delete()
         }
 
-        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.getName()}.annotations.xml")
+        val file = File("testData/inferenceData/integrated/kotlinSignatures/${jar.name}.annotations.xml")
         writeKotlinSignatureAnnotationsToFile(file, nullability, mutability)
     }
 

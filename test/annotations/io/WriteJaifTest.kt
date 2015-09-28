@@ -20,11 +20,11 @@ public class WriteJaifTest {
         val declarationIndex = DeclarationIndexImpl(classSource)
 
         val actualFile = File.createTempFile("writeJaif", specFile.name)
-        println("Saved file: ${actualFile.getAbsolutePath()}")
+        println("Saved file: ${actualFile.absolutePath}")
 
         writeAnnotationsToJaif(
                 declIndex = declarationIndex,
-                destRoot = actualFile.getParentFile()!!,
+                destRoot = actualFile.parentFile!!,
                 fileName = actualFile.name.replace(".jaif", ""),
                 nullability = annotations,
                 propagatedNullabilityPositions = setOf(),
@@ -42,47 +42,47 @@ public class WriteJaifTest {
     }
 
     fun specFile(klass: Class<*>): File {
-        return File("testData/${klass.getName()!!.replace('.', '/')}.jaif")
+        return File("testData/${klass.name!!.replace('.', '/')}.jaif")
     }
 
     @Test fun testNotNullFields() {
-        simpleTest(javaClass<annotations.io.spec.NotNullFields>())
+        simpleTest(annotations.io.spec.NotNullFields::class.java)
     }
 
     @Test fun testNullableFields() {
-        simpleTest(javaClass<annotations.io.spec.NullableFields>())
+        simpleTest(annotations.io.spec.NullableFields::class.java)
     }
 
     @Test fun testNotNullArgs() {
-        simpleTest(javaClass<annotations.io.spec.NotNullArgs>())
+        simpleTest(annotations.io.spec.NotNullArgs::class.java)
     }
 
     @Test fun testNullableArgs() {
-        simpleTest(javaClass<annotations.io.spec.NullableArgs>())
+        simpleTest(annotations.io.spec.NullableArgs::class.java)
     }
 
     @Test fun testNotNullReturn() {
-        simpleTest(javaClass<annotations.io.spec.NotNullReturn>())
+        simpleTest(annotations.io.spec.NotNullReturn::class.java)
     }
 
     @Test fun testNullableReturn() {
-        simpleTest(javaClass<annotations.io.spec.NullableReturn>())
+        simpleTest(annotations.io.spec.NullableReturn::class.java)
     }
 
     @Test fun testNestedClassesA(){
-        simpleTest(javaClass<annotations.io.spec.Nested.A>())
+        simpleTest(annotations.io.spec.Nested.A::class.java)
     }
 
     @Test fun testPackage() {
         doTest(
                 File("testData/annotations/io/spec/package.jaif"),
-                javaClass<annotations.io.spec.Nested.A>(),
-                javaClass<annotations.io.spec.NotNullArgs>(),
-                javaClass<annotations.io.spec.NotNullFields>(),
-                javaClass<annotations.io.spec.NotNullReturn>(),
-                javaClass<annotations.io.spec.NullableArgs>(),
-                javaClass<annotations.io.spec.NullableFields>(),
-                javaClass<annotations.io.spec.NullableReturn>())
+                annotations.io.spec.Nested.A::class.java,
+                annotations.io.spec.NotNullArgs::class.java,
+                annotations.io.spec.NotNullFields::class.java,
+                annotations.io.spec.NotNullReturn::class.java,
+                annotations.io.spec.NullableArgs::class.java,
+                annotations.io.spec.NullableFields::class.java,
+                annotations.io.spec.NullableReturn::class.java)
     }
 
 }

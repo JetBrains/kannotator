@@ -22,10 +22,10 @@ fun main(args: Array<String>) {
     val declarationIndex = DeclarationIndexImpl(FileBasedClassSource(listOf(jar)))
 
     val annotationFiles = ArrayList<File>()
-    File("lib").recurseFiltered({ f -> f.isFile() && f.getName().endsWith(".xml") }, { f -> annotationFiles.add(f) })
+    File("lib").recurseFiltered({ f -> f.isFile && f.name.endsWith(".xml") }, { f -> annotationFiles.add(f) })
 
     val annotations = loadAnnotationsFromLogs(
-            listOf(File("testData/inferenceData/integrated/nullability/${jar.getName()}.annotations.txt")),
+            listOf(File("testData/inferenceData/integrated/nullability/${jar.name}.annotations.txt")),
             declarationIndex
     )
 

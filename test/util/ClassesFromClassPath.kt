@@ -29,7 +29,7 @@ class Classes(val classes: Collection<Class<*>>) : ClassSource {
 }
 
 fun getClassReader(klass: Class<*>): ClassReader {
-    return getClassReader(klass.getName())
+    return getClassReader(klass.name)
 }
 
 fun getClassReader(className: String): ClassReader {
@@ -43,7 +43,7 @@ fun getClassReader(className: String): ClassReader {
 }
 
 fun getClassAsStream(className: String): InputStream? {
-    val appClassLoader = javaClass<ClassesFromClassPath>().getClassLoader()
+    val appClassLoader = ClassesFromClassPath::class.java.classLoader
     if (appClassLoader == null) {
         return null
     }

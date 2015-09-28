@@ -29,7 +29,7 @@ class ReadAnnotationsTest {
         })
 
         println(actualSB)
-        val expectedFile = File(file.getAbsolutePath().replace(".xml".toRegex(), ".txt"))
+        val expectedFile = File(file.absolutePath.replace(".xml".toRegex(), ".txt"))
 
         val success = assertEqualsOrCreate(expectedFile, actualSB.toString(), false)
         if (!success) {
@@ -41,7 +41,7 @@ class ReadAnnotationsTest {
     @Test fun readAnnotationsTest() {
         File("testData/annotations/read").recurse {
             file ->
-            if (file.isFile() && file.getName().endsWith(".xml")) {
+            if (file.isFile && file.name.endsWith(".xml")) {
                 println("Processing: $file")
                 doTest(file)
             }

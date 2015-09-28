@@ -10,13 +10,13 @@ class LibraryCheckboxTreeRenderer: CheckboxTreeCellRenderer() {
             selected: Boolean, expanded: Boolean, leaf: Boolean, row: Int, hasFocus: Boolean): Unit {
         when (value) {
             is LibraryCheckTreeNode -> {
-                getTextRenderer().setIcon(PlatformIcons.LIBRARY_ICON)
-                getTextRenderer().append(value.library.getName() ?: "<no name>")
+                textRenderer.icon = PlatformIcons.LIBRARY_ICON
+                textRenderer.append(value.library.name ?: "<no name>")
             }
             is JarFileCheckTreeNode -> {
-                getTextRenderer().setIcon(value.jarFile.getFileType().getIcon())
-                getTextRenderer().append(value.jarFile.getName())
-                getTextRenderer().append(" (${value.jarFile.getPath()})", SimpleTextAttributes.GRAYED_ATTRIBUTES)
+                textRenderer.icon = value.jarFile.fileType.icon
+                textRenderer.append(value.jarFile.name)
+                textRenderer.append(" (${value.jarFile.path})", SimpleTextAttributes.GRAYED_ATTRIBUTES)
             }
             else -> { /* Do nothing */ }
         }

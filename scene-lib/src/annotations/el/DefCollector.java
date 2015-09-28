@@ -130,7 +130,7 @@ public abstract class DefCollector {
         for (ATypeElement b : m.bounds.values())
             collect(b);
         collect((/*@ReadOnly*/ AElement) m);
-        collect((/*@ReadOnly*/ ATypeElement) m.returnType);
+        collect(m.returnType);
         collect(m.receiver);
         for (AElement p : m.parameters.values())
             collect(p);

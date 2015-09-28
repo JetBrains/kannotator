@@ -28,7 +28,7 @@ fun loadMethodParameterNames(method: Method, node: MethodNode) {
 
         names.add(local?.name ?: NO_PARAMETER_NAME)
 
-        index += paramType.getSize()
+        index += paramType.size
     }
 
     method.setParameterNames(names)

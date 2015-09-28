@@ -91,7 +91,7 @@ class SCCFinderTest {
             val componentNodes = finder.findComponent(requestNode)
 
             Assert.assertEquals("Invalid component nodes set for ${requestNode} node",
-                    nodes.sortBy(nodesComparator), componentNodes.sortBy(nodesComparator))
+                    nodes.sortedWith(nodesComparator), componentNodes.sortedWith(nodesComparator))
         }
 
         for (component in componentAssertion) {

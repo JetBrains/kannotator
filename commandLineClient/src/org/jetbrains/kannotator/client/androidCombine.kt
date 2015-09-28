@@ -117,7 +117,7 @@ fun checkAnnotations(annotations1: Annotations<NullabilityAnnotation>, annotatio
 
 fun File.annotationFiles(): List<File> {
     val xmlAnnotations = ArrayList<File>()
-    this.recurseFiltered({ it.isFile() && it.getName().endsWith(".xml") }, {
+    this.recurseFiltered({ it.isFile && it.name.endsWith(".xml") }, {
         xmlAnnotations.add(it)
     })
     return xmlAnnotations

@@ -384,7 +384,7 @@ public final class IndexFileParser {
             // interested in this annotation,
             // so should be interested in subannotations
             assert ab != null;
-            AnnotationBuilder ab2 = (AnnotationBuilder) ab;
+            AnnotationBuilder ab2 = ab;
             SceneAnnotation suba = parseAnnotationBody(d, ab2);
             assert aft.isValidValue(suba);
             return suba;
@@ -433,7 +433,7 @@ public final class IndexFileParser {
             throw new ParseException("The annotation type " + d.name
                     + " has no field called " + fieldName);
         }
-        AnnotationFieldType aft = (AnnotationFieldType) aft1;
+        AnnotationFieldType aft = aft1;
         if (aft instanceof ArrayAFT) {
             ArrayAFT aaft = (ArrayAFT) aft;
             if (aaft.elementType == null) {
@@ -536,7 +536,7 @@ public final class IndexFileParser {
             if (ad == null) {
                 throw new ParseException("Annotation type " + name + " used as a field before it is defined");
             }
-            return new AnnotationAFT((AnnotationDef) ad);
+            return new AnnotationAFT(ad);
         } else {
             throw new ParseException(
                     "Expected the beginning of an annotation field type: "

@@ -12,20 +12,20 @@ import org.jetbrains.kannotator.plugin.ideaUtils.toIO
 
 public class AnnotateJarAction : AnAction() {
     public override fun actionPerformed(e: AnActionEvent?) {
-        annotateJars(e?.getProject()!!)
+        annotateJars(e?.project!!)
     }
 
     public fun annotateJars(project: Project) {
         val dlg = InferAnnotationDialog(project)
         if (dlg.showAndGet()) {
-            val libToAnnotatedLib = dlg.getCheckedLibToJarFiles()
-                    .map { AnnotatedLibrary(it.key.getName()!!, it.value.toIO()) to it.key }.toMap()
+            val libToAnnotatedLib = dlg.checkedLibToJarFiles
+                    .map { AnnotatedLibrary(it.key.name!!, it.value.toIO()) to it.key }.toMap()
 
             val params = IdeaInferenceParams(
                     InferenceParams(
                             inferNullabilityAnnotations = dlg.shouldInferNullabilityAnnotations(),
                             mutability = dlg.shouldInferKotlinAnnotations(),
-                            outputPath = dlg.getConfiguredOutputPath(),
+                            outputPath = dlg.configuredOutputPath,
                             libraries = libToAnnotatedLib.keySet(),
                             useOneCommonTree = dlg.useOneCommonTree(),
                             outputFormat = AnnotationsFormat.XML,

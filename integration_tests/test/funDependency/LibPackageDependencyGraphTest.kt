@@ -40,14 +40,14 @@ class LibPackageDependencyGraphTest {
 
         val actual = StringBuilder {
             appendln("== All Nodes == ")
-            for (node in graph.nodes.sortBy(functionNodeComparator)) {
+            for (node in graph.nodes.sortedWith(functionNodeComparator)) {
                 printFunctionNode(this, node)
             }
 
             appendln()
             appendln("== No Outgoing Nodes == ")
 
-            for (node in graph.sinkNodes.sortBy(functionNodeComparator)) {
+            for (node in graph.sinkNodes.sortedWith(functionNodeComparator)) {
                 printFunctionNode(this, node)
             }
         }.toString().trim()

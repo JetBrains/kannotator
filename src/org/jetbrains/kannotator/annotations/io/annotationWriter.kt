@@ -158,7 +158,7 @@ fun makeAnnotationsMap(
                 annotations[pos] = arrayListOf<AnnotationData>(data)
                 if (pos in propagatedNullabilityPositions) {
                     val map = HashMap<String, String>()
-                    map["value"] = "{${javaClass<NullabilityKey>().getName()}.class}"
+                    map["value"] = "{${NullabilityKey::class.java.name}.class}"
                     annotations[pos]!!.add(AnnotationDataImpl(JB_PROPAGATED, map))
                 }
             }

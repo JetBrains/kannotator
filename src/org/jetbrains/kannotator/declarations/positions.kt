@@ -3,7 +3,7 @@ package org.jetbrains.kannotator.declarations
 import java.util.ArrayList
 
 class PositionsForMethod(val method: Method) {
-    public fun get(positionWithinMethod: PositionWithinDeclaration): AnnotatedType {
+    operator public fun get(positionWithinMethod: PositionWithinDeclaration): AnnotatedType {
         return AnnotatedTypeImpl(
                 MethodTypePositionImpl(method, positionWithinMethod),
                 positionWithinMethod.toString(),

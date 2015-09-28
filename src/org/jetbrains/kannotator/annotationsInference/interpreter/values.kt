@@ -39,7 +39,7 @@ val TypedValue.size: Int
     get() = when (_type) {
         UNDEFINED_TYPE -> 1
         PRIMITIVE_TYPE_SIZE_2 -> 2
-        else -> _type.getSize()
+        else -> _type.size
     }
 
 val TypedValue.interesting: Boolean

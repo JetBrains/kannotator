@@ -66,38 +66,38 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : N
         val field = foundField ?: throw AssertionError("Field $fieldName wasn't found")
         val resultFieldAnnotation = doInferAnnotations(getInitialAnnotations())[getFieldTypePosition(field)]
 
-        val expectedReturnInfo = reflectedField.getAnnotations().toAnnotation()
+        val expectedReturnInfo = reflectedField.annotations.toAnnotation()
 
         checkFieldInferredAnnotations(expectedReturnInfo, resultFieldAnnotation as Annotation?, field)
     }
 
     protected fun doTest() {
         val methodName = getName()!!
-        val reflectMethod = testClass.getMethods().firstOrNull { m -> m.getName() == methodName }!!
+        val reflectMethod = testClass.methods.firstOrNull { m -> m.name == methodName }!!
         val methodDescriptor = Type.getMethodDescriptor(reflectMethod)
 
-        val classReader = getClassReader(testClass.getName())
+        val classReader = getClassReader(testClass.name)
 
         // Bad: Reading class source twice
         val declarationIndex = DeclarationIndexImpl(object : ClassSource { override fun forEach(body: (ClassReader) -> Unit) = body(classReader) })
         val method = declarationIndex.findMethod(ClassName.fromInternalName(Type.getInternalName(testClass)), methodName, methodDescriptor)
-        assert(method != null, "Tested method $methodName wasn't found in index")
+        assert(method != null) { "Tested method $methodName wasn't found in index" }
 
         val resultAnnotations = doInferAnnotations(getInitialAnnotations())
 
         val positions = PositionsForMethod(method!!)
-        val expectedReturnInfo = reflectMethod.getAnnotations().toAnnotation()
+        val expectedReturnInfo = reflectMethod.annotations.toAnnotation()
 
         val parametersMap = HashMap<Int, A>()
-        for ((paramIndex, paramAnnotations) in reflectMethod.getParameterAnnotations().indexed) {
+        for ((paramIndex, paramAnnotations) in reflectMethod.parameterAnnotations.indexed) {
             val annotation = paramAnnotations.toAnnotation()
-            val shift = if (Modifier.isStatic(reflectMethod.getModifiers())) 0 else 1
+            val shift = if (Modifier.isStatic(reflectMethod.modifiers)) 0 else 1
             if (annotation != null) {
                 parametersMap[paramIndex + shift] = annotation
             }
         }
 
-        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.getParameterTypes()!!.size(), positions)
+        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.parameterTypes!!.size(), positions)
     }
 
     fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,

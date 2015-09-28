@@ -54,6 +54,6 @@ class MethodHierarchyBuilder(
             }
         }
 
-        return toGraph() as HierarchyGraph<Method>
+        return toGraph()
     }
 }

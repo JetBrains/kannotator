@@ -118,10 +118,10 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             executedFrame: Frame<QualifiedValueSet<Q>>,
             analyzer: Analyzer<QualifiedValueSet<Q>>
     ): Collection<ResultFrame<QualifiedValueSet<Q>>> {
-        val defFrame = super<BasicFrameTransformer>.getPseudoResults(insnNode, preFrame, executedFrame, analyzer)
+        val defFrame = super.getPseudoResults(insnNode, preFrame, executedFrame, analyzer)
         val insnIndex = analyzer.getInstructionIndex(insnNode)
 
-        return when (insnNode.getOpcode()) {
+        return when (insnNode.opcode) {
             GETFIELD, ARRAYLENGTH, ATHROW, MONITORENTER, MONITOREXIT -> {
                 singletonOrEmptyResult(imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull), insnIndex)
             }
@@ -164,7 +164,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             executedFrame: Frame<QualifiedValueSet<Q>>,
             analyzer: Analyzer<QualifiedValueSet<Q>>
     ): Frame<QualifiedValueSet<Q>>? {
-        val defFrame = super<BasicFrameTransformer>.getPostFrame(insnNode, edgeKind, preFrame, executedFrame, analyzer)
+        val defFrame = super.getPostFrame(insnNode, edgeKind, preFrame, executedFrame, analyzer)
 
         fun getPostFrameForSimpleDereferensing(stackIndexFromTop: Int): Frame<QualifiedValueSet<Q>>? =
             if (edgeKind == EdgeKind.DEFAULT)
@@ -189,8 +189,8 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             } else defFrame
 
         fun getPostFrameForNullCheck(): Frame<QualifiedValueSet<Q>>? {
-            val nullEdge = if (insnNode.getOpcode() == IFNULL) EdgeKind.TRUE else EdgeKind.FALSE
-            val nonNullEdge = if (insnNode.getOpcode() == IFNULL) EdgeKind.FALSE else EdgeKind.TRUE
+            val nullEdge = if (insnNode.opcode == IFNULL) EdgeKind.TRUE else EdgeKind.FALSE
+            val nonNullEdge = if (insnNode.opcode == IFNULL) EdgeKind.FALSE else EdgeKind.TRUE
             return when (edgeKind) {
                 nonNullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNotNull)
                 nullEdge -> imposeNullabilityOnFrameValues(executedFrame.copy(), preFrame.getStackFromTop(0), true, imposeNull)
@@ -204,15 +204,15 @@ class NullabilityFrameTransformer<Q: Qualifier>(
                 var origFrame: Frame<QualifiedValueSet<Q>>? = null
                 conditions.values.any { condition ->
                     val origInsnNode = condition.base.createdAt
-                    val found = (origInsnNode != null && origInsnNode.getOpcode() == INSTANCEOF)
+                    val found = (origInsnNode != null && origInsnNode.opcode == INSTANCEOF)
                     if (found)
                         origFrame = analyzer.getInstructionFrame(origInsnNode!!)
                     found
                 }
                 origFrame
             } else null
-            val nonNullEdge = if (insnNode.getOpcode() == IFEQ) EdgeKind.FALSE else EdgeKind.TRUE
-            val nullableEdge = if (insnNode.getOpcode() == IFEQ) EdgeKind.TRUE else EdgeKind.FALSE
+            val nonNullEdge = if (insnNode.opcode == IFEQ) EdgeKind.FALSE else EdgeKind.TRUE
+            val nullableEdge = if (insnNode.opcode == IFEQ) EdgeKind.TRUE else EdgeKind.FALSE
 
             return if (instanceOfFrame != null) {
                 when (edgeKind) {
@@ -224,7 +224,7 @@ class NullabilityFrameTransformer<Q: Qualifier>(
             } else defFrame
         }
 
-        return when (insnNode.getOpcode()) {
+        return when (insnNode.opcode) {
             GETFIELD, ARRAYLENGTH, ATHROW, MONITORENTER, MONITOREXIT -> {
                 getPostFrameForSimpleDereferensing(0)
             }
@@ -262,7 +262,7 @@ class NullabilityQualifierEvaluator(
     override fun evaluateQualifier(baseValue: TypedValue): Nullability {
         val createdAt = baseValue.createdAt
         if (createdAt != null) {
-            return when (createdAt.getOpcode()) {
+            return when (createdAt.opcode) {
                 NEW, NEWARRAY, ANEWARRAY, MULTIANEWARRAY -> NOT_NULL
                 ACONST_NULL -> NULL_
                 LDC -> NOT_NULL
@@ -417,7 +417,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
         val fieldInfoMap = HashMap<Field, Nullability>()
 
         for (insnNode in methodNode.instructions) {
-            when (insnNode.getOpcode()) {
+            when (insnNode.opcode) {
                 PUTSTATIC, PUTFIELD -> {
                     val fieldNode = insnNode as FieldInsnNode
                     val field = declarationIndex.findField(ClassName.fromInternalName(fieldNode.owner), fieldNode.name)
@@ -450,7 +450,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
 
         for (returnInsn in analysisResult.returnInstructions) {
             val resultFrame = analysisResult.mergedFrames[returnInsn]!!
-            if (returnInsn.getOpcode() == ARETURN) {
+            if (returnInsn.opcode == ARETURN) {
                 val returnValues = resultFrame.getStackFromTop(0)
                 val nullability = returnValues.lub()
                 returnValueInfo = lub(returnValueInfo, nullability)
@@ -472,7 +472,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
         for (insn in insnSet) {
             val frame = analysisResult.mergedFrames[insn]!! as InferenceFrame<QualifiedValueSet<Q>>
 
-            val lostValue = frame.getLostValue()
+            val lostValue = frame.lostValue
             if (lostValue != null) {
                 for (value in lostValue.values) {
                     if (value.base.interesting) {
@@ -500,7 +500,7 @@ fun <Q: Qualifier> buildMethodNullabilityAnnotations(
             val frame = analysisResult.mergedFrames[insn]!!
             val localParamInfoMap = HashMap<Int, Nullability>()
 
-            for (i in 0..frame.getLocals() - 1) {
+            for (i in 0..frame.locals - 1) {
                 val localVar = frame.getLocal(i)
                 if (localVar != null) {
                     for (value in localVar.values) {

@@ -69,18 +69,18 @@ public class IdeaInferenceTask(val taskProject: Project,
         var numberOfProcessedMethods = 0
 
         override fun jarProcessingStarted(fileName: String, libraryName: String) {
-            indicator.setText("Inferring for $fileName in $libraryName library. File: ${numberOfJarsFinished + 1} / $totalAmountOfJars.");
+            indicator.text = "Inferring for $fileName in $libraryName library. File: ${numberOfJarsFinished + 1} / $totalAmountOfJars.";
         }
 
         override fun processingStarted() {
-            indicator.setText2("Initializing...");
+            indicator.text2 = "Initializing...";
             numberOfMethods = 0
             numberOfProcessedMethods = 0
         }
 
         override fun methodsProcessingStarted(methodCount: Int) {
             numberOfMethods = methodCount
-            indicator.setText2("Inferring: 0%");
+            indicator.text2 = "Inferring: 0%";
         }
 
         override fun processingComponentFinished(methods: Collection<Method>) {
@@ -88,31 +88,31 @@ public class IdeaInferenceTask(val taskProject: Project,
 
             if (numberOfMethods != 0) {
                 val progressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()
-                indicator.setText2("Inferring: $progressPercent%");
+                indicator.text2 = "Inferring: $progressPercent%";
             } else {
-                indicator.setText2("Inferring: 100%");
+                indicator.text2 = "Inferring: 100%";
             }
         }
 
         override fun jarProcessingFinished(fileName: String, libraryName: String) {
             numberOfJarsFinished++
-            indicator.setText2("Saving...")
+            indicator.text2 = "Saving..."
         }
 
         override fun processingAborted() {
-            val project = getProject()!!
-            if (!project.isDisposed() && project.isOpen()) {
+            val project = project!!
+            if (!project.isDisposed && project.isOpen) {
                 Notifications.Bus.notify(
                         Notification("KAnnotator", "Annotating was canceled", "Annotating was canceled", NotificationType.INFORMATION), project)
             }
         }
-        fun isCanceled() = indicator.isCanceled()
+        fun isCanceled() = indicator.isCanceled
 
         //All libraries are annotated
         override fun allFilesAreAnnotated() {
-            val project = getProject()!!
+            val project = project!!
 
-            if (!project.isDisposed() && project.isOpen()) {
+            if (!project.isDisposed && project.isOpen) {
                 val numberOfFiles = parameters.annotatedToIdeaLibs.keySet().fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size() })
                 val message = when(numberOfFiles) {
                     0 -> "No files were annotated"
@@ -160,7 +160,7 @@ public class IdeaInferenceTask(val taskProject: Project,
                 val outputDirectory = LocalFileSystem.getInstance()!!.refreshAndFindFileByPath(parameters.inference.outputPath)
                 if (parameters.addAnnotationsRoots) {
                     outputDirectory?.refresh(true, true, Runnable {
-                        ProjectRootManagerEx.getInstanceEx(getProject()!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
+                        ProjectRootManagerEx.getInstanceEx(project!!)!!.makeRootsChange(EmptyRunnable.getInstance(), false, true)
                     })
                 } else {
                     outputDirectory?.refresh(true, true)
@@ -171,11 +171,11 @@ public class IdeaInferenceTask(val taskProject: Project,
 
     private fun assignAnnotationsToLibrary(library: Library, annotationRootDir: VirtualFile, removeOtherRoots: Boolean) {
         runInsideWriteAction {
-            val modifiableModel = library.getModifiableModel()
+            val modifiableModel = library.modifiableModel
             try {
                 if (removeOtherRoots) {
                     modifiableModel.getFiles(AnnotationOrderRootType.getInstance())
-                            .forEach { modifiableModel.removeRoot(it.getUrl(), AnnotationOrderRootType.getInstance()) }
+                            .forEach { modifiableModel.removeRoot(it.url, AnnotationOrderRootType.getInstance()) }
                 }
 
                 modifiableModel.addRoot(annotationRootDir, AnnotationOrderRootType.getInstance())

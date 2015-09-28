@@ -31,12 +31,12 @@ fun buildFieldsDependencyInfos(declarationIndex: DeclarationIndex, classSource: 
     classSource.forEach { reader ->
         reader.accept(object : ClassVisitor(Opcodes.ASM4) {
             override fun visitMethod(access: Int, name: String, desc: String, signature: String?, exceptions: Array<out String>?): MethodVisitor? {
-                val method = declarationIndex.findMethod(ClassName.fromInternalName(reader.getClassName()), name, desc)
+                val method = declarationIndex.findMethod(ClassName.fromInternalName(reader.className), name, desc)
                 return if (method != null) FieldUsageMethodVisitor(method, declarationIndex, resultMap) else null
             }
 
             override fun visitField(access: Int, name: String, desc: String, signature: String?, value: Any?): FieldVisitor? {
-                val field = declarationIndex.findField(ClassName.fromInternalName(reader.getClassName()), name)
+                val field = declarationIndex.findField(ClassName.fromInternalName(reader.className), name)
                 if (field != null) {
                     val checkedField: Field = field
                     resultMap.getOrPut(checkedField) { FieldDependencyInfoImpl(field) }

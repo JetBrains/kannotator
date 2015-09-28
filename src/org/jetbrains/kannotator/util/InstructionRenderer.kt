@@ -20,13 +20,13 @@ public class AsmInstructionRenderer {
 
     public fun render(insn: AbstractInsnNode): String {
         if (insn is LabelNode) {
-            return labelName(insn.getLabel())
+            return labelName(insn.label)
         }
         if (insn is LineNumberNode) {
-            return "LINENUMBER ${insn.line} ${labelName(insn.start.getLabel())}"
+            return "LINENUMBER ${insn.line} ${labelName(insn.start.label)}"
         }
         if (insn is JumpInsnNode) {
-            return Printer.OPCODES[insn.getOpcode()] + " ${labelName(insn.label.getLabel())}"
+            return Printer.OPCODES[insn.opcode] + " ${labelName(insn.label.label)}"
         }
         val textifier = Textifier()
         insn.accept(TraceMethodVisitor(textifier))

@@ -91,7 +91,7 @@ public final /*@ReadOnly*/ class BasicAFT extends ScalarAFT {
     @Override
     public String format(Object o) {
         if (type == String.class) {
-            return "\"" + (String)o + "\"";
+            return "\"" + o + "\"";
         } else {
             return o.toString();
         }

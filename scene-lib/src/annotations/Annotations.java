@@ -91,7 +91,7 @@ public abstract class Annotations {
     }
 
     static {
-        noAnnotations = Collections.<SceneAnnotation> emptySet();
+        noAnnotations = Collections.emptySet();
         noFieldTypes = Collections.<String, AnnotationFieldType> emptyMap();
         noFieldValues = Collections.<String, Object> emptyMap();
 

@@ -23,7 +23,7 @@ class FieldDependencyTest {
         val infos = buildFieldsDependencyInfos(util.ClassPathDeclarationIndex, classSource)
 
         val actual = StringBuilder {
-            for (fieldInfo in infos.values().sortBy{it.field.name}.reverse()) {
+            for (fieldInfo in infos.values().sortBy{it.field.name}.reversed()) {
                 printFieldInfo(this, fieldInfo)
             }
         }.toString().trim()

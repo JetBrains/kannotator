@@ -18,7 +18,7 @@ public final class AMethod extends ABlock {
     @NotNull
     /** The method's annotated type parameter bounds */
     public final VivifyingMap<BoundLocation, ATypeElement> bounds =
-            ATypeElement.<BoundLocation>newVivifyingLHMap_ATE();
+            ATypeElement.newVivifyingLHMap_ATE();
 
     @NotNull
     /** The method's annotated return type */
@@ -31,10 +31,10 @@ public final class AMethod extends ABlock {
     @NotNull
     /** The method's annotated parameters; map key is parameter index */
     public final VivifyingMap<Integer, AElement> parameters =
-            AElement.<Integer>newVivifyingLHMap_AET();
+            AElement.newVivifyingLHMap_AET();
 
     public final VivifyingMap<TypeIndexLocation, ATypeElement> throwsException =
-        ATypeElement.<TypeIndexLocation>newVivifyingLHMap_ATE();
+        ATypeElement.newVivifyingLHMap_ATE();
 
     private final String methodName;
 

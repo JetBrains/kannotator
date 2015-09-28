@@ -20,22 +20,22 @@ public class AExpression extends AElement {
     @NotNull
     /** The method's annotated typecasts; map key is the offset of the checkcast bytecode */
     public final VivifyingMap<RelativeLocation, ATypeElement> typecasts =
-            ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
+            ATypeElement.newVivifyingLHMap_ATE();
 
     @NotNull
     /** The method's annotated "instanceof" tests; map key is the offset of the instanceof bytecode */
     public final VivifyingMap<RelativeLocation, ATypeElement> instanceofs =
-            ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
+            ATypeElement.newVivifyingLHMap_ATE();
 
     @NotNull
     /** The method's annotated "new" invocations; map key is the offset of the new bytecode */
     public final VivifyingMap<RelativeLocation, ATypeElement> news =
-            ATypeElement.<RelativeLocation>newVivifyingLHMap_ATE();
+            ATypeElement.newVivifyingLHMap_ATE();
 
     @NotNull
     /** The method's annotated insert-typecast invocations; map key is the AST path to the insertion place */
     public final VivifyingMap<ASTPath, ATypeElementWithType> insertTypecasts =
-            ATypeElementWithType.<ASTPath>newVivifyingLHMap_ATEWT();
+            ATypeElementWithType.newVivifyingLHMap_ATEWT();
 
     protected Object id;
 

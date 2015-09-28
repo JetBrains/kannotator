@@ -31,75 +31,75 @@ class ConflictResolutionTest {
 
     @Test fun conflicts() {
         doTest(Classes(
-                javaClass<Conflicts.Base>(),
-                javaClass<Conflicts.Child>()
+                Conflicts.Base::class.java,
+                Conflicts.Child::class.java
         ))
     }
 
     @Test fun linearHierarchy() {
         doTest(Classes(
-                javaClass<LinearHierarchy.A>(),
-                javaClass<LinearHierarchy.B>(),
-                javaClass<LinearHierarchy.C>()
+                LinearHierarchy.A::class.java,
+                LinearHierarchy.B::class.java,
+                LinearHierarchy.C::class.java
         ))
     }
 
     @Test fun yHierarchy() {
         doTest(Classes(
-                javaClass<YHierarchy.A>(),
-                javaClass<YHierarchy.A1>(),
-                javaClass<YHierarchy.B>(),
-                javaClass<YHierarchy.C>()
+                YHierarchy.A::class.java,
+                YHierarchy.A1::class.java,
+                YHierarchy.B::class.java,
+                YHierarchy.C::class.java
         ))
     }
 
     @Test fun diamondHierarchy() {
         doTest(Classes(
-                javaClass<DiamondHierarchy.Top>(),
-                javaClass<DiamondHierarchy.A>(),
-                javaClass<DiamondHierarchy.A1>(),
-                javaClass<DiamondHierarchy.B>(),
-                javaClass<DiamondHierarchy.C>()
+                DiamondHierarchy.Top::class.java,
+                DiamondHierarchy.A::class.java,
+                DiamondHierarchy.A1::class.java,
+                DiamondHierarchy.B::class.java,
+                DiamondHierarchy.C::class.java
         ))
     }
 
     @Test fun xHierarchyHollowMiddle() {
         doTest(Classes(
-                javaClass<XHierarchyHollowMiddle.Top1>(),
-                javaClass<XHierarchyHollowMiddle.Top2>(),
-                javaClass<XHierarchyHollowMiddle.Middle>(),
-                javaClass<XHierarchyHollowMiddle.Leaf1>(),
-                javaClass<XHierarchyHollowMiddle.Leaf2>()
+                XHierarchyHollowMiddle.Top1::class.java,
+                XHierarchyHollowMiddle.Top2::class.java,
+                XHierarchyHollowMiddle.Middle::class.java,
+                XHierarchyHollowMiddle.Leaf1::class.java,
+                XHierarchyHollowMiddle.Leaf2::class.java
         ))
     }
 
     @Test fun xHierarchyAnnotatedMiddle() {
         doTest(Classes(
-                javaClass<XHierarchyAnnotatedMiddle.Top1>(),
-                javaClass<XHierarchyAnnotatedMiddle.Top2>(),
-                javaClass<XHierarchyAnnotatedMiddle.Middle>(),
-                javaClass<XHierarchyAnnotatedMiddle.Leaf1>(),
-                javaClass<XHierarchyAnnotatedMiddle.Leaf2>()
+                XHierarchyAnnotatedMiddle.Top1::class.java,
+                XHierarchyAnnotatedMiddle.Top2::class.java,
+                XHierarchyAnnotatedMiddle.Middle::class.java,
+                XHierarchyAnnotatedMiddle.Leaf1::class.java,
+                XHierarchyAnnotatedMiddle.Leaf2::class.java
         ))
     }
 
     @Test fun xHierarchyConflictMiddle() {
         doTest(Classes(
-                javaClass<XHierarchyConflictMiddle.Top1>(),
-                javaClass<XHierarchyConflictMiddle.Top2>(),
-                javaClass<XHierarchyConflictMiddle.Middle>(),
-                javaClass<XHierarchyConflictMiddle.Leaf1>(),
-                javaClass<XHierarchyConflictMiddle.Leaf2>()
+                XHierarchyConflictMiddle.Top1::class.java,
+                XHierarchyConflictMiddle.Top2::class.java,
+                XHierarchyConflictMiddle.Middle::class.java,
+                XHierarchyConflictMiddle.Leaf1::class.java,
+                XHierarchyConflictMiddle.Leaf2::class.java
         ))
     }
 
     @Test fun aHierarchy() {
         doTest(Classes(
-                javaClass<AHierarchy.A>(),
-                javaClass<AHierarchy.B>(),
-                javaClass<AHierarchy.B1>(),
-                javaClass<AHierarchy.C>(),
-                javaClass<AHierarchy.C1>()
+                AHierarchy.A::class.java,
+                AHierarchy.B::class.java,
+                AHierarchy.B1::class.java,
+                AHierarchy.C::class.java,
+                AHierarchy.C1::class.java
         ))
     }
 }

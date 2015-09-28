@@ -44,7 +44,7 @@ class AnnotationKeyStringMatchingTest {
         }
 
         assertTrue(
-                "Unmatched annotations keys:\n" + allKeyStringsFromAnnotationFiles.toSortedList().join("\n"),
+                "Unmatched annotations keys:\n" + allKeyStringsFromAnnotationFiles.sorted().join("\n"),
                 allKeyStringsFromAnnotationFiles.isEmpty()
         )
     }
