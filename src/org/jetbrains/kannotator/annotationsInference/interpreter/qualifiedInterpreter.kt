@@ -17,7 +17,7 @@ val EMPTY_VALUE_SET = qualifiedValueSetOf<Nothing>()
 
 object TypedValueMergeHashingStrategy : HashingStrategy<QualifiedValue<*>> {
     public override fun equals(object1: QualifiedValue<*>?, object2: QualifiedValue<*>?): Boolean {
-        if (object1 identityEquals object2) return true
+        if (object1 === object2) return true
         if (object1 == null || object2 == null) return false
 
         // Interesting values don't merge
@@ -132,7 +132,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
 
         for (u in otherValues)
             for (v in vs1.values) {
-                if (v identityEquals u)
+                if (v === u)
                     continue
 
                 val interestingInstances = u.base.interesting && v.base.interesting &&

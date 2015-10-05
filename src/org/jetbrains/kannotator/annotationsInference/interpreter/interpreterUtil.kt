@@ -164,7 +164,7 @@ class QualifiedValueHashingStrategy<Q: Qualifier, I: Qualifier>(
         val qualifierSet: QualifierSet<I>
 ) : HashingStrategy<QualifiedValue<Q>> {
     public override fun equals(object1: QualifiedValue<Q>?, object2: QualifiedValue<Q>?): Boolean {
-        if (object1 identityEquals object2) return true
+        if (object1 === object2) return true
         if (object1 == null || object2 == null) return false
 
         if (object1.base.id != object2.base.id) return false
