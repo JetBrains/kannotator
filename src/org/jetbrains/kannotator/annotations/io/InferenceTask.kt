@@ -1,19 +1,21 @@
 package org.jetbrains.kannotator.annotations.io
 
-import java.io.File
-import java.util.ArrayList
-import java.util.Collections
-import java.util.HashMap
+import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
-import org.jetbrains.kannotator.controlFlow.builder.analysis.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
+import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
-import org.jetbrains.kannotator.declarations.*
+import org.jetbrains.kannotator.declarations.AnnotationPosition
+import org.jetbrains.kannotator.declarations.Annotations
+import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
 import org.jetbrains.kannotator.index.FileBasedClassSource
 import org.jetbrains.kannotator.main.*
-import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.simpleErrorHandler
+import java.io.File
+import java.util.*
 
 public class InferenceException(file: File, cause: Throwable?) : Throwable("Exception during inferrence on file ${file.name}", cause)
 
@@ -53,14 +55,15 @@ public data class AnnotatedLibrary(
 
 }
 
-public open data class InferenceParams(
+public data class InferenceParams(
         public val inferNullabilityAnnotations: Boolean,
         public val mutability: Boolean,
         public val outputPath: String,
         public val useOneCommonTree: Boolean,
         public val libraries: Iterable<AnnotatedLibrary>,
         public val outputFormat: AnnotationsFormat,
-        public val verbose: Boolean = true)
+        public val verbose: Boolean = true
+)
 
 
 public fun executeAnnotationTask(parameters: InferenceParams,

@@ -1,18 +1,22 @@
 package org.jetbrains.kannotator.main
 
-import java.util.HashMap
-import org.jetbrains.kannotator.annotationsInference.nullability.*
+import org.jetbrains.kannotator.annotations.io.AnnotationData
+import org.jetbrains.kannotator.annotationsInference.engine.AnalysisResult
+import org.jetbrains.kannotator.annotationsInference.engine.FrameTransformer
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.nullability.NullabiltyLattice
+import org.jetbrains.kannotator.annotationsInference.nullability.classNamesToNullabilityAnnotation
+import org.jetbrains.kannotator.annotationsInference.propagation.AnnotationLattice
+import org.jetbrains.kannotator.annotationsInference.propagation.JB_PROPAGATED
+import org.jetbrains.kannotator.controlFlow.builder.analysis.*
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabiltyLattice
+import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.classNamesToMutabilityAnnotation
 import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.DeclarationIndex
 import org.jetbrains.kannotator.index.FieldDependencyInfo
-import org.jetbrains.kannotator.annotationsInference.propagation.*
 import org.objectweb.asm.tree.MethodNode
-import org.jetbrains.kannotator.controlFlow.builder.analysis.*
-import org.jetbrains.kannotator.controlFlow.builder.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.*
-import org.jetbrains.kannotator.controlFlow.builder.analysis.*
-import org.jetbrains.kannotator.annotationsInference.engine.*
-import org.jetbrains.kannotator.annotations.io.AnnotationData
+import java.util.*
 
 abstract class AbstractInferrer<A : Any, Q: Qualifier>: AnnotationInferrer<A, Q> {
     protected fun checkPropagation(annotationsMap: Map<String, AnnotationData>, kind: String): Boolean {
@@ -35,7 +39,7 @@ class NullabilityInferrer: AbstractInferrer<NullabilityAnnotation, Nullability>(
 
     override fun inferAnnotationsFromFieldValue(field: Field): Annotations<NullabilityAnnotation> {
         val result = AnnotationsImpl<NullabilityAnnotation>()
-        result.setIfNotNull(getFieldTypePosition(field), inferNullabilityFromFieldValue(field: Field))
+        result.setIfNotNull(getFieldTypePosition(field), inferNullabilityFromFieldValue(field))
         return result
     }
 

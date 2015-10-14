@@ -1,15 +1,10 @@
 package org.jetbrains.kannotator.annotations.io
 
-import kotlinlib.*
-import org.jetbrains.kannotator.declarations.*
-import annotations.el.AScene
-import annotations.el.AClass
-import annotations.el.AnnotationDef
 import annotations.SceneAnnotation
+import annotations.el.*
 import annotations.field.BasicAFT
-import annotations.el.AElement
-import annotations.el.ATypeElement
-import annotations.el.AMethod
+import kotlinlib.mapValues
+import org.jetbrains.kannotator.declarations.*
 
 private fun AnnotationData.toSceneAnnotation(): SceneAnnotation {
     val annotationDef = AnnotationDef(this.annotationClassFqn)
@@ -79,12 +74,12 @@ fun AElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?
 }
 
 fun ATypeElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
-    (this:AElement).transformAnnotations(transform)
+    (this as AElement).transformAnnotations(transform)
     innerTypes.values()
             .forEach { it.transformAnnotations(transform) }
 }
 fun AClass.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
-    (this : AElement).transformAnnotations(transform)
+    (this as AElement).transformAnnotations(transform)
     bounds
             .values().forEach { it.transformAnnotations(transform) }
     extendsImplements
@@ -96,7 +91,7 @@ fun AClass.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) 
 }
 
 fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
-    (this : AElement).transformAnnotations(transform)
+    (this as AElement).transformAnnotations(transform)
 
     returnType.transformAnnotations(transform)
     receiver.transformAnnotations(transform)
