@@ -8,14 +8,18 @@ import org.jetbrains.kannotator.annotations.io.InferenceParams
 class PrintStreamProgressIndicator(val parameters: InferenceParams,
                                    val diagnostics: PrintStream) : FileAwareProgressMonitor() {
 
-    val totalAmountOfJars: Int = parameters.libraries.fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size() })
+    val totalAmountOfJars: Int = parameters.libraries.fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size })
     var numberOfJarsFinished: Int = 0
     var numberOfMethods = 0
     var numberOfProcessedMethods = 0
 
     fun logAlways(string: String) = diagnostics.println(string)
-    fun logVerbose(string: String) = if (parameters.verbose) diagnostics.println(string)
-    fun logVerboseNoNewline(string: String) = if (parameters.verbose) diagnostics.print(string)
+    fun logVerbose(string: String) {
+        if (parameters.verbose) diagnostics.println(string)
+    }
+    fun logVerboseNoNewline(string: String) {
+        if (parameters.verbose) diagnostics.print(string)
+    }
 
     override fun processingStarted() {
         logVerbose("  File: ${numberOfJarsFinished + 1} / $totalAmountOfJars.");
@@ -28,7 +32,7 @@ class PrintStreamProgressIndicator(val parameters: InferenceParams,
     }
 
     override fun processingComponentFinished(methods: Collection<Method>) {
-        numberOfProcessedMethods += methods.size()
+        numberOfProcessedMethods += methods.size
 
         if (numberOfMethods != 0) {
             val progressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()

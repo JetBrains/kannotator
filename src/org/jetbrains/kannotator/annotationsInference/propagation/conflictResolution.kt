@@ -13,7 +13,7 @@ import org.jetbrains.kannotator.graphs.Node
 import org.jetbrains.kannotator.classHierarchy.HierarchyNode
 import org.jetbrains.kannotator.declarations.AnnotationPosition
 
-fun resolveAllAnnotationConflicts<A : Any>(
+fun <A : Any> resolveAllAnnotationConflicts(
         leafMethodNodes: Collection<HierarchyNode<Method>>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>,
@@ -26,7 +26,7 @@ fun resolveAllAnnotationConflicts<A : Any>(
     return visited
 }
 
-private fun resolveAnnotationConflicts<A : Any>(
+private fun <A : Any> resolveAnnotationConflicts(
         leafMethod: HierarchyNode<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>,
@@ -50,7 +50,7 @@ private fun resolveAnnotationConflicts<A : Any>(
     }.map { node -> node.method }
 }
 
-private fun resolveConflictsInParents<A : Any>(
+private fun <A : Any> resolveConflictsInParents(
         method: Method,
         immediateOverridden: Collection<Method>,
         lattice: AnnotationLattice<A>,

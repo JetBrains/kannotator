@@ -35,7 +35,7 @@ data class ImmutableGenericType(
 
 val GenericType.arrayElementType: GenericType
     get() {
-        assert(arguments.size() == 1)
+        assert(arguments.size == 1)
         assert(classifier == Array)
         return (arguments[0] as NoWildcard).genericType
     }
@@ -59,8 +59,8 @@ class GenericMethodSignature(
 )
 
 fun TypeParameter.hasNontrivialBounds(): Boolean {
-    assert(upperBounds.size() > 0)
-    if (upperBounds.size() > 1) return true
+    assert(upperBounds.size > 0)
+    if (upperBounds.size > 1) return true
     val bound = upperBounds[0].classifier
     return !(bound is ToplevelClass && bound.internalName == "java/lang/Object")
 }
@@ -94,7 +94,7 @@ fun parseGenericMethodSignature(signature: String): GenericMethodSignature {
 
                 public override fun visitParameterType(): SignatureVisitor {
                     val parameterType = GenericTypeImpl()
-                    val param = ValueParameter(valueParameters.size(), parameterType)
+                    val param = ValueParameter(valueParameters.size, parameterType)
                     valueParameters.add(param)
                     return GenericTypeParser(parameterType)
                 }

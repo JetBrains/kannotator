@@ -34,7 +34,7 @@ class NullabilityInferrer: AbstractInferrer<NullabilityAnnotation, Nullability>(
 
     override fun resolveAnnotation(annotationsMap: Map<String, AnnotationData>): NullabilityAnnotation? {
         if (checkPropagation(annotationsMap, "NULLABILITY")) return null
-        return classNamesToNullabilityAnnotation(annotationsMap.keySet())
+        return classNamesToNullabilityAnnotation(annotationsMap.keys)
     }
 
     override fun inferAnnotationsFromFieldValue(field: Field): Annotations<NullabilityAnnotation> {
@@ -88,7 +88,7 @@ public val MUTABILITY_INFERRER_OBJECT: AnnotationInferrer<MutabilityAnnotation, 
 object MUTABILITY_INFERRER: AbstractInferrer<MutabilityAnnotation, Mutability>() {
     override fun resolveAnnotation(annotationsMap: Map<String, AnnotationData>): MutabilityAnnotation? {
         if (checkPropagation(annotationsMap, "MUTABILITY")) return null
-        return classNamesToMutabilityAnnotation(annotationsMap.keySet())
+        return classNamesToMutabilityAnnotation(annotationsMap.keys)
     }
 
     override fun inferAnnotationsFromFieldValue(field: Field): Annotations<MutabilityAnnotation> =

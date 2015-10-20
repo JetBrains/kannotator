@@ -27,7 +27,7 @@ public class MultiQualifier<K: AnalysisType>(val qualifiers: Map<K, Qualifier>):
         return MultiQualifier(map)
     }
 
-    override fun toString() = qualifiers.values().toString()
+    override fun toString() = qualifiers.values.toString()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

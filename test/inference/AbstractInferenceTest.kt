@@ -97,7 +97,7 @@ abstract class AbstractInferenceTest<A: Annotation>(val testClass: Class<*>) : N
             }
         }
 
-        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.parameterTypes!!.size(), positions)
+        checkInferredAnnotations(parametersMap, expectedReturnInfo, resultAnnotations, reflectMethod.parameterTypes!!.size, positions)
     }
 
     fun checkInferredAnnotations(expectedParametersAnnotations: Map<Int, A>, expectedReturnAnnotation: A?,

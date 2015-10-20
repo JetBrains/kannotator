@@ -19,7 +19,7 @@ public fun <T, R> Iterator<T>.mapWithIndex(f: (index: Int, value: T) -> R): Iter
 }
 
 public fun <T, R> List<T>.mapWithIndex(f: (index: Int, value: T) -> R): List<R> {
-    val result = ArrayList<R>(this.size())
+    val result = ArrayList<R>(this.size)
     for (index in this.indices) {
         result.add(f(index, this[index]))
     }
@@ -27,7 +27,7 @@ public fun <T, R> List<T>.mapWithIndex(f: (index: Int, value: T) -> R): List<R> 
 }
 
 public fun <T, R> Array<T>.mapWithIndex(f: (index: Int, value: T) -> R): List<R> {
-    val result = ArrayList<R>(this.size())
+    val result = ArrayList<R>(this.size)
     for (i in this.indices) {
         result.add(f(i, this[i]))
     }

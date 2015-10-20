@@ -73,7 +73,7 @@ class InferenceWithDependenciesTest {
             pos, annotation ->
             strings.add("$pos -> $annotation")
         }
-        val actual = strings.sorted().join("\n")
+        val actual = strings.sorted().joinToString("\n")
         assertEqualsOrCreate(File("testData/dependencies/expected.txt"), actual)
     }
 

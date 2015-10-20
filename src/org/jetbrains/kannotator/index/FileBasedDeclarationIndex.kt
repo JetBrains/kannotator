@@ -52,7 +52,7 @@ public class DeclarationIndexImpl(val delegate: DeclarationIndex? = null): Decla
             processMethodBody: (Method) -> MethodVisitor? = {null},
             failOnDuplicates: Boolean = true
     ) {
-        classSource forEach {
+        classSource.forEach {
             reader ->
             addClass(reader, processField, processMethodBody, failOnDuplicates)
         }
@@ -160,7 +160,7 @@ public class FileBasedClassSource(val jarOrClassFiles: Collection<File>) : Class
                     processJar(file, {f, o, reader -> body(reader)})
                 }
                 else if (file.name.endsWith(".class")) {
-                    FileInputStream(file) use {body(ClassReader(it))}
+                    FileInputStream(file).use { body(ClassReader(it)) }
                 }
             }
         }

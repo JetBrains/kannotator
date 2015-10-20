@@ -29,7 +29,7 @@ class MethodHierarchyTest {
             }
         }
 
-        val actual = StringBuilder {
+        val actual = StringBuilder().apply {
             for (methodNode in methodHierarchy.hierarchyNodes.sortForTest()) {
                 appendln(methodNode.data)
 

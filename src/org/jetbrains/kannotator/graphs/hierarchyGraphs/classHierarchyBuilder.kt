@@ -13,7 +13,12 @@ import org.jetbrains.kannotator.declarations.*
 import org.jetbrains.kannotator.index.ClassSource
 import org.jetbrains.kannotator.graphs.*
 
-data class ClassData(val name: ClassName, methodsById: Map<MethodId, Method>) {
+class ClassData(val name: ClassName, methodsById: Map<MethodId, Method>) {
+
+    override fun equals(other: Any?) = other is ClassData && name == other.name
+
+    override fun hashCode() = name.hashCode()
+
     val methodsById = methodsById
 }
 
@@ -35,7 +40,7 @@ class ClassHierarchyBuilder(
     }
 
     fun build(): HierarchyGraph<ClassData> {
-        classSource forEach {
+        classSource.forEach {
             reader ->
             val className = ClassName.fromInternalName(reader.className)
             val node = getOrCreateNode(className) as ClassNodeImpl
@@ -74,7 +79,7 @@ class ClassNodeImpl(val name: ClassName): HierarchyNodeImpl<ClassData>() {
 }
 
 val Node<ClassData, *>.methods: Collection<Method>
-    get() = data.methodsById.values()
+    get() = data.methodsById.values
 
 val Node<ClassData, *>.name: ClassName
     get() = data.name

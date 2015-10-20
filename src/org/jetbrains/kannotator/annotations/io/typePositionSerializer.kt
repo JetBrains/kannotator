@@ -69,7 +69,7 @@ private fun correctIfNotStatic(method: Method, parameterIndex: Int): Int {
 
 private fun Method.parameterTypesString(): String {
     val result = if (genericSignature == null) {
-        (id.getArgumentTypes() map {it -> canonicalName(it) }).join(", ", "(", ")")
+        (id.getArgumentTypes().map {it -> canonicalName(it) }).joinToString(", ", "(", ")")
     }
     else {
         renderMethodParameters(genericSignature)

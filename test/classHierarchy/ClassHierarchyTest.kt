@@ -27,7 +27,7 @@ class ClassHierarchyTest {
     fun doTest(prefix: String, filename: String) {
         val classes = getClassesHierarchy(prefix)
 
-        val result = StringBuilder {
+        val result = StringBuilder().apply {
             for (node in classes) {
                 appendln(node)
                 appendln("  SubClasses")

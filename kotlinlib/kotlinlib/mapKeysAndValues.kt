@@ -2,7 +2,7 @@ package kotlinlib
 
 public inline fun <K, V, U> Map<K, V>.mapValues(
         valueTransform: (K, V) -> U): Map<K, U> {
-    return mapValuesTo(java.util.HashMap<K, U>(this.size()), valueTransform)
+    return mapValuesTo(java.util.HashMap<K, U>(this.size), valueTransform)
 }
 
 public inline fun <K, V, U, C : MutableMap<K, U>> Map<K, V>.mapValuesTo(
@@ -17,7 +17,7 @@ public inline fun <K, V, U, C : MutableMap<K, U>> Map<K, V>.mapValuesTo(
 public inline fun <K, V, L, U> Map<K, V>.mapKeysAndValues(
         keyTransform: (K, V) -> L,
         valueTransform: (K, V) -> U): Map<L, U> {
-    return mapKeysAndValuesTo(java.util.HashMap<L, U>(this.size()), keyTransform, valueTransform)
+    return mapKeysAndValuesTo(java.util.HashMap<L, U>(this.size), keyTransform, valueTransform)
 }
 
 public inline fun <K, V, L, U, C : MutableMap<L, U>> Map<K, V>.mapKeysAndValuesTo(

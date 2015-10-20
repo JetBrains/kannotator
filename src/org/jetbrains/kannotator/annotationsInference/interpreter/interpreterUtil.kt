@@ -143,7 +143,7 @@ fun <Q: Qualifier> Qualifier.extract(qualifierSet: QualifierSet<Q>): Q? {
         return this as Q
     }
     if (this is MultiQualifier<*>) {
-        return this.qualifiers[qualifierSet.id] as Q?
+        return this.qualifiers.getRaw(qualifierSet.id) as Q?
     }
     throw IllegalArgumentException("Can't extract qualifier")
 }
@@ -197,7 +197,7 @@ fun <Q: Qualifier, I: Qualifier> updateQualifiers(
 
         if (updateOriginalValues) {
             val valueSet = frameValues.values as MutableSet<QualifiedValue<Q>>
-            for ((origValue, newValue) in map.entrySet()) {
+            for ((origValue, newValue) in map.entries) {
                 valueSet.remove(origValue)
                 valueSet.add(newValue)
             }

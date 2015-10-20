@@ -15,7 +15,7 @@ public class AsmInstructionRenderer {
     private val labelNames: MutableMap<Label, String> = HashMap()
 
     public fun labelName(label: Label): String {
-        return labelNames.getOrPut(label) {"L" + labelNames.size()}
+        return labelNames.getOrPut(label) {"L" + labelNames.size }
     }
 
     public fun render(insn: AbstractInsnNode): String {
@@ -30,6 +30,6 @@ public class AsmInstructionRenderer {
         }
         val textifier = Textifier()
         insn.accept(TraceMethodVisitor(textifier))
-        return textifier.getText()!!.map {x -> x.toString().trim()}.join(" ")
+        return textifier.getText()!!.map { x -> x.toString().trim()}.joinToString(" ")
     }
 }

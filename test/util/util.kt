@@ -116,7 +116,7 @@ fun File.collectAllAnnotationKeysTo(allKeyStrings: MutableSet<String>) {
 }
 /** assuming that file is annotations.xml, load annotations keys */
 private fun File.loadAnnotationKeysTo(allKeyStrings: MutableSet<String>) {
-    FileReader(this) use {
+    FileReader(this).use {
         reader ->
         parseAnnotations(reader,
                 {
@@ -138,7 +138,7 @@ fun getClassesHierarchy(prefix: String): Collection<HierarchyNode<ClassData>> {
     }.sortByToString()
 }
 
-fun traceExecutionTime<A>(title: String? = null, body: () -> A): A {
+fun <A> traceExecutionTime(title: String? = null, body: () -> A): A {
     val time = System.nanoTime()
     val result = body()
     println((title ?: "Time") + ": " + (System.nanoTime() - time) / 1e+9 + "s")

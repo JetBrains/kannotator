@@ -23,7 +23,7 @@ class AnnotationKeyStringMatchingTest {
         val allKeyStringsFromAnnotationFiles = LinkedHashSet<String>()
         annotationsDir.collectAllAnnotationKeysTo(allKeyStringsFromAnnotationFiles)
 
-        println("collected ${allKeyStringsFromAnnotationFiles.size()} annotation keys")
+        println("collected ${allKeyStringsFromAnnotationFiles.size} annotation keys")
 
         // removing annotation keys found in jars
         recurseIntoJars(jarsDir) {
@@ -44,7 +44,7 @@ class AnnotationKeyStringMatchingTest {
         }
 
         assertTrue(
-                "Unmatched annotations keys:\n" + allKeyStringsFromAnnotationFiles.sorted().join("\n"),
+                "Unmatched annotations keys:\n" + allKeyStringsFromAnnotationFiles.sorted().joinToString("\n"),
                 allKeyStringsFromAnnotationFiles.isEmpty()
         )
     }

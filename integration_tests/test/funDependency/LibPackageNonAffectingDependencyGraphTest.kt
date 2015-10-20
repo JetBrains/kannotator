@@ -24,7 +24,7 @@ class LibPackageNonAffectingDependencyGraphTest {
         val packageGraphBuilder = PackageDependencyGraphBuilder(funGraph)
 
         val graph = packageGraphBuilder.build()
-        val packageCount = graph.nodes.size()
+        val packageCount = graph.nodes.size
 
         val interestingNodes = graph.getTransitivelyInterestingNodes {
             val name = it.data.name
@@ -47,10 +47,10 @@ class LibPackageNonAffectingDependencyGraphTest {
             }
         }
 
-        val actual = StringBuilder {
+        val actual = StringBuilder().apply {
             appendln()
             appendln("== Non-Affecting Nodes == ")
-            appendln("Found ${nonInterestingNodes.size()} out of total $packageCount")
+            appendln("Found ${nonInterestingNodes.size} out of total $packageCount")
             for (node in nonInterestingNodes.sortedWith(functionNodeComparator)) {
                 printFunctionNode(this, node)
             }
@@ -62,12 +62,12 @@ class LibPackageNonAffectingDependencyGraphTest {
 
     fun printFunctionNode(sb: StringBuilder, node: GraphNode<Package, *>) {
         sb.appendln(node.data)
-        if (node.outgoingEdges.size() > 0) sb.appendln("    outgoing edges:")
+        if (node.outgoingEdges.size > 0) sb.appendln("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {
             sb.appendln("        $edge")
         }
 
-        if (node.incomingEdges.size() > 0) sb.appendln("    incoming edges:")
+        if (node.incomingEdges.size > 0) sb.appendln("    incoming edges:")
         for (edge in node.incomingEdges.sortByToString()) {
             sb.appendln("        $edge")
         }

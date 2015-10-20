@@ -8,7 +8,7 @@ import javax.swing.tree.TreeNode
 
 class LibraryCheckboxTree(val controller: LibraryItemsTreeController): CheckboxTree(LibraryCheckboxTreeRenderer(), controller.root)
 
-public fun CheckboxTreeBase.getCheckedNodesByNodeType<T: CheckedTreeNode>(nodeType : Class<T>) : Collection<T> {
+public fun <T: CheckedTreeNode> CheckboxTreeBase.getCheckedNodesByNodeType(nodeType : Class<T>) : Collection<T> {
     val nodes = ArrayList<T>()
     val root : Any = checkNotNull(model?.root) { "The root must no be null" }
 

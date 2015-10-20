@@ -351,12 +351,12 @@ class AnnotationsBuildingResult(
 fun findFieldsWithChangedNullabilityInfo(previous: Map<Field, Nullability>?,
                                          new: Map<Field, Nullability>) : Collection<Field> {
     if (previous == null) {
-        return new.keySet()
+        return new.keys
     }
 
     val changedInFields = HashSet<Field>()
 
-    for (key in previous.keySet()) {
+    for (key in previous.keys) {
         if (previous[key] != new[key]) {
             changedInFields.add(key)
         }

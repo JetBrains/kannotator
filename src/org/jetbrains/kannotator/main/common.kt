@@ -87,11 +87,11 @@ public fun <K: AnalysisType> loadMethodAnnotationsFromByteCode(
                 is ParameterPosition -> {
                     val annotationsMap = HashMap<String, AnnotationData>()
                     val index = if (method.isStatic()) declPos.index else declPos.index - 1
-                    if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size()) {
+                    if (methodNode.visibleParameterAnnotations != null && index < methodNode.visibleParameterAnnotations!!.size) {
                         methodNode.visibleParameterAnnotations!![index]?.filterNotNull()?.extractAnnotationDataMapTo(annotationsMap)
                     }
 
-                    if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size()) {
+                    if (methodNode.invisibleParameterAnnotations != null && index < methodNode.invisibleParameterAnnotations!!.size) {
                         methodNode.invisibleParameterAnnotations!![index]?.filterNotNull()?.extractAnnotationDataMapTo(annotationsMap)
                     }
                     annotationsMap
@@ -153,12 +153,12 @@ public fun <K: AnalysisType> loadExternalAnnotations(
     val externalAnnotationsMap = inferrers.mapValues { key, inferrer -> AnnotationsImpl<Any>(delegatingAnnotations[key]) }
 
     for (xml in annotationsInXml) {
-        xml() use {
+        xml().use {
             parseAnnotations(it, {
                 key, annotations ->
                 val position = keyIndex.findPositionByAnnotationKeyString(key)
                 if (position != null) {
-                    val classNames = annotations.toMap { it.annotationClassFqn }
+                    val classNames = annotations.toMapBy { it.annotationClassFqn }
                     for ((inferrerKey, inferrer) in inferrers) {
                         val externalAnnotations = externalAnnotationsMap[inferrerKey]!!
                         val annotation = inferrer.resolveAnnotation(classNames)
@@ -193,14 +193,14 @@ private fun <K: AnalysisType> loadAnnotations(
     val methodAnnotations =
             loadMethodAnnotationsFromByteCode(methodNodes, inferrers)
 
-    for ((k, _) in inferrers) {
+    for ((k, v) in inferrers) {
         bytecodeAnnotations[k]!!.copyAllChanged(fieldAnnotations[k]!!)
         bytecodeAnnotations[k]!!.copyAllChanged(methodAnnotations[k]!!)
     }
 
     return loadExternalAnnotations(
             bytecodeAnnotations,
-            annotationFiles map { {FileReader(it)} },
+            annotationFiles.map { {FileReader(it)} },
             keyIndex,
             inferrers,
             errorHandler
@@ -294,7 +294,7 @@ fun <K: AnalysisType> inferAnnotations(
     }
 
     val resultingAnnotationsMap = filteredLoadedAnnotationsMap.mapValues { key, ann -> AnnotationsImpl<Any>(ann)}
-    for (key in inferrers.keySet()) {
+    for (key in inferrers.keys) {
         val inferrerExistingAnnotations = existingAnnotations[key]
         if (inferrerExistingAnnotations != null) {
             resultingAnnotationsMap[key]!!.copyAllChanged(inferrerExistingAnnotations)
@@ -331,7 +331,9 @@ fun <K: AnalysisType> inferAnnotations(
     val packageGraphBuilder = PackageDependencyGraphBuilder(methodGraph)
     val packageGraph = packageGraphBuilder.build()
 
-    val nonInterestingNodes = packageGraph.nodes subtract packageGraph.getTransitivelyInterestingNodes { packageIsInteresting(it.data.name) }
+    val nonInterestingNodes = packageGraph.nodes.subtract(
+            packageGraph.getTransitivelyInterestingNodes { packageIsInteresting(it.data.name) }
+    )
     packageGraphBuilder.removeGraphNodes {it in nonInterestingNodes}
 
     val classHierarchy = buildClassHierarchyGraph(classSource)
@@ -343,30 +345,30 @@ fun <K: AnalysisType> inferAnnotations(
     val components = methodGraph.getTopologicallySortedStronglyConnectedComponents().reversed()
 
     for ((key, inferrer) in inferrers) {
-        for (fieldInfo in fieldToDependencyInfosMap.values()) {
+        for (fieldInfo in fieldToDependencyInfosMap.values) {
             resultingAnnotationsMap[key]!!.copyAllChanged(inferrer.inferAnnotationsFromFieldValue(fieldInfo.field))
         }
     }
 
-    progressMonitor.methodsProcessingStarted(methodNodes.size())
+    progressMonitor.methodsProcessingStarted(methodNodes.size)
 
     for (component in components) {
         val methods = component.map { Pair(it.data, it.incomingEdges) }.toMap()
-        progressMonitor.processingComponentStarted(methods.keySet())
+        progressMonitor.processingComponentStarted(methods.keys)
 
         fun dependentMembersInsideThisComponent(method: Method): Collection<Method> {
             // Add itself as inferred annotation can produce more annotations
-            return methods.keySet().intersect(methods.getOrThrow(method).map {e -> e.from.data}).plus(method)
+            return methods.keys.intersect(methods.getOrThrow(method).map { e -> e.from.data}).plus(method)
         }
 
-        for (method in methods.keySet()) {
+        for (method in methods.keys) {
             loadMethodParameterNames(method, methodNodes[method]!!)
         }
 
         inferAnnotationsOnMutuallyRecursiveMethods(
                 declarationIndexWithDependencies,
                 resultingAnnotationsMap,
-                methods.keySet(),
+                methods.keys,
                 { classMember -> dependentMembersInsideThisComponent(classMember) },
                 { m -> methodNodes.getOrThrow(m) },
                 { f -> fieldToDependencyInfosMap.getOrThrow(f) },
@@ -374,7 +376,7 @@ fun <K: AnalysisType> inferAnnotations(
                 progressMonitor
         )
 
-        progressMonitor.processingComponentFinished(methods.keySet())
+        progressMonitor.processingComponentFinished(methods.keys)
 
         // We don't need to occupy that memory any more
         for (functionNode in component) {
@@ -466,7 +468,7 @@ fun loadPositionsOfConflictExceptions(
         keyIndex: AnnotationKeyIndex,
         exceptionFile: File): Set<AnnotationPosition> {
     return if (exceptionFile.exists() && exceptionFile.canRead()) {
-        BufferedReader(FileReader(exceptionFile)) use {br ->
+        BufferedReader(FileReader(exceptionFile)).use {br ->
             val positions = HashSet<AnnotationPosition>()
             for (key in br.lineSequence()) {
                 if (key.startsWith('#')) {
@@ -498,7 +500,7 @@ fun <A: Any> processAnnotationInferenceConflicts(
 
     val conflicts = ArrayList<AnnotationsConflict<A>>()
     val positions = HashSet<AnnotationPosition>()
-    existingAnnotations forEach {
+    existingAnnotations.forEach {
         position, ann -> positions.add(position)
     }
     for (position in positions) {

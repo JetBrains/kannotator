@@ -13,7 +13,7 @@ class AnnotationsImpl<A: Any>(override val delegate: Annotations<A>? = null) : M
     }
 
     override fun positions(): Set<AnnotationPosition> {
-        return data.keySet()
+        return data.keys
     }
 
     override fun forEach(body: (AnnotationPosition, A) -> Unit) {

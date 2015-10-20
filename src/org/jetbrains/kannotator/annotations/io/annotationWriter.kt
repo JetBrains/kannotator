@@ -52,7 +52,7 @@ fun writeAnnotationsToXML(writer: Writer, annotations: Map<AnnotationPosition, C
         printer.openTag("item", hashMapOf("name" to typePosition.toAnnotationKey()))
         printer.pushIndent()
         for (annotationData in annotationDatas) {
-            if (annotationData.attributes.size() < 1) {
+            if (annotationData.attributes.size < 1) {
                 printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn), true)
             } else {
                 printer.openTag("annotation", hashMapOf("name" to annotationData.annotationClassFqn))
@@ -114,16 +114,16 @@ class XmlPrinter(val sb: StringBuilder) {
     }
 
     public fun popIndent() {
-        if (indent.length() < INDENTATION_UNIT.length()) {
+        if (indent.length < INDENTATION_UNIT.length) {
             throw IllegalStateException("No indentation to pop");
         }
 
-        indent = indent.substring(INDENTATION_UNIT.length());
+        indent = indent.substring(INDENTATION_UNIT.length);
     }
 }
 
 private fun escape(str: String): String {
-    return StringBuilder {
+    return StringBuilder().apply {
         for (c in str) {
             when {
                 c == '<' -> append("&lt;")
@@ -254,7 +254,7 @@ fun writeAnnotationsToXMLByPackage(
             val srcFile = File(srcDir, "annotations.xml")
 
             if (srcFile.exists()) {
-                FileReader(srcFile) use {
+                FileReader(srcFile).use {
                     parseAnnotations(it, {
                         key, annotations ->
                         val position = keyIndex.findPositionByAnnotationKeyString(key)

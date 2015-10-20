@@ -82,7 +82,7 @@ class FunDependencyGraphTest {
             }
         }
 
-        val actual = StringBuilder {
+        val actual = StringBuilder().apply {
             appendln("== All Nodes == ")
             for (node in graph.nodes.sortedWith(functionNodeComparator)) {
                 printFunctionNode(this, node)
@@ -102,12 +102,12 @@ class FunDependencyGraphTest {
 
     fun printFunctionNode(sb: StringBuilder, node: GraphNode<Method, String>) {
         sb.appendln(node.data)
-        if (node.outgoingEdges.size() > 0) sb.appendln("    outgoing edges:")
+        if (node.outgoingEdges.size > 0) sb.appendln("    outgoing edges:")
         for (edge in node.outgoingEdges.sortByToString()) {
             sb.appendln("        $edge")
         }
 
-        if (node.incomingEdges.size() > 0) sb.appendln("    incoming edges:")
+        if (node.incomingEdges.size > 0) sb.appendln("    incoming edges:")
         for (edge in node.incomingEdges.sortByToString()) {
             sb.appendln("        $edge")
         }

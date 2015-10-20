@@ -30,8 +30,8 @@ private data class KnownAnnotations(
         val mutability: MutabilityAnnotation
 )
 
-val NULLABLE_READONLY = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.READ_ONLY)
-val NULLABLE_MUTABLE = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.MUTABLE)
+private val NULLABLE_READONLY = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.READ_ONLY)
+private val NULLABLE_MUTABLE = KnownAnnotations(NullabilityAnnotation.NULLABLE, MutabilityAnnotation.MUTABLE)
 
 fun renderMethodSignature(
         method: Method,
@@ -40,7 +40,7 @@ fun renderMethodSignature(
 ): String {
     val signature = parseGenericMethodSignature(method.genericSignature ?: method.id.methodDesc)
 
-    val typeParametersByName = signature.typeParameters.toMap { it.name }
+    val typeParametersByName = signature.typeParameters.toMapBy { it.name }
 
     val isConstructor = method.isConstructor()
     fun substituteIfNeeded(genericType: GenericType): GenericType {
@@ -70,7 +70,7 @@ fun renderMethodSignature(
                 fun renderUpperBound(bound: GenericType): String {
                     return renderType(bound, Position.UPPER_BOUND, NULLABLE_READONLY)
                 }
-                if (param.upperBounds.size() == 1) {
+                if (param.upperBounds.size == 1) {
                     sb.append(" : ").append(renderUpperBound(param.upperBounds[0]))
                 }
                 else {
@@ -88,7 +88,7 @@ fun renderMethodSignature(
 
     // Enum constructors have two extra parameters in the desc: (Ljava/lang/String;I)
     // and, of course, these parameters have no names
-    val paramShift = if (method.genericSignature == null) 0 else method.getArgumentTypes().size() - signature.valueParameters.size()
+    val paramShift = if (method.genericSignature == null) 0 else method.getArgumentTypes().size - signature.valueParameters.size
 
     var commaBefore = false
     for (param in signature.valueParameters) {
@@ -118,7 +118,7 @@ fun renderMethodSignature(
     }
 
     if (!whereClause.isEmpty()) {
-        sb.append(" where ").append(whereClause.join(", "))
+        sb.append(" where ").append(whereClause.joinToString(", "))
     }
 
     return sb.toString()
@@ -148,7 +148,7 @@ fun Type.toGenericType(): GenericType {
     return parseGenericMethodSignature(signature).valueParameters[0].genericType
 }
 
-fun Method.getAnnotationsForParameter(
+private fun Method.getAnnotationsForParameter(
         nullability: Annotations<NullabilityAnnotation>,
         mutability: Annotations<MutabilityAnnotation>,
         parameterIndex: Int, default: KnownAnnotations): KnownAnnotations {
@@ -158,7 +158,7 @@ fun Method.getAnnotationsForParameter(
     )
 }
 
-fun Method.getAnnotationsForReturnType(
+private fun Method.getAnnotationsForReturnType(
         nullability: Annotations<NullabilityAnnotation>,
         mutability: Annotations<MutabilityAnnotation>,
         default: KnownAnnotations): KnownAnnotations {
@@ -189,7 +189,7 @@ fun StringBuilder.appendParameter(method: Method, parameterIndex: Int, commaBefo
         append(", ")
     }
 
-    val last = parameterIndex == method.parameterNames.size() - 1
+    val last = parameterIndex == method.parameterNames.size - 1
     val vararg = last && method.access.has(Opcodes.ACC_VARARGS)
     if (vararg) {
         append("vararg ")
@@ -208,7 +208,7 @@ enum class Position {
     OUTER
 }
 
-fun renderType(genericType: GenericType, position: Position, annotations: KnownAnnotations): String {
+private fun renderType(genericType: GenericType, position: Position, annotations: KnownAnnotations): String {
     val classifier = genericType.classifier
     val suffix = if (position == Position.OUTER) "" else annotations.nullability.suffix()
     return when (classifier) {
@@ -222,7 +222,7 @@ fun renderType(genericType: GenericType, position: Position, annotations: KnownA
 
 fun renderArguments(genericType: GenericType, position: Position): String {
     if (genericType.arguments.isEmpty()) return ""
-    return StringBuilder {
+    return StringBuilder().apply {
         append("<")
         for ((i, arg) in genericType.arguments.indexed) {
             if (i > 0) {
@@ -273,7 +273,7 @@ fun renderBaseArrayType(classifier: BaseType): String {
     }
 }
 
-fun renderTypeVariable(variable: TypeVariable, position: Position, annotations: KnownAnnotations): String {
+private fun renderTypeVariable(variable: TypeVariable, position: Position, annotations: KnownAnnotations): String {
     val nullableByDefault = position !in listOf(Position.CLASS_TYPE_ARGUMENT, Position.UPPER_BOUND)
     return variable.name + if (nullableByDefault) annotations.nullability.suffix() else ""
 }
@@ -289,7 +289,7 @@ fun renderArrayType(arrayType: GenericType, position: Position): String {
 
 fun arrayElementPosition(position: Position): String = if (position != Position.VARARG) "out " else ""
 
-fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): String {
+private fun renderNamedClass(namedClass: NamedClass, annotations: KnownAnnotations): String {
     fun prefix(s: String): String = annotations.mutability.prefix() + s
 
     return when (namedClass) {

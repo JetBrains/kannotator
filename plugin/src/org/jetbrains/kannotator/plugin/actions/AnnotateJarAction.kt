@@ -26,7 +26,7 @@ public class AnnotateJarAction : AnAction() {
                             inferNullabilityAnnotations = dlg.shouldInferNullabilityAnnotations(),
                             mutability = dlg.shouldInferKotlinAnnotations(),
                             outputPath = dlg.configuredOutputPath,
-                            libraries = libToAnnotatedLib.keySet(),
+                            libraries = libToAnnotatedLib.keys,
                             useOneCommonTree = dlg.useOneCommonTree(),
                             outputFormat = AnnotationsFormat.XML,
                             verbose = false),

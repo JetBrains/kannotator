@@ -15,7 +15,7 @@ import org.jetbrains.kannotator.PRINT_TO_CONSOLE
 
 /** deprecated stuff to generate jdk annotations */
 fun main(args: Array<String>) {
-    val jarName = if (args.size() == 1) args[0] else "lib/jdk_1_7_0_09_rt.jar"
+    val jarName = if (args.size == 1) args[0] else "lib/jdk_1_7_0_09_rt.jar"
 
     val jar = File(jarName)
 
@@ -29,7 +29,8 @@ fun main(args: Array<String>) {
             declarationIndex
     )
 
-    val includedClassNames = BufferedReader(FileReader(File("testData/inferenceData/integrated/nullability/includedClassNames.txt"))) use { p ->
+    val includedClassNames =
+            File("testData/inferenceData/integrated/nullability/includedClassNames.txt").bufferedReader().use { p ->
         p.lineSequence().toSet()
     }
 

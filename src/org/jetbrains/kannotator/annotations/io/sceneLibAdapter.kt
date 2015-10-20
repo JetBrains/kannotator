@@ -75,19 +75,19 @@ fun AElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?
 
 fun ATypeElement.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
     (this as AElement).transformAnnotations(transform)
-    innerTypes.values()
+    innerTypes.values
             .forEach { it.transformAnnotations(transform) }
 }
 fun AClass.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
     (this as AElement).transformAnnotations(transform)
     bounds
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     extendsImplements
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     methods
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     fields
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
 }
 
 fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {
@@ -97,17 +97,17 @@ fun AMethod.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?)
     receiver.transformAnnotations(transform)
 
     bounds
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     parameters
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     locals
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     typecasts
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     instanceofs
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
     news
-            .values().forEach { it.transformAnnotations(transform) }
+            .values.forEach { it.transformAnnotations(transform) }
 }
 
 public fun AScene.transformAnnotations(transform: (SceneAnnotation)->SceneAnnotation?) {

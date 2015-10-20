@@ -80,7 +80,7 @@ public class FunDependencyGraphBuilder(
         }
 
         // Make all getter nodes depend on setters node
-        for (fieldInfo in fieldsDependencyInfos.values()) {
+        for (fieldInfo in fieldsDependencyInfos.values) {
             val fieldType = fieldInfo.field.getType().sort
             if (fieldType != Type.ARRAY && fieldType != Type.OBJECT) {
                 continue

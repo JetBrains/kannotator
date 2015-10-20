@@ -94,7 +94,7 @@ fun parseAnnotations(xml: Reader, handler: (key: String, data: Collection<Annota
 }
 
 private fun escapeAttributes(str: String): String {
-    return StringBuilder {
+    return StringBuilder().apply {
         var inAttribute = false
         for (c in str) {
             when {
@@ -117,7 +117,7 @@ fun loadAnnotationsFromLogs(
     val annotations = AnnotationsImpl<NullabilityAnnotation>()
 
     for (sourceFile in sourceFiles) {
-        BufferedReader(FileReader(sourceFile)) use { br->
+        BufferedReader(FileReader(sourceFile)).use { br->
             val it = br.lineSequence().iterator()
 
             while (it.hasNext()) {

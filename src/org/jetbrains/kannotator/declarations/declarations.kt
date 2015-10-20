@@ -62,8 +62,8 @@ data class Method(
         if (_parameterNames != null) {
             throw IllegalStateException("Parameter names already initialized: $parameterNames")
         }
-        val arity = getArgumentTypes().size()
-        if (names.size() != arity) {
+        val arity = getArgumentTypes().size
+        if (names.size != arity) {
             throw IllegalArgumentException("Incorrect number of parameter names: $names, must be $arity")
         }
         _parameterNames = ArrayList(names)
@@ -89,7 +89,7 @@ fun Method(className: ClassName, methodNode: MethodNode): Method = Method(
         className, methodNode.access, methodNode.name, methodNode.desc, methodNode.signature)
 
 private fun defaultMethodParameterNames(method: Method): List<String>
-        = (0..method.getArgumentTypes().size() - 1).toList().map { i -> "p$i" }
+        = (0..method.getArgumentTypes().size - 1).toList().map { i -> "p$i" }
 
 fun Method.getReturnType(): Type = id.getReturnType()
 fun Method.getArgumentTypes(): Array<out Type> = id.getArgumentTypes()
@@ -115,7 +115,7 @@ fun Method.isInnerClassConstructor(): Boolean {
     if (!isConstructor()) return false
 
     val parameterTypes = getArgumentTypes()
-    if (parameterTypes.size() == 0) return false
+    if (parameterTypes.size == 0) return false
 
     val firstParameter = parameterTypes[0]
     if (firstParameter.sort != Type.OBJECT) return false
@@ -137,7 +137,7 @@ val ClassMember.visibility: Visibility get() = when {
 fun Method.isVarargs(): Boolean = access.has(Opcodes.ACC_VARARGS)
 
 fun Method.toFullString(): String {
-    return StringBuilder {
+    return StringBuilder().apply {
         append(visibility.toString().toLowerCase() + " ")
         append(if (isStatic()) "static " else "")
         append(if (isFinal()) "final " else "")
@@ -182,7 +182,7 @@ fun String.internalNameToCanonical(): String = replace('/', '.').toCanonical()
 
 fun String.toCanonical(): String {
     //keep last $ in class name: it's generated in scala bytecode
-    val lastCharIndex = this.length() - 1
+    val lastCharIndex = this.length - 1
     return this.substring(0, lastCharIndex).replace('$', '.') + this.substring(lastCharIndex)
 }
 
@@ -217,13 +217,26 @@ fun Field(declaringClass: ClassName,
           signature: String? = null,
           value: Any? = null): Field = Field(declaringClass, Access(access), FieldId(name), desc, signature, value)
 
-data class Field(
+class Field(
         override val declaringClass: ClassName,
         override val access: Access,
         val id: FieldId,
         desc: String,
         val genericSignature: String? = null,
         value: Any? = null) : ClassMember {
+
+    override fun equals(other: Any?) =
+            other is Field && declaringClass == other.declaringClass && access == other.access &&
+            id == other.id && genericSignature == other.genericSignature
+
+    override fun hashCode(): Int {
+        var hashCode = 5
+        hashCode = hashCode * 17 + declaringClass.hashCode()
+        hashCode = hashCode * 17 + access.hashCode()
+        hashCode = hashCode * 17 + id.hashCode()
+        hashCode = hashCode * 17 + (genericSignature?.hashCode() ?: 0)
+        return hashCode
+    }
 
     override val name = id.fieldName
 

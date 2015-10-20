@@ -17,7 +17,7 @@ import java.util.ArrayList
 public val JB_PROPAGATED: String = "org.jetbrains.kannotator.runtime.annotations.Propagated"
 public val JB_PROPAGATION_KIND: String = "org.jetbrains.kannotator.runtime.annotations.PropagationKind"
 
-fun propagateMetadata<A : Any>(
+fun <A : Any> propagateMetadata(
         graph: HierarchyGraph<Method>,
         lattice: AnnotationLattice<A>,
         annotations: Annotations<A>,
@@ -55,7 +55,7 @@ fun propagateMetadata<A : Any>(
     return result
 }
 
-fun updateAnnotations<A : Any>(
+fun <A : Any> updateAnnotations(
         annotationsToFix: MutableAnnotations<A>,
         pos: AnnotationPosition,
         newAnnotation: A,
@@ -66,13 +66,13 @@ fun updateAnnotations<A : Any>(
     }
 }
 
-private fun propagateOverrides<A : Any>(
+private fun <A : Any> propagateOverrides(
         graph: HierarchyGraph<Method>,
         propagationOverrides: Annotations<A>,
         annotationsToFix: MutableAnnotations<A>,
         propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ) {
-    propagationOverrides forEach { pos, ann ->
+    propagationOverrides.forEach { pos, ann ->
         if (pos is MethodTypePosition) {
             val methodNode = graph.findNode(pos.method)
             if (methodNode != null) {
@@ -89,15 +89,15 @@ private fun propagateOverrides<A : Any>(
     }
 }
 
-private fun propagateParameterAnnotations<A : Any>(
+private fun <A : Any> propagateParameterAnnotations(
         methods: Collection<Method>,
         lattice: AnnotationLattice<A>,
         annotationsToFix: MutableAnnotations<A>,
         propagatedPositionsToFill: MutableSet<AnnotationPosition>
 ) {
     val methodsBySignature = methods.groupBy {method -> method.id.getSignatureDescriptor()}
-    for ((_, groupedMethods) in methodsBySignature) {
-        assert (!groupedMethods.isEmpty()) {"groupedMethods is empty for $_"}
+    for ((key, groupedMethods) in methodsBySignature) {
+        assert (!groupedMethods.isEmpty()) {"groupedMethods is empty for $key"}
         val positionsForMethods = groupedMethods.map {method -> PositionsForMethod(method)}
         for (position in positionsForMethods.first().getValidPositions()) {
             val declPos = position.relativePosition

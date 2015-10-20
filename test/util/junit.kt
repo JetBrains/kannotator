@@ -22,10 +22,10 @@ public fun NamedTest.getTestName(name: String?, lowercaseFirstLetter: Boolean) :
 
 private fun String.lowercaseFirstLetter(lowercaseFirstLetter: Boolean) : String {
     if (lowercaseFirstLetter && !isAllUppercaseName()) {
-        return Character.toLowerCase(charAt(0)).toString() + substring(1);
+        return Character.toLowerCase(this[0]).toString() + substring(1);
     }
 
     return this;
 }
 
-private fun String.isAllUppercaseName() : Boolean = toCharArray() all { !Character.isLowerCase(it) }
+private fun String.isAllUppercaseName() : Boolean = toCharArray().all { !Character.isLowerCase(it) }

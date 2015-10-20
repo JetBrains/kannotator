@@ -16,7 +16,7 @@ fun loadMethodParameterNames(method: Method, node: MethodNode) {
     if (localVariables == null || localVariables.isEmpty()) return
 
     val parameterTypes = method.getArgumentTypes()
-    val locals = LinkedHashMap<Int, LocalVariableNode>(localVariables.size())
+    val locals = LinkedHashMap<Int, LocalVariableNode>(localVariables.size)
     for (local in localVariables) {
         locals.put(local.index, local)
     }

@@ -40,7 +40,7 @@ class AnnotationKeyParserTest {
             assertEquals(method.getMethodNameAccountingForConstructor(), parsedMethodName)
             assertEquals(method.declaringClass.canonicalName, parsedClassName)
         } catch (e: IllegalArgumentException) {
-            System.err.println(e.getMessage())
+            System.err.println(e.message)
         }
 
         PositionsForMethod(method).forEachValidPosition { position ->
@@ -58,7 +58,7 @@ class AnnotationKeyParserTest {
             assertEquals(field.id.fieldName, parsedFieldName)
             assertEquals(field.declaringClass.canonicalName, parsedClassName)
         } catch (e: IllegalArgumentException) {
-            System.err.println(e.getMessage())
+            System.err.println(e.message)
         }
     }
 

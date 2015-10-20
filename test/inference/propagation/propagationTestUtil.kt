@@ -42,7 +42,7 @@ fun doPropagationTest(
             EXPECT_N in names -> NULLABLE
             EXPECT_NN in names -> NOT_NULL
             else -> {
-                assert (names.size() == 1) {"Multiple annotations but no Expect* ones: $names"}
+                assert (names.size == 1) {"Multiple annotations but no Expect* ones: $names"}
                 expectedAnnotationClasses[names.first()]
             }
         }
@@ -58,7 +58,7 @@ fun Annotations<NullabilityAnnotation>.toDeclarations(): String {
         pos, ann ->
         positions.add(pos)
     }
-    val s = StringBuilder {
+    val s = StringBuilder().apply {
         for (pos in positions.toSortedList { a, b -> a.toAnnotationKey().compareTo(b.toAnnotationKey()) }) {
             append("${pos.toAnnotationKey()}\n  ${this@toDeclarations[pos]}\n\n")
         }

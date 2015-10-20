@@ -7,10 +7,10 @@ public fun String.toUnixSeparators(): String = convertLineSeparators("\n")
 public fun String.toWindowsSeparators(): String = convertLineSeparators("\r\n")
 
 public fun String.convertLineSeparators(newSeparator: String): String {
-    return StringBuilder {
+    return StringBuilder().apply {
         var i = 0
-        while (i < this.length()) {
-            val c = charAt(i)
+        while (i < this.length) {
+            val c = this[i]
             when {
                 c == '\n' -> append(newSeparator)
                 c == '\r' && getOrElse(i + 1, null as Char?) == '\n' -> {

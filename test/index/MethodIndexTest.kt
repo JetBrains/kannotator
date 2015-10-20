@@ -32,7 +32,7 @@ class MethodIndexTest {
             }
         }
 
-        println("${methods.size()} methods found")
+        println("${methods.size} methods found")
 
         val index = traceExecutionTime("Building index: ") {
             val source = FileBasedClassSource(listOf(jar))

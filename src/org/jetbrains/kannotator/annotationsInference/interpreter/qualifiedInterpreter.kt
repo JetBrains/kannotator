@@ -159,7 +159,7 @@ public class QualifiedValuesInterpreter<Q: Qualifier>(
         val thisSlots = if (method.isStatic()) 0 else 1
 
         val skip = thisSlots + returnValueSlots
-        val interesting = valueSetsCreated in skip..method.getArgumentTypes().size() + skip - 1
+        val interesting = valueSetsCreated in skip..method.getArgumentTypes().size + skip - 1
 
         val parameterIndex = if (interesting) valueSetsCreated - returnValueSlots else null
 

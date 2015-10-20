@@ -24,7 +24,7 @@ class MethodHierarchyBuilder(
 ): GraphBuilder<Method, Method, Any?, HierarchyGraphImpl<Method>>(true, true) {
     override fun newGraph(): HierarchyGraphImpl<Method> = HierarchyGraphImpl(createNodeMap)
 
-    override fun newNode(method: Method): MethodNodeImpl = MethodNodeImpl(method)
+    override fun newNode(method: Method): HierarchyNodeImpl<Method> = MethodNodeImpl(method)
 
     override fun newEdge(label: Any?, from: NodeImpl<Method, Any?>, to: NodeImpl<Method, Any?>): HierarchyEdgeImpl<Method> =
             HierarchyEdgeImpl(from as MethodNodeImpl, to as MethodNodeImpl)

@@ -64,13 +64,13 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
 
     val interestingPackages =
             if (interestingPackagesFile.exists())
-                BufferedReader(FileReader(interestingPackagesFile)) use { p ->p.lineSequence().toSet() }
+                BufferedReader(FileReader(interestingPackagesFile)).use { p ->p.lineSequence().toSet() }
             else
                 setOf<String>()
 
     val includedClassNames =
             if (includedClassNamesFile.exists())
-                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineSequence().toSet()}
+                BufferedReader(FileReader(includedClassNamesFile)).use { p -> p.lineSequence().toSet()}
             else
                 setOf<String>()
 
@@ -156,7 +156,7 @@ fun annotateSDK(jarFile: File, inDir: File, outputDir: File, jaifName: String) {
         There are 2 options to resolve this situation:
           1) modify existing (input) annotations
           2) modify exceptions.txt
-        Found ${nullabilityConflicts.size()} conflicts:
+        Found ${nullabilityConflicts.size} conflicts:
         ${nullabilityConflicts.joinToString("\n")}
         """
     }
@@ -187,7 +187,7 @@ class SDKProgressIndicator() : FileAwareProgressMonitor() {
     }
 
     override fun processingComponentFinished(methods: Collection<Method>) {
-        numberOfProcessedMethods += methods.size()
+        numberOfProcessedMethods += methods.size
 
         if (numberOfMethods != 0) {
             val currentProgressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()

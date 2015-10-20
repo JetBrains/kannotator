@@ -13,7 +13,7 @@ class Graph {
     private val nodes = HashMap<String, Node>()
     private val outgoingEdges = HashMap<Node, MutableSet<Node>>()
 
-    public fun getAllNodes(): List<Node> = nodes.values().toList()
+    public fun getAllNodes(): List<Node> = nodes.values.toList()
     public fun getAdjacentNodes(n: Node): Set<Node> = outgoingEdges[n]!!
     public fun getNode(label: String): Node = nodes[label]!!
     public fun getNodes(vararg labels: String): List<Node> = labels.map { getNode(it) }

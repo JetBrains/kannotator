@@ -30,8 +30,8 @@ class BuildGraphForLibrariesTest() {
         val graph = buildFunctionDependencyGraph(ClassPathDeclarationIndex, classSource)
         val finder = SCCFinder(graph, { graph.nodes }, { it.outgoingEdges.map { edge -> edge.to } })
         val allComponents = finder.getAllComponents()
-        println("Graph size: " + graph.nodes.size() + " " + graph.sinkNodes.size())
-        println("Number of component (size > 1): ${allComponents.filter { it.size() > 1 }.size()}")
+        println("Graph size: " + graph.nodes.size + " " + graph.sinkNodes.size)
+        println("Number of component (size > 1): ${allComponents.filter { it.size > 1 }.size}")
     }
 
 }

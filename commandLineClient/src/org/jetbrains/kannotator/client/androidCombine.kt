@@ -42,7 +42,7 @@ fun main(args: Array<String>) {
     val includedClassNamesFile = File("android-custom/includedClassNames.txt")
     val declarationIndex = DeclarationIndexImpl(apiJar)
     val includedClassNames =
-                BufferedReader(FileReader(includedClassNamesFile)) use { p -> p.lineSequence().toSet()}
+                BufferedReader(FileReader(includedClassNamesFile)).use { p -> p.lineSequence().toSet()}
 
     outputDir.deleteRecursively()
     outputDir.mkdir()
@@ -59,7 +59,7 @@ fun main(args: Array<String>) {
 
     excludeAnnotations.forEach { pos, ann -> diffs.add(pos) }
 
-    println("Excluding ${diffs.size()} annotations")
+    println("Excluding ${diffs.size} annotations")
 
     val combinedAnnotations = AnnotationsImpl<NullabilityAnnotation>()
 

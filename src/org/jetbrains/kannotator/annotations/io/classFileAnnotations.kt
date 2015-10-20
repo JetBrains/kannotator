@@ -20,7 +20,7 @@ public fun <A: Any> getAnnotationsFromClassFiles(
 ): Annotations<A> {
     val annotations = AnnotationsImpl<A>()
 
-    classSource forEach {
+    classSource.forEach {
         reader ->
 
         reader.accept(object : ClassVisitor(Opcodes.ASM4) {

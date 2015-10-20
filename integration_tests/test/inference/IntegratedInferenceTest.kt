@@ -79,7 +79,7 @@ class IntegratedInferenceTest {
                 inferredAnnotations as MutableAnnotations<A>, existingAnnotations, inferrer, conflictExceptions
         )
         if (!conflicts.isEmpty()) {
-            PrintStream(FileOutputStream(conflictFile)) use {
+            PrintStream(FileOutputStream(conflictFile)).use {
                 p ->
                 for ((key, expectedAnn, inferredAnn) in conflicts) {
                     p.println("Conflict at ${key.toAnnotationKey()}")
@@ -111,7 +111,7 @@ class IntegratedInferenceTest {
         }
 
         val jars = findJarsInLibFolder().filter { f -> f.name.contains(testedJarSubstring) }
-        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size(), 1);
+        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
 
         val annotationFiles = ArrayList<File>()
         if (existingAnnotationsDir != null) {
@@ -165,13 +165,13 @@ class IntegratedInferenceTest {
             )
 
             val map = TreeMap<String, Any>()
-            group.inferredAnnotations forEach {
+            group.inferredAnnotations.forEach {
                 pos, ann -> map.put(pos.toAnnotationKey(), ann)
             }
 
             val propagatedKeys = group.propagatedPositions.map { it.toAnnotationKey() }
 
-            PrintStream(FileOutputStream(outFile)) use {
+            PrintStream(FileOutputStream(outFile)).use {
                 p ->
                 for ((key, ann) in map) {
                     if (key in propagatedKeys) {
@@ -198,7 +198,7 @@ class IntegratedInferenceTest {
     // TODO: what is the reason for this code? - it is never used
     private fun doInferenceAsNotNullTest(testedJarSubstring: String) {
         val jars = findJarsInLibFolder().filter { f -> f.name.contains(testedJarSubstring) }
-        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size(), 1);
+        Assert.assertEquals("Test failed to find exactly one jar file with request '$testedJarSubstring'", jars.size, 1);
 
         val annotationFiles = ArrayList<File>()
         File("lib").recurseFiltered({ f -> f.isFile && f.name.endsWith(".xml") }, { f -> annotationFiles.add(f) })
@@ -240,11 +240,11 @@ class IntegratedInferenceTest {
             outFile.parentFile!!.mkdirs()
 
             val map = TreeMap<String, Any>()
-            annotations forEach {
+            annotations.forEach {
                 pos, ann -> map.put(pos.toAnnotationKey(), ann!!)
             }
 
-            PrintStream(FileOutputStream(outFile)) use {
+            PrintStream(FileOutputStream(outFile)).use {
                 p ->
                 for ((key, ann) in map) {
                     p.println(key)

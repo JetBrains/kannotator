@@ -114,7 +114,7 @@ class KotlinSignatureRendererTest {
         val actualErrors = errors.filterNotNull()
 
         if (!actualErrors.isEmpty()) {
-            System.err.println("${actualErrors.size()} Errors:")
+            System.err.println("${actualErrors.size} Errors:")
             System.err.println()
         }
 

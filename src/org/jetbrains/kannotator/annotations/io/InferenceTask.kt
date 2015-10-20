@@ -36,7 +36,7 @@ public data class AnnotatedLibrary(
     public val fileName: String
         get() {
             val startIdx = path.lastIndexOf(File.separator)+1
-            return if (startIdx >= path.length() || startIdx <0)
+            return if (startIdx >= path.length || startIdx <0)
                 path
             else
                 path.substring(startIdx)

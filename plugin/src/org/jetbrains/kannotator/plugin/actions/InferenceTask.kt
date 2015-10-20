@@ -63,7 +63,7 @@ public class IdeaInferenceTask(val taskProject: Project,
     Backgroundable(taskProject, "Infer Annotations", true, PerformInBackgroundOption.DEAF) {
 
     inner class InferenceProgressIndicator(val indicator: ProgressIndicator) : FileAwareProgressMonitor() {
-        val totalAmountOfJars: Int = parameters.annotatedToIdeaLibs.keySet().fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size() })
+        val totalAmountOfJars: Int = parameters.annotatedToIdeaLibs.keys.fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size })
         var numberOfJarsFinished: Int = 0
         var numberOfMethods = 0
         var numberOfProcessedMethods = 0
@@ -84,7 +84,7 @@ public class IdeaInferenceTask(val taskProject: Project,
         }
 
         override fun processingComponentFinished(methods: Collection<Method>) {
-            numberOfProcessedMethods += methods.size()
+            numberOfProcessedMethods += methods.size
 
             if (numberOfMethods != 0) {
                 val progressPercent = (numberOfProcessedMethods.toDouble() / numberOfMethods * 100).toInt()
@@ -113,7 +113,7 @@ public class IdeaInferenceTask(val taskProject: Project,
             val project = project!!
 
             if (!project.isDisposed && project.isOpen) {
-                val numberOfFiles = parameters.annotatedToIdeaLibs.keySet().fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size() })
+                val numberOfFiles = parameters.annotatedToIdeaLibs.keys.fold(0, { sum, annotatedLib -> sum + annotatedLib.files.size })
                 val message = when(numberOfFiles) {
                     0 -> "No files were annotated"
                     1 -> "One file was annotated"
