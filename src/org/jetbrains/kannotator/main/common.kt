@@ -186,7 +186,7 @@ private fun <K: AnalysisType> loadAnnotations(
 ): Map<K, MutableAnnotations<Any>> {
 
     val bytecodeAnnotations =
-            inferrers.mapValues { _ -> AnnotationsImpl<Any>() }
+            inferrers.mapValues { entry -> AnnotationsImpl<Any>() }
 
     val fieldAnnotations =
             loadFieldAnnotationsFromByteCode(fieldNodes, inferrers)
@@ -246,7 +246,7 @@ fun <K: AnalysisType> inferAnnotations(
         existingAnnotations: Map<K, Annotations<Any>>,
         packageIsInteresting: (String) -> Boolean,
         existingPositionsToExclude: Map<K, Set<AnnotationPosition>>,
-        loadAnnotationsForDependency: (Map<K, MutableAnnotations<Any>>, ClassMember, DeclarationIndexImpl) -> Boolean = {_, __, ___ -> false}
+        loadAnnotationsForDependency: (Map<K, MutableAnnotations<Any>>, ClassMember, DeclarationIndexImpl) -> Boolean = {arg1, arg2, arg3 -> false}
 ): InferenceResult<K> {
     progressMonitor.processingStarted()
 
