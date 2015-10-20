@@ -77,7 +77,7 @@ class AnnotationKeyParserTest {
     fun javaByteCode() {
         recurseIntoJars(File("lib")) {
             file, owner, reader ->
-            if (file.name != "kotlin-runtime.jar") {
+            if (file.name != "kotlin-runtime.jar" && file.name != "kotlin-reflect.jar") {
                 reader.accept(TestVisitor(reader), 0)
             }
         }
