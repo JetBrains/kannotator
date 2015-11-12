@@ -10,15 +10,11 @@ import kotlinlib.*
 import org.jetbrains.kannotator.annotations.io.toAnnotationKey
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.declarations.Method
-import java.io.FileInputStream
 import java.util.TreeMap
-import org.jetbrains.kannotator.controlFlow.builder.analysis.Annotation
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.util.ArrayList
 import util.assertEqualsOrCreate
 import org.jetbrains.kannotator.declarations.AnnotationsImpl
-import org.jetbrains.kannotator.declarations.AnnotationPosition
-import kotlin.test.assertTrue
 import org.jetbrains.kannotator.declarations.Annotations
 import org.jetbrains.kannotator.main.*
 import util.findJarsInLibFolder
@@ -27,34 +23,15 @@ import org.junit.Assert
 import util.*
 import java.util.HashSet
 import org.jetbrains.kannotator.annotations.io.writeAnnotationsToXML
-import java.io.FileWriter
 import org.jetbrains.kannotator.declarations.PositionsForMethod
-import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
 import org.jetbrains.kannotator.kotlinSignatures.renderMethodSignature
 import org.jetbrains.kannotator.kotlinSignatures.kotlinSignatureToAnnotationData
 import java.io.StringWriter
 import org.jetbrains.kannotator.index.AnnotationKeyIndex
 import org.jetbrains.kannotator.declarations.MutableAnnotations
-import org.jetbrains.kannotator.index.DeclarationIndex
-import kotlinSignatures.KotlinSignatureTestData.MutabilityNoAnnotations
-import java.io.BufferedReader
-import java.io.FileReader
-import org.jetbrains.kannotator.annotations.io.AnnotationData
 import org.jetbrains.kannotator.declarations.isPublicOrProtected
 import org.jetbrains.kannotator.declarations.isPublic
-import org.jetbrains.kannotator.annotations.io.parseAnnotations
-import java.util.HashMap
-import org.jetbrains.kannotator.declarations.forEachValidPosition
-import org.jetbrains.kannotator.annotationsInference.nullability.*
-import kotlin.dom.addClass
-import java.util.LinkedHashMap
 import org.jetbrains.kannotator.classHierarchy.*
-import org.jetbrains.kannotator.declarations.ClassMember
-import org.jetbrains.kannotator.declarations.getInternalPackageName
-import org.jetbrains.kannotator.funDependecy.buildFunctionDependencyGraph
-import org.jetbrains.kannotator.funDependecy.getTopologicallySortedStronglyConnectedComponents
-import org.jetbrains.kannotator.annotations.io.getPackageName
-import org.jetbrains.kannotator.annotations.io.buildAnnotationsDataMap
 import org.jetbrains.kannotator.annotations.io.loadAnnotationsFromLogs
 import org.jetbrains.kannotator.controlFlow.builder.analysis.mutability.MutabilityAnnotation
 import org.jetbrains.kannotator.declarations.isStatic
@@ -62,7 +39,6 @@ import org.jetbrains.kannotator.declarations.isProtected
 import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
-import java.util.LinkedHashSet
 
 /** Regression inference. Annotations are dumped in simple text format. */
 class IntegratedInferenceTest {

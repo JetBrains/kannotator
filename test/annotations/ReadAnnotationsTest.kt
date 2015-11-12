@@ -4,7 +4,6 @@ import java.io.File
 import org.jetbrains.kannotator.annotations.io.parseAnnotations
 import org.junit.Test
 import org.junit.Assert.fail
-import org.junit.Assert.assertEquals
 import util.assertEqualsOrCreate
 import org.jetbrains.kannotator.simpleErrorHandler
 
@@ -39,7 +38,7 @@ class ReadAnnotationsTest {
     }
 
     @Test fun readAnnotationsTest() {
-        File("testData/annotations/read").recurse {
+        File("testData/annotations/read").walkTopDown().forEach {
             file ->
             if (file.isFile && file.name.endsWith(".xml")) {
                 println("Processing: $file")

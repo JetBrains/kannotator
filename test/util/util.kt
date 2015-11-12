@@ -28,7 +28,7 @@ import org.jetbrains.kannotator.util.processJar
 /** different utilities for testing */
 
 fun recurseIntoJars(libDir: File, block: (jarFile: File, classType: Type, classReader: ClassReader) -> Unit) {
-    libDir.recurse {
+    libDir.walkTopDown().forEach {
         file ->
         if (file.isFile && file.name.endsWith(".jar")) {
             println("Processing: $file")
@@ -66,7 +66,7 @@ fun findJarFiles(dirs: Collection<File>): Collection<File> {
 
 fun findJarsInLibFolder(): List<File> {
     val jars = ArrayList<File>()
-    File("lib").recurse {
+    File("lib").walkTopDown().forEach {
         file ->
         if (file.isFile && file.name.endsWith(".jar")) {
             jars.add(file)

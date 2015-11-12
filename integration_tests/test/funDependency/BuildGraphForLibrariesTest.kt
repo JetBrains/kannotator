@@ -11,7 +11,7 @@ import util.ClassPathDeclarationIndex
  */
 class BuildGraphForLibrariesTest() {
     @Test fun allLibsTest() {
-        File("lib").recurse {
+        File("lib").walkTopDown().forEach {
             file ->
             if (file.isFile && file.name.endsWith(".jar")) {
                 doTest(file)

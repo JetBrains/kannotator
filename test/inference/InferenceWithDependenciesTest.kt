@@ -7,26 +7,17 @@ import org.jetbrains.kannotator.declarations.AnnotationsImpl
 import org.jetbrains.kannotator.annotationsInference.nullability.NullabilityAnnotation
 import java.io.File
 import java.util.ArrayList
-import org.jetbrains.kannotator.controlFlow.builder.analysis.MUTABILITY_KEY
 import org.jetbrains.kannotator.controlFlow.builder.analysis.NULLABILITY_KEY
 import java.util.Collections
-import org.jetbrains.kannotator.runtime.annotations.AnalysisType
 import org.jetbrains.kannotator.main.AnnotationInferrer
 import org.jetbrains.kannotator.controlFlow.builder.analysis.Qualifier
 import org.jetbrains.kannotator.main.NullabilityInferrer
 import org.jetbrains.kannotator.main.ProgressMonitor
 import org.jetbrains.kannotator.NO_ERROR_HANDLING
 import org.jetbrains.kannotator.main.loadExternalAnnotations
-import org.jetbrains.kannotator.index.AnnotationKeyIndex
-import org.jetbrains.kannotator.declarations.AnnotationPosition
 import java.io.FileReader
 import org.jetbrains.kannotator.index.DeclarationIndexImpl
-import java.io.StringWriter
 import org.objectweb.asm.ClassReader
-import java.util.LinkedHashMap
-import java.util.HashMap
-import org.jetbrains.kannotator.annotations.io.AnnotationDataImpl
-import org.jetbrains.kannotator.annotations.io.AnnotationData
 import util.assertEqualsOrCreate
 
 class InferenceWithDependenciesTest {
@@ -79,7 +70,7 @@ class InferenceWithDependenciesTest {
 
     fun loadAnnotationDataFromRoot(root: File): Collection<() -> FileReader> {
         val result = ArrayList<() -> FileReader>()
-        root.recurse {
+        root.walkTopDown().forEach {
             file ->
             if (file.extension == "xml") {
                 result.add { FileReader(file) }
