@@ -14,7 +14,6 @@ import com.intellij.openapi.vfs.LocalFileSystem;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.ui.DocumentAdapter;
 import com.intellij.ui.components.JBScrollPane;
-import jet.runtime.typeinfo.KotlinSignature;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -24,7 +23,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import java.awt.*;
 import java.io.File;
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
 
 public class InferAnnotationDialog extends DialogWrapper {
     JPanel contentPanel;
@@ -161,7 +161,6 @@ public class InferAnnotationDialog extends DialogWrapper {
         return true;
     }
 
-    @KotlinSignature("fun getCheckedLibToJarFiles() : Map<Library, Set<VirtualFile>>")
     public Map<Library, Set<VirtualFile>> getCheckedLibToJarFiles() {
         //noinspection unchecked
         return (Map) libraryTree.getController().getCheckedLibToJarFiles();

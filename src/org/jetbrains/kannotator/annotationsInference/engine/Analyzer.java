@@ -30,7 +30,6 @@
  */
 package org.jetbrains.kannotator.annotationsInference.engine;
 
-import jet.runtime.typeinfo.KotlinSignature;
 import org.objectweb.asm.Opcodes;
 import org.objectweb.asm.Type;
 import org.objectweb.asm.tree.*;
@@ -122,7 +121,6 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @throws AnalyzerException if a problem occurs during the analysis.
      */
 
-    @KotlinSignature("fun analyze(owner : String, methodNode : MethodNode) : AnalysisResult<V>")
     @SuppressWarnings("unchecked")
     public AnalysisResult<V> analyze(final String owner, final MethodNode methodNode)
             throws AnalyzerException
@@ -480,7 +478,6 @@ public class Analyzer<V extends Value> implements Opcodes {
      *         cannot be reached, or if an error occured during the analysis of
      *         the method.
      */
-    @KotlinSignature("fun getFrames() : Array<out Frame<V>?>")
     public Frame<V>[] getFrames() {
         return frames;
     }
@@ -525,7 +522,6 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @param src a frame.
      * @return the created frame.
      */
-    @KotlinSignature("fun newFrame(src : Frame<out V>) : Frame<V>")
     protected Frame<V> newFrame(final Frame<? extends V> src) {
         return new Frame<V>(src);
     }
@@ -539,7 +535,6 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @param insn an instruction index.
      * @param successor index of a successor instruction.
      */
-    @KotlinSignature("fun newControlFlowEdge(insn : Int, successor : Int, frame : Frame<V>) : Unit")
     protected void newControlFlowEdge(final int insn, final int successor, Frame<V> frame) {
     }
 
@@ -554,7 +549,6 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @param successor index of a successor instruction.
      * @param frame copy of the current frame
      */
-    @KotlinSignature("fun newControlFlowExceptionEdge(insn : Int, successor : Int, frame : Frame<V>) : Unit")
     protected void newControlFlowExceptionEdge(final int insn, final int successor, Frame<V> frame) {
     }
 
@@ -583,7 +577,6 @@ public class Analyzer<V extends Value> implements Opcodes {
      * @param tcb TryCatchBlockNode corresponding to this edge.
      * @param frame copy of the current frame
      */
-    @KotlinSignature("fun newControlFlowExceptionEdge(insn : Int, tcb : TryCatchBlockNode?, frame : Frame<V>) : Unit")
     protected void newControlFlowExceptionEdge(final int insn, final TryCatchBlockNode tcb, Frame<V> frame)
     {
         newControlFlowExceptionEdge(insn, insns.indexOf(tcb.handler), frame);
@@ -603,7 +596,6 @@ public class Analyzer<V extends Value> implements Opcodes {
         return isInterestingControlFlowExceptionEdge(insn, insns.indexOf(tcb.handler));
     }
 
-    @KotlinSignature("fun getInterpreter() : Interpreter<V>")
     public Interpreter<V> getInterpreter() {
         return interpreter;
     }
