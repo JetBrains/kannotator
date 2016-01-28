@@ -19,7 +19,9 @@ Since libraries under analysis are not under user's control, the annotations can
 
 ### Kotlin and KAnnotator
 
-The primary motivation for creating KAnnotator is [Kotlin](http://kotlin.jetbrains.org) — a JVM-targeted programming language that has null-safety built into its type system. To treat Java libraries gracefully, Kotlin needs the extra contract information that KAnnotator supplies.
+KAnnotator was originally created to support [Kotlin](http://kotlinlang.org) — a JVM-targeted programming language that has null-safety built into its type system. Our experience has shown that external annotations are not a good fit for the Kotlin workflow, so we've removed support for external annotations from Kotlin and added support for [platform types](https://kotlinlang.org/docs/reference/java-interop.html#null-safety-and-platform-types) instead.
+
+**If you're using Kotlin, you do not need KAnnotator**
 
 ### Java 8 and KAnnotator
 
@@ -46,5 +48,3 @@ $ java -jar kannotator-cli.jar
   -c --one-directory-tree=<boolean> - do not create specific subdirectories for each library [default false]
   -o --output-path=<string>         - output path [default annotations/]
 ````
-* Maven: coming soon
-* Ant: coming soon
