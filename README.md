@@ -1,3 +1,4 @@
+
 KAnnotator
 ==========
 
@@ -14,6 +15,212 @@ If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze the
 
 The contracts are represented as annotations on Java method, hence the name of the project.
 Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+KAnnotator
+
+
+
+#CREATE PULL REQUEST
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+KAnnotator
+
+
+
+#CREATE PULL REQUEST
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format#R
+
+
+
+
+#TEST CLAS
+
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+
+#TEST CLA
+
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+KAnnotator
+==========
+
+Infer @Nullable/@NotNull and other annotations from byte code
+
+### What is KAnnotator
+
+If you have a Java library binaries (e.g. jar-files), KAnnotator can analyze them and tell you some information about contracts of the methods in this library. For example:
+* Does this method admit `null` as a value for this parameter?
+* Does this method ever return `null`?
+* Does this method mutate this collection passed to it?
+
+### Output format
+
+The contracts are represented as annotations on Java method, hence the name of the project.
+Since libraries under analysis are not under user's control, the annotations can not be added to their code directly, so KAnnotator stores them in one of the two formats:
+
+#TEST CLA
 * XML-based External annotation definitions supported by IntelliJ IDEA
 * ````.jaif````-files, supported by [Checkers Framework](http://types.cs.washington.edu/annotation-file-utilities/)
 
