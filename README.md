@@ -1,6 +1,8 @@
 KAnnotator
 ==========
 
+[![obsolete project](http://jb.gg/badges/obsolete.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
+
 Infer @Nullable/@NotNull and other annotations from byte code
 
 ### What is KAnnotator
